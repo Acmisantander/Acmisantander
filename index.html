@@ -153,7 +153,73 @@
     nav a:hover{
       color:var(--verde-acmi);
     }
+.hero{
+  position:relative;
+  background:
+    linear-gradient(rgba(20,63,125,0.72), rgba(15,53,105,0.68)),
+    url("chicamocha.jpg") center/cover no-repeat;
+  min-height:260px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  overflow:hidden;
+}
 
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 18%),
+    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.06), transparent 20%);
+  pointer-events:none;
+}
+
+.hero-content{
+  position:relative;
+  z-index:1;
+  width:min(900px, 92%);
+  padding:40px 0;
+}
+
+.hero-mini-text{
+  font-size:18px;
+  line-height:1.5;
+  margin:0 auto 20px;
+  max-width:900px;
+}
+
+.hero-info{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.hero-info div{
+  background:rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.24);
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:700;
+}
+
+@media (max-width:640px){
+  .hero{
+    min-height:220px;
+  }
+
+  .hero-content{
+    padding:30px 0;
+  }
+
+  .hero-mini-text{
+    font-size:16px;
+  }
+}
  
     .btn{
       display:inline-block;
@@ -465,29 +531,21 @@
     </div>
   </header>
 
-  <section class="hero" id="inicio">
-    <div class="hero-content">
-      <div class="hero-badge">VI Simposio Regional ACMI</div>
+ <section class="hero" id="inicio">
+  <div class="hero-content">
+    <p class="hero-mini-text">
+      Educación médica continua, liderazgo científico y encuentro académico en el corazón de Santander.
+    </p>
 
-      <h2>ACMI Santander<br>San Gil 2026</h2>
-
-      <p>
-        Educación médica continua, liderazgo científico y encuentro académico
-        en el corazón de Santander.
-      </p>
-
-      <div class="hero-info">
-        <div>26 y 27 de junio de 2026</div>
-        <div>Hotel Mundo Guarigua</div>
-        <div>San Gil – Santander</div>
-      </div>
-
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#eventos">Ver eventos</a>
-        <a class="btn btn-light" href="PROGRAMA ACADÉMICO.pdf" target="_blank">Abrir programa PDF</a>
-      </div>
+    <div class="hero-info">
+      <div>26 y 27 de junio de 2026</div>
+      <div>Hotel Mundo Guarigua</div>
+      <div>VI Simposio Regional ACMI</div>
     </div>
-  </section>
+
+    <a href="#eventos" class="btn btn-primary">Ver eventos</a>
+  </div>
+</section>
 
   <section class="section" id="quienes">
     <div class="container">
