@@ -159,7 +159,7 @@
       background:
         linear-gradient(rgba(20,63,125,0.72), rgba(15,53,105,0.68)),
         url("chicamocha.jpg") center/cover no-repeat;
-      min-height:78vh;
+      min-height:58vh;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -199,33 +199,16 @@
 
     .hero h2{
       font-family:'Montserrat', sans-serif;
-      font-size:64px;
-      line-height:1.05;
+      font-size:58px;
+      line-height:1.08;
       margin-bottom:18px;
       font-weight:800;
     }
 
     .hero p{
-      font-size:25px;
-      max-width:900px;
+      font-size:23px;
+      max-width:920px;
       margin:0 auto 28px;
-    }
-
-    .hero-info{
-      display:flex;
-      justify-content:center;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:26px;
-    }
-
-    .hero-info div{
-      background:rgba(255,255,255,0.14);
-      border:1px solid rgba(255,255,255,0.24);
-      padding:12px 18px;
-      border-radius:999px;
-      font-weight:700;
-      backdrop-filter:blur(3px);
     }
 
     .hero-actions{
@@ -376,6 +359,49 @@
       margin-bottom:6px;
     }
 
+    .eventos-destacado{
+      max-width:1050px;
+      margin:0 auto 30px;
+      text-align:center;
+    }
+
+    .eventos-destacado h3{
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-acmi);
+      font-size:38px;
+      margin-bottom:10px;
+    }
+
+    .eventos-destacado p{
+      font-size:20px;
+      color:#4d627d;
+      margin-bottom:24px;
+    }
+
+    .eventos-badges{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:24px;
+    }
+
+    .badge{
+      background:#e7eef8;
+      color:var(--azul-acmi);
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:700;
+    }
+
+    .eventos-actions{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:30px;
+    }
+
     .posters{
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
@@ -463,11 +489,11 @@
       }
 
       .hero h2{
-        font-size:46px;
+        font-size:42px;
       }
 
       .hero p{
-        font-size:21px;
+        font-size:20px;
       }
     }
 
@@ -482,11 +508,11 @@
       }
 
       .hero{
-        min-height:72vh;
+        min-height:46vh;
       }
 
       .hero h2{
-        font-size:36px;
+        font-size:34px;
       }
 
       .hero p{
@@ -547,24 +573,19 @@
 
   <section class="hero" id="inicio">
     <div class="hero-content">
-      <div class="hero-badge">VI Simposio Regional ACMI</div>
+      <div class="hero-badge">ACMI Santander</div>
 
-      <h2>ACMI Santander<br>San Gil 2026</h2>
+      <h2>Bienvenidos a ACMI Santander</h2>
 
       <p>
-        Educación médica continua, liderazgo científico y encuentro académico
-        en el corazón de Santander.
+        Capítulo regional de la Asociación Colombiana de Medicina Interna,
+        comprometido con la educación médica continuada, la integración académica
+        y el fortalecimiento científico de la medicina interna en Santander.
       </p>
 
-      <div class="hero-info">
-        <div>26 y 27 de junio de 2026</div>
-        <div>Hotel Mundo Guarigua</div>
-        <div>San Gil – Santander</div>
-      </div>
-
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#eventos">Ver eventos</a>
-        <a class="btn btn-light" href="PROGRAMA ACADÉMICO.pdf" target="_blank">Abrir programa PDF</a>
+        <a class="btn btn-primary" href="#quienes">Conocer más</a>
+        <a class="btn btn-light" href="#eventos">Ver eventos</a>
       </div>
     </div>
   </section>
@@ -663,6 +684,24 @@
       <p class="section-subtitle">
         Todo lo referente al VI Simposio Regional ACMI San Gil – Santander 2026.
       </p>
+
+      <div class="eventos-destacado">
+        <h3>VI Simposio Regional ACMI<br>San Gil – Santander 2026</h3>
+        <p>
+          Educación médica continua, liderazgo científico y encuentro académico
+          en el corazón de Santander.
+        </p>
+
+        <div class="eventos-badges">
+          <div class="badge">26 y 27 de junio de 2026</div>
+          <div class="badge">Hotel Mundo Guarigua</div>
+          <div class="badge">Homenaje al Dr. Franklin Quiroz</div>
+        </div>
+
+        <div class="eventos-actions">
+          <a class="btn btn-primary" href="PROGRAMA ACADÉMICO.pdf" target="_blank">Abrir programa académico PDF</a>
+        </div>
+      </div>
 
       <div class="evento-resumen">
         <div class="evento-item">
