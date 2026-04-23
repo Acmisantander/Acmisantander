@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACMI Santander | VI Simposio Regional ACMI</title>
+  <style>
+    :root {
+      --azul-oscuro: #0b2c5f;
+      --azul-principal: #174a8b;
+      --azul-claro: #eaf2fb;
+      --verde-acmi: #1f7a4d;
+      --verde-claro: #e8f5ee;
+      --blanco: #ffffff;
+      --gris-fondo: #f4f8fb;
+      --gris-texto: #374151;
+      --sombra: 0 10px 28px rgba(11, 44, 95, 0.10);
+      --radio: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(23, 74, 139, 0.07), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(31, 122, 77, 0.08), transparent 30%),
+        var(--gris-fondo);
+      color: #1f2937;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-principal));
+      color: var(--blanco);
+      padding: 18px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
+      border-bottom: 3px solid var(--verde-acmi);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+    }
+
+    .logo span {
+      font-size: 13px;
+      opacity: 0.95;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      color: var(--blanco);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.25s ease;
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav ul li a:hover {
+      border-bottom-color: #7fd3a3;
+      color: #dff7ea;
+    }
+
+    .hero {
+      min-height: 92vh;
+      background:
+        linear-gradient(rgba(11, 44, 95, 0.78), rgba(23, 74, 139, 0.68)),
+        url("4(3).png") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--blanco);
+      padding: 50px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.10), transparent 22%),
+        radial-gradient(circle at 80% 20%, rgba(31,122,77,0.18), transparent 24%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "🏛️ ⛰️ 🌿";
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 30px;
+      letter-spacing: 22px;
+      opacity: 0.85;
+    }
+
+    .hero-content {
+      max-width: 950px;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 9px 16px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.4px;
+    }
+
+    .hero h2 {
+      font-size: 52px;
+      margin-bottom: 18px;
+      line-height: 1.16;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.28);
+    }
+
+    .hero p {
+      font-size: 21px;
+      margin-bottom: 28px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+
+    .hero-data {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .hero-chip {
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--blanco);
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--verde-acmi);
+      color: var(--blanco);
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      box-shadow: 0 8px 18px rgba(31, 122, 77, 0.20);
+      margin: 6px;
+    }
+
+    .btn:hover {
+      background-color: #17653f;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--blanco);
+      color: var(--azul-oscuro);
+      box-shadow: 0 8px 18px rgba(255,255,255,0.16);
+    }
+
+    .btn-secondary:hover {
+      background: #eaf2fb;
+    }
+
+    section {
+      padding: 75px 40px;
+      position: relative;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 38px;
+      color: var(--azul-oscuro);
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 110px;
+      height: 4px;
+      margin: 14px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--azul-principal), var(--verde-acmi));
+    }
+
+    .section-lead {
+      max-width: 930px;
+      margin: 0 auto 42px;
+      text-align: center;
+      font-size: 18px;
+      color: var(--gris-texto);
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: auto;
+    }
+
+    .about {
+      max-width: 980px;
+      margin: auto;
+      text-align: center;
+      font-size: 18px;
+      color: var(--gris-texto);
+      background: var(--blanco);
+      padding: 34px;
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      border-top: 5px solid var(--verde-acmi);
+    }
+
+    .highlight-band {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .highlight-item {
+      background: linear-gradient(135deg, var(--azul-claro), var(--verde-claro));
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--sombra);
+      border: 1px solid rgba(23, 74, 139, 0.07);
+      text-align: center;
+    }
+
+    .highlight-item h4 {
+      color: var(--azul-oscuro);
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    .highlight-item p {
+      color: var(--gris-texto);
+      font-size: 15px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: var(--blanco);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: var(--sombra);
+      transition: 0.25s ease;
+      border-top: 5px solid var(--azul-principal);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:nth-child(2) {
+      border-top-color: var(--verde-acmi);
+    }
+
+    .card:nth-child(3) {
+      border-top-color: #2f8db4;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h3 {
+      color: var(--azul-principal);
+      margin-bottom: 14px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #4b5563;
+      font-size: 16px;
+    }
+
+    .program-box {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--blanco);
+      border-radius: 18px;
+      box-shadow: var(--sombra);
+      padding: 34px;
+      border-left: 8px solid var(--verde-acmi);
+      text-align: center;
+    }
+
+    .program-box p {
+      font-size: 18px;
+      color: var(--gris-texto);
+      margin-bottom: 20px;
+    }
+
+    .program-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 26px 0 30px;
+      text-align: left;
+    }
+
+    .program-list div {
+      background: linear-gradient(135deg, #f8fbff, #eef8f2);
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(23, 74, 139, 0.08);
+    }
+
+    .program-list strong {
+      color: var(--azul-oscuro);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .poster-card {
+      background: var(--blanco);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      transition: 0.25s ease;
+      border: 1px solid rgba(23, 74, 139, 0.08);
+    }
+
+    .poster-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .poster-card img {
+      width: 100%;
+      display: block;
+      background: #eaf2fb;
+    }
+
+    .poster-info {
+      padding: 18px;
+    }
+
+    .poster-info h3 {
+      color: var(--azul-principal);
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .poster-info p {
+      color: #4b5563;
+      font-size: 15px;
+    }
+
+    .region-box {
+      background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-principal));
+      color: var(--blanco);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: var(--sombra);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .region-box::before {
+      content: "Educación continua • Actualización clínica • ACMI Santander";
+      position: absolute;
+      top: 16px;
+      right: -80px;
+      transform: rotate(10deg);
+      font-size: 14px;
+      opacity: 0.12;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .region-box h3 {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .region-box p {
+      font-size: 17px;
+      opacity: 0.95;
+    }
+
+    .region-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .region-icons span {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .contact-box {
+      max-width: 780px;
+      margin: auto;
+      background: var(--blanco);
+      padding: 34px;
+      border-radius: 18px;
+      box-shadow: var(--sombra);
+      text-align: center;
+      border-top: 5px solid var(--verde-acmi);
+    }
+
+    .contact-box p {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    footer {
+      background: linear-gradient(135deg, var(--azul-oscuro), #133d79);
+      color: var(--blanco);
+      text-align: center;
+      padding: 26px 20px;
+      margin-top: 20px;
+      border-top: 3px solid var(--verde-acmi);
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      section {
+        padding: 55px 20px;
+      }
+
+      header {
+        padding: 18px 20px;
+      }
+
+      .hero::after {
+        font-size: 24px;
+        letter-spacing: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <h1>ACMI Santander</h1>
+        <span>Asociación Colombiana de Medicina Interna • Capítulo Santander</span>
+      </div>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#quienes-somos">Quiénes somos</a></li>
+        <li><a href="#organigrama">Organigrama</a></li>
+        <li><a href="#eventos">Eventos</a></li>
+        <li><a href="#educacion">Educación médica continuada</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <div class="hero-tag">VI Simposio Regional ACMI</div>
+      <h2>ACMI Santander<br>San Gil 2026</h2>
+      <p>
+        Educación médica continua, liderazgo científico y encuentro académico
+        en el corazón de Santander.
+      </p>
+
+      <div class="hero-data">
+        <div class="hero-chip">26 y 27 de junio de 2026</div>
+        <div class="hero-chip">Hotel Mundo Guarigua</div>
+        <div class="hero-chip">Homenaje al Dr. Franklin Quiroz</div>
+      </div>
+
+      <a href="#eventos" class="btn">Ver eventos</a>
+      <a href="#organigrama" class="btn btn-secondary">Ver organigrama</a>
+    </div>
+  </section>
+
+  <section id="quienes-somos">
+    <div class="container">
+      <h2 class="section-title">Quiénes somos</h2>
+      <p class="section-lead">
+        ACMI Santander promueve la actualización científica, la integración entre
+        especialistas y residentes, y la construcción de espacios académicos de alto nivel
+        para fortalecer la práctica clínica en la región.
+      </p>
+
+      <div class="about">
+        <p>
+          El VI Simposio Regional ACMI reunirá actividades de formación, talleres,
+          conversatorios y espacios de discusión clínica en medicina interna y neumología.
+        </p>
+      </div>
+
+      <div class="highlight-band">
+        <div class="highlight-item">
+          <h4>Evento central</h4>
+          <p>VI Simposio Regional ACMI en San Gil.</p>
+        </div>
+        <div class="highlight-item">
+          <h4>Escenario</h4>
+          <p>Hotel Mundo Guarigua, Santander.</p>
+        </div>
+        <div class="highlight-item">
+          <h4>Enfoque</h4>
+          <p>Medicina interna, neumología y actualización clínica.</p>
+        </div>
+        <div class="highlight-item">
+          <h4>Homenaje</h4>
+          <p>Reconocimiento al Dr. Franklin Quiroz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="organigrama">
+    <div class="container">
+      <h2 class="section-title">Organigrama</h2>
+      <p class="section-lead">
+        Estructura organizativa y académica del evento.
+      </p>
+
+      <div class="program-box">
+        <p>
+          Aquí puedes presentar el comité organizador, presidente, junta directiva,
+          residentes de medicina interna, universidades aliadas y patrocinadores.
+        </p>
+
+        <div class="program-list">
+          <div>
+            <strong>Presidencia</strong>
+            Organización general y liderazgo institucional del evento.
+          </div>
+          <div>
+            <strong>Junta directiva</strong>
+            Coordinación académica, logística y alianzas estratégicas.
+          </div>
+          <div>
+            <strong>Residentes</strong>
+            Apoyo científico, difusión y participación académica.
+          </div>
+          <div>
+            <strong>Instituciones aliadas</strong>
+            Universidades, hospitales y patrocinadores vinculados.
+          </div>
+        </div>
+
+        <a href="PROGRAMA ACADÉMICO.pdf" target="_blank" class="btn">Abrir documento base</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="eventos">
+    <div class="container">
+      <h2 class="section-title">Eventos</h2>
+      <p class="section-lead">
+        Material promocional oficial del VI Simposio Regional ACMI Santander.
+      </p>
+
+      <div class="poster-grid">
+        <div class="poster-card">
+          <img src="1(10).png" alt="Afiche oficial del VI Simposio Regional ACMI">
+          <div class="poster-info">
+            <h3>Afiche oficial</h3>
+            <p>Versión institucional del evento con información principal de sede, fecha e inscripción.</p>
+          </div>
+        </div>
+
+        <div class="poster-card">
+          <img src="2(5).png" alt="Afiche promocional ACMI Santander">
+          <div class="poster-info">
+            <h3>Promoción regional</h3>
+            <p>Diseño gráfico promocional con identidad local y llamado a participación académica.</p>
+          </div>
+        </div>
+
+        <div class="poster-card">
+          <img src="3(6).png" alt="Afiche cultural del evento ACMI Santander">
+          <div class="poster-info">
+            <h3>Identidad santandereana</h3>
+            <p>Versión visual con elementos culturales y paisajísticos representativos de Santander.</p>
+          </div>
+        </div>
+
+        <div class="poster-card">
+          <img src="4(3).png" alt="Afiche homenaje al Dr Franklin Quiroz">
+          <div class="poster-info">
+            <h3>Homenaje</h3>
+            <p>Pieza conmemorativa dedicada al Dr. Franklin Quiroz.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="educacion">
+    <div class="container">
+      <h2 class="section-title">Educación médica continuada</h2>
+      <div class="region-box">
+        <h3>Compromiso permanente con la actualización clínica</h3>
+        <p>
+          ACMI Santander impulsa espacios de formación médica continuada mediante simposios,
+          talleres, conversatorios y encuentros académicos orientados al fortalecimiento del juicio clínico,
+          la integración básica-clínica y la toma de decisiones basadas en evidencia.
+        </p>
+
+        <div class="region-icons">
+          <span>🩺 Actualización clínica</span>
+          <span>📚 Formación continua</span>
+          <span>👨‍⚕️ Especialistas y residentes</span>
+          <span>🏥 Integración académica</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <h2 class="section-title">Contacto</h2>
+      <div class="contact-box">
+        <p><strong>Instagram:</strong> @ACMI_SANTANDER</p>
+        <p><strong>Ubicación:</strong> Santander, Colombia</p>
+        <p><strong>Evento:</strong> VI Simposio Regional ACMI – San Gil</p>
+        <p><strong>Inscripciones:</strong> disponibles mediante el material promocional y el código QR de los afiches</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 ACMI Santander - Capítulo Santander</p>
+    <p>Educación continua que transforma la práctica clínica</p>
+  </footer>
+
+</body>
+</html>
