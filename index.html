@@ -4,26 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ACMI Santander | VI Simposio Regional ACMI</title>
-  .logo-acmi{
-display:flex;
-align-items:center;
-gap:12px;
-}
 
-.logo-acmi img{
-height:60px;
-width:auto;
-}
-
-.logo-texto h1{
-margin:0;
-font-size:22px;
-}
-
-.logo-texto span{
-font-size:13px;
-opacity:0.9;
-}
   <style>
     :root {
       --azul-oscuro: #0b2c5f;
@@ -59,50 +40,60 @@ opacity:0.9;
       overflow-x: hidden;
     }
 
-header {
-background: linear-gradient(135deg,#0b2c5f,#174a8b);
-color: white;
-padding: 10px 30px;
-position: sticky;
-top: 0;
-z-index: 1000;
-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
-border-bottom: 3px solid var(--verde-acmi);
-}
+    header {
+      background: linear-gradient(135deg, #0b2c5f, #174a8b);
+      color: white;
+      padding: 10px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
+      border-bottom: 3px solid var(--verde-acmi);
+    }
 
-    nav {
+    .header-content {
+      max-width: 1300px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 20px;
       flex-wrap: wrap;
-      gap: 15px;
     }
 
     .logo {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 14px;
     }
 
-    .logo h1 {
-      font-size: 28px;
+    .logo img {
+      height: 70px;
+      width: auto;
+      display: block;
+    }
+
+    .logo-texto h1 {
+      font-size: 24px;
       font-weight: 800;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.5px;
+      margin: 0;
+      line-height: 1.1;
     }
 
-    .logo span {
+    .logo-texto span {
       font-size: 13px;
       opacity: 0.95;
+      display: block;
+      margin-top: 4px;
     }
-    .logo img {
-height: 70px;
-width: auto;
-margin-right: 12px;
-}
+
     nav ul {
       list-style: none;
       display: flex;
       gap: 22px;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     nav ul li a {
@@ -120,10 +111,10 @@ margin-right: 12px;
     }
 
     .hero {
-      min-height: 92vh;
+      min-height: 88vh;
       background:
         linear-gradient(rgba(11, 44, 95, 0.78), rgba(23, 74, 139, 0.68)),
-        url("4(3).png") center/cover no-repeat;
+        url("4.png") center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -144,22 +135,10 @@ margin-right: 12px;
       pointer-events: none;
     }
 
-    .hero::after {
-      content: "🏛️ ⛰️ 🌿";
-      position: absolute;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 30px;
-      letter-spacing: 22px;
-      opacity: 0.85;
-    }
-
     .hero-content {
       max-width: 950px;
       position: relative;
       z-index: 2;
-      backdrop-filter: blur(2px);
     }
 
     .hero-tag {
@@ -234,7 +213,7 @@ margin-right: 12px;
     }
 
     section {
-      padding: 75px 40px;
+      padding: 120px 40px 75px;
       position: relative;
     }
 
@@ -307,47 +286,6 @@ margin-right: 12px;
     .highlight-item p {
       color: var(--gris-texto);
       font-size: 15px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 20px;
-    }
-
-    .card {
-      background: var(--blanco);
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: var(--sombra);
-      transition: 0.25s ease;
-      border-top: 5px solid var(--azul-principal);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card:nth-child(2) {
-      border-top-color: var(--verde-acmi);
-    }
-
-    .card:nth-child(3) {
-      border-top-color: #2f8db4;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-    }
-
-    .card h3 {
-      color: var(--azul-principal);
-      margin-bottom: 14px;
-      font-size: 22px;
-    }
-
-    .card p {
-      color: #4b5563;
-      font-size: 16px;
     }
 
     .program-box {
@@ -438,18 +376,6 @@ margin-right: 12px;
       overflow: hidden;
     }
 
-    .region-box::before {
-      content: "Educación continua • Actualización clínica • ACMI Santander";
-      position: absolute;
-      top: 16px;
-      right: -80px;
-      transform: rotate(10deg);
-      font-size: 14px;
-      opacity: 0.12;
-      letter-spacing: 1px;
-      white-space: nowrap;
-    }
-
     .region-box h3 {
       font-size: 28px;
       margin-bottom: 14px;
@@ -504,26 +430,56 @@ margin-right: 12px;
       margin: 5px 0;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        justify-content: flex-start;
+      }
+
+      .logo img {
+        height: 60px;
+      }
+
       .hero h2 {
-        font-size: 34px;
+        font-size: 38px;
       }
 
       .hero p {
         font-size: 18px;
       }
+    }
 
+    @media (max-width: 768px) {
       section {
-        padding: 55px 20px;
+        padding: 105px 20px 55px;
       }
 
       header {
-        padding: 18px 20px;
+        padding: 10px 18px;
       }
 
-      .hero::after {
-        font-size: 24px;
-        letter-spacing: 14px;
+      .logo {
+        gap: 10px;
+      }
+
+      .logo img {
+        height: 52px;
+      }
+
+      .logo-texto h1 {
+        font-size: 20px;
+      }
+
+      .logo-texto span {
+        font-size: 12px;
+      }
+
+      nav ul {
+        gap: 14px;
       }
     }
   </style>
@@ -531,25 +487,28 @@ margin-right: 12px;
 <body>
 
   <header>
-    <nav>
-    <div class="logo">
-<img src="LOGO ACMI.png" alt="ACMI">
-<div>
-<h1>ACMI Santander</h1>
-<span>Asociación Colombiana de Medicina Interna • Capítulo Santander</span>
-</div>
-</div>
-        <span>Asociación Colombiana de Medicina Interna • Capítulo Santander</span>
+    <div class="header-content">
+
+      <div class="logo">
+        <img src="LOGO ACMI.png" alt="ACMI Santander">
+        <div class="logo-texto">
+          <h1>ACMI Santander</h1>
+          <span>Asociación Colombiana de Medicina Interna • Capítulo Santander</span>
+        </div>
       </div>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#quienes-somos">Quiénes somos</a></li>
-        <li><a href="#organigrama">Organigrama</a></li>
-        <li><a href="#eventos">Eventos</a></li>
-        <li><a href="#educacion">Educación médica continuada</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#quienes-somos">Quiénes somos</a></li>
+          <li><a href="#organigrama">Organigrama</a></li>
+          <li><a href="#eventos">Eventos</a></li>
+          <li><a href="#educacion">Educación médica continuada</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+    </div>
   </header>
 
   <section class="hero" id="inicio">
@@ -655,7 +614,7 @@ margin-right: 12px;
 
       <div class="poster-grid">
         <div class="poster-card">
-          <img src="1(10).png" alt="Afiche oficial del VI Simposio Regional ACMI">
+          <img src="1.png" alt="Afiche oficial del VI Simposio Regional ACMI">
           <div class="poster-info">
             <h3>Afiche oficial</h3>
             <p>Versión institucional del evento con información principal de sede, fecha e inscripción.</p>
@@ -663,7 +622,7 @@ margin-right: 12px;
         </div>
 
         <div class="poster-card">
-          <img src="2(5).png" alt="Afiche promocional ACMI Santander">
+          <img src="2.png" alt="Afiche promocional ACMI Santander">
           <div class="poster-info">
             <h3>Promoción regional</h3>
             <p>Diseño gráfico promocional con identidad local y llamado a participación académica.</p>
@@ -671,7 +630,7 @@ margin-right: 12px;
         </div>
 
         <div class="poster-card">
-          <img src="3(6).png" alt="Afiche cultural del evento ACMI Santander">
+          <img src="3.png" alt="Afiche cultural del evento ACMI Santander">
           <div class="poster-info">
             <h3>Identidad santandereana</h3>
             <p>Versión visual con elementos culturales y paisajísticos representativos de Santander.</p>
@@ -679,7 +638,7 @@ margin-right: 12px;
         </div>
 
         <div class="poster-card">
-          <img src="4(3).png" alt="Afiche homenaje al Dr Franklin Quiroz">
+          <img src="4.png" alt="Afiche homenaje al Dr Franklin Quiroz">
           <div class="poster-info">
             <h3>Homenaje</h3>
             <p>Pieza conmemorativa dedicada al Dr. Franklin Quiroz.</p>
@@ -729,4 +688,3 @@ margin-right: 12px;
 
 </body>
 </html>
-<!-- update -->
