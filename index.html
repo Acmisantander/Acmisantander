@@ -14,7 +14,6 @@
       --azul-acmi-2:#0f3569;
       --verde-acmi:#2a9c52;
       --gris-fondo:#f5f7fb;
-      --gris-suave:#eef3f8;
       --texto:#243244;
       --blanco:#ffffff;
       --sombra:0 10px 24px rgba(0,0,0,0.08);
@@ -49,7 +48,7 @@
     }
 
     section{
-      scroll-margin-top:150px;
+      scroll-margin-top:140px;
     }
 
     .container{
@@ -61,7 +60,7 @@
       background:var(--azul-acmi-2);
       color:#dfe8f5;
       font-size:14px;
-      padding:10px 0;
+      padding:8px 0;
     }
 
     .topbar-content{
@@ -90,7 +89,7 @@
       top:0;
       z-index:1000;
       box-shadow:0 3px 12px rgba(0,0,0,0.08);
-      border-bottom:1px solid #e6edf5;
+      border-bottom:2px solid var(--verde-acmi);
     }
 
     .main-header{
@@ -115,7 +114,7 @@
       border-radius:50%;
       background:#fff;
       border:1px solid #d7e2ef;
-      padding:5px;
+      padding:4px;
       object-fit:contain;
       box-shadow:0 4px 10px rgba(0,0,0,0.08);
     }
@@ -153,105 +152,9 @@
     nav a:hover{
       color:var(--verde-acmi);
     }
-.hero{
-  position:relative;
-  background:
-    linear-gradient(rgba(20,63,125,0.72), rgba(15,53,105,0.68)),
-    url("chicamocha.jpg") center/cover no-repeat;
-  min-height:260px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:white;
-  overflow:hidden;
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 18%),
-    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.06), transparent 20%);
-  pointer-events:none;
-}
-
-.hero-content{
-  position:relative;
-  z-index:1;
-  width:min(900px, 92%);
-  padding:40px 0;
-}
-
-.hero-mini-text{
-  font-size:18px;
-  line-height:1.5;
-  margin:0 auto 20px;
-  max-width:900px;
-}
-
-.hero-info{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  flex-wrap:wrap;
-  margin-bottom:20px;
-}
-
-.hero-info div{
-  background:rgba(255,255,255,0.15);
-  border:1px solid rgba(255,255,255,0.24);
-  padding:10px 16px;
-  border-radius:999px;
-  font-weight:700;
-}
-
-@media (max-width:640px){
-  .hero{
-    min-height:220px;
-  }
-
-  .hero-content{
-    padding:30px 0;
-  }
-
-  .hero-mini-text{
-    font-size:16px;
-  }
-}
- 
-    .btn{
-      display:inline-block;
-      padding:13px 22px;
-      border-radius:10px;
-      font-family:'Montserrat', sans-serif;
-      font-weight:700;
-      transition:0.2s ease;
-    }
-
-    .btn-primary{
-      background:var(--verde-acmi);
-      color:white;
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-2px);
-      background:#248546;
-    }
-
-    .btn-light{
-      background:white;
-      color:var(--azul-acmi);
-    }
-
-    .btn-light:hover{
-      transform:translateY(-2px);
-      background:#eef4fb;
-    }
 
     .section{
-      padding:80px 0;
+      padding:72px 0;
     }
 
     .section-title{
@@ -362,6 +265,79 @@
       margin-bottom:6px;
     }
 
+    .eventos-destacado{
+      max-width:1050px;
+      margin:0 auto 30px;
+      text-align:center;
+    }
+
+    .eventos-destacado h3{
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-acmi);
+      font-size:38px;
+      margin-bottom:10px;
+    }
+
+    .eventos-destacado p{
+      font-size:20px;
+      color:#4d627d;
+      margin-bottom:24px;
+    }
+
+    .eventos-badges{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:24px;
+    }
+
+    .badge{
+      background:#e7eef8;
+      color:var(--azul-acmi);
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:700;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:13px 22px;
+      border-radius:10px;
+      font-family:'Montserrat', sans-serif;
+      font-weight:700;
+      transition:0.2s ease;
+    }
+
+    .btn-primary{
+      background:var(--verde-acmi);
+      color:white;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      background:#248546;
+    }
+
+    .btn-light{
+      background:white;
+      color:var(--azul-acmi);
+      border:1px solid #d7e2ef;
+    }
+
+    .btn-light:hover{
+      transform:translateY(-2px);
+      background:#eef4fb;
+    }
+
+    .eventos-actions{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:30px;
+    }
+
     .posters{
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
@@ -410,11 +386,6 @@
       margin-bottom:8px;
     }
 
-    .cta-pdf{
-      text-align:center;
-      margin-top:26px;
-    }
-
     .edu-box,
     .contact-box{
       max-width:950px;
@@ -448,12 +419,12 @@
         justify-content:center;
       }
 
-      .hero h2{
-        font-size:46px;
+      .section-title{
+        font-size:34px;
       }
 
-      .hero p{
-        font-size:21px;
+      .eventos-destacado h3{
+        font-size:30px;
       }
     }
 
@@ -467,24 +438,12 @@
         font-size:24px;
       }
 
-      .hero{
-        min-height:72vh;
-      }
-
-      .hero h2{
-        font-size:36px;
-      }
-
-      .hero p{
-        font-size:18px;
-      }
-
       .section{
-        padding:64px 0;
+        padding:58px 0;
       }
 
       .section-title{
-        font-size:32px;
+        font-size:30px;
       }
 
       section{
@@ -531,21 +490,18 @@
     </div>
   </header>
 
- <section class="hero" id="inicio">
-  <div class="hero-content">
-    <p class="hero-mini-text">
-      Educación médica continua, liderazgo científico y encuentro académico en el corazón de Santander.
-    </p>
-
-    <div class="hero-info">
-      <div>26 y 27 de junio de 2026</div>
-      <div>Hotel Mundo Guarigua</div>
-      <div>VI Simposio Regional ACMI</div>
+  <section class="section" id="inicio">
+    <div class="container">
+      <div class="card" style="text-align:center;">
+        <h2 class="section-title" style="margin-bottom:10px;">Bienvenidos a ACMI Santander</h2>
+        <p class="section-subtitle" style="margin-bottom:0;">
+          Capítulo regional de la Asociación Colombiana de Medicina Interna,
+          comprometido con la educación médica continuada, la integración académica
+          y el fortalecimiento científico de la medicina interna en Santander.
+        </p>
+      </div>
     </div>
-
-    <a href="#eventos" class="btn btn-primary">Ver eventos</a>
-  </div>
-</section>
+  </section>
 
   <section class="section" id="quienes">
     <div class="container">
@@ -642,6 +598,24 @@
         Todo lo referente al VI Simposio Regional ACMI San Gil – Santander 2026.
       </p>
 
+      <div class="eventos-destacado">
+        <h3>ACMI Santander<br>San Gil 2026</h3>
+        <p>
+          Educación médica continua, liderazgo científico y encuentro académico
+          en el corazón de Santander.
+        </p>
+
+        <div class="eventos-badges">
+          <div class="badge">26 y 27 de junio de 2026</div>
+          <div class="badge">Hotel Mundo Guarigua</div>
+          <div class="badge">VI Simposio Regional ACMI</div>
+        </div>
+
+        <div class="eventos-actions">
+          <a class="btn btn-primary" href="PROGRAMA ACADÉMICO.pdf" target="_blank">Abrir programa académico PDF</a>
+        </div>
+      </div>
+
       <div class="evento-resumen">
         <div class="evento-item">
           <h4>Fecha</h4>
@@ -699,62 +673,24 @@
       </div>
 
       <div class="card program-box">
-        <div class="programa-lista">
-          <h3>Viernes 26 de junio</h3>
-          <p><strong>09:00 – 09:30</strong> Inscripciones</p>
-          <p><strong>09:30 – 10:00</strong> Inauguración – Palabras de apertura, Dr. Alexander Jerez</p>
+        <h3>Programa académico</h3>
+        <p><strong>Viernes 26 de junio</strong></p>
+        <ul>
+          <li>09:00 – 09:30 Inscripciones</li>
+          <li>09:30 – 10:00 Inauguración – Dr. Alexander Jerez</li>
+          <li>10:00 – 12:00 Talleres prácticos simultáneos</li>
+          <li>14:00 – 16:20 Bloque académico</li>
+          <li>16:20 – 19:00 Conversatorios ACMI – ASONEUMOCITO</li>
+          <li>19:00 – 20:00 Homenaje al Dr. Franklin Quiroz</li>
+        </ul>
 
-          <h3>Bloque I – Talleres prácticos simultáneos</h3>
-          <ul>
-            <li>10:00 – 12:00 Insulinización — Dr. Julio Oliveros</li>
-            <li>10:00 – 12:00 Espirometría — Dr. Javier Fajardo</li>
-            <li>10:00 – 12:00 Radiografía de tórax: interpretación clínica práctica — Dr. Alexander Reyes Lobo</li>
-          </ul>
-
-          <p><strong>12:00 – 14:00</strong> Almuerzo</p>
-
-          <h3>Bloque II</h3>
-          <ul>
-            <li>14:00 – 14:20 Riesgo cardiovascular en Colombia — Dr. Jaime Gómez / Dr. Sergio Gómez</li>
-            <li>14:20 – 14:40 Control glucémico intrahospitalario — Dra. Carolina Plata</li>
-            <li>14:40 – 15:00 Exacerbaciones agudas: asma vs EPOC — Dra. Gisela Serrano</li>
-            <li>15:00 – 15:20 Tuberculosis: la epidemia silenciosa — Dra. Heyda Núñez</li>
-            <li>15:20 – 15:40 Enfermedad pulmonar intersticial en enfermedades autoinmunes — Dr. Sergio Andrés Lobo</li>
-            <li>15:40 – 16:00 Receso</li>
-            <li>16:00 – 16:20 SAHOS – Síndrome de apnea-hipopnea obstructiva del sueño — Dr. Sebastián Eslava</li>
-          </ul>
-
-          <h3>Conversatorios ACMI – ASONEUMOCITO</h3>
-          <ul>
-            <li>16:20 – 16:40 Asma ocupacional — Dra. Diana Rey</li>
-            <li>16:40 – 17:40 Conversatorio: Asma ocupacional</li>
-            <li>17:40 – 18:00 Inteligencia artificial en la detección temprana del cáncer de pulmón — Dra. Lesly Vargas</li>
-            <li>18:00 – 19:00 Conversatorio: Inteligencia artificial en cáncer de pulmón</li>
-            <li>19:00 – 20:00 Homenaje al Dr. Franklin Quiroz</li>
-          </ul>
-
-          <h3>Sábado 27 de junio – Bloque III</h3>
-          <ul>
-            <li>08:00 – 08:20 Síndrome coronario agudo — Dr. Boris Vesga</li>
-            <li>08:20 – 08:40 Falla cardíaca — Dr. Cristhian Castellanos</li>
-            <li>08:40 – 09:00 Enfermedad de Chagas — Dr. Luis Echeverría</li>
-            <li>09:00 – 09:20 Receso</li>
-            <li>09:20 – 09:40 Anticoagulación en fibrilación auricular — Dr. Juan Diego Mendoza Díaz</li>
-            <li>09:40 – 10:00 MASLD — Dra. Sheyla Pardo</li>
-            <li>10:00 – 10:20 Dislipidemias — Dr. Ricardo Angulo</li>
-            <li>10:20 – 10:40 Vapeo: impacto en la salud respiratoria — Dr. Luis Ernesto Téllez</li>
-            <li>10:40 – 11:00 Cigarrillo y enfermedad respiratoria — Dr. Javier Fajardo</li>
-            <li>11:00 – 12:00 Conversatorio – Vapeo y tabaquismo</li>
-            <li>12:00 – 12:20 Neumoconiosis — Dr. Jaime Barreto</li>
-            <li>12:20 – 13:20 Conversatorio – Neumoconiosis</li>
-            <li>13:20 – 14:20 Espacio GSK – Capítulo ACMI San Gil / Almuerzo</li>
-            <li>14:20 – 14:40 Clausura</li>
-          </ul>
-
-          <div class="cta-pdf">
-            <a class="btn btn-primary" href="PROGRAMA ACADÉMICO.pdf" target="_blank">Abrir programa académico PDF</a>
-          </div>
-        </div>
+        <p><strong>Sábado 27 de junio</strong></p>
+        <ul>
+          <li>08:00 – 10:20 Bloque III</li>
+          <li>10:20 – 13:20 Conversatorios ACMI – ASONEUMOCITO</li>
+          <li>13:20 – 14:20 Espacio GSK – Capítulo ACMI San Gil / Almuerzo</li>
+          <li>14:20 – 14:40 Clausura</li>
+        </ul>
       </div>
     </div>
   </section>
