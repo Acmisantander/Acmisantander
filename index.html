@@ -14,7 +14,6 @@
       --azul-acmi-2:#0f3569;
       --verde-acmi:#2a9c52;
       --gris-fondo:#f5f7fb;
-      --gris-suave:#eef3f8;
       --texto:#243244;
       --blanco:#ffffff;
       --sombra:0 10px 24px rgba(0,0,0,0.08);
@@ -22,15 +21,9 @@
       --ancho:1200px;
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;}
 
-    html{
-      scroll-behavior:smooth;
-    }
+    html{scroll-behavior:smooth;}
 
     body{
       font-family:'Lato', sans-serif;
@@ -39,18 +32,10 @@
       line-height:1.6;
     }
 
-    img{
-      max-width:100%;
-      display:block;
-    }
+    img{max-width:100%;display:block;}
+    a{text-decoration:none;}
 
-    a{
-      text-decoration:none;
-    }
-
-    section{
-      scroll-margin-top:150px;
-    }
+    section{scroll-margin-top:150px;}
 
     .container{
       width:min(var(--ancho), 92%);
@@ -82,7 +67,10 @@
 
     .topbar a{
       color:#dfe8f5;
+      font-weight:600;
     }
+
+    .topbar a:hover{color:white;}
 
     header{
       background:var(--blanco);
@@ -142,6 +130,8 @@
       justify-content:flex-end;
     }
 
+    nav li{position:relative;}
+
     nav a{
       font-family:'Montserrat', sans-serif;
       font-size:15px;
@@ -150,9 +140,34 @@
       transition:0.2s ease;
     }
 
-    nav a:hover{
+    nav a:hover{color:var(--verde-acmi);}
+
+    .dropdown-menu{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      background:white;
+      min-width:230px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.12);
+      border-radius:10px;
+      padding:10px 0;
+      z-index:2000;
+    }
+
+    .dropdown-menu a{
+      display:block;
+      padding:10px 16px;
+      color:var(--azul-acmi);
+      white-space:nowrap;
+    }
+
+    .dropdown-menu a:hover{
+      background:#eef3f8;
       color:var(--verde-acmi);
     }
+
+    .dropdown:hover .dropdown-menu{display:block;}
 
     .hero{
       position:relative;
@@ -166,16 +181,6 @@
       text-align:center;
       color:white;
       overflow:hidden;
-    }
-
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 18%),
-        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.06), transparent 20%);
-      pointer-events:none;
     }
 
     .hero-content{
@@ -211,7 +216,8 @@
       margin:0 auto 28px;
     }
 
-    .hero-actions{
+    .hero-actions,
+    .eventos-actions{
       display:flex;
       justify-content:center;
       gap:14px;
@@ -265,9 +271,7 @@
       transform:translateY(-2px);
     }
 
-    .section{
-      padding:80px 0;
-    }
+    .section{padding:80px 0;}
 
     .section-title{
       text-align:center;
@@ -298,21 +302,29 @@
       margin:0 auto;
     }
 
-    .about-block h3{
+    .about-block h3,
+    .program-box h3{
       font-family:'Montserrat', sans-serif;
       color:var(--azul-acmi);
       margin:22px 0 10px;
       font-size:24px;
     }
 
-    .cards-grid{
+    .cards-grid,
+    .org-grid,
+    .evento-resumen,
+    .posters{
       display:grid;
+      gap:22px;
+    }
+
+    .cards-grid{
       grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-      gap:20px;
       margin-top:28px;
     }
 
-    .mini-card{
+    .mini-card,
+    .evento-item{
       background:#fff;
       border-radius:16px;
       box-shadow:var(--sombra);
@@ -321,18 +333,15 @@
       border-top:4px solid var(--verde-acmi);
     }
 
-    .mini-card h4{
+    .mini-card h4,
+    .evento-item h4{
       font-family:'Montserrat', sans-serif;
       color:var(--azul-acmi);
       margin-bottom:8px;
       font-size:20px;
     }
 
-    .org-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-      gap:22px;
-    }
+    .org-grid{grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));}
 
     .org-card{
       background:#fff;
@@ -356,25 +365,8 @@
     }
 
     .evento-resumen{
-      display:grid;
       grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-      gap:18px;
       margin-bottom:30px;
-    }
-
-    .evento-item{
-      background:#fff;
-      border-radius:16px;
-      box-shadow:var(--sombra);
-      padding:22px;
-      text-align:center;
-      border-top:4px solid var(--verde-acmi);
-    }
-
-    .evento-item h4{
-      font-family:'Montserrat', sans-serif;
-      color:var(--azul-acmi);
-      margin-bottom:6px;
     }
 
     .eventos-destacado{
@@ -412,18 +404,8 @@
       font-weight:700;
     }
 
-    .eventos-actions{
-      display:flex;
-      justify-content:center;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:30px;
-    }
-
     .posters{
-      display:grid;
       grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-      gap:22px;
       margin-top:10px;
     }
 
@@ -450,29 +432,11 @@
       margin-top:30px;
     }
 
-    .program-box h3{
-      font-family:'Montserrat', sans-serif;
-      color:var(--azul-acmi);
-      margin:24px 0 10px;
-      font-size:24px;
-    }
+    .program-box p{margin:7px 0;}
+    .program-box ul{margin:10px 0 18px 22px;}
+    .program-box li{margin-bottom:8px;}
 
-    .program-box p{
-      margin:7px 0;
-    }
-
-    .program-box ul{
-      margin:10px 0 18px 22px;
-    }
-
-    .program-box li{
-      margin-bottom:8px;
-    }
-
-    .cta-pdf{
-      text-align:center;
-      margin-top:26px;
-    }
+    .cta-pdf{text-align:center;margin-top:26px;}
 
     .edu-box,
     .contact-box{
@@ -493,9 +457,7 @@
       margin-top:10px;
     }
 
-    footer p{
-      margin:4px 0;
-    }
+    footer p{margin:4px 0;}
 
     @media (max-width:980px){
       .main-header{
@@ -503,17 +465,10 @@
         align-items:center;
       }
 
-      nav ul{
-        justify-content:center;
-      }
+      nav ul{justify-content:center;}
 
-      .hero h2{
-        font-size:42px;
-      }
-
-      .hero p{
-        font-size:20px;
-      }
+      .hero h2{font-size:42px;}
+      .hero p{font-size:20px;}
     }
 
     @media (max-width:640px){
@@ -522,44 +477,29 @@
         text-align:center;
       }
 
-      .brand-text h1{
-        font-size:24px;
-      }
-
-      .hero{
-        min-height:46vh;
-      }
-
-      .hero h2{
-        font-size:34px;
-      }
-
-      .hero p{
-        font-size:18px;
-      }
-
-      .section{
-        padding:64px 0;
-      }
-
-      .section-title{
-        font-size:32px;
-      }
-
-      section{
-        scroll-margin-top:180px;
-      }
+      .brand-text h1{font-size:24px;}
+      .hero{min-height:46vh;}
+      .hero h2{font-size:34px;}
+      .hero p{font-size:18px;}
+      .section{padding:64px 0;}
+      .section-title{font-size:32px;}
+      section{scroll-margin-top:180px;}
     }
   </style>
 </head>
+
 <body>
 
   <div class="topbar">
     <div class="container topbar-content">
       <div class="topbar-left">
-        <span>ACMI Santander</span>
+        <span>ACMI Nacional</span>
       </div>
+
       <div class="topbar-right">
+        <a href="https://www.actamedicacolombiana.com/ojs/index.php/actamed" target="_blank">Acta Médica Colombiana</a>
+        <a href="#patrocinios">Patrocinios</a>
+        <a href="#foro">Foro</a>
         <a href="#contacto">Contacto</a>
       </div>
     </div>
@@ -581,7 +521,23 @@
           <li><a href="#quienes">Quiénes somos</a></li>
           <li><a href="#organigrama">Organigrama</a></li>
           <li><a href="#eventos">Eventos</a></li>
-          <li><a href="#educacion">Educación médica continuada</a></li>
+
+          <li class="dropdown">
+            <a href="#educacion">Educación médica continuada ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="#neumologia-preguntas">Neumología en preguntas</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#proyeccion-social">Proyección social</a></li>
+
+          <li class="dropdown">
+            <a href="#magazine">Magazine ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="#noticias">Noticias</a></li>
+              <li><a href="#opinion">Opinión</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </div>
@@ -632,6 +588,7 @@
         </p>
 
         <h3>Objetivos</h3>
+
         <div class="cards-grid">
           <div class="mini-card">
             <h4>Educación médica</h4>
@@ -715,6 +672,7 @@
         </div>
 
         <div class="eventos-actions">
+          <a class="btn btn-primary" href="INSCRIPCION.pdf" target="_blank">Inscripción</a>
           <a class="btn btn-primary" href="PROGRAMA ACADÉMICO.pdf" target="_blank">Abrir programa académico PDF</a>
         </div>
       </div>
@@ -831,10 +789,6 @@
             <li>13:20 – 14:20 Espacio GSK – Capítulo ACMI San Gil / Almuerzo</li>
             <li>14:20 – 14:40 Clausura</li>
           </ul>
-
-          <div class="cta-pdf">
-            <a class="btn btn-primary" href="PROGRAMA ACADÉMICO.pdf" target="_blank">Abrir programa académico PDF</a>
-          </div>
         </div>
       </div>
     </div>
@@ -853,6 +807,75 @@
           el fortalecimiento del conocimiento clínico y la integración de la comunidad médica mediante
           simposios, cursos, talleres y encuentros académicos.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="neumologia-preguntas">
+    <div class="container">
+      <h2 class="section-title">Neumología en preguntas</h2>
+      <div class="card edu-box">
+        <p>
+          Espacio académico de preguntas de selección múltiple en neumología para educación médica continuada.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="proyeccion-social">
+    <div class="container">
+      <h2 class="section-title">Proyección social</h2>
+      <div class="card edu-box">
+        <p>
+          Iniciativas de impacto comunitario, prevención, educación en salud y fortalecimiento de la relación entre medicina interna y sociedad.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="magazine">
+    <div class="container">
+      <h2 class="section-title">Magazine</h2>
+      <div class="card edu-box">
+        <p>
+          Espacio editorial de actualización, análisis y divulgación académica de ACMI Santander.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="noticias">
+    <div class="container">
+      <h2 class="section-title">Noticias</h2>
+      <div class="card edu-box">
+        <p>Noticias académicas, científicas e institucionales.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="opinion">
+    <div class="container">
+      <h2 class="section-title">Opinión</h2>
+      <div class="card edu-box">
+        <p>Columnas, análisis y opinión médica.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="patrocinios">
+    <div class="container">
+      <h2 class="section-title">Patrocinios</h2>
+      <div class="card edu-box">
+        <p>Información para patrocinadores y aliados estratégicos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="foro">
+    <div class="container">
+      <h2 class="section-title">Foro</h2>
+      <div class="card edu-box">
+        <p>Espacio de discusión académica e institucional.</p>
       </div>
     </div>
   </section>
