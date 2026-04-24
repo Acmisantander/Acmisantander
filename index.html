@@ -484,6 +484,27 @@
       .section-title{font-size:32px;}
       section{scroll-margin-top:180px;}
     }
+    .patrocinadores{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:60px;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+
+.patrocinador-card{
+  background:white;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 10px 24px rgba(0,0,0,0.08);
+}
+
+.patrocinador-card img{
+  height:90px;
+  width:auto;
+  object-fit:contain;
+}
   </style>
 </head>
 
@@ -870,14 +891,30 @@
     </div>
   </section>
 
-  <section class="section" id="patrocinios">
-    <div class="container">
-      <h2 class="section-title">Patrocinios</h2>
-      <div class="card edu-box">
-        <p>Información para patrocinadores y aliados estratégicos.</p>
+<section class="section" id="patrocinios">
+  <div class="container">
+
+    <h2 class="section-title">Patrocinios</h2>
+
+    <p class="section-subtitle">
+      Empresas que apoyan el desarrollo académico y científico del
+      VI Simposio Regional ACMI – Capítulo Santander.
+    </p>
+
+    <div class="patrocinadores">
+
+      <div class="patrocinador-card">
+        <img src="GSK.png" alt="GSK">
       </div>
+
+      <div class="patrocinador-card">
+        <img src="SANOFI.png" alt="Sanofi">
+      </div>
+
     </div>
-  </section>
+
+  </div>
+</section>
 
   <section class="section" id="foro">
     <div class="container">
