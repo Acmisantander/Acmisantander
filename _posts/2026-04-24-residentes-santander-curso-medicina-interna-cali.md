@@ -34,7 +34,7 @@ style="width:420px; object-fit:contain; border-radius:8px;">
 
 </div>
 
-En el evento participaron residentes y docentes de la **Universidad Industrial de Santander (UIS)**, así como médicos en formación de la **Universidad Autónoma de Bucaramanga (UNAB)**, la **Universidad de Santander (UDES)** y de la **Fundación Universitaria – Fundación Cardiovascular de Colombia (FU-FCV)**, quienes representaron a Santander en este importante escenario de educación médica continua.
+En el evento participaron residentes y docentes de la **Universidad Industrial de Santander (UIS)**, la **Universidad Autónoma de Bucaramanga (UNAB)**, la **Universidad de Santander (UDES)** y de la **Fundación Universitaria – Fundación Cardiovascular de Colombia (FU-FCV)**, quienes representaron a Santander en este importante escenario de educación médica continua.
 
 El curso permitió el intercambio académico entre programas de formación del país, reafirmando el compromiso de la **ACMI con la formación y el fortalecimiento de la medicina interna en Colombia**.
 
