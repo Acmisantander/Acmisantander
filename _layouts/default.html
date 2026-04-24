@@ -8,64 +8,174 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:'Lato',sans-serif;background:#f5f7fb;color:#243244;line-height:1.6}
-.container{width:90%;max-width:1150px;margin:auto}
-header{background:#143f7d;color:white;padding:24px 0;border-bottom:4px solid #2a9c52}
-header h1{font-family:'Montserrat',sans-serif;margin:0;font-size:30px}
-nav{margin-top:12px;display:flex;gap:20px;flex-wrap:wrap}
-nav a{color:white;text-decoration:none;font-weight:700}
-main{padding:70px 0}
-h1,h2,h3{font-family:'Montserrat',sans-serif;color:#143f7d}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-.card{background:white;border-radius:18px;padding:28px;box-shadow:0 10px 24px rgba(0,0,0,.08)}
-.btn{display:inline-block;margin-top:16px;background:#2a9c52;color:white;padding:11px 18px;border-radius:10px;text-decoration:none;font-weight:700}
-.meta{font-size:14px;color:#607086;margin-bottom:12px}
-footer{background:#0f3569;color:white;text-align:center;padding:22px;margin-top:40px}
-  .header-flex{
-display:flex;
-align-items:center;
-justify-content:space-between;
+body{
+  margin:0;
+  font-family:'Lato',sans-serif;
+  background:#f5f7fb;
+  color:#243244;
+  line-height:1.6;
 }
 
-.logo-area{
-display:flex;
-align-items:center;
-gap:12px;
+.container{
+  width:90%;
+  max-width:1150px;
+  margin:auto;
 }
 
-.logo{
-height:45px;
+header{
+  background:white;
+  border-bottom:4px solid #2a9c52;
+  box-shadow:0 3px 12px rgba(0,0,0,0.08);
 }
-  .dropdown{
-position:relative;
-display:inline-block;
+
+.header-flex{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:16px 0;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+}
+
+.brand-logo{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:white;
+  border:1px solid #d7e2ef;
+  padding:5px;
+  object-fit:contain;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.brand-text h1{
+  font-family:'Montserrat',sans-serif;
+  margin:0;
+  font-size:28px;
+  color:#143f7d;
+}
+
+.brand-text p{
+  margin:3px 0 0;
+  font-size:14px;
+  color:#50627a;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  flex-wrap:wrap;
+}
+
+nav a{
+  color:#143f7d;
+  text-decoration:none;
+  font-weight:700;
+}
+
+nav a:hover{
+  color:#2a9c52;
+}
+
+.dropdown{
+  position:relative;
+  display:inline-block;
 }
 
 .dropdown-content{
-display:none;
-position:absolute;
-background:white;
-min-width:220px;
-box-shadow:0 8px 18px rgba(0,0,0,0.15);
-border-radius:10px;
-padding:10px 0;
-z-index:1000;
+  display:none;
+  position:absolute;
+  background:white;
+  min-width:220px;
+  box-shadow:0 8px 18px rgba(0,0,0,0.15);
+  border-radius:10px;
+  padding:10px 0;
+  z-index:1000;
 }
 
 .dropdown-content a{
-color:#143f7d;
-display:block;
-padding:10px 16px;
-text-decoration:none;
-font-weight:600;
+  color:#143f7d;
+  display:block;
+  padding:10px 16px;
+  text-decoration:none;
+  font-weight:600;
 }
 
 .dropdown-content a:hover{
-background:#eef3f8;
+  background:#eef3f8;
 }
 
 .dropdown:hover .dropdown-content{
-display:block;
+  display:block;
+}
+
+main{
+  padding:70px 0;
+}
+
+h1,h2,h3{
+  font-family:'Montserrat',sans-serif;
+  color:#143f7d;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+.card{
+  background:white;
+  border-radius:18px;
+  padding:28px;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+}
+
+.btn{
+  display:inline-block;
+  margin-top:16px;
+  background:#2a9c52;
+  color:white;
+  padding:11px 18px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.meta{
+  font-size:14px;
+  color:#607086;
+  margin-bottom:12px;
+}
+
+footer{
+  background:#0f3569;
+  color:white;
+  text-align:center;
+  padding:22px;
+  margin-top:40px;
+}
+
+@media(max-width:900px){
+  .header-flex{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .brand{
+    flex-direction:column;
+  }
+
+  nav{
+    justify-content:center;
+  }
 }
 </style>
 </head>
@@ -73,57 +183,45 @@ display:block;
 <body>
 
 <header>
-<div class="container header-flex">
+  <div class="container header-flex">
 
-<div class="logo-area">
-<img src="{{ site.baseurl }}/LOGO%20ACMI.png" alt="ACMI" class="logo">
-<h1>ACMI Santander</h1>
-</div>
+    <a href="{{ site.baseurl }}/" class="brand">
+      <img src="{{ site.baseurl }}/LOGO%20ACMI.png" alt="ACMI Santander" class="brand-logo">
 
-<nav>
+      <div class="brand-text">
+        <h1>ACMI Santander</h1>
+        <p>Asociación Colombiana de Medicina Interna • Capítulo Santander</p>
+      </div>
+    </a>
 
-<a href="{{ site.baseurl }}/">Inicio</a>
+    <nav>
+      <a href="{{ site.baseurl }}/">Inicio</a>
+      <a href="{{ site.baseurl }}/educacion-medica-continuada/">Educación médica continuada</a>
 
-<a href="{{ site.baseurl }}/educacion-medica-continua/">
-Educación médica continuada
-</a>
+      <div class="dropdown">
+        <a href="{{ site.baseurl }}/magazine/">Magazine</a>
 
-<div class="dropdown">
+        <div class="dropdown-content">
+          <a href="{{ site.baseurl }}/magazine/">Noticias y opinión</a>
+          <a href="{{ site.baseurl }}/magazine/manual-publicacion.html">Manual de publicación</a>
+        </div>
+      </div>
 
-<a href="{{ site.baseurl }}/magazine/">Magazine</a>
+      <a href="{{ site.baseurl }}/proyeccion-social/">Proyección social</a>
+    </nav>
 
-<div class="dropdown-content">
-
-<a href="{{ site.baseurl }}/magazine/">
-Noticias y opinión
-</a>
-
-<a href="{{ site.baseurl }}/magazine/manual-publicacion.html">
-Manual de publicación
-</a>
-
-</div>
-
-</div>
-
-<a href="{{ site.baseurl }}/proyeccion-social/">
-Proyección social
-</a>
-
-</nav>
-
-</div>
+  </div>
 </header>
 
 <main>
-<div class="container">
-{{ content }}
-</div>
+  <div class="container">
+    {{ content }}
+  </div>
 </main>
 
 <footer>
-<p>© 2026 ACMI Santander</p>
-<p>Educación continua que transforma la práctica clínica</p>
+  <p>© 2026 ACMI Santander</p>
+  <p>Educación continua que transforma la práctica clínica</p>
 </footer>
 
 </body>
