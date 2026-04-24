@@ -861,7 +861,8 @@ Contenido reciente de educación médica, magazine y proyección social.
 {% if magazine_post.cover %}
 <img 
 src="{{ site.baseurl }}{{ magazine_post.cover }}" 
-style="width:100%; max-height:140px; object-fit:cover; border-radius:10px; margin-bottom:12px;">
+alt="{{ magazine_post.title }}"
+style="width:100%; max-height:140px; object-fit:contain; border-radius:10px; margin-bottom:12px;">
 {% endif %}
 
 <p>
