@@ -7,7 +7,7 @@ category: magazine
 category_name: "Magazine"
 subcategory: noticias
 subcategory_name: "Noticias"
-cover: /img/ACMI%20CALI%201.png
+cover: /img/ACMI%20CALI%204.jpeg
 ---
 
 <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-bottom:20px;">
