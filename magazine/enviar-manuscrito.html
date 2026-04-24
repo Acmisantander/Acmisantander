@@ -7,45 +7,65 @@ title: Enviar manuscrito
 
 <div class="card">
 
-<p>
-Utilice este formulario para enviar noticias, columnas de opinión o artículos para el Magazine ACMI Santander.
-</p>
+  <h2>Sistema de recepción editorial</h2>
 
-<form action="https://formsubmit.co/acmisantander@gmail.com" method="POST" enctype="multipart/form-data">
+  <p>
+    Complete este formulario para enviar noticias, columnas de opinión, editoriales o artículos académicos.
+    El manuscrito será revisado por el equipo editorial antes de su publicación.
+  </p>
 
-<label>Nombre del autor</label>
-<input type="text" name="nombre" required>
+  <form action="https://formsubmit.co/acmisantander@gmail.com" method="POST" enctype="multipart/form-data">
 
-<label>Afiliación institucional</label>
-<input type="text" name="afiliacion">
+    <input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
 
-<label>Email de contacto</label>
-<input type="email" name="email" required>
+    <label><strong>Nombre completo del autor</strong></label>
+    <input type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
-<label>Título del manuscrito</label>
-<input type="text" name="titulo" required>
+    <label><strong>Afiliación institucional</strong></label>
+    <input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
-<label>Tipo de manuscrito</label>
-<select name="tipo">
-<option>Noticia</option>
-<option>Opinión</option>
-<option>Editorial</option>
-</select>
+    <label><strong>Correo electrónico</strong></label>
+    <input type="email" name="Email" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
-<label>Texto del manuscrito (opcional)</label>
-<textarea name="manuscrito" rows="10"></textarea>
+    <label><strong>Título del manuscrito</strong></label>
+    <input type="text" name="Titulo" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
-<label>Adjuntar archivo PDF</label>
-<input type="file" name="attachment" accept=".pdf">
+    <label><strong>Tipo de envío</strong></label>
+    <select name="Tipo de envio" required style="width:100%; padding:12px; margin:8px 0 18px;">
+      <option value="">Seleccione una opción</option>
+      <option>Noticia</option>
+      <option>Columna de opinión</option>
+      <option>Editorial</option>
+      <option>Artículo académico</option>
+      <option>Reporte institucional</option>
+    </select>
 
-<input type="hidden" name="_subject" value="Nuevo manuscrito Magazine ACMI">
+    <label><strong>Resumen breve</strong></label>
+    <textarea name="Resumen" rows="5" required style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-<br><br>
+    <label><strong>Texto del manuscrito</strong></label>
+    <textarea name="Texto del manuscrito" rows="12" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-<button class="btn" type="submit">
-Enviar manuscrito
-</button>
+    <label><strong>Adjuntar manuscrito en PDF</strong></label>
+    <input type="file" name="attachment" accept=".pdf" style="margin:8px 0 22px;">
 
-</form>
+    <p style="font-size:14px; color:#555;">
+      Al enviar este formulario, el autor declara que el contenido es original o cuenta con autorización para su publicación,
+      y acepta la revisión editorial previa por parte del Magazine ACMI Santander.
+    </p>
 
+    <button class="btn" type="submit">
+      Enviar manuscrito para revisión
+    </button>
+
+  </form>
+
+</div>
+
+<div style="margin-top:25px;">
+  <a class="btn" href="{{ site.baseurl }}/magazine/">
+    Volver al Magazine
+  </a>
 </div>
