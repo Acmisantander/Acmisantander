@@ -7,13 +7,14 @@ category: magazine
 category_name: "Magazine"
 subcategory: noticias
 subcategory_name: "Noticias"
+cover: /img/ACMI%20CALI%201.png
 ---
 
 <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-bottom:20px;">
 
-<img src="{{ site.baseurl }}/img/ACMI%20CALI%201.png" style="width:400px; border-radius:8px;">
+<img src="{{ site.baseurl }}/img/ACMI%20CALI%201.png" style="width:400px; height:320px; object-fit:cover; border-radius:8px;">
 
-<img src="{{ site.baseurl }}/img/ACMI%20CALI%202.png" style="width:400px; border-radius:8px;">
+<img src="{{ site.baseurl }}/img/ACMI%20CALI%202.png" style="width:400px; height:320px; object-fit:cover; border-radius:8px;">
 
 </div>
 
@@ -23,9 +24,9 @@ Durante el encuentro académico se realizaron **conferencias, discusiones clíni
 
 <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin:20px 0;">
 
-<img src="{{ site.baseurl }}/img/ACMI%20CALI%203.jpeg" style="width:400px; border-radius:8px;">
+<img src="{{ site.baseurl }}/img/ACMI%20CALI%203.jpeg" style="width:400px; height:300px; object-fit:cover; border-radius:8px;">
 
-<img src="{{ site.baseurl }}/img/ACMI%20CALI%204.jpeg" style="width:400px; border-radius:8px;">
+<img src="{{ site.baseurl }}/img/ACMI%20CALI%204.jpeg" style="width:400px; height:300px; object-fit:cover; border-radius:8px;">
 
 </div>
 
