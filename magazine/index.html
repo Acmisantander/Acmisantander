@@ -8,29 +8,76 @@ title: Magazine
 <h2>Noticias</h2>
 
 <div class="grid">
+
 {% for post in site.categories.magazine %}
   {% if post.subcategory == "noticias" %}
+
     <div class="card">
-      <p class="meta">{{ post.date | date: "%d/%m/%Y" }} · {{ post.author }}</p>
+
+      {% if post.cover %}
+        <img 
+          src="{{ site.baseurl }}{{ post.cover }}" 
+          alt="{{ post.title }}"
+          style="width:100%; max-height:220px; object-fit:cover; border-radius:10px; margin-bottom:16px;"
+        >
+      {% endif %}
+
+      <p class="meta">
+        {{ post.date | date: "%d/%m/%Y" }} · {{ post.author }}
+      </p>
+
       <h2>{{ post.title }}</h2>
-      <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
-      <a class="btn" href="{{ site.baseurl }}{{ post.url }}">Leer más</a>
+
+      <p>
+        {{ post.excerpt | strip_html | truncate: 180 }}
+      </p>
+
+      <a class="btn" href="{{ site.baseurl }}{{ post.url }}">
+        Leer más
+      </a>
+
     </div>
+
   {% endif %}
 {% endfor %}
+
 </div>
+
 
 <h2>Opinión</h2>
 
 <div class="grid">
+
 {% for post in site.categories.magazine %}
   {% if post.subcategory == "opinion" %}
+
     <div class="card">
-      <p class="meta">{{ post.date | date: "%d/%m/%Y" }} · {{ post.author }}</p>
+
+      {% if post.cover %}
+        <img 
+          src="{{ site.baseurl }}{{ post.cover }}" 
+          alt="{{ post.title }}"
+          style="width:100%; max-height:220px; object-fit:cover; border-radius:10px; margin-bottom:16px;"
+        >
+      {% endif %}
+
+      <p class="meta">
+        {{ post.date | date: "%d/%m/%Y" }} · {{ post.author }}
+      </p>
+
       <h2>{{ post.title }}</h2>
-      <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
-      <a class="btn" href="{{ site.baseurl }}{{ post.url }}">Leer más</a>
+
+      <p>
+        {{ post.excerpt | strip_html | truncate: 180 }}
+      </p>
+
+      <a class="btn" href="{{ site.baseurl }}{{ post.url }}">
+        Leer más
+      </a>
+
     </div>
+
   {% endif %}
 {% endfor %}
+
 </div>
