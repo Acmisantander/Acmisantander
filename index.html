@@ -851,11 +851,26 @@ Contenido reciente de educación médica, magazine y proyección social.
 </div>
 
 <div class="mini-card">
-<h4>Magazine ACMI</h4>
-<p>Residentes de Santander participaron en el 7º Curso Formativo de Medicina Interna realizado en Cali.</p>
-<a class="btn btn-light" href="magazine/">Leer artículo</a>
-</div>
 
+<h4>Magazine ACMI</h4>
+
+{% assign magazine_post = site.categories.magazine.first %}
+
+{% if magazine_post.cover %}
+<img 
+src="{{ site.baseurl }}{{ magazine_post.cover }}" 
+style="width:100%; max-height:140px; object-fit:cover; border-radius:10px; margin-bottom:12px;">
+{% endif %}
+
+<p>
+{{ magazine_post.title | truncate: 90 }}
+</p>
+
+<a class="btn btn-light" href="{{ site.baseurl }}{{ magazine_post.url }}">
+Leer artículo
+</a>
+
+</div>
 <div class="mini-card">
 <h4>Proyección social</h4>
 <p>Jornada comunitaria de educación en salud respiratoria en Santander.</p>
