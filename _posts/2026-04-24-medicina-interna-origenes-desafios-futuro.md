@@ -6,6 +6,9 @@ author: Reynaldo Badillo A. Médico Internista-Reumatólogo. Profesor de Medicin
 categories: magazine
 subcategory: opinion
 ---
+
+**Internista-Reumatólogo. Profesor de Medicina UIS.**
+
 La Medicina Interna es una especialidad médica dedicada a la atención integral del adulto enfermo; con principios humanísticos y éticos; conociendo en profundidad los procesos intrínsecos de las enfermedades; orientada al diagnóstico y tratamiento no quirúrgico de los padecimientos que afectan preferentemente a los órganos internos; también, a la promoción de la salud y prevención de la enfermedad.
 
 Pasaron milenios desde la época de Hipócrates y Galeno, considerados pioneros en el enfoque holístico del paciente y el uso de la observación clínica; hasta la acumulación gradual durante siglos, de numerosos conocimientos en anatomía, fisiología, patología, histología, bioquímica, farmacología, bacteriología, técnicas de laboratorio e imágenes, etc., para la formalización de la Medicina Interna como especialidad.
@@ -18,10 +21,10 @@ El término de “Medicina Interna” tuvo su origen en Alemania alrededor de 18
 
 La figura que llevó al máximo esplendor esta concepción en Norteamérica, enfatizando predominantemente el perfil clínico del médico al lado de la cama del paciente, fue Sir William Osler. En 1897 dictó una conferencia titulada "Medicina interna como una vocación", en la que planteó que esta especialidad comprendía un vasto campo diferente de la cirugía, la obstetricia y la ginecología, y cuyos cultores serían denominados médicos clínicos. Por su contribución al desarrollo de la especialidad y creador del primer programa formal de residencia, es considerado el padre de la Medicina Interna moderna.
 
-<img src="{{ site.baseurl }}/img/Sir%20William%20Osler.png" style="width:280px; float:right; margin:10px 0 15px 25px; border-radius:6px;">
+<img src="https://acmisantander.github.io/Acmisantander/img/Sir%20William%20Osler.png" style="width:280px; float:right; margin:10px 0 15px 25px; border-radius:6px;">
 
 En el siglo XXI, la Medicina Interna se ha consolidado como una especialidad médica esencial centrada en la atención multidisciplinaria de adultos en todo el espectro de la salud, desde la prevención de enfermedad y promoción de la salud, hasta el manejo de pacientes con múltiples patologías de órganos y sistemas, muchas de ellas complejas; en cualquier situación de gravedad, complejidad o nivel de atención; ambulatoria, hospitalaria, UCI y urgencias; además actúan como médicos guía de estos pacientes; también son asesores y referentes de médicos generales y otros especialistas.
 
 Destacan los internistas en su evolución permanente por la formación continua y la adaptación a nuevos paradigmas médicos; por la capacidad para integrar oportunamente los avances tecno-científicos como la inteligencia artificial, la genómica y la medicina personalizada; en conocer las mejores herramientas de diagnóstico y de tratamiento; en comprender el envejecimiento de la población y la cronicidad de las enfermedades; en advertir los cambios en los perfiles de morbilidad y el aumento de las enfermedades crónicas no transmisibles e infecciones.
 
-<img src="{{ site.baseurl }}/img/Retos%20y%20desafios%20de%20la%20medicina%20interna%20.png" style="width:100%; max-width:650px; display:block; margin:30px auto;">
+<img src="https://acmisantander.github.io/Acmisantander/img/Retos%20y%20desafios%20de%20la%20medicina%20interna%20.png" style="width:100%; max-width:650px; display:block; margin:30px auto;">
