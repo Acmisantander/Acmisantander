@@ -60,8 +60,6 @@ subcategory: opinion
 
 <div class="articulo-opinion-acmi">
 
-<p><strong>Internista-Reumatólogo. Profesor de Medicina UIS.</strong></p>
-
 <p>La Medicina Interna es una especialidad médica dedicada a la atención integral del adulto enfermo; con principios humanísticos y éticos; conociendo en profundidad los procesos intrínsecos de las enfermedades; orientada al diagnóstico y tratamiento no quirúrgico de los padecimientos que afectan preferentemente a los órganos internos; también, a la promoción de la salud y prevención de la enfermedad.</p>
 
 <p>Pasaron milenios desde la época de Hipócrates y Galeno, considerados pioneros en el enfoque holístico del paciente y el uso de la observación clínica; hasta la acumulación gradual durante siglos, de numerosos conocimientos en anatomía, fisiología, patología, histología, bioquímica, farmacología, bacteriología, técnicas de laboratorio e imágenes, etc., para la formalización de la Medicina Interna como especialidad.</p>
