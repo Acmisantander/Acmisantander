@@ -8,48 +8,57 @@ subcategory: opinion
 ---
 
 <style>
-.articulo-opinion {
-  text-align: justify;
-  column-count: 2;
-  column-gap: 38px;
-  line-height: 1.7;
+.articulo-opinion-acmi {
+  text-align: justify !important;
+  column-count: 2 !important;
+  column-gap: 42px !important;
+  line-height: 1.75 !important;
+  font-size: 16px !important;
 }
 
-.articulo-opinion p {
-  margin-bottom: 16px;
+.articulo-opinion-acmi p {
+  margin-top: 0 !important;
+  margin-bottom: 18px !important;
+  break-inside: avoid !important;
 }
 
-.img-osler {
-  width: 260px;
-  float: right;
-  margin: 8px 0 16px 24px;
-  border-radius: 6px;
+.img-osler-acmi {
+  width: 230px !important;
+  max-width: 230px !important;
+  float: right !important;
+  margin: 8px 0 16px 24px !important;
+  border-radius: 6px !important;
 }
 
-.img-retos {
-  width: 100%;
-  max-width: 430px;
-  display: block;
-  margin: 28px auto;
-  border-radius: 4px;
+.img-retos-acmi {
+  width: 360px !important;
+  max-width: 360px !important;
+  display: block !important;
+  margin: 28px auto !important;
+  border-radius: 4px !important;
 }
 
 @media (max-width: 768px) {
-  .articulo-opinion {
-    column-count: 1;
+  .articulo-opinion-acmi {
+    column-count: 1 !important;
   }
 
-  .img-osler {
-    float: none;
-    display: block;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 320px;
+  .img-osler-acmi {
+    float: none !important;
+    display: block !important;
+    margin: 20px auto !important;
+    width: 90% !important;
+    max-width: 300px !important;
+  }
+
+  .img-retos-acmi {
+    width: 90% !important;
+    max-width: 360px !important;
   }
 }
 </style>
 
-<div class="articulo-opinion">
+<div class="articulo-opinion-acmi">
 
 <p><strong>Internista-Reumatólogo. Profesor de Medicina UIS.</strong></p>
 
@@ -65,7 +74,7 @@ subcategory: opinion
 
 <p>La figura que llevó al máximo esplendor esta concepción en Norteamérica, enfatizando predominantemente el perfil clínico del médico al lado de la cama del paciente, fue Sir William Osler. En 1897 dictó una conferencia titulada "Medicina interna como una vocación", en la que planteó que esta especialidad comprendía un vasto campo diferente de la cirugía, la obstetricia y la ginecología, y cuyos cultores serían denominados médicos clínicos. Por su contribución al desarrollo de la especialidad y creador del primer programa formal de residencia, es considerado el padre de la Medicina Interna moderna.</p>
 
-<img class="img-osler" src="https://acmisantander.github.io/Acmisantander/img/Sir%20William%20Osler.png">
+<img class="img-osler-acmi" src="https://acmisantander.github.io/Acmisantander/img/Sir%20William%20Osler.png">
 
 <p>En el siglo XXI, la Medicina Interna se ha consolidado como una especialidad médica esencial centrada en la atención multidisciplinaria de adultos en todo el espectro de la salud, desde la prevención de enfermedad y promoción de la salud, hasta el manejo de pacientes con múltiples patologías de órganos y sistemas, muchas de ellas complejas; en cualquier situación de gravedad, complejidad o nivel de atención; ambulatoria, hospitalaria, UCI y urgencias; además actúan como médicos guía de estos pacientes; también son asesores y referentes de médicos generales y otros especialistas.</p>
 
@@ -73,4 +82,4 @@ subcategory: opinion
 
 </div>
 
-<img class="img-retos" src="https://acmisantander.github.io/Acmisantander/img/Retos%20y%20desafios%20de%20la%20medicina%20interna%20.png">
+<img class="img-retos-acmi" src="https://acmisantander.github.io/Acmisantander/img/Retos%20y%20desafios%20de%20la%20medicina%20interna%20.png">
