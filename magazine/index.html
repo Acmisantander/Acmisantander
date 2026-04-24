@@ -33,7 +33,7 @@ title: Magazine
       Foro ACMI Magazine
     </a>
 
-    <a class="btn" href="{{ site.baseurl }}/enviar-manuscrito/">
+    <a class="btn" href="{{ site.baseurl }}/enviar-manuscrito.html">
       Enviar manuscrito
     </a>
 
@@ -48,35 +48,34 @@ title: Magazine
 <div class="grid">
 
 {% for post in site.categories.magazine %}
-  {% if post.subcategory == "noticias" %}
+{% if post.subcategory == "noticias" %}
 
-    <div class="card">
+<div class="card">
 
-      {% if post.cover %}
-        <img 
-          src="{{ site.baseurl }}{{ post.cover }}" 
-          alt="{{ post.title }}"
-          style="width:100%; max-height:220px; object-fit:cover; border-radius:10px; margin-bottom:16px;"
-        >
-      {% endif %}
+{% if post.cover %}
+<img 
+src="{{ site.baseurl }}{{ post.cover }}" 
+alt="{{ post.title }}"
+style="width:100%; max-height:220px; object-fit:cover; border-radius:10px; margin-bottom:16px;">
+{% endif %}
 
-      <p class="meta">
-        {{ post.date | date: "%d/%m/%Y" }} · {{ post.author }}
-      </p>
+<p class="meta">
+{{ post.date | date: "%d/%m/%Y" }} · {{ post.author }}
+</p>
 
-      <h2>{{ post.title }}</h2>
+<h2>{{ post.title }}</h2>
 
-      <p>
-        {{ post.excerpt | strip_html | truncate: 180 }}
-      </p>
+<p>
+{{ post.excerpt | strip_html | truncate: 180 }}
+</p>
 
-      <a class="btn" href="{{ site.baseurl }}{{ post.url }}">
-        Leer más
-      </a>
+<a class="btn" href="{{ site.baseurl }}{{ post.url }}">
+Leer más
+</a>
 
-    </div>
+</div>
 
-  {% endif %}
+{% endif %}
 {% endfor %}
 
 </div>
@@ -88,38 +87,41 @@ title: Magazine
 <div class="grid">
 
 {% for post in site.categories.magazine %}
-  {% if post.subcategory == "opinion" %}
+{% if post.subcategory == "opinion" %}
 
-    <div class="card">
+<div class="card">
 
-      {% if post.cover %}
-        <img 
-          src="{{ site.baseurl }}{{ post.cover }}" 
-          alt="{{ post.title }}"
-          style="width:100%; max-height:220px; object-fit:cover; border-radius:10px; margin-bottom:16px;"
-        >
-      {% endif %}
+{% if post.cover %}
+<img 
+src="{{ site.baseurl }}{{ post.cover }}" 
+alt="{{ post.title }}"
+style="width:100%; max-height:220px; object-fit:cover; border-radius:10px; margin-bottom:16px;">
+{% endif %}
 
-      <p class="meta">
-        {{ post.date | date: "%d/%m/%Y" }} · {{ post.author }}
-      </p>
+<p class="meta">
+{{ post.date | date: "%d/%m/%Y" }} · {{ post.author }}
+</p>
 
-      <h2>{{ post.title }}</h2>
+<h2>{{ post.title }}</h2>
 
-      <p>
-        {{ post.excerpt | strip_html | truncate: 180 }}
-      </p>
+<p>
+{{ post.excerpt | strip_html | truncate: 180 }}
+</p>
 
-      <a class="btn" href="{{ site.baseurl }}{{ post.url }}">
-        Leer más
-      </a>
+<a class="btn" href="{{ site.baseurl }}{{ post.url }}">
+Leer más
+</a>
 
-    </div>
+</div>
 
-  {% endif %}
+{% endif %}
 {% endfor %}
 
 </div>
+
+
+
+<hr style="margin:50px 0;">
 
 
 
@@ -127,15 +129,16 @@ title: Magazine
 
 <div class="card" style="margin-top:25px;">
 
-  <p>
-    Espacio de discusión académica para comentar noticias, columnas de opinión y temas relacionados con la medicina interna.
-  </p>
+<p>
+Espacio de discusión académica para comentar noticias, columnas de opinión y temas relacionados con la medicina interna.
+</p>
 
-  <div class="commentbox"></div>
+<div class="commentbox"></div>
 
 </div>
 
 <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+
 <script>
 commentBox('5734850254340096-proj');
 </script>
