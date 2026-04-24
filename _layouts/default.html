@@ -43,15 +43,27 @@ header{
   text-decoration:none;
 }
 
+.brand-logo-wrap{
+  width:74px;
+  height:74px;
+  border-radius:50%;
+  background:white;
+  border:1px solid #d7e2ef;
+  padding:6px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.10);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
 .brand-logo{
-width:70px;
-height:70px;
-border-radius:50%;
-object-fit:cover;
-background:white;
-padding:6px;
-border:2px solid #e6edf5;
-box-shadow:0 3px 8px rgba(0,0,0,0.12);
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  border-radius:50%;
+  display:block;
 }
 
 .brand-text h1{
@@ -59,10 +71,11 @@ box-shadow:0 3px 8px rgba(0,0,0,0.12);
   margin:0;
   font-size:28px;
   color:#143f7d;
+  line-height:1.1;
 }
 
 .brand-text p{
-  margin:3px 0 0;
+  margin:4px 0 0;
   font-size:14px;
   color:#50627a;
 }
@@ -92,8 +105,10 @@ nav a:hover{
 .dropdown-content{
   display:none;
   position:absolute;
+  top:100%;
+  left:0;
   background:white;
-  min-width:220px;
+  min-width:230px;
   box-shadow:0 8px 18px rgba(0,0,0,0.15);
   border-radius:10px;
   padding:10px 0;
@@ -106,6 +121,7 @@ nav a:hover{
   padding:10px 16px;
   text-decoration:none;
   font-weight:600;
+  white-space:nowrap;
 }
 
 .dropdown-content a:hover{
@@ -176,6 +192,11 @@ footer{
   nav{
     justify-content:center;
   }
+
+  .dropdown-content{
+    left:50%;
+    transform:translateX(-50%);
+  }
 }
 </style>
 </head>
@@ -186,7 +207,9 @@ footer{
   <div class="container header-flex">
 
     <a href="{{ site.baseurl }}/" class="brand">
-      <img src="{{ site.baseurl }}/LOGO%20ACMI.png" alt="ACMI Santander" class="brand-logo">
+      <span class="brand-logo-wrap">
+        <img src="{{ site.baseurl }}/LOGO%20ACMI.png" alt="ACMI Santander" class="brand-logo">
+      </span>
 
       <div class="brand-text">
         <h1>ACMI Santander</h1>
@@ -199,7 +222,7 @@ footer{
       <a href="{{ site.baseurl }}/educacion-medica-continuada/">Educación médica continuada</a>
 
       <div class="dropdown">
-        <a href="#">Magazine ▾</a>
+        <a href="{{ site.baseurl }}/magazine/">Magazine ▾</a>
         <div class="dropdown-content">
           <a href="{{ site.baseurl }}/magazine/">Noticias y opinión</a>
           <a href="{{ site.baseurl }}/magazine/manual-publicacion.html">Manual de publicación</a>
