@@ -12,7 +12,22 @@ layout: default
 
 {{ content }}
 
-<div style="margin-top:30px;">
+{% if page.categories contains "magazine" %}
+
+<hr style="margin:40px 0; border:none; border-top:1px solid #e5e7eb;">
+
+<h3 style="margin-bottom:20px;">Discusión académica del artículo</h3>
+
+<div class="commentbox"></div>
+
+<script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+<script>
+commentBox('5734850254340096-proj');
+</script>
+
+{% endif %}
+
+<div style="margin-top:35px;">
 
 {% if page.categories contains "magazine" %}
 <a class="btn" href="{{ site.baseurl }}/magazine/">
