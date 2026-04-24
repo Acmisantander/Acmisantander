@@ -7,15 +7,15 @@ category: magazine
 category_name: "Magazine"
 subcategory: noticias
 subcategory_name: "Noticias"
-cover: /img/ACMI%20CALI%203.jpeg
+cover: /ACMI%20CALI%203.jpeg
 ---
 
 <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-bottom:20px;">
 
-<img src="{{ site.baseurl }}/img/ACMI%20CALI%201.png" 
+<img src="{{ site.baseurl }}/ACMI%20CALI%201.png"
 style="width:420px; object-fit:contain; border-radius:8px;">
 
-<img src="{{ site.baseurl }}/img/ACMI%20CALI%202.png" 
+<img src="{{ site.baseurl }}/ACMI%20CALI%202.png"
 style="width:420px; object-fit:contain; border-radius:8px;">
 
 </div>
@@ -26,21 +26,21 @@ Durante el encuentro académico se realizaron **conferencias, discusiones clíni
 
 <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin:20px 0;">
 
-<img src="{{ site.baseurl }}/img/ACMI%20CALI%203.jpeg" 
+<img src="{{ site.baseurl }}/ACMI%20CALI%203.jpeg"
 style="width:420px; object-fit:contain; border-radius:8px;">
 
-<img src="{{ site.baseurl }}/img/ACMI%20CALI%004.jpeg" 
+<img src="{{ site.baseurl }}/ACMI%20CALI%204.jpeg"
 style="width:420px; object-fit:contain; border-radius:8px;">
 
 </div>
 
-En el evento participaron residentes y docentes de la **Universidad Industrial de Santander (UIS)**, así como médicos en formación de la **Universidad Autónoma de Bucaramanga (UNAB)** y de la **Fundación Universitaria – Fundación Cardiovascular de Colombia (FU-FCV)**, quienes representaron a Santander en este importante escenario de educación médica continua.
+En el evento participaron residentes y docentes de la **Universidad Industrial de Santander (UIS)**, así como médicos en formación de la **Universidad Autónoma de Bucaramanga (UNAB)**, la **Universidad de Santander (UDES)** y de la **Fundación Universitaria – Fundación Cardiovascular de Colombia (FU-FCV)**, quienes representaron a Santander en este importante escenario de educación médica continua.
 
 El curso permitió el intercambio académico entre programas de formación del país, reafirmando el compromiso de la **ACMI con la formación y el fortalecimiento de la medicina interna en Colombia**.
 
 <div style="display:flex; justify-content:center; margin-top:30px;">
 
-<img src="{{ site.baseurl }}/img/ACMI%20CALI%206.jpeg" 
+<img src="{{ site.baseurl }}/ACMI%20CALI%206.jpeg"
 style="width:520px; object-fit:contain; border-radius:10px;">
 
 </div>
