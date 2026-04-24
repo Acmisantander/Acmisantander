@@ -2,7 +2,7 @@
 layout: post
 title: "Medicina Interna. Desde los orígenes a los desafíos de futuro"
 date: 2026-04-24
-author: Reynaldo Badillo A. Internista-Reumatólogo. Profesor de Medicina UIS. 
+author: Reynaldo Badillo A. Médico Internista-Reumatólogo. Profesor de Medicina UIS. 
 categories: magazine
 subcategory: opinion
 ---
