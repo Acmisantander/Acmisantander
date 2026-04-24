@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<article class="card">
+<h1>{{ page.title }}</h1>
+
+<p class="meta">
+{{ page.date | date: "%d/%m/%Y" }} · {{ page.category_name }} · {{ page.author }}
+</p>
+
+{{ content }}
+
+<a class="btn" href="{{ site.baseurl }}/">Volver al inicio</a>
+</article>
