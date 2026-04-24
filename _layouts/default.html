@@ -21,20 +21,41 @@ h1,h2,h3{font-family:'Montserrat',sans-serif;color:#143f7d}
 .btn{display:inline-block;margin-top:16px;background:#2a9c52;color:white;padding:11px 18px;border-radius:10px;text-decoration:none;font-weight:700}
 .meta{font-size:14px;color:#607086;margin-bottom:12px}
 footer{background:#0f3569;color:white;text-align:center;padding:22px;margin-top:40px}
+  .header-flex{
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo-area{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo{
+height:45px;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="container">
+<div class="container header-flex">
+
+<div class="logo-area">
+<img src="{{ site.baseurl }}/LOGO%20ACMI.png" alt="ACMI" class="logo">
 <h1>ACMI Santander</h1>
+</div>
+
 <nav>
 <a href="{{ site.baseurl }}/">Inicio</a>
-<a href="{{ site.baseurl }}/educacion-medica-continuada/">Educación médica continuada</a>
+<a href="{{ site.baseurl }}/educacion-medica-continua/">Educación médica continuada</a>
 <a href="{{ site.baseurl }}/magazine/">Magazine</a>
 <a href="{{ site.baseurl }}/proyeccion-social/">Proyección social</a>
 </nav>
+
 </div>
 </header>
 
