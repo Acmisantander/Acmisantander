@@ -5,6 +5,7 @@ date: 2026-04-24
 author: Reynaldo Badillo A. Médico Internista-Reumatólogo. Profesor de Medicina UIS.
 categories: magazine
 subcategory: opinion
+cover: /img/Sir William Osler.png
 ---
 
 <style>
