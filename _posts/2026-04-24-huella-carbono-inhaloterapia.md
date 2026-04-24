@@ -2,7 +2,7 @@
 layout: post
 title: "La huella de carbono y futuro de la inhaloterapia sostenible"
 date: 2026-04-24
-author: Dr. Javier Fajardo
+author: Dr. Javier Fajardo- Especialista en neumología
 categories: magazine
 subcategory: opinion
 ---
