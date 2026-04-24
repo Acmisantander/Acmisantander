@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }} | ACMI Santander</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+body{margin:0;font-family:'Lato',sans-serif;background:#f5f7fb;color:#243244;line-height:1.6}
+.container{width:90%;max-width:1150px;margin:auto}
+header{background:#143f7d;color:white;padding:24px 0;border-bottom:4px solid #2a9c52}
+header h1{font-family:'Montserrat',sans-serif;margin:0;font-size:30px}
+nav{margin-top:12px;display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-weight:700}
+main{padding:70px 0}
+h1,h2,h3{font-family:'Montserrat',sans-serif;color:#143f7d}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.card{background:white;border-radius:18px;padding:28px;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+.btn{display:inline-block;margin-top:16px;background:#2a9c52;color:white;padding:11px 18px;border-radius:10px;text-decoration:none;font-weight:700}
+.meta{font-size:14px;color:#607086;margin-bottom:12px}
+footer{background:#0f3569;color:white;text-align:center;padding:22px;margin-top:40px}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<h1>ACMI Santander</h1>
+<nav>
+<a href="{{ site.baseurl }}/">Inicio</a>
+<a href="{{ site.baseurl }}/educacion-medica-continuada/">Educación médica continuada</a>
+<a href="{{ site.baseurl }}/magazine/">Magazine</a>
+<a href="{{ site.baseurl }}/proyeccion-social/">Proyección social</a>
+</nav>
+</div>
+</header>
+
+<main>
+<div class="container">
+{{ content }}
+</div>
+</main>
+
+<footer>
+<p>© 2026 ACMI Santander</p>
+<p>Educación continua que transforma la práctica clínica</p>
+</footer>
+
+</body>
+</html>
