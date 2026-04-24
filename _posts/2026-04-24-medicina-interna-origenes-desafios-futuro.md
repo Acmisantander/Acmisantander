@@ -6,9 +6,6 @@ author: Reynaldo Badillo A. Médico Internista-Reumatólogo. Profesor de Medicin
 categories: magazine
 subcategory: opinion
 ---
-
-**Internista-Reumatólogo. Profesor de Medicina UIS.**
-
 La Medicina Interna es una especialidad médica dedicada a la atención integral del adulto enfermo; con principios humanísticos y éticos; conociendo en profundidad los procesos intrínsecos de las enfermedades; orientada al diagnóstico y tratamiento no quirúrgico de los padecimientos que afectan preferentemente a los órganos internos; también, a la promoción de la salud y prevención de la enfermedad.
 
 Pasaron milenios desde la época de Hipócrates y Galeno, considerados pioneros en el enfoque holístico del paciente y el uso de la observación clínica; hasta la acumulación gradual durante siglos, de numerosos conocimientos en anatomía, fisiología, patología, histología, bioquímica, farmacología, bacteriología, técnicas de laboratorio e imágenes, etc., para la formalización de la Medicina Interna como especialidad.
