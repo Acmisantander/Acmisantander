@@ -3,6 +3,7 @@ layout: default
 ---
 
 <article class="card">
+
 <h1>{{ page.title }}</h1>
 
 <p class="meta">
@@ -11,5 +12,24 @@ layout: default
 
 {{ content }}
 
-<a class="btn" href="{{ site.baseurl }}/">Volver al inicio</a>
+<div style="margin-top:30px;">
+
+{% if page.categories contains "magazine" %}
+<a class="btn" href="{{ site.baseurl }}/magazine/">
+Volver al Magazine
+</a>
+
+{% elsif page.categories contains "educacion" %}
+<a class="btn" href="{{ site.baseurl }}/educacion-medica-continuada/">
+Volver a Educación médica
+</a>
+
+{% else %}
+<a class="btn" href="{{ site.baseurl }}/">
+Volver al inicio
+</a>
+{% endif %}
+
+</div>
+
 </article>
