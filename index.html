@@ -852,22 +852,48 @@ Contenido reciente de educación médica, magazine y proyección social.
 
 <h4>Magazine ACMI</h4>
 
-{% assign magazine_post = site.categories.magazine.first %}
+{% assign noticia = site.categories.magazine | where: "subcategory","noticias" | first %}
+{% assign opinion = site.categories.magazine | where: "subcategory","opinion" | first %}
 
-{% if magazine_post.cover %}
+<!-- NOTICIAS -->
+{% if noticia %}
+<div style="margin-bottom:14px;">
+
+{% if noticia.cover %}
 <img 
-src="{{ site.baseurl }}{{ magazine_post.cover }}" 
-alt="{{ magazine_post.title }}"
-style="width:100%; max-height:140px; object-fit:contain; border-radius:10px; margin-bottom:12px;">
+src="{{ site.baseurl }}{{ noticia.cover }}"
+alt="{{ noticia.title }}"
+style="width:100%; max-width:180px; border-radius:8px; margin-bottom:8px;"
+>
 {% endif %}
 
-<p>
-{{ magazine_post.title | truncate: 90 }}
+<p style="font-size:14px;">
+{{ noticia.title }}
 </p>
 
-<a class="btn btn-light" href="{{ site.baseurl }}{{ magazine_post.url }}">
-Leer artículo
+<a class="btn btn-light" href="{{ site.baseurl }}{{ noticia.url }}">
+Leer noticia
 </a>
+
+</div>
+{% endif %}
+
+<hr style="margin:14px 0; border:none; border-top:1px solid #e5e7eb;">
+
+<!-- OPINIÓN -->
+{% if opinion %}
+<div>
+
+<p style="font-size:14px;">
+<strong>Opinión:</strong> {{ opinion.title }}
+</p>
+
+<a class="btn btn-light" href="{{ site.baseurl }}{{ opinion.url }}">
+Leer columna
+</a>
+
+</div>
+{% endif %}
 
 </div>
 <div class="mini-card">
