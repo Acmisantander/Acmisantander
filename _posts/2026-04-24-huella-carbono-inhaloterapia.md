@@ -11,4 +11,4 @@ A pesar del cambio de clorofluorocarbonos (CFC) a los hidrofluoroalcanos (HFA) c
 
 Por tanto, es imperativo seguir trabajando en políticas para la reducción de emisiones que tengan impacto en salud así como en no perder el entusiasmo en exigir el acceso equitativo de nuestros pacientes al sistema.
 
-Entre otras cosas, no se si hayan leído sobre “paciente verde” (aplica no solo para el respiratorio); les cuento de aquel paciente que apoyado por las pautas regulatorias, puede elegir terapias que protejan su bienestar, el medio ambiente y es un tema ''hit'' de gran actualidad.
+Entre otras cosas, no se si hayan leído sobre “paciente verde” (aplica no solo para el respiratorio); les cuento que es aquel paciente que apoyado por las pautas regulatorias, puede elegir terapias que protejan su bienestar, el medio ambiente y es un tema ''hit'' de gran actualidad.
