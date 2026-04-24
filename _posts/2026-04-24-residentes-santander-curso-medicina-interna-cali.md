@@ -7,7 +7,7 @@ category: magazine
 category_name: "Magazine"
 subcategory: noticias
 subcategory_name: "Noticias"
-cover: /img/ACMI%20CALI%204.jpeg
+cover: /img/ACMI%20CALI%203.jpeg
 ---
 
 <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-bottom:20px;">
@@ -29,7 +29,7 @@ Durante el encuentro académico se realizaron **conferencias, discusiones clíni
 <img src="{{ site.baseurl }}/img/ACMI%20CALI%203.jpeg" 
 style="width:420px; object-fit:contain; border-radius:8px;">
 
-<img src="{{ site.baseurl }}/img/ACMI%20CALI%204.jpeg" 
+<img src="{{ site.baseurl }}/img/ACMI%20CALI%004.jpeg" 
 style="width:420px; object-fit:contain; border-radius:8px;">
 
 </div>
