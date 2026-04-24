@@ -36,6 +36,37 @@ gap:12px;
 .logo{
 height:45px;
 }
+  .dropdown{
+position:relative;
+display:inline-block;
+}
+
+.dropdown-content{
+display:none;
+position:absolute;
+background:white;
+min-width:220px;
+box-shadow:0 8px 18px rgba(0,0,0,0.15);
+border-radius:10px;
+padding:10px 0;
+z-index:1000;
+}
+
+.dropdown-content a{
+color:#143f7d;
+display:block;
+padding:10px 16px;
+text-decoration:none;
+font-weight:600;
+}
+
+.dropdown-content a:hover{
+background:#eef3f8;
+}
+
+.dropdown:hover .dropdown-content{
+display:block;
+}
 </style>
 </head>
 
