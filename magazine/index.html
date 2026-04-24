@@ -3,9 +3,39 @@ layout: default
 title: Magazine
 ---
 
-<h1 id="noticias">Magazine ACMI Santander</h1>
+<h1>Magazine ACMI Santander</h1>
 
-<h2>Noticias</h2>
+<div class="card" style="margin-bottom:40px;">
+  
+  <h2>Magazine ACMI Santander</h2>
+
+  <p>
+    El Magazine ACMI Santander es un espacio de comunicación académica y divulgación científica 
+    orientado a difundir actividades académicas, experiencias clínicas, reflexiones profesionales 
+    y contenidos educativos relacionados con la medicina interna y sus especialidades.
+  </p>
+
+  <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:20px;">
+    
+    <a class="btn" href="#noticias">
+      Noticias
+    </a>
+
+    <a class="btn" href="#opinion">
+      Opinión
+    </a>
+
+    <a class="btn" href="{{ site.baseurl }}/manual-publicacion/">
+      Manual de publicación
+    </a>
+
+  </div>
+
+</div>
+
+
+
+<h2 id="noticias">Noticias</h2>
 
 <div class="grid">
 
@@ -42,6 +72,8 @@ title: Magazine
 {% endfor %}
 
 </div>
+
+
 
 <h2 id="opinion">Opinión</h2>
 
