@@ -1,1 +1,51 @@
+---
+layout: default
+title: Enviar manuscrito
+---
 
+<h1>Enviar manuscrito al Magazine ACMI Santander</h1>
+
+<div class="card">
+
+<p>
+Utilice este formulario para enviar noticias, columnas de opinión o artículos para el Magazine ACMI Santander.
+</p>
+
+<form action="https://formsubmit.co/acmisantander@gmail.com" method="POST" enctype="multipart/form-data">
+
+<label>Nombre del autor</label>
+<input type="text" name="nombre" required>
+
+<label>Afiliación institucional</label>
+<input type="text" name="afiliacion">
+
+<label>Email de contacto</label>
+<input type="email" name="email" required>
+
+<label>Título del manuscrito</label>
+<input type="text" name="titulo" required>
+
+<label>Tipo de manuscrito</label>
+<select name="tipo">
+<option>Noticia</option>
+<option>Opinión</option>
+<option>Editorial</option>
+</select>
+
+<label>Texto del manuscrito (opcional)</label>
+<textarea name="manuscrito" rows="10"></textarea>
+
+<label>Adjuntar archivo PDF</label>
+<input type="file" name="attachment" accept=".pdf">
+
+<input type="hidden" name="_subject" value="Nuevo manuscrito Magazine ACMI">
+
+<br><br>
+
+<button class="btn" type="submit">
+Enviar manuscrito
+</button>
+
+</form>
+
+</div>
