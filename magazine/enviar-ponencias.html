@@ -15,9 +15,9 @@ Formulario institucional para el envío de presentaciones académicas en activid
 (simposios, cursos, jornadas, talleres y otros eventos académicos).
 </p>
 
-<form accept-charset="UTF-8" action="https://usebasin.com/f/51e6ea4ab996" method="POST" enctype="multipart/form-data">
+<form action="https://submit-form.com/form_v1_zX1ZPGMfBKtZT0ktXDJcLpLW" method="POST">
 
-<input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias-ponencia/">
+<input type="hidden" name="_redirect" value="https://acmisantander.github.io/Acmisantander/magazine/gracias-ponencia/">
 
 <label><strong>Nombre completo del ponente</strong></label>
 <input type="text" name="ponente" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -43,11 +43,18 @@ Formulario institucional para el envío de presentaciones académicas en activid
 <label><strong>Observaciones para el comité organizador</strong></label>
 <textarea name="observaciones" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-<label><strong>Subir presentación (PowerPoint o PDF)</strong></label>
-<input type="file" name="archivo" accept=".ppt,.pptx,.pdf" required style="margin:8px 0 22px;">
+<label><strong>Subir presentación PowerPoint o PDF</strong></label>
+
+<input
+type="hidden"
+role="uploadcare-uploader"
+name="archivo"
+data-public-key="demopublickey"
+data-clearable
+/>
 
 <p style="font-size:14px; color:#555;">
-Puede cargar archivos grandes, hasta aproximadamente 100 MB.
+Puede subir archivos grandes sin límite práctico para presentaciones.
 </p>
 
 <button class="btn" type="submit">
@@ -63,3 +70,9 @@ Enviar ponencia
 Volver al inicio
 </a>
 </div>
+
+<script>
+UPLOADCARE_PUBLIC_KEY = 'demopublickey';
+</script>
+
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
