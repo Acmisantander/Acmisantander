@@ -15,11 +15,14 @@ permalink: /magazine/enviar-manuscrito/
     El manuscrito será revisado por el equipo editorial antes de su publicación.
   </p>
 
-  <form action="https://formsubmit.co/santanderacmi@gmail.com" method="POST" enctype="multipart/form-data">
+  <form action="https://formsubmit.co/santanderacmi@gmail.com" method="POST">
 
     <input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="table">
+
+    <!-- redirección después de enviar -->
+    <input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/">
 
     <label><strong>Nombre completo del autor</strong></label>
     <input type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -34,7 +37,7 @@ permalink: /magazine/enviar-manuscrito/
     <input type="text" name="Titulo" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
     <label><strong>Tipo de envío</strong></label>
-    <select name="Tipo de envio" required style="width:100%; padding:12px; margin:8px 0 18px;">
+    <select name="Tipo_de_envio" required style="width:100%; padding:12px; margin:8px 0 18px;">
       <option value="">Seleccione una opción</option>
       <option>Noticia</option>
       <option>Columna de opinión</option>
@@ -47,10 +50,12 @@ permalink: /magazine/enviar-manuscrito/
     <textarea name="Resumen" rows="5" required style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
     <label><strong>Texto del manuscrito</strong></label>
-    <textarea name="Texto del manuscrito" rows="12" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
+    <textarea name="Texto_del_manuscrito" rows="12" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-    <label><strong>Adjuntar manuscrito en PDF</strong></label>
-    <input type="file" name="attachment" accept=".pdf" style="margin:8px 0 22px;">
+    <label><strong>Enlace al manuscrito (PDF o Word)</strong></label>
+    <input type="url" name="Enlace_manuscrito"
+           placeholder="Pegue aquí el enlace de Google Drive, OneDrive o Dropbox"
+           style="width:100%; padding:12px; margin:8px 0 22px;">
 
     <p style="font-size:14px; color:#555;">
       Al enviar este formulario, el autor declara que el contenido es original o cuenta con autorización para su publicación,
