@@ -1,74 +1,57 @@
 ---
 layout: default
-title: Enviar manuscrito
-permalink: /magazine/enviar-manuscrito/
+title: Enviar ponencia
+permalink: /magazine/enviar-ponencias/
 ---
 
-<h1>Enviar manuscrito al Magazine ACMI Santander</h1>
+<h1>Enviar ponencia</h1>
 
 <div class="card">
 
-<h2>Sistema de recepción editorial</h2>
+<h2>Recepción de ponencias</h2>
 
 <p>
-Complete este formulario para enviar noticias, columnas de opinión, editoriales o artículos académicos.
-El manuscrito será revisado por el equipo editorial antes de su publicación.
+Formulario institucional para el envío de presentaciones académicas en actividades científicas organizadas o avaladas por ACMI Santander 
+(simposios, cursos, jornadas, talleres y otros eventos académicos).
 </p>
 
-<div style="margin-bottom:25px;">
-  <a class="btn" href="{{ site.baseurl }}/magazine/manual-publicacion/">
-    Ver manual de publicación
-  </a>
-</div>
+<form accept-charset="UTF-8" action="https://usebasin.com/f/51e6ea4ab996" method="POST" enctype="multipart/form-data">
 
-<form action="https://formsubmit.co/santanderacmi@gmail.com" method="POST" enctype="multipart/form-data">
+<input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias-ponencia/">
 
-<input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias/">
-
-<input type="hidden" name="_autoresponse"
-value="Estimado autor: Hemos recibido su manuscrito para revisión editorial en el Magazine ACMI Santander. Nuestro comité editorial evaluará el contenido y se comunicará con usted en caso de requerir ajustes o información adicional. Gracias por contribuir a la educación médica continuada.">
-
-<label><strong>Nombre completo del autor</strong></label>
-<input type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<label><strong>Nombre completo del ponente</strong></label>
+<input type="text" name="ponente" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Afiliación institucional</strong></label>
-<input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input type="text" name="afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Correo electrónico</strong></label>
 <input type="email" name="email" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
-<label><strong>Título del manuscrito</strong></label>
-<input type="text" name="Titulo" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<label><strong>Teléfono de contacto</strong></label>
+<input type="text" name="telefono" style="width:100%; padding:12px; margin:8px 0 18px;">
 
-<label><strong>Tipo de envío</strong></label>
-<select name="Tipo_de_envio" required style="width:100%; padding:12px; margin:8px 0 18px;">
-  <option value="">Seleccione una opción</option>
-  <option>Noticia</option>
-  <option>Columna de opinión</option>
-  <option>Editorial</option>
-  <option>Artículo académico</option>
-  <option>Reporte institucional</option>
+<label><strong>Título de la ponencia</strong></label>
+<input type="text" name="titulo_ponencia" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Evento al que pertenece la ponencia</strong></label>
+<select name="evento" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<option value="">Seleccione el evento</option>
+<option>VI Simposio Regional ACMI San Gil Santander</option>
 </select>
 
-<label><strong>Resumen breve</strong></label>
-<textarea name="Resumen" rows="5" required style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
+<label><strong>Observaciones para el comité organizador</strong></label>
+<textarea name="observaciones" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-<label><strong>Texto del manuscrito</strong></label>
-<textarea name="Texto_del_manuscrito" rows="12" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
-
-<label><strong>Adjuntar manuscrito en PDF</strong></label>
-<input type="file" name="attachment" accept=".pdf" required style="margin:8px 0 22px;">
+<label><strong>Subir presentación (PowerPoint o PDF)</strong></label>
+<input type="file" name="archivo" accept=".ppt,.pptx,.pdf" required style="margin:8px 0 22px;">
 
 <p style="font-size:14px; color:#555;">
-Al enviar este formulario, el autor declara que el contenido es original o cuenta con autorización para su publicación,
-y acepta la revisión editorial previa por parte del Magazine ACMI Santander.
+Puede cargar archivos grandes, hasta aproximadamente 100 MB.
 </p>
 
 <button class="btn" type="submit">
-Enviar manuscrito para revisión
+Enviar ponencia
 </button>
 
 </form>
@@ -76,7 +59,7 @@ Enviar manuscrito para revisión
 </div>
 
 <div style="margin-top:25px;">
-  <a class="btn" href="{{ site.baseurl }}/magazine/">
-    Volver al Magazine
-  </a>
+<a class="btn" href="{{ site.baseurl }}/">
+Volver al inicio
+</a>
 </div>
