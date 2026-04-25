@@ -15,7 +15,7 @@ Formulario institucional para el envío de presentaciones académicas en activid
 (simposios, cursos, jornadas, talleres y otros eventos académicos).
 </p>
 
-<form action="https://formsubmit.co/santanderacmi@gmail.com" method="POST" enctype="multipart/form-data">
+<form action="https://formsubmit.co/santanderacmi@gmail.com" method="POST">
 
 <input type="hidden" name="_subject" value="Nueva ponencia recibida — ACMI Santander">
 <input type="hidden" name="_captcha" value="false">
@@ -49,17 +49,15 @@ value="Estimado(a) ponente: Hemos recibido su presentación para las actividades
 <label><strong>Observaciones para el comité organizador</strong></label>
 <textarea name="Observaciones" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-<label><strong>Subir presentación (máximo 10 MB)</strong></label>
-<input type="file" name="attachment" accept=".ppt,.pptx,.pdf" style="margin:8px 0 18px;">
-
 <p style="font-size:14px; color:#555;">
-Si el archivo pesa más de 10 MB, cargue la presentación en Google Drive, OneDrive o Dropbox y pegue el enlace a continuación.
+Para garantizar el envío correcto, cargue la presentación en Google Drive, OneDrive o Dropbox y pegue el enlace a continuación.
 </p>
 
-<label><strong>Enlace de descarga de la presentación (opcional)</strong></label>
+<label><strong>Enlace de descarga de la presentación</strong></label>
 <input 
 type="url" 
 name="Enlace_presentacion" 
+required
 placeholder="Pegue aquí el enlace de Google Drive, OneDrive o Dropbox"
 style="width:100%; padding:12px; margin:8px 0 18px;">
 
