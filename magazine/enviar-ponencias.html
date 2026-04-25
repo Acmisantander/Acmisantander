@@ -15,7 +15,9 @@ Formulario institucional para el envío de presentaciones académicas en activid
 (simposios, cursos, jornadas, talleres y otros eventos académicos).
 </p>
 
-<form action="https://usebasin.com/f/51e6ea4ab996" method="POST" enctype="multipart/form-data">
+<form accept-charset="UTF-8" action="https://usebasin.com/f/51e6ea4ab996" method="POST" enctype="multipart/form-data">
+
+<input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias-ponencia/">
 
 <label><strong>Nombre completo del ponente</strong></label>
 <input type="text" name="ponente" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -33,17 +35,19 @@ Formulario institucional para el envío de presentaciones académicas en activid
 <input type="text" name="titulo_ponencia" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Evento al que pertenece la ponencia</strong></label>
-<input type="text" name="evento" placeholder="Ej: Simposio ACMI, Curso de residentes, Jornada académica"
-style="width:100%; padding:12px; margin:8px 0 18px;">
+<select name="evento" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<option value="">Seleccione el evento</option>
+<option>VI Simposio Regional ACMI San Gil Santander</option>
+</select>
 
 <label><strong>Observaciones para el comité organizador</strong></label>
 <textarea name="observaciones" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
 <label><strong>Subir presentación (PowerPoint o PDF)</strong></label>
-<input type="file" name="archivo" accept=".ppt,.pptx,.pdf" style="margin:8px 0 22px;">
+<input type="file" name="archivo" accept=".ppt,.pptx,.pdf" required style="margin:8px 0 22px;">
 
 <p style="font-size:14px; color:#555;">
-Puede cargar archivos grandes (hasta aproximadamente 100 MB).
+Puede cargar archivos grandes, hasta aproximadamente 100 MB.
 </p>
 
 <button class="btn" type="submit">
