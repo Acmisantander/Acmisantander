@@ -1,1 +1,85 @@
+---
+layout: default
+title: Enviar ponencia
+permalink: /ponencias/enviar-ponencia/
+---
 
+<h1>Enviar ponencia — VI Simposio Regional ACMI Santander</h1>
+
+<div class="card">
+
+<h2>Recepción de ponencias de autores invitados</h2>
+
+<p>
+Complete este formulario para enviar su presentación en formato PowerPoint o PDF.
+El material será recibido por el Comité Organizador del VI Simposio Regional ACMI Santander.
+</p>
+
+<form action="https://formsubmit.co/santanderacmi@gmail.com" method="POST" enctype="multipart/form-data">
+
+<input type="hidden" name="_subject" value="Nueva ponencia recibida - VI Simposio Regional ACMI Santander">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/ponencias/gracias/">
+
+<input type="hidden" name="_autoresponse"
+value="Estimado(a) ponente: Hemos recibido su presentación para el VI Simposio Regional ACMI Santander. El Comité Organizador revisará el archivo enviado y se comunicará con usted en caso de requerir ajustes o información adicional. Muchas gracias por su participación académica.">
+
+<label><strong>Nombre completo del ponente</strong></label>
+<input type="text" name="Ponente" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Afiliación institucional</strong></label>
+<input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Correo electrónico</strong></label>
+<input type="email" name="email" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Teléfono de contacto</strong></label>
+<input type="text" name="Telefono" style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Seleccione el simposio</strong></label>
+<select name="Simposio" required style="width:100%; padding:12px; margin:8px 0 18px;">
+  <option value="">Seleccione una opción</option>
+  <option>VI Simposio Regional ACMI Santander — San Gil 2026</option>
+</select>
+
+<label><strong>Título de la ponencia</strong></label>
+<input type="text" name="Titulo_de_la_ponencia" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Área temática</strong></label>
+<select name="Area_tematica" required style="width:100%; padding:12px; margin:8px 0 18px;">
+  <option value="">Seleccione una opción</option>
+  <option>Medicina interna</option>
+  <option>Cardiología</option>
+  <option>Neumología</option>
+  <option>Endocrinología</option>
+  <option>Gastroenterología</option>
+  <option>Infectología</option>
+  <option>Reumatología</option>
+  <option>Otra</option>
+</select>
+
+<label><strong>Observaciones para el comité organizador</strong></label>
+<textarea name="Observaciones" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
+
+<label><strong>Adjuntar presentación en PowerPoint o PDF</strong></label>
+<input type="file" name="attachment" accept=".ppt,.pptx,.pdf" required style="margin:8px 0 22px;">
+
+<p style="font-size:14px; color:#555;">
+Al enviar este formulario, el ponente autoriza al Comité Organizador del VI Simposio Regional ACMI Santander
+a recibir y revisar el material académico enviado para fines logísticos y académicos del evento.
+</p>
+
+<button class="btn" type="submit">
+Enviar ponencia
+</button>
+
+</form>
+
+</div>
+
+<div style="margin-top:25px;">
+  <a class="btn" href="{{ site.baseurl }}/">
+    Volver al inicio
+  </a>
+</div>
