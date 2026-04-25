@@ -23,7 +23,7 @@ El material será recibido por el Comité Organizador del VI Simposio Regional A
 <input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias/">
 
 <input type="hidden" name="_autoresponse"
-value="Estimado(a) ponente: Hemos recibido su presentación para el VI Simposio Regional ACMI Santander. El Comité Organizador revisará el archivo enviado y se comunicará con usted en caso de requerir ajustes o información adicional. Muchas gracias por su participación académica.">
+value="Estimado(a) ponente: Hemos recibido su presentación para el VI Simposio Regional ACMI Santander. El Comité Organizador revisará el material enviado y se comunicará con usted en caso de requerir ajustes o información adicional. Muchas gracias por su participación académica.">
 
 <label><strong>Nombre completo del ponente</strong></label>
 <input type="text" name="Ponente" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -42,15 +42,31 @@ value="Estimado(a) ponente: Hemos recibido su presentación para el VI Simposio 
 
 <label><strong>Evento</strong></label>
 <select name="Evento" required style="width:100%; padding:12px; margin:8px 0 18px;">
-<option value="">Seleccione el evento</option>
-<option>VI Simposio Regional ACMI Santander — San Gil 2026</option>
+  <option value="">Seleccione el evento</option>
+  <option>VI Simposio Regional ACMI Santander — San Gil 2026</option>
 </select>
 
 <label><strong>Observaciones para el comité organizador</strong></label>
 <textarea name="Observaciones" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-<label><strong>Adjuntar presentación en PowerPoint o PDF</strong></label>
-<input type="file" name="attachment" accept=".ppt,.pptx,.pdf" required style="margin:8px 0 22px;">
+<label><strong>Subir presentación en PowerPoint o PDF máximo 10 MB</strong></label>
+<input type="file" name="attachment" accept=".ppt,.pptx,.pdf" style="margin:8px 0 12px;">
+
+<p style="font-size:14px; color:#555;">
+Puede cargar directamente la presentación si el archivo pesa menos de 10 MB.
+</p>
+
+<label><strong>O pegar enlace de descarga de la presentación</strong></label>
+<input 
+type="url" 
+name="Enlace_de_la_presentacion" 
+placeholder="Pegue aquí el enlace de Google Drive, OneDrive, Dropbox u otro repositorio"
+style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<p style="font-size:14px; color:#555;">
+Si el archivo pesa más de 10 MB, suba la presentación a Google Drive, OneDrive o Dropbox y pegue aquí el enlace. 
+Asegúrese de habilitar el acceso para cualquier persona con el enlace.
+</p>
 
 <p style="font-size:14px; color:#555;">
 Al enviar este formulario, el ponente autoriza al Comité Organizador del VI Simposio Regional ACMI Santander
