@@ -11,22 +11,46 @@ permalink: /magazine/enviar-ponencias/
 <h2>Recepción de ponencias</h2>
 
 <p>
-Formulario institucional para el envío de presentaciones académicas 
-en actividades científicas organizadas o avaladas por ACMI Santander 
-(simposios, cursos, jornadas, talleres y eventos académicos).
+Formulario institucional para el envío de presentaciones académicas en actividades científicas organizadas o avaladas por ACMI Santander 
+(simposios, cursos, jornadas, talleres y otros eventos académicos).
 </p>
 
-<iframe 
-src="https://docs.google.com/forms/d/e/1FAIpQLSeXsCSHyBaPQxiJZhYFwOCgly-wfpS3Y3tnO6M6IGlfZ0HThQ/viewform?embedded=true"
-width="100%" 
-height="1200"
-frameborder="0"
-marginheight="0"
-marginwidth="0">
+<form action="https://usebasin.com/f/51e6ea4ab996" method="POST" enctype="multipart/form-data">
 
-Cargando formulario…
+<label><strong>Nombre completo del ponente</strong></label>
+<input type="text" name="ponente" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
-</iframe>
+<label><strong>Afiliación institucional</strong></label>
+<input type="text" name="afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Correo electrónico</strong></label>
+<input type="email" name="email" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Teléfono de contacto</strong></label>
+<input type="text" name="telefono" style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Título de la ponencia</strong></label>
+<input type="text" name="titulo_ponencia" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Evento al que pertenece la ponencia</strong></label>
+<input type="text" name="evento" placeholder="Ej: Simposio ACMI, Curso de residentes, Jornada académica"
+style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Observaciones para el comité organizador</strong></label>
+<textarea name="observaciones" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
+
+<label><strong>Subir presentación (PowerPoint o PDF)</strong></label>
+<input type="file" name="archivo" accept=".ppt,.pptx,.pdf" style="margin:8px 0 22px;">
+
+<p style="font-size:14px; color:#555;">
+Puede cargar archivos grandes (hasta aproximadamente 100 MB).
+</p>
+
+<button class="btn" type="submit">
+Enviar ponencia
+</button>
+
+</form>
 
 </div>
 
