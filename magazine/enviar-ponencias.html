@@ -15,46 +15,56 @@ Formulario institucional para el envío de presentaciones académicas en activid
 (simposios, cursos, jornadas, talleres y otros eventos académicos).
 </p>
 
-<form action="https://submit-form.com/form_v1_zX1ZPGMfBKtZT0ktXDJcLpLW" method="POST">
+<form action="https://formsubmit.co/santanderacmi@gmail.com" method="POST" enctype="multipart/form-data">
 
-<input type="hidden" name="_redirect" value="https://acmisantander.github.io/Acmisantander/magazine/gracias-ponencia/">
+<input type="hidden" name="_subject" value="Nueva ponencia recibida — ACMI Santander">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias-ponencia/">
+
+<input type="hidden" name="_autoresponse"
+value="Estimado(a) ponente: Hemos recibido su presentación para las actividades académicas de ACMI Santander. El Comité Organizador revisará el material enviado y se comunicará con usted en caso de requerir información adicional. Muchas gracias por su participación académica.">
 
 <label><strong>Nombre completo del ponente</strong></label>
-<input type="text" name="ponente" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input type="text" name="Ponente" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Afiliación institucional</strong></label>
-<input type="text" name="afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Correo electrónico</strong></label>
 <input type="email" name="email" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Teléfono de contacto</strong></label>
-<input type="text" name="telefono" style="width:100%; padding:12px; margin:8px 0 18px;">
+<input type="text" name="Telefono" style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Título de la ponencia</strong></label>
-<input type="text" name="titulo_ponencia" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input type="text" name="Titulo_de_la_ponencia" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Evento al que pertenece la ponencia</strong></label>
-<select name="evento" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<select name="Evento" required style="width:100%; padding:12px; margin:8px 0 18px;">
 <option value="">Seleccione el evento</option>
 <option>VI Simposio Regional ACMI San Gil Santander</option>
 </select>
 
 <label><strong>Observaciones para el comité organizador</strong></label>
-<textarea name="observaciones" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
+<textarea name="Observaciones" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-<label><strong>Subir presentación PowerPoint o PDF</strong></label>
-
-<input
-type="hidden"
-role="uploadcare-uploader"
-name="archivo"
-data-public-key="demopublickey"
-data-clearable
-/>
+<label><strong>Subir presentación (máximo 10 MB)</strong></label>
+<input type="file" name="attachment" accept=".ppt,.pptx,.pdf" style="margin:8px 0 18px;">
 
 <p style="font-size:14px; color:#555;">
-Puede subir archivos grandes sin límite práctico para presentaciones.
+Si el archivo pesa más de 10 MB, cargue la presentación en Google Drive, OneDrive o Dropbox y pegue el enlace a continuación.
+</p>
+
+<label><strong>Enlace de descarga de la presentación (opcional)</strong></label>
+<input 
+type="url" 
+name="Enlace_presentacion" 
+placeholder="Pegue aquí el enlace de Google Drive, OneDrive o Dropbox"
+style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<p style="font-size:14px; color:#555;">
+Asegúrese de habilitar el acceso para cualquier persona con el enlace.
 </p>
 
 <button class="btn" type="submit">
@@ -70,9 +80,3 @@ Enviar ponencia
 Volver al inicio
 </a>
 </div>
-
-<script>
-UPLOADCARE_PUBLIC_KEY = 'demopublickey';
-</script>
-
-<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
