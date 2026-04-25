@@ -15,12 +15,17 @@ Complete este formulario para enviar noticias, columnas de opinión, editoriales
 El manuscrito será revisado por el equipo editorial antes de su publicación.
 </p>
 
+<div style="margin-bottom:25px;">
+  <a class="btn" href="{{ site.baseurl }}/magazine/manual-publicacion/">
+    Ver manual de publicación
+  </a>
+</div>
+
 <form action="https://formsubmit.co/santanderacmi@gmail.com" method="POST" enctype="multipart/form-data">
 
 <input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
-
 <input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias/">
 
 <input type="hidden" name="_autoresponse"
@@ -40,12 +45,12 @@ value="Estimado autor: Hemos recibido su manuscrito para revisión editorial en 
 
 <label><strong>Tipo de envío</strong></label>
 <select name="Tipo_de_envio" required style="width:100%; padding:12px; margin:8px 0 18px;">
-<option value="">Seleccione una opción</option>
-<option>Noticia</option>
-<option>Columna de opinión</option>
-<option>Editorial</option>
-<option>Artículo académico</option>
-<option>Reporte institucional</option>
+  <option value="">Seleccione una opción</option>
+  <option>Noticia</option>
+  <option>Columna de opinión</option>
+  <option>Editorial</option>
+  <option>Artículo académico</option>
+  <option>Reporte institucional</option>
 </select>
 
 <label><strong>Resumen breve</strong></label>
@@ -71,7 +76,7 @@ Enviar manuscrito para revisión
 </div>
 
 <div style="margin-top:25px;">
-<a class="btn" href="{{ site.baseurl }}/magazine/">
-Volver al Magazine
-</a>
+  <a class="btn" href="{{ site.baseurl }}/magazine/">
+    Volver al Magazine
+  </a>
 </div>
