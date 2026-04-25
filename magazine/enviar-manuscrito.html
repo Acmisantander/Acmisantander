@@ -8,70 +8,67 @@ permalink: /magazine/enviar-manuscrito/
 
 <div class="card">
 
-  <h2>Sistema de recepción editorial</h2>
+<h2>Sistema de recepción editorial</h2>
 
-  <p>
-    Complete este formulario para enviar noticias, columnas de opinión, editoriales o artículos académicos.
-    El manuscrito será revisado por el equipo editorial antes de su publicación.
-  </p>
+<p>
+Complete este formulario para enviar noticias, columnas de opinión, editoriales o artículos académicos.
+El manuscrito será revisado por el equipo editorial antes de su publicación.
+</p>
 
-  <form action="https://formsubmit.co/santanderacmi@gmail.com" method="POST">
+<form action="https://formsubmit.co/santanderacmi@gmail.com" method="POST" enctype="multipart/form-data">
 
-    <input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
+<input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
 
-    <!-- redirección después de enviar -->
-    <input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/">
+<input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/">
 
-    <label><strong>Nombre completo del autor</strong></label>
-    <input type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<label><strong>Nombre completo del autor</strong></label>
+<input type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
-    <label><strong>Afiliación institucional</strong></label>
-    <input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<label><strong>Afiliación institucional</strong></label>
+<input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
-    <label><strong>Correo electrónico</strong></label>
-    <input type="email" name="Email" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<label><strong>Correo electrónico</strong></label>
+<input type="email" name="Email" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
-    <label><strong>Título del manuscrito</strong></label>
-    <input type="text" name="Titulo" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<label><strong>Título del manuscrito</strong></label>
+<input type="text" name="Titulo" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
-    <label><strong>Tipo de envío</strong></label>
-    <select name="Tipo_de_envio" required style="width:100%; padding:12px; margin:8px 0 18px;">
-      <option value="">Seleccione una opción</option>
-      <option>Noticia</option>
-      <option>Columna de opinión</option>
-      <option>Editorial</option>
-      <option>Artículo académico</option>
-      <option>Reporte institucional</option>
-    </select>
+<label><strong>Tipo de envío</strong></label>
+<select name="Tipo_de_envio" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<option value="">Seleccione una opción</option>
+<option>Noticia</option>
+<option>Columna de opinión</option>
+<option>Editorial</option>
+<option>Artículo académico</option>
+<option>Reporte institucional</option>
+</select>
 
-    <label><strong>Resumen breve</strong></label>
-    <textarea name="Resumen" rows="5" required style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
+<label><strong>Resumen breve</strong></label>
+<textarea name="Resumen" rows="5" required style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-    <label><strong>Texto del manuscrito</strong></label>
-    <textarea name="Texto_del_manuscrito" rows="12" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
+<label><strong>Texto del manuscrito</strong></label>
+<textarea name="Texto_del_manuscrito" rows="12" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-    <label><strong>Enlace al manuscrito (PDF o Word)</strong></label>
-    <input type="url" name="Enlace_manuscrito"
-           placeholder="Pegue aquí el enlace de Google Drive, OneDrive o Dropbox"
-           style="width:100%; padding:12px; margin:8px 0 22px;">
+<label><strong>Adjuntar manuscrito en PDF</strong></label>
+<input type="file" name="attachment" accept=".pdf" required style="margin:8px 0 22px;">
 
-    <p style="font-size:14px; color:#555;">
-      Al enviar este formulario, el autor declara que el contenido es original o cuenta con autorización para su publicación,
-      y acepta la revisión editorial previa por parte del Magazine ACMI Santander.
-    </p>
+<p style="font-size:14px; color:#555;">
+Al enviar este formulario, el autor declara que el contenido es original o cuenta con autorización para su publicación,
+y acepta la revisión editorial previa por parte del Magazine ACMI Santander.
+</p>
 
-    <button class="btn" type="submit">
-      Enviar manuscrito para revisión
-    </button>
+<button class="btn" type="submit">
+Enviar manuscrito para revisión
+</button>
 
-  </form>
+</form>
 
 </div>
 
 <div style="margin-top:25px;">
-  <a class="btn" href="{{ site.baseurl }}/magazine/">
-    Volver al Magazine
-  </a>
+<a class="btn" href="{{ site.baseurl }}/magazine/">
+Volver al Magazine
+</a>
 </div>
