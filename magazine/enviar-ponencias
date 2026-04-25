@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Enviar ponencia
-permalink: /ponencias/enviar-ponencia/
+permalink: /magazine/enviar-ponencias/
 ---
 
 <h1>Enviar ponencia — VI Simposio Regional ACMI Santander</h1>
@@ -20,7 +20,7 @@ El material será recibido por el Comité Organizador del VI Simposio Regional A
 <input type="hidden" name="_subject" value="Nueva ponencia recibida - VI Simposio Regional ACMI Santander">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/ponencias/gracias/">
+<input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias/">
 
 <input type="hidden" name="_autoresponse"
 value="Estimado(a) ponente: Hemos recibido su presentación para el VI Simposio Regional ACMI Santander. El Comité Organizador revisará el archivo enviado y se comunicará con usted en caso de requerir ajustes o información adicional. Muchas gracias por su participación académica.">
@@ -79,7 +79,7 @@ Enviar ponencia
 </div>
 
 <div style="margin-top:25px;">
-  <a class="btn" href="{{ site.baseurl }}/">
-    Volver al inicio
+  <a class="btn" href="{{ site.baseurl }}/magazine/">
+    Volver al Magazine
   </a>
 </div>
