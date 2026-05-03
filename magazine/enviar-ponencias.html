@@ -24,6 +24,8 @@ Para completar el envío de su ponencia, registre sus datos, suba la presentaci�
 <input type="hidden" name="_subject" value="Nueva ponencia enviada a ACMI Santander">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias-ponencia/">
+<input type="hidden" name="_autoresponse" value="Su ponencia fue recibida correctamente por ACMI Santander. El comité académico revisará la presentación enviada y se comunicará con usted si se requieren ajustes, información adicional o confirmación dentro del programa académico.">
 
 <label><strong>Nombre completo del ponente</strong></label>
 <input type="text" name="Nombre_Ponente" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -32,7 +34,7 @@ Para completar el envío de su ponencia, registre sus datos, suba la presentaci�
 <input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Correo electrónico</strong></label>
-<input type="email" name="Email" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input type="email" name="email" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Título de la ponencia</strong></label>
 <input type="text" name="Titulo_Ponencia" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -60,7 +62,7 @@ Subir ponencia a Google Drive
 
 <div style="margin-top:20px; margin-bottom:20px;">
 <label>
-<input type="checkbox" required>
+<input type="checkbox" name="Confirmacion_Drive" required>
 Confirmo que ya he subido la ponencia en la carpeta institucional de Google Drive.
 </label>
 </div>
