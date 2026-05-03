@@ -1,6 +1,7 @@
 title: ACMI Santander
 description: Asociación Colombiana de Medicina Interna - Capítulo Santander
-baseurl: "/Acmisantander"
-url: "https://acmisantander.github.io"
+
+baseurl: ""
+url: "https://acmisantander.com.co"
 
 permalink: /:categories/:title/
