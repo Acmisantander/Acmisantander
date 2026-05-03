@@ -41,10 +41,12 @@
   scroll-margin-top:30px;
 }
 
-    .container{
-      width:min(var(--ancho), 92%);
-      margin:0 auto;
-    }
+.container{
+  width:100%;
+  max-width:100%;
+  margin:0;
+  padding:0 40px;
+}
 
     .topbar{
       background:var(--azul-acmi-2);
@@ -558,33 +560,44 @@
     <li><a href="#organigrama">Organigrama</a></li>
     <li><a href="#eventos">Eventos</a></li>
 
-    <li>
-      <a href="educacion-medica-continuada/">Educación médica continuada</a>
-    </li>
+<li>
+  <a href="{{ site.baseurl }}/educacion-medica-continuada/">
+    Educación médica continuada
+  </a>
+</li>
 
-  <li><a href="proyeccion-social/">Proyección social</a></li>
+<li>
+  <a href="{{ site.baseurl }}/proyeccion-social/">
+    Proyección social
+  </a>
+</li>
 
 <li class="dropdown">
-<a href="{{ site.baseurl }}/magazine/">Magazine</a>
+  <a href="{{ site.baseurl }}/magazine/">Magazine</a>
 
-<ul class="dropdown-menu">
+  <ul class="dropdown-menu">
+    <li>
+      <a href="{{ site.baseurl }}/magazine/">Noticias y opinión</a>
+    </li>
 
-<li><a href="{{ site.baseurl }}/magazine/">Noticias y opinión</a></li>
+    <li>
+      <a href="{{ site.baseurl }}/magazine/manual-publicacion/">
+        Manual de publicación
+      </a>
+    </li>
 
-<li><a href="{{ site.baseurl }}/magazine/manual-publicacion/">
-Manual de publicación
-</a></li>
+    <li>
+      <a href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
+        Enviar manuscrito
+      </a>
+    </li>
 
-<li><a href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
-Enviar manuscrito
-</a></li>
-
-<li><a href="{{ site.baseurl }}/magazine/enviar-ponencias/">
-Enviar ponencia
-</a></li>
-
-</ul>
-
+    <li>
+      <a href="{{ site.baseurl }}/magazine/enviar-ponencias/">
+        Enviar ponencia
+      </a>
+    </li>
+  </ul>
 </li>
   </ul>
 </nav>
