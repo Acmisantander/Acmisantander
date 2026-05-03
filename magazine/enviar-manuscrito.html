@@ -19,10 +19,8 @@ Formulario institucional para el envío de manuscritos académicos, columnas de 
 <input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
-
 <input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias/">
-
-<input type="hidden" name="_autoresponse" value="Su manuscrito fue recibido por el Magazine ACMI Santander. El comité editorial revisará su envío y se comunicará con usted si se requieren ajustes o aprobación para publicación.">
+<input type="hidden" name="_autoresponse" value="Su manuscrito fue recibido por el Magazine ACMI Santander. El comité editorial revisará su envío y se comunicará con usted si se requieren ajustes, información adicional o aprobación para publicación.">
 
 <label><strong>Nombre completo del autor</strong></label>
 <input type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -31,7 +29,7 @@ Formulario institucional para el envío de manuscritos académicos, columnas de 
 <input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Correo electrónico</strong></label>
-<input type="email" name="Email" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input type="email" name="email" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Título del manuscrito</strong></label>
 <input type="text" name="Titulo" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -62,7 +60,7 @@ Subir manuscrito a Google Drive
 
 <div style="margin-top:20px; margin-bottom:20px;">
 <label>
-<input type="checkbox" required>
+<input type="checkbox" name="Confirmacion_Drive" required>
 Confirmo que ya he subido el manuscrito en la carpeta institucional de Google Drive.
 </label>
 </div>
