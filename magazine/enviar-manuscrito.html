@@ -64,13 +64,13 @@ style="
 display:none;
 margin:18px 0;
 padding:18px;
-background:#fef2f2;
-border:2px solid #dc2626;
+background:#fff7ed;
+border:2px solid #ea580c;
 border-radius:10px;
-color:#7f1d1d;
+color:#9a3412;
 font-weight:500;
 line-height:1.7;
-box-shadow:0 4px 12px rgba(220,38,38,0.15);
+box-shadow:0 4px 12px rgba(234,88,12,0.15);
 ">
 </div>
 
@@ -184,7 +184,7 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
     mensajeError.style.display = "block";
 
     mensajeError.innerHTML =
-      "<div style='background:#dc2626; color:white; padding:12px 14px; border-radius:8px; font-weight:700; margin-bottom:12px;'>" +
+      "<div style='background:#dc2626; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px; box-shadow:0 2px 8px rgba(220,38,38,0.25);'>" +
       "⚠ El archivo supera el límite máximo permitido de 100 MB." +
       "</div>" +
 
@@ -224,7 +224,7 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
       const resultado = await respuesta.json();
 
       if (!respuesta.ok || !resultado.success) {
-        throw new Error(resultado.error || "No se pudo cargar el archivo.");
+        throw new Error(resultado.error || "No fue posible cargar el archivo.");
       }
 
       barra.style.width = "80%";
@@ -259,12 +259,13 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
     mensajeError.style.display = "block";
 
     mensajeError.innerHTML =
-      "<div style='background:#dc2626; color:white; padding:12px 14px; border-radius:8px; font-weight:700; margin-bottom:12px;'>" +
+      "<div style='background:#ea580c; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px; box-shadow:0 2px 8px rgba(234,88,12,0.25);'>" +
       "⚠ No fue posible cargar el archivo." +
       "</div>" +
 
-      error.message +
-      "<br><br>Puede intentar nuevamente o usar las opciones alternativas.";
+      "<div style='margin-bottom:12px;'>" + error.message + "</div>" +
+
+      "Puede intentar nuevamente o usar las opciones alternativas.";
 
     opciones.open = true;
   }
