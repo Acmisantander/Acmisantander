@@ -18,8 +18,7 @@ Formulario institucional para el envío de ponencias académicas organizadas o a
 <form 
 id="formEnvioPonencia"
 action="https://formsubmit.co/santanderacmi@gmail.com" 
-method="POST" 
-enctype="multipart/form-data">
+method="POST">
 
 <input type="hidden" name="_subject" value="Nueva ponencia enviada a ACMI Santander">
 <input type="hidden" name="_captcha" value="false">
@@ -49,13 +48,16 @@ enctype="multipart/form-data">
 <input 
 id="archivoPonencia"
 type="file" 
-name="attachment" 
 accept=".pdf,.ppt,.pptx,.key,.odp,.doc,.docx"
 style="width:100%; padding:12px; margin:8px 0 18px; border:1px solid #ddd; border-radius:6px;">
 
 <p style="font-size:0.95rem; color:#555; margin-top:-8px;">
-Puede adjuntar archivos en PDF, PPT, PPTX, KEY, ODP, DOC o DOCX. El envío directo permite archivos de hasta <strong>10 MB</strong>.
+La ponencia se cargará primero en Cloudflare R2. Puede adjuntar archivos en PDF, PPT, PPTX, KEY, ODP, DOC o DOCX.
 </p>
+
+<input type="hidden" id="Archivo_Cloudflare_R2" name="Archivo_Cloudflare_R2">
+<input type="hidden" id="Nombre_Archivo_Original" name="Nombre_Archivo_Original">
+<input type="hidden" id="Tamano_Archivo" name="Tamano_Archivo">
 
 <div 
 id="mensajeErrorPonencia" 
@@ -77,11 +79,6 @@ Opciones alternativas para archivos grandes u otros métodos de envío
 </summary>
 
 <div style="margin-top:16px; font-size:0.96rem; line-height:1.7; color:#334155;">
-
-<p>
-Si el archivo supera los <strong>10 MB</strong>, puede presentar dificultades en el envío directo.
-En ese caso, puede utilizar cualquiera de las siguientes alternativas:
-</p>
 
 <label><strong>Enlace de la ponencia (opcional)</strong></label>
 <input 
@@ -118,7 +115,7 @@ También puede enviar la ponencia directamente al correo:
 </div>
 
 <p id="textoCargaPonencia" style="font-size:0.92rem; margin-top:8px; color:#475569;">
-Enviando formulario...
+Preparando carga...
 </p>
 
 </div>
@@ -138,57 +135,87 @@ Volver al inicio
 </div>
 
 <script>
-document.getElementById("formEnvioPonencia").addEventListener("submit", function(event) {
+document.getElementById("formEnvioPonencia").addEventListener("submit", async function(event) {
+  event.preventDefault();
 
+  const CLOUDFLARE_WORKER_URL = "https://dawn-base-5480.santanderacmi.workers.dev";
+
+  const form = this;
   const archivoInput = document.getElementById("archivoPonencia");
   const archivo = archivoInput.files[0];
 
   const boton = document.getElementById("botonEnviarPonencia");
   const barra = document.getElementById("barraPonencia");
   const contenedor = document.getElementById("barraContainerPonencia");
+  const textoCarga = document.getElementById("textoCargaPonencia");
   const mensajeError = document.getElementById("mensajeErrorPonencia");
   const opciones = document.getElementById("opcionesAlternativasPonencia");
 
-  const limiteMB = 10;
-  const limiteBytes = limiteMB * 1024 * 1024;
+  const campoR2 = document.getElementById("Archivo_Cloudflare_R2");
+  const campoOriginal = document.getElementById("Nombre_Archivo_Original");
+  const campoTamano = document.getElementById("Tamano_Archivo");
 
   mensajeError.style.display = "none";
   mensajeError.innerHTML = "";
 
-  if (archivo && archivo.size > limiteBytes) {
-    event.preventDefault();
+  boton.disabled = true;
+  boton.innerText = "Subiendo archivo...";
+  contenedor.style.display = "block";
+  barra.style.width = "15%";
+  textoCarga.innerText = "Subiendo ponencia a Cloudflare R2...";
 
-    mensajeError.style.display = "block";
-    mensajeError.innerHTML =
-      "<strong>El archivo supera los 10 MB.</strong><br>" +
-      "Para evitar errores en el envío, utilice las opciones alternativas: pegue un enlace de Drive, Dropbox, OneDrive o WeTransfer, suba el archivo mediante el botón de Google Drive o envíelo al correo institucional.";
+  try {
+    if (archivo) {
+      const datosCloudflare = new FormData();
 
-    opciones.open = true;
+      datosCloudflare.append("archivo", archivo);
+      datosCloudflare.append("autor", form.Nombre_Ponente.value);
+      datosCloudflare.append("titulo", form.Titulo_Ponencia.value);
 
+      barra.style.width = "35%";
+
+      const respuesta = await fetch(CLOUDFLARE_WORKER_URL, {
+        method: "POST",
+        body: datosCloudflare
+      });
+
+      const resultado = await respuesta.json();
+
+      if (!respuesta.ok || !resultado.success) {
+        throw new Error(resultado.error || "No se pudo cargar el archivo.");
+      }
+
+      barra.style.width = "80%";
+
+      campoR2.value = resultado.fileKey;
+      campoOriginal.value = resultado.originalName;
+      campoTamano.value = resultado.size;
+    } else {
+      campoR2.value = "No se adjuntó archivo";
+      campoOriginal.value = "No se adjuntó archivo";
+      campoTamano.value = "0";
+    }
+
+    boton.innerText = "Enviando información...";
+    textoCarga.innerText = "Archivo cargado. Enviando datos al comité académico...";
+    barra.style.width = "95%";
+
+    form.submit();
+
+  } catch (error) {
     boton.disabled = false;
     boton.innerText = "Enviar información de la ponencia";
 
     contenedor.style.display = "none";
     barra.style.width = "0%";
 
-    return false;
+    mensajeError.style.display = "block";
+    mensajeError.innerHTML =
+      "<strong>No fue posible cargar el archivo a Cloudflare R2.</strong><br>" +
+      error.message +
+      "<br><br>Puede intentar nuevamente o usar las opciones alternativas.";
+
+    opciones.open = true;
   }
-
-  boton.disabled = true;
-  boton.innerText = "Enviando...";
-
-  contenedor.style.display = "block";
-
-  let progreso = 0;
-
-  const intervalo = setInterval(function() {
-    progreso += 8;
-    barra.style.width = progreso + "%";
-
-    if (progreso >= 92) {
-      clearInterval(intervalo);
-    }
-  }, 180);
-
 });
 </script>
