@@ -14,7 +14,7 @@ permalink: /magazine/enviar-manuscrito/
 Formulario institucional para el envío de manuscritos académicos, columnas de opinión, editoriales o artículos para el Magazine ACMI Santander.
 </p>
 
-<form action="https://formsubmit.co/santanderacmi@gmail.com" method="POST" enctype="multipart/form-data">
+<form id="formEnvio" action="https://formsubmit.co/santanderacmi@gmail.com" method="POST" enctype="multipart/form-data">
 
 <input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
 <input type="hidden" name="_captcha" value="false">
@@ -43,6 +43,11 @@ Formulario institucional para el envío de manuscritos académicos, columnas de 
   <option>Noticia</option>
 </select>
 
+<!-- ENLACE PRIMERO -->
+<label><strong>Enlace del manuscrito (opcional)</strong></label>
+<input type="url" name="Link_Archivo" placeholder="Ej: https://drive.google.com/..." style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<!-- ARCHIVO -->
 <label><strong>Cargar manuscrito</strong></label>
 <input 
 type="file" 
@@ -54,24 +59,23 @@ style="width:100%; padding:12px; margin:8px 0 18px; border:1px solid #ddd; borde
 Puede adjuntar archivos en PDF, DOC, DOCX, RTF, ODT, PPT o PPTX.
 </p>
 
+<!-- AVISO -->
 <div style="margin-top:15px; padding:12px; background:#f1f5f9; border-left:4px solid #64748b; border-radius:6px;">
   <p style="margin:0; font-size:0.95rem;">
   <strong>Nota:</strong> Si el archivo supera los <strong>20 MB</strong>, puede presentar dificultades en el envío directo. 
-  En ese caso, puede utilizar alguna de las siguientes alternativas:
+  En ese caso:
   </p>
+
   <ul style="margin-top:8px; font-size:0.95rem;">
-    <li>Subir el archivo a <strong>Google Drive</strong></li>
-    <li>Pegar un enlace de <strong>Drive, Dropbox o WeTransfer</strong></li>
-    <li>Enviar el archivo directamente al correo institucional</li>
+    <li>Pegue un enlace (Drive, Dropbox, WeTransfer)</li>
+    <li>Use el botón de Google Drive (opcional)</li>
   </ul>
 </div>
 
-<label><strong>Enlace del manuscrito (opcional)</strong></label>
-<input type="url" name="Link_Archivo" placeholder="Ej: https://drive.google.com/..." style="width:100%; padding:12px; margin:8px 0 18px;">
-
+<!-- GOOGLE DRIVE -->
 <div style="margin-top:25px; margin-bottom:25px; padding:15px; background:#f8fafc; border-radius:6px;">
 
-<p><strong>Subir archivo a Google Drive:</strong></p>
+<p><strong>Subir archivo a Google Drive (opcional):</strong></p>
 
 <a 
 class="btn" 
@@ -82,24 +86,18 @@ Subir manuscrito a Google Drive
 
 </div>
 
-<div style="margin-top:20px; margin-bottom:20px;">
-<label>
-<input type="checkbox" name="Confirmacion_Alternativa">
-Confirmo que, si no adjunté el archivo directamente, el manuscrito fue enviado por Google Drive, enlace externo o correo electrónico.
-</label>
-</div>
-
-<div style="margin-top:15px; padding:12px; background:#f1f5f9; border-left:4px solid #64748b; border-radius:6px;">
-  <p style="margin:0; font-size:0.95rem;">
-  📧 También puede enviar su manuscrito directamente al correo:
-  <strong>santanderacmi@gmail.com</strong>
-  </p>
-</div>
-
 <label><strong>Mensaje opcional para el comité editorial</strong></label>
 <textarea name="Mensaje" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-<button class="btn" type="submit">
+<!-- BARRA DE CARGA -->
+<div id="barraContainer" style="display:none; margin-bottom:20px;">
+  <div style="width:100%; background:#e5e7eb; border-radius:6px;">
+    <div id="barra" style="width:0%; height:10px; background:#2563eb; border-radius:6px;"></div>
+  </div>
+  <p style="font-size:0.9rem; margin-top:5px;">Enviando formulario...</p>
+</div>
+
+<button id="botonEnviar" class="btn" type="submit">
 Enviar información al comité editorial
 </button>
 
@@ -112,3 +110,23 @@ Enviar información al comité editorial
 Volver al inicio
 </a>
 </div>
+
+<script>
+document.getElementById("formEnvio").addEventListener("submit", function() {
+  const boton = document.getElementById("botonEnviar");
+  const barra = document.getElementById("barra");
+  const contenedor = document.getElementById("barraContainer");
+
+  boton.disabled = true;
+  boton.innerText = "Enviando...";
+
+  contenedor.style.display = "block";
+
+  let progreso = 0;
+  const intervalo = setInterval(() => {
+    progreso += 10;
+    barra.style.width = progreso + "%";
+    if (progreso >= 90) clearInterval(intervalo);
+  }, 200);
+});
+</script>
