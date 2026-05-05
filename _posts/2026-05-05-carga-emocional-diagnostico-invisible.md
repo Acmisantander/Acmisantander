@@ -3,7 +3,7 @@ layout: post
 title: "La carga emocional: el diagnóstico que no aparece en la historia clínica"
 date: 2026-05-05
 author: "Dr. Jaime Gómez"
-affiliation: "Md FACP, , Msc, Internista"
+affiliation: "Md FACP, Msc, Internista"
 categories: magazine
 subcategory: opinion
 excerpt: "La carga emocional y su impacto clínico en pacientes sin hallazgos orgánicos claros."
