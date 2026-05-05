@@ -35,8 +35,6 @@ excerpt: "La carga emocional y su impacto clínico en pacientes sin hallazgos or
 
 <div class="opinion-columns">
 
-<p><strong>La carga emocional: el diagnóstico que no aparece en la historia clínica</strong></p>
-
 <p>No era su primera consulta. Hombre de 45 años, sin antecedentes de relevancia, con múltiples estudios recientes: laboratorio completo, perfil tiroideo, estudios de imagen. Todo dentro de rangos normales. Sin embargo, persistía un cuadro de fatiga, insomnio, dificultad para concentrarse y sensación constante de agotamiento.</p>
 
 <p>“Doctor, algo no está bien”, insistía.</p>
