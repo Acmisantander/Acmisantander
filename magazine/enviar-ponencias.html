@@ -45,6 +45,7 @@ method="POST">
 </select>
 
 <label><strong>Cargar ponencia</strong></label>
+
 <input 
 id="archivoPonencia"
 type="file" 
@@ -52,7 +53,7 @@ accept=".pdf,.ppt,.pptx,.key,.odp,.doc,.docx"
 style="width:100%; padding:12px; margin:8px 0 18px; border:1px solid #ddd; border-radius:6px;">
 
 <p style="font-size:0.95rem; color:#555; margin-top:-8px;">
-Puede adjuntar archivos en PDF, PPT, PPTX, KEY, ODP, DOC o DOCX. Si el archivo supera el limite máximo de 100 MB debes utilizar las opciones alternativas a continuación
+Puede adjuntar archivos en PDF, PPT, PPTX, KEY, ODP, DOC o DOCX. Si el archivo supera el límite máximo de <strong>100 MB</strong>, debe utilizar las opciones alternativas a continuación.
 </p>
 
 <input type="hidden" id="Archivo_Cloudflare_R2" name="Archivo_Cloudflare_R2">
@@ -61,7 +62,18 @@ Puede adjuntar archivos en PDF, PPT, PPTX, KEY, ODP, DOC o DOCX. Si el archivo s
 
 <div 
 id="mensajeErrorPonencia" 
-style="display:none; margin:15px 0; padding:12px; background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; color:#334155;">
+style="
+display:none;
+margin:18px 0;
+padding:18px;
+background:#fff7ed;
+border:2px solid #ea580c;
+border-radius:10px;
+color:#9a3412;
+font-weight:500;
+line-height:1.7;
+box-shadow:0 4px 12px rgba(234,88,12,0.15);
+">
 </div>
 
 <details 
@@ -80,7 +92,12 @@ Opciones alternativas para archivos grandes u otros métodos de envío
 
 <div style="margin-top:16px; font-size:0.96rem; line-height:1.7; color:#334155;">
 
+<p>
+Si el archivo supera los <strong>100 MB</strong>, puede utilizar cualquiera de las siguientes alternativas:
+</p>
+
 <label><strong>Enlace de la ponencia (opcional)</strong></label>
+
 <input 
 type="url" 
 name="Link_Ponencia" 
@@ -106,7 +123,11 @@ También puede enviar la ponencia directamente al correo:
 </details>
 
 <label><strong>Mensaje opcional para el comité académico</strong></label>
-<textarea name="Mensaje" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
+
+<textarea 
+name="Mensaje" 
+rows="5" 
+style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
 <div id="barraContainerPonencia" style="display:none; margin-bottom:22px;">
 
@@ -115,7 +136,7 @@ También puede enviar la ponencia directamente al correo:
 </div>
 
 <p id="textoCargaPonencia" style="font-size:0.92rem; margin-top:8px; color:#475569;">
-Preparando carga...
+Preparando envío...
 </p>
 
 </div>
@@ -136,11 +157,13 @@ Volver al inicio
 
 <script>
 document.getElementById("formEnvioPonencia").addEventListener("submit", async function(event) {
+
   event.preventDefault();
 
   const CLOUDFLARE_WORKER_URL = "https://dawn-base-5480.santanderacmi.workers.dev";
 
   const form = this;
+
   const archivoInput = document.getElementById("archivoPonencia");
   const archivo = archivoInput.files[0];
 
@@ -148,6 +171,7 @@ document.getElementById("formEnvioPonencia").addEventListener("submit", async fu
   const barra = document.getElementById("barraPonencia");
   const contenedor = document.getElementById("barraContainerPonencia");
   const textoCarga = document.getElementById("textoCargaPonencia");
+
   const mensajeError = document.getElementById("mensajeErrorPonencia");
   const opciones = document.getElementById("opcionesAlternativasPonencia");
 
@@ -155,17 +179,41 @@ document.getElementById("formEnvioPonencia").addEventListener("submit", async fu
   const campoOriginal = document.getElementById("Nombre_Archivo_Original");
   const campoTamano = document.getElementById("Tamano_Archivo");
 
+  const limiteMB = 100;
+  const limiteBytes = limiteMB * 1024 * 1024;
+
   mensajeError.style.display = "none";
   mensajeError.innerHTML = "";
 
+  if (archivo && archivo.size > limiteBytes) {
+
+    mensajeError.style.display = "block";
+
+    mensajeError.innerHTML =
+      "<div style='background:#dc2626; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px; box-shadow:0 2px 8px rgba(220,38,38,0.25);'>" +
+      "⚠ El archivo supera el límite máximo permitido de 100 MB." +
+      "</div>" +
+
+      "Utilice las opciones alternativas: enlace de Drive, Dropbox, OneDrive, WeTransfer, Google Drive o envío al correo institucional.";
+
+    opciones.open = true;
+
+    return false;
+  }
+
   boton.disabled = true;
   boton.innerText = "Subiendo archivo...";
+
   contenedor.style.display = "block";
+
   barra.style.width = "15%";
-  textoCarga.innerText = "Subiendo ponencia a Cloudflare R2...";
+
+  textoCarga.innerText = "Cargando archivo...";
 
   try {
+
     if (archivo) {
+
       const datosCloudflare = new FormData();
 
       datosCloudflare.append("archivo", archivo);
@@ -182,7 +230,7 @@ document.getElementById("formEnvioPonencia").addEventListener("submit", async fu
       const resultado = await respuesta.json();
 
       if (!respuesta.ok || !resultado.success) {
-        throw new Error(resultado.error || "No se pudo cargar el archivo.");
+        throw new Error(resultado.error || "No fue posible cargar el archivo.");
       }
 
       barra.style.width = "80%";
@@ -190,30 +238,42 @@ document.getElementById("formEnvioPonencia").addEventListener("submit", async fu
       campoR2.value = resultado.fileKey;
       campoOriginal.value = resultado.originalName;
       campoTamano.value = resultado.size;
+
     } else {
+
       campoR2.value = "No se adjuntó archivo";
       campoOriginal.value = "No se adjuntó archivo";
       campoTamano.value = "0";
+
     }
 
     boton.innerText = "Enviando información...";
-    textoCarga.innerText = "Archivo cargado. Enviando datos al comité académico...";
+    textoCarga.innerText = "Enviando información...";
+
     barra.style.width = "95%";
 
     form.submit();
 
   } catch (error) {
+
     boton.disabled = false;
+
     boton.innerText = "Enviar información de la ponencia";
 
     contenedor.style.display = "none";
+
     barra.style.width = "0%";
 
     mensajeError.style.display = "block";
+
     mensajeError.innerHTML =
-      "<strong>No fue posible cargar el archivo a Cloudflare R2.</strong><br>" +
-      error.message +
-      "<br><br>Puede intentar nuevamente o usar las opciones alternativas.";
+      "<div style='background:#ea580c; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px; box-shadow:0 2px 8px rgba(234,88,12,0.25);'>" +
+      "⚠ No fue posible cargar el archivo." +
+      "</div>" +
+
+      "<div style='margin-bottom:12px;'>" + error.message + "</div>" +
+
+      "Puede intentar nuevamente o usar las opciones alternativas.";
 
     opciones.open = true;
   }
