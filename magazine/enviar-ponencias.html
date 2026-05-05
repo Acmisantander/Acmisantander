@@ -28,54 +28,42 @@ enctype="multipart/form-data">
 <input type="hidden" name="_autoresponse" value="Su ponencia fue recibida correctamente por ACMI Santander. El comité académico revisará la presentación enviada y se comunicará con usted si se requieren ajustes, información adicional o confirmación dentro del programa académico.">
 
 <label><strong>Nombre completo del ponente</strong></label>
-<input 
-type="text" 
-name="Nombre_Ponente" 
-required 
-style="width:100%; padding:12px; margin:8px 0 18px;">
+<input type="text" name="Nombre_Ponente" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Afiliación institucional</strong></label>
-<input 
-type="text" 
-name="Afiliacion" 
-required 
-style="width:100%; padding:12px; margin:8px 0 18px;">
+<input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Correo electrónico</strong></label>
-<input 
-type="email" 
-name="email" 
-required 
-style="width:100%; padding:12px; margin:8px 0 18px;">
+<input type="email" name="email" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Título de la ponencia</strong></label>
-<input 
-type="text" 
-name="Titulo_Ponencia" 
-required 
-style="width:100%; padding:12px; margin:8px 0 18px;">
+<input type="text" name="Titulo_Ponencia" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Evento académico</strong></label>
-<select 
-name="Evento" 
-required 
-style="width:100%; padding:12px; margin:8px 0 18px;">
+<select name="Evento" required style="width:100%; padding:12px; margin:8px 0 18px;">
 <option value="">Seleccione una opción</option>
 <option>VI Simposio Regional ACMI San Gil Santander</option>
 </select>
 
 <label><strong>Cargar ponencia</strong></label>
 <input 
+id="archivoPonencia"
 type="file" 
 name="attachment" 
 accept=".pdf,.ppt,.pptx,.key,.odp,.doc,.docx"
 style="width:100%; padding:12px; margin:8px 0 18px; border:1px solid #ddd; border-radius:6px;">
 
 <p style="font-size:0.95rem; color:#555; margin-top:-8px;">
-Puede adjuntar archivos en PDF, PPT, PPTX, KEY, ODP, DOC o DOCX.
+Puede adjuntar archivos en PDF, PPT, PPTX, KEY, ODP, DOC o DOCX. El envío directo permite archivos de hasta <strong>10 MB</strong>.
 </p>
 
+<div 
+id="mensajeErrorPonencia" 
+style="display:none; margin:15px 0; padding:12px; background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; color:#334155;">
+</div>
+
 <details 
+id="opcionesAlternativasPonencia"
 style="
 margin-top:18px;
 margin-bottom:25px;
@@ -84,23 +72,14 @@ background:#f8fafc;
 border:1px solid #e5e7eb;
 border-radius:8px;">
 
-<summary 
-style="
-cursor:pointer;
-font-weight:600;
-color:#1e293b;">
+<summary style="cursor:pointer; font-weight:600; color:#1e293b;">
 Opciones alternativas para archivos grandes u otros métodos de envío
 </summary>
 
-<div 
-style="
-margin-top:16px;
-font-size:0.96rem;
-line-height:1.7;
-color:#334155;">
+<div style="margin-top:16px; font-size:0.96rem; line-height:1.7; color:#334155;">
 
 <p>
-Si el archivo supera los <strong>20 MB</strong>, puede presentar dificultades en el envío directo.
+Si el archivo supera los <strong>10 MB</strong>, puede presentar dificultades en el envío directo.
 En ese caso, puede utilizar cualquiera de las siguientes alternativas:
 </p>
 
@@ -130,48 +109,21 @@ También puede enviar la ponencia directamente al correo:
 </details>
 
 <label><strong>Mensaje opcional para el comité académico</strong></label>
-<textarea 
-name="Mensaje" 
-rows="5" 
-style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
+<textarea name="Mensaje" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-<div 
-id="barraContainerPonencia" 
-style="display:none; margin-bottom:22px;">
+<div id="barraContainerPonencia" style="display:none; margin-bottom:22px;">
 
-<div 
-style="
-width:100%;
-background:#e5e7eb;
-border-radius:8px;
-overflow:hidden;">
-
-<div 
-id="barraPonencia"
-style="
-width:0%;
-height:12px;
-background:#2563eb;
-transition:width 0.25s;">
+<div style="width:100%; background:#e5e7eb; border-radius:8px; overflow:hidden;">
+<div id="barraPonencia" style="width:0%; height:12px; background:#2563eb; transition:width 0.25s;"></div>
 </div>
 
-</div>
-
-<p 
-id="textoCargaPonencia"
-style="
-font-size:0.92rem;
-margin-top:8px;
-color:#475569;">
+<p id="textoCargaPonencia" style="font-size:0.92rem; margin-top:8px; color:#475569;">
 Enviando formulario...
 </p>
 
 </div>
 
-<button 
-id="botonEnviarPonencia" 
-class="btn" 
-type="submit">
+<button id="botonEnviarPonencia" class="btn" type="submit">
 Enviar información de la ponencia
 </button>
 
@@ -186,13 +138,41 @@ Volver al inicio
 </div>
 
 <script>
-document
-.getElementById("formEnvioPonencia")
-.addEventListener("submit", function() {
+document.getElementById("formEnvioPonencia").addEventListener("submit", function(event) {
+
+  const archivoInput = document.getElementById("archivoPonencia");
+  const archivo = archivoInput.files[0];
 
   const boton = document.getElementById("botonEnviarPonencia");
   const barra = document.getElementById("barraPonencia");
   const contenedor = document.getElementById("barraContainerPonencia");
+  const mensajeError = document.getElementById("mensajeErrorPonencia");
+  const opciones = document.getElementById("opcionesAlternativasPonencia");
+
+  const limiteMB = 10;
+  const limiteBytes = limiteMB * 1024 * 1024;
+
+  mensajeError.style.display = "none";
+  mensajeError.innerHTML = "";
+
+  if (archivo && archivo.size > limiteBytes) {
+    event.preventDefault();
+
+    mensajeError.style.display = "block";
+    mensajeError.innerHTML =
+      "<strong>El archivo supera los 10 MB.</strong><br>" +
+      "Para evitar errores en el envío, utilice las opciones alternativas: pegue un enlace de Drive, Dropbox, OneDrive o WeTransfer, suba el archivo mediante el botón de Google Drive o envíelo al correo institucional.";
+
+    opciones.open = true;
+
+    boton.disabled = false;
+    boton.innerText = "Enviar información de la ponencia";
+
+    contenedor.style.display = "none";
+    barra.style.width = "0%";
+
+    return false;
+  }
 
   boton.disabled = true;
   boton.innerText = "Enviando...";
@@ -201,7 +181,7 @@ document
 
   let progreso = 0;
 
-  const intervalo = setInterval(() => {
+  const intervalo = setInterval(function() {
     progreso += 8;
     barra.style.width = progreso + "%";
 
