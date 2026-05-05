@@ -14,7 +14,7 @@ permalink: /magazine/enviar-manuscrito/
 Formulario institucional para el envío de manuscritos académicos, columnas de opinión, editoriales o artículos para el Magazine ACMI Santander.
 </p>
 
-<form action="https://formsubmit.co/santanderacmi@gmail.com" method="POST">
+<form id="manuscritoForm" action="https://formsubmit.co/santanderacmi@gmail.com" method="POST">
 
 <input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
 <input type="hidden" name="_captcha" value="false">
@@ -22,8 +22,10 @@ Formulario institucional para el envío de manuscritos académicos, columnas de 
 <input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias/">
 <input type="hidden" name="_autoresponse" value="Su manuscrito fue recibido por el Magazine ACMI Santander. El comité editorial revisará su envío y se comunicará con usted si se requieren ajustes, información adicional o aprobación para publicación.">
 
+<input type="hidden" id="Archivo_R2" name="Archivo_R2">
+
 <label><strong>Nombre completo del autor</strong></label>
-<input type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input id="autor" type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Afiliación institucional</strong></label>
 <input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -32,7 +34,7 @@ Formulario institucional para el envío de manuscritos académicos, columnas de 
 <input type="email" name="email" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Título del manuscrito</strong></label>
-<input type="text" name="Titulo" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input id="titulo" type="text" name="Titulo" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Tipo de manuscrito</strong></label>
 <select name="Tipo" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -43,30 +45,25 @@ Formulario institucional para el envío de manuscritos académicos, columnas de 
 <option>Noticia</option>
 </select>
 
-<div style="margin-top:25px; margin-bottom:25px; padding:15px; background:#f5f5f5; border-radius:6px;">
+<label><strong>Cargar manuscrito</strong></label>
+<input 
+id="archivo"
+type="file"
+required
+accept=".pdf,.doc,.docx,.rtf,.odt,.ppt,.pptx"
+style="width:100%; padding:12px; margin:8px 0 18px; border:1px solid #ddd; border-radius:6px;">
 
-<p><strong>1. Primero suba su manuscrito en la carpeta institucional de Google Drive:</strong></p>
+<p style="font-size:0.95rem; color:#555; margin-top:-8px;">
+Formatos permitidos: PDF, DOC, DOCX, RTF, ODT, PPT o PPTX.
+</p>
 
-<a 
-class="btn" 
-href="https://drive.google.com/drive/folders/1mfGTG2P0aAecRK95arPEOpTUP5wqv3s0?usp=drive_link"
-target="_blank">
+<label><strong>Mensaje opcional para el comité editorial</strong></label>
+<textarea name="Mensaje" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-Subir manuscrito a Google Drive
+<p id="estadoCarga" style="font-weight:bold; color:#0f766e;"></p>
 
-</a>
-
-</div>
-
-<div style="margin-top:20px; margin-bottom:20px;">
-<label>
-<input type="checkbox" name="Confirmacion_Drive" required>
-Confirmo que ya he subido el manuscrito en la carpeta institucional de Google Drive.
-</label>
-</div>
-
-<button class="btn" type="submit">
-Enviar información al comité editorial
+<button id="botonEnviar" class="btn" type="submit">
+Enviar manuscrito al comité editorial
 </button>
 
 </form>
@@ -78,3 +75,54 @@ Enviar información al comité editorial
 Volver al inicio
 </a>
 </div>
+
+<script>
+document.getElementById("manuscritoForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const boton = document.getElementById("botonEnviar");
+  const estado = document.getElementById("estadoCarga");
+  const archivo = document.getElementById("archivo").files[0];
+  const autor = document.getElementById("autor").value;
+  const titulo = document.getElementById("titulo").value;
+
+  if (!archivo) {
+    alert("Debe cargar un archivo.");
+    return;
+  }
+
+  boton.disabled = true;
+  boton.innerText = "Cargando manuscrito...";
+  estado.innerText = "Subiendo archivo. No cierre esta ventana.";
+
+  const formData = new FormData();
+  formData.append("archivo", archivo);
+  formData.append("autor", autor);
+  formData.append("titulo", titulo);
+
+  try {
+    const response = await fetch("https://dawn-base-5480.santanderacmi.workers.dev", {
+      method: "POST",
+      body: formData
+    });
+
+    const result = await response.json();
+
+    if (!result.success) {
+      throw new Error(result.error || "Error al cargar el archivo");
+    }
+
+    document.getElementById("Archivo_R2").value = result.fileKey;
+
+    estado.innerText = "Archivo cargado correctamente. Enviando información al comité editorial...";
+
+    e.target.submit();
+
+  } catch (error) {
+    console.error(error);
+    boton.disabled = false;
+    boton.innerText = "Enviar manuscrito al comité editorial";
+    estado.innerText = "Error al cargar el archivo. Intente nuevamente.";
+  }
+});
+</script>
