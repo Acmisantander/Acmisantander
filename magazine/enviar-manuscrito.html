@@ -17,8 +17,7 @@ Formulario institucional para el envío de manuscritos académicos, columnas de 
 <form 
 id="formEnvio"
 action="https://formsubmit.co/santanderacmi@gmail.com" 
-method="POST" 
-enctype="multipart/form-data">
+method="POST">
 
 <input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
 <input type="hidden" name="_captcha" value="false">
@@ -48,15 +47,15 @@ enctype="multipart/form-data">
 </select>
 
 <label><strong>Cargar manuscrito</strong></label>
+
 <input 
 id="archivoAdjunto"
 type="file" 
-name="attachment" 
 accept=".pdf,.doc,.docx,.rtf,.odt,.ppt,.pptx"
 style="width:100%; padding:12px; margin:8px 0 18px; border:1px solid #ddd; border-radius:6px;">
 
 <p style="font-size:0.95rem; color:#555; margin-top:-8px;">
-Puede adjuntar archivos en PDF, DOC, DOCX, RTF, ODT, PPT o PPTX. El envío directo permite archivos de hasta <strong>10 MB</strong>.
+Puede adjuntar archivos en PDF, DOC, DOCX, RTF, ODT, PPT o PPTX. Si el archivo supera el límite máximo de <strong>100 MB</strong>, debe utilizar las opciones alternativas a continuación.
 </p>
 
 <div 
@@ -81,11 +80,11 @@ Opciones alternativas para archivos grandes u otros métodos de envío
 <div style="margin-top:16px; font-size:0.96rem; line-height:1.7; color:#334155;">
 
 <p>
-Si el archivo supera los <strong>10 MB</strong>, puede presentar dificultades en el envío directo.
-En ese caso, puede utilizar cualquiera de las siguientes alternativas:
+Si el archivo supera los <strong>100 MB</strong>, puede utilizar cualquiera de las siguientes alternativas:
 </p>
 
 <label><strong>Enlace del manuscrito (opcional)</strong></label>
+
 <input 
 type="url" 
 name="Link_Archivo" 
@@ -111,7 +110,11 @@ También puede enviar el manuscrito directamente al correo:
 </details>
 
 <label><strong>Mensaje opcional para el comité editorial</strong></label>
-<textarea name="Mensaje" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
+
+<textarea 
+name="Mensaje" 
+rows="5" 
+style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
 <div id="barraContainer" style="display:none; margin-bottom:22px;">
 
@@ -120,7 +123,7 @@ También puede enviar el manuscrito directamente al correo:
 </div>
 
 <p id="textoCarga" style="font-size:0.92rem; margin-top:8px; color:#475569;">
-Enviando formulario...
+Preparando envío...
 </p>
 
 </div>
@@ -140,7 +143,13 @@ Volver al inicio
 </div>
 
 <script>
-document.getElementById("formEnvio").addEventListener("submit", function(event) {
+document.getElementById("formEnvio").addEventListener("submit", async function(event) {
+
+  event.preventDefault();
+
+  const CLOUDFLARE_WORKER_URL = "https://dawn-base-5480.santanderacmi.workers.dev";
+
+  const form = this;
 
   const archivoInput = document.getElementById("archivoAdjunto");
   const archivo = archivoInput.files[0];
@@ -148,49 +157,99 @@ document.getElementById("formEnvio").addEventListener("submit", function(event) 
   const boton = document.getElementById("botonEnviar");
   const barra = document.getElementById("barra");
   const contenedor = document.getElementById("barraContainer");
+  const textoCarga = document.getElementById("textoCarga");
+
   const mensajeError = document.getElementById("mensajeErrorArchivo");
   const opciones = document.getElementById("opcionesAlternativas");
 
-  const limiteMB = 10;
+  const limiteMB = 100;
   const limiteBytes = limiteMB * 1024 * 1024;
 
   mensajeError.style.display = "none";
   mensajeError.innerHTML = "";
 
   if (archivo && archivo.size > limiteBytes) {
-    event.preventDefault();
 
     mensajeError.style.display = "block";
+
     mensajeError.innerHTML =
-      "<strong>El archivo supera los 10 MB.</strong><br>" +
-      "Para evitar errores en el envío, utilice las opciones alternativas: pegue un enlace de Drive, Dropbox, OneDrive o WeTransfer, suba el archivo mediante el botón de Google Drive o envíelo al correo institucional.";
+      "<strong>El archivo supera el límite máximo de 100 MB.</strong><br>" +
+      "Utilice las opciones alternativas: enlace de Drive, Dropbox, OneDrive, WeTransfer, Google Drive o envío al correo institucional.";
 
     opciones.open = true;
-
-    boton.disabled = false;
-    boton.innerText = "Enviar información al comité editorial";
-
-    contenedor.style.display = "none";
-    barra.style.width = "0%";
 
     return false;
   }
 
   boton.disabled = true;
-  boton.innerText = "Enviando...";
+  boton.innerText = "Subiendo archivo...";
 
   contenedor.style.display = "block";
 
-  let progreso = 0;
+  barra.style.width = "15%";
 
-  const intervalo = setInterval(function() {
-    progreso += 8;
-    barra.style.width = progreso + "%";
+  textoCarga.innerText = "Cargando archivo...";
 
-    if (progreso >= 92) {
-      clearInterval(intervalo);
+  try {
+
+    if (archivo) {
+
+      const datosCloudflare = new FormData();
+
+      datosCloudflare.append("archivo", archivo);
+      datosCloudflare.append("autor", form.Autor.value);
+      datosCloudflare.append("titulo", form.Titulo.value);
+
+      barra.style.width = "35%";
+
+      const respuesta = await fetch(CLOUDFLARE_WORKER_URL, {
+        method: "POST",
+        body: datosCloudflare
+      });
+
+      const resultado = await respuesta.json();
+
+      if (!respuesta.ok || !resultado.success) {
+        throw new Error(resultado.error || "No se pudo cargar el archivo.");
+      }
+
+      barra.style.width = "80%";
+
+      const campoR2 = document.createElement("input");
+
+      campoR2.type = "hidden";
+      campoR2.name = "Archivo_R2";
+      campoR2.value = resultado.fileKey;
+
+      form.appendChild(campoR2);
+
     }
-  }, 180);
 
+    boton.innerText = "Enviando información...";
+    textoCarga.innerText = "Enviando información...";
+
+    barra.style.width = "95%";
+
+    form.submit();
+
+  } catch (error) {
+
+    boton.disabled = false;
+
+    boton.innerText = "Enviar información al comité editorial";
+
+    contenedor.style.display = "none";
+
+    barra.style.width = "0%";
+
+    mensajeError.style.display = "block";
+
+    mensajeError.innerHTML =
+      "<strong>No fue posible cargar el archivo.</strong><br>" +
+      error.message +
+      "<br><br>Puede intentar nuevamente o usar las opciones alternativas.";
+
+    opciones.open = true;
+  }
 });
 </script>
