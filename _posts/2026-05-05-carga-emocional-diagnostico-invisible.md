@@ -22,8 +22,9 @@ excerpt: "La carga emocional y su impacto clínico en pacientes sin hallazgos or
   margin-bottom: 1.1rem;
 }
 
-.opinion-columns div {
+.section-block {
   break-inside: avoid;
+  margin-top: 1.5rem;
 }
 
 @media (max-width: 768px) {
@@ -73,16 +74,20 @@ excerpt: "La carga emocional y su impacto clínico en pacientes sin hallazgos or
 
 <p>Y, sin embargo, pocas cosas son tan reales en la práctica clínica como aquello que no aparece en la historia</p>
 
-<br><br>
+<div class="section-block">
+<hr>
+<h4>Referencias</h4>
 
 <p>George Engel. The need for a new medical model: a challenge for biomedicine. Science. 1977.</p>
 
-<br>
-
 <p>Bruce McEwen. Protective and damaging effects of stress mediators. New England Journal of Medicine. 1998.</p>
+</div>
 
-<br><br>
+<div class="section-block">
+<hr>
+<h4>Sobre el autor</h4>
 
 <p>Jaime Alberto Gómez Ayala, Md FACP, , Msc, Internista, Docente Unab, Expresidente ACMI Santander 2016-2020, Socio Fundador Fundación Clínica, miembro Junta directiva ACMI Santander 2026.</p>
+</div>
 
 </div>
