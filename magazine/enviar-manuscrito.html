@@ -14,7 +14,7 @@ permalink: /magazine/enviar-manuscrito/
 Formulario institucional para el envío de manuscritos académicos, columnas de opinión, editoriales o artículos para el Magazine ACMI Santander.
 </p>
 
-<form id="manuscritoForm" action="https://formsubmit.co/santanderacmi@gmail.com" method="POST">
+<form action="https://formsubmit.co/santanderacmi@gmail.com" method="POST" enctype="multipart/form-data">
 
 <input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
 <input type="hidden" name="_captcha" value="false">
@@ -22,10 +22,8 @@ Formulario institucional para el envío de manuscritos académicos, columnas de 
 <input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias/">
 <input type="hidden" name="_autoresponse" value="Su manuscrito fue recibido por el Magazine ACMI Santander. El comité editorial revisará su envío y se comunicará con usted si se requieren ajustes, información adicional o aprobación para publicación.">
 
-<input type="hidden" id="Archivo_R2" name="Archivo_R2">
-
 <label><strong>Nombre completo del autor</strong></label>
-<input id="autor" type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Afiliación institucional</strong></label>
 <input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -34,7 +32,7 @@ Formulario institucional para el envío de manuscritos académicos, columnas de 
 <input type="email" name="email" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Título del manuscrito</strong></label>
-<input id="titulo" type="text" name="Titulo" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input type="text" name="Titulo" required style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Tipo de manuscrito</strong></label>
 <select name="Tipo" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -45,53 +43,68 @@ Formulario institucional para el envío de manuscritos académicos, columnas de 
   <option>Noticia</option>
 </select>
 
-<label><strong>Cargar manuscrito directamente</strong></label>
+<label><strong>Cargar manuscrito</strong></label>
 <input 
-id="archivo"
-type="file"
+type="file" 
+name="attachment" 
 accept=".pdf,.doc,.docx,.rtf,.odt,.ppt,.pptx"
 style="width:100%; padding:12px; margin:8px 0 18px; border:1px solid #ddd; border-radius:6px;">
 
 <p style="font-size:0.95rem; color:#555; margin-top:-8px;">
-Formatos permitidos: PDF, DOC, DOCX, RTF, ODT, PPT o PPTX. Para archivos mayores de 100 MB, use el botón de Google Drive como respaldo.
+Puede adjuntar archivos en PDF, DOC, DOCX, RTF, ODT, PPT o PPTX.
 </p>
 
-<div style="margin-top:20px; margin-bottom:25px; padding:15px; background:#f5f5f5; border-radius:6px;">
-  <p><strong>Respaldo para archivos grandes:</strong></p>
-
-  <p style="margin-bottom:12px;">
-  Si el cargue directo falla o el archivo es muy pesado, súbalo a la carpeta institucional de Google Drive y luego envíe este formulario.
+<!-- AVISO IMPORTANTE -->
+<div style="margin-top:15px; padding:12px; background:#fff7ed; border-left:4px solid #f97316; border-radius:6px;">
+  <p style="margin:0; font-size:0.95rem;">
+  ⚠️ <strong>Importante:</strong> Si el archivo supera los <strong>20 MB</strong>, puede fallar el envío directo. 
+  En ese caso, puede utilizar cualquiera de las siguientes opciones:
   </p>
+  <ul style="margin-top:8px; font-size:0.95rem;">
+    <li>Subir el archivo a <strong>Google Drive</strong></li>
+    <li>Pegar un enlace de <strong>Drive, Dropbox o WeTransfer</strong></li>
+    <li>Enviar el archivo directamente al correo institucional</li>
+  </ul>
+</div>
 
-  <a 
-  class="btn" 
-  href="https://drive.google.com/drive/folders/1mfGTG2P0aAecRK95arPEOpTUP5wqv3s0?usp=drive_link"
-  target="_blank">
-  Subir manuscrito a Google Drive
-  </a>
+<!-- CAMPO DE ENLACE -->
+<label><strong>Enlace del manuscrito (opcional)</strong></label>
+<input type="url" name="Link_Archivo" placeholder="Ej: https://drive.google.com/..." style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<!-- BOTÓN GOOGLE DRIVE -->
+<div style="margin-top:25px; margin-bottom:25px; padding:15px; background:#f5f5f5; border-radius:6px;">
+
+<p><strong>Subir archivo a Google Drive:</strong></p>
+
+<a 
+class="btn" 
+href="https://drive.google.com/drive/folders/1mfGTG2P0aAecRK95arPEOpTUP5wqv3s0?usp=drive_link"
+target="_blank">
+Subir manuscrito a Google Drive
+</a>
+
 </div>
 
 <div style="margin-top:20px; margin-bottom:20px;">
 <label>
-<input type="checkbox" id="usoDrive" name="Archivo_enviado_por_Google_Drive">
-Confirmo que subí el manuscrito por Google Drive porque el archivo era muy pesado o falló el cargue directo.
+<input type="checkbox" name="Confirmacion_Drive">
+Confirmo que el archivo fue enviado por Google Drive, enlace externo o correo electrónico.
 </label>
+</div>
+
+<!-- OPCIÓN CORREO -->
+<div style="margin-top:15px; padding:12px; background:#eef2ff; border-left:4px solid #6366f1; border-radius:6px;">
+  <p style="margin:0; font-size:0.95rem;">
+  📧 También puede enviar su manuscrito directamente al correo:
+  <strong>santanderacmi@gmail.com</strong>
+  </p>
 </div>
 
 <label><strong>Mensaje opcional para el comité editorial</strong></label>
 <textarea name="Mensaje" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-<p id="estadoCarga" style="font-weight:bold; color:#0f766e;"></p>
-
-<div id="barraContainer" style="display:none; margin-top:15px; margin-bottom:20px;">
-  <div style="width:100%; background:#e5e7eb; border-radius:8px; overflow:hidden;">
-    <div id="barraProgreso" style="width:0%; height:14px; background:#16a34a; transition:width 0.3s;"></div>
-  </div>
-  <p id="porcentaje" style="font-size:0.9rem; margin-top:6px; color:#374151;">0%</p>
-</div>
-
-<button id="botonEnviar" class="btn" type="submit">
-Enviar manuscrito al comité editorial
+<button class="btn" type="submit">
+Enviar información al comité editorial
 </button>
 
 </form>
@@ -103,100 +116,3 @@ Enviar manuscrito al comité editorial
 Volver al inicio
 </a>
 </div>
-
-<script>
-document.getElementById("manuscritoForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const form = document.getElementById("manuscritoForm");
-  const boton = document.getElementById("botonEnviar");
-  const estado = document.getElementById("estadoCarga");
-  const archivo = document.getElementById("archivo").files[0];
-  const autor = document.getElementById("autor").value;
-  const titulo = document.getElementById("titulo").value;
-  const usoDrive = document.getElementById("usoDrive").checked;
-
-  const barraContainer = document.getElementById("barraContainer");
-  const barraProgreso = document.getElementById("barraProgreso");
-  const porcentaje = document.getElementById("porcentaje");
-
-  const maxMB = 100;
-  const maxBytes = maxMB * 1024 * 1024;
-
-  if (!archivo && !usoDrive) {
-    alert("Debe cargar un archivo directamente o confirmar que lo subió por Google Drive.");
-    return;
-  }
-
-  if (usoDrive && !archivo) {
-    document.getElementById("Archivo_R2").value = "Archivo enviado por Google Drive";
-    estado.innerText = "Enviando información al comité editorial...";
-    boton.disabled = true;
-    boton.innerText = "Enviando información...";
-    form.submit();
-    return;
-  }
-
-  if (archivo.size > maxBytes) {
-    estado.innerText = "El archivo supera 100 MB. Use el botón de Google Drive como respaldo y marque la casilla de confirmación.";
-    barraContainer.style.display = "none";
-    return;
-  }
-
-  boton.disabled = true;
-  boton.innerText = "Cargando manuscrito...";
-  estado.innerText = "Subiendo archivo. No cierre esta ventana.";
-
-  barraContainer.style.display = "block";
-  barraProgreso.style.width = "0%";
-  porcentaje.innerText = "0%";
-
-  const formData = new FormData();
-  formData.append("archivo", archivo);
-  formData.append("autor", autor);
-  formData.append("titulo", titulo);
-
-  const xhr = new XMLHttpRequest();
-
-  xhr.open("POST", "https://dawn-base-5480.santanderacmi.workers.dev", true);
-
-  xhr.upload.onprogress = function(event) {
-    if (event.lengthComputable) {
-      const percent = Math.round((event.loaded / event.total) * 100);
-      barraProgreso.style.width = percent + "%";
-      porcentaje.innerText = percent + "%";
-    }
-  };
-
-  xhr.onload = function() {
-    try {
-      const result = JSON.parse(xhr.responseText);
-
-      if (xhr.status === 200 && result.success) {
-        document.getElementById("Archivo_R2").value = result.fileKey;
-        estado.innerText = "Archivo cargado correctamente. Enviando información al comité editorial...";
-        boton.innerText = "Enviando información...";
-        form.submit();
-      } else {
-        throw new Error(result.error || xhr.responseText || "Error al cargar el archivo");
-      }
-    } catch (error) {
-      boton.disabled = false;
-      boton.innerText = "Enviar manuscrito al comité editorial";
-      estado.innerText = "Error al cargar el archivo. Si el archivo es pesado, use Google Drive como respaldo.";
-      barraProgreso.style.width = "0%";
-      porcentaje.innerText = "0%";
-    }
-  };
-
-  xhr.onerror = function() {
-    boton.disabled = false;
-    boton.innerText = "Enviar manuscrito al comité editorial";
-    estado.innerText = "Error de conexión. Si el archivo es pesado, use Google Drive como respaldo.";
-    barraProgreso.style.width = "0%";
-    porcentaje.innerText = "0%";
-  };
-
-  xhr.send(formData);
-});
-</script>
