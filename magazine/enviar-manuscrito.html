@@ -20,35 +20,58 @@ Formulario institucional para el envío de manuscritos académicos, columnas de 
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias/">
-<input type="hidden" name="_autoresponse" value="Su manuscrito fue recibido por el Magazine ACMI Santander. El comité editorial revisará su envío y se comunicará con usted si se requieren ajustes, información adicional o aprobación para publicación.">
+<input type="hidden" name="_autoresponse" value="Su manuscrito fue recibido por el Magazine ACMI Santander. El comité editorial revisará el contenido recibido y se comunicará con el autor en caso de requerir ajustes, información adicional o aprobación para publicación.">
 
+<!-- AUTOR -->
 <label><strong>Nombre completo del autor</strong></label>
-<input type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input 
+type="text" 
+name="Autor" 
+required 
+style="width:100%; padding:12px; margin:8px 0 18px;">
 
+<!-- AFILIACIÓN -->
 <label><strong>Afiliación institucional</strong></label>
-<input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input 
+type="text" 
+name="Afiliacion" 
+required 
+style="width:100%; padding:12px; margin:8px 0 18px;">
 
+<!-- EMAIL -->
 <label><strong>Correo electrónico</strong></label>
-<input type="email" name="email" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input 
+type="email" 
+name="email" 
+required 
+style="width:100%; padding:12px; margin:8px 0 18px;">
 
+<!-- TITULO -->
 <label><strong>Título del manuscrito</strong></label>
-<input type="text" name="Titulo" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input 
+type="text" 
+name="Titulo" 
+required 
+style="width:100%; padding:12px; margin:8px 0 18px;">
 
+<!-- TIPO -->
 <label><strong>Tipo de manuscrito</strong></label>
-<select name="Tipo" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<select 
+name="Tipo" 
+required 
+style="width:100%; padding:12px; margin:8px 0 18px;">
+
   <option value="">Seleccione una opción</option>
   <option>Artículo académico</option>
   <option>Editorial</option>
   <option>Columna de opinión</option>
   <option>Noticia</option>
-</select>
 
-<!-- ENLACE PRIMERO -->
-<label><strong>Enlace del manuscrito (opcional)</strong></label>
-<input type="url" name="Link_Archivo" placeholder="Ej: https://drive.google.com/..." style="width:100%; padding:12px; margin:8px 0 18px;">
+</select>
 
 <!-- ARCHIVO -->
 <label><strong>Cargar manuscrito</strong></label>
+
 <input 
 type="file" 
 name="attachment" 
@@ -56,47 +79,80 @@ accept=".pdf,.doc,.docx,.rtf,.odt,.ppt,.pptx"
 style="width:100%; padding:12px; margin:8px 0 18px; border:1px solid #ddd; border-radius:6px;">
 
 <p style="font-size:0.95rem; color:#555; margin-top:-8px;">
-Puede adjuntar archivos en PDF, DOC, DOCX, RTF, ODT, PPT o PPTX.
+Puede adjuntar archivos en PDF, DOC, DOCX, RTF, ODT, PPT o PPTX. 
+Si el archivo supera los 20 MB, utilice las opciones alternativas.
 </p>
 
-<!-- AVISO -->
-<div style="margin-top:15px; padding:12px; background:#f1f5f9; border-left:4px solid #64748b; border-radius:6px;">
-  <p style="margin:0; font-size:0.95rem;">
-  <strong>Nota:</strong> Si el archivo supera los <strong>20 MB</strong>, puede presentar dificultades en el envío directo. 
-  En ese caso:
+<!-- OPCIONES DESPLEGABLES -->
+<details style="margin-top:15px; margin-bottom:25px; padding:14px; background:#f8fafc; border:1px solid #e5e7eb; border-radius:8px;">
+
+  <summary style="cursor:pointer; font-weight:600; color:#1e293b;">
+    Opciones alternativas para archivos grandes u otros métodos de envío
+  </summary>
+
+  <div style="margin-top:14px; font-size:0.95rem; line-height:1.6; color:#334155;">
+
+    <p>
+      Si el archivo supera los <strong>20 MB</strong>, puede presentar dificultades en el envío directo.
+      En ese caso, puede utilizar cualquiera de las siguientes alternativas:
+    </p>
+
+    <!-- LINK -->
+    <label><strong>Enlace del manuscrito (opcional)</strong></label>
+
+    <input 
+      type="url" 
+      name="Link_Archivo" 
+      placeholder="Ej: enlace de Google Drive, Dropbox o WeTransfer"
+      style="width:100%; padding:12px; margin:8px 0 18px;">
+
+    <!-- GOOGLE DRIVE -->
+    <p><strong>Subir archivo a Google Drive (opcional)</strong></p>
+
+    <a 
+      class="btn" 
+      href="https://drive.google.com/drive/folders/1mfGTG2P0aAecRK95arPEOpTUP5wqv3s0?usp=drive_link"
+      target="_blank">
+      Subir manuscrito a Google Drive
+    </a>
+
+    <!-- CORREO -->
+    <p style="margin-top:18px;">
+      También puede enviar el manuscrito directamente al correo:
+      <strong>santanderacmi@gmail.com</strong>
+    </p>
+
+  </div>
+
+</details>
+
+<!-- MENSAJE -->
+<label><strong>Mensaje opcional para el comité editorial</strong></label>
+
+<textarea 
+name="Mensaje" 
+rows="5" 
+style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
+
+<!-- BARRA -->
+<div id="barraContainer" style="display:none; margin-bottom:20px;">
+
+  <div style="width:100%; background:#e5e7eb; border-radius:6px; overflow:hidden;">
+
+    <div 
+      id="barra" 
+      style="width:0%; height:10px; background:#2563eb; border-radius:6px;">
+    </div>
+
+  </div>
+
+  <p style="font-size:0.9rem; margin-top:5px;">
+    Enviando formulario...
   </p>
 
-  <ul style="margin-top:8px; font-size:0.95rem;">
-    <li>Pegue un enlace (Drive, Dropbox, WeTransfer)</li>
-    <li>Use el botón de Google Drive (opcional)</li>
-  </ul>
 </div>
 
-<!-- GOOGLE DRIVE -->
-<div style="margin-top:25px; margin-bottom:25px; padding:15px; background:#f8fafc; border-radius:6px;">
-
-<p><strong>Subir archivo a Google Drive (opcional):</strong></p>
-
-<a 
-class="btn" 
-href="https://drive.google.com/drive/folders/1mfGTG2P0aAecRK95arPEOpTUP5wqv3s0?usp=drive_link"
-target="_blank">
-Subir manuscrito a Google Drive
-</a>
-
-</div>
-
-<label><strong>Mensaje opcional para el comité editorial</strong></label>
-<textarea name="Mensaje" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
-
-<!-- BARRA DE CARGA -->
-<div id="barraContainer" style="display:none; margin-bottom:20px;">
-  <div style="width:100%; background:#e5e7eb; border-radius:6px;">
-    <div id="barra" style="width:0%; height:10px; background:#2563eb; border-radius:6px;"></div>
-  </div>
-  <p style="font-size:0.9rem; margin-top:5px;">Enviando formulario...</p>
-</div>
-
+<!-- BOTON -->
 <button id="botonEnviar" class="btn" type="submit">
 Enviar información al comité editorial
 </button>
@@ -105,14 +161,20 @@ Enviar información al comité editorial
 
 </div>
 
+<!-- VOLVER -->
 <div style="margin-top:25px;">
+
 <a class="btn" href="{{ site.baseurl }}/">
 Volver al inicio
 </a>
+
 </div>
 
+<!-- SCRIPT -->
 <script>
+
 document.getElementById("formEnvio").addEventListener("submit", function() {
+
   const boton = document.getElementById("botonEnviar");
   const barra = document.getElementById("barra");
   const contenedor = document.getElementById("barraContainer");
@@ -123,10 +185,19 @@ document.getElementById("formEnvio").addEventListener("submit", function() {
   contenedor.style.display = "block";
 
   let progreso = 0;
+
   const intervalo = setInterval(() => {
+
     progreso += 10;
+
     barra.style.width = progreso + "%";
-    if (progreso >= 90) clearInterval(intervalo);
+
+    if (progreso >= 90) {
+      clearInterval(intervalo);
+    }
+
   }, 200);
+
 });
+
 </script>
