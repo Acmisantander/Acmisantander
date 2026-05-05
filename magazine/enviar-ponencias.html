@@ -15,11 +15,11 @@ Formulario institucional para el envío de ponencias académicas organizadas o a
 (simposios, cursos, jornadas, talleres y otros eventos académicos).
 </p>
 
-<p>
-Para completar el envío de su ponencia, registre sus datos, suba la presentación a Google Drive y confirme el envío.
-</p>
-
-<form action="https://formsubmit.co/santanderacmi@gmail.com" method="POST">
+<form 
+id="formEnvioPonencia"
+action="https://formsubmit.co/santanderacmi@gmail.com" 
+method="POST" 
+enctype="multipart/form-data">
 
 <input type="hidden" name="_subject" value="Nueva ponencia enviada a ACMI Santander">
 <input type="hidden" name="_captcha" value="false">
@@ -28,46 +28,150 @@ Para completar el envío de su ponencia, registre sus datos, suba la presentaci�
 <input type="hidden" name="_autoresponse" value="Su ponencia fue recibida correctamente por ACMI Santander. El comité académico revisará la presentación enviada y se comunicará con usted si se requieren ajustes, información adicional o confirmación dentro del programa académico.">
 
 <label><strong>Nombre completo del ponente</strong></label>
-<input type="text" name="Nombre_Ponente" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input 
+type="text" 
+name="Nombre_Ponente" 
+required 
+style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Afiliación institucional</strong></label>
-<input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input 
+type="text" 
+name="Afiliacion" 
+required 
+style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Correo electrónico</strong></label>
-<input type="email" name="email" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input 
+type="email" 
+name="email" 
+required 
+style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Título de la ponencia</strong></label>
-<input type="text" name="Titulo_Ponencia" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<input 
+type="text" 
+name="Titulo_Ponencia" 
+required 
+style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <label><strong>Evento académico</strong></label>
-<select name="Evento" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<select 
+name="Evento" 
+required 
+style="width:100%; padding:12px; margin:8px 0 18px;">
 <option value="">Seleccione una opción</option>
 <option>VI Simposio Regional ACMI San Gil Santander</option>
 </select>
 
-<div style="margin-top:25px; margin-bottom:25px; padding:15px; background:#f5f5f5; border-radius:6px; text-align:center;">
+<label><strong>Cargar ponencia</strong></label>
+<input 
+type="file" 
+name="attachment" 
+accept=".pdf,.ppt,.pptx,.key,.odp,.doc,.docx"
+style="width:100%; padding:12px; margin:8px 0 18px; border:1px solid #ddd; border-radius:6px;">
 
-<p><strong>Suba su ponencia en la carpeta institucional de Google Drive:</strong></p>
+<p style="font-size:0.95rem; color:#555; margin-top:-8px;">
+Puede adjuntar archivos en PDF, PPT, PPTX, KEY, ODP, DOC o DOCX.
+</p>
+
+<details 
+style="
+margin-top:18px;
+margin-bottom:25px;
+padding:16px;
+background:#f8fafc;
+border:1px solid #e5e7eb;
+border-radius:8px;">
+
+<summary 
+style="
+cursor:pointer;
+font-weight:600;
+color:#1e293b;">
+Opciones alternativas para archivos grandes u otros métodos de envío
+</summary>
+
+<div 
+style="
+margin-top:16px;
+font-size:0.96rem;
+line-height:1.7;
+color:#334155;">
+
+<p>
+Si el archivo supera los <strong>20 MB</strong>, puede presentar dificultades en el envío directo.
+En ese caso, puede utilizar cualquiera de las siguientes alternativas:
+</p>
+
+<label><strong>Enlace de la ponencia (opcional)</strong></label>
+<input 
+type="url" 
+name="Link_Ponencia" 
+placeholder="Ej: Google Drive, Dropbox, OneDrive o WeTransfer"
+style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<p><strong>Subir archivo a Google Drive (opcional)</strong></p>
 
 <a 
 class="btn" 
 href="https://drive.google.com/drive/folders/1698LR3iRCIVKmTyWjNRRMI-nhHpELREM?usp=drive_link"
 target="_blank">
-
 Subir ponencia a Google Drive
-
 </a>
 
+<p style="margin-top:18px;">
+También puede enviar la ponencia directamente al correo:
+<strong>santanderacmi@gmail.com</strong>
+</p>
+
 </div>
 
-<div style="margin-top:20px; margin-bottom:20px;">
-<label>
-<input type="checkbox" name="Confirmacion_Drive" required>
-Confirmo que ya he subido la ponencia en la carpeta institucional de Google Drive.
-</label>
+</details>
+
+<label><strong>Mensaje opcional para el comité académico</strong></label>
+<textarea 
+name="Mensaje" 
+rows="5" 
+style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
+
+<div 
+id="barraContainerPonencia" 
+style="display:none; margin-bottom:22px;">
+
+<div 
+style="
+width:100%;
+background:#e5e7eb;
+border-radius:8px;
+overflow:hidden;">
+
+<div 
+id="barraPonencia"
+style="
+width:0%;
+height:12px;
+background:#2563eb;
+transition:width 0.25s;">
 </div>
 
-<button class="btn" type="submit">
+</div>
+
+<p 
+id="textoCargaPonencia"
+style="
+font-size:0.92rem;
+margin-top:8px;
+color:#475569;">
+Enviando formulario...
+</p>
+
+</div>
+
+<button 
+id="botonEnviarPonencia" 
+class="btn" 
+type="submit">
 Enviar información de la ponencia
 </button>
 
@@ -80,3 +184,31 @@ Enviar información de la ponencia
 Volver al inicio
 </a>
 </div>
+
+<script>
+document
+.getElementById("formEnvioPonencia")
+.addEventListener("submit", function() {
+
+  const boton = document.getElementById("botonEnviarPonencia");
+  const barra = document.getElementById("barraPonencia");
+  const contenedor = document.getElementById("barraContainerPonencia");
+
+  boton.disabled = true;
+  boton.innerText = "Enviando...";
+
+  contenedor.style.display = "block";
+
+  let progreso = 0;
+
+  const intervalo = setInterval(() => {
+    progreso += 8;
+    barra.style.width = progreso + "%";
+
+    if (progreso >= 92) {
+      clearInterval(intervalo);
+    }
+  }, 180);
+
+});
+</script>
