@@ -67,104 +67,150 @@
 
 .container{
   width:100%;
-  max-width:1400px;
+  max-width:1320px;
   margin:0 auto;
-  padding:0 24px;
+  padding:0 28px;
+}
+
+/* =========================
+   QUIÉNES SOMOS
+========================= */
+
+#quienes{
+  background:#f5f7fb;
 }
 
 #quienes .container{
-  width:100%;
-  max-width:1400px;
-  margin:0 auto;
-  padding:0 24px;
+  max-width:1280px;
 }
 
 #quienes .section-title{
-  width:100%;
   text-align:center;
-  font-size:2.3rem;
-  margin-bottom:20px;
+  font-size:2.6rem;
+  font-weight:800;
+  color:var(--azul-acmi);
+  margin-bottom:18px;
 }
 
 #quienes .section-subtitle{
-  width:100%;
-  max-width:1400px;
-  margin:0 auto 40px auto;
-  font-size:1.1rem;
-  line-height:1.9;
+  max-width:980px;
+  margin:0 auto 36px auto;
+  font-size:1.05rem;
+  line-height:1.8;
   text-align:center;
+  color:#4d627d;
 }
+
+/* BLOQUE PRINCIPAL */
 
 #quienes .about-block{
   width:100%;
-  max-width:1400px;
-  margin:35px auto;
-  padding:45px;
+  max-width:1180px;
+  margin:0 auto;
+  padding:48px 52px;
   background:#ffffff;
-  border-radius:20px;
-  box-shadow:0 8px 24px rgba(0,0,0,0.08);
+  border-radius:24px;
+  box-shadow:0 12px 28px rgba(0,0,0,0.08);
 }
+
+/* TITULOS */
 
 #quienes .about-block h3{
-  font-size:1.5rem;
-  margin-bottom:18px;
-  color:var(--azul-acmi-2);
+  font-size:1.6rem;
+  font-weight:800;
+  margin:30px 0 14px;
+  color:var(--azul-acmi);
+  font-family:'Montserrat',sans-serif;
 }
+
+#quienes .about-block h3:first-child{
+  margin-top:0;
+}
+
+/* PARRAFOS */
 
 #quienes .about-block p{
-  font-size:1.08rem;
-  line-height:1.9;
-  text-align:justify;
+  font-size:1rem;
+  line-height:1.8;
+  color:#243244;
+  text-align:left; /* ← esto arregla el texto raro */
 }
 
-#quienes .objectives-grid{
+/* GRID OBJETIVOS */
+
+#quienes .cards-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:24px;
-  margin-top:30px;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  margin-top:28px;
 }
 
-#quienes .objective-card{
+/* TARJETAS */
+
+#quienes .mini-card{
   background:#ffffff;
-  padding:28px;
+  padding:24px 20px;
   border-radius:18px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.08);
   border-top:4px solid var(--verde-acmi);
-  transition:0.3s ease;
+  box-shadow:0 8px 20px rgba(0,0,0,0.07);
+  transition:.25s ease;
+  min-height:180px;
 }
 
-#quienes .objective-card:hover{
-  transform:translateY(-5px);
+#quienes .mini-card:hover{
+  transform:translateY(-4px);
 }
 
-#quienes .objective-card h4{
-  font-size:1.1rem;
+/* TITULOS TARJETAS */
+
+#quienes .mini-card h4{
+  font-size:1.08rem;
+  text-align:center;
   margin-bottom:12px;
-  color:var(--azul-acmi-2);
+  color:var(--azul-acmi);
+  font-family:'Montserrat',sans-serif;
 }
 
-#quienes .objective-card p{
-  font-size:0.98rem;
-  line-height:1.7;
+/* TEXTO TARJETAS */
+
+#quienes .mini-card p{
+  font-size:.95rem;
+  line-height:1.65;
+  text-align:center;
+  color:#42566f;
 }
 
-@media (max-width:768px){
+/* RESPONSIVE */
 
-  #quienes .section-title{
-    font-size:1.8rem;
-  }
+@media(max-width:992px){
 
-  #quienes .section-subtitle{
-    font-size:1rem;
-    text-align:left;
+  #quienes .cards-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
   #quienes .about-block{
-    padding:28px;
+    padding:38px 34px;
   }
 
-  #quienes .about-block p{
+}
+
+@media(max-width:640px){
+
+  #quienes .section-title{
+    font-size:2rem;
+  }
+
+  #quienes .section-subtitle{
     text-align:left;
+    font-size:1rem;
+  }
+
+  #quienes .cards-grid{
+    grid-template-columns:1fr;
+  }
+
+  #quienes .about-block{
+    padding:28px 22px;
   }
 
 }
