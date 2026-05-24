@@ -14,7 +14,7 @@ permalink: /magazine/enviar-manuscrito/
 Formulario institucional para el envío de manuscritos académicos, columnas de opinión, editoriales o artículos para el Magazine ACMI Santander.
 </p>
 
-<form id="formEnvio" onsubmit="return false;">
+<form id="formEnvio" onsubmit="return enviarFormulario(event);">
 
 <label><strong>Nombre completo del autor</strong></label>
 <input type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -146,16 +146,14 @@ Volver al Magazine
 </div>
 
 <script>
-document.getElementById("formEnvio").addEventListener("submit", async function(event) {
+async function enviarFormulario(event) {
 
   event.preventDefault();
 
-  const FORM_SUBMIT_URL = "https://formsubmit.co/ajax/santanderacmi@gmail.com";
-  const CLOUDFLARE_WORKER_URL = "https://dawn-base-5480.santanderacmi.workers.dev";
+  const WORKER_URL = "https://dawn-base-5480.santanderacmi.workers.dev";
   const URL_GRACIAS = "https://acmisantander.com.co/magazine/gracias/";
 
-  const form = this;
-
+  const form = document.getElementById("formEnvio");
   const archivoInput = document.getElementById("archivoAdjunto");
   const archivo = archivoInput && archivoInput.files.length > 0 ? archivoInput.files[0] : null;
 
@@ -172,17 +170,14 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
   mensajeError.innerHTML = "";
 
   if (archivo && archivo.size > limiteBytes) {
-
     mensajeError.style.display = "block";
-
     mensajeError.innerHTML =
       "<div style='background:#dc2626; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px; text-decoration:underline;'>" +
       "⚠ El archivo supera el límite máximo permitido de 100 MB." +
       "</div>" +
-      "Utilice las opciones alternativas: enlace de Drive, Dropbox, OneDrive, WeTransfer, Google Drive o envío al correo institucional.";
+      "Utilice las opciones alternativas.";
 
     if (opciones) opciones.open = true;
-
     return false;
   }
 
@@ -190,64 +185,44 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
   boton.innerText = "Enviando información...";
 
   contenedor.style.display = "block";
-  barra.style.width = "15%";
+  barra.style.width = "20%";
   textoCarga.innerText = "Preparando envío...";
 
   try {
 
+    const datos = new FormData();
+
     if (archivo) {
-
-      const datosCloudflare = new FormData();
-
-      datosCloudflare.append("archivo", archivo);
-      datosCloudflare.append("autor", form.Autor.value);
-      datosCloudflare.append("titulo", form.Titulo.value);
-
-      barra.style.width = "40%";
-      textoCarga.innerText = "Cargando archivo adjunto...";
-
-      const respuesta = await fetch(CLOUDFLARE_WORKER_URL, {
-        method: "POST",
-        body: datosCloudflare
-      });
-
-      const resultado = await respuesta.json();
-
-      if (!respuesta.ok || !resultado.success) {
-        throw new Error(resultado.error || "No fue posible cargar el archivo.");
-      }
-
-      const campoR2 = document.createElement("input");
-      campoR2.type = "hidden";
-      campoR2.name = "Archivo_R2";
-      campoR2.value = resultado.fileKey || resultado.url || "Archivo cargado en Cloudflare R2";
-
-      form.appendChild(campoR2);
-
-      barra.style.width = "70%";
-      textoCarga.innerText = "Archivo cargado correctamente...";
+      datos.append("archivo", archivo);
     }
 
-    barra.style.width = "85%";
-    textoCarga.innerText = "Enviando formulario...";
+    datos.append("autor", form.Autor.value);
+    datos.append("afiliacion", form.Afiliacion.value);
+    datos.append("email", form.email.value);
+    datos.append("titulo", form.Titulo.value);
+    datos.append("tipo", form.Tipo.value);
+    datos.append("mensaje", form.Mensaje.value);
 
-    const datosFormulario = new FormData(form);
+    if (form.Link_Archivo) {
+      datos.append("linkArchivo", form.Link_Archivo.value);
+    }
 
-    datosFormulario.append("_subject", "Nuevo manuscrito enviado al Magazine ACMI Santander");
-    datosFormulario.append("_captcha", "false");
-    datosFormulario.append("_template", "table");
-    datosFormulario.append("_autoresponse", "Su manuscrito fue recibido por el Magazine ACMI Santander. El comité editorial revisará el contenido recibido y se comunicará con el autor en caso de requerir ajustes, información adicional o aprobación para publicación.");
+    barra.style.width = "45%";
+    textoCarga.innerText = "Cargando información...";
 
-    await fetch(FORM_SUBMIT_URL, {
+    const respuesta = await fetch(WORKER_URL, {
       method: "POST",
-      body: datosFormulario,
-      headers: {
-        "Accept": "application/json"
-      }
+      body: datos
     });
 
+    const resultado = await respuesta.json();
+
+    if (!respuesta.ok || !resultado.success) {
+      throw new Error(resultado.error || "No fue posible completar el envío.");
+    }
+
     barra.style.width = "100%";
-    textoCarga.innerText = "Envío completado";
+    textoCarga.innerText = "Envío completado correctamente";
 
     window.location.href = URL_GRACIAS;
 
@@ -260,16 +235,18 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
     barra.style.width = "0%";
 
     mensajeError.style.display = "block";
-
     mensajeError.innerHTML =
       "<div style='background:#ea580c; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px;'>" +
       "⚠ No fue posible completar el envío." +
       "</div>" +
-      "<div style='margin-bottom:12px;'>" + error.message + "</div>" +
+      "<div style='margin-bottom:12px;'>" +
+      error.message +
+      "</div>" +
       "Puede intentar nuevamente o usar las opciones alternativas.";
 
     if (opciones) opciones.open = true;
   }
 
-});
+  return false;
+}
 </script>
