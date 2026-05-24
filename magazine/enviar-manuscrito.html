@@ -18,11 +18,13 @@ Formulario institucional para el envío de manuscritos académicos, columnas de 
 id="formEnvio"
 action="https://formsubmit.co/santanderacmi@gmail.com"
 method="POST"
+target="_blank"
 onsubmit="return enviarFormulario(event);">
 
 <input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://acmisantander.com.co/magazine/gracias/">
 <input type="hidden" name="_autoresponse" value="Su manuscrito fue recibido por el Magazine ACMI Santander. El comité editorial revisará el contenido recibido y se comunicará con el autor.">
 
 <label><strong>Nombre completo del autor</strong></label>
@@ -226,24 +228,14 @@ async function enviarFormulario(event) {
   barra.style.width = "80%";
   textoCarga.innerText = "Enviando correo de notificación...";
 
-  const datosCorreo = new FormData(form);
-
-  try {
-    await fetch(form.action, {
-      method: "POST",
-      body: datosCorreo,
-      mode: "no-cors"
-    });
-  } catch (errorCorreo) {
-    console.warn("FormSubmit no respondió, pero se continúa a la página de gracias.");
-  }
+  HTMLFormElement.prototype.submit.call(form);
 
   barra.style.width = "100%";
   textoCarga.innerText = "Envío completado correctamente";
 
   setTimeout(function() {
     window.location.href = URL_GRACIAS;
-  }, 1500);
+  }, 1200);
 
   return false;
 }
