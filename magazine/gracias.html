@@ -4,27 +4,188 @@ title: Manuscrito recibido
 permalink: /magazine/gracias/
 ---
 
-<div class="card" style="text-align:center; padding:40px 30px; max-width:800px; margin:40px auto;">
+<section class="gracias-section">
 
-  <h1>Manuscrito recibido</h1>
+  <div class="gracias-card">
 
-  <p style="font-size:18px; line-height:1.7;">
-    Gracias por enviar su manuscrito al <strong>Magazine ACMI Santander</strong>.
-  </p>
+    <div class="check-circle">
+      ✓
+    </div>
 
-  <p style="font-size:17px; line-height:1.7;">
-    El comité editorial revisará el contenido recibido y se comunicará con el autor
-    en caso de requerir ajustes, información adicional o aprobación para publicación.
-  </p>
+    <h1>
+      Manuscrito recibido correctamente
+    </h1>
 
-  <p style="font-size:16px; line-height:1.7; color:#64748b;">
-    También recibirá una confirmación automática en el correo electrónico registrado.
-  </p>
+    <p class="texto-principal">
+      Gracias por enviar su manuscrito al
+      <strong>Magazine ACMI Santander</strong>.
+    </p>
 
-  <div style="margin-top:30px;">
-    <a class="btn" href="{{ site.baseurl }}/magazine/">
-      Volver al Magazine
-    </a>
+    <p class="texto-secundario">
+      El comité editorial revisará el contenido recibido y se comunicará
+      con el autor en caso de requerir ajustes, información adicional
+      o aprobación para publicación.
+    </p>
+
+    <p class="texto-correo">
+      También recibirá una confirmación automática en el correo electrónico registrado.
+    </p>
+
+    <div class="acciones">
+
+      <a class="btn-volver" href="/magazine/">
+        Volver al Magazine
+      </a>
+
+      <a class="btn-inicio" href="/">
+        Ir al inicio
+      </a>
+
+    </div>
+
   </div>
 
-</div>
+</section>
+
+<style>
+
+.gracias-section{
+  min-height:70vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:60px 24px;
+  background:
+    linear-gradient(
+      135deg,
+      #f1f5f9,
+      #e2e8f0
+    );
+}
+
+.gracias-card{
+  width:100%;
+  max-width:850px;
+  background:white;
+  border-radius:28px;
+  padding:60px 50px;
+  text-align:center;
+  box-shadow:0 20px 45px rgba(0,0,0,0.08);
+}
+
+.check-circle{
+  width:95px;
+  height:95px;
+  margin:0 auto 30px auto;
+  border-radius:50%;
+  background:#16a34a;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:3rem;
+  font-weight:800;
+  box-shadow:0 10px 25px rgba(22,163,74,0.25);
+}
+
+.gracias-card h1{
+  font-size:3rem;
+  line-height:1.15;
+  color:#0f3569;
+  margin-bottom:28px;
+  font-weight:800;
+}
+
+.texto-principal{
+  font-size:1.25rem;
+  line-height:1.9;
+  color:#1e293b;
+  margin-bottom:20px;
+}
+
+.texto-secundario{
+  font-size:1.1rem;
+  line-height:1.9;
+  color:#334155;
+  margin-bottom:18px;
+}
+
+.texto-correo{
+  font-size:1rem;
+  line-height:1.8;
+  color:#64748b;
+  margin-bottom:38px;
+}
+
+.acciones{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.btn-volver,
+.btn-inicio{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px 28px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+  transition:.25s ease;
+}
+
+.btn-volver{
+  background:#16a34a;
+  color:white;
+  border:2px solid #16a34a;
+}
+
+.btn-volver:hover{
+  background:#15803d;
+  border-color:#15803d;
+  transform:translateY(-2px);
+}
+
+.btn-inicio{
+  background:white;
+  color:#0f3569;
+  border:2px solid #cbd5e1;
+}
+
+.btn-inicio:hover{
+  background:#f8fafc;
+  transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+
+  .gracias-card{
+    padding:45px 28px;
+  }
+
+  .gracias-card h1{
+    font-size:2.1rem;
+  }
+
+  .texto-principal{
+    font-size:1.05rem;
+  }
+
+  .texto-secundario{
+    font-size:1rem;
+  }
+
+  .acciones{
+    flex-direction:column;
+  }
+
+  .btn-volver,
+  .btn-inicio{
+    width:100%;
+  }
+
+}
+
+</style>
