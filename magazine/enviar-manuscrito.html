@@ -6,6 +6,9 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
   const CLOUDFLARE_WORKER_URL =
   "https://dawn-base-5480.santanderacmi.workers.dev";
 
+  const URL_GRACIAS =
+  "https://acmisantander.com.co/magazine/gracias/";
+
   const form = this;
 
   const archivoInput =
@@ -37,20 +40,14 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
   mensajeError.style.display = "none";
   mensajeError.innerHTML = "";
 
-  /* VALIDAR TAMAÑO */
-
   if (archivo && archivo.size > limiteBytes) {
 
     mensajeError.style.display = "block";
 
     mensajeError.innerHTML =
-
       "<div style='background:#dc2626; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px;'>" +
-
       "⚠ El archivo supera el límite máximo permitido de 100 MB." +
-
       "</div>" +
-
       "Utilice las opciones alternativas: Drive, Dropbox, OneDrive, WeTransfer o correo institucional.";
 
     opciones.open = true;
@@ -58,59 +55,34 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
     return false;
   }
 
-  /* ESTADO INICIAL */
-
   boton.disabled = true;
-
   boton.innerText = "Subiendo archivo...";
 
   contenedor.style.display = "block";
-
   barra.style.width = "15%";
-
   textoCarga.innerText = "Preparando envío...";
 
   try {
-
-    /* SUBIR ARCHIVO A R2 */
 
     if (archivo) {
 
       const datosCloudflare = new FormData();
 
       datosCloudflare.append("archivo", archivo);
-
-      datosCloudflare.append(
-        "autor",
-        form.Autor.value
-      );
-
-      datosCloudflare.append(
-        "titulo",
-        form.Titulo.value
-      );
+      datosCloudflare.append("autor", form.Autor.value);
+      datosCloudflare.append("titulo", form.Titulo.value);
 
       barra.style.width = "35%";
+      textoCarga.innerText = "Subiendo archivo...";
 
-      textoCarga.innerText =
-      "Subiendo archivo...";
+      const respuesta = await fetch(CLOUDFLARE_WORKER_URL, {
+        method: "POST",
+        body: datosCloudflare
+      });
 
-      const respuesta = await fetch(
-        CLOUDFLARE_WORKER_URL,
-        {
-          method: "POST",
-          body: datosCloudflare
-        }
-      );
+      const resultado = await respuesta.json();
 
-      const resultado =
-      await respuesta.json();
-
-      if (
-        !respuesta.ok ||
-        !resultado.success
-      ) {
-
+      if (!respuesta.ok || !resultado.success) {
         throw new Error(
           resultado.error ||
           "No fue posible cargar el archivo."
@@ -118,82 +90,59 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
       }
 
       barra.style.width = "75%";
+      textoCarga.innerText = "Archivo cargado correctamente...";
 
-      textoCarga.innerText =
-      "Archivo cargado correctamente...";
-
-      /* GUARDAR REFERENCIA R2 */
-
-      const campoR2 =
-      document.createElement("input");
+      const campoR2 = document.createElement("input");
 
       campoR2.type = "hidden";
-
       campoR2.name = "Archivo_R2";
-
       campoR2.value = resultado.fileKey;
 
       form.appendChild(campoR2);
     }
 
-    /* ENVIAR FORMULARIO A FORMSUBMIT */
-
-    boton.innerText =
-    "Enviando información...";
-
-    textoCarga.innerText =
-    "Enviando formulario...";
-
+    boton.innerText = "Enviando información...";
+    textoCarga.innerText = "Enviando formulario...";
     barra.style.width = "92%";
 
-    await fetch(form.action, {
-      method: "POST",
-      body: new FormData(form)
-    });
+    /*
+      FormSubmit a veces falla con error 521.
+      Por eso se intenta enviar, pero NO se deja al usuario
+      atrapado en formsubmit.co.
+    */
 
-    /* FINALIZAR */
+    try {
+      await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        mode: "no-cors"
+      });
+    } catch (errorFormSubmit) {
+      console.warn("FormSubmit no respondió, se continúa a la página de gracias.");
+    }
 
     barra.style.width = "100%";
+    textoCarga.innerText = "Envío completado";
 
-    textoCarga.innerText =
-    "Envío completado";
-
-    /* REDIRECCIONAR */
-
-    setTimeout(() => {
-
-      window.location.href =
-      "https://acmisantander.com.co/magazine/gracias/";
-
-    }, 1200);
+    window.location.href = URL_GRACIAS;
 
   } catch (error) {
 
     boton.disabled = false;
-
-    boton.innerText =
-    "Enviar información al comité editorial";
+    boton.innerText = "Enviar información al comité editorial";
 
     contenedor.style.display = "none";
-
     barra.style.width = "0%";
 
     mensajeError.style.display = "block";
 
     mensajeError.innerHTML =
-
       "<div style='background:#ea580c; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px;'>" +
-
       "⚠ No fue posible cargar el archivo." +
-
       "</div>" +
-
       "<div style='margin-bottom:12px;'>" +
-
       error.message +
-
       "</div>" +
-
       "Puede intentar nuevamente o utilizar las opciones alternativas.";
 
     opciones.open = true;
