@@ -1,40 +1,180 @@
+---
+layout: default
+title: Enviar manuscrito
+permalink: /magazine/enviar-manuscrito/
+---
+
+<h1>Enviar manuscrito</h1>
+
+<div class="card">
+
+<h2>Recepción de manuscritos</h2>
+
+<p>
+Formulario institucional para el envío de manuscritos académicos, columnas de opinión, editoriales o artículos para el Magazine ACMI Santander.
+</p>
+
+<form 
+id="formEnvio"
+action="https://formsubmit.co/santanderacmi@gmail.com" 
+method="POST">
+
+<input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias/">
+<input type="hidden" name="_autoresponse" value="Su manuscrito fue recibido por el Magazine ACMI Santander. El comité editorial revisará el contenido recibido y se comunicará con el autor en caso de requerir ajustes, información adicional o aprobación para publicación.">
+
+<label><strong>Nombre completo del autor</strong></label>
+<input type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Afiliación institucional</strong></label>
+<input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Correo electrónico</strong></label>
+<input type="email" name="email" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Título del manuscrito</strong></label>
+<input type="text" name="Titulo" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Tipo de manuscrito</strong></label>
+<select name="Tipo" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<option value="">Seleccione una opción</option>
+<option>Artículo académico</option>
+<option>Editorial</option>
+<option>Columna de opinión</option>
+<option>Noticia</option>
+</select>
+
+<label><strong>Cargar manuscrito</strong></label>
+
+<input 
+id="archivoAdjunto"
+type="file" 
+accept=".pdf,.doc,.docx,.rtf,.odt,.ppt,.pptx"
+style="width:100%; padding:12px; margin:8px 0 18px; border:1px solid #ddd; border-radius:6px;">
+
+<p style="font-size:0.95rem; color:#555; margin-top:-8px;">
+Puede adjuntar archivos en PDF, DOC, DOCX, RTF, ODT, PPT o PPTX. Si el archivo supera el límite máximo de <strong>100 MB</strong>, debe utilizar las opciones alternativas a continuación.
+</p>
+
+<div 
+id="mensajeErrorArchivo" 
+style="
+display:none;
+margin:18px 0;
+padding:18px;
+background:#fff7ed;
+border:2px solid #ea580c;
+border-radius:10px;
+color:#9a3412;
+font-weight:500;
+line-height:1.7;
+box-shadow:0 4px 12px rgba(234,88,12,0.15);
+">
+</div>
+
+<details 
+id="opcionesAlternativas"
+style="
+margin-top:18px;
+margin-bottom:25px;
+padding:16px;
+background:#f8fafc;
+border:1px solid #e5e7eb;
+border-radius:8px;">
+
+<summary style="cursor:pointer; font-weight:600; color:#1e293b;">
+Opciones alternativas para archivos grandes u otros métodos de envío
+</summary>
+
+<div style="margin-top:16px; font-size:0.96rem; line-height:1.7; color:#334155;">
+
+<p>
+Si el archivo supera los <strong>100 MB</strong>, puede utilizar cualquiera de las siguientes alternativas:
+</p>
+
+<label><strong>Enlace del manuscrito (opcional)</strong></label>
+
+<input 
+type="url" 
+name="Link_Archivo" 
+placeholder="Ej: Google Drive, Dropbox, OneDrive o WeTransfer"
+style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<p><strong>Subir archivo a Google Drive (opcional)</strong></p>
+
+<a 
+class="btn" 
+href="https://drive.google.com/drive/folders/1mfGTG2P0aAecRK95arPEOpTUP5wqv3s0?usp=drive_link"
+target="_blank">
+Subir manuscrito a Google Drive
+</a>
+
+<p style="margin-top:18px;">
+También puede enviar el manuscrito directamente al correo:
+<strong>santanderacmi@gmail.com</strong>
+</p>
+
+</div>
+
+</details>
+
+<label><strong>Mensaje opcional para el comité editorial</strong></label>
+
+<textarea 
+name="Mensaje" 
+rows="5" 
+style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
+
+<div id="barraContainer" style="display:none; margin-bottom:22px;">
+
+<div style="width:100%; background:#e5e7eb; border-radius:8px; overflow:hidden;">
+<div id="barra" style="width:0%; height:12px; background:#2563eb; transition:width 0.25s;"></div>
+</div>
+
+<p id="textoCarga" style="font-size:0.92rem; margin-top:8px; color:#475569;">
+Preparando envío...
+</p>
+
+</div>
+
+<button id="botonEnviar" class="btn" type="submit">
+Enviar información al comité editorial
+</button>
+
+</form>
+
+</div>
+
+<div style="margin-top:25px;">
+<a class="btn" href="{{ site.baseurl }}/">
+Volver al inicio
+</a>
+</div>
+
 <script>
 document.getElementById("formEnvio").addEventListener("submit", async function(event) {
 
   event.preventDefault();
 
-  const CLOUDFLARE_WORKER_URL =
-    "https://dawn-base-5480.santanderacmi.workers.dev";
-
-  const URL_GRACIAS =
-    "https://acmisantander.com.co/magazine/gracias.html";
+  const CLOUDFLARE_WORKER_URL = "https://dawn-base-5480.santanderacmi.workers.dev";
 
   const form = this;
 
   const archivoInput = document.getElementById("archivoAdjunto");
-  const archivo = archivoInput ? archivoInput.files[0] : null;
+  const archivo = archivoInput.files[0];
 
   const boton = document.getElementById("botonEnviar");
   const barra = document.getElementById("barra");
   const contenedor = document.getElementById("barraContainer");
   const textoCarga = document.getElementById("textoCarga");
+
   const mensajeError = document.getElementById("mensajeErrorArchivo");
   const opciones = document.getElementById("opcionesAlternativas");
 
   const limiteMB = 100;
   const limiteBytes = limiteMB * 1024 * 1024;
-
-  const autor =
-    form.querySelector("[name='Autor']") ||
-    form.querySelector("[name='autor']") ||
-    form.querySelector("[name='Nombre']") ||
-    form.querySelector("[name='nombre']");
-
-  const titulo =
-    form.querySelector("[name='Titulo']") ||
-    form.querySelector("[name='titulo']") ||
-    form.querySelector("[name='Título']") ||
-    form.querySelector("[name='titulo_manuscrito']");
 
   mensajeError.style.display = "none";
   mensajeError.innerHTML = "";
@@ -44,12 +184,13 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
     mensajeError.style.display = "block";
 
     mensajeError.innerHTML =
-      "<div style='background:#dc2626; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px; text-decoration:underline;'>" +
+      "<div style='background:#dc2626; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px; box-shadow:0 2px 8px rgba(220,38,38,0.25);'>" +
       "⚠ El archivo supera el límite máximo permitido de 100 MB." +
       "</div>" +
-      "Utilice las opciones alternativas: Drive, Dropbox, OneDrive, WeTransfer o correo institucional.";
 
-    if (opciones) opciones.open = true;
+      "Utilice las opciones alternativas: enlace de Drive, Dropbox, OneDrive, WeTransfer, Google Drive o envío al correo institucional.";
+
+    opciones.open = true;
 
     return false;
   }
@@ -58,8 +199,10 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
   boton.innerText = "Subiendo archivo...";
 
   contenedor.style.display = "block";
+
   barra.style.width = "15%";
-  textoCarga.innerText = "Preparando envío...";
+
+  textoCarga.innerText = "Cargando archivo...";
 
   try {
 
@@ -68,11 +211,10 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
       const datosCloudflare = new FormData();
 
       datosCloudflare.append("archivo", archivo);
-      datosCloudflare.append("autor", autor ? autor.value : "");
-      datosCloudflare.append("titulo", titulo ? titulo.value : "");
+      datosCloudflare.append("autor", form.Autor.value);
+      datosCloudflare.append("titulo", form.Titulo.value);
 
       barra.style.width = "35%";
-      textoCarga.innerText = "Cargando archivo adjunto...";
 
       const respuesta = await fetch(CLOUDFLARE_WORKER_URL, {
         method: "POST",
@@ -85,57 +227,47 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
         throw new Error(resultado.error || "No fue posible cargar el archivo.");
       }
 
-      barra.style.width = "75%";
-      textoCarga.innerText = "Archivo cargado correctamente...";
+      barra.style.width = "80%";
 
       const campoR2 = document.createElement("input");
+
       campoR2.type = "hidden";
       campoR2.name = "Archivo_R2";
-      campoR2.value = resultado.fileKey || resultado.url || "Archivo cargado en R2";
+      campoR2.value = resultado.fileKey;
 
       form.appendChild(campoR2);
+
     }
 
     boton.innerText = "Enviando información...";
-    textoCarga.innerText = "Enviando formulario...";
-    barra.style.width = "92%";
+    textoCarga.innerText = "Enviando información...";
 
-    try {
-      await fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        mode: "no-cors"
-      });
-    } catch (errorFormSubmit) {
-      console.warn("FormSubmit no respondió, se continúa a la página de gracias.");
-    }
+    barra.style.width = "95%";
 
-    barra.style.width = "100%";
-    textoCarga.innerText = "Envío completado";
-
-    window.location.href = URL_GRACIAS;
+    form.submit();
 
   } catch (error) {
 
     boton.disabled = false;
+
     boton.innerText = "Enviar información al comité editorial";
 
     contenedor.style.display = "none";
+
     barra.style.width = "0%";
 
     mensajeError.style.display = "block";
 
     mensajeError.innerHTML =
-      "<div style='background:#ea580c; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px;'>" +
+      "<div style='background:#ea580c; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px; box-shadow:0 2px 8px rgba(234,88,12,0.25);'>" +
       "⚠ No fue posible cargar el archivo." +
       "</div>" +
-      "<div style='margin-bottom:12px;'>" +
-      error.message +
-      "</div>" +
-      "Puede intentar nuevamente o utilizar las opciones alternativas.";
 
-    if (opciones) opciones.open = true;
+      "<div style='margin-bottom:12px;'>" + error.message + "</div>" +
+
+      "Puede intentar nuevamente o usar las opciones alternativas.";
+
+    opciones.open = true;
   }
-
 });
 </script>
