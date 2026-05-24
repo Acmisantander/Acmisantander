@@ -27,26 +27,23 @@ permalink: /magazine/
         Noticias
       </a>
 
-      <a class="btn btn-light" href="#opinion">
+      <a class="btn btn-primary" href="#opinion">
         Opinión
       </a>
 
-      <a class="btn btn-light"
-         href="/magazine/manual-publicacion/">
+      <a class="btn btn-primary" href="manual-publicacion.html">
         Manual de publicación
       </a>
 
-      <a class="btn btn-light" href="#foro">
+      <a class="btn btn-primary" href="#foro">
         Foro ACMI
       </a>
 
-      <a class="btn btn-primary"
-         href="/magazine/enviar-manuscrito/">
+      <a class="btn btn-primary" href="enviar-manuscrito.html">
         Enviar manuscrito
       </a>
 
-      <a class="btn btn-primary"
-         href="/magazine/enviar-ponencias/">
+      <a class="btn btn-primary" href="enviar-ponencias.html">
         Enviar ponencia
       </a>
 
@@ -93,8 +90,7 @@ permalink: /magazine/
             {{ post.excerpt | strip_html | truncate: 180 }}
           </p>
 
-          <a class="btn btn-primary"
-             href="{{ post.url }}">
+          <a class="btn btn-primary" href="{{ post.url | relative_url }}">
             Leer más
           </a>
 
@@ -148,8 +144,7 @@ permalink: /magazine/
             {{ post.excerpt | strip_html | truncate: 180 }}
           </p>
 
-          <a class="btn btn-primary"
-             href="{{ post.url }}">
+          <a class="btn btn-primary" href="{{ post.url | relative_url }}">
             Leer más
           </a>
 
@@ -194,7 +189,7 @@ permalink: /magazine/
 <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 
 <script>
-commentBox('5734850254340096-proj');
+  commentBox('5734850254340096-proj');
 </script>
 
 
@@ -209,7 +204,7 @@ commentBox('5734850254340096-proj');
       rgba(15,53,105,.92),
       rgba(20,63,125,.62)
     ),
-    url('/assets/img/magazine-banner.jpg')
+    url('../assets/img/magazine-banner.jpg')
     center/cover no-repeat;
   display:flex;
   align-items:center;
@@ -259,8 +254,26 @@ commentBox('5734850254340096-proj');
 }
 
 .magazine-buttons .btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   border-radius:10px;
   padding:13px 22px;
+  text-decoration:none;
+  font-weight:700;
+  min-width:96px;
+}
+
+.btn-primary{
+  background:#20a354;
+  color:white;
+  border:2px solid #20a354;
+}
+
+.btn-primary:hover{
+  background:#178442;
+  border-color:#178442;
+  color:white;
 }
 
 .magazine-section{
@@ -321,12 +334,27 @@ commentBox('5734850254340096-proj');
 
 @media(max-width:768px){
 
+  .magazine-hero{
+    min-height:auto;
+    padding:70px 18px;
+  }
+
   .magazine-hero h1{
-    font-size:2.7rem;
+    font-size:2.5rem;
   }
 
   .magazine-hero p{
     font-size:1rem;
+  }
+
+  .magazine-buttons{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .magazine-buttons .btn{
+    width:100%;
+    max-width:280px;
   }
 
 }
