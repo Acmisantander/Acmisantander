@@ -1,377 +1,273 @@
 ---
 layout: default
-title: Magazine ACMI Santander
-permalink: /magazine/
+title: Enviar manuscrito
+permalink: /magazine/enviar-manuscrito/
 ---
 
-<section class="magazine-hero">
+<h1>Enviar manuscrito</h1>
+
+<div class="card">
+
+<h2>Recepción de manuscritos</h2>
+
+<p>
+Formulario institucional para el envío de manuscritos académicos, columnas de opinión, editoriales o artículos para el Magazine ACMI Santander.
+</p>
+
+<form 
+id="formEnvio"
+action="https://formsubmit.co/santanderacmi@gmail.com" 
+method="POST">
+
+<input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias/">
+<input type="hidden" name="_autoresponse" value="Su manuscrito fue recibido por el Magazine ACMI Santander. El comité editorial revisará el contenido recibido y se comunicará con el autor en caso de requerir ajustes, información adicional o aprobación para publicación.">
+
+<label><strong>Nombre completo del autor</strong></label>
+<input type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Afiliación institucional</strong></label>
+<input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Correo electrónico</strong></label>
+<input type="email" name="email" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Título del manuscrito</strong></label>
+<input type="text" name="Titulo" required style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<label><strong>Tipo de manuscrito</strong></label>
+<select name="Tipo" required style="width:100%; padding:12px; margin:8px 0 18px;">
+<option value="">Seleccione una opción</option>
+<option>Artículo académico</option>
+<option>Editorial</option>
+<option>Columna de opinión</option>
+<option>Noticia</option>
+</select>
+
+<label><strong>Cargar manuscrito</strong></label>
+
+<input 
+id="archivoAdjunto"
+type="file" 
+accept=".pdf,.doc,.docx,.rtf,.odt,.ppt,.pptx"
+style="width:100%; padding:12px; margin:8px 0 18px; border:1px solid #ddd; border-radius:6px;">
+
+<p style="font-size:0.95rem; color:#555; margin-top:-8px;">
+Puede adjuntar archivos en PDF, DOC, DOCX, RTF, ODT, PPT o PPTX. Si el archivo supera el límite máximo de <strong>100 MB</strong>, debe utilizar las opciones alternativas a continuación.
+</p>
+
+<div 
+id="mensajeErrorArchivo" 
+style="
+display:none;
+margin:18px 0;
+padding:18px;
+background:#fff7ed;
+border:2px solid #ea580c;
+border-radius:10px;
+color:#9a3412;
+font-weight:500;
+line-height:1.7;
+box-shadow:0 4px 12px rgba(234,88,12,0.15);
+">
+</div>
+
+<details 
+id="opcionesAlternativas"
+style="
+margin-top:18px;
+margin-bottom:25px;
+padding:16px;
+background:#f8fafc;
+border:1px solid #e5e7eb;
+border-radius:8px;">
+
+<summary style="cursor:pointer; font-weight:600; color:#1e293b;">
+Opciones alternativas para archivos grandes u otros métodos de envío
+</summary>
+
+<div style="margin-top:16px; font-size:0.96rem; line-height:1.7; color:#334155;">
+
+<p>
+Si el archivo supera los <strong>100 MB</strong>, puede utilizar cualquiera de las siguientes alternativas:
+</p>
+
+<label><strong>Enlace del manuscrito (opcional)</strong></label>
+
+<input 
+type="url" 
+name="Link_Archivo" 
+placeholder="Ej: Google Drive, Dropbox, OneDrive o WeTransfer"
+style="width:100%; padding:12px; margin:8px 0 18px;">
+
+<p><strong>Subir archivo a Google Drive (opcional)</strong></p>
+
+<a 
+class="btn" 
+href="https://drive.google.com/drive/folders/1mfGTG2P0aAecRK95arPEOpTUP5wqv3s0?usp=drive_link"
+target="_blank">
+Subir manuscrito a Google Drive
+</a>
 
-  <div class="magazine-content">
+<p style="margin-top:18px;">
+También puede enviar el manuscrito directamente al correo:
+<strong>santanderacmi@gmail.com</strong>
+</p>
 
-    <span class="magazine-badge">
-      ACMI Santander
-    </span>
+</div>
 
-    <h1>
-      Magazine ACMI Santander
-    </h1>
+</details>
 
-    <p>
-      Espacio académico y de divulgación científica orientado a la difusión de noticias,
-      opinión médica, experiencias clínicas y educación continuada en medicina interna.
-    </p>
+<label><strong>Mensaje opcional para el comité editorial</strong></label>
 
-    <div class="magazine-buttons">
+<textarea 
+name="Mensaje" 
+rows="5" 
+style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
-      <a class="btn btn-primary" href="#noticias">
-        Noticias
-      </a>
+<div id="barraContainer" style="display:none; margin-bottom:22px;">
 
-      <a class="btn btn-primary" href="#opinion">
-        Opinión
-      </a>
+<div style="width:100%; background:#e5e7eb; border-radius:8px; overflow:hidden;">
+<div id="barra" style="width:0%; height:12px; background:#2563eb; transition:width 0.25s;"></div>
+</div>
 
-      <a class="btn btn-primary" href="manual-publicacion.html">
-        Manual de publicación
-      </a>
+<p id="textoCarga" style="font-size:0.92rem; margin-top:8px; color:#475569;">
+Preparando envío...
+</p>
 
-      <a class="btn btn-primary" href="#foro">
-        Foro ACMI
-      </a>
+</div>
 
-      <a class="btn btn-primary" href="enviar-manuscrito.html">
-        Enviar manuscrito
-      </a>
+<button id="botonEnviar" class="btn" type="submit">
+Enviar información al comité editorial
+</button>
 
-      <a class="btn btn-primary" href="enviar-ponencias.html">
-        Enviar ponencia
-      </a>
+</form>
 
-    </div>
+</div>
 
-  </div>
-
-</section>
-
-
-<section class="magazine-section" id="noticias">
-
-  <div class="container">
-
-    <h2 class="section-title">
-      Noticias
-    </h2>
-
-    <div class="magazine-grid">
-
-      {% for post in site.categories.magazine %}
-      {% if post.subcategory == "noticias" %}
-
-      <article class="magazine-card">
-
-        {% if post.cover %}
-        <img
-          src="{{ post.cover }}"
-          alt="{{ post.title }}"
-          class="magazine-cover">
-        {% endif %}
-
-        <div class="magazine-card-content">
-
-          <p class="magazine-meta">
-            {{ post.date | date: "%d/%m/%Y" }} · {{ post.author }}
-          </p>
-
-          <h3>
-            {{ post.title }}
-          </h3>
-
-          <p>
-            {{ post.excerpt | strip_html | truncate: 180 }}
-          </p>
-
-          <a class="btn btn-primary"
-             href="{{ post.url | relative_url }}">
-            Leer más
-          </a>
-
-        </div>
-
-      </article>
-
-      {% endif %}
-      {% endfor %}
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="magazine-section" id="opinion">
-
-  <div class="container">
-
-    <h2 class="section-title">
-      Opinión
-    </h2>
-
-    <div class="magazine-grid">
-
-      {% for post in site.categories.magazine %}
-      {% if post.subcategory == "opinion" %}
-
-      <article class="magazine-card">
-
-        {% if post.cover %}
-        <img
-          src="{{ post.cover }}"
-          alt="{{ post.title }}"
-          class="magazine-cover">
-        {% endif %}
-
-        <div class="magazine-card-content">
-
-          <p class="magazine-meta">
-            {{ post.date | date: "%d/%m/%Y" }} · {{ post.author }}
-          </p>
-
-          <h3>
-            {{ post.title }}
-          </h3>
-
-          <p>
-            {{ post.excerpt | strip_html | truncate: 180 }}
-          </p>
-
-          <a class="btn btn-primary"
-             href="{{ post.url | relative_url }}">
-            Leer más
-          </a>
-
-        </div>
-
-      </article>
-
-      {% endif %}
-      {% endfor %}
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="magazine-section" id="foro">
-
-  <div class="container">
-
-    <h2 class="section-title">
-      Foro ACMI Magazine
-    </h2>
-
-    <div class="forum-card">
-
-      <p>
-        Espacio de discusión académica para comentar noticias,
-        columnas de opinión y temas relacionados con la medicina interna.
-      </p>
-
-      <div class="commentbox"></div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+<div style="margin-top:25px;">
+<a class="btn" href="{{ site.baseurl }}/">
+Volver al inicio
+</a>
+</div>
 
 <script>
-commentBox('5734850254340096-proj');
+document.getElementById("formEnvio").addEventListener("submit", async function(event) {
+
+  event.preventDefault();
+
+  const CLOUDFLARE_WORKER_URL = "https://dawn-base-5480.santanderacmi.workers.dev";
+
+  const form = this;
+
+  const archivoInput = document.getElementById("archivoAdjunto");
+  const archivo = archivoInput.files[0];
+
+  const boton = document.getElementById("botonEnviar");
+  const barra = document.getElementById("barra");
+  const contenedor = document.getElementById("barraContainer");
+  const textoCarga = document.getElementById("textoCarga");
+
+  const mensajeError = document.getElementById("mensajeErrorArchivo");
+  const opciones = document.getElementById("opcionesAlternativas");
+
+  const limiteMB = 100;
+  const limiteBytes = limiteMB * 1024 * 1024;
+
+  mensajeError.style.display = "none";
+  mensajeError.innerHTML = "";
+
+  if (archivo && archivo.size > limiteBytes) {
+
+    mensajeError.style.display = "block";
+
+    mensajeError.innerHTML =
+      "<div style='background:#dc2626; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px; box-shadow:0 2px 8px rgba(220,38,38,0.25);'>" +
+      "⚠ El archivo supera el límite máximo permitido de 100 MB." +
+      "</div>" +
+
+      "Utilice las opciones alternativas: enlace de Drive, Dropbox, OneDrive, WeTransfer, Google Drive o envío al correo institucional.";
+
+    opciones.open = true;
+
+    return false;
+  }
+
+  boton.disabled = true;
+  boton.innerText = "Subiendo archivo...";
+
+  contenedor.style.display = "block";
+
+  barra.style.width = "15%";
+
+  textoCarga.innerText = "Cargando archivo...";
+
+  try {
+
+    if (archivo) {
+
+      const datosCloudflare = new FormData();
+
+      datosCloudflare.append("archivo", archivo);
+      datosCloudflare.append("autor", form.Autor.value);
+      datosCloudflare.append("titulo", form.Titulo.value);
+
+      barra.style.width = "35%";
+
+      const respuesta = await fetch(CLOUDFLARE_WORKER_URL, {
+        method: "POST",
+        body: datosCloudflare
+      });
+
+      const resultado = await respuesta.json();
+
+      if (!respuesta.ok || !resultado.success) {
+        throw new Error(resultado.error || "No fue posible cargar el archivo.");
+      }
+
+      barra.style.width = "80%";
+
+      const campoR2 = document.createElement("input");
+
+      campoR2.type = "hidden";
+      campoR2.name = "Archivo_R2";
+      campoR2.value = resultado.fileKey;
+
+      form.appendChild(campoR2);
+
+    }
+
+    boton.innerText = "Enviando información...";
+    textoCarga.innerText = "Enviando información...";
+
+    barra.style.width = "95%";
+
+    form.submit();
+
+  } catch (error) {
+
+    boton.disabled = false;
+
+    boton.innerText = "Enviar información al comité editorial";
+
+    contenedor.style.display = "none";
+
+    barra.style.width = "0%";
+
+    mensajeError.style.display = "block";
+
+    mensajeError.innerHTML =
+      "<div style='background:#ea580c; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px; box-shadow:0 2px 8px rgba(234,88,12,0.25);'>" +
+      "⚠ No fue posible cargar el archivo." +
+      "</div>" +
+
+      "<div style='margin-bottom:12px;'>" + error.message + "</div>" +
+
+      "Puede intentar nuevamente o usar las opciones alternativas.";
+
+    opciones.open = true;
+  }
+});
 </script>
-
-
-<style>
-
-.magazine-hero{
-  width:100%;
-  min-height:520px;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(15,53,105,.92),
-      rgba(20,63,125,.62)
-    ),
-    url('../assets/img/magazine-banner.jpg')
-    center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:90px 24px;
-}
-
-.magazine-content{
-  max-width:1050px;
-  margin:0 auto;
-  color:white;
-}
-
-.magazine-badge{
-  display:inline-block;
-  padding:9px 18px;
-  border-radius:999px;
-  background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.35);
-  color:white;
-  font-weight:700;
-  margin-bottom:22px;
-}
-
-.magazine-hero h1{
-  font-size:4rem;
-  line-height:1.1;
-  margin-bottom:22px;
-  color:white;
-  font-weight:800;
-}
-
-.magazine-hero p{
-  max-width:850px;
-  margin:0 auto 32px auto;
-  color:white;
-  font-size:1.2rem;
-  line-height:1.8;
-}
-
-.magazine-buttons{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  flex-wrap:wrap;
-}
-
-.magazine-buttons .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:10px;
-  padding:13px 22px;
-  text-decoration:none;
-  font-weight:700;
-  min-width:96px;
-  transition:.25s ease;
-}
-
-.btn-primary{
-  background:#20a354;
-  color:white;
-  border:2px solid #20a354;
-}
-
-.btn-primary:hover{
-  background:#178442;
-  border-color:#178442;
-  color:white;
-  transform:translateY(-2px);
-}
-
-.magazine-section{
-  padding:80px 0;
-}
-
-.magazine-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:30px;
-  margin-top:40px;
-}
-
-.magazine-card{
-  background:white;
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 12px 28px rgba(0,0,0,0.08);
-  transition:.25s ease;
-}
-
-.magazine-card:hover{
-  transform:translateY(-6px);
-}
-
-.magazine-cover{
-  width:100%;
-  height:240px;
-  object-fit:cover;
-}
-
-.magazine-card-content{
-  padding:28px;
-}
-
-.magazine-meta{
-  color:#64748b;
-  font-size:.9rem;
-  margin-bottom:12px;
-}
-
-.magazine-card h3{
-  font-size:1.5rem;
-  margin-bottom:16px;
-  color:var(--azul-acmi);
-}
-
-.magazine-card p{
-  line-height:1.8;
-}
-
-.forum-card{
-  background:white;
-  border-radius:24px;
-  padding:40px;
-  box-shadow:0 12px 28px rgba(0,0,0,0.08);
-}
-
-.section-title{
-  text-align:center;
-  font-size:2.6rem;
-  margin-bottom:18px;
-  color:var(--azul-acmi);
-}
-
-@media(max-width:768px){
-
-  .magazine-hero{
-    min-height:auto;
-    padding:70px 18px;
-  }
-
-  .magazine-hero h1{
-    font-size:2.5rem;
-  }
-
-  .magazine-hero p{
-    font-size:1rem;
-  }
-
-  .magazine-buttons{
-    flex-direction:column;
-    align-items:center;
-  }
-
-  .magazine-buttons .btn{
-    width:100%;
-    max-width:280px;
-  }
-
-  .section-title{
-    font-size:2rem;
-  }
-
-}
-
-</style>
