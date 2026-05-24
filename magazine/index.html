@@ -90,7 +90,8 @@ permalink: /magazine/
             {{ post.excerpt | strip_html | truncate: 180 }}
           </p>
 
-          <a class="btn btn-primary" href="{{ post.url | relative_url }}">
+          <a class="btn btn-primary"
+             href="{{ post.url | relative_url }}">
             Leer más
           </a>
 
@@ -144,7 +145,8 @@ permalink: /magazine/
             {{ post.excerpt | strip_html | truncate: 180 }}
           </p>
 
-          <a class="btn btn-primary" href="{{ post.url | relative_url }}">
+          <a class="btn btn-primary"
+             href="{{ post.url | relative_url }}">
             Leer más
           </a>
 
@@ -189,7 +191,7 @@ permalink: /magazine/
 <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 
 <script>
-  commentBox('5734850254340096-proj');
+commentBox('5734850254340096-proj');
 </script>
 
 
@@ -262,6 +264,7 @@ permalink: /magazine/
   text-decoration:none;
   font-weight:700;
   min-width:96px;
+  transition:.25s ease;
 }
 
 .btn-primary{
@@ -274,6 +277,7 @@ permalink: /magazine/
   background:#178442;
   border-color:#178442;
   color:white;
+  transform:translateY(-2px);
 }
 
 .magazine-section{
@@ -332,6 +336,13 @@ permalink: /magazine/
   box-shadow:0 12px 28px rgba(0,0,0,0.08);
 }
 
+.section-title{
+  text-align:center;
+  font-size:2.6rem;
+  margin-bottom:18px;
+  color:var(--azul-acmi);
+}
+
 @media(max-width:768px){
 
   .magazine-hero{
@@ -355,6 +366,10 @@ permalink: /magazine/
   .magazine-buttons .btn{
     width:100%;
     max-width:280px;
+  }
+
+  .section-title{
+    font-size:2rem;
   }
 
 }
