@@ -1,140 +1,326 @@
 ---
 layout: default
-title: Magazine
+title: Magazine ACMI Santander
 permalink: /magazine/
 ---
 
-<h1>Magazine ACMI Santander</h1>
+<section class="magazine-hero">
 
-<div class="card" style="margin-bottom:40px;">
-  
-  <h2>Magazine ACMI Santander</h2>
+  <div class="magazine-overlay"></div>
 
-  <p>
-    El Magazine ACMI Santander es un espacio de comunicación académica y divulgación científica 
-    orientado a difundir actividades académicas, experiencias clínicas, reflexiones profesionales 
-    y contenidos educativos relacionados con la medicina interna y sus especialidades.
-  </p>
+  <div class="magazine-content">
 
-<div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:20px;">
-    
-  <a class="btn" href="#noticias">Noticias</a>
+    <span class="magazine-badge">
+      ACMI Santander
+    </span>
 
-  <a class="btn" href="#opinion">Opinión</a>
+    <h1>
+      Magazine ACMI Santander
+    </h1>
 
-  <a class="btn" href="{{ site.baseurl }}/magazine/manual-publicacion/">
-    Manual de publicación
-  </a>
+    <p>
+      Espacio académico y de divulgación científica orientado a la difusión de noticias,
+      opinión médica, experiencias clínicas y educación continuada en medicina interna.
+    </p>
 
-  <a class="btn" href="#foro">
-    Foro ACMI Magazine
-  </a>
+    <div class="magazine-buttons">
 
-  <a class="btn" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
-    Enviar manuscrito
-  </a>
+      <a class="btn btn-primary" href="#noticias">
+        Noticias
+      </a>
 
-  <a class="btn" href="{{ site.baseurl }}/magazine/enviar-ponencias/">
-    Enviar ponencia
-  </a>
+      <a class="btn btn-light" href="#opinion">
+        Opinión
+      </a>
 
-</div>
-</div>
+      <a class="btn btn-light"
+         href="{{ site.baseurl }}/magazine/manual-publicacion/">
+        Manual de publicación
+      </a>
 
+      <a class="btn btn-light" href="#foro">
+        Foro ACMI
+      </a>
 
-<h2 id="noticias">Noticias</h2>
+      <a class="btn btn-primary"
+         href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
+        Enviar manuscrito
+      </a>
 
-<div class="grid">
+      <a class="btn btn-primary"
+         href="{{ site.baseurl }}/magazine/enviar-ponencias/">
+        Enviar ponencia
+      </a>
 
-{% for post in site.categories.magazine %}
-{% if post.subcategory == "noticias" %}
+    </div>
 
-<div class="card">
+  </div>
 
-{% if post.cover %}
-<img 
-src="{{ site.baseurl }}{{ post.cover }}" 
-alt="{{ post.title }}"
-style="width:100%; max-height:220px; object-fit:cover; border-radius:10px; margin-bottom:16px;">
-{% endif %}
-
-<p class="meta">
-{{ post.date | date: "%d/%m/%Y" }} · {{ post.author }}
-</p>
-
-<h2>{{ post.title }}</h2>
-
-<p>
-{{ post.excerpt | strip_html | truncate: 180 }}
-</p>
-
-<a class="btn" href="{{ site.baseurl }}{{ post.url }}">
-Leer más
-</a>
-
-</div>
-
-{% endif %}
-{% endfor %}
-
-</div>
+</section>
 
 
-<h2 id="opinion">Opinión</h2>
+<section class="magazine-section" id="noticias">
 
-<div class="grid">
+  <div class="container">
 
-{% for post in site.categories.magazine %}
-{% if post.subcategory == "opinion" %}
+    <h2 class="section-title">
+      Noticias
+    </h2>
 
-<div class="card">
+    <div class="magazine-grid">
 
-{% if post.cover %}
-<img 
-src="{{ site.baseurl }}{{ post.cover }}" 
-alt="{{ post.title }}"
-style="width:100%; max-height:220px; object-fit:cover; border-radius:10px; margin-bottom:16px;">
-{% endif %}
+      {% for post in site.categories.magazine %}
+      {% if post.subcategory == "noticias" %}
 
-<p class="meta">
-{{ post.date | date: "%d/%m/%Y" }} · {{ post.author }}
-</p>
+      <article class="magazine-card">
 
-<h2>{{ post.title }}</h2>
+        {% if post.cover %}
+        <img
+          src="{{ site.baseurl }}{{ post.cover }}"
+          alt="{{ post.title }}"
+          class="magazine-cover">
+        {% endif %}
 
-<p>
-{{ post.excerpt | strip_html | truncate: 180 }}
-</p>
+        <div class="magazine-card-content">
 
-<a class="btn" href="{{ site.baseurl }}{{ post.url }}">
-Leer más
-</a>
+          <p class="magazine-meta">
+            {{ post.date | date: "%d/%m/%Y" }} · {{ post.author }}
+          </p>
 
-</div>
+          <h3>
+            {{ post.title }}
+          </h3>
 
-{% endif %}
-{% endfor %}
+          <p>
+            {{ post.excerpt | strip_html | truncate: 180 }}
+          </p>
 
-</div>
+          <a class="btn btn-primary"
+             href="{{ site.baseurl }}{{ post.url }}">
+            Leer más
+          </a>
+
+        </div>
+
+      </article>
+
+      {% endif %}
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
 
 
-<hr style="margin:50px 0;">
+<section class="magazine-section" id="opinion">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Opinión
+    </h2>
+
+    <div class="magazine-grid">
+
+      {% for post in site.categories.magazine %}
+      {% if post.subcategory == "opinion" %}
+
+      <article class="magazine-card">
+
+        {% if post.cover %}
+        <img
+          src="{{ site.baseurl }}{{ post.cover }}"
+          alt="{{ post.title }}"
+          class="magazine-cover">
+        {% endif %}
+
+        <div class="magazine-card-content">
+
+          <p class="magazine-meta">
+            {{ post.date | date: "%d/%m/%Y" }} · {{ post.author }}
+          </p>
+
+          <h3>
+            {{ post.title }}
+          </h3>
+
+          <p>
+            {{ post.excerpt | strip_html | truncate: 180 }}
+          </p>
+
+          <a class="btn btn-primary"
+             href="{{ site.baseurl }}{{ post.url }}">
+            Leer más
+          </a>
+
+        </div>
+
+      </article>
+
+      {% endif %}
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
 
 
-<h2 id="foro">Foro ACMI Magazine</h2>
+<section class="magazine-section" id="foro">
 
-<div class="card" style="margin-top:25px;">
+  <div class="container">
 
-<p>
-Espacio de discusión académica para comentar noticias, columnas de opinión y temas relacionados con la medicina interna.
-</p>
+    <h2 class="section-title">
+      Foro ACMI Magazine
+    </h2>
 
-<div class="commentbox"></div>
+    <div class="forum-card">
 
-</div>
+      <p>
+        Espacio de discusión académica para comentar noticias,
+        columnas de opinión y temas relacionados con la medicina interna.
+      </p>
+
+      <div class="commentbox"></div>
+
+    </div>
+
+  </div>
+
+</section>
+
 
 <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 
 <script>
 commentBox('5734850254340096-proj');
 </script>
+
+
+<style>
+
+.magazine-hero{
+  position:relative;
+  min-height:500px;
+  background:
+    linear-gradient(90deg,
+    rgba(15,53,105,.88),
+    rgba(20,63,125,.45)),
+    url('{{ site.baseurl }}/assets/img/magazine-banner.jpg')
+    center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:90px 24px;
+  overflow:hidden;
+}
+
+.magazine-content{
+  position:relative;
+  z-index:2;
+  max-width:950px;
+  color:white;
+}
+
+.magazine-badge{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.35);
+  margin-bottom:20px;
+  font-weight:700;
+}
+
+.magazine-hero h1{
+  font-size:4rem;
+  line-height:1.1;
+  margin-bottom:22px;
+}
+
+.magazine-hero p{
+  font-size:1.2rem;
+  line-height:1.8;
+  margin-bottom:34px;
+}
+
+.magazine-buttons{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.magazine-section{
+  padding:80px 0;
+}
+
+.magazine-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+  margin-top:40px;
+}
+
+.magazine-card{
+  background:white;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 12px 28px rgba(0,0,0,0.08);
+  transition:.25s ease;
+}
+
+.magazine-card:hover{
+  transform:translateY(-6px);
+}
+
+.magazine-cover{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+}
+
+.magazine-card-content{
+  padding:28px;
+}
+
+.magazine-meta{
+  color:#64748b;
+  font-size:.9rem;
+  margin-bottom:12px;
+}
+
+.magazine-card h3{
+  font-size:1.5rem;
+  margin-bottom:16px;
+  color:var(--azul-acmi);
+}
+
+.magazine-card p{
+  line-height:1.8;
+}
+
+.forum-card{
+  background:white;
+  border-radius:24px;
+  padding:40px;
+  box-shadow:0 12px 28px rgba(0,0,0,0.08);
+}
+
+@media(max-width:768px){
+
+  .magazine-hero h1{
+    font-size:2.7rem;
+  }
+
+  .magazine-hero p{
+    font-size:1rem;
+  }
+
+}
+
+</style>
