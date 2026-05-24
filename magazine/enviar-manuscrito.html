@@ -14,7 +14,19 @@ permalink: /magazine/enviar-manuscrito/
 Formulario institucional para el envío de manuscritos académicos, columnas de opinión, editoriales o artículos para el Magazine ACMI Santander.
 </p>
 
-<form id="formEnvio" onsubmit="return enviarFormulario(event);">
+<iframe name="formsubmitFrame" style="display:none;"></iframe>
+
+<form
+id="formEnvio"
+action="https://formsubmit.co/santanderacmi@gmail.com"
+method="POST"
+target="formsubmitFrame"
+onsubmit="return enviarFormulario(event);">
+
+<input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_autoresponse" value="Su manuscrito fue recibido por el Magazine ACMI Santander. El comité editorial revisará el contenido recibido y se comunicará con el autor.">
 
 <label><strong>Nombre completo del autor</strong></label>
 <input type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -38,10 +50,9 @@ Formulario institucional para el envío de manuscritos académicos, columnas de 
 </select>
 
 <label><strong>Cargar manuscrito</strong></label>
-
-<input 
+<input
 id="archivoAdjunto"
-type="file" 
+type="file"
 accept=".pdf,.doc,.docx,.rtf,.odt,.ppt,.pptx"
 style="width:100%; padding:12px; margin:8px 0 18px; border:1px solid #ddd; border-radius:6px;">
 
@@ -49,31 +60,10 @@ style="width:100%; padding:12px; margin:8px 0 18px; border:1px solid #ddd; borde
 Puede adjuntar archivos en PDF, DOC, DOCX, RTF, ODT, PPT o PPTX. Si el archivo supera el límite máximo de <strong>100 MB</strong>, debe utilizar las opciones alternativas a continuación.
 </p>
 
-<div 
-id="mensajeErrorArchivo" 
-style="
-display:none;
-margin:18px 0;
-padding:18px;
-background:#fff7ed;
-border:2px solid #ea580c;
-border-radius:10px;
-color:#9a3412;
-font-weight:500;
-line-height:1.7;
-box-shadow:0 4px 12px rgba(234,88,12,0.15);
-">
+<div id="mensajeErrorArchivo" style="display:none; margin:18px 0; padding:18px; background:#fff7ed; border:2px solid #ea580c; border-radius:10px; color:#9a3412; font-weight:500; line-height:1.7;">
 </div>
 
-<details 
-id="opcionesAlternativas"
-style="
-margin-top:18px;
-margin-bottom:25px;
-padding:16px;
-background:#f8fafc;
-border:1px solid #e5e7eb;
-border-radius:8px;">
+<details id="opcionesAlternativas" style="margin-top:18px; margin-bottom:25px; padding:16px; background:#f8fafc; border:1px solid #e5e7eb; border-radius:8px;">
 
 <summary style="cursor:pointer; font-weight:600; color:#1e293b;">
 Opciones alternativas para archivos grandes u otros métodos de envío
@@ -86,17 +76,16 @@ Si el archivo supera los <strong>100 MB</strong>, puede utilizar cualquiera de l
 </p>
 
 <label><strong>Enlace del manuscrito opcional</strong></label>
-
-<input 
-type="url" 
-name="Link_Archivo" 
+<input
+type="url"
+name="Link_Archivo"
 placeholder="Ej: Google Drive, Dropbox, OneDrive o WeTransfer"
 style="width:100%; padding:12px; margin:8px 0 18px;">
 
 <p><strong>Subir archivo a Google Drive opcional</strong></p>
 
-<a 
-class="btn" 
+<a
+class="btn"
 href="https://drive.google.com/drive/folders/1mfGTG2P0aAecRK95arPEOpTUP5wqv3s0?usp=drive_link"
 target="_blank"
 rel="noopener">
@@ -113,22 +102,16 @@ También puede enviar el manuscrito directamente al correo:
 </details>
 
 <label><strong>Mensaje opcional para el comité editorial</strong></label>
-
-<textarea 
-name="Mensaje" 
-rows="5" 
-style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
+<textarea name="Mensaje" rows="5" style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
 
 <div id="barraContainer" style="display:none; margin-bottom:22px;">
+  <div style="width:100%; background:#e5e7eb; border-radius:8px; overflow:hidden;">
+    <div id="barra" style="width:0%; height:12px; background:#2563eb; transition:width 0.25s;"></div>
+  </div>
 
-<div style="width:100%; background:#e5e7eb; border-radius:8px; overflow:hidden;">
-<div id="barra" style="width:0%; height:12px; background:#2563eb; transition:width 0.25s;"></div>
-</div>
-
-<p id="textoCarga" style="font-size:0.92rem; margin-top:8px; color:#475569;">
-Preparando envío...
-</p>
-
+  <p id="textoCarga" style="font-size:0.92rem; margin-top:8px; color:#475569;">
+    Preparando envío...
+  </p>
 </div>
 
 <button id="botonEnviar" class="btn" type="submit">
@@ -183,54 +166,72 @@ async function enviarFormulario(event) {
 
   boton.disabled = true;
   boton.innerText = "Enviando información...";
-
   contenedor.style.display = "block";
   barra.style.width = "20%";
   textoCarga.innerText = "Preparando envío...";
 
   try {
 
-    const datos = new FormData();
-
     if (archivo) {
+      const datos = new FormData();
+
       datos.append("archivo", archivo);
+      datos.append("autor", form.Autor.value);
+      datos.append("afiliacion", form.Afiliacion.value);
+      datos.append("email", form.email.value);
+      datos.append("titulo", form.Titulo.value);
+      datos.append("tipo", form.Tipo.value);
+      datos.append("mensaje", form.Mensaje.value);
+
+      if (form.Link_Archivo) {
+        datos.append("linkArchivo", form.Link_Archivo.value);
+      }
+
+      barra.style.width = "45%";
+      textoCarga.innerText = "Cargando archivo adjunto...";
+
+      const respuesta = await fetch(WORKER_URL, {
+        method: "POST",
+        body: datos
+      });
+
+      const resultado = await respuesta.json();
+
+      if (!respuesta.ok || !resultado.success) {
+        throw new Error(resultado.error || "No fue posible cargar el archivo.");
+      }
+
+      let campoR2 = document.createElement("input");
+      campoR2.type = "hidden";
+      campoR2.name = "Archivo_R2";
+      campoR2.value = resultado.fileKey || "Archivo cargado en Cloudflare R2";
+      form.appendChild(campoR2);
+
+      if (resultado.registroKey) {
+        let campoRegistro = document.createElement("input");
+        campoRegistro.type = "hidden";
+        campoRegistro.name = "Registro_R2";
+        campoRegistro.value = resultado.registroKey;
+        form.appendChild(campoRegistro);
+      }
     }
 
-    datos.append("autor", form.Autor.value);
-    datos.append("afiliacion", form.Afiliacion.value);
-    datos.append("email", form.email.value);
-    datos.append("titulo", form.Titulo.value);
-    datos.append("tipo", form.Tipo.value);
-    datos.append("mensaje", form.Mensaje.value);
+    barra.style.width = "80%";
+    textoCarga.innerText = "Enviando correo de notificación...";
 
-    if (form.Link_Archivo) {
-      datos.append("linkArchivo", form.Link_Archivo.value);
-    }
-
-    barra.style.width = "45%";
-    textoCarga.innerText = "Cargando información...";
-
-    const respuesta = await fetch(WORKER_URL, {
-      method: "POST",
-      body: datos
-    });
-
-    const resultado = await respuesta.json();
-
-    if (!respuesta.ok || !resultado.success) {
-      throw new Error(resultado.error || "No fue posible completar el envío.");
-    }
+    HTMLFormElement.prototype.submit.call(form);
 
     barra.style.width = "100%";
     textoCarga.innerText = "Envío completado correctamente";
 
-    window.location.href = URL_GRACIAS;
+    setTimeout(function() {
+      window.location.href = URL_GRACIAS;
+    }, 1200);
 
   } catch (error) {
 
     boton.disabled = false;
     boton.innerText = "Enviar información al comité editorial";
-
     contenedor.style.display = "none";
     barra.style.width = "0%";
 
