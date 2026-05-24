@@ -4,38 +4,37 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
   event.preventDefault();
 
   const CLOUDFLARE_WORKER_URL =
-  "https://dawn-base-5480.santanderacmi.workers.dev";
+    "https://dawn-base-5480.santanderacmi.workers.dev";
 
   const URL_GRACIAS =
-  "https://acmisantander.com.co/magazine/gracias/";
+    "https://acmisantander.com.co/magazine/gracias.html";
 
   const form = this;
 
-  const archivoInput =
-  document.getElementById("archivoAdjunto");
+  const archivoInput = document.getElementById("archivoAdjunto");
+  const archivo = archivoInput ? archivoInput.files[0] : null;
 
-  const archivo = archivoInput.files[0];
-
-  const boton =
-  document.getElementById("botonEnviar");
-
-  const barra =
-  document.getElementById("barra");
-
-  const contenedor =
-  document.getElementById("barraContainer");
-
-  const textoCarga =
-  document.getElementById("textoCarga");
-
-  const mensajeError =
-  document.getElementById("mensajeErrorArchivo");
-
-  const opciones =
-  document.getElementById("opcionesAlternativas");
+  const boton = document.getElementById("botonEnviar");
+  const barra = document.getElementById("barra");
+  const contenedor = document.getElementById("barraContainer");
+  const textoCarga = document.getElementById("textoCarga");
+  const mensajeError = document.getElementById("mensajeErrorArchivo");
+  const opciones = document.getElementById("opcionesAlternativas");
 
   const limiteMB = 100;
   const limiteBytes = limiteMB * 1024 * 1024;
+
+  const autor =
+    form.querySelector("[name='Autor']") ||
+    form.querySelector("[name='autor']") ||
+    form.querySelector("[name='Nombre']") ||
+    form.querySelector("[name='nombre']");
+
+  const titulo =
+    form.querySelector("[name='Titulo']") ||
+    form.querySelector("[name='titulo']") ||
+    form.querySelector("[name='Título']") ||
+    form.querySelector("[name='titulo_manuscrito']");
 
   mensajeError.style.display = "none";
   mensajeError.innerHTML = "";
@@ -45,12 +44,12 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
     mensajeError.style.display = "block";
 
     mensajeError.innerHTML =
-      "<div style='background:#dc2626; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px;'>" +
+      "<div style='background:#dc2626; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px; text-decoration:underline;'>" +
       "⚠ El archivo supera el límite máximo permitido de 100 MB." +
       "</div>" +
       "Utilice las opciones alternativas: Drive, Dropbox, OneDrive, WeTransfer o correo institucional.";
 
-    opciones.open = true;
+    if (opciones) opciones.open = true;
 
     return false;
   }
@@ -69,11 +68,11 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
       const datosCloudflare = new FormData();
 
       datosCloudflare.append("archivo", archivo);
-      datosCloudflare.append("autor", form.Autor.value);
-      datosCloudflare.append("titulo", form.Titulo.value);
+      datosCloudflare.append("autor", autor ? autor.value : "");
+      datosCloudflare.append("titulo", titulo ? titulo.value : "");
 
       barra.style.width = "35%";
-      textoCarga.innerText = "Subiendo archivo...";
+      textoCarga.innerText = "Cargando archivo adjunto...";
 
       const respuesta = await fetch(CLOUDFLARE_WORKER_URL, {
         method: "POST",
@@ -83,20 +82,16 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
       const resultado = await respuesta.json();
 
       if (!respuesta.ok || !resultado.success) {
-        throw new Error(
-          resultado.error ||
-          "No fue posible cargar el archivo."
-        );
+        throw new Error(resultado.error || "No fue posible cargar el archivo.");
       }
 
       barra.style.width = "75%";
       textoCarga.innerText = "Archivo cargado correctamente...";
 
       const campoR2 = document.createElement("input");
-
       campoR2.type = "hidden";
       campoR2.name = "Archivo_R2";
-      campoR2.value = resultado.fileKey;
+      campoR2.value = resultado.fileKey || resultado.url || "Archivo cargado en R2";
 
       form.appendChild(campoR2);
     }
@@ -104,12 +99,6 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
     boton.innerText = "Enviando información...";
     textoCarga.innerText = "Enviando formulario...";
     barra.style.width = "92%";
-
-    /*
-      FormSubmit a veces falla con error 521.
-      Por eso se intenta enviar, pero NO se deja al usuario
-      atrapado en formsubmit.co.
-    */
 
     try {
       await fetch(form.action, {
@@ -145,7 +134,7 @@ document.getElementById("formEnvio").addEventListener("submit", async function(e
       "</div>" +
       "Puede intentar nuevamente o utilizar las opciones alternativas.";
 
-    opciones.open = true;
+    if (opciones) opciones.open = true;
   }
 
 });
