@@ -14,13 +14,10 @@ permalink: /magazine/enviar-manuscrito/
 Formulario institucional para el envío de manuscritos académicos, columnas de opinión, editoriales o artículos para el Magazine ACMI Santander.
 </p>
 
-<iframe name="formsubmitFrame" style="display:none;"></iframe>
-
 <form
 id="formEnvio"
 action="https://formsubmit.co/santanderacmi@gmail.com"
 method="POST"
-target="formsubmitFrame"
 onsubmit="return enviarFormulario(event);">
 
 <input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
@@ -170,18 +167,18 @@ async function enviarFormulario(event) {
   textoCarga.innerText = "Preparando envío...";
 
   if (archivo) {
-    const datos = new FormData();
+    const datosR2 = new FormData();
 
-    datos.append("archivo", archivo);
-    datos.append("autor", form.Autor.value);
-    datos.append("afiliacion", form.Afiliacion.value);
-    datos.append("email", form.email.value);
-    datos.append("titulo", form.Titulo.value);
-    datos.append("tipo", form.Tipo.value);
-    datos.append("mensaje", form.Mensaje.value);
+    datosR2.append("archivo", archivo);
+    datosR2.append("autor", form.Autor.value);
+    datosR2.append("afiliacion", form.Afiliacion.value);
+    datosR2.append("email", form.email.value);
+    datosR2.append("titulo", form.Titulo.value);
+    datosR2.append("tipo", form.Tipo.value);
+    datosR2.append("mensaje", form.Mensaje.value);
 
     if (form.Link_Archivo) {
-      datos.append("linkArchivo", form.Link_Archivo.value);
+      datosR2.append("linkArchivo", form.Link_Archivo.value);
     }
 
     barra.style.width = "45%";
@@ -190,7 +187,7 @@ async function enviarFormulario(event) {
     try {
       const respuesta = await fetch(WORKER_URL, {
         method: "POST",
-        body: datos
+        body: datosR2
       });
 
       const resultado = await respuesta.json();
@@ -229,7 +226,17 @@ async function enviarFormulario(event) {
   barra.style.width = "80%";
   textoCarga.innerText = "Enviando correo de notificación...";
 
-  HTMLFormElement.prototype.submit.call(form);
+  const datosCorreo = new FormData(form);
+
+  try {
+    await fetch(form.action, {
+      method: "POST",
+      body: datosCorreo,
+      mode: "no-cors"
+    });
+  } catch (errorCorreo) {
+    console.warn("FormSubmit no respondió, pero se continúa a la página de gracias.");
+  }
 
   barra.style.width = "100%";
   textoCarga.innerText = "Envío completado correctamente";
