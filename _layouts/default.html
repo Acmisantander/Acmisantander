@@ -8,11 +8,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --azul-acmi:#0f3569;
+  --azul-acmi-2:#143f7d;
+  --verde-acmi:#2a9c52;
+  --verde-hover:#218443;
+  --gris-texto:#243244;
+  --gris-suave:#f5f7fb;
+}
+
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family:'Lato',sans-serif;
-  background:#f5f7fb;
-  color:#243244;
+  background:var(--gris-suave);
+  color:var(--gris-texto);
   line-height:1.6;
 }
 
@@ -24,8 +37,10 @@ body{
 
 header{
   background:white;
-  border-bottom:4px solid #2a9c52;
+  border-bottom:4px solid var(--verde-acmi);
   box-shadow:0 3px 12px rgba(0,0,0,0.08);
+  position:relative;
+  z-index:100;
 }
 
 .header-flex{
@@ -70,7 +85,7 @@ header{
   font-family:'Montserrat',sans-serif;
   margin:0;
   font-size:28px;
-  color:#143f7d;
+  color:var(--azul-acmi-2);
   line-height:1.1;
 }
 
@@ -88,7 +103,233 @@ nav{
 }
 
 nav a{
-  color:#143f7d;
+  color:var(--azul-acmi-2);
   text-decoration:none;
   font-weight:700;
 }
+
+nav a:hover{
+  color:var(--verde-acmi);
+}
+
+.dropdown{
+  position:relative;
+  display:inline-block;
+}
+
+.dropdown > a{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+
+.dropdown-content{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:white;
+  min-width:250px;
+  box-shadow:0 8px 18px rgba(0,0,0,0.15);
+  border-radius:12px;
+  padding:10px 0;
+  z-index:1000;
+}
+
+.dropdown-content a{
+  color:var(--azul-acmi-2);
+  display:block;
+  padding:11px 16px;
+  text-decoration:none;
+  font-weight:600;
+  white-space:nowrap;
+}
+
+.dropdown-content a:hover{
+  background:#eef3f8;
+  color:var(--verde-acmi);
+}
+
+.dropdown:hover .dropdown-content{
+  display:block;
+}
+
+main{
+  padding:70px 0;
+}
+
+h1,h2,h3{
+  font-family:'Montserrat',sans-serif;
+  color:var(--azul-acmi-2);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+.card{
+  background:white;
+  border-radius:18px;
+  padding:28px;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+}
+
+.btn{
+  display:inline-block;
+  margin-top:16px;
+  background:var(--verde-acmi);
+  color:white;
+  padding:11px 18px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+}
+
+.btn:hover{
+  background:var(--verde-hover);
+  color:white;
+}
+
+.meta{
+  font-size:14px;
+  color:#607086;
+  margin-bottom:12px;
+}
+
+footer{
+  background:var(--azul-acmi);
+  color:white;
+  text-align:center;
+  padding:22px;
+  margin-top:40px;
+}
+
+footer p{
+  margin:6px 0;
+}
+
+@media(max-width:900px){
+  .header-flex{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .brand{
+    flex-direction:column;
+  }
+
+  nav{
+    justify-content:center;
+    gap:16px;
+  }
+
+  .dropdown-content{
+    left:50%;
+    transform:translateX(-50%);
+  }
+}
+
+@media(max-width:640px){
+  nav{
+    flex-direction:column;
+  }
+
+  .brand-text h1{
+    font-size:24px;
+  }
+
+  .brand-text p{
+    font-size:13px;
+  }
+
+  main{
+    padding:45px 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-flex">
+
+    <a href="{{ site.baseurl }}/" class="brand">
+      <span class="brand-logo-wrap">
+        <img src="{{ site.baseurl }}/LOGO%20ACMI.png" alt="ACMI Santander" class="brand-logo">
+      </span>
+
+      <div class="brand-text">
+        <h1>ACMI Santander</h1>
+        <p>Asociación Colombiana de Medicina Interna • Capítulo Santander</p>
+      </div>
+    </a>
+
+    <nav>
+
+      <a href="{{ site.baseurl }}/">
+        Inicio
+      </a>
+
+      <a href="{{ site.baseurl }}/educacion-medica-continuada/">
+        Educación médica continuada
+      </a>
+
+      <div class="dropdown">
+
+        <a href="{{ site.baseurl }}/magazine/">
+          Magazine ▾
+        </a>
+
+        <div class="dropdown-content">
+
+          <a href="{{ site.baseurl }}/magazine/#noticias">
+            Noticias
+          </a>
+
+          <a href="{{ site.baseurl }}/magazine/#opinion">
+            Opinión
+          </a>
+
+          <a href="{{ site.baseurl }}/magazine/manual-publicacion/">
+            Manual de publicación
+          </a>
+
+          <a href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
+            Enviar manuscrito
+          </a>
+
+          <a href="{{ site.baseurl }}/magazine/enviar-ponencias/">
+            Enviar ponencia
+          </a>
+
+        </div>
+
+      </div>
+
+      <a href="{{ site.baseurl }}/proyeccion-social/">
+        Proyección social
+      </a>
+
+    </nav>
+
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    {{ content }}
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 ACMI Santander</p>
+  <p>Educación continua que transforma la práctica clínica</p>
+</footer>
+
+</body>
+</html>
