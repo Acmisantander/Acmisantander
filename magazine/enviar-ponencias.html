@@ -1,186 +1,45 @@
----
-layout: default
-title: Enviar ponencia
-permalink: /magazine/enviar-ponencias/
----
-
-<h1>Enviar ponencia</h1>
-
-<div class="card">
-
-<h2>Recepción de ponencias</h2>
-
-<p>
-Formulario institucional para el envío de ponencias académicas organizadas o avaladas por ACMI Santander 
-(simposios, cursos, jornadas, talleres y otros eventos académicos).
-</p>
-
-<form 
-id="formEnvioPonencia"
-action="https://formsubmit.co/santanderacmi@gmail.com" 
-method="POST">
-
-<input type="hidden" name="_subject" value="Nueva ponencia enviada a ACMI Santander">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="https://acmisantander.github.io/Acmisantander/magazine/gracias-ponencia/">
-<input type="hidden" name="_autoresponse" value="Su ponencia fue recibida correctamente por ACMI Santander. El comité académico revisará la presentación enviada y se comunicará con usted si se requieren ajustes, información adicional o confirmación dentro del programa académico.">
-
-<label><strong>Nombre completo del ponente</strong></label>
-<input type="text" name="Nombre_Ponente" required style="width:100%; padding:12px; margin:8px 0 18px;">
-
-<label><strong>Afiliación institucional</strong></label>
-<input type="text" name="Afiliacion" required style="width:100%; padding:12px; margin:8px 0 18px;">
-
-<label><strong>Correo electrónico</strong></label>
-<input type="email" name="email" required style="width:100%; padding:12px; margin:8px 0 18px;">
-
-<label><strong>Título de la ponencia</strong></label>
-<input type="text" name="Titulo_Ponencia" required style="width:100%; padding:12px; margin:8px 0 18px;">
-
-<label><strong>Evento académico</strong></label>
-<select name="Evento" required style="width:100%; padding:12px; margin:8px 0 18px;">
-<option value="">Seleccione una opción</option>
-<option>VI Simposio Regional ACMI San Gil Santander</option>
-</select>
-
-<label><strong>Cargar ponencia</strong></label>
-
-<input 
-id="archivoPonencia"
-type="file" 
-accept=".pdf,.ppt,.pptx,.key,.odp,.doc,.docx"
-style="width:100%; padding:12px; margin:8px 0 18px; border:1px solid #ddd; border-radius:6px;">
-
-<p style="font-size:0.95rem; color:#555; margin-top:-8px;">
-Puede adjuntar archivos en PDF, PPT, PPTX, KEY, ODP, DOC o DOCX. Si el archivo supera el límite máximo de <strong>100 MB</strong>, debe utilizar las opciones alternativas a continuación.
-</p>
-
-<input type="hidden" id="Archivo_Cloudflare_R2" name="Archivo_Cloudflare_R2">
-<input type="hidden" id="Nombre_Archivo_Original" name="Nombre_Archivo_Original">
-<input type="hidden" id="Tamano_Archivo" name="Tamano_Archivo">
-
-<div 
-id="mensajeErrorPonencia" 
-style="
-display:none;
-margin:18px 0;
-padding:18px;
-background:#fff7ed;
-border:2px solid #ea580c;
-border-radius:10px;
-color:#9a3412;
-font-weight:500;
-line-height:1.7;
-box-shadow:0 4px 12px rgba(234,88,12,0.15);
-">
-</div>
-
-<details 
-id="opcionesAlternativasPonencia"
-style="
-margin-top:18px;
-margin-bottom:25px;
-padding:16px;
-background:#f8fafc;
-border:1px solid #e5e7eb;
-border-radius:8px;">
-
-<summary style="cursor:pointer; font-weight:600; color:#1e293b;">
-Opciones alternativas para archivos grandes u otros métodos de envío
-</summary>
-
-<div style="margin-top:16px; font-size:0.96rem; line-height:1.7; color:#334155;">
-
-<p>
-Si el archivo supera los <strong>100 MB</strong>, puede utilizar cualquiera de las siguientes alternativas:
-</p>
-
-<label><strong>Enlace de la ponencia (opcional)</strong></label>
-
-<input 
-type="url" 
-name="Link_Ponencia" 
-placeholder="Ej: Google Drive, Dropbox, OneDrive o WeTransfer"
-style="width:100%; padding:12px; margin:8px 0 18px;">
-
-<p><strong>Subir archivo a Google Drive (opcional)</strong></p>
-
-<a 
-class="btn" 
-href="https://drive.google.com/drive/folders/1698LR3iRCIVKmTyWjNRRMI-nhHpELREM?usp=drive_link"
-target="_blank">
-Subir ponencia a Google Drive
-</a>
-
-<p style="margin-top:18px;">
-También puede enviar la ponencia directamente al correo:
-<strong>santanderacmi@gmail.com</strong>
-</p>
-
-</div>
-
-</details>
-
-<label><strong>Mensaje opcional para el comité académico</strong></label>
-
-<textarea 
-name="Mensaje" 
-rows="5" 
-style="width:100%; padding:12px; margin:8px 0 18px;"></textarea>
-
-<div id="barraContainerPonencia" style="display:none; margin-bottom:22px;">
-
-<div style="width:100%; background:#e5e7eb; border-radius:8px; overflow:hidden;">
-<div id="barraPonencia" style="width:0%; height:12px; background:#2563eb; transition:width 0.25s;"></div>
-</div>
-
-<p id="textoCargaPonencia" style="font-size:0.92rem; margin-top:8px; color:#475569;">
-Preparando envío...
-</p>
-
-</div>
-
-<button id="botonEnviarPonencia" class="btn" type="submit">
-Enviar información de la ponencia
-</button>
-
-</form>
-
-</div>
-
-<div style="margin-top:25px;">
-<a class="btn" href="{{ site.baseurl }}/">
-Volver al inicio
-</a>
-</div>
-
 <script>
-document.getElementById("formEnvioPonencia").addEventListener("submit", async function(event) {
+async function enviarPonencia(event) {
 
   event.preventDefault();
 
-  const CLOUDFLARE_WORKER_URL = "https://dawn-base-5480.santanderacmi.workers.dev";
+  const WORKER_URL =
+  "https://dawn-base-5480.santanderacmi.workers.dev";
 
-  const form = this;
+  const URL_GRACIAS =
+  "https://acmisantander.com.co/magazine/gracias-ponencia/";
 
-  const archivoInput = document.getElementById("archivoPonencia");
-  const archivo = archivoInput.files[0];
+  const form =
+  document.getElementById("formEnvioPonencia");
 
-  const boton = document.getElementById("botonEnviarPonencia");
-  const barra = document.getElementById("barraPonencia");
-  const contenedor = document.getElementById("barraContainerPonencia");
-  const textoCarga = document.getElementById("textoCargaPonencia");
+  const archivoInput =
+  document.getElementById("archivoPonencia");
 
-  const mensajeError = document.getElementById("mensajeErrorPonencia");
-  const opciones = document.getElementById("opcionesAlternativasPonencia");
+  const archivo =
+  archivoInput && archivoInput.files.length > 0
+  ? archivoInput.files[0]
+  : null;
 
-  const campoR2 = document.getElementById("Archivo_Cloudflare_R2");
-  const campoOriginal = document.getElementById("Nombre_Archivo_Original");
-  const campoTamano = document.getElementById("Tamano_Archivo");
+  const boton =
+  document.getElementById("botonEnviarPonencia");
 
-  const limiteMB = 100;
-  const limiteBytes = limiteMB * 1024 * 1024;
+  const barra =
+  document.getElementById("barraPonencia");
+
+  const contenedor =
+  document.getElementById("barraContainerPonencia");
+
+  const textoCarga =
+  document.getElementById("textoCargaPonencia");
+
+  const mensajeError =
+  document.getElementById("mensajeErrorPonencia");
+
+  const opciones =
+  document.getElementById("opcionesAlternativasPonencia");
+
+  const limiteBytes =
+  100 * 1024 * 1024;
 
   mensajeError.style.display = "none";
   mensajeError.innerHTML = "";
@@ -190,92 +49,166 @@ document.getElementById("formEnvioPonencia").addEventListener("submit", async fu
     mensajeError.style.display = "block";
 
     mensajeError.innerHTML =
-      "<div style='background:#dc2626; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px; box-shadow:0 2px 8px rgba(220,38,38,0.25);'>" +
+      "<div style='background:#dc2626;color:white;padding:14px 16px;border-radius:8px;font-weight:700;margin-bottom:14px;text-decoration:underline;'>" +
       "⚠ El archivo supera el límite máximo permitido de 100 MB." +
       "</div>" +
+      "Utilice las opciones alternativas.";
 
-      "Utilice las opciones alternativas: enlace de Drive, Dropbox, OneDrive, WeTransfer, Google Drive o envío al correo institucional.";
-
-    opciones.open = true;
+    if (opciones) opciones.open = true;
 
     return false;
   }
 
   boton.disabled = true;
-  boton.innerText = "Subiendo archivo...";
 
-  contenedor.style.display = "block";
+  boton.innerText =
+  "Enviando información...";
 
-  barra.style.width = "15%";
+  contenedor.style.display =
+  "block";
 
-  textoCarga.innerText = "Cargando archivo...";
+  barra.style.width =
+  "20%";
+
+  textoCarga.innerText =
+  "Preparando envío...";
 
   try {
 
-    if (archivo) {
+    const datos =
+    new FormData();
 
-      const datosCloudflare = new FormData();
+    datos.append(
+      "tipoFormulario",
+      "ponencia"
+    );
 
-      datosCloudflare.append("archivo", archivo);
-      datosCloudflare.append("autor", form.Nombre_Ponente.value);
-      datosCloudflare.append("titulo", form.Titulo_Ponencia.value);
+    datos.append(
+      "nombrePonente",
+      form.Nombre_Ponente.value
+    );
 
-      barra.style.width = "35%";
+    datos.append(
+      "afiliacion",
+      form.Afiliacion.value
+    );
 
-      const respuesta = await fetch(CLOUDFLARE_WORKER_URL, {
-        method: "POST",
-        body: datosCloudflare
-      });
+    datos.append(
+      "email",
+      form.email.value
+    );
 
-      const resultado = await respuesta.json();
+    datos.append(
+      "tituloPonencia",
+      form.Titulo_Ponencia.value
+    );
 
-      if (!respuesta.ok || !resultado.success) {
-        throw new Error(resultado.error || "No fue posible cargar el archivo.");
-      }
+    datos.append(
+      "evento",
+      form.Evento.value
+    );
 
-      barra.style.width = "80%";
+    datos.append(
+      "mensaje",
+      form.Mensaje.value
+    );
 
-      campoR2.value = resultado.fileKey;
-      campoOriginal.value = resultado.originalName;
-      campoTamano.value = resultado.size;
+    if (form.Link_Ponencia) {
 
-    } else {
-
-      campoR2.value = "No se adjuntó archivo";
-      campoOriginal.value = "No se adjuntó archivo";
-      campoTamano.value = "0";
-
+      datos.append(
+        "linkPonencia",
+        form.Link_Ponencia.value
+      );
     }
 
-    boton.innerText = "Enviando información...";
-    textoCarga.innerText = "Enviando información...";
+    if (archivo) {
 
-    barra.style.width = "95%";
+      datos.append(
+        "archivo",
+        archivo
+      );
 
-    form.submit();
+      barra.style.width =
+      "45%";
+
+      textoCarga.innerText =
+      "Cargando archivo adjunto...";
+    }
+
+    const respuesta =
+    await fetch(WORKER_URL, {
+      method: "POST",
+      body: datos
+    });
+
+    const resultado =
+    await respuesta.json();
+
+    if (!respuesta.ok || !resultado.success) {
+
+      throw new Error(
+        resultado.error ||
+        "No fue posible completar el envío."
+      );
+    }
+
+    barra.style.width =
+    "100%";
+
+    textoCarga.innerText =
+    "Ponencia enviada correctamente";
+
+    setTimeout(function() {
+
+      window.location.href =
+      URL_GRACIAS;
+
+    }, 1200);
 
   } catch (error) {
 
     boton.disabled = false;
 
-    boton.innerText = "Enviar información de la ponencia";
+    boton.innerText =
+    "Enviar información de la ponencia";
 
-    contenedor.style.display = "none";
+    contenedor.style.display =
+    "none";
 
-    barra.style.width = "0%";
+    barra.style.width =
+    "0%";
 
-    mensajeError.style.display = "block";
+    mensajeError.style.display =
+    "block";
 
     mensajeError.innerHTML =
-      "<div style='background:#ea580c; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px; box-shadow:0 2px 8px rgba(234,88,12,0.25);'>" +
-      "⚠ No fue posible cargar el archivo." +
+
+      "<div style='background:#ea580c;color:white;padding:14px 16px;border-radius:8px;font-weight:700;margin-bottom:14px;'>" +
+
+      "⚠ No fue posible completar el envío." +
+
       "</div>" +
 
-      "<div style='margin-bottom:12px;'>" + error.message + "</div>" +
+      "<div style='margin-bottom:12px;'>" +
+
+      error.message +
+
+      "</div>" +
 
       "Puede intentar nuevamente o usar las opciones alternativas.";
 
-    opciones.open = true;
+    if (opciones) {
+      opciones.open = true;
+    }
   }
-});
+
+  return false;
+}
+
+document
+.getElementById("formEnvioPonencia")
+.addEventListener(
+  "submit",
+  enviarPonencia
+);
 </script>
