@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ page.title }} | ACMI Santander</title>
+
+<title>
+  {{ page.title }} | ACMI Santander
+</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
   --azul-acmi:#0f3569;
   --azul-acmi-2:#143f7d;
@@ -106,6 +112,7 @@ nav a{
   color:var(--azul-acmi-2);
   text-decoration:none;
   font-weight:700;
+  transition:.25s ease;
 }
 
 nav a:hover{
@@ -187,6 +194,7 @@ h1,h2,h3{
   font-weight:700;
   border:none;
   cursor:pointer;
+  transition:.25s ease;
 }
 
 .btn:hover{
@@ -213,6 +221,7 @@ footer p{
 }
 
 @media(max-width:900px){
+
   .header-flex{
     flex-direction:column;
     text-align:center;
@@ -231,9 +240,11 @@ footer p{
     left:50%;
     transform:translateX(-50%);
   }
+
 }
 
 @media(max-width:640px){
+
   nav{
     flex-direction:column;
   }
@@ -249,24 +260,43 @@ footer p{
   main{
     padding:45px 0;
   }
+
 }
+
 </style>
+
 </head>
 
 <body>
 
 <header>
+
   <div class="container header-flex">
 
     <a href="{{ site.baseurl }}/" class="brand">
+
       <span class="brand-logo-wrap">
-        <img src="{{ site.baseurl }}/LOGO%20ACMI.png" alt="ACMI Santander" class="brand-logo">
+
+        <img
+          src="{{ site.baseurl }}/LOGO%20ACMI.png"
+          alt="ACMI Santander"
+          class="brand-logo"
+        >
+
       </span>
 
       <div class="brand-text">
-        <h1>ACMI Santander</h1>
-        <p>Asociación Colombiana de Medicina Interna • Capítulo Santander</p>
+
+        <h1>
+          ACMI Santander
+        </h1>
+
+        <p>
+          Asociación Colombiana de Medicina Interna • Capítulo Santander
+        </p>
+
       </div>
+
     </a>
 
     <nav>
@@ -318,17 +348,29 @@ footer p{
     </nav>
 
   </div>
+
 </header>
 
 <main>
+
   <div class="container">
+
     {{ content }}
+
   </div>
+
 </main>
 
 <footer>
-  <p>© 2026 ACMI Santander</p>
-  <p>Educación continua que transforma la práctica clínica</p>
+
+  <p>
+    © 2026 ACMI Santander
+  </p>
+
+  <p>
+    Educación continua que transforma la práctica clínica
+  </p>
+
 </footer>
 
 </body>
