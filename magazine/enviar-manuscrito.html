@@ -16,16 +16,8 @@ Formulario institucional para el envío de manuscritos académicos, columnas de 
 
 <form
 id="formEnvio"
-action="https://formsubmit.co/santanderacmi@gmail.com"
 method="POST"
-target="_blank"
 onsubmit="return enviarFormulario(event);">
-
-<input type="hidden" name="_subject" value="Nuevo manuscrito enviado al Magazine ACMI Santander">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="https://acmisantander.com.co/magazine/gracias/">
-<input type="hidden" name="_autoresponse" value="Su manuscrito fue recibido por el Magazine ACMI Santander. El comité editorial revisará el contenido recibido y se comunicará con el autor.">
 
 <label><strong>Nombre completo del autor</strong></label>
 <input type="text" name="Autor" required style="width:100%; padding:12px; margin:8px 0 18px;">
@@ -129,6 +121,7 @@ Volver al Magazine
 
 <script>
 async function enviarFormulario(event) {
+
   event.preventDefault();
 
   const WORKER_URL = "https://dawn-base-5480.santanderacmi.workers.dev";
@@ -153,7 +146,7 @@ async function enviarFormulario(event) {
   if (archivo && archivo.size > limiteBytes) {
     mensajeError.style.display = "block";
     mensajeError.innerHTML =
-      "<div style='background:#dc2626; color:white; padding:14px 16px; border-radius:8px; font-weight:700; margin-bottom:14px; text-decoration:underline;'>" +
+      "<div style='background:#dc2626;color:white;padding:14px 16px;border-radius:8px;font-weight:700;margin-bottom:14px;text-decoration:underline;'>" +
       "⚠ El archivo supera el límite máximo permitido de 100 MB." +
       "</div>" +
       "Utilice las opciones alternativas.";
@@ -168,74 +161,64 @@ async function enviarFormulario(event) {
   barra.style.width = "20%";
   textoCarga.innerText = "Preparando envío...";
 
-  if (archivo) {
-    const datosR2 = new FormData();
+  try {
 
-    datosR2.append("archivo", archivo);
-    datosR2.append("autor", form.Autor.value);
-    datosR2.append("afiliacion", form.Afiliacion.value);
-    datosR2.append("email", form.email.value);
-    datosR2.append("titulo", form.Titulo.value);
-    datosR2.append("tipo", form.Tipo.value);
-    datosR2.append("mensaje", form.Mensaje.value);
+    const datos = new FormData();
+
+    if (archivo) {
+      datos.append("archivo", archivo);
+    }
+
+    datos.append("tipoFormulario", "manuscrito");
+    datos.append("autor", form.Autor.value);
+    datos.append("afiliacion", form.Afiliacion.value);
+    datos.append("email", form.email.value);
+    datos.append("titulo", form.Titulo.value);
+    datos.append("tipo", form.Tipo.value);
+    datos.append("mensaje", form.Mensaje.value);
 
     if (form.Link_Archivo) {
-      datosR2.append("linkArchivo", form.Link_Archivo.value);
+      datos.append("linkArchivo", form.Link_Archivo.value);
     }
 
-    barra.style.width = "45%";
-    textoCarga.innerText = "Cargando archivo adjunto...";
+    barra.style.width = "55%";
+    textoCarga.innerText = archivo ? "Cargando archivo adjunto..." : "Enviando información...";
 
-    try {
-      const respuesta = await fetch(WORKER_URL, {
-        method: "POST",
-        body: datosR2
-      });
+    const respuesta = await fetch(WORKER_URL, {
+      method: "POST",
+      body: datos
+    });
 
-      const resultado = await respuesta.json();
+    const resultado = await respuesta.json();
 
-      if (respuesta.ok && resultado.success) {
-        const campoR2 = document.createElement("input");
-        campoR2.type = "hidden";
-        campoR2.name = "Archivo_R2";
-        campoR2.value = resultado.fileKey || "Archivo cargado en Cloudflare R2";
-        form.appendChild(campoR2);
-
-        if (resultado.registroKey) {
-          const campoRegistro = document.createElement("input");
-          campoRegistro.type = "hidden";
-          campoRegistro.name = "Registro_R2";
-          campoRegistro.value = resultado.registroKey;
-          form.appendChild(campoRegistro);
-        }
-      } else {
-        const campoError = document.createElement("input");
-        campoError.type = "hidden";
-        campoError.name = "Advertencia_R2";
-        campoError.value = "El archivo no pudo guardarse en R2, pero el formulario fue enviado por correo.";
-        form.appendChild(campoError);
-      }
-
-    } catch (errorWorker) {
-      const campoError = document.createElement("input");
-      campoError.type = "hidden";
-      campoError.name = "Advertencia_R2";
-      campoError.value = "El archivo no pudo guardarse en R2, pero el formulario fue enviado por correo.";
-      form.appendChild(campoError);
+    if (!respuesta.ok || !resultado.success) {
+      throw new Error(resultado.error || "No fue posible completar el envío.");
     }
+
+    barra.style.width = "100%";
+    textoCarga.innerText = "Envío completado correctamente";
+
+    setTimeout(function() {
+      window.location.href = URL_GRACIAS;
+    }, 1000);
+
+  } catch (error) {
+
+    boton.disabled = false;
+    boton.innerText = "Enviar información al comité editorial";
+    contenedor.style.display = "none";
+    barra.style.width = "0%";
+
+    mensajeError.style.display = "block";
+    mensajeError.innerHTML =
+      "<div style='background:#ea580c;color:white;padding:14px 16px;border-radius:8px;font-weight:700;margin-bottom:14px;'>" +
+      "⚠ No fue posible completar el envío." +
+      "</div>" +
+      "<div style='margin-bottom:12px;'>" + error.message + "</div>" +
+      "Puede intentar nuevamente o usar las opciones alternativas.";
+
+    if (opciones) opciones.open = true;
   }
-
-  barra.style.width = "80%";
-  textoCarga.innerText = "Enviando correo de notificación...";
-
-  HTMLFormElement.prototype.submit.call(form);
-
-  barra.style.width = "100%";
-  textoCarga.innerText = "Envío completado correctamente";
-
-  setTimeout(function() {
-    window.location.href = URL_GRACIAS;
-  }, 1200);
 
   return false;
 }
