@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,21 +9,115 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:'Lato',sans-serif;background:#f5f7fb;color:#243244;line-height:1.6}
-.container{width:90%;max-width:1100px;margin:auto}
-header{background:#143f7d;color:white;padding:22px 0;border-bottom:4px solid #2a9c52}
-h1,h2{font-family:'Montserrat',sans-serif}
-h1{margin:0;font-size:30px}
-nav{margin-top:12px;display:flex;gap:20px;flex-wrap:wrap}
-nav a{color:white;text-decoration:none;font-weight:700}
-nav a:hover{text-decoration:underline}
-.section{padding:80px 0}
-.card{background:white;border-radius:18px;padding:34px;box-shadow:0 10px 24px rgba(0,0,0,.08)}
-h2{font-size:38px;color:#143f7d;margin-bottom:18px}
-p{font-size:18px}
-.btn{display:inline-block;margin-top:25px;background:#2a9c52;color:white;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700}
-.btn:hover{background:#238244}
-footer{background:#0f3569;color:white;text-align:center;padding:22px;margin-top:40px}
+body{
+    margin:0;
+    font-family:'Lato',sans-serif;
+    background:#f5f7fb;
+    color:#243244;
+    line-height:1.6;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+header{
+    background:#143f7d;
+    color:white;
+    padding:22px 0;
+    border-bottom:4px solid #2a9c52;
+}
+
+h1,h2{
+    font-family:'Montserrat',sans-serif;
+}
+
+h1{
+    margin:0;
+    font-size:30px;
+}
+
+nav{
+    margin-top:12px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+.section{
+    padding:80px 0;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:34px;
+    box-shadow:0 10px 24px rgba(0,0,0,.08);
+}
+
+h2{
+    font-size:38px;
+    color:#143f7d;
+    margin-bottom:18px;
+}
+
+p{
+    font-size:18px;
+}
+
+/* Video responsivo */
+.video-container{
+    position:relative;
+    padding-bottom:56.25%;
+    height:0;
+    overflow:hidden;
+    border-radius:16px;
+    margin:35px 0;
+    box-shadow:0 10px 24px rgba(0,0,0,.12);
+}
+
+.video-container iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    background:#2a9c52;
+    color:white;
+    padding:12px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:700;
+}
+
+.btn:hover{
+    background:#238244;
+}
+
+footer{
+    background:#0f3569;
+    color:white;
+    text-align:center;
+    padding:22px;
+    margin-top:40px;
+}
 </style>
 </head>
 
@@ -31,6 +126,7 @@ footer{background:#0f3569;color:white;text-align:center;padding:22px;margin-top:
 <header>
 <div class="container">
 <h1>ACMI Santander</h1>
+
 <nav>
 <a href="../">Inicio</a>
 <a href="../#eventos">Eventos</a>
@@ -38,12 +134,14 @@ footer{background:#0f3569;color:white;text-align:center;padding:22px;margin-top:
 <a href="../magazine/">Magazine</a>
 <a href="../proyeccion-social/">Proyección social</a>
 </nav>
+
 </div>
 </header>
 
 <section class="section">
 <div class="container">
 <div class="card">
+
 <h2>Educación médica continuada</h2>
 
 <p>
@@ -58,7 +156,18 @@ material académico, bancos de preguntas, enlaces a programas científicos y
 recursos de educación médica.
 </p>
 
+<div class="video-container">
+<iframe
+src="https://www.youtube.com/embed/EA9oWKuoZ6I"
+title="Educación Médica Continuada ACMI Santander"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen>
+</iframe>
+</div>
+
 <a class="btn" href="../">Volver al inicio</a>
+
 </div>
 </div>
 </section>
@@ -70,3 +179,4 @@ recursos de educación médica.
 
 </body>
 </html>
+```
