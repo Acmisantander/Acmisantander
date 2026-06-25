@@ -910,9 +910,9 @@ allowfullscreen>
 Contenido reciente de educación médica, magazine y proyección social.
 </p>
 
+```html
 <div class="cards-grid">
 
-```html
 <div class="mini-card">
 
 <h4>Educación médica continuada</h4>
@@ -922,12 +922,13 @@ Actividad promocional del VI Simposio Regional ACMI San Gil – Santander 2026.
 </p>
 
 <div style="
+max-width:700px;
+margin:20px auto;
 position:relative;
 padding-bottom:56.25%;
 height:0;
 overflow:hidden;
 border-radius:12px;
-margin:15px 0;
 ">
 
 <iframe
@@ -957,79 +958,86 @@ Ver más
 </a>
 
 </div>
-```
-
 
 <div class="mini-card magazine-mini-card">
 
-  <h4>Magazine ACMI</h4>
+<h4>Magazine ACMI</h4>
 
-  {% assign noticia = site.categories.magazine | where: "subcategory","noticias" | first %}
-  {% assign opinion = site.categories.magazine | where: "subcategory","opinion" | first %}
+{% assign noticia = site.categories.magazine | where: "subcategory","noticias" | first %}
+{% assign opinion = site.categories.magazine | where: "subcategory","opinion" | first %}
 
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start;">
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start;">
 
-    <div>
-      <h5 style="color:#003b7a; margin-bottom:8px;">Noticias</h5>
+<div>
+<h5 style="color:#003b7a; margin-bottom:8px;">Noticias</h5>
 
-      {% if noticia %}
-        {% if noticia.cover %}
-          <img 
-            src="{{ site.baseurl }}{{ noticia.cover }}"
-            alt="{{ noticia.title }}"
-            style="width:100%; height:95px; object-fit:cover; border-radius:8px; margin-bottom:8px;"
-          >
-        {% endif %}
+{% if noticia %}
+{% if noticia.cover %}
+<img
+src="{{ site.baseurl }}{{ noticia.cover }}"
+alt="{{ noticia.title }}"
+style="width:100%; height:95px; object-fit:cover; border-radius:8px; margin-bottom:8px;"
+>
+{% endif %}
 
-        <p style="font-size:13px; line-height:1.4;">
-          {{ noticia.title }}
-        </p>
+<p style="font-size:13px; line-height:1.4;">
+{{ noticia.title }}
+</p>
 
-        <a class="btn btn-light" href="{{ site.baseurl }}{{ noticia.url }}">
-          Leer noticia
-        </a>
-      {% endif %}
-    </div>
+<a class="btn btn-light" href="{{ site.baseurl }}{{ noticia.url }}">
+Leer noticia
+</a>
+{% endif %}
+</div>
 
-    <div>
-      <h5 style="color:#003b7a; margin-bottom:8px;">Opinión</h5>
+<div>
+<h5 style="color:#003b7a; margin-bottom:8px;">Opinión</h5>
 
-      {% if opinion.cover %}
-        <img 
-          src="{{ site.baseurl }}{{ opinion.cover }}"
-          alt="{{ opinion.title }}"
-          style="width:100%; height:95px; object-fit:cover; border-radius:8px; margin-bottom:8px;"
-        >
-      {% else %}
-        <div style="height:95px; border-radius:8px; background:#eef4fb; display:flex; align-items:center; justify-content:center; color:#003b7a; font-weight:700; font-size:13px; margin-bottom:8px;">
-          Columna
-        </div>
-      {% endif %}
+{% if opinion.cover %}
+<img
+src="{{ site.baseurl }}{{ opinion.cover }}"
+alt="{{ opinion.title }}"
+style="width:100%; height:95px; object-fit:cover; border-radius:8px; margin-bottom:8px;"
+>
+{% else %}
+<div style="height:95px; border-radius:8px; background:#eef4fb; display:flex; align-items:center; justify-content:center; color:#003b7a; font-weight:700; font-size:13px; margin-bottom:8px;">
+Columna
+</div>
+{% endif %}
 
-      {% if opinion %}
-        <p style="font-size:13px; line-height:1.4;">
-          {{ opinion.title }}
-        </p>
+{% if opinion %}
+<p style="font-size:13px; line-height:1.4;">
+{{ opinion.title }}
+</p>
 
-        <a class="btn btn-light" href="{{ site.baseurl }}{{ opinion.url }}">
-          Leer columna
-        </a>
-      {% endif %}
-    </div>
-
-  </div>
+<a class="btn btn-light" href="{{ site.baseurl }}{{ opinion.url }}">
+Leer columna
+</a>
+{% endif %}
+</div>
 
 </div>
+
+</div>
+
 <div class="mini-card">
+
 <h4>Proyección social</h4>
-<p>Jornada comunitaria de educación en salud respiratoria en Santander.</p>
-<a class="btn btn-light" href="proyeccion-social/">Ver actividad</a>
-</div>
+
+<p>
+Jornada comunitaria de educación en salud respiratoria en Santander.
+</p>
+
+<a class="btn btn-light"
+href="{{ site.baseurl }}/proyeccion-social/">
+Ver actividad
+</a>
 
 </div>
 
 </div>
-</section>
+```
+
 
 <section class="section" id="educacion">
 
