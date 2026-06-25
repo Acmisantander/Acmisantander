@@ -328,10 +328,20 @@ nav li{
       gap:22px;
     }
 
-    .cards-grid{
-      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-      margin-top:28px;
-    }
+    ```css
+.cards-grid{
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+  max-width:1000px;
+  margin:30px auto 0 auto;
+}
+
+.mini-card{
+  text-align:center;
+}
+```
+
 
     .mini-card,
     .evento-item{
