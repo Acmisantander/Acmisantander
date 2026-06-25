@@ -959,28 +959,28 @@ Ver más
 
 </div>
 
-<div class="mini-card magazine-mini-card">
+<div class="mini-card magazine-mini-card" style="padding:36px;">
 
 <h4>Magazine ACMI</h4>
 
 {% assign noticia = site.categories.magazine | where: "subcategory","noticias" | first %}
 {% assign opinion = site.categories.magazine | where: "subcategory","opinion" | first %}
 
-<div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start;">
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start;">
 
 <div>
-<h5 style="color:#003b7a; margin-bottom:8px;">Noticias</h5>
+<h5 style="color:#003b7a; margin-bottom:12px;">Noticias</h5>
 
 {% if noticia %}
 {% if noticia.cover %}
 <img
 src="{{ site.baseurl }}{{ noticia.cover }}"
 alt="{{ noticia.title }}"
-style="width:100%; height:95px; object-fit:cover; border-radius:8px; margin-bottom:8px;"
+style="width:100%; height:140px; object-fit:cover; border-radius:10px; margin-bottom:12px;"
 >
 {% endif %}
 
-<p style="font-size:13px; line-height:1.4;">
+<p style="font-size:15px; line-height:1.5;">
 {{ noticia.title }}
 </p>
 
@@ -991,22 +991,22 @@ Leer noticia
 </div>
 
 <div>
-<h5 style="color:#003b7a; margin-bottom:8px;">Opinión</h5>
+<h5 style="color:#003b7a; margin-bottom:12px;">Opinión</h5>
 
 {% if opinion.cover %}
 <img
 src="{{ site.baseurl }}{{ opinion.cover }}"
 alt="{{ opinion.title }}"
-style="width:100%; height:95px; object-fit:cover; border-radius:8px; margin-bottom:8px;"
+style="width:100%; height:140px; object-fit:cover; border-radius:10px; margin-bottom:12px;"
 >
 {% else %}
-<div style="height:95px; border-radius:8px; background:#eef4fb; display:flex; align-items:center; justify-content:center; color:#003b7a; font-weight:700; font-size:13px; margin-bottom:8px;">
+<div style="height:140px; border-radius:10px; background:#eef4fb; display:flex; align-items:center; justify-content:center; color:#003b7a; font-weight:700; font-size:15px; margin-bottom:12px;">
 Columna
 </div>
 {% endif %}
 
 {% if opinion %}
-<p style="font-size:13px; line-height:1.4;">
+<p style="font-size:15px; line-height:1.5;">
 {{ opinion.title }}
 </p>
 
@@ -1019,7 +1019,6 @@ Leer columna
 </div>
 
 </div>
-
 <div class="mini-card">
 
 <h4>Proyección social</h4>
