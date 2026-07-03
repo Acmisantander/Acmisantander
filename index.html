@@ -557,6 +557,138 @@ nav li {
       margin:10px 0;
       text-align:center;
     }
+    .repositorio-home{
+  margin:46px auto 20px auto;
+  max-width:1120px;
+  background:
+    linear-gradient(135deg, rgba(20,63,125,0.96), rgba(15,53,105,0.90)),
+    url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
+  color:white;
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:0 18px 42px rgba(0,0,0,0.16);
+  position:relative;
+}
+
+.repositorio-home::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,0.28), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(255,255,255,0.12), transparent 30%);
+  pointer-events:none;
+}
+
+.repositorio-home-inner{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1.15fr 0.85fr;
+  gap:26px;
+  align-items:center;
+  padding:38px;
+}
+
+.repositorio-home-badge{
+  display:inline-block;
+  padding:8px 15px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.14);
+  border:1px solid rgba(255,255,255,0.28);
+  font-family:'Montserrat', sans-serif;
+  font-size:13px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  margin-bottom:16px;
+}
+
+.repositorio-home h3{
+  font-family:'Montserrat', sans-serif;
+  font-size:36px;
+  line-height:1.12;
+  margin-bottom:14px;
+}
+
+.repositorio-home p{
+  color:#edf5ff;
+  font-size:18px;
+  max-width:650px;
+  margin-bottom:22px;
+}
+
+.repositorio-home-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.repositorio-home-actions .btn{
+  border-radius:12px;
+}
+
+.repositorio-home-actions .btn-light{
+  color:var(--azul-acmi);
+}
+
+.repositorio-mini-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:14px;
+}
+
+.repositorio-mini-card{
+  background:rgba(255,255,255,0.94);
+  color:var(--azul-acmi);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 10px 24px rgba(0,0,0,0.12);
+  transition:0.22s ease;
+}
+
+.repositorio-mini-card:hover{
+  transform:translateY(-4px);
+  background:white;
+}
+
+.repositorio-mini-card span{
+  display:block;
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.repositorio-mini-card strong{
+  display:block;
+  font-family:'Montserrat', sans-serif;
+  font-size:16px;
+  margin-bottom:4px;
+}
+
+.repositorio-mini-card small{
+  color:#52667d;
+  font-size:13px;
+}
+
+@media(max-width:900px){
+  .repositorio-home-inner{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:560px){
+  .repositorio-home-inner{
+    padding:26px;
+  }
+
+  .repositorio-home h3{
+    font-size:28px;
+  }
+
+  .repositorio-mini-grid{
+    grid-template-columns:1fr;
+  }
+}
 
     footer{
       background:var(--azul-acmi-2);
@@ -809,181 +941,130 @@ nav li {
     </div>
   </section>
 
-  <section class="section" id="eventos">
-    <div class="container">
-      <h2 class="section-title">Eventos</h2>
-      <p class="section-subtitle">
-        Todo lo referente al VI Simposio Regional ACMI San Gil – Santander 2026.
-      </p>
+ <section class="section" id="eventos">
+  <div class="container">
 
-      <div class="eventos-destacados">
-        <h3>VI Simposio Regional ACMI<br>San Gil – Santander 2026</h3>
-        <p>
-          Educación médica continua, liderazgo científico y encuentro académico
-          en el corazón de Santander.
-        </p>
+    <h2 class="section-title">Eventos</h2>
 
-        <div class="eventos-badges">
-          <div class="badge">26 y 27 de junio de 2026</div>
-          <div class="badge">Hotel Mundo Guarigua</div>
-          <div class="badge">Homenaje al Dr. Franklin Quiroz</div>
-        </div>
-
-       <div class="eventos-actions">
-
-<a class="btn btn-primary"
-   href="https://events.peewah.co/vi-simposio-regional-i-capitulo-santander"
-   target="_blank">
-Inscripción
-</a>
-
-<a class="btn btn-primary"
-   href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf"
-   target="_blank">
-Abrir programa académico PDF
-</a>
-
-</div>
-
-      <div class="evento-resumen">
-        <div class="evento-item">
-          <h4>Fecha</h4>
-          <p>26 y 27 de junio de 2026</p>
-        </div>
-
-        <div class="evento-item">
-          <h4>Lugar</h4>
-          <p>Hotel Mundo Guarigua, San Gil</p>
-        </div>
-
-        <div class="evento-item">
-          <h4>Evento</h4>
-          <p>VI Simposio Regional ACMI</p>
-        </div>
-
-        <div class="evento-item">
-          <h4>Homenaje</h4>
-          <p>Dr. Franklin Quiroz</p>
-        </div>
-      </div>
-
-      <div class="posters">
-        <div class="poster">
-          <img src="1.png" alt="Afiche oficial">
-          <div class="poster-info">
-            <h3>Afiche oficial</h3>
-            <p>Promoción principal del VI Simposio Regional ACMI.</p>
-            <a class="btn-download" href="1.png" download>Descargar afiche</a>
-          </div>
-        </div>
-
-        <div class="poster">
-          <img src="2.png" alt="Promoción regional">
-          <div class="poster-info">
-            <h3>Promoción regional</h3>
-            <p>Difusión del evento en el contexto académico regional.</p>
-            <a class="btn-download" href="2.png" download>Descargar afiche</a>
-          </div>
-        </div>
-
-        <div class="poster">
-          <img src="3.png" alt="Identidad santandereana">
-          <div class="poster-info">
-            <h3>Identidad santandereana</h3>
-            <p>Material gráfico con referencias culturales y territoriales de Santander.</p>
-            <a class="btn-download" href="3.png" download>Descargar afiche</a>
-          </div>
-        </div>
-
-        <div class="poster">
-          <img src="4.png" alt="Homenaje institucional">
-          <div class="poster-info">
-            <h3>Homenaje</h3>
-            <p>Pieza conmemorativa relacionada con el homenaje institucional.</p>
-            <a class="btn-download" href="4.png" download>Descargar afiche</a>
-          </div>
-        </div>
-        </div>
-    <div class="card program-box">
-  <div class="programa-lista">
-
-    <h3>Viernes 26 de junio</h3>
-
-    <p><strong>09:00 – 09:40 a.m.</strong> Registro e inscripción</p>
-
-    <p>
-      <strong>09:40 – 10:00 a.m.</strong> Palabras de apertura<br>
-      Dr. Alexander Jerez — Presidente ACMI Capítulo Santander<br>
-      Dr. Luis Ernesto Téllez — Presidente ASONEUMOCITO Capítulo Nororiental
+    <p class="section-subtitle">
+      Actividades académicas, congresos, simposios y repositorio de eventos de ACMI Santander.
     </p>
 
-    <h3>Bloque I – Talleres prácticos simultáneos</h3>
+    <!-- PRÓXIMOS EVENTOS -->
+    <div class="proximos-eventos-home">
 
-    <p><strong>10:00 – 12:00</strong> Talleres prácticos simultáneos</p>
+      <div class="proximo-evento-card">
 
-    <ul>
-      <li><strong>Insulinización</strong> — Dr. Julio Oliveros, Especialista en Medicina Interna</li>
-      <li><strong>Espirometría</strong> — Dr. Javier Fajardo, Especialista en Neumología</li>
-      <li><strong>Radiografía de tórax: interpretación clínica práctica</strong> — Dr. Alexander Reyes Lobo, Radiólogo</li>
-    </ul>
+        <div class="proximo-evento-info">
+          <span class="evento-label evento-label-proximo">
+            Próximo evento
+          </span>
 
-    <p><strong>12:00 – 14:00</strong> Almuerzo</p>
+          <h3>Congreso ACMI Santander</h3>
 
-    <h3>Bloque II</h3>
+          <p>
+            Congreso académico de medicina interna organizado por ACMI Santander,
+            programado para septiembre en Bucaramanga.
+          </p>
 
-    <ul>
-      <li><strong>14:00 – 14:20</strong> Dislipidemias — Dr. Ricardo Angulo, Residente Medicina Interna – FCV</li>
-      <li><strong>14:20 – 14:40</strong> Control glucémico intrahospitalario — Dra. Carolina Plata, Residente Medicina Interna UDES</li>
-      <li><strong>14:40 – 15:00</strong> Exacerbaciones agudas: asma vs EPOC — Dra. Gisela Serrano, Residente Medicina Interna UNAB</li>
-      <li><strong>15:00 – 15:20</strong> Tuberculosis: la epidemia silenciosa — Dra. Heyda Núñez, Residente Medicina Interna UIS</li>
-      <li><strong>15:20 – 15:40</strong> Enfermedad pulmonar intersticial en enfermedades autoinmunes — Dr. Sergio Andrés Lobo, Especialista en Medicina Interna / Enfermedades Autoinmunes – UIS</li>
-      <li><strong>15:40 – 16:00</strong> Receso</li>
-      <li><strong>16:00 – 16:20</strong> SAHOS – Síndrome de apnea-hipopnea obstructiva del sueño — Dr. Sebastián Eslava, Residente Medicina Interna UIS</li>
-    </ul>
+          <div class="eventos-badges">
+            <div class="badge">Septiembre 2026</div>
+            <div class="badge">Bucaramanga, Santander</div>
+            <div class="badge">Medicina interna</div>
+          </div>
 
-    <h3>Conversatorios ACMI – ASONEUMOCITO</h3>
+          <div class="eventos-actions">
+            <a class="btn btn-primary" href="#contacto">
+              Solicitar información
+            </a>
 
-    <ul>
-      <li><strong>16:20 – 16:40</strong> Asma ocupacional: dimensión del problema, detección y diagnóstico — Dra. Barbarita Mantilla, Neumóloga</li>
-      <li><strong>16:40 – 17:40</strong> Conversatorio: Asma ocupacional</li>
-      <li><strong>17:40 – 18:00</strong> Inteligencia artificial en la detección temprana del cáncer de pulmón — Dra. Leslie Vargas, Neumóloga</li>
-      <li><strong>18:00 – 19:00</strong> Conversatorio: Inteligencia artificial en cáncer de pulmón</li>
-      <li><strong>19:00 – 20:00</strong> Homenaje al Dr. Franklin Quiroz</li>
-    </ul>
+            <a class="btn btn-light" href="{{ site.baseurl }}/repositorio-eventos/">
+              Ver repositorio
+            </a>
+          </div>
+        </div>
 
-    <h3>Sábado 27 de junio – Bloque III</h3>
+        <div class="proximo-evento-decoracion">
+          <div class="decoracion-circulo">
+            <span>ACMI</span>
+          </div>
+        </div>
 
-    <ul>
-      <li><strong>08:00 – 08:20</strong> Síndrome coronario agudo — Dr. Johan Nicolás Mateus, Residente Medicina Interna – UDES</li>
-      <li><strong>08:20 – 08:40</strong> Falla cardíaca — Dr. Cristhian Castellanos, Residente II año Medicina Interna – UIS</li>
-      <li><strong>08:40 – 09:00</strong> Enfermedad de Chagas — Dr. Luis Echeverría, Especialista en Medicina Interna</li>
-      <li><strong>09:00 – 09:20</strong> Receso</li>
-      <li><strong>09:20 – 09:40</strong> Anticoagulación en fibrilación auricular — Dr. Juan Diego Mendoza Díaz, Residente Medicina Interna – UDES</li>
-      <li><strong>09:40 – 10:00</strong> MASLD — Dra. Sheyla Pardo, Residente Medicina Interna – UIS</li>
-      <li><strong>10:00 – 10:20</strong> Riesgo cardiovascular en Colombia — Dr. Jaime Gómez, Especialista en Medicina Interna / Dr. Sergio Gómez, Residente Medicina Interna UIS</li>
-      <li><strong>10:20 – 10:40</strong> Vapeo: impacto en la salud respiratoria — Dr. Luis Ernesto Téllez, Neumólogo</li>
-      <li><strong>10:40 – 11:00</strong> Cigarrillo y enfermedad respiratoria — Dr. Javier Fajardo, Neumólogo</li>
-      <li><strong>11:00 – 12:00</strong> Conversatorio: Vapeo y tabaquismo</li>
-    </ul>
+      </div>
 
-    <h3>Almuerzo – Espacio GSK | Capítulo ACMI San Gil</h3>
+    </div>
 
-    <ul>
-      <li><strong>12:00 – 13:00</strong> Sesión no promocional — Dr. Javier Fajardo, Neumólogo. Tema: El rol de las vacunas en EPOC</li>
-      <li><strong>12:00 – 13:00</strong> Sesión promocional — Dr. Javier Fajardo, Neumólogo. Tema: Estabilidad en EPOC: objetivo clínico alcanzable con estrategias terapéuticas integradas</li>
-    </ul>
+    <!-- REPOSITORIO DE EVENTOS -->
+    <div class="repositorio-home">
 
-    <h3>Conversatorios ACMI – ASONEUMOCITO</h3>
+      <div class="repositorio-home-inner">
 
-    <ul>
-      <li><strong>13:00 – 13:20</strong> Neumoconiosis — Dr. Jaime Barreto, Neumólogo</li>
-      <li><strong>13:20 – 14:20</strong> Conversatorio interdisciplinario: Neumoconiosis</li>
-      <li><strong>14:20 – 14:40</strong> Clausura del VI Simposio Regional ACMI</li>
-    </ul>
+        <div class="repositorio-home-texto">
+          <span class="evento-label evento-label-finalizado">
+            Repositorio académico
+          </span>
+
+          <h3>VI Simposio Regional ACMI<br>San Gil – Santander 2026</h3>
+
+          <p>
+            Consulte las memorias, fotografías, diapositivas, certificados,
+            afiches y programa académico del VI Simposio Regional ACMI.
+          </p>
+
+          <div class="eventos-badges">
+            <div class="badge">Evento finalizado</div>
+            <div class="badge">26 y 27 de junio de 2026</div>
+            <div class="badge">Hotel Mundo Guarigua</div>
+            <div class="badge">Homenaje al Dr. Franklin Quiroz</div>
+          </div>
+
+          <div class="eventos-actions">
+            <a class="btn btn-primary"
+               href="{{ site.baseurl }}/repositorio-eventos/">
+              Abrir repositorio de eventos
+            </a>
+
+            <a class="btn btn-light"
+               href="{{ site.baseurl }}/repositorio-eventos/#afiches">
+              Ver afiches
+            </a>
+          </div>
+        </div>
+
+        <div class="repositorio-mini-grid">
+
+          <a class="repositorio-mini-card" href="{{ site.baseurl }}/memorias/">
+            <span>📄</span>
+            <strong>Memorias</strong>
+            <small>Documentos académicos y material institucional.</small>
+          </a>
+
+          <a class="repositorio-mini-card" href="{{ site.baseurl }}/fotos/">
+            <span>📸</span>
+            <strong>Fotos</strong>
+            <small>Galería fotográfica institucional del evento.</small>
+          </a>
+
+          <a class="repositorio-mini-card" href="{{ site.baseurl }}/diapositivas/">
+            <span>📊</span>
+            <strong>Diapositivas</strong>
+            <small>Presentaciones autorizadas por conferencistas.</small>
+          </a>
+
+          <a class="repositorio-mini-card" href="{{ site.baseurl }}/certificados.html">
+            <span>🎓</span>
+            <strong>Certificados</strong>
+            <small>Descarga individual de certificados de asistencia.</small>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
-</div>
-
+</section>
 <section class="section" id="ultimas-publicaciones">
 <div class="container">
 
