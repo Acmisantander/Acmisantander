@@ -184,8 +184,13 @@
     }
 
     @keyframes floatCircle{
-      0%,100%{transform:translateY(0);}
-      50%{transform:translateY(-18px);}
+      0%,100%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(-18px);
+      }
     }
 
     @keyframes fadeUp{
@@ -193,6 +198,7 @@
         opacity:0;
         transform:translateY(28px);
       }
+
       to{
         opacity:1;
         transform:translateY(0);
@@ -343,8 +349,9 @@
       display:inline-block;
       padding:8px 15px;
       border-radius:999px;
-      background:#eaf4ee;
-      color:var(--verde-acmi);
+      background:#eef4fb;
+      color:var(--azul-acmi);
+      border:1px solid #dbe7f5;
       font-family:'Montserrat', sans-serif;
       font-weight:800;
       font-size:13px;
@@ -481,43 +488,6 @@
       transform:translateY(-2px);
     }
 
-    .timeline{
-      margin-top:70px;
-      background:white;
-      border-radius:26px;
-      box-shadow:var(--sombra);
-      padding:38px;
-      border:1px solid rgba(20,63,125,0.08);
-    }
-
-    .timeline h3{
-      font-family:'Montserrat', sans-serif;
-      color:var(--azul-acmi);
-      font-size:28px;
-      text-align:center;
-      margin-bottom:28px;
-    }
-
-    .timeline-grid{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:18px;
-    }
-
-    .timeline-item{
-      padding:22px;
-      border-radius:18px;
-      background:#f8fbff;
-      border-left:5px solid var(--verde-acmi);
-    }
-
-    .timeline-item strong{
-      display:block;
-      font-family:'Montserrat', sans-serif;
-      color:var(--azul-acmi);
-      margin-bottom:8px;
-    }
-
     footer{
       background:var(--azul-acmi-2);
       color:white;
@@ -548,10 +518,6 @@
       }
 
       .repositorio-grid{
-        grid-template-columns:repeat(2, 1fr);
-      }
-
-      .timeline-grid{
         grid-template-columns:repeat(2, 1fr);
       }
     }
@@ -594,10 +560,6 @@
       }
 
       .repositorio-grid{
-        grid-template-columns:1fr;
-      }
-
-      .timeline-grid{
         grid-template-columns:1fr;
       }
     }
@@ -662,7 +624,6 @@
 
       <div class="hero-actions">
         <a class="btn btn-primary" href="#vi-simposio">Ver VI Simposio</a>
-        <a class="btn btn-light" href="{{ site.baseurl }}/certificados.html">Descargar certificado</a>
       </div>
     </div>
   </section>
@@ -681,7 +642,7 @@
         <div class="evento-card-header">
 
           <div class="evento-info">
-            <span class="evento-etiqueta">Evento activo</span>
+            <span class="evento-etiqueta">Evento finalizado</span>
 
             <h3>VI Simposio Regional ACMI<br>San Gil – Santander 2026</h3>
 
@@ -757,32 +718,6 @@
           <a href="{{ site.baseurl }}/certificados.html">Descargar certificado</a>
         </div>
 
-      </div>
-
-      <div class="timeline">
-        <h3>Recursos del evento</h3>
-
-        <div class="timeline-grid">
-          <div class="timeline-item">
-            <strong>Programa académico</strong>
-            Conferencias, talleres y conversatorios.
-          </div>
-
-          <div class="timeline-item">
-            <strong>Memorias</strong>
-            Material académico consolidado.
-          </div>
-
-          <div class="timeline-item">
-            <strong>Galería</strong>
-            Registro fotográfico institucional.
-          </div>
-
-          <div class="timeline-item">
-            <strong>Certificados</strong>
-            Descarga individual por asistente.
-          </div>
-        </div>
       </div>
 
     </div>
