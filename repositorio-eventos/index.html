@@ -149,7 +149,7 @@
 
     .hero{
       position:relative;
-      min-height:54vh;
+      min-height:46vh;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -157,7 +157,7 @@
       color:white;
       overflow:hidden;
       background:
-        linear-gradient(135deg, rgba(15,53,105,0.92), rgba(20,63,125,0.78)),
+        linear-gradient(135deg, rgba(15,53,105,0.93), rgba(20,63,125,0.80)),
         url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
     }
 
@@ -209,7 +209,7 @@
       position:relative;
       z-index:2;
       width:min(980px, 92%);
-      padding:80px 0;
+      padding:72px 0;
       animation:fadeUp 0.9s ease both;
     }
 
@@ -394,7 +394,7 @@
     .evento-cover{
       min-height:380px;
       background:
-        linear-gradient(rgba(15,53,105,0.20), rgba(15,53,105,0.26)),
+        linear-gradient(rgba(15,53,105,0.18), rgba(15,53,105,0.20)),
         url("{{ site.baseurl }}/1.png") center/cover no-repeat;
     }
 
@@ -488,6 +488,73 @@
       transform:translateY(-2px);
     }
 
+    .afiches-section{
+      margin-top:72px;
+    }
+
+    .afiches-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:24px;
+      margin-top:36px;
+    }
+
+    .afiche-card{
+      background:white;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 14px 34px rgba(0,0,0,0.10);
+      border:1px solid rgba(20,63,125,0.08);
+      transition:0.25s ease;
+    }
+
+    .afiche-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 22px 46px rgba(0,0,0,0.15);
+    }
+
+    .afiche-card img{
+      width:100%;
+      aspect-ratio:3/4;
+      object-fit:cover;
+      background:#e8eef7;
+    }
+
+    .afiche-info{
+      padding:20px;
+      text-align:center;
+    }
+
+    .afiche-info h4{
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-acmi);
+      font-size:19px;
+      margin-bottom:8px;
+    }
+
+    .afiche-info p{
+      color:#5b6d82;
+      font-size:15px;
+      margin-bottom:14px;
+    }
+
+    .afiche-info a{
+      display:inline-block;
+      background:var(--azul-acmi);
+      color:white;
+      padding:10px 15px;
+      border-radius:10px;
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+      font-size:13px;
+      transition:0.2s ease;
+    }
+
+    .afiche-info a:hover{
+      background:var(--verde-acmi);
+      transform:translateY(-2px);
+    }
+
     footer{
       background:var(--azul-acmi-2);
       color:white;
@@ -517,7 +584,8 @@
         grid-template-columns:1fr;
       }
 
-      .repositorio-grid{
+      .repositorio-grid,
+      .afiches-grid{
         grid-template-columns:repeat(2, 1fr);
       }
     }
@@ -559,7 +627,8 @@
         font-size:28px;
       }
 
-      .repositorio-grid{
+      .repositorio-grid,
+      .afiches-grid{
         grid-template-columns:1fr;
       }
     }
@@ -601,7 +670,7 @@
       <nav>
         <ul>
           <li><a href="{{ site.baseurl }}/#inicio">Inicio</a></li>
-          <li><a href="{{ site.baseurl }}/#eventos">Eventos</a></li>
+          <li><a href="{{ site.baseurl }}/repositorio-eventos/">Eventos</a></li>
           <li><a href="{{ site.baseurl }}/educacion-medica-continuada/">Educación médica</a></li>
           <li><a href="{{ site.baseurl }}/magazine/">Magazine</a></li>
           <li><a href="{{ site.baseurl }}/#contacto">Contacto</a></li>
@@ -634,7 +703,7 @@
       <h2 class="section-title">Eventos disponibles</h2>
 
       <p class="section-subtitle">
-        Seleccione el evento para consultar sus recursos académicos y certificados.
+        Consulte el material académico y gráfico disponible del VI Simposio Regional ACMI.
       </p>
 
       <article class="evento-card">
@@ -658,13 +727,6 @@
             </div>
 
             <div class="hero-actions">
-              <a class="btn btn-primary"
-                 href="https://events.peewah.co/vi-simposio-regional-i-capitulo-santander"
-                 target="_blank"
-                 rel="noopener">
-                Inscripción
-              </a>
-
               <a class="btn btn-light"
                  href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf"
                  target="_blank"
@@ -718,6 +780,54 @@
           <a href="{{ site.baseurl }}/certificados.html">Descargar certificado</a>
         </div>
 
+      </div>
+
+      <div class="afiches-section" id="afiches">
+        <h2 class="section-title">Afiches del evento</h2>
+
+        <p class="section-subtitle">
+          Material gráfico oficial del VI Simposio Regional ACMI San Gil – Santander 2026.
+        </p>
+
+        <div class="afiches-grid">
+
+          <div class="afiche-card">
+            <img src="{{ site.baseurl }}/1.png" alt="Afiche oficial VI Simposio Regional ACMI">
+            <div class="afiche-info">
+              <h4>Afiche oficial</h4>
+              <p>Promoción principal del VI Simposio Regional ACMI.</p>
+              <a href="{{ site.baseurl }}/1.png" download>Descargar afiche</a>
+            </div>
+          </div>
+
+          <div class="afiche-card">
+            <img src="{{ site.baseurl }}/2.png" alt="Promoción regional VI Simposio Regional ACMI">
+            <div class="afiche-info">
+              <h4>Promoción regional</h4>
+              <p>Difusión académica regional del evento.</p>
+              <a href="{{ site.baseurl }}/2.png" download>Descargar afiche</a>
+            </div>
+          </div>
+
+          <div class="afiche-card">
+            <img src="{{ site.baseurl }}/3.png" alt="Identidad santandereana VI Simposio Regional ACMI">
+            <div class="afiche-info">
+              <h4>Identidad santandereana</h4>
+              <p>Pieza gráfica con referencias culturales de Santander.</p>
+              <a href="{{ site.baseurl }}/3.png" download>Descargar afiche</a>
+            </div>
+          </div>
+
+          <div class="afiche-card">
+            <img src="{{ site.baseurl }}/4.png" alt="Homenaje institucional VI Simposio Regional ACMI">
+            <div class="afiche-info">
+              <h4>Homenaje institucional</h4>
+              <p>Pieza conmemorativa del homenaje al Dr. Franklin Quiroz.</p>
+              <a href="{{ site.baseurl }}/4.png" download>Descargar afiche</a>
+            </div>
+          </div>
+
+        </div>
       </div>
 
     </div>
