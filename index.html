@@ -1066,121 +1066,140 @@ nav li {
     </div>
   </section>
 
- <section class="section" id="eventos">
+<section class="section" id="eventos">
   <div class="container">
 
     <h2 class="section-title">Eventos</h2>
 
     <p class="section-subtitle">
-      Actividades académicas, congresos, simposios y repositorio de eventos de ACMI Santander.
+      Actividades académicas, congresos, simposios y repositorio institucional de eventos de ACMI Santander.
     </p>
 
-    <!-- PRÓXIMOS EVENTOS -->
-    <div class="proximos-eventos-home">
+    <!-- BLOQUE: PRÓXIMOS EVENTOS -->
+    <div class="bloque-eventos-home">
 
-      <div class="proximo-evento-card">
+      <div class="bloque-header">
+        <span class="bloque-etiqueta">Agenda académica</span>
+        <h3>Próximos eventos</h3>
+        <p>
+          Conozca las próximas actividades académicas organizadas por ACMI Santander.
+        </p>
+      </div>
 
-        <div class="proximo-evento-info">
-          <span class="evento-label evento-label-proximo">
-            Próximo evento
-          </span>
+      <div class="proximos-eventos-home">
 
-          <h3>Congreso ACMI Santander</h3>
+        <div class="proximo-evento-card">
 
-          <p>
-            Congreso académico de medicina interna organizado por ACMI Santander,
-            programado para septiembre en Bucaramanga.
-          </p>
+          <div class="proximo-evento-info">
+            <span class="evento-label evento-label-proximo">
+              Próximamente
+            </span>
 
-          <div class="eventos-badges">
-            <div class="badge">Septiembre 2026</div>
-            <div class="badge">Bucaramanga, Santander</div>
-            <div class="badge">Medicina interna</div>
+            <h3>Congreso ACMI Santander</h3>
+
+            <p>
+              Congreso académico de medicina interna organizado por ACMI Santander,
+              programado para septiembre en Bucaramanga.
+            </p>
+
+            <div class="eventos-badges">
+              <div class="badge">Septiembre 2026</div>
+              <div class="badge">Bucaramanga, Santander</div>
+              <div class="badge">Medicina interna</div>
+            </div>
+
+            <div class="eventos-actions">
+              <a class="btn btn-primary" href="#contacto">
+                Solicitar información
+              </a>
+            </div>
           </div>
 
-          <div class="eventos-actions">
-            <a class="btn btn-primary" href="#contacto">
-              Solicitar información
-            </a>
-
-            <a class="btn btn-light" href="{{ site.baseurl }}/repositorio-eventos/">
-              Ver repositorio
-            </a>
+          <div class="proximo-evento-decoracion">
+            <div class="decoracion-circulo">
+              <span>ACMI</span>
+            </div>
           </div>
-        </div>
 
-        <div class="proximo-evento-decoracion">
-          <div class="decoracion-circulo">
-            <span>ACMI</span>
-          </div>
         </div>
 
       </div>
 
     </div>
 
-    <!-- REPOSITORIO DE EVENTOS -->
-    <div class="repositorio-home">
+    <!-- BLOQUE: REPOSITORIO DE EVENTOS -->
+    <div class="bloque-eventos-home">
 
-      <div class="repositorio-home-inner">
+      <div class="bloque-header">
+        <span class="bloque-etiqueta bloque-etiqueta-azul">Archivo académico</span>
+        <h3>Repositorio de eventos</h3>
+        <p>
+          Consulte memorias, fotografías, diapositivas, afiches, certificados y material académico de eventos finalizados.
+        </p>
+      </div>
 
-        <div class="repositorio-home-texto">
-          <span class="evento-label evento-label-finalizado">
-            Repositorio académico
-          </span>
+      <div class="repositorio-home">
 
-          <h3>VI Simposio Regional ACMI<br>San Gil – Santander 2026</h3>
+        <div class="repositorio-home-inner">
 
-          <p>
-            Consulte las memorias, fotografías, diapositivas, certificados,
-            afiches y programa académico del VI Simposio Regional ACMI.
-          </p>
+          <div class="repositorio-home-texto">
+            <span class="repositorio-home-badge">
+              Evento finalizado
+            </span>
 
-          <div class="eventos-badges">
-            <div class="badge">Evento finalizado</div>
-            <div class="badge">26 y 27 de junio de 2026</div>
-            <div class="badge">Hotel Mundo Guarigua</div>
-            <div class="badge">Homenaje al Dr. Franklin Quiroz</div>
+            <h3>VI Simposio Regional ACMI<br>San Gil – Santander 2026</h3>
+
+            <p>
+              Acceda al repositorio académico del VI Simposio Regional ACMI:
+              memorias, fotos, diapositivas, certificados, afiches y programa académico.
+            </p>
+
+            <div class="eventos-badges">
+              <div class="badge">26 y 27 de junio de 2026</div>
+              <div class="badge">Hotel Mundo Guarigua</div>
+              <div class="badge">Homenaje al Dr. Franklin Quiroz</div>
+            </div>
+
+            <div class="repositorio-home-actions">
+              <a class="btn btn-primary"
+                 href="{{ site.baseurl }}/repositorio-eventos/">
+                Abrir repositorio
+              </a>
+
+              <a class="btn btn-light"
+                 href="{{ site.baseurl }}/repositorio-eventos/#afiches">
+                Ver afiches
+              </a>
+            </div>
           </div>
 
-          <div class="eventos-actions">
-            <a class="btn btn-primary"
-               href="{{ site.baseurl }}/repositorio-eventos/">
-              Abrir repositorio de eventos
+          <div class="repositorio-mini-grid">
+
+            <a class="repositorio-mini-card" href="{{ site.baseurl }}/memorias/">
+              <span>📄</span>
+              <strong>Memorias</strong>
+              <small>Documentos académicos y material institucional.</small>
             </a>
 
-            <a class="btn btn-light"
-               href="{{ site.baseurl }}/repositorio-eventos/#afiches">
-              Ver afiches
+            <a class="repositorio-mini-card" href="{{ site.baseurl }}/fotos/">
+              <span>📸</span>
+              <strong>Fotos</strong>
+              <small>Galería fotográfica institucional del evento.</small>
             </a>
+
+            <a class="repositorio-mini-card" href="{{ site.baseurl }}/diapositivas/">
+              <span>📊</span>
+              <strong>Diapositivas</strong>
+              <small>Presentaciones autorizadas por conferencistas.</small>
+            </a>
+
+            <a class="repositorio-mini-card" href="{{ site.baseurl }}/certificados.html">
+              <span>🎓</span>
+              <strong>Certificados</strong>
+              <small>Descarga individual de certificados de asistencia.</small>
+            </a>
+
           </div>
-        </div>
-
-        <div class="repositorio-mini-grid">
-
-          <a class="repositorio-mini-card" href="{{ site.baseurl }}/memorias/">
-            <span>📄</span>
-            <strong>Memorias</strong>
-            <small>Documentos académicos y material institucional.</small>
-          </a>
-
-          <a class="repositorio-mini-card" href="{{ site.baseurl }}/fotos/">
-            <span>📸</span>
-            <strong>Fotos</strong>
-            <small>Galería fotográfica institucional del evento.</small>
-          </a>
-
-          <a class="repositorio-mini-card" href="{{ site.baseurl }}/diapositivas/">
-            <span>📊</span>
-            <strong>Diapositivas</strong>
-            <small>Presentaciones autorizadas por conferencistas.</small>
-          </a>
-
-          <a class="repositorio-mini-card" href="{{ site.baseurl }}/certificados.html">
-            <span>🎓</span>
-            <strong>Certificados</strong>
-            <small>Descarga individual de certificados de asistencia.</small>
-          </a>
 
         </div>
 
