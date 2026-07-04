@@ -254,22 +254,7 @@
       "7b3bfd0eeea2965574a79aeef129638b32f3265052be4df183a2cfbe6d4f0893"
     ]
   },
-  {
-    "nombre": "Luisa Fernanda Pinto Guerrero",
-    "archivo": "LUISA FERNANDA PINTO GUERRERO.pdf",
-    "nombres_hash": [
-      "58460ebd39895a91f438f6c5696e11ee831cdeb3b15b2086945457af9e322644",
-      "58460ebd39895a91f438f6c5696e11ee831cdeb3b15b2086945457af9e322644",
-      "58460ebd39895a91f438f6c5696e11ee831cdeb3b15b2086945457af9e322644"
-    ],
-    "emails_hash": [
-      "c57b6f4b147b457d6268c78ddc8a34664c5811851de095d893191feb01f1904a"
-    ],
-    "celulares_hash": [
-      "e352a24d5b57e7c0b16a3eee8dacb27f90b28925a0a94c0d7cf2807746607fd7"
-    ]
-  },
-  {
+   {
     "nombre": "Paula Andrea Aldana Franco",
     "archivo": "PAULA ANDREA ALDANA FRANCO.pdf",
     "nombres_hash": [
@@ -753,21 +738,6 @@
     ]
   },
   {
-    "nombre": "Karen Lorena Rangel Rivera",
-    "archivo": "KAREN LORENA RANGEL RIVERA.pdf",
-    "nombres_hash": [
-      "c0d219de66d2773e6b8b81d4f7bfaf395131b7724ff3a8c5d5949a9aadc286e5",
-      "c0d219de66d2773e6b8b81d4f7bfaf395131b7724ff3a8c5d5949a9aadc286e5",
-      "c0d219de66d2773e6b8b81d4f7bfaf395131b7724ff3a8c5d5949a9aadc286e5"
-    ],
-    "emails_hash": [
-      "0de1d99fb8c3a36e5dd425591ece4c3c3cc685ab10afa336afdf45ce43c0f0dd"
-    ],
-    "celulares_hash": [
-      "466d64ad9f6ae505a1732ed2b97d99725fa5d572100f1f760123c4b1538c8214"
-    ]
-  },
-  {
     "nombre": "Ibeth Mariana Rivera Patino",
     "archivo": "IBETH MARIANA RIVERA PATIÑO.pdf",
     "nombres_hash": [
@@ -888,19 +858,6 @@
       "e3f6d11fd4c977a3a78a786a3db360677c6ec8ddc5f5e6d1878d59b558e8717d"
     ]
   },
-  {
-    "nombre": "Sergio Andres Gomez Gualdron",
-    "archivo": "SERGIO ANDRÉS GÓMEZ GUALDRÓN.pdf",
-    "nombres_hash": [
-      "e14a7d92ed3b2638c054a903f826c2f8d7bffe0d9320c46c2927d188002ec3b2",
-      "e14a7d92ed3b2638c054a903f826c2f8d7bffe0d9320c46c2927d188002ec3b2",
-      "e14a7d92ed3b2638c054a903f826c2f8d7bffe0d9320c46c2927d188002ec3b2"
-    ],
-    "emails_hash": [
-      "77dfff9271f31db3f7f87b4123f3555cfc37a28d922fb36f377f0b42814dd74c"
-    ],
-    "celulares_hash": [
-      "32ef90e16d4402ae010e2df0a7453c9e50955c54d94b4073951405deefbe186e"
     ]
   }
 ]
