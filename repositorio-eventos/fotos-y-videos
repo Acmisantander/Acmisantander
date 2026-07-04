@@ -1,1 +1,880 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Fotos y videos | ACMI Santander</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --azul-acmi:#143f7d;
+      --azul-acmi-2:#0f3569;
+      --verde-acmi:#2a9c52;
+      --dorado:#c89b3c;
+      --gris-fondo:#f5f7fb;
+      --texto:#243244;
+      --blanco:#ffffff;
+      --sombra:0 14px 34px rgba(0,0,0,0.10);
+      --sombra-fuerte:0 24px 60px rgba(15,53,105,0.22);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Lato', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(42,156,82,0.08), transparent 32%),
+        radial-gradient(circle at top right, rgba(20,63,125,0.12), transparent 34%),
+        var(--gris-fondo);
+      color:var(--texto);
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .topbar{
+      background:var(--azul-acmi-2);
+      color:#dfe8f5;
+      padding:10px 40px;
+      font-size:14px;
+    }
+
+    .topbar-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .topbar a{
+      color:#dfe8f5;
+      font-weight:700;
+      margin-right:18px;
+    }
+
+    .topbar a:hover{
+      color:#ffffff;
+    }
+
+    header{
+      background:rgba(255,255,255,0.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid #e3eaf3;
+      box-shadow:0 4px 18px rgba(0,0,0,0.06);
+      position:sticky;
+      top:0;
+      z-index:999;
+    }
+
+    .main-header{
+      min-height:94px;
+      padding:14px 40px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+
+    .brand-logo{
+      width:72px;
+      height:72px;
+      border-radius:50%;
+      background:#fff;
+      border:1px solid #d7e2ef;
+      padding:5px;
+      object-fit:contain;
+      box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .brand h1{
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-acmi);
+      font-size:28px;
+      line-height:1.1;
+    }
+
+    .brand p{
+      color:#50627a;
+      font-size:14px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      align-items:center;
+      gap:22px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    nav a{
+      font-family:'Montserrat', sans-serif;
+      font-weight:700;
+      font-size:15px;
+      color:var(--azul-acmi);
+      transition:0.2s ease;
+    }
+
+    nav a:hover{
+      color:var(--verde-acmi);
+    }
+
+    .hero{
+      position:relative;
+      min-height:54vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(15,53,105,0.94), rgba(20,63,125,0.82)),
+        url("/chicamocha.jpg") center/cover no-repeat;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(255,255,255,0.18), transparent 28%),
+        linear-gradient(90deg, rgba(42,156,82,0.22), transparent 45%);
+      pointer-events:none;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:420px;
+      height:420px;
+      border:1px solid rgba(255,255,255,0.18);
+      border-radius:50%;
+      right:-120px;
+      bottom:-180px;
+      animation:floatCircle 7s ease-in-out infinite;
+    }
+
+    @keyframes floatCircle{
+      0%,100%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(-18px);
+      }
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(28px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      width:min(980px, 92%);
+      padding:78px 0;
+      animation:fadeUp 0.9s ease both;
+    }
+
+    .hero-badge{
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.14);
+      border:1px solid rgba(255,255,255,0.32);
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+      font-size:14px;
+      letter-spacing:0.04em;
+      margin-bottom:22px;
+      text-transform:uppercase;
+    }
+
+    .hero h2{
+      font-family:'Montserrat', sans-serif;
+      font-size:56px;
+      line-height:1.08;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .hero p{
+      font-size:22px;
+      max-width:880px;
+      margin:0 auto 30px;
+      color:#edf5ff;
+    }
+
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:13px 22px;
+      border-radius:12px;
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+      transition:0.22s ease;
+    }
+
+    .btn-primary{
+      background:var(--verde-acmi);
+      color:white;
+      box-shadow:0 10px 22px rgba(42,156,82,0.28);
+    }
+
+    .btn-primary:hover{
+      background:#248546;
+      transform:translateY(-3px);
+    }
+
+    .btn-light{
+      background:white;
+      color:var(--azul-acmi);
+    }
+
+    .btn-light:hover{
+      background:#eef4fb;
+      transform:translateY(-3px);
+    }
+
+    .section{
+      padding:80px 40px;
+    }
+
+    .container{
+      width:100%;
+      max-width:1240px;
+      margin:0 auto;
+    }
+
+    .section-title{
+      text-align:center;
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-acmi);
+      font-size:42px;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .section-title::after{
+      content:"";
+      display:block;
+      width:90px;
+      height:4px;
+      border-radius:99px;
+      background:linear-gradient(90deg, var(--verde-acmi), var(--dorado));
+      margin:16px auto 0;
+    }
+
+    .section-subtitle{
+      text-align:center;
+      max-width:900px;
+      margin:0 auto 42px;
+      color:#5b6d82;
+      font-size:18px;
+    }
+
+    .album-section{
+      padding:56px 34px;
+      border-radius:34px;
+      background:
+        radial-gradient(circle at top left, rgba(42,156,82,0.13), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(20,63,125,0.14), transparent 34%),
+        linear-gradient(135deg, rgba(255,255,255,0.96), rgba(240,245,252,0.96));
+      border:1px solid rgba(20,63,125,0.10);
+      box-shadow:var(--sombra);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .album-section::before{
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      background:rgba(200,155,60,0.13);
+      top:-120px;
+      right:-100px;
+    }
+
+    .album-header{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      margin-bottom:36px;
+    }
+
+    .album-kicker{
+      display:inline-block;
+      padding:9px 16px;
+      border-radius:999px;
+      background:#eef4fb;
+      color:var(--azul-acmi);
+      border:1px solid #dbe7f5;
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      margin-bottom:14px;
+    }
+
+    .album-tabs{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:26px;
+    }
+
+    .album-tab{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:12px 18px;
+      border-radius:999px;
+      background:white;
+      color:var(--azul-acmi);
+      border:1px solid rgba(20,63,125,0.12);
+      box-shadow:0 8px 20px rgba(0,0,0,0.07);
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+      font-size:14px;
+      transition:0.22s ease;
+    }
+
+    .album-tab:hover{
+      transform:translateY(-3px);
+      background:var(--azul-acmi);
+      color:white;
+    }
+
+    .album-grid{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      grid-auto-flow:dense;
+      gap:18px;
+    }
+
+    .photo-tile{
+      position:relative;
+      display:block;
+      min-height:250px;
+      border-radius:26px;
+      overflow:hidden;
+      background:#dfe8f5;
+      box-shadow:0 14px 34px rgba(15,53,105,0.16);
+      border:6px solid white;
+      transition:0.28s ease;
+      isolation:isolate;
+    }
+
+    .photo-tile.featured{
+      grid-column:span 2;
+      grid-row:span 2;
+      min-height:520px;
+    }
+
+    .photo-tile.wide{
+      grid-column:span 2;
+    }
+
+    .photo-tile img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      position:absolute;
+      inset:0;
+      transition:0.45s ease;
+    }
+
+    .photo-tile::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, transparent 35%, rgba(15,53,105,0.78)),
+        linear-gradient(45deg, rgba(42,156,82,0.16), transparent 50%);
+      opacity:0.86;
+      z-index:1;
+      transition:0.3s ease;
+    }
+
+    .photo-tile::after{
+      content:"Ver fotografía";
+      position:absolute;
+      left:18px;
+      bottom:18px;
+      z-index:2;
+      background:rgba(255,255,255,0.92);
+      color:var(--azul-acmi);
+      padding:9px 14px;
+      border-radius:999px;
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+      font-size:13px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.16);
+    }
+
+    .photo-caption{
+      position:absolute;
+      z-index:2;
+      left:20px;
+      right:20px;
+      bottom:70px;
+      color:white;
+    }
+
+    .photo-caption h4{
+      font-family:'Montserrat', sans-serif;
+      font-size:21px;
+      line-height:1.15;
+      margin-bottom:4px;
+    }
+
+    .photo-caption p{
+      font-size:14px;
+      color:#edf5ff;
+    }
+
+    .photo-tile:hover{
+      transform:translateY(-8px) scale(1.01);
+      box-shadow:var(--sombra-fuerte);
+    }
+
+    .photo-tile:hover img{
+      transform:scale(1.08);
+    }
+
+    .videos-section{
+      margin-top:80px;
+      padding:56px 34px;
+      border-radius:34px;
+      background:
+        linear-gradient(135deg, rgba(15,53,105,0.96), rgba(20,63,125,0.88)),
+        radial-gradient(circle at top right, rgba(42,156,82,0.35), transparent 32%);
+      color:white;
+      box-shadow:var(--sombra-fuerte);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .videos-section::before{
+      content:"";
+      position:absolute;
+      width:360px;
+      height:360px;
+      right:-150px;
+      top:-160px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,0.18);
+    }
+
+    .videos-section .section-title{
+      color:white;
+    }
+
+    .videos-section .section-subtitle{
+      color:#dfe8f5;
+    }
+
+    .videos-grid{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+      margin-top:36px;
+    }
+
+    .video-card{
+      background:rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.22);
+      border-radius:26px;
+      padding:16px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.22);
+      backdrop-filter:blur(8px);
+      transition:0.25s ease;
+    }
+
+    .video-card:hover{
+      transform:translateY(-8px);
+      background:rgba(255,255,255,0.15);
+    }
+
+    .video-frame{
+      position:relative;
+      overflow:hidden;
+      border-radius:20px;
+      background:#071f3f;
+      aspect-ratio:16/9;
+      border:1px solid rgba(255,255,255,0.18);
+    }
+
+    .video-frame video,
+    .video-frame iframe{
+      width:100%;
+      height:100%;
+      display:block;
+      border:0;
+      object-fit:cover;
+    }
+
+    .video-info{
+      padding:18px 6px 4px;
+    }
+
+    .video-info h4{
+      font-family:'Montserrat', sans-serif;
+      font-size:19px;
+      margin-bottom:6px;
+    }
+
+    .video-info p{
+      color:#dfe8f5;
+      font-size:15px;
+    }
+
+    .empty-video{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100%;
+      text-align:center;
+      padding:24px;
+      color:#dfe8f5;
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+    }
+
+    footer{
+      background:var(--azul-acmi-2);
+      color:white;
+      text-align:center;
+      padding:28px 18px;
+      margin-top:80px;
+    }
+
+    footer p{
+      margin:4px 0;
+    }
+
+    @media(max-width:980px){
+      .main-header{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      nav ul{
+        justify-content:center;
+      }
+
+      .hero h2{
+        font-size:42px;
+      }
+
+      .album-grid,
+      .videos-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .photo-tile.featured,
+      .photo-tile.wide{
+        grid-column:span 2;
+      }
+
+      .photo-tile.featured{
+        min-height:420px;
+      }
+    }
+
+    @media(max-width:640px){
+      .topbar{
+        padding:10px 20px;
+      }
+
+      .main-header{
+        padding:16px 20px;
+      }
+
+      .brand{
+        flex-direction:column;
+      }
+
+      .hero h2{
+        font-size:34px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .section{
+        padding:60px 22px;
+      }
+
+      .section-title{
+        font-size:32px;
+      }
+
+      .album-section,
+      .videos-section{
+        padding:42px 18px;
+        border-radius:28px;
+      }
+
+      .album-grid,
+      .videos-grid{
+        grid-template-columns:1fr;
+      }
+
+      .photo-tile,
+      .photo-tile.featured,
+      .photo-tile.wide{
+        grid-column:span 1;
+        grid-row:span 1;
+        min-height:330px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="topbar-content">
+      <div>
+        <a href="https://acmi.org.co/" target="_blank" rel="noopener">ACMI Nacional</a>
+        <a href="https://acmi.org.co/afiliese/" target="_blank" rel="noopener">Afiliaciones</a>
+      </div>
+
+      <div>
+        <a href="https://www.actamedicacolombiana.com/ojs/index.php/actamed" target="_blank" rel="noopener">
+          Acta Médica Colombiana
+        </a>
+        <a href="/#patrocinios">Patrocinios</a>
+        <a href="/#foro">Foro</a>
+        <a href="/#contacto">Contacto</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="main-header">
+
+      <div class="brand">
+        <img class="brand-logo" src="/LOGO%20ACMI.png" alt="Logo ACMI Santander">
+
+        <div>
+          <h1>ACMI Santander</h1>
+          <p>Asociación Colombiana de Medicina Interna • Capítulo Santander</p>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="/#inicio">Inicio</a></li>
+          <li><a href="/repositorio-eventos/">Eventos</a></li>
+          <li><a href="/fotos-y-videos/">Fotos y videos</a></li>
+          <li><a href="/educacion-medica-continuada/">Educación médica</a></li>
+          <li><a href="/magazine/">Magazine</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Galería institucional</div>
+
+      <h2>Fotos y videos</h2>
+
+      <p>
+        Álbum fotográfico y registro audiovisual de los eventos desarrollados por ACMI Santander.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#fotos">Ver fotografías</a>
+        <a class="btn btn-light" href="#videos">Ver videos</a>
+        <a class="btn btn-light" href="/repositorio-eventos/">Volver al repositorio</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="section">
+
+    <div class="container">
+
+      <section class="album-section" id="fotos">
+
+        <div class="album-header">
+          <span class="album-kicker">Álbum fotográfico</span>
+
+          <h2 class="section-title">Fotografías del evento</h2>
+
+          <p class="section-subtitle">
+            Registro visual institucional de actividades académicas, encuentros médicos y momentos destacados.
+          </p>
+
+          <div class="album-tabs">
+            <a class="album-tab" href="#fotos">📸 Fotografías</a>
+            <a class="album-tab" href="#videos">🎥 Videos</a>
+            <a class="album-tab" href="/repositorio-eventos/">📁 Repositorio</a>
+          </div>
+        </div>
+
+        <div class="album-grid">
+
+          <a class="photo-tile featured" href="/ACMI%20CALI%201.png" target="_blank" rel="noopener">
+            <img src="/ACMI%20CALI%201.png" alt="Fotografía destacada ACMI Santander">
+            <div class="photo-caption">
+              <h4>Momentos destacados</h4>
+              <p>Registro institucional ACMI Santander</p>
+            </div>
+          </a>
+
+          <a class="photo-tile" href="/ACMI%20CALI%202.png" target="_blank" rel="noopener">
+            <img src="/ACMI%20CALI%202.png" alt="Fotografía ACMI Santander">
+            <div class="photo-caption">
+              <h4>Actividad académica</h4>
+              <p>Participación médica</p>
+            </div>
+          </a>
+
+          <a class="photo-tile" href="/ACMI%20CALI%203.jpeg" target="_blank" rel="noopener">
+            <img src="/ACMI%20CALI%203.jpeg" alt="Fotografía ACMI Santander">
+            <div class="photo-caption">
+              <h4>Encuentro científico</h4>
+              <p>Comunidad académica</p>
+            </div>
+          </a>
+
+          <a class="photo-tile wide" href="/ACMI%20CALI%204.jpeg" target="_blank" rel="noopener">
+            <img src="/ACMI%20CALI%204.jpeg" alt="Fotografía ACMI Santander">
+            <div class="photo-caption">
+              <h4>Memoria institucional</h4>
+              <p>Actividades y asistentes</p>
+            </div>
+          </a>
+
+          <a class="photo-tile" href="/ACMI%20CALI%206.jpeg" target="_blank" rel="noopener">
+            <img src="/ACMI%20CALI%206.jpeg" alt="Fotografía ACMI Santander">
+            <div class="photo-caption">
+              <h4>Galería ACMI</h4>
+              <p>Registro fotográfico</p>
+            </div>
+          </a>
+
+        </div>
+
+      </section>
+
+      <section class="videos-section" id="videos">
+
+        <h2 class="section-title">Videos del evento</h2>
+
+        <p class="section-subtitle">
+          Registro audiovisual institucional. Cuando subas tus videos a la raíz del repositorio, usa los nombres video-1.mp4, video-2.mp4 y video-3.mp4.
+        </p>
+
+        <div class="videos-grid">
+
+          <div class="video-card">
+            <div class="video-frame">
+              <video controls preload="metadata" poster="/1.png">
+                <source src="/video-1.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+              </video>
+            </div>
+            <div class="video-info">
+              <h4>Video institucional 1</h4>
+              <p>Resumen audiovisual del evento.</p>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-frame">
+              <video controls preload="metadata" poster="/2.png">
+                <source src="/video-2.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+              </video>
+            </div>
+            <div class="video-info">
+              <h4>Video institucional 2</h4>
+              <p>Momentos académicos y actividades institucionales.</p>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-frame">
+              <video controls preload="metadata" poster="/3.png">
+                <source src="/video-3.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+              </video>
+            </div>
+            <div class="video-info">
+              <h4>Video institucional 3</h4>
+              <p>Registro complementario del evento.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 ACMI Santander</p>
+    <p>Educación continua que transforma la práctica clínica</p>
+  </footer>
+
+</body>
+</html>
