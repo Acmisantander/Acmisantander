@@ -492,7 +492,7 @@
         <h3>Certificado de asistencia</h3>
 
         <p>
-          Escriba su nombre completo, correo electrónico o celular para consultar y descargar automáticamente su certificado.
+          Escriba su nombre completo, correo electrónico o celular para consultar su certificado. Luego haga clic en descargar.
         </p>
 
         <form id="certForm">
@@ -508,7 +508,7 @@
           </div>
 
           <button class="btn" type="submit">
-            Buscar y descargar certificado
+            Buscar certificado
           </button>
         </form>
 
@@ -600,7 +600,9 @@
       resultado.innerHTML = `
         <strong>Certificado encontrado</strong><br>
         ${nombre}<br>
-        <a href="${rutaArchivo}" download>Descargar certificado</a>
+        <a href="${rutaArchivo}" download>
+          Descargar certificado
+        </a>
       `;
     }
 
@@ -626,17 +628,6 @@
       }
 
       return "/repositorio-eventos/certificados/" + archivo;
-    }
-
-    function descargarArchivo(archivo){
-      const rutaArchivo = normalizarRutaArchivo(archivo);
-
-      const enlace = document.createElement("a");
-      enlace.href = rutaArchivo;
-      enlace.download = "";
-      document.body.appendChild(enlace);
-      enlace.click();
-      enlace.remove();
     }
 
     document.getElementById("certForm").addEventListener("submit", async function(event){
@@ -681,7 +672,6 @@
       }
 
       mostrarOk(encontrado.nombre, encontrado.archivo);
-      descargarArchivo(encontrado.archivo);
     });
 
     cargarCertificados();
