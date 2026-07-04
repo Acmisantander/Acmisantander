@@ -1,362 +1,277 @@
-import os
-import re
-import json
-import hashlib
-import unicodedata
-import pandas as pd
-
-
-# ============================================================
-# CARPETAS
-# ============================================================
-
-CARPETA_BASE = r"C:\Users\sergi\OneDrive\Escritorio\CERTIFICADOS ACMI"
-
-EXCEL = os.path.join(CARPETA_BASE, "Certificado de ponentes.xlsx")
-
-CARPETA_PDFS = os.path.join(
-    CARPETA_BASE,
-    "CERTIFICADOS_GENERADOS",
-    "PONENTES"
-)
-
-# ESTA DEBE SER LA CARPETA LOCAL DEL REPOSITORIO DE TU PÁGINA
-# Aquí deben estar:
-# index.html
-# certificados.json
-# certificados_ponentes.json
-# los PDF
-CARPETA_REPOSITORIO_CERTIFICADOS = os.path.join(
-    CARPETA_BASE,
-    "repositorio-eventos",
-    "certificados"
-)
-
-
-# ============================================================
-# VALIDACIONES DE CARPETAS
-# ============================================================
-
-if not os.path.exists(CARPETA_BASE):
-    raise FileNotFoundError(f"No existe la carpeta base: {CARPETA_BASE}")
-
-if not os.path.exists(EXCEL):
-    raise FileNotFoundError(
-        "No encontré el Excel de ponentes. "
-        "Asegúrate de que se llame exactamente 'Certificado de ponentes.xlsx'."
-    )
-
-if not os.path.exists(CARPETA_PDFS):
-    raise FileNotFoundError(
-        "No existe la carpeta de PDF de ponentes. "
-        "Primero debes generar los certificados en CERTIFICADOS_GENERADOS\\PONENTES."
-    )
-
-if not os.path.exists(CARPETA_REPOSITORIO_CERTIFICADOS):
-    raise FileNotFoundError(
-        "No existe la carpeta del repositorio donde debe ir el JSON.\n"
-        "Verifica esta ruta:\n"
-        f"{CARPETA_REPOSITORIO_CERTIFICADOS}"
-    )
-
-
-# ============================================================
-# FUNCIONES
-# ============================================================
-
-def quitar_tildes(texto):
-    texto = str(texto)
-    texto = unicodedata.normalize("NFD", texto)
-    texto = "".join(c for c in texto if unicodedata.category(c) != "Mn")
-    return texto
-
-
-def normalizar_nombre(valor):
-    if pd.isna(valor):
-        return ""
-
-    texto = str(valor).strip()
-    texto = quitar_tildes(texto)
-    texto = texto.upper()
-    texto = re.sub(r"\s+", " ", texto)
-    return texto
-
-
-def normalizar_email(valor):
-    if pd.isna(valor):
-        return ""
-
-    texto = str(valor).strip().lower()
-    texto = re.sub(r"\s+", "", texto)
-    return texto
-
-
-def normalizar_celular(valor):
-    if pd.isna(valor):
-        return ""
-
-    # Evita casos en los que Excel/Pandas deje el celular como 3173007407.0
-    try:
-        if isinstance(valor, float):
-            valor = int(valor)
-    except Exception:
-        pass
-
-    texto = str(valor).strip()
-
-    if texto.endswith(".0"):
-        texto = texto[:-2]
-
-    texto = re.sub(r"\D", "", texto)
-
-    # Si viene con prefijo Colombia 57, deja los últimos 10 dígitos
-    if texto.startswith("57") and len(texto) > 10:
-        texto = texto[-10:]
-
-    return texto
-
-
-def hash_texto(texto):
-    """
-    IMPORTANTE:
-    Este hash usa .lower().
-    Por eso el index.html debe calcular el SHA-256 con:
-    String(texto).trim().toLowerCase()
-    """
-    texto = str(texto).strip().lower()
-    return hashlib.sha256(texto.encode("utf-8")).hexdigest()
-
-
-def limpiar_nombre_archivo(texto):
-    texto = str(texto).strip().upper()
-    texto = quitar_tildes(texto)
-    texto = re.sub(r'[\\/*?:"<>|]', "", texto)
-    texto = re.sub(r"\s+", " ", texto)
-    return texto
-
-
-def buscar_columna(df, opciones):
-    columnas = {
-        quitar_tildes(str(col).strip().lower()): col for col in df.columns
-    }
-
-    for opcion in opciones:
-        opcion_norm = quitar_tildes(opcion.strip().lower())
-
-        if opcion_norm in columnas:
-            return columnas[opcion_norm]
-
-    for opcion in opciones:
-        opcion_norm = quitar_tildes(opcion.strip().lower())
-
-        for col_norm, col_real in columnas.items():
-            if opcion_norm in col_norm:
-                return col_real
-
-    return None
-
-
-def buscar_pdf_por_nombre(nombre_completo):
-    nombre_limpio = limpiar_nombre_archivo(nombre_completo)
-
-    for archivo in os.listdir(CARPETA_PDFS):
-        if not archivo.lower().endswith(".pdf"):
-            continue
-
-        base = os.path.splitext(archivo)[0]
-        base_limpia = limpiar_nombre_archivo(base)
-
-        if base_limpia == nombre_limpio:
-            return archivo
-
-    return None
-
-
-# ============================================================
-# LEER EXCEL DE PONENTES
-# ============================================================
-
-print("\nExcel usado:")
-print(EXCEL)
-
-df = pd.read_excel(EXCEL)
-
-print("\nColumnas encontradas en el Excel:")
-for col in df.columns:
-    print("-", col)
-
-
-# ============================================================
-# DETECTAR COLUMNAS
-# ============================================================
-
-col_nombre = buscar_columna(
-    df,
-    [
-        "Nombre",
-        "Nombre completo",
-        "Ponente",
-        "Nombre del ponente",
-        "Conferencista",
-        "Speaker",
-        "Name"
+[
+  {
+    "nombre": "Alexander Reyes Lobo",
+    "archivo": "ALEXANDER REYES LOBO.pdf",
+    "nombres_hash": [
+      "0983f03b1b6d03379360bfadc54a0534267fd160e8df1f7271db42aee09fa1d6",
+      "0983f03b1b6d03379360bfadc54a0534267fd160e8df1f7271db42aee09fa1d6",
+      "0983f03b1b6d03379360bfadc54a0534267fd160e8df1f7271db42aee09fa1d6"
+    ],
+    "emails_hash": [
+      "79ef5c43cf26d13a8cb2d8de2c2bcd38478d9c651e13843a859208f35fc08df5"
+    ],
+    "celulares_hash": [
+      "0bc6ac4718a8890ef59f41ff646d5ae66fabdb5d27d7c74c0aece09bb183f972"
     ]
-)
-
-col_email = buscar_columna(
-    df,
-    [
-        "Correo",
-        "Email",
-        "Correo electrónico",
-        "E-mail"
+  },
+  {
+    "nombre": "Heyda Nunez",
+    "archivo": "HEYDA NUNEZ.pdf",
+    "nombres_hash": [
+      "46a8ab97ca407c9d39a5c6de0b220dc6f7743aa303c0be212a443d1a4a8163bb",
+      "46a8ab97ca407c9d39a5c6de0b220dc6f7743aa303c0be212a443d1a4a8163bb",
+      "46a8ab97ca407c9d39a5c6de0b220dc6f7743aa303c0be212a443d1a4a8163bb"
+    ],
+    "emails_hash": [
+      "72b7c72a82e70dd1113a2b6c6d3a1667d5ae8eba3b98378c1d12721962e56cae"
+    ],
+    "celulares_hash": [
+      "ec1909dd95e4176e57cdd23a04a1dab1788d93631de791423c5c7fe2185e5dbc"
     ]
-)
-
-col_phone = buscar_columna(
-    df,
-    [
-        "Phone",
-        "Telefono",
-        "Teléfono"
+  },
+  {
+    "nombre": "Juan Diego Mendoza Diaz",
+    "archivo": "JUAN DIEGO MENDOZA DIAZ.pdf",
+    "nombres_hash": [
+      "6a8a96f061d62961723f6a468914a9c939126fd116680072a82c52e7059a705b",
+      "6a8a96f061d62961723f6a468914a9c939126fd116680072a82c52e7059a705b",
+      "6a8a96f061d62961723f6a468914a9c939126fd116680072a82c52e7059a705b"
+    ],
+    "emails_hash": [
+      "ec9d9d856c8aa7f35680c0d5307e6bd019d8aa88ef46285969fcf8d02bff48dc"
+    ],
+    "celulares_hash": []
+  },
+  {
+    "nombre": "Julio Cesar Oliveros Fuentes",
+    "archivo": "JULIO CESAR OLIVEROS FUENTES.pdf",
+    "nombres_hash": [
+      "0d0a2d8033e45023bb24d59cbd8fe6e118412d6b982a1e66ef7aae7ca8b9afaa",
+      "0d0a2d8033e45023bb24d59cbd8fe6e118412d6b982a1e66ef7aae7ca8b9afaa",
+      "0d0a2d8033e45023bb24d59cbd8fe6e118412d6b982a1e66ef7aae7ca8b9afaa"
+    ],
+    "emails_hash": [
+      "e8ad7339b380d3ebf3e13e5cb139129ed513ea469797c1b5729407b6df8b1584"
+    ],
+    "celulares_hash": [
+      "ae3a9ae15e6cd68ce2c2d6b4236d3b1ee23b1122827745f57c32ddb20ebec2fa"
     ]
-)
-
-col_celular = buscar_columna(
-    df,
-    [
-        "Celular",
-        "Cellphone",
-        "Mobile"
+  },
+  {
+    "nombre": "Jaime Alberto Gomez Ayala",
+    "archivo": "JAIME ALBERTO GOMEZ AYALA.pdf",
+    "nombres_hash": [
+      "a399748c2cfa8d5370c57202163e85c41eb56543422d4ecab6f9e4d405f109b4",
+      "a399748c2cfa8d5370c57202163e85c41eb56543422d4ecab6f9e4d405f109b4",
+      "a399748c2cfa8d5370c57202163e85c41eb56543422d4ecab6f9e4d405f109b4"
+    ],
+    "emails_hash": [
+      "457a47393c3aa88cf08967bff03769655ef439cf3ad76acb206b63fc6792ee41"
+    ],
+    "celulares_hash": [
+      "c29dbf377afec77f5a6b3349f61e2c611198e0c0772867f1096d6867b0b73a2a"
     ]
-)
-
-if col_nombre is None:
-    raise ValueError(
-        "No encontré la columna de nombre en el Excel de ponentes. "
-        "Debe llamarse preferiblemente 'Nombre'."
-    )
-
-print("\nColumnas usadas:")
-print("Nombre:", col_nombre)
-print("Email/Correo:", col_email)
-print("Phone:", col_phone)
-print("Celular:", col_celular)
-
-
-# ============================================================
-# CREAR JSON
-# ============================================================
-
-registros = []
-pdf_no_encontrados = []
-
-for _, fila in df.iterrows():
-
-    nombre_completo = normalizar_nombre(fila[col_nombre])
-
-    if not nombre_completo:
-        continue
-
-    archivo_pdf = buscar_pdf_por_nombre(nombre_completo)
-
-    # MUY IMPORTANTE:
-    # Antes aquí había un continue.
-    # Eso hacía que si el PDF no coincidía exactamente,
-    # el ponente no entrara al JSON y la página no lo encontrara.
-    #
-    # Ahora lo dejamos dentro del JSON de todas formas.
-    if archivo_pdf is None:
-        archivo_pdf = limpiar_nombre_archivo(nombre_completo) + ".pdf"
-        pdf_no_encontrados.append(nombre_completo)
-
-    email = normalizar_email(fila[col_email]) if col_email is not None else ""
-
-    celulares = []
-
-    if col_phone is not None:
-        phone = normalizar_celular(fila[col_phone])
-
-        if phone:
-            celulares.append(phone)
-
-    if col_celular is not None:
-        celular = normalizar_celular(fila[col_celular])
-
-        if celular:
-            celulares.append(celular)
-
-    celulares = sorted(list(set(celulares)))
-
-    nombres_hash = sorted(list(set([
-        hash_texto(nombre_completo),
-        hash_texto(nombre_completo.title()),
-        hash_texto(quitar_tildes(nombre_completo))
-    ])))
-
-    emails_hash = []
-
-    if email:
-        emails_hash.append(hash_texto(email))
-
-    celulares_hash = []
-
-    for celular in celulares:
-        celulares_hash.append(hash_texto(celular))
-
-    registro = {
-        "tipo_certificado": "Ponente",
-        "nombre": nombre_completo.title(),
-        "archivo": archivo_pdf,
-        "nombres_hash": nombres_hash,
-        "emails_hash": sorted(list(set(emails_hash))),
-        "celulares_hash": sorted(list(set(celulares_hash)))
-    }
-
-    registros.append(registro)
-
-
-# ============================================================
-# GUARDAR JSON EN DOS LUGARES
-# ============================================================
-
-ruta_json_generado = os.path.join(
-    CARPETA_PDFS,
-    "certificados_ponentes.json"
-)
-
-ruta_json_repositorio = os.path.join(
-    CARPETA_REPOSITORIO_CERTIFICADOS,
-    "certificados_ponentes.json"
-)
-
-with open(ruta_json_generado, "w", encoding="utf-8") as f:
-    json.dump(registros, f, ensure_ascii=False, indent=2)
-
-with open(ruta_json_repositorio, "w", encoding="utf-8") as f:
-    json.dump(registros, f, ensure_ascii=False, indent=2)
-
-
-# ============================================================
-# REPORTE FINAL
-# ============================================================
-
-print("\n==============================================")
-print("PROCESO TERMINADO")
-print(f"Certificados de ponentes incluidos en JSON: {len(registros)}")
-print(f"JSON generado en carpeta de PDFs:")
-print(ruta_json_generado)
-print(f"JSON copiado al repositorio:")
-print(ruta_json_repositorio)
-print("==============================================")
-
-
-if pdf_no_encontrados:
-    print("\nNo encontré PDF exacto para estos nombres, pero SÍ quedaron en el JSON:")
-    for nombre in pdf_no_encontrados:
-        print("-", nombre)
-
-
-print("\nPrimeros registros generados:")
-for item in registros[:5]:
-    print("-", item["nombre"], "|", item["archivo"])
+  },
+  {
+    "nombre": "Sergio Andres Lobo Olaya",
+    "archivo": "SERGIO ANDRES LOBO OLAYA.pdf",
+    "nombres_hash": [
+      "1cfe61c5692ebbe42dab5b4696ff99a932c5b9ab3ccda32b936e848440e5a2a0",
+      "1cfe61c5692ebbe42dab5b4696ff99a932c5b9ab3ccda32b936e848440e5a2a0",
+      "1cfe61c5692ebbe42dab5b4696ff99a932c5b9ab3ccda32b936e848440e5a2a0"
+    ],
+    "emails_hash": [
+      "0c8187f19c12c652215b2e8e06d13b73a525e9cadb5c7240b07736af41a9ffb8"
+    ],
+    "celulares_hash": [
+      "745ef06cd30693e78031767744553807892fed46951a39eac08428d0fd1c906b"
+    ]
+  },
+  {
+    "nombre": "Cristhian Mauricio Castellanos Arenales",
+    "archivo": "CRISTHIAN MAURICIO CASTELLANOS ARENALES.pdf",
+    "nombres_hash": [
+      "69c78392558938409704079ac2d78bb6df19b0da3df359be548bdba748704310",
+      "69c78392558938409704079ac2d78bb6df19b0da3df359be548bdba748704310",
+      "69c78392558938409704079ac2d78bb6df19b0da3df359be548bdba748704310"
+    ],
+    "emails_hash": [
+      "3fee4117f7c0eeee40997037751f1c32ee14e66c8e7da7c36a52b65e6361d9ec"
+    ],
+    "celulares_hash": [
+      "c06d6003b907a16848e1db7a4c3ed2f7db6ed53b193898e59fc1114572023e5b"
+    ]
+  },
+  {
+    "nombre": "Ricardo Andres Angulo Medina",
+    "archivo": "RICARDO ANDRES ANGULO MEDINA.pdf",
+    "nombres_hash": [
+      "9b75d50cc55adb4ea5bbe23f693ddf9e66dd436382b82466c2b4bf0369dfcafb",
+      "9b75d50cc55adb4ea5bbe23f693ddf9e66dd436382b82466c2b4bf0369dfcafb",
+      "9b75d50cc55adb4ea5bbe23f693ddf9e66dd436382b82466c2b4bf0369dfcafb"
+    ],
+    "emails_hash": [
+      "26529732f8a49c75eb16adbc9b73c86397a9fbd38d66c5ee7cf6bdf09d0e51d4"
+    ],
+    "celulares_hash": [
+      "c798f533684172fbcd62cdb3e3324eb9448bb412d9c01c4f4d56a239493d2017"
+    ]
+  },
+  {
+    "nombre": "Johan Sebastian Eslava Roa",
+    "archivo": "JOHAN SEBASTIAN ESLAVA ROA.pdf",
+    "nombres_hash": [
+      "f3b61082a34bbd3bb95517c57cfcc40bcd0f3e74999a7511dd2f51cd53620dcb",
+      "f3b61082a34bbd3bb95517c57cfcc40bcd0f3e74999a7511dd2f51cd53620dcb",
+      "f3b61082a34bbd3bb95517c57cfcc40bcd0f3e74999a7511dd2f51cd53620dcb"
+    ],
+    "emails_hash": [
+      "fd48191fd4215bf5cc8c43acbc9895596086748ae94c3aac965ab8081d551222"
+    ],
+    "celulares_hash": [
+      "13388919d4c8ba008a330356c756d832df54ddefcf628160d28537339971c17e"
+    ]
+  },
+  {
+    "nombre": "Johan Nicolas Mateus Mancipe",
+    "archivo": "JOHAN NICOLAS MATEUS MANCIPE.pdf",
+    "nombres_hash": [
+      "f98287ad2d7c7ebc513391323baad53b1b784a31ac3d1100640c97fa4225d121",
+      "f98287ad2d7c7ebc513391323baad53b1b784a31ac3d1100640c97fa4225d121",
+      "f98287ad2d7c7ebc513391323baad53b1b784a31ac3d1100640c97fa4225d121"
+    ],
+    "emails_hash": [
+      "2d29df857f1c04b46b7b926ddf088ad550581a4bc40d8a26c02f6b784e55a832"
+    ],
+    "celulares_hash": [
+      "1d865595fff01bf21d9a2986607bc0cf65a5ed43a66d9f1703368624043c4336"
+    ]
+  },
+  {
+    "nombre": "Gisela Serrano Cabarcas",
+    "archivo": "GISELA SERRANO CABARCAS.pdf",
+    "nombres_hash": [
+      "e532ee14341216cb76201f8b4c1954c66fcbce15e31484f8f16115336efd2712",
+      "e532ee14341216cb76201f8b4c1954c66fcbce15e31484f8f16115336efd2712",
+      "e532ee14341216cb76201f8b4c1954c66fcbce15e31484f8f16115336efd2712"
+    ],
+    "emails_hash": [
+      "b577b0eaf1e404b47e7fae84bbaf50a6e2f8d3789270fdad776726268fbee1d7"
+    ],
+    "celulares_hash": [
+      "031b5096a287e4197be604771e79fed668bf725c2293d9ac1676d2e1b8cfb422"
+    ]
+  },
+  {
+    "nombre": "Javier Enrique Fajardo Rivero",
+    "archivo": "JAVIER ENRIQUE FAJARDO RIVERO.pdf",
+    "nombres_hash": [
+      "2ea57a32e8276666fda8f802d69a8137b4ce6073a70b0a25cfbdc2acac54a07a",
+      "2ea57a32e8276666fda8f802d69a8137b4ce6073a70b0a25cfbdc2acac54a07a",
+      "2ea57a32e8276666fda8f802d69a8137b4ce6073a70b0a25cfbdc2acac54a07a"
+    ],
+    "emails_hash": [],
+    "celulares_hash": [
+      "74c4a05965381a3eb1a9e6853789230d50a358feeae123b3fd7ef88a2762e708"
+    ]
+  },
+  {
+    "nombre": "Carolina Plata Upegui",
+    "archivo": "CAROLINA PLATA UPEGUI.pdf",
+    "nombres_hash": [
+      "77e14c99be63ecd44c36c8093e8e178c3e0b7feb6fd00cc89bbe67a8c0635d49",
+      "77e14c99be63ecd44c36c8093e8e178c3e0b7feb6fd00cc89bbe67a8c0635d49",
+      "77e14c99be63ecd44c36c8093e8e178c3e0b7feb6fd00cc89bbe67a8c0635d49"
+    ],
+    "emails_hash": [
+      "d6d18b441ce3a60f5626a144350c74ba1f380cac5515cce481498904ac0b824a"
+    ],
+    "celulares_hash": [
+      "c82bc7d97316742301b7f80684af1e924dcf04687a1c4d71a9bead91fc79ced5"
+    ]
+  },
+  {
+    "nombre": "Jaime Alberto Barreto Menendez",
+    "archivo": "JAIME ALBERTO BARRETO MENENDEZ.pdf",
+    "nombres_hash": [
+      "22e1215780a5a2f8cf68a4a17ef12a64711b9bd68b91e491424cd25e408279da",
+      "22e1215780a5a2f8cf68a4a17ef12a64711b9bd68b91e491424cd25e408279da",
+      "22e1215780a5a2f8cf68a4a17ef12a64711b9bd68b91e491424cd25e408279da"
+    ],
+    "emails_hash": [],
+    "celulares_hash": [
+      "2e691c77a8450bddb1a858748ed2e91acd493002db551929d430dc23ca3013ae"
+    ]
+  },
+  {
+    "nombre": "Karen Lorena Rangel Rivera",
+    "archivo": "KAREN LORENA RANGEL RIVERA.pdf",
+    "nombres_hash": [
+      "c0d219de66d2773e6b8b81d4f7bfaf395131b7724ff3a8c5d5949a9aadc286e5",
+      "c0d219de66d2773e6b8b81d4f7bfaf395131b7724ff3a8c5d5949a9aadc286e5",
+      "c0d219de66d2773e6b8b81d4f7bfaf395131b7724ff3a8c5d5949a9aadc286e5"
+    ],
+    "emails_hash": [],
+    "celulares_hash": [
+      "466d64ad9f6ae505a1732ed2b97d99725fa5d572100f1f760123c4b1538c8214"
+    ]
+  },
+  {
+    "nombre": "Sheyla Yurian Pardo Gonzalez",
+    "archivo": "SHEYLA YURIAN PARDO GONZALEZ.pdf",
+    "nombres_hash": [
+      "bedd4dfaf9a9d6780589d108bb434c2bb487c14428967d8f34fa61f1f05f84c1",
+      "bedd4dfaf9a9d6780589d108bb434c2bb487c14428967d8f34fa61f1f05f84c1",
+      "bedd4dfaf9a9d6780589d108bb434c2bb487c14428967d8f34fa61f1f05f84c1"
+    ],
+    "emails_hash": [
+      "d6a1ee1eb761a396254d9c0b78ed0878c12ee14ae6cacb1cf51ff729b91058f8"
+    ],
+    "celulares_hash": [
+      "bf21f5e18b251f2c5f16d3994257e749daf6ba2e386b2329f106666244acea30"
+    ]
+  },
+  {
+    "nombre": "Sergio Andres Gomez Gualdron",
+    "archivo": "SERGIO ANDRES GOMEZ GUALDRON.pdf",
+    "nombres_hash": [
+      "e14a7d92ed3b2638c054a903f826c2f8d7bffe0d9320c46c2927d188002ec3b2",
+      "e14a7d92ed3b2638c054a903f826c2f8d7bffe0d9320c46c2927d188002ec3b2",
+      "e14a7d92ed3b2638c054a903f826c2f8d7bffe0d9320c46c2927d188002ec3b2"
+    ],
+    "emails_hash": [
+      "77dfff9271f31db3f7f87b4123f3555cfc37a28d922fb36f377f0b42814dd74c"
+    ],
+    "celulares_hash": [
+      "32ef90e16d4402ae010e2df0a7453c9e50955c54d94b4073951405deefbe186e"
+    ]
+  },
+  {
+    "nombre": "Leslie Katherine Vargas Ramirez",
+    "archivo": "LESLIE KATHERINE VARGAS RAMIREZ.pdf",
+    "nombres_hash": [
+      "98db3c9fc25e1dd1d7a920e862a3ad73f1b262887dd7630ec9bbcb94c2c7bde4",
+      "98db3c9fc25e1dd1d7a920e862a3ad73f1b262887dd7630ec9bbcb94c2c7bde4",
+      "98db3c9fc25e1dd1d7a920e862a3ad73f1b262887dd7630ec9bbcb94c2c7bde4"
+    ],
+    "emails_hash": [],
+    "celulares_hash": [
+      "ec11cd48069846226c47d0ad7a08e19afd0a30b588143ef55f908d80cb90f339"
+    ]
+  },
+  {
+    "nombre": "Luisa Fernanda Pinto Guerrero",
+    "archivo": "LUISA FERNANDA PINTO GUERRERO.pdf",
+    "nombres_hash": [
+      "58460ebd39895a91f438f6c5696e11ee831cdeb3b15b2086945457af9e322644",
+      "58460ebd39895a91f438f6c5696e11ee831cdeb3b15b2086945457af9e322644",
+      "58460ebd39895a91f438f6c5696e11ee831cdeb3b15b2086945457af9e322644"
+    ],
+    "emails_hash": [
+      "e0942f35c6cb7faf4e83c3d062075dadbc459f3136dc0f511a0f116ea8350754"
+    ],
+    "celulares_hash": [
+      "e352a24d5b57e7c0b16a3eee8dacb27f90b28925a0a94c0d7cf2807746607fd7"
+    ]
+  }
+]
