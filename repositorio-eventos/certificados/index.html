@@ -592,14 +592,13 @@
       const encoder = new TextEncoder();
 
       /*
-        No convertir aquí a minúscula.
-        Cada dato ya llega normalizado antes de crear el hash:
-        - Nombre: MAYÚSCULA sin tildes
-        - Email: minúscula
-        - Celular: solo números
+        IMPORTANTE:
+        Debe coincidir con Python:
+        texto = str(texto).strip().lower()
       */
-      const data = encoder.encode(String(texto || "").trim());
+      const textoNormalizado = String(texto || "").trim().toLowerCase();
 
+      const data = encoder.encode(textoNormalizado);
       const hashBuffer = await crypto.subtle.digest("SHA-256", data);
       const hashArray = Array.from(new Uint8Array(hashBuffer));
 
@@ -624,7 +623,7 @@
 
       return datos.map(item => ({
         ...item,
-        tipo_certificado: tipoCertificado
+        tipo_certificado: item.tipo_certificado || tipoCertificado
       }));
     }
 
@@ -668,6 +667,7 @@
       });
 
       console.log("Total certificados cargados:", certificados.length);
+      console.log("Primeros certificados cargados:", certificados.slice(0, 5));
 
       if(certificados.length === 0){
         mostrarError(
@@ -690,9 +690,57 @@
       return '<span class="tipo-badge tipo-asistente">Certificado de asistente</span>';
     }
 
+    function limpiarNombreArchivoParaDownload(archivo){
+      archivo = String(archivo || "certificado.pdf").trim();
+
+      if(!archivo.toLowerCase().endsWith(".pdf")){
+        archivo = archivo + ".pdf";
+      }
+
+      return archivo;
+    }
+
+    function normalizarRutaArchivo(archivo){
+      if(!archivo){
+        return "#";
+      }
+
+      archivo = String(archivo).trim();
+
+      /*
+        Si por error viene sin extensión, forzamos .pdf.
+        Esto evita intentos de descarga .htm.
+      */
+      if(!archivo.toLowerCase().endsWith(".pdf")){
+        archivo = archivo + ".pdf";
+      }
+
+      if(archivo.startsWith("http://") || archivo.startsWith("https://")){
+        return encodeURI(archivo);
+      }
+
+      if(archivo.startsWith("/")){
+        return encodeURI(archivo);
+      }
+
+      if(archivo.startsWith("repositorio-eventos/certificados/")){
+        return encodeURI("/" + archivo);
+      }
+
+      if(archivo.startsWith("certificados/")){
+        archivo = archivo.replace("certificados/", "");
+      }
+
+      /*
+        Ruta pública donde están los PDF.
+      */
+      return encodeURI("/repositorio-eventos/certificados/" + archivo);
+    }
+
     function mostrarOk(nombre, archivo, tipo){
       const resultado = document.getElementById("resultado");
       const rutaArchivo = normalizarRutaArchivo(archivo);
+      const nombreDescarga = limpiarNombreArchivoParaDownload(archivo);
 
       resultado.className = "resultado ok";
       resultado.innerHTML = `
@@ -701,10 +749,19 @@
         <br>
         ${nombre}
         <br>
-        <a href="${rutaArchivo}" download>
+        <a
+          href="${rutaArchivo}"
+          download="${nombreDescarga}"
+          target="_blank"
+          rel="noopener"
+        >
           Descargar certificado
         </a>
       `;
+
+      console.log("Archivo en JSON:", archivo);
+      console.log("Ruta final de descarga:", rutaArchivo);
+      console.log("Nombre de descarga:", nombreDescarga);
     }
 
     function mostrarMultiples(lista){
@@ -720,6 +777,7 @@
 
       lista.forEach(item => {
         const rutaArchivo = normalizarRutaArchivo(item.archivo);
+        const nombreDescarga = limpiarNombreArchivoParaDownload(item.archivo);
 
         html += `
           <div class="cert-item">
@@ -727,40 +785,23 @@
             <br>
             ${item.nombre}
             <br>
-            <a href="${rutaArchivo}" download>
+            <a
+              href="${rutaArchivo}"
+              download="${nombreDescarga}"
+              target="_blank"
+              rel="noopener"
+            >
               Descargar certificado
             </a>
           </div>
         `;
+
+        console.log("Archivo en JSON:", item.archivo);
+        console.log("Ruta final de descarga:", rutaArchivo);
+        console.log("Nombre de descarga:", nombreDescarga);
       });
 
       resultado.innerHTML = html;
-    }
-
-    function normalizarRutaArchivo(archivo){
-      if(!archivo){
-        return "#";
-      }
-
-      archivo = String(archivo).trim();
-
-      if(archivo.startsWith("http")){
-        return archivo;
-      }
-
-      if(archivo.startsWith("/")){
-        return archivo;
-      }
-
-      if(archivo.startsWith("repositorio-eventos/certificados/")){
-        return "/" + archivo;
-      }
-
-      if(archivo.startsWith("certificados/")){
-        return "/repositorio-eventos/certificados/" + archivo.replace("certificados/", "");
-      }
-
-      return "/repositorio-eventos/certificados/" + archivo;
     }
 
     document.getElementById("certForm").addEventListener("submit", async function(event){
