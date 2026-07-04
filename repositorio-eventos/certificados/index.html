@@ -716,6 +716,58 @@
       return encodeURI("/repositorio-eventos/certificados/" + archivo);
     }
 
+    function claveTexto(valor){
+      return String(valor || "")
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, " ");
+    }
+
+    function deduplicarCertificados(lista){
+      const vistos = new Set();
+      const resultado = [];
+
+      lista.forEach(item => {
+        const archivo = claveTexto(item.archivo);
+        const nombre = claveTexto(item.nombre);
+        const tipo = claveTexto(item.tipo_certificado);
+
+        /*
+          Esta clave elimina duplicados del mismo certificado.
+          Prioriza el archivo; si no existe archivo, usa nombre + tipo.
+        */
+        const clave = archivo || (tipo + "|" + nombre);
+
+        if(!vistos.has(clave)){
+          vistos.add(clave);
+          resultado.push(item);
+        }
+      });
+
+      return resultado;
+    }
+
+    function elegirCertificadoPrincipal(lista){
+      if(!lista || lista.length === 0){
+        return null;
+      }
+
+      /*
+        Para que solo aparezca UNO para descargar:
+        1. Si hay certificado de ponente, se muestra ese.
+        2. Si no, se muestra el primero disponible.
+      */
+      const ponente = lista.find(item => item.tipo_certificado === "Ponente");
+
+      if(ponente){
+        return ponente;
+      }
+
+      return lista[0];
+    }
+
     function mostrarOk(nombre, archivo, tipo){
       const resultado = document.getElementById("resultado");
       const rutaArchivo = normalizarRutaArchivo(archivo);
@@ -741,46 +793,6 @@
       console.log("Archivo en JSON:", archivo);
       console.log("Ruta final de descarga:", rutaArchivo);
       console.log("Nombre de descarga:", nombreDescarga);
-    }
-
-    function mostrarMultiples(lista){
-      const resultado = document.getElementById("resultado");
-      resultado.className = "resultado ok";
-
-      let html = `
-        <strong>Encontramos varios certificados asociados a sus datos</strong><br>
-        <span style="display:block; margin-top:6px;">
-          Puede descargar cada certificado según corresponda.
-        </span>
-      `;
-
-      lista.forEach(item => {
-        const rutaArchivo = normalizarRutaArchivo(item.archivo);
-        const nombreDescarga = limpiarNombreArchivoParaDownload(item.archivo);
-
-        html += `
-          <div class="cert-item">
-            ${etiquetaTipo(item.tipo_certificado)}
-            <br>
-            ${item.nombre}
-            <br>
-            <a
-              href="${rutaArchivo}"
-              download="${nombreDescarga}"
-              target="_blank"
-              rel="noopener"
-            >
-              Descargar certificado
-            </a>
-          </div>
-        `;
-
-        console.log("Archivo en JSON:", item.archivo);
-        console.log("Ruta final de descarga:", rutaArchivo);
-        console.log("Nombre de descarga:", nombreDescarga);
-      });
-
-      resultado.innerHTML = html;
     }
 
     document.getElementById("certForm").addEventListener("submit", async function(event){
@@ -824,7 +836,7 @@
       console.log("Valor normalizado:", valorNormalizado);
       console.log("Hash buscado:", hashEntrada);
 
-      const encontrados = certificados.filter(item => {
+      const encontradosSinFiltrar = certificados.filter(item => {
         const emails = item.emails_hash || [];
         const celulares = item.celulares_hash || [];
 
@@ -834,26 +846,23 @@
         );
       });
 
-      console.log("Certificados encontrados:", encontrados);
+      const encontrados = deduplicarCertificados(encontradosSinFiltrar);
+      const certificado = elegirCertificadoPrincipal(encontrados);
 
-      if(encontrados.length === 0){
+      console.log("Certificados encontrados sin filtrar:", encontradosSinFiltrar);
+      console.log("Certificados encontrados sin duplicados:", encontrados);
+      console.log("Certificado que se mostrará:", certificado);
+
+      if(!certificado){
         mostrarError("No encontramos un certificado asociado a ese correo o celular.");
         return;
       }
 
-      if(encontrados.length === 1){
-        const certificado = encontrados[0];
-
-        mostrarOk(
-          certificado.nombre,
-          certificado.archivo,
-          certificado.tipo_certificado
-        );
-
-        return;
-      }
-
-      mostrarMultiples(encontrados);
+      mostrarOk(
+        certificado.nombre,
+        certificado.archivo,
+        certificado.tipo_certificado
+      );
     });
 
     cargarCertificados();
