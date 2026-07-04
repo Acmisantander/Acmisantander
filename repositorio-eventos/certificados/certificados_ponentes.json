@@ -1,0 +1,284 @@
+import os
+import re
+import json
+import hashlib
+import unicodedata
+import pandas as pd
+
+
+# ============================================================
+# CARPETAS
+# ============================================================
+
+CARPETA_BASE = r"C:\Users\sergi\OneDrive\Escritorio\CERTIFICADOS ACMI"
+
+EXCEL = os.path.join(CARPETA_BASE, "Certificado de ponentes.xlsx")
+
+CARPETA_PDFS = os.path.join(
+    CARPETA_BASE,
+    "CERTIFICADOS_GENERADOS",
+    "PONENTES"
+)
+
+if not os.path.exists(CARPETA_BASE):
+    raise FileNotFoundError(f"No existe la carpeta base: {CARPETA_BASE}")
+
+if not os.path.exists(EXCEL):
+    raise FileNotFoundError(
+        "No encontré el Excel de ponentes. "
+        "Asegúrate de que se llame exactamente 'Certificado de ponentes.xlsx'."
+    )
+
+if not os.path.exists(CARPETA_PDFS):
+    raise FileNotFoundError(
+        "No existe la carpeta de PDF de ponentes. "
+        "Primero debes generar los certificados en CERTIFICADOS_GENERADOS\\PONENTES."
+    )
+
+
+# ============================================================
+# FUNCIONES
+# ============================================================
+
+def quitar_tildes(texto):
+    texto = str(texto)
+    texto = unicodedata.normalize("NFD", texto)
+    texto = "".join(c for c in texto if unicodedata.category(c) != "Mn")
+    return texto
+
+
+def normalizar_nombre(valor):
+    if pd.isna(valor):
+        return ""
+
+    texto = str(valor).strip()
+    texto = quitar_tildes(texto)
+    texto = texto.upper()
+    texto = re.sub(r"\s+", " ", texto)
+    return texto
+
+
+def normalizar_email(valor):
+    if pd.isna(valor):
+        return ""
+
+    texto = str(valor).strip().lower()
+    texto = re.sub(r"\s+", "", texto)
+    return texto
+
+
+def normalizar_celular(valor):
+    if pd.isna(valor):
+        return ""
+
+    texto = str(valor).strip()
+
+    if texto.endswith(".0"):
+        texto = texto[:-2]
+
+    texto = re.sub(r"\D", "", texto)
+
+    if texto.startswith("57") and len(texto) > 10:
+        texto = texto[-10:]
+
+    return texto
+
+
+def hash_texto(texto):
+    texto = str(texto).strip().lower()
+    return hashlib.sha256(texto.encode("utf-8")).hexdigest()
+
+
+def limpiar_nombre_archivo(texto):
+    texto = str(texto).strip().upper()
+    texto = quitar_tildes(texto)
+    texto = re.sub(r'[\\/*?:"<>|]', "", texto)
+    texto = re.sub(r"\s+", " ", texto)
+    return texto
+
+
+def buscar_columna(df, opciones):
+    columnas = {
+        quitar_tildes(str(col).strip().lower()): col for col in df.columns
+    }
+
+    for opcion in opciones:
+        opcion_norm = quitar_tildes(opcion.strip().lower())
+        if opcion_norm in columnas:
+            return columnas[opcion_norm]
+
+    for opcion in opciones:
+        opcion_norm = quitar_tildes(opcion.strip().lower())
+        for col_norm, col_real in columnas.items():
+            if opcion_norm in col_norm:
+                return col_real
+
+    return None
+
+
+def buscar_pdf_por_nombre(nombre_completo):
+    nombre_limpio = limpiar_nombre_archivo(nombre_completo)
+
+    for archivo in os.listdir(CARPETA_PDFS):
+        if not archivo.lower().endswith(".pdf"):
+            continue
+
+        base = os.path.splitext(archivo)[0]
+        base_limpia = limpiar_nombre_archivo(base)
+
+        if base_limpia == nombre_limpio:
+            return archivo
+
+    return None
+
+
+# ============================================================
+# LEER EXCEL DE PONENTES
+# ============================================================
+
+print("\nExcel usado:")
+print(EXCEL)
+
+df = pd.read_excel(EXCEL)
+
+print("\nColumnas encontradas en el Excel:")
+for col in df.columns:
+    print("-", col)
+
+
+# ============================================================
+# DETECTAR COLUMNAS
+# ============================================================
+
+col_nombre = buscar_columna(
+    df,
+    [
+        "Nombre",
+        "Nombre completo",
+        "Ponente",
+        "Nombre del ponente",
+        "Conferencista",
+        "Speaker",
+        "Name"
+    ]
+)
+
+col_email = buscar_columna(
+    df,
+    [
+        "Email",
+        "Correo",
+        "Correo electrónico",
+        "E-mail"
+    ]
+)
+
+col_phone = buscar_columna(
+    df,
+    [
+        "Phone",
+        "Telefono",
+        "Teléfono"
+    ]
+)
+
+col_celular = buscar_columna(
+    df,
+    [
+        "Celular",
+        "Cellphone",
+        "Mobile"
+    ]
+)
+
+if col_nombre is None:
+    raise ValueError(
+        "No encontré la columna de nombre en el Excel de ponentes. "
+        "Debe llamarse preferiblemente 'Nombre'."
+    )
+
+print("\nColumnas usadas:")
+print("Nombre:", col_nombre)
+print("Email/Correo:", col_email)
+print("Phone:", col_phone)
+print("Celular:", col_celular)
+
+
+# ============================================================
+# CREAR JSON
+# ============================================================
+
+registros = []
+no_encontrados = []
+
+for _, fila in df.iterrows():
+
+    nombre_completo = normalizar_nombre(fila[col_nombre])
+
+    if not nombre_completo:
+        continue
+
+    archivo_pdf = buscar_pdf_por_nombre(nombre_completo)
+
+    if archivo_pdf is None:
+        no_encontrados.append(nombre_completo)
+        continue
+
+    email = normalizar_email(fila[col_email]) if col_email is not None else ""
+
+    celulares = []
+
+    if col_phone is not None:
+        phone = normalizar_celular(fila[col_phone])
+        if phone:
+            celulares.append(phone)
+
+    if col_celular is not None:
+        celular = normalizar_celular(fila[col_celular])
+        if celular:
+            celulares.append(celular)
+
+    celulares = list(set(celulares))
+
+    registro = {
+        "nombre": nombre_completo.title(),
+        "archivo": archivo_pdf,
+        "nombres_hash": [
+            hash_texto(nombre_completo),
+            hash_texto(nombre_completo.title()),
+            hash_texto(quitar_tildes(nombre_completo))
+        ],
+        "emails_hash": [],
+        "celulares_hash": []
+    }
+
+    if email:
+        registro["emails_hash"].append(hash_texto(email))
+
+    for celular in celulares:
+        registro["celulares_hash"].append(hash_texto(celular))
+
+    registros.append(registro)
+
+
+# ============================================================
+# GUARDAR JSON
+# ============================================================
+
+ruta_json = os.path.join(CARPETA_PDFS, "certificados_ponentes.json")
+
+with open(ruta_json, "w", encoding="utf-8") as f:
+    json.dump(registros, f, ensure_ascii=False, indent=2)
+
+
+print("\n==============================================")
+print("PROCESO TERMINADO")
+print(f"Certificados de ponentes incluidos en JSON: {len(registros)}")
+print(f"Archivo generado: {ruta_json}")
+print("==============================================")
+
+
+if no_encontrados:
+    print("\nNo encontré PDF para estos nombres:")
+    for nombre in no_encontrados:
+        print("-", nombre)
