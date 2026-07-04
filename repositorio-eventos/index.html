@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -398,7 +400,7 @@
 
     .repositorio-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns:repeat(4, 1fr);
       gap:22px;
       margin-top:36px;
     }
@@ -582,6 +584,7 @@
         grid-template-columns:1fr;
       }
 
+      .repositorio-grid,
       .afiches-grid{
         grid-template-columns:repeat(2, 1fr);
       }
@@ -624,6 +627,7 @@
         font-size:28px;
       }
 
+      .repositorio-grid,
       .afiches-grid{
         grid-template-columns:1fr;
       }
@@ -667,7 +671,6 @@
         <ul>
           <li><a href="{{ site.baseurl }}/#inicio">Inicio</a></li>
           <li><a href="{{ site.baseurl }}/repositorio-eventos/">Eventos</a></li>
-          <li><a href="{{ site.baseurl }}/fotos-y-videos/">Fotos y videos</a></li>
           <li><a href="{{ site.baseurl }}/educacion-medica-continuada/">Educación médica</a></li>
           <li><a href="{{ site.baseurl }}/magazine/">Magazine</a></li>
           <li><a href="{{ site.baseurl }}/#contacto">Contacto</a></li>
@@ -684,13 +687,12 @@
       <h2>Repositorio de eventos</h2>
 
       <p>
-        Memorias, diapositivas, programas académicos, certificados y material institucional
+        Memorias, fotografías, diapositivas, programas académicos y certificados
         de los eventos desarrollados por ACMI Santander.
       </p>
 
       <div class="hero-actions">
         <a class="btn btn-primary" href="#vi-simposio">Ver VI Simposio</a>
-        <a class="btn btn-light" href="{{ site.baseurl }}/fotos-y-videos/">Fotos y videos</a>
       </div>
     </div>
   </section>
@@ -701,7 +703,7 @@
       <h2 class="section-title">Eventos disponibles</h2>
 
       <p class="section-subtitle">
-        Consulte el material académico e institucional disponible del VI Simposio Regional ACMI.
+        Consulte el material académico y gráfico disponible del VI Simposio Regional ACMI.
       </p>
 
       <article class="evento-card">
@@ -731,11 +733,6 @@
                  rel="noopener">
                 Programa académico
               </a>
-
-              <a class="btn btn-light"
-                 href="{{ site.baseurl }}/fotos-y-videos/">
-                Fotos y videos
-              </a>
             </div>
           </div>
 
@@ -758,11 +755,11 @@
 
         <div class="repo-card">
           <div class="repo-icon">📸</div>
-          <h4>Fotos y videos</h4>
+          <h4>Fotos</h4>
           <p>
-            Álbum fotográfico y registro audiovisual institucional del evento.
+            Galería fotográfica institucional de conferencias, talleres y actividades.
           </p>
-          <a href="{{ site.baseurl }}/fotos-y-videos/">Ver fotos y videos</a>
+          <a href="{{ site.baseurl }}/fotos/">Ver fotos</a>
         </div>
 
         <div class="repo-card">
