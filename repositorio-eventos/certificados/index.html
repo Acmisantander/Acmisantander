@@ -506,7 +506,7 @@
       <h2>Descarga de certificados</h2>
 
       <p>
-        Ingrese su nombre completo, correo electrónico o número celular registrado durante el VI Simposio Regional ACMI San Gil – Santander 2026.
+        Ingrese el correo electrónico o número celular registrado durante el VI Simposio Regional ACMI San Gil – Santander 2026.
       </p>
     </div>
   </section>
@@ -520,17 +520,17 @@
         <h3>Consulta de certificados</h3>
 
         <p>
-          Escriba su nombre completo, correo electrónico o celular registrado. La plataforma identificará automáticamente si su certificado corresponde a asistente, ponente o ambos.
+          Escriba únicamente su correo electrónico o celular registrado. La plataforma identificará automáticamente si su certificado corresponde a asistente, ponente o ambos.
         </p>
 
         <form id="certForm">
           <div class="form-group">
-            <label for="identificador">Nombre completo, correo electrónico o celular registrado</label>
+            <label for="identificador">Correo electrónico o celular registrado</label>
 
             <input
               type="text"
               id="identificador"
-              placeholder="Ejemplo: SERGIO ANDRÉS GÓMEZ, nombre@correo.com o 3001234567"
+              placeholder="Ejemplo: nombre@correo.com o 3001234567"
               autocomplete="off"
               required>
           </div>
@@ -543,7 +543,7 @@
         <div id="resultado" class="resultado"></div>
 
         <div class="nota">
-          <strong>Nota:</strong> si el sistema no encuentra su certificado, escriba su nombre completo o use el mismo correo/celular del registro.
+          <strong>Nota:</strong> si el sistema no encuentra su certificado, use el mismo correo o celular registrado en el evento.
         </div>
       </div>
 
@@ -557,19 +557,6 @@
 
   <script>
     let certificados = [];
-
-    function quitarTildes(texto){
-      return String(texto || "")
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
-    }
-
-    function normalizarNombre(valor){
-      return quitarTildes(valor)
-        .trim()
-        .replace(/\s+/g, " ")
-        .toUpperCase();
-    }
 
     function normalizarEmail(valor){
       return String(valor || "")
@@ -592,7 +579,6 @@
       const encoder = new TextEncoder();
 
       /*
-        IMPORTANTE:
         Debe coincidir con Python:
         texto = str(texto).strip().lower()
       */
@@ -707,10 +693,6 @@
 
       archivo = String(archivo).trim();
 
-      /*
-        Si por error viene sin extensión, forzamos .pdf.
-        Esto evita intentos de descarga .htm.
-      */
       if(!archivo.toLowerCase().endsWith(".pdf")){
         archivo = archivo + ".pdf";
       }
@@ -731,9 +713,6 @@
         archivo = archivo.replace("certificados/", "");
       }
 
-      /*
-        Ruta pública donde están los PDF.
-      */
       return encodeURI("/repositorio-eventos/certificados/" + archivo);
     }
 
@@ -810,7 +789,7 @@
       const valorOriginal = document.getElementById("identificador").value.trim();
 
       if(!valorOriginal){
-        mostrarError("Ingrese su nombre completo, correo electrónico o celular.");
+        mostrarError("Ingrese su correo electrónico o celular registrado.");
         return;
       }
 
@@ -825,29 +804,31 @@
 
       let valorNormalizado = "";
       let hashEntrada = "";
+      let modoBusqueda = "";
 
       if(esCorreo){
         valorNormalizado = normalizarEmail(valorOriginal);
         hashEntrada = await sha256(valorNormalizado);
+        modoBusqueda = "correo";
       }else if(esCelular){
         valorNormalizado = normalizarCelular(valorOriginal);
         hashEntrada = await sha256(valorNormalizado);
+        modoBusqueda = "celular";
       }else{
-        valorNormalizado = normalizarNombre(valorOriginal);
-        hashEntrada = await sha256(valorNormalizado);
+        mostrarError("Ingrese un correo electrónico válido o un número celular registrado. La búsqueda por nombre completo no está habilitada.");
+        return;
       }
 
       console.log("Valor original:", valorOriginal);
+      console.log("Modo de búsqueda:", modoBusqueda);
       console.log("Valor normalizado:", valorNormalizado);
       console.log("Hash buscado:", hashEntrada);
 
       const encontrados = certificados.filter(item => {
-        const nombres = item.nombres_hash || [];
         const emails = item.emails_hash || [];
         const celulares = item.celulares_hash || [];
 
         return (
-          nombres.includes(hashEntrada) ||
           emails.includes(hashEntrada) ||
           celulares.includes(hashEntrada)
         );
@@ -856,7 +837,7 @@
       console.log("Certificados encontrados:", encontrados);
 
       if(encontrados.length === 0){
-        mostrarError("No encontramos un certificado asociado a ese nombre, correo o celular.");
+        mostrarError("No encontramos un certificado asociado a ese correo o celular.");
         return;
       }
 
