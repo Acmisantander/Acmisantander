@@ -46,6 +46,11 @@
       text-decoration:none;
     }
 
+    img{
+      max-width:100%;
+      display:block;
+    }
+
     .topbar{
       background:var(--azul-acmi-2);
       color:#dfe8f5;
@@ -630,88 +635,17 @@
           <h2 class="section-title">Presentaciones del evento</h2>
 
           <p class="section-subtitle">
-            Consulte aquí las diapositivas disponibles. Para mejor visualización en la página,
-            se recomienda subir cada presentación en formato PDF.
+            Consulte aquí las diapositivas disponibles del VI Simposio Regional ACMI.
           </p>
         </div>
 
-        <div class="slides-grid">
-
-          <article class="slide-card">
-            <div class="slide-header">
-              <div>
-                <h3>Presentación 1</h3>
-                <p>Material académico del VI Simposio Regional ACMI San Gil – Santander 2026.</p>
-              </div>
-              <span class="slide-badge">PDF</span>
-            </div>
-
-            <iframe
-              class="slide-viewer"
-              src="/diapositivas/presentacion-1.pdf"
-              title="Presentación 1"
-              loading="lazy">
-            </iframe>
-
-            <div class="slide-actions">
-              <a href="/diapositivas/presentacion-1.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-              <a class="secondary" href="/diapositivas/presentacion-1.pdf" download>Descargar</a>
-            </div>
-          </article>
-
-          <article class="slide-card">
-            <div class="slide-header">
-              <div>
-                <h3>Presentación 2</h3>
-                <p>Material académico del VI Simposio Regional ACMI San Gil – Santander 2026.</p>
-              </div>
-              <span class="slide-badge">PDF</span>
-            </div>
-
-            <iframe
-              class="slide-viewer"
-              src="/diapositivas/presentacion-2.pdf"
-              title="Presentación 2"
-              loading="lazy">
-            </iframe>
-
-            <div class="slide-actions">
-              <a href="/diapositivas/presentacion-2.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-              <a class="secondary" href="/diapositivas/presentacion-2.pdf" download>Descargar</a>
-            </div>
-          </article>
-
-          <article class="slide-card">
-            <div class="slide-header">
-              <div>
-                <h3>Presentación 3</h3>
-                <p>Material académico del VI Simposio Regional ACMI San Gil – Santander 2026.</p>
-              </div>
-              <span class="slide-badge">PDF</span>
-            </div>
-
-            <iframe
-              class="slide-viewer"
-              src="/diapositivas/presentacion-3.pdf"
-              title="Presentación 3"
-              loading="lazy">
-            </iframe>
-
-            <div class="slide-actions">
-              <a href="/diapositivas/presentacion-3.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-              <a class="secondary" href="/diapositivas/presentacion-3.pdf" download>Descargar</a>
-            </div>
-          </article>
-
-        </div>
+        <div class="slides-grid" id="slidesGrid"></div>
 
         <div class="notice">
           <p>
-            <strong>Importante:</strong> sube tus archivos PDF dentro de la carpeta
-            <strong>diapositivas</strong> con nombres como
-            <strong>presentacion-1.pdf</strong>, <strong>presentacion-2.pdf</strong> y
-            <strong>presentacion-3.pdf</strong>. Si también quieres permitir descarga en PowerPoint,
-            puedes subir los archivos <strong>.pptx</strong> y agregar un botón adicional.
+            <strong>Importante:</strong> si alguna presentación no carga dentro de la página,
+            verifica en Google Drive que el archivo esté compartido como
+            <strong>“Cualquier persona con el enlace puede ver”</strong>.
           </p>
         </div>
 
@@ -724,6 +658,120 @@
     <p>© 2026 ACMI Santander</p>
     <p>Educación continua que transforma la práctica clínica</p>
   </footer>
+
+  <script>
+    const presentaciones = [
+      {
+        titulo: "Vacunación",
+        descripcion: "Material académico del VI Simposio Regional ACMI San Gil – Santander 2026.",
+        id: "13_8QVzLTw4Z3MaNREHIQJJQe97ChRE7y"
+      },
+      {
+        titulo: "Taller de insulina",
+        descripcion: "Taller académico sobre insulinoterapia y control glucémico.",
+        id: "1d94cJXtpJag-BrhoVnQvy4HMhqyR1DXE"
+      },
+      {
+        titulo: "Tabaquismo",
+        descripcion: "Presentación académica sobre tabaquismo.",
+        id: "1SA9Kor-D1plA7sWT_TBxCrW5gCxD892T"
+      },
+      {
+        titulo: "SAHOS",
+        descripcion: "Presentación académica sobre síndrome de apnea-hipopnea obstructiva del sueño.",
+        id: "1Pi4lB1_rV40uQieuYuQ34mE0sNsHHbB3"
+      },
+      {
+        titulo: "Riesgo cardiovascular en Colombia 2026",
+        descripcion: "Presentación académica sobre riesgo cardiovascular.",
+        id: "1AmGXTGX0M-B7x6T3mK3EJNYTHJklNWzV"
+      },
+      {
+        titulo: "MASLD San Gil",
+        descripcion: "Presentación académica sobre enfermedad hepática metabólica.",
+        id: "1hMrg-xUSMhI6riUipVKjt_SPwPqV3R7e"
+      },
+      {
+        titulo: "IA en radiología pulmonar",
+        descripcion: "Aplicaciones de inteligencia artificial en radiología pulmonar.",
+        id: "1xMghY3iABdFi050WBkgH8dwtB8WGQpce"
+      },
+      {
+        titulo: "Estabilidad en la EPOC",
+        descripcion: "Presentación académica sobre enfermedad pulmonar obstructiva crónica.",
+        id: "1XUtC5XC7ZkWUk3V-jz6pYaNfGNbM39v7"
+      },
+      {
+        titulo: "Dislipidemias",
+        descripcion: "Presentación académica sobre diagnóstico y manejo de dislipidemias.",
+        id: "1EqpKP3nVYBAbaAzasRAW5opey7jfSwRW"
+      },
+      {
+        titulo: "Control glucémico intrahospitalario",
+        descripcion: "Presentación académica sobre control glucémico en el paciente hospitalizado.",
+        id: "1hbrHglwjkg0guJ231XI1iNCLACKpjlBn"
+      },
+      {
+        titulo: "Radiografía de tórax",
+        descripcion: "Charla académica sobre interpretación de radiografía de tórax.",
+        id: "16BbUvzPRGI07LoeZ7nuzLAYRygYbjcxa"
+      },
+      {
+        titulo: "Falla cardiaca",
+        descripcion: "Presentación académica sobre falla cardiaca.",
+        id: "1AH0QOFUqxiGTtI3Pt_D0EagMGTOnxFZL"
+      },
+      {
+        titulo: "Infarto agudo de miocardio",
+        descripcion: "Charla académica sobre IAM.",
+        id: "12QysjjSIjSrfoSz5OCZnGavJif1YO5Bt"
+      },
+      {
+        titulo: "Sistema respiratorio",
+        descripcion: "Presentación académica sobre sistema respiratorio.",
+        id: "1DKiYqHPRo_UWJt7_IWBgo8Roq-RbULIo"
+      },
+      {
+        titulo: "Exacerbaciones: asma vs EPOC",
+        descripcion: "Presentación académica sobre exacerbaciones obstructivas.",
+        id: "1rAyh46QYdSpsXkfZBlr0hDNW_EnnnGjF"
+      }
+    ];
+
+    const slidesGrid = document.getElementById("slidesGrid");
+
+    presentaciones.forEach((presentacion) => {
+      const previewUrl = `https://drive.google.com/file/d/${presentacion.id}/preview`;
+      const viewUrl = `https://drive.google.com/file/d/${presentacion.id}/view`;
+
+      const card = document.createElement("article");
+      card.className = "slide-card";
+
+      card.innerHTML = `
+        <div class="slide-header">
+          <div>
+            <h3>${presentacion.titulo}</h3>
+            <p>${presentacion.descripcion}</p>
+          </div>
+          <span class="slide-badge">Google Drive</span>
+        </div>
+
+        <iframe
+          class="slide-viewer"
+          src="${previewUrl}"
+          title="${presentacion.titulo}"
+          allow="autoplay"
+          loading="lazy">
+        </iframe>
+
+        <div class="slide-actions">
+          <a href="${viewUrl}" target="_blank" rel="noopener">Abrir presentación</a>
+        </div>
+      `;
+
+      slidesGrid.appendChild(card);
+    });
+  </script>
 
 </body>
 </html>
