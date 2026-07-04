@@ -1,5 +1,3 @@
----
----
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -158,7 +156,7 @@
       overflow:hidden;
       background:
         linear-gradient(135deg, rgba(15,53,105,0.93), rgba(20,63,125,0.80)),
-        url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
+        url("/chicamocha.jpg") center/cover no-repeat;
     }
 
     .hero::before{
@@ -395,7 +393,7 @@
       min-height:380px;
       background:
         linear-gradient(rgba(15,53,105,0.18), rgba(15,53,105,0.20)),
-        url("{{ site.baseurl }}/1.png") center/cover no-repeat;
+        url("/1.png") center/cover no-repeat;
     }
 
     .repositorio-grid{
@@ -648,9 +646,9 @@
         <a href="https://www.actamedicacolombiana.com/ojs/index.php/actamed" target="_blank" rel="noopener">
           Acta Médica Colombiana
         </a>
-        <a href="{{ site.baseurl }}/#patrocinios">Patrocinios</a>
-        <a href="{{ site.baseurl }}/#foro">Foro</a>
-        <a href="{{ site.baseurl }}/#contacto">Contacto</a>
+        <a href="/#patrocinios">Patrocinios</a>
+        <a href="/#foro">Foro</a>
+        <a href="/#contacto">Contacto</a>
       </div>
     </div>
   </div>
@@ -659,7 +657,7 @@
     <div class="main-header">
 
       <div class="brand">
-        <img class="brand-logo" src="{{ site.baseurl }}/LOGO ACMI.png" alt="Logo ACMI Santander">
+        <img class="brand-logo" src="/LOGO%20ACMI.png" alt="Logo ACMI Santander">
 
         <div>
           <h1>ACMI Santander</h1>
@@ -669,11 +667,12 @@
 
       <nav>
         <ul>
-          <li><a href="{{ site.baseurl }}/#inicio">Inicio</a></li>
-          <li><a href="{{ site.baseurl }}/repositorio-eventos/">Eventos</a></li>
-          <li><a href="{{ site.baseurl }}/educacion-medica-continuada/">Educación médica</a></li>
-          <li><a href="{{ site.baseurl }}/magazine/">Magazine</a></li>
-          <li><a href="{{ site.baseurl }}/#contacto">Contacto</a></li>
+          <li><a href="/#inicio">Inicio</a></li>
+          <li><a href="/repositorio-eventos/">Eventos</a></li>
+          <li><a href="/repositorio-eventos/fotos-y-videos.html">Fotos y videos</a></li>
+          <li><a href="/educacion-medica-continuada/">Educación médica</a></li>
+          <li><a href="/magazine/">Magazine</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
         </ul>
       </nav>
 
@@ -687,12 +686,13 @@
       <h2>Repositorio de eventos</h2>
 
       <p>
-        Memorias, fotografías, diapositivas, programas académicos y certificados
+        Memorias, fotografías, videos, diapositivas, programas académicos y certificados
         de los eventos desarrollados por ACMI Santander.
       </p>
 
       <div class="hero-actions">
         <a class="btn btn-primary" href="#vi-simposio">Ver VI Simposio</a>
+        <a class="btn btn-light" href="/repositorio-eventos/fotos-y-videos.html">Fotos y videos</a>
       </div>
     </div>
   </section>
@@ -728,10 +728,15 @@
 
             <div class="hero-actions">
               <a class="btn btn-light"
-                 href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf"
+                 href="/PROGRAMA%20ACAD%C3%89MICO.pdf"
                  target="_blank"
                  rel="noopener">
                 Programa académico
+              </a>
+
+              <a class="btn btn-light"
+                 href="/repositorio-eventos/fotos-y-videos.html">
+                Fotos y videos
               </a>
             </div>
           </div>
@@ -750,16 +755,16 @@
           <p>
             Documentos académicos, resúmenes y material institucional del simposio.
           </p>
-          <a href="{{ site.baseurl }}/memorias/">Ver memorias</a>
+          <a href="/memorias/">Ver memorias</a>
         </div>
 
         <div class="repo-card">
           <div class="repo-icon">📸</div>
           <h4>Fotos y videos</h4>
           <p>
-            Galería fotográfica institucional de conferencias, talleres y actividades.
+            Galería fotográfica institucional y registro audiovisual del evento.
           </p>
-          <a href="{{ site.baseurl }}/fotos/">Ver fotos</a>
+          <a href="/repositorio-eventos/fotos-y-videos.html">Ver fotos y videos</a>
         </div>
 
         <div class="repo-card">
@@ -768,7 +773,7 @@
           <p>
             Presentaciones autorizadas por los conferencistas del evento.
           </p>
-          <a href="{{ site.baseurl }}/diapositivas/">Ver diapositivas</a>
+          <a href="/diapositivas/">Ver diapositivas</a>
         </div>
 
         <div class="repo-card">
@@ -777,7 +782,7 @@
           <p>
             Descargue su certificado de asistencia mediante validación individual.
           </p>
-          <a href="{{ site.baseurl }}/certificados.html">Descargar certificado</a>
+          <a href="/certificados.html">Descargar certificado</a>
         </div>
 
       </div>
@@ -792,38 +797,38 @@
         <div class="afiches-grid">
 
           <div class="afiche-card">
-            <img src="{{ site.baseurl }}/1.png" alt="Afiche oficial VI Simposio Regional ACMI">
+            <img src="/1.png" alt="Afiche oficial VI Simposio Regional ACMI">
             <div class="afiche-info">
               <h4>Afiche oficial</h4>
               <p>Promoción principal del VI Simposio Regional ACMI.</p>
-              <a href="{{ site.baseurl }}/1.png" download>Descargar afiche</a>
+              <a href="/1.png" target="_blank" rel="noopener">Ver afiche</a>
             </div>
           </div>
 
           <div class="afiche-card">
-            <img src="{{ site.baseurl }}/2.png" alt="Promoción regional VI Simposio Regional ACMI">
+            <img src="/2.png" alt="Promoción regional VI Simposio Regional ACMI">
             <div class="afiche-info">
               <h4>Promoción regional</h4>
               <p>Difusión académica regional del evento.</p>
-              <a href="{{ site.baseurl }}/2.png" download>Descargar afiche</a>
+              <a href="/2.png" target="_blank" rel="noopener">Ver afiche</a>
             </div>
           </div>
 
           <div class="afiche-card">
-            <img src="{{ site.baseurl }}/3.png" alt="Identidad santandereana VI Simposio Regional ACMI">
+            <img src="/3.png" alt="Identidad santandereana VI Simposio Regional ACMI">
             <div class="afiche-info">
               <h4>Identidad santandereana</h4>
               <p>Pieza gráfica con referencias culturales de Santander.</p>
-              <a href="{{ site.baseurl }}/3.png" download>Descargar afiche</a>
+              <a href="/3.png" target="_blank" rel="noopener">Ver afiche</a>
             </div>
           </div>
 
           <div class="afiche-card">
-            <img src="{{ site.baseurl }}/4.png" alt="Homenaje institucional VI Simposio Regional ACMI">
+            <img src="/4.png" alt="Homenaje institucional VI Simposio Regional ACMI">
             <div class="afiche-info">
               <h4>Homenaje institucional</h4>
               <p>Pieza conmemorativa del homenaje al Dr. Franklin Quiroz.</p>
-              <a href="{{ site.baseurl }}/4.png" download>Descargar afiche</a>
+              <a href="/4.png" target="_blank" rel="noopener">Ver afiche</a>
             </div>
           </div>
 
