@@ -463,7 +463,7 @@
           <li><a href="/repositorio-eventos/">Eventos</a></li>
           <li><a href="/repositorio-eventos/fotos-y-videos.html">Fotos y videos</a></li>
           <li><a href="/repositorio-eventos/diapositivas/">Diapositivas</a></li>
-          <li><a href="/certificados/">Certificados</a></li>
+          <li><a href="/repositorio-eventos/certificados/">Certificados</a></li>
           <li><a href="/#contacto">Contacto</a></li>
         </ul>
       </nav>
@@ -478,7 +478,7 @@
       <h2>Descarga de certificados</h2>
 
       <p>
-        Ingrese el correo electrónico o número celular registrado durante el VI Simposio Regional ACMI San Gil – Santander 2026.
+        Ingrese su nombre completo, correo electrónico o número celular registrado durante el VI Simposio Regional ACMI San Gil – Santander 2026.
       </p>
     </div>
   </section>
@@ -492,17 +492,17 @@
         <h3>Certificado de asistencia</h3>
 
         <p>
-          Escriba su correo electrónico o celular para consultar y descargar automáticamente su certificado.
+          Escriba su nombre completo, correo electrónico o celular para consultar y descargar automáticamente su certificado.
         </p>
 
         <form id="certForm">
           <div class="form-group">
-            <label for="identificador">Correo electrónico o celular registrado</label>
+            <label for="identificador">Nombre completo, correo electrónico o celular registrado</label>
 
             <input
               type="text"
               id="identificador"
-              placeholder="Ejemplo: nombre@correo.com o 3001234567"
+              placeholder="Ejemplo: SERGIO ANDRÉS GÓMEZ, nombre@correo.com o 3001234567"
               autocomplete="off"
               required>
           </div>
@@ -515,7 +515,7 @@
         <div id="resultado" class="resultado"></div>
 
         <div class="nota">
-          <strong>Nota:</strong> si el sistema no encuentra su certificado, verifique que escribió el mismo correo o celular usado en el registro.
+          <strong>Nota:</strong> si el sistema no encuentra su certificado, escriba su nombre completo o use el mismo correo/celular del registro.
         </div>
       </div>
 
@@ -530,8 +530,22 @@
   <script>
     let certificados = [];
 
-    function normalizarEntrada(valor){
-      return valor.trim().toLowerCase();
+    function quitarTildes(texto){
+      return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function normalizarNombre(valor){
+      return quitarTildes(valor)
+        .trim()
+        .replace(/\s+/g, " ")
+        .toUpperCase();
+    }
+
+    function normalizarEmail(valor){
+      return valor
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "");
     }
 
     function normalizarCelular(valor){
@@ -557,15 +571,18 @@
 
     async function cargarCertificados(){
       try{
-        const respuesta = await fetch("/certificados/certificados.json?v=" + Date.now());
+        const respuesta = await fetch("/repositorio-eventos/certificados/certificados.json?v=" + Date.now());
 
         if(!respuesta.ok){
           throw new Error("No se encontró certificados.json");
         }
 
         certificados = await respuesta.json();
+
       }catch(error){
-        mostrarError("No se pudo cargar la base de certificados. Verifique que exista el archivo /certificados/certificados.json");
+        mostrarError(
+          "No se pudo cargar la base de certificados. Verifique que exista el archivo /repositorio-eventos/certificados/certificados.json"
+        );
       }
     }
 
@@ -600,11 +617,15 @@
         return archivo;
       }
 
-      if(archivo.startsWith("certificados/")){
+      if(archivo.startsWith("repositorio-eventos/certificados/")){
         return "/" + archivo;
       }
 
-      return "/certificados/" + archivo;
+      if(archivo.startsWith("certificados/")){
+        return "/repositorio-eventos/certificados/" + archivo.replace("certificados/", "");
+      }
+
+      return "/repositorio-eventos/certificados/" + archivo;
     }
 
     function descargarArchivo(archivo){
@@ -624,31 +645,38 @@
       const valorOriginal = document.getElementById("identificador").value.trim();
 
       if(!valorOriginal){
-        mostrarError("Ingrese un correo electrónico o celular.");
+        mostrarError("Ingrese su nombre completo, correo electrónico o celular.");
         return;
       }
 
       const esCorreo = valorOriginal.includes("@");
+      const soloNumeros = valorOriginal.replace(/\D/g, "");
+      const esCelular = soloNumeros.length >= 7 && !esCorreo;
 
-      let valorNormalizado;
+      let hashEntrada;
 
       if(esCorreo){
-        valorNormalizado = normalizarEntrada(valorOriginal);
+        hashEntrada = await sha256(normalizarEmail(valorOriginal));
+      }else if(esCelular){
+        hashEntrada = await sha256(normalizarCelular(valorOriginal));
       }else{
-        valorNormalizado = normalizarCelular(valorOriginal);
+        hashEntrada = await sha256(normalizarNombre(valorOriginal));
       }
 
-      const hashEntrada = await sha256(valorNormalizado);
-
       const encontrado = certificados.find(item => {
+        const nombres = item.nombres_hash || [];
         const emails = item.emails_hash || [];
         const celulares = item.celulares_hash || [];
 
-        return emails.includes(hashEntrada) || celulares.includes(hashEntrada);
+        return (
+          nombres.includes(hashEntrada) ||
+          emails.includes(hashEntrada) ||
+          celulares.includes(hashEntrada)
+        );
       });
 
       if(!encontrado){
-        mostrarError("No encontramos un certificado asociado a ese correo o celular.");
+        mostrarError("No encontramos un certificado asociado a ese nombre, correo o celular.");
         return;
       }
 
