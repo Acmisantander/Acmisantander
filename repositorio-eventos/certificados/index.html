@@ -489,10 +489,10 @@
       <div class="cert-card">
         <div class="cert-icon">🎓</div>
 
-        <h3>Certificado de asistencia</h3>
+        <h3>Certificados de asistencia y ponentes</h3>
 
         <p>
-          Escriba su nombre completo, correo electrónico o celular para consultar su certificado. Luego haga clic en descargar.
+          Escriba su nombre completo, correo electrónico o celular para consultar su certificado de asistencia o de ponente. Luego haga clic en descargar.
         </p>
 
         <form id="certForm">
@@ -569,19 +569,52 @@
         .join("");
     }
 
+    async function cargarJson(ruta, tipo){
+      const respuesta = await fetch(ruta + "?v=" + Date.now());
+
+      if(!respuesta.ok){
+        throw new Error("No se encontró " + ruta);
+      }
+
+      const datos = await respuesta.json();
+
+      if(!Array.isArray(datos)){
+        throw new Error("El archivo " + ruta + " no tiene formato JSON válido de lista.");
+      }
+
+      return datos.map(item => ({
+        ...item,
+        tipo_certificado: tipo
+      }));
+    }
+
     async function cargarCertificados(){
-      try{
-        const respuesta = await fetch("/repositorio-eventos/certificados/certificados.json?v=" + Date.now());
+      certificados = [];
 
-        if(!respuesta.ok){
-          throw new Error("No se encontró certificados.json");
+      const archivosJson = [
+        {
+          ruta: "/repositorio-eventos/certificados/certificados.json",
+          tipo: "Asistencia"
+        },
+        {
+          ruta: "/repositorio-eventos/certificados/certificados_ponentes.json",
+          tipo: "Ponente"
         }
+      ];
 
-        certificados = await respuesta.json();
+      const resultados = await Promise.allSettled(
+        archivosJson.map(item => cargarJson(item.ruta, item.tipo))
+      );
 
-      }catch(error){
+      resultados.forEach(resultado => {
+        if(resultado.status === "fulfilled"){
+          certificados = certificados.concat(resultado.value);
+        }
+      });
+
+      if(certificados.length === 0){
         mostrarError(
-          "No se pudo cargar la base de certificados. Verifique que exista el archivo /repositorio-eventos/certificados/certificados.json"
+          "No se pudo cargar la base de certificados. Verifique que existan los archivos certificados.json y certificados_ponentes.json dentro de /repositorio-eventos/certificados/"
         );
       }
     }
@@ -592,13 +625,14 @@
       resultado.innerHTML = mensaje;
     }
 
-    function mostrarOk(nombre, archivo){
+    function mostrarOk(nombre, archivo, tipo){
       const resultado = document.getElementById("resultado");
       const rutaArchivo = normalizarRutaArchivo(archivo);
 
       resultado.className = "resultado ok";
       resultado.innerHTML = `
         <strong>Certificado encontrado</strong><br>
+        <strong>Tipo:</strong> ${tipo || "Certificado"}<br>
         ${nombre}<br>
         <a href="${rutaArchivo}" download>
           Descargar certificado
@@ -610,6 +644,8 @@
       if(!archivo){
         return "#";
       }
+
+      archivo = String(archivo).trim();
 
       if(archivo.startsWith("http")){
         return archivo;
@@ -640,6 +676,11 @@
         return;
       }
 
+      if(certificados.length === 0){
+        mostrarError("La base de certificados todavía no está cargada. Recargue la página e intente nuevamente.");
+        return;
+      }
+
       const esCorreo = valorOriginal.includes("@");
       const soloNumeros = valorOriginal.replace(/\D/g, "");
       const esCelular = soloNumeros.length >= 7 && !esCorreo;
@@ -654,7 +695,7 @@
         hashEntrada = await sha256(normalizarNombre(valorOriginal));
       }
 
-      const encontrado = certificados.find(item => {
+      const encontrados = certificados.filter(item => {
         const nombres = item.nombres_hash || [];
         const emails = item.emails_hash || [];
         const celulares = item.celulares_hash || [];
@@ -666,13 +707,50 @@
         );
       });
 
-      if(!encontrado){
+      if(encontrados.length === 0){
         mostrarError("No encontramos un certificado asociado a ese nombre, correo o celular.");
         return;
       }
 
-      mostrarOk(encontrado.nombre, encontrado.archivo);
+      if(encontrados.length === 1){
+        const certificado = encontrados[0];
+
+        mostrarOk(
+          certificado.nombre,
+          certificado.archivo,
+          certificado.tipo_certificado
+        );
+
+        return;
+      }
+
+      mostrarMultiples(encontrados);
     });
+
+    function mostrarMultiples(lista){
+      const resultado = document.getElementById("resultado");
+      resultado.className = "resultado ok";
+
+      let html = `
+        <strong>Encontramos varios certificados asociados a sus datos</strong><br>
+      `;
+
+      lista.forEach(item => {
+        const rutaArchivo = normalizarRutaArchivo(item.archivo);
+
+        html += `
+          <div style="margin-top:18px;">
+            <strong>Tipo:</strong> ${item.tipo_certificado || "Certificado"}<br>
+            ${item.nombre}<br>
+            <a href="${rutaArchivo}" download>
+              Descargar certificado
+            </a>
+          </div>
+        `;
+      });
+
+      resultado.innerHTML = html;
+    }
 
     cargarCertificados();
   </script>
