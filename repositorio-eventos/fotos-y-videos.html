@@ -408,6 +408,8 @@
       box-shadow:0 14px 34px rgba(15,53,105,0.15);
       border:6px solid white;
       transition:0.28s ease;
+      cursor:pointer;
+      padding:0;
     }
 
     .photo-tile img{
@@ -527,6 +529,107 @@
       font-size:15px;
     }
 
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(5,18,38,0.92);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      padding:30px;
+    }
+
+    .lightbox.active{
+      display:flex;
+    }
+
+    .lightbox-content{
+      position:relative;
+      width:min(1100px, 96vw);
+      height:min(760px, 86vh);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .lightbox-img{
+      max-width:100%;
+      max-height:100%;
+      object-fit:contain;
+      border-radius:22px;
+      box-shadow:0 24px 70px rgba(0,0,0,0.45);
+      background:white;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next{
+      position:absolute;
+      border:0;
+      cursor:pointer;
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+      transition:0.2s ease;
+    }
+
+    .lightbox-close{
+      top:18px;
+      right:22px;
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      background:white;
+      color:var(--azul-acmi);
+      font-size:24px;
+      z-index:10001;
+    }
+
+    .lightbox-prev,
+    .lightbox-next{
+      top:50%;
+      transform:translateY(-50%);
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      background:white;
+      color:var(--azul-acmi);
+      font-size:34px;
+      z-index:10001;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .lightbox-prev{
+      left:24px;
+    }
+
+    .lightbox-next{
+      right:24px;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover{
+      background:var(--verde-acmi);
+      color:white;
+    }
+
+    .lightbox-counter{
+      position:absolute;
+      bottom:18px;
+      left:50%;
+      transform:translateX(-50%);
+      background:rgba(255,255,255,0.92);
+      color:var(--azul-acmi);
+      padding:9px 18px;
+      border-radius:999px;
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+      font-size:14px;
+    }
+
     footer{
       background:var(--azul-acmi-2);
       color:white;
@@ -591,6 +694,30 @@
       .videos-section{
         padding:42px 18px;
         border-radius:28px;
+      }
+
+      .lightbox{
+        padding:16px;
+      }
+
+      .lightbox-prev,
+      .lightbox-next{
+        width:44px;
+        height:44px;
+        font-size:28px;
+      }
+
+      .lightbox-prev{
+        left:10px;
+      }
+
+      .lightbox-next{
+        right:10px;
+      }
+
+      .lightbox-close{
+        top:12px;
+        right:12px;
       }
     }
   </style>
@@ -730,6 +857,18 @@
 
   </main>
 
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">×</button>
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">‹</button>
+
+    <div class="lightbox-content">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="Fotografía del evento">
+      <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
+    <button class="lightbox-next" id="lightboxNext" aria-label="Foto siguiente">›</button>
+  </div>
+
   <footer>
     <p>© 2026 ACMI Santander</p>
     <p>Educación continua que transforma la práctica clínica</p>
@@ -750,21 +889,99 @@
       "66.jpeg"
     ];
 
+    const fotosValidas = [];
     const albumGrid = document.getElementById("albumGrid");
 
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const lightboxPrev = document.getElementById("lightboxPrev");
+    const lightboxNext = document.getElementById("lightboxNext");
+    const lightboxCounter = document.getElementById("lightboxCounter");
+
+    let fotoActual = 0;
+
+    function abrirAlbum(index){
+      fotoActual = index;
+      actualizarAlbum();
+      lightbox.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function cerrarAlbum(){
+      lightbox.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    function actualizarAlbum(){
+      const ruta = `/repositorio-eventos/${fotosValidas[fotoActual]}`;
+      lightboxImg.src = ruta;
+      lightboxCounter.textContent = `${fotoActual + 1} / ${fotosValidas.length}`;
+    }
+
+    function fotoAnterior(){
+      fotoActual = fotoActual === 0 ? fotosValidas.length - 1 : fotoActual - 1;
+      actualizarAlbum();
+    }
+
+    function fotoSiguiente(){
+      fotoActual = fotoActual === fotosValidas.length - 1 ? 0 : fotoActual + 1;
+      actualizarAlbum();
+    }
+
     fotos.forEach((foto) => {
-      const enlace = document.createElement("a");
+      const ruta = `/repositorio-eventos/${foto}`;
+      const imagenPrueba = new Image();
 
-      enlace.className = "photo-tile";
-      enlace.href = `/repositorio-eventos/${foto}`;
-      enlace.target = "_blank";
-      enlace.rel = "noopener";
+      imagenPrueba.onload = function(){
+        fotosValidas.push(foto);
 
-      enlace.innerHTML = `
-        <img src="/repositorio-eventos/${foto}" alt="Fotografía VI Simposio Regional ACMI San Gil Santander 2026">
-      `;
+        const indexReal = fotosValidas.length - 1;
+        const boton = document.createElement("button");
 
-      albumGrid.appendChild(enlace);
+        boton.className = "photo-tile";
+        boton.type = "button";
+        boton.setAttribute("aria-label", `Abrir fotografía ${indexReal + 1}`);
+
+        boton.innerHTML = `
+          <img src="${ruta}" alt="Fotografía VI Simposio Regional ACMI San Gil Santander 2026">
+        `;
+
+        boton.addEventListener("click", () => abrirAlbum(indexReal));
+        albumGrid.appendChild(boton);
+      };
+
+      imagenPrueba.onerror = function(){
+        console.warn("No se encontró la imagen:", ruta);
+      };
+
+      imagenPrueba.src = ruta;
+    });
+
+    lightboxClose.addEventListener("click", cerrarAlbum);
+    lightboxPrev.addEventListener("click", fotoAnterior);
+    lightboxNext.addEventListener("click", fotoSiguiente);
+
+    lightbox.addEventListener("click", function(event){
+      if(event.target === lightbox){
+        cerrarAlbum();
+      }
+    });
+
+    document.addEventListener("keydown", function(event){
+      if(!lightbox.classList.contains("active")) return;
+
+      if(event.key === "Escape"){
+        cerrarAlbum();
+      }
+
+      if(event.key === "ArrowLeft"){
+        fotoAnterior();
+      }
+
+      if(event.key === "ArrowRight"){
+        fotoSiguiente();
+      }
     });
   </script>
 
