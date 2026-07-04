@@ -685,404 +685,582 @@
       z-index:2;
     }
 
-    /* ==============================
-       EVENTOS
-       ============================== */
+/* ==============================
+   EVENTOS
+   ============================== */
 
-    #eventos{
-      background:
-        radial-gradient(circle at top left, rgba(42,156,82,0.10), transparent 34%),
-        radial-gradient(circle at top right, rgba(20,63,125,0.12), transparent 32%),
-        #f5f7fb;
-    }
+#eventos{
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,0.10), transparent 34%),
+    radial-gradient(circle at top right, rgba(20,63,125,0.12), transparent 32%),
+    #f5f7fb;
+}
 
-    .eventos-title{
-      font-size:clamp(38px, 4.8vw, 60px);
-      letter-spacing:-0.06em;
-      margin-bottom:14px;
-      position:relative;
-    }
+.eventos-title{
+  font-size:clamp(38px, 4.8vw, 60px);
+  letter-spacing:-0.06em;
+  margin-bottom:14px;
+  position:relative;
+}
 
-    .eventos-title::after{
-      content:"";
-      display:block;
-      width:132px;
-      height:6px;
-      border-radius:999px;
-      margin:20px auto 0 auto;
-      background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
-      box-shadow:0 8px 18px rgba(20,63,125,0.18);
-    }
+.eventos-title::after{
+  content:"";
+  display:block;
+  width:132px;
+  height:6px;
+  border-radius:999px;
+  margin:20px auto 0 auto;
+  background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
+  box-shadow:0 8px 18px rgba(20,63,125,0.18);
+}
 
-    .eventos-subtitle{
-      max-width:980px;
-      font-size:19px;
-      line-height:1.75;
-      margin-bottom:54px;
-    }
+.eventos-subtitle{
+  max-width:980px;
+  font-size:19px;
+  line-height:1.75;
+  margin-bottom:54px;
+}
 
-    .evento-card-grande{
-      max-width:1280px;
-      margin:0 auto 58px auto;
-      border-radius:34px;
-      overflow:hidden;
-      position:relative;
-      box-shadow:var(--sombra-fuerte);
-      border:1px solid rgba(20,63,125,0.10);
-      transition:var(--transicion);
-    }
+.evento-card-grande{
+  max-width:1280px;
+  margin:0 auto 58px auto;
+  border-radius:34px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:var(--sombra-fuerte);
+  border:1px solid rgba(20,63,125,0.10);
+  transition:var(--transicion);
+}
 
-    .evento-card-grande:hover{
-      transform:translateY(-4px);
-      box-shadow:0 34px 80px rgba(8,40,79,0.20);
-    }
+.evento-card-grande:hover{
+  transform:translateY(-4px);
+  box-shadow:0 34px 80px rgba(8,40,79,0.20);
+}
 
-    .evento-card-grande::before{
-      content:"";
-      position:absolute;
-      inset:0 0 auto 0;
-      height:8px;
-      z-index:3;
-      background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
-    }
+.evento-card-grande::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:8px;
+  z-index:3;
+  background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
+}
 
-    .evento-card-proximos{
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,251,255,0.98));
-    }
+.evento-card-proximos{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,251,255,0.98));
+}
 
-    .evento-card-repositorio{
-      background:
-        linear-gradient(135deg, rgba(8,40,79,0.98), rgba(20,63,125,0.94), rgba(42,156,82,0.58)),
-        url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
-      color:white;
-    }
+.evento-card-repositorio{
+  background:
+    linear-gradient(135deg, rgba(8,40,79,0.98), rgba(20,63,125,0.94), rgba(42,156,82,0.58)),
+    url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
+  color:white;
+}
 
-    .evento-card-repositorio::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at top left, rgba(42,156,82,0.25), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(255,255,255,0.12), transparent 30%);
-      pointer-events:none;
-    }
+.evento-card-repositorio::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,0.25), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(255,255,255,0.12), transparent 30%);
+  pointer-events:none;
+}
 
-    .evento-card-repositorio > *{
-      position:relative;
-      z-index:2;
-    }
+.evento-card-repositorio > *{
+  position:relative;
+  z-index:2;
+}
 
-    .evento-card-header{
-      text-align:center;
-      max-width:940px;
-      margin:0 auto;
-      padding:50px 38px 28px 38px;
-    }
+.evento-card-header{
+  text-align:center;
+  max-width:940px;
+  margin:0 auto;
+  padding:50px 38px 28px 38px;
+}
 
-    .evento-card-header h3{
-      font-family:'Montserrat', sans-serif;
-      color:var(--azul-acmi);
-      font-size:clamp(32px, 3.4vw, 48px);
-      line-height:1.08;
-      font-weight:900;
-      letter-spacing:-0.055em;
-      margin-bottom:12px;
-    }
+.evento-card-header h3{
+  font-family:'Montserrat', sans-serif;
+  color:var(--azul-acmi);
+  font-size:clamp(32px, 3.4vw, 48px);
+  line-height:1.08;
+  font-weight:900;
+  letter-spacing:-0.055em;
+  margin-bottom:12px;
+}
 
-    .evento-card-header h3::after{
-      content:"";
-      display:block;
-      width:100px;
-      height:5px;
-      border-radius:999px;
-      margin:18px auto 0 auto;
-      background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
-    }
+.evento-card-header h3::after{
+  content:"";
+  display:block;
+  width:100px;
+  height:5px;
+  border-radius:999px;
+  margin:18px auto 0 auto;
+  background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
+}
 
-    .evento-card-header p{
-      color:#5b6d82;
-      font-size:18px;
-      line-height:1.75;
-      max-width:800px;
-      margin:20px auto 0 auto;
-      font-weight:500;
-    }
+.evento-card-header p{
+  color:#5b6d82;
+  font-size:18px;
+  line-height:1.75;
+  max-width:800px;
+  margin:20px auto 0 auto;
+  font-weight:500;
+}
 
-    .evento-card-header-repositorio h3,
-    .evento-card-header-repositorio p{
-      color:white;
-    }
+.evento-card-header-repositorio h3,
+.evento-card-header-repositorio p{
+  color:white;
+}
 
-    .evento-card-header-repositorio h3::after{
-      background:linear-gradient(90deg, var(--verde-claro), #ffffff);
-    }
+.evento-card-header-repositorio h3::after{
+  background:linear-gradient(90deg, var(--verde-acmi), #ffffff);
+}
 
-    .bloque-etiqueta{
-      display:inline-block;
-      padding:10px 18px;
-      border-radius:999px;
-      background:#eaf4ee;
-      color:var(--verde-acmi);
-      border:1px solid rgba(42,156,82,0.22);
-      font-size:13px;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:0.08em;
-      margin-bottom:18px;
-      box-shadow:0 8px 18px rgba(42,156,82,0.10);
-    }
+.bloque-etiqueta{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:999px;
+  background:#eaf4ee;
+  color:var(--verde-acmi);
+  border:1px solid rgba(42,156,82,0.22);
+  font-size:13px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  margin-bottom:18px;
+  box-shadow:0 8px 18px rgba(42,156,82,0.10);
+}
 
-    .bloque-etiqueta-azul{
-      background:rgba(255,255,255,0.16);
-      color:white;
-      border:1px solid rgba(255,255,255,0.30);
-      box-shadow:0 8px 18px rgba(20,63,125,0.10);
-      backdrop-filter:blur(8px);
-    }
+.bloque-etiqueta-azul{
+  background:rgba(255,255,255,0.16);
+  color:white;
+  border:1px solid rgba(255,255,255,0.30);
+  box-shadow:0 8px 18px rgba(20,63,125,0.10);
+  backdrop-filter:blur(8px);
+}
 
-    .evento-card-contenido{
-      padding:22px 52px 52px 52px;
-    }
+.evento-card-contenido{
+  padding:22px 52px 52px 52px;
+}
 
-    .evento-card-contenido-proximos{
-      display:grid;
-      grid-template-columns:1.2fr 0.8fr;
-      gap:34px;
-      align-items:center;
-    }
+.evento-card-contenido-proximos{
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:34px;
+  align-items:center;
+}
 
-    .evento-card-contenido-repositorio{
-      display:grid;
-      grid-template-columns:1.1fr 0.9fr;
-      gap:34px;
-      align-items:center;
-    }
+.evento-card-contenido-repositorio{
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:34px;
+  align-items:center;
+}
 
-    .proximo-evento-info{
-      text-align:left;
-    }
+.proximo-evento-info{
+  text-align:left;
+}
 
-    .evento-label,
-    .repositorio-home-badge{
-      display:inline-block;
-      padding:10px 16px;
-      border-radius:999px;
-      font-weight:900;
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:0.07em;
-      margin-bottom:18px;
-    }
+.evento-label,
+.repositorio-home-badge{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:0.07em;
+  margin-bottom:18px;
+}
 
-    .evento-label-proximo{
-      background:#eaf4ee;
-      color:var(--verde-acmi);
-      border:1px solid rgba(42,156,82,0.22);
-    }
+.evento-label-proximo{
+  background:#eaf4ee;
+  color:var(--verde-acmi);
+  border:1px solid rgba(42,156,82,0.22);
+}
 
-    .repositorio-home-badge{
-      background:rgba(255,255,255,0.16);
-      border:1px solid rgba(255,255,255,0.30);
-      color:white;
-      backdrop-filter:blur(8px);
-    }
+.repositorio-home-badge{
+  background:rgba(255,255,255,0.16);
+  border:1px solid rgba(255,255,255,0.30);
+  color:white;
+  backdrop-filter:blur(8px);
+}
 
-    .proximo-evento-info h3{
-      font-family:'Montserrat', sans-serif;
-      color:var(--azul-acmi);
-      font-size:clamp(30px, 3vw, 42px);
-      line-height:1.12;
-      font-weight:900;
-      letter-spacing:-0.05em;
-      margin-bottom:15px;
-    }
+.proximo-evento-info h3{
+  font-family:'Montserrat', sans-serif;
+  color:var(--azul-acmi);
+  font-size:clamp(30px, 3vw, 42px);
+  line-height:1.12;
+  font-weight:900;
+  letter-spacing:-0.05em;
+  margin-bottom:15px;
+}
 
-    .proximo-evento-info p{
-      color:#52667d;
-      font-size:18px;
-      line-height:1.75;
-      margin-bottom:24px;
-      font-weight:500;
-    }
+.proximo-evento-info p{
+  color:#52667d;
+  font-size:18px;
+  line-height:1.75;
+  margin-bottom:24px;
+  font-weight:500;
+}
 
-    .proximo-evento-decoracion{
-      min-height:340px;
-      border-radius:28px;
-      background:
-        linear-gradient(135deg, rgba(20,63,125,0.90), rgba(42,156,82,0.70)),
-        url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:relative;
-      overflow:hidden;
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,0.18);
-    }
+.proximo-evento-decoracion{
+  min-height:340px;
+  border-radius:28px;
+  background:
+    linear-gradient(135deg, rgba(20,63,125,0.90), rgba(42,156,82,0.70)),
+    url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.18);
+}
 
-    .proximo-evento-decoracion::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:radial-gradient(circle at center, rgba(255,255,255,0.14), transparent 60%);
-    }
+.proximo-evento-decoracion::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center, rgba(255,255,255,0.14), transparent 60%);
+}
 
-    .decoracion-circulo{
-      width:190px;
-      height:190px;
-      border-radius:50%;
-      background:rgba(255,255,255,0.16);
-      border:1px solid rgba(255,255,255,0.38);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:white;
-      font-family:'Montserrat', sans-serif;
-      font-size:42px;
-      font-weight:900;
-      box-shadow:0 18px 36px rgba(0,0,0,0.20);
-      position:relative;
-      z-index:2;
-      backdrop-filter:blur(6px);
-      animation:pulseCircle 3.2s ease-in-out infinite;
-    }
+.decoracion-circulo{
+  width:190px;
+  height:190px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.16);
+  border:1px solid rgba(255,255,255,0.38);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-family:'Montserrat', sans-serif;
+  font-size:42px;
+  font-weight:900;
+  box-shadow:0 18px 36px rgba(0,0,0,0.20);
+  position:relative;
+  z-index:2;
+  backdrop-filter:blur(6px);
+  animation:pulseCircle 3.2s ease-in-out infinite;
+}
 
-    @keyframes pulseCircle{
-      0%,100%{
-        transform:scale(1);
-      }
-      50%{
-        transform:scale(1.045);
-      }
-    }
+@keyframes pulseCircle{
+  0%,100%{
+    transform:scale(1);
+  }
 
-    .repositorio-home-texto h3{
-      font-family:'Montserrat', sans-serif;
-      font-size:clamp(30px, 3.1vw, 44px);
-      line-height:1.12;
-      margin-bottom:15px;
-      color:white;
-      letter-spacing:-0.05em;
-      font-weight:900;
-    }
+  50%{
+    transform:scale(1.045);
+  }
+}
 
-    .repositorio-home-texto p{
-      color:#edf5ff;
-      font-size:18px;
-      line-height:1.75;
-      max-width:700px;
-      margin-bottom:24px;
-      font-weight:500;
-    }
+/* ==============================
+   REPOSITORIO HOME
+   ============================== */
 
-    .eventos-badges{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-bottom:26px;
-    }
+.repositorio-home-texto h3{
+  font-family:'Montserrat', sans-serif;
+  font-size:clamp(30px, 3.1vw, 44px);
+  line-height:1.12;
+  margin-bottom:15px;
+  color:white;
+  letter-spacing:-0.05em;
+  font-weight:900;
+}
 
-    .badge{
-      width:fit-content;
-      font-size:15px;
-      line-height:1.4;
-      color:inherit;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(20,63,125,0.06);
-      font-weight:700;
-    }
+.repositorio-home-texto p{
+  color:#edf5ff;
+  font-size:18px;
+  line-height:1.75;
+  max-width:700px;
+  margin-bottom:24px;
+  font-weight:500;
+}
 
-    .evento-card-repositorio .badge{
-      background:rgba(255,255,255,0.14);
-      border:1px solid rgba(255,255,255,0.16);
-      color:white;
-      backdrop-filter:blur(8px);
-    }
+.eventos-badges{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:26px;
+}
 
-    .repositorio-home-actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-    }
+.badge{
+  width:fit-content;
+  font-size:15px;
+  line-height:1.4;
+  color:inherit;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(20,63,125,0.06);
+  font-weight:700;
+}
 
-    .repositorio-home-actions .btn{
-      border-radius:14px;
-    }
+.evento-card-repositorio .badge{
+  background:rgba(255,255,255,0.14);
+  border:1px solid rgba(255,255,255,0.16);
+  color:white;
+  backdrop-filter:blur(8px);
+}
 
-    .repositorio-home-actions .btn-light{
-      color:var(--azul-acmi);
-    }
+.repositorio-home-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
 
-    .repositorio-mini-grid{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:18px;
-    }
+.repositorio-home-actions .btn{
+  border-radius:14px;
+}
 
-    .repositorio-mini-card{
-      background:rgba(255,255,255,0.96);
-      color:var(--azul-acmi);
-      border-radius:22px;
-      padding:22px;
-      box-shadow:0 12px 26px rgba(0,0,0,0.14);
-      transition:var(--transicion);
-      text-align:left;
-      border:1px solid rgba(20,63,125,0.08);
-      position:relative;
-      overflow:hidden;
-    }
+.repositorio-home-actions .btn-light{
+  color:var(--azul-acmi);
+}
 
-    .repositorio-mini-card::after{
-      content:"";
-      position:absolute;
-      inset:auto -35px -55px auto;
-      width:110px;
-      height:110px;
-      border-radius:50%;
-      background:rgba(42,156,82,0.09);
-      transition:var(--transicion);
-    }
+/* ==============================
+   AFICHE MINIATURA
+   ============================== */
 
-    .repositorio-mini-card:hover{
-      transform:translateY(-7px);
-      background:white;
-      box-shadow:0 18px 36px rgba(0,0,0,0.18);
-    }
+.repositorio-home-afiche{
+  margin:0 0 24px 0;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  background:rgba(255,255,255,0.96);
+  color:var(--azul-acmi);
+  border-radius:24px;
+  padding:18px;
+  box-shadow:0 12px 26px rgba(0,0,0,0.14);
+  border:1px solid rgba(20,63,125,0.08);
+  transition:var(--transicion);
+  position:relative;
+  overflow:hidden;
+}
 
-    .repositorio-mini-card:hover::after{
-      transform:scale(1.2);
-      background:rgba(20,63,125,0.08);
-    }
+.repositorio-home-afiche::after{
+  content:"";
+  position:absolute;
+  inset:auto -42px -58px auto;
+  width:125px;
+  height:125px;
+  border-radius:50%;
+  background:rgba(42,156,82,0.09);
+  transition:var(--transicion);
+}
 
-    .repositorio-mini-card span{
-      display:block;
-      font-size:32px;
-      margin-bottom:8px;
-      position:relative;
-      z-index:2;
-    }
+.repositorio-home-afiche:hover{
+  transform:translateY(-7px);
+  background:white;
+  box-shadow:0 18px 36px rgba(0,0,0,0.18);
+}
 
-    .repositorio-mini-card strong{
-      display:block;
-      font-family:'Montserrat', sans-serif;
-      font-size:18px;
-      margin-bottom:6px;
-      font-weight:900;
-      letter-spacing:-0.03em;
-      position:relative;
-      z-index:2;
-    }
+.repositorio-home-afiche:hover::after{
+  transform:scale(1.2);
+  background:rgba(20,63,125,0.08);
+}
 
-    .repositorio-mini-card small{
-      color:#52667d;
-      font-size:13px;
-      line-height:1.55;
-      font-weight:600;
-      position:relative;
-      z-index:2;
-    }
+.repositorio-home-afiche a{
+  display:block;
+  flex-shrink:0;
+  position:relative;
+  z-index:2;
+}
 
+.repositorio-home-afiche img{
+  width:118px;
+  height:154px;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 10px 24px rgba(0,0,0,0.20);
+  border:1px solid rgba(20,63,125,0.10);
+  transition:var(--transicion);
+  background:#eef4fb;
+}
+
+.repositorio-home-afiche img:hover{
+  transform:scale(1.04);
+}
+
+.repositorio-home-afiche-texto{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  position:relative;
+  z-index:2;
+}
+
+.repositorio-home-afiche-texto strong{
+  display:block;
+  font-family:'Montserrat', sans-serif;
+  color:var(--azul-acmi);
+  font-size:20px;
+  line-height:1.2;
+  font-weight:900;
+  letter-spacing:-0.035em;
+}
+
+.repositorio-home-afiche-texto small{
+  color:#52667d;
+  font-size:14px;
+  line-height:1.55;
+  font-weight:600;
+}
+
+/* ==============================
+   TARJETAS MINI REPOSITORIO
+   ============================== */
+
+.repositorio-mini-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:18px;
+}
+
+.repositorio-mini-card{
+  background:rgba(255,255,255,0.96);
+  color:var(--azul-acmi);
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 12px 26px rgba(0,0,0,0.14);
+  transition:var(--transicion);
+  text-align:left;
+  border:1px solid rgba(20,63,125,0.08);
+  position:relative;
+  overflow:hidden;
+}
+
+.repositorio-mini-card::after{
+  content:"";
+  position:absolute;
+  inset:auto -35px -55px auto;
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  background:rgba(42,156,82,0.09);
+  transition:var(--transicion);
+}
+
+.repositorio-mini-card:hover{
+  transform:translateY(-7px);
+  background:white;
+  box-shadow:0 18px 36px rgba(0,0,0,0.18);
+}
+
+.repositorio-mini-card:hover::after{
+  transform:scale(1.2);
+  background:rgba(20,63,125,0.08);
+}
+
+.repositorio-mini-card span{
+  display:block;
+  font-size:32px;
+  margin-bottom:8px;
+  position:relative;
+  z-index:2;
+}
+
+.repositorio-mini-card strong{
+  display:block;
+  font-family:'Montserrat', sans-serif;
+  font-size:18px;
+  margin-bottom:6px;
+  font-weight:900;
+  letter-spacing:-0.03em;
+  position:relative;
+  z-index:2;
+}
+
+.repositorio-mini-card small{
+  color:#52667d;
+  font-size:13px;
+  line-height:1.55;
+  font-weight:600;
+  position:relative;
+  z-index:2;
+}
+
+/* ==============================
+   RESPONSIVE EVENTOS
+   ============================== */
+
+@media(max-width:980px){
+  .evento-card-contenido-proximos,
+  .evento-card-contenido-repositorio{
+    grid-template-columns:1fr;
+  }
+
+  .evento-card-contenido{
+    padding:22px 34px 42px 34px;
+  }
+
+  .repositorio-mini-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+
+  .proximo-evento-decoracion{
+    min-height:280px;
+  }
+}
+
+@media(max-width:640px){
+  .evento-card-header{
+    padding:42px 24px 24px 24px;
+  }
+
+  .evento-card-contenido{
+    padding:18px 22px 34px 22px;
+  }
+
+  .eventos-subtitle{
+    font-size:17px;
+    margin-bottom:40px;
+  }
+
+  .repositorio-home-actions{
+    flex-direction:column;
+  }
+
+  .repositorio-home-actions .btn{
+    width:100%;
+    text-align:center;
+  }
+
+  .eventos-badges{
+    align-items:flex-start;
+  }
+
+  .badge{
+    width:100%;
+    text-align:left;
+  }
+
+  .repositorio-home-afiche{
+    flex-direction:column;
+    text-align:center;
+    padding:22px;
+  }
+
+  .repositorio-home-afiche img{
+    width:155px;
+    height:205px;
+  }
+
+  .repositorio-home-afiche-texto{
+    align-items:center;
+  }
+
+  .repositorio-mini-grid{
+    grid-template-columns:1fr;
+  }
+
+  .decoracion-circulo{
+    width:150px;
+    height:150px;
+    font-size:34px;
+  }
+}
 /* ==============================
    ÚLTIMAS PUBLICACIONES
    TARJETA ÚNICA GRANDE
@@ -1874,17 +2052,17 @@
       </div>
     </div>
 
-    <div class="repositorio-home-afiche">
-      <a href="{{ site.baseurl }}/repositorio-eventos/#afiches">
-        <img src="{{ site.baseurl }}/1.png"
-             alt="Afiche VI Simposio Regional ACMI San Gil Santander 2026">
-      </a>
+   <div class="repositorio-home-afiche">
+  <a href="{{ site.baseurl }}/repositorio-eventos/#afiches">
+    <img src="{{ site.baseurl }}/1.png"
+         alt="Afiche VI Simposio Regional ACMI San Gil Santander 2026">
+  </a>
 
-      <div class="repositorio-home-afiche-texto">
-        <strong>Afiche oficial</strong>
-        <small>VI Simposio Regional ACMI San Gil – Santander 2026</small>
-      </div>
-    </div>
+  <div class="repositorio-home-afiche-texto">
+    <strong>Afiche oficial</strong>
+    <small>VI Simposio Regional ACMI San Gil – Santander 2026</small>
+  </div>
+</div>
 
     <div class="repositorio-mini-grid">
 
