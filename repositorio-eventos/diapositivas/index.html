@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Diapositivas | ACMI Santander</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --azul-acmi:#143f7d;
+      --azul-acmi-2:#0f3569;
+      --verde-acmi:#2a9c52;
+      --dorado:#c89b3c;
+      --gris-fondo:#f5f7fb;
+      --texto:#243244;
+      --blanco:#ffffff;
+      --sombra:0 14px 34px rgba(0,0,0,0.10);
+      --sombra-fuerte:0 24px 60px rgba(15,53,105,0.22);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Lato', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(42,156,82,0.08), transparent 32%),
+        radial-gradient(circle at top right, rgba(20,63,125,0.12), transparent 34%),
+        var(--gris-fondo);
+      color:var(--texto);
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    .topbar{
+      background:var(--azul-acmi-2);
+      color:#dfe8f5;
+      padding:10px 40px;
+      font-size:14px;
+    }
+
+    .topbar-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .topbar a{
+      color:#dfe8f5;
+      font-weight:700;
+      margin-right:18px;
+    }
+
+    .topbar a:hover{
+      color:#ffffff;
+    }
+
+    header{
+      background:rgba(255,255,255,0.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid #e3eaf3;
+      box-shadow:0 4px 18px rgba(0,0,0,0.06);
+      position:sticky;
+      top:0;
+      z-index:999;
+    }
+
+    .main-header{
+      min-height:94px;
+      padding:14px 40px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+
+    .brand-logo{
+      width:72px;
+      height:72px;
+      border-radius:50%;
+      background:#fff;
+      border:1px solid #d7e2ef;
+      padding:5px;
+      object-fit:contain;
+      box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .brand h1{
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-acmi);
+      font-size:28px;
+      line-height:1.1;
+    }
+
+    .brand p{
+      color:#50627a;
+      font-size:14px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      align-items:center;
+      gap:22px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    nav a{
+      font-family:'Montserrat', sans-serif;
+      font-weight:700;
+      font-size:15px;
+      color:var(--azul-acmi);
+      transition:0.2s ease;
+    }
+
+    nav a:hover{
+      color:var(--verde-acmi);
+    }
+
+    .hero{
+      position:relative;
+      min-height:52vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(15,53,105,0.94), rgba(20,63,125,0.82)),
+        url("/chicamocha.jpg") center/cover no-repeat;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(255,255,255,0.18), transparent 28%),
+        linear-gradient(90deg, rgba(42,156,82,0.22), transparent 45%);
+      pointer-events:none;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:420px;
+      height:420px;
+      border:1px solid rgba(255,255,255,0.18);
+      border-radius:50%;
+      right:-120px;
+      bottom:-180px;
+      animation:floatCircle 7s ease-in-out infinite;
+    }
+
+    @keyframes floatCircle{
+      0%,100%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(-18px);
+      }
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(28px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      width:min(980px, 92%);
+      padding:76px 0;
+      animation:fadeUp 0.9s ease both;
+    }
+
+    .hero-badge{
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.14);
+      border:1px solid rgba(255,255,255,0.32);
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+      font-size:14px;
+      letter-spacing:0.04em;
+      margin-bottom:22px;
+      text-transform:uppercase;
+    }
+
+    .hero h2{
+      font-family:'Montserrat', sans-serif;
+      font-size:56px;
+      line-height:1.08;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .hero p{
+      font-size:22px;
+      max-width:880px;
+      margin:0 auto 30px;
+      color:#edf5ff;
+    }
+
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:13px 22px;
+      border-radius:12px;
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+      transition:0.22s ease;
+    }
+
+    .btn-primary{
+      background:var(--verde-acmi);
+      color:white;
+      box-shadow:0 10px 22px rgba(42,156,82,0.28);
+    }
+
+    .btn-primary:hover{
+      background:#248546;
+      transform:translateY(-3px);
+    }
+
+    .btn-light{
+      background:white;
+      color:var(--azul-acmi);
+    }
+
+    .btn-light:hover{
+      background:#eef4fb;
+      transform:translateY(-3px);
+    }
+
+    .section{
+      padding:80px 40px;
+    }
+
+    .container{
+      width:100%;
+      max-width:1240px;
+      margin:0 auto;
+    }
+
+    .section-title{
+      text-align:center;
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-acmi);
+      font-size:42px;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .section-title::after{
+      content:"";
+      display:block;
+      width:90px;
+      height:4px;
+      border-radius:99px;
+      background:linear-gradient(90deg, var(--verde-acmi), var(--dorado));
+      margin:16px auto 0;
+    }
+
+    .section-subtitle{
+      text-align:center;
+      max-width:900px;
+      margin:0 auto 42px;
+      color:#5b6d82;
+      font-size:18px;
+    }
+
+    .slides-section{
+      padding:56px 34px;
+      border-radius:34px;
+      background:
+        radial-gradient(circle at top left, rgba(42,156,82,0.13), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(20,63,125,0.14), transparent 34%),
+        linear-gradient(135deg, rgba(255,255,255,0.96), rgba(240,245,252,0.96));
+      border:1px solid rgba(20,63,125,0.10);
+      box-shadow:var(--sombra);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .slides-section::before{
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      background:rgba(200,155,60,0.13);
+      top:-120px;
+      right:-100px;
+    }
+
+    .slides-header{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      margin-bottom:36px;
+    }
+
+    .slides-kicker{
+      display:inline-block;
+      padding:9px 16px;
+      border-radius:999px;
+      background:#eef4fb;
+      color:var(--azul-acmi);
+      border:1px solid #dbe7f5;
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      margin-bottom:14px;
+    }
+
+    .slides-grid{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:38px;
+    }
+
+    .slide-card{
+      background:white;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 14px 34px rgba(0,0,0,0.10);
+      border:1px solid rgba(20,63,125,0.10);
+    }
+
+    .slide-header{
+      padding:28px 30px 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .slide-header h3{
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-acmi);
+      font-size:26px;
+      margin-bottom:8px;
+    }
+
+    .slide-header p{
+      color:#5b6d82;
+      max-width:760px;
+    }
+
+    .slide-badge{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:#eef4fb;
+      color:var(--azul-acmi);
+      border:1px solid #dbe7f5;
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+      font-size:12px;
+      white-space:nowrap;
+    }
+
+    .slide-viewer{
+      width:100%;
+      height:720px;
+      border:0;
+      background:#eef4fb;
+      display:block;
+    }
+
+    .slide-actions{
+      padding:20px 30px 28px;
+      display:flex;
+      justify-content:flex-end;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .slide-actions a{
+      display:inline-block;
+      background:var(--azul-acmi);
+      color:white;
+      padding:12px 18px;
+      border-radius:12px;
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+      font-size:14px;
+      transition:0.2s ease;
+    }
+
+    .slide-actions a:hover{
+      background:var(--verde-acmi);
+      transform:translateY(-2px);
+    }
+
+    .slide-actions .secondary{
+      background:white;
+      color:var(--azul-acmi);
+      border:1px solid #dbe7f5;
+    }
+
+    .slide-actions .secondary:hover{
+      background:#eef4fb;
+      color:var(--azul-acmi);
+    }
+
+    .notice{
+      margin-top:28px;
+      background:#fff;
+      border:1px solid rgba(20,63,125,0.12);
+      border-radius:22px;
+      padding:24px 28px;
+      color:#5b6d82;
+      box-shadow:0 10px 24px rgba(0,0,0,0.06);
+      position:relative;
+      z-index:2;
+    }
+
+    .notice strong{
+      color:var(--azul-acmi);
+    }
+
+    footer{
+      background:var(--azul-acmi-2);
+      color:white;
+      text-align:center;
+      padding:28px 18px;
+      margin-top:80px;
+    }
+
+    footer p{
+      margin:4px 0;
+    }
+
+    @media(max-width:980px){
+      .main-header{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      nav ul{
+        justify-content:center;
+      }
+
+      .hero h2{
+        font-size:42px;
+      }
+
+      .slide-viewer{
+        height:620px;
+      }
+    }
+
+    @media(max-width:640px){
+      .topbar{
+        padding:10px 20px;
+      }
+
+      .main-header{
+        padding:16px 20px;
+      }
+
+      .brand{
+        flex-direction:column;
+      }
+
+      .hero h2{
+        font-size:34px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .section{
+        padding:60px 22px;
+      }
+
+      .section-title{
+        font-size:32px;
+      }
+
+      .slides-section{
+        padding:42px 18px;
+        border-radius:28px;
+      }
+
+      .slide-header{
+        padding:24px 20px 16px;
+      }
+
+      .slide-header h3{
+        font-size:22px;
+      }
+
+      .slide-viewer{
+        height:520px;
+      }
+
+      .slide-actions{
+        padding:18px 20px 24px;
+        justify-content:center;
+      }
+
+      .slide-actions a{
+        width:100%;
+        text-align:center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="topbar-content">
+      <div>
+        <a href="https://acmi.org.co/" target="_blank" rel="noopener">ACMI Nacional</a>
+        <a href="https://acmi.org.co/afiliese/" target="_blank" rel="noopener">Afiliaciones</a>
+      </div>
+
+      <div>
+        <a href="https://www.actamedicacolombiana.com/ojs/index.php/actamed" target="_blank" rel="noopener">
+          Acta Médica Colombiana
+        </a>
+        <a href="/#patrocinios">Patrocinios</a>
+        <a href="/#foro">Foro</a>
+        <a href="/#contacto">Contacto</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="main-header">
+
+      <div class="brand">
+        <img class="brand-logo" src="/LOGO%20ACMI.png" alt="Logo ACMI Santander">
+
+        <div>
+          <h1>ACMI Santander</h1>
+          <p>Asociación Colombiana de Medicina Interna • Capítulo Santander</p>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="/#inicio">Inicio</a></li>
+          <li><a href="/repositorio-eventos/">Eventos</a></li>
+          <li><a href="/repositorio-eventos/fotos-y-videos.html">Fotos y videos</a></li>
+          <li><a href="/diapositivas/">Diapositivas</a></li>
+          <li><a href="/educacion-medica-continuada/">Educación médica</a></li>
+          <li><a href="/magazine/">Magazine</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Repositorio académico</div>
+
+      <h2>Diapositivas</h2>
+
+      <p>
+        Presentaciones académicas autorizadas del VI Simposio Regional ACMI San Gil – Santander 2026.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#presentaciones">Ver presentaciones</a>
+        <a class="btn btn-light" href="/repositorio-eventos/">Volver al repositorio</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="section" id="presentaciones">
+    <div class="container">
+
+      <section class="slides-section">
+
+        <div class="slides-header">
+          <span class="slides-kicker">Material académico</span>
+
+          <h2 class="section-title">Presentaciones del evento</h2>
+
+          <p class="section-subtitle">
+            Consulte aquí las diapositivas disponibles. Para mejor visualización en la página,
+            se recomienda subir cada presentación en formato PDF.
+          </p>
+        </div>
+
+        <div class="slides-grid">
+
+          <article class="slide-card">
+            <div class="slide-header">
+              <div>
+                <h3>Presentación 1</h3>
+                <p>Material académico del VI Simposio Regional ACMI San Gil – Santander 2026.</p>
+              </div>
+              <span class="slide-badge">PDF</span>
+            </div>
+
+            <iframe
+              class="slide-viewer"
+              src="/diapositivas/presentacion-1.pdf"
+              title="Presentación 1"
+              loading="lazy">
+            </iframe>
+
+            <div class="slide-actions">
+              <a href="/diapositivas/presentacion-1.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+              <a class="secondary" href="/diapositivas/presentacion-1.pdf" download>Descargar</a>
+            </div>
+          </article>
+
+          <article class="slide-card">
+            <div class="slide-header">
+              <div>
+                <h3>Presentación 2</h3>
+                <p>Material académico del VI Simposio Regional ACMI San Gil – Santander 2026.</p>
+              </div>
+              <span class="slide-badge">PDF</span>
+            </div>
+
+            <iframe
+              class="slide-viewer"
+              src="/diapositivas/presentacion-2.pdf"
+              title="Presentación 2"
+              loading="lazy">
+            </iframe>
+
+            <div class="slide-actions">
+              <a href="/diapositivas/presentacion-2.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+              <a class="secondary" href="/diapositivas/presentacion-2.pdf" download>Descargar</a>
+            </div>
+          </article>
+
+          <article class="slide-card">
+            <div class="slide-header">
+              <div>
+                <h3>Presentación 3</h3>
+                <p>Material académico del VI Simposio Regional ACMI San Gil – Santander 2026.</p>
+              </div>
+              <span class="slide-badge">PDF</span>
+            </div>
+
+            <iframe
+              class="slide-viewer"
+              src="/diapositivas/presentacion-3.pdf"
+              title="Presentación 3"
+              loading="lazy">
+            </iframe>
+
+            <div class="slide-actions">
+              <a href="/diapositivas/presentacion-3.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+              <a class="secondary" href="/diapositivas/presentacion-3.pdf" download>Descargar</a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="notice">
+          <p>
+            <strong>Importante:</strong> sube tus archivos PDF dentro de la carpeta
+            <strong>diapositivas</strong> con nombres como
+            <strong>presentacion-1.pdf</strong>, <strong>presentacion-2.pdf</strong> y
+            <strong>presentacion-3.pdf</strong>. Si también quieres permitir descarga en PowerPoint,
+            puedes subir los archivos <strong>.pptx</strong> y agregar un botón adicional.
+          </p>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 ACMI Santander</p>
+    <p>Educación continua que transforma la práctica clínica</p>
+  </footer>
+
+</body>
+</html>
