@@ -617,13 +617,18 @@
       certificados = [];
 
       const bases = [
-        {
-          ruta: "/repositorio-eventos/certificados/certificados.json",
-          tipo: "Asistente"
-        },
+        /*
+          IMPORTANTE:
+          Se carga primero ponentes para evitar que, si una persona existe
+          en ambos JSON, la plataforma muestre por defecto asistente.
+        */
         {
           ruta: "/repositorio-eventos/certificados/certificados_ponentes.json",
           tipo: "Ponente"
+        },
+        {
+          ruta: "/repositorio-eventos/certificados/certificados.json",
+          tipo: "Asistente"
         }
       ];
 
@@ -669,7 +674,7 @@
     }
 
     function etiquetaTipo(tipo){
-      if(tipo === "Ponente"){
+      if(claveTexto(tipo) === "ponente"){
         return '<span class="tipo-badge tipo-ponente">Certificado de ponente</span>';
       }
 
@@ -749,17 +754,24 @@
       return resultado;
     }
 
+    function esPonente(item){
+      return claveTexto(item.tipo_certificado) === "ponente";
+    }
+
     function elegirCertificadoPrincipal(lista){
       if(!lista || lista.length === 0){
         return null;
       }
 
       /*
-        Para que solo aparezca UNO para descargar:
-        1. Si hay certificado de ponente, se muestra ese.
-        2. Si no, se muestra el primero disponible.
+        REGLA PRINCIPAL:
+        Si el mismo correo o celular aparece en asistentes y ponentes,
+        se debe mostrar SOLO el certificado de PONENTE.
+
+        Esto corrige el caso donde la plataforma decía "asistente"
+        aunque la persona realmente era ponente.
       */
-      const ponente = lista.find(item => item.tipo_certificado === "Ponente");
+      const ponente = lista.find(item => esPonente(item));
 
       if(ponente){
         return ponente;
