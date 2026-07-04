@@ -685,626 +685,608 @@
       z-index:2;
     }
 
+    /* ==============================
+       EVENTOS
+       ============================== */
+
+    #eventos{
+      background:
+        radial-gradient(circle at top left, rgba(42,156,82,0.10), transparent 34%),
+        radial-gradient(circle at top right, rgba(20,63,125,0.12), transparent 32%),
+        #f5f7fb;
+    }
+
+    .eventos-title{
+      font-size:clamp(38px, 4.8vw, 60px);
+      letter-spacing:-0.06em;
+      margin-bottom:14px;
+      position:relative;
+    }
+
+    .eventos-title::after{
+      content:"";
+      display:block;
+      width:132px;
+      height:6px;
+      border-radius:999px;
+      margin:20px auto 0 auto;
+      background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
+      box-shadow:0 8px 18px rgba(20,63,125,0.18);
+    }
+
+    .eventos-subtitle{
+      max-width:980px;
+      font-size:19px;
+      line-height:1.75;
+      margin-bottom:54px;
+    }
+
+    .evento-card-grande{
+      max-width:1280px;
+      margin:0 auto 58px auto;
+      border-radius:34px;
+      overflow:hidden;
+      position:relative;
+      box-shadow:var(--sombra-fuerte);
+      border:1px solid rgba(20,63,125,0.10);
+      transition:var(--transicion);
+    }
+
+    .evento-card-grande:hover{
+      transform:translateY(-4px);
+      box-shadow:0 34px 80px rgba(8,40,79,0.20);
+    }
+
+    .evento-card-grande::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto 0;
+      height:8px;
+      z-index:3;
+      background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
+    }
+
+    .evento-card-proximos{
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,251,255,0.98));
+    }
+
+    .evento-card-repositorio{
+      background:
+        linear-gradient(135deg, rgba(8,40,79,0.98), rgba(20,63,125,0.94), rgba(42,156,82,0.58)),
+        url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
+      color:white;
+    }
+
+    .evento-card-repositorio::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at top left, rgba(42,156,82,0.25), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.12), transparent 30%);
+      pointer-events:none;
+    }
+
+    .evento-card-repositorio > *{
+      position:relative;
+      z-index:2;
+    }
+
+    .evento-card-header{
+      text-align:center;
+      max-width:940px;
+      margin:0 auto;
+      padding:50px 38px 28px 38px;
+    }
+
+    .evento-card-header h3{
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-acmi);
+      font-size:clamp(32px, 3.4vw, 48px);
+      line-height:1.08;
+      font-weight:900;
+      letter-spacing:-0.055em;
+      margin-bottom:12px;
+    }
+
+    .evento-card-header h3::after{
+      content:"";
+      display:block;
+      width:100px;
+      height:5px;
+      border-radius:999px;
+      margin:18px auto 0 auto;
+      background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
+    }
+
+    .evento-card-header p{
+      color:#5b6d82;
+      font-size:18px;
+      line-height:1.75;
+      max-width:800px;
+      margin:20px auto 0 auto;
+      font-weight:500;
+    }
+
+    .evento-card-header-repositorio h3,
+    .evento-card-header-repositorio p{
+      color:white;
+    }
+
+    .evento-card-header-repositorio h3::after{
+      background:linear-gradient(90deg, var(--verde-claro), #ffffff);
+    }
+
+    .bloque-etiqueta{
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:999px;
+      background:#eaf4ee;
+      color:var(--verde-acmi);
+      border:1px solid rgba(42,156,82,0.22);
+      font-size:13px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      margin-bottom:18px;
+      box-shadow:0 8px 18px rgba(42,156,82,0.10);
+    }
+
+    .bloque-etiqueta-azul{
+      background:rgba(255,255,255,0.16);
+      color:white;
+      border:1px solid rgba(255,255,255,0.30);
+      box-shadow:0 8px 18px rgba(20,63,125,0.10);
+      backdrop-filter:blur(8px);
+    }
+
+    .evento-card-contenido{
+      padding:22px 52px 52px 52px;
+    }
+
+    .evento-card-contenido-proximos{
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .evento-card-contenido-repositorio{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .proximo-evento-info{
+      text-align:left;
+    }
+
+    .evento-label,
+    .repositorio-home-badge{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:0.07em;
+      margin-bottom:18px;
+    }
+
+    .evento-label-proximo{
+      background:#eaf4ee;
+      color:var(--verde-acmi);
+      border:1px solid rgba(42,156,82,0.22);
+    }
+
+    .repositorio-home-badge{
+      background:rgba(255,255,255,0.16);
+      border:1px solid rgba(255,255,255,0.30);
+      color:white;
+      backdrop-filter:blur(8px);
+    }
+
+    .proximo-evento-info h3{
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-acmi);
+      font-size:clamp(30px, 3vw, 42px);
+      line-height:1.12;
+      font-weight:900;
+      letter-spacing:-0.05em;
+      margin-bottom:15px;
+    }
+
+    .proximo-evento-info p{
+      color:#52667d;
+      font-size:18px;
+      line-height:1.75;
+      margin-bottom:24px;
+      font-weight:500;
+    }
+
+    .proximo-evento-decoracion{
+      min-height:340px;
+      border-radius:28px;
+      background:
+        linear-gradient(135deg, rgba(20,63,125,0.90), rgba(42,156,82,0.70)),
+        url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,0.18);
+    }
+
+    .proximo-evento-decoracion::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at center, rgba(255,255,255,0.14), transparent 60%);
+    }
+
+    .decoracion-circulo{
+      width:190px;
+      height:190px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.16);
+      border:1px solid rgba(255,255,255,0.38);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-family:'Montserrat', sans-serif;
+      font-size:42px;
+      font-weight:900;
+      box-shadow:0 18px 36px rgba(0,0,0,0.20);
+      position:relative;
+      z-index:2;
+      backdrop-filter:blur(6px);
+      animation:pulseCircle 3.2s ease-in-out infinite;
+    }
+
+    @keyframes pulseCircle{
+      0%,100%{
+        transform:scale(1);
+      }
+      50%{
+        transform:scale(1.045);
+      }
+    }
+
+    .repositorio-home-texto h3{
+      font-family:'Montserrat', sans-serif;
+      font-size:clamp(30px, 3.1vw, 44px);
+      line-height:1.12;
+      margin-bottom:15px;
+      color:white;
+      letter-spacing:-0.05em;
+      font-weight:900;
+    }
+
+    .repositorio-home-texto p{
+      color:#edf5ff;
+      font-size:18px;
+      line-height:1.75;
+      max-width:700px;
+      margin-bottom:24px;
+      font-weight:500;
+    }
+
+    .eventos-badges{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-bottom:26px;
+    }
+
+    .badge{
+      width:fit-content;
+      font-size:15px;
+      line-height:1.4;
+      color:inherit;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(20,63,125,0.06);
+      font-weight:700;
+    }
+
+    .evento-card-repositorio .badge{
+      background:rgba(255,255,255,0.14);
+      border:1px solid rgba(255,255,255,0.16);
+      color:white;
+      backdrop-filter:blur(8px);
+    }
+
+    .repositorio-home-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .repositorio-home-actions .btn{
+      border-radius:14px;
+    }
+
+    .repositorio-home-actions .btn-light{
+      color:var(--azul-acmi);
+    }
+
+    .repositorio-mini-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .repositorio-mini-card{
+      background:rgba(255,255,255,0.96);
+      color:var(--azul-acmi);
+      border-radius:22px;
+      padding:22px;
+      box-shadow:0 12px 26px rgba(0,0,0,0.14);
+      transition:var(--transicion);
+      text-align:left;
+      border:1px solid rgba(20,63,125,0.08);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .repositorio-mini-card::after{
+      content:"";
+      position:absolute;
+      inset:auto -35px -55px auto;
+      width:110px;
+      height:110px;
+      border-radius:50%;
+      background:rgba(42,156,82,0.09);
+      transition:var(--transicion);
+    }
+
+    .repositorio-mini-card:hover{
+      transform:translateY(-7px);
+      background:white;
+      box-shadow:0 18px 36px rgba(0,0,0,0.18);
+    }
+
+    .repositorio-mini-card:hover::after{
+      transform:scale(1.2);
+      background:rgba(20,63,125,0.08);
+    }
+
+    .repositorio-mini-card span{
+      display:block;
+      font-size:32px;
+      margin-bottom:8px;
+      position:relative;
+      z-index:2;
+    }
+
+    .repositorio-mini-card strong{
+      display:block;
+      font-family:'Montserrat', sans-serif;
+      font-size:18px;
+      margin-bottom:6px;
+      font-weight:900;
+      letter-spacing:-0.03em;
+      position:relative;
+      z-index:2;
+    }
+
+    .repositorio-mini-card small{
+      color:#52667d;
+      font-size:13px;
+      line-height:1.55;
+      font-weight:600;
+      position:relative;
+      z-index:2;
+    }
+
 /* ==============================
-   EVENTOS
+   ÚLTIMAS PUBLICACIONES
+   TARJETA ÚNICA GRANDE
    ============================== */
 
-#eventos{
-  background:
-    radial-gradient(circle at top left, rgba(42,156,82,0.10), transparent 34%),
-    radial-gradient(circle at top right, rgba(20,63,125,0.12), transparent 32%),
-    #f5f7fb;
-}
-
-.eventos-title{
-  font-size:clamp(38px, 4.8vw, 60px);
-  letter-spacing:-0.06em;
-  margin-bottom:14px;
-  position:relative;
-}
-
-.eventos-title::after{
-  content:"";
-  display:block;
-  width:132px;
-  height:6px;
-  border-radius:999px;
-  margin:20px auto 0 auto;
-  background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
-  box-shadow:0 8px 18px rgba(20,63,125,0.18);
-}
-
-.eventos-subtitle{
-  max-width:980px;
-  font-size:19px;
-  line-height:1.75;
-  margin-bottom:54px;
-}
-
-.evento-card-grande{
+.publicaciones-card-unica{
   max-width:1280px;
-  margin:0 auto 58px auto;
+  margin:0 auto;
+  background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,251,255,0.98));
   border-radius:34px;
+  border:1px solid rgba(20,63,125,0.10);
+  box-shadow:0 28px 70px rgba(8,40,79,0.14);
   overflow:hidden;
   position:relative;
-  box-shadow:var(--sombra-fuerte);
-  border:1px solid rgba(20,63,125,0.10);
-  transition:var(--transicion);
 }
 
-.evento-card-grande:hover{
-  transform:translateY(-4px);
-  box-shadow:0 34px 80px rgba(8,40,79,0.20);
-}
-
-.evento-card-grande::before{
+.publicaciones-card-unica::before{
   content:"";
   position:absolute;
   inset:0 0 auto 0;
   height:8px;
-  z-index:3;
   background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
-}
-
-.evento-card-proximos{
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,251,255,0.98));
-}
-
-.evento-card-repositorio{
-  background:
-    linear-gradient(135deg, rgba(8,40,79,0.98), rgba(20,63,125,0.94), rgba(42,156,82,0.58)),
-    url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
-  color:white;
-}
-
-.evento-card-repositorio::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at top left, rgba(42,156,82,0.25), transparent 34%),
-    radial-gradient(circle at bottom right, rgba(255,255,255,0.12), transparent 30%);
-  pointer-events:none;
-}
-
-.evento-card-repositorio > *{
-  position:relative;
   z-index:2;
 }
 
-.evento-card-header{
+.publicaciones-card-header{
   text-align:center;
   max-width:940px;
   margin:0 auto;
-  padding:50px 38px 28px 38px;
+  padding:48px 36px 26px 36px;
 }
 
-.evento-card-header h3{
+.publicaciones-card-header h3{
   font-family:'Montserrat', sans-serif;
   color:var(--azul-acmi);
-  font-size:clamp(32px, 3.4vw, 48px);
+  font-size:44px;
   line-height:1.08;
-  font-weight:900;
-  letter-spacing:-0.055em;
+  font-weight:800;
+  letter-spacing:-0.03em;
   margin-bottom:12px;
 }
 
-.evento-card-header h3::after{
+.publicaciones-card-header h3::after{
   content:"";
   display:block;
-  width:100px;
+  width:96px;
   height:5px;
   border-radius:999px;
   margin:18px auto 0 auto;
   background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
 }
 
-.evento-card-header p{
+.publicaciones-card-header p{
   color:#5b6d82;
   font-size:18px;
   line-height:1.75;
+  margin:18px auto 0 auto;
   max-width:800px;
-  margin:20px auto 0 auto;
-  font-weight:500;
 }
 
-.evento-card-header-repositorio h3,
-.evento-card-header-repositorio p{
-  color:white;
-}
-
-.evento-card-header-repositorio h3::after{
-  background:linear-gradient(90deg, var(--verde-acmi), #ffffff);
-}
-
-.bloque-etiqueta{
-  display:inline-block;
-  padding:10px 18px;
-  border-radius:999px;
-  background:#eaf4ee;
-  color:var(--verde-acmi);
-  border:1px solid rgba(42,156,82,0.22);
-  font-size:13px;
-  font-weight:900;
-  text-transform:uppercase;
-  letter-spacing:0.08em;
-  margin-bottom:18px;
-  box-shadow:0 8px 18px rgba(42,156,82,0.10);
-}
-
-.bloque-etiqueta-azul{
-  background:rgba(255,255,255,0.16);
-  color:white;
-  border:1px solid rgba(255,255,255,0.30);
-  box-shadow:0 8px 18px rgba(20,63,125,0.10);
-  backdrop-filter:blur(8px);
-}
-
-.evento-card-contenido{
-  padding:22px 52px 52px 52px;
-}
-
-.evento-card-contenido-proximos{
+.publicaciones-layout{
   display:grid;
-  grid-template-columns:1.2fr 0.8fr;
-  gap:34px;
-  align-items:center;
-}
-
-.evento-card-contenido-repositorio{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:34px;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:28px;
+  padding:18px 38px 38px 38px;
   align-items:start;
 }
 
-.proximo-evento-info{
-  text-align:left;
+.publicacion-feature,
+.publicacion-box{
+  background:#ffffff;
+  border:1px solid rgba(20,63,125,0.08);
+  border-radius:26px;
+  box-shadow:0 14px 30px rgba(8,40,79,0.08);
+  padding:28px;
+  position:relative;
+  overflow:hidden;
 }
 
-.evento-label,
-.repositorio-home-badge{
+.publicacion-feature::before,
+.publicacion-box::before{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  right:-55px;
+  bottom:-70px;
+  background:rgba(42,156,82,0.07);
+}
+
+.publicacion-badge{
   display:inline-block;
-  padding:10px 16px;
+  padding:9px 16px;
   border-radius:999px;
-  font-weight:900;
+  font-family:'Montserrat', sans-serif;
   font-size:13px;
+  font-weight:800;
   text-transform:uppercase;
-  letter-spacing:0.07em;
-  margin-bottom:18px;
+  letter-spacing:0.06em;
+  margin-bottom:16px;
+  background:#eef4fb;
+  color:var(--azul-acmi);
+  border:1px solid #dbe7f5;
 }
 
-.evento-label-proximo{
+.publicacion-badge-verde{
   background:#eaf4ee;
   color:var(--verde-acmi);
   border:1px solid rgba(42,156,82,0.22);
 }
 
-.repositorio-home-badge{
-  background:rgba(255,255,255,0.16);
-  border:1px solid rgba(255,255,255,0.30);
-  color:white;
-  backdrop-filter:blur(8px);
-}
-
-.proximo-evento-info h3,
-.repositorio-home-texto h3{
-  font-family:'Montserrat', sans-serif;
-  font-size:clamp(30px, 3vw, 44px);
-  line-height:1.12;
-  font-weight:900;
-  letter-spacing:-0.05em;
-  margin-bottom:15px;
-}
-
-.proximo-evento-info h3{
-  color:var(--azul-acmi);
-}
-
-.repositorio-home-texto h3{
-  color:white;
-}
-
-.proximo-evento-info p{
-  color:#52667d;
-  font-size:18px;
-  line-height:1.75;
-  margin-bottom:24px;
-  font-weight:500;
-}
-
-.repositorio-home-texto p{
-  color:#edf5ff;
-  font-size:18px;
-  line-height:1.75;
-  max-width:700px;
-  margin-bottom:24px;
-  font-weight:500;
-}
-
-.eventos-badges{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  margin-bottom:26px;
-}
-
-.badge{
-  width:fit-content;
-  font-size:15px;
-  line-height:1.4;
-  color:inherit;
-  padding:8px 12px;
-  border-radius:999px;
-  background:rgba(20,63,125,0.06);
-  font-weight:700;
-}
-
-.evento-card-repositorio .badge{
-  background:rgba(255,255,255,0.14);
-  border:1px solid rgba(255,255,255,0.16);
-  color:white;
-  backdrop-filter:blur(8px);
-}
-
-.eventos-actions,
-.repositorio-home-actions{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-
-.repositorio-home-actions{
-  margin-bottom:28px;
-}
-
-.repositorio-home-actions .btn{
-  border-radius:14px;
-}
-
-.repositorio-home-actions .btn-light{
-  color:var(--azul-acmi);
-}
-
-.proximo-evento-decoracion{
-  min-height:340px;
-  border-radius:28px;
-  background:
-    linear-gradient(135deg, rgba(20,63,125,0.90), rgba(42,156,82,0.70)),
-    url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  overflow:hidden;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.18);
-}
-
-.proximo-evento-decoracion::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at center, rgba(255,255,255,0.14), transparent 60%);
-}
-
-.decoracion-circulo{
-  width:190px;
-  height:190px;
-  border-radius:50%;
-  background:rgba(255,255,255,0.16);
-  border:1px solid rgba(255,255,255,0.38);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-family:'Montserrat', sans-serif;
-  font-size:42px;
-  font-weight:900;
-  box-shadow:0 18px 36px rgba(0,0,0,0.20);
-  position:relative;
-  z-index:2;
-  backdrop-filter:blur(6px);
-  animation:pulseCircle 3.2s ease-in-out infinite;
-}
-
-@keyframes pulseCircle{
-  0%,100%{
-    transform:scale(1);
-  }
-
-  50%{
-    transform:scale(1.045);
-  }
-}
-
-/* ==============================
-   PANEL ÚNICO REPOSITORIO
-   ============================== */
-
-.repositorio-home-panel{
-  background:rgba(255,255,255,0.97);
-  color:var(--azul-acmi);
-  border-radius:34px;
-  padding:30px;
-  box-shadow:0 24px 58px rgba(0,0,0,0.24);
-  border:1px solid rgba(20,63,125,0.10);
-  position:relative;
-  overflow:hidden;
-}
-
-.repositorio-home-panel::after{
-  content:"";
-  position:absolute;
-  right:-78px;
-  bottom:-98px;
-  width:240px;
-  height:240px;
-  border-radius:50%;
-  background:rgba(42,156,82,0.11);
-  pointer-events:none;
-}
-
-.repositorio-home-afiche{
-  display:grid;
-  grid-template-columns:230px 1fr;
-  align-items:center;
-  gap:28px;
-  margin-bottom:30px;
-  position:relative;
-  z-index:2;
-}
-
-.repositorio-home-afiche a{
-  display:block;
-}
-
-.repositorio-home-afiche img{
-  width:230px;
-  height:305px;
-  object-fit:cover;
-  border-radius:24px;
-  box-shadow:0 16px 38px rgba(0,0,0,0.28);
-  border:1px solid rgba(20,63,125,0.12);
-  transition:var(--transicion);
+.publicacion-badge-azul{
   background:#eef4fb;
+  color:var(--azul-acmi);
+  border:1px solid #dbe7f5;
 }
 
-.repositorio-home-afiche img:hover{
-  transform:scale(1.035);
-}
-
-.repositorio-home-afiche-texto{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.repositorio-home-afiche-texto strong{
-  display:block;
+.publicacion-feature h4,
+.publicacion-box h4{
   font-family:'Montserrat', sans-serif;
   color:var(--azul-acmi);
-  font-size:34px;
-  line-height:1.1;
-  font-weight:900;
-  letter-spacing:-0.045em;
+  font-size:31px;
+  line-height:1.12;
+  font-weight:800;
+  letter-spacing:-0.02em;
+  margin-bottom:14px;
+  position:relative;
+  z-index:2;
 }
 
-.repositorio-home-afiche-texto small{
+.publicacion-feature p,
+.publicacion-box p{
   color:#52667d;
-  font-size:18px;
-  line-height:1.55;
-  font-weight:700;
+  font-size:17px;
+  line-height:1.75;
+  margin-bottom:18px;
+  position:relative;
+  z-index:2;
 }
 
-.repositorio-mini-grid{
+.publicacion-caption{
+  font-size:15px !important;
+  color:#5b6d82 !important;
+}
+
+.publicacion-video{
+  max-width:100%;
+  margin:22px 0 18px 0;
+}
+
+.publicaciones-side{
   display:grid;
-  grid-template-columns:repeat(2, 1fr);
+  grid-template-rows:auto auto;
+  gap:24px;
+}
+
+.publicacion-magazine{
+  min-height:100%;
+}
+
+.magazine-grid-mejorado{
+  display:grid;
+  grid-template-columns:1fr 1fr;
   gap:18px;
-  position:relative;
-  z-index:2;
+  margin-top:10px;
 }
 
-.repositorio-mini-card{
+.magazine-item{
   background:#f8fbff;
-  color:var(--azul-acmi);
-  border-radius:22px;
-  padding:22px;
-  min-height:160px;
-  box-shadow:0 10px 22px rgba(0,0,0,0.08);
-  transition:var(--transicion);
-  text-align:left;
-  border:1px solid rgba(20,63,125,0.08);
-  position:relative;
-  overflow:hidden;
+  border:1px solid rgba(20,63,125,0.07);
+  border-radius:20px;
+  padding:18px;
+  text-align:center;
 }
 
-.repositorio-mini-card::after{
-  content:"";
-  position:absolute;
-  inset:auto -35px -55px auto;
-  width:110px;
-  height:110px;
-  border-radius:50%;
-  background:rgba(42,156,82,0.09);
-  transition:var(--transicion);
-}
-
-.repositorio-mini-card:hover{
-  transform:translateY(-6px);
-  background:white;
-  box-shadow:0 16px 32px rgba(0,0,0,0.14);
-}
-
-.repositorio-mini-card:hover::after{
-  transform:scale(1.2);
-  background:rgba(20,63,125,0.08);
-}
-
-.repositorio-mini-card span{
-  display:block;
-  font-size:34px;
-  margin-bottom:10px;
-  position:relative;
-  z-index:2;
-}
-
-.repositorio-mini-card strong{
-  display:block;
+.magazine-item h5{
   font-family:'Montserrat', sans-serif;
+  font-size:18px;
   color:var(--azul-acmi);
-  font-size:19px;
-  margin-bottom:8px;
-  font-weight:900;
-  letter-spacing:-0.03em;
-  position:relative;
-  z-index:2;
+  margin-bottom:12px;
+  font-weight:800;
 }
 
-.repositorio-mini-card small{
-  color:#52667d;
-  font-size:14px;
-  line-height:1.55;
-  font-weight:600;
-  position:relative;
-  z-index:2;
+.magazine-thumb{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  border-radius:16px;
+  margin-bottom:12px;
 }
 
-/* ==============================
-   RESPONSIVE EVENTOS
-   ============================== */
-
-@media(max-width:980px){
-  .evento-card-contenido-proximos,
-  .evento-card-contenido-repositorio{
-    grid-template-columns:1fr;
-  }
-
-  .evento-card-contenido{
-    padding:22px 34px 42px 34px;
-  }
-
-  .proximo-evento-info,
-  .repositorio-home-texto{
-    text-align:center;
-  }
-
-  .eventos-actions,
-  .repositorio-home-actions{
-    justify-content:center;
-  }
-
-  .eventos-badges{
-    align-items:center;
-  }
-
-  .badge{
-    width:auto;
-  }
-
-  .repositorio-home-panel{
-    padding:26px;
-  }
-
-  .repositorio-home-afiche{
-    grid-template-columns:210px 1fr;
-  }
-
-  .repositorio-home-afiche img{
-    width:210px;
-    height:280px;
-  }
-
-  .repositorio-mini-grid{
-    grid-template-columns:repeat(2, 1fr);
-  }
-
-  .proximo-evento-decoracion{
-    min-height:280px;
-  }
-}
-
-@media(max-width:640px){
-  .evento-card-grande{
-    border-radius:26px;
-    margin-bottom:40px;
-  }
-
-  .evento-card-header{
-    padding:42px 24px 24px 24px;
-  }
-
-  .evento-card-contenido{
-    padding:18px 22px 34px 22px;
-  }
-
-  .eventos-subtitle{
-    font-size:17px;
-    margin-bottom:40px;
-  }
-
-  .repositorio-home-actions{
-    flex-direction:column;
-  }
-
-  .repositorio-home-actions .btn{
-    width:100%;
-    text-align:center;
-  }
-
-  .eventos-badges{
-    align-items:flex-start;
-  }
-
-  .badge{
-    width:100%;
-    text-align:left;
-  }
-
-  .repositorio-home-panel{
-    padding:22px;
-    border-radius:28px;
-  }
-
-  .repositorio-home-afiche{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-
-  .repositorio-home-afiche a{
-    margin:0 auto;
-  }
-
-  .repositorio-home-afiche img{
-    width:220px;
-    height:300px;
-  }
-
-  .repositorio-home-afiche-texto{
-    align-items:center;
-  }
-
-  .repositorio-home-afiche-texto strong{
-    font-size:26px;
-  }
-
-  .repositorio-home-afiche-texto small{
-    font-size:15px;
-  }
-
-  .repositorio-mini-grid{
-    grid-template-columns:1fr;
-  }
-
-  .proximo-evento-decoracion{
-    min-height:230px;
-  }
-
-  .decoracion-circulo{
-    width:150px;
-    height:150px;
-    font-size:34px;
-  }
+.magazine-thumb-placeholder{
+  width:100%;
+  height:170px;
+  border-radius:16px;
+  margin-bottom:12px;
+  background:#e8eef6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--azul-acmi);
+  font-weight:800;
+  font-family:'Montserrat', sans-serif;
 }
 
 /* ==============================
@@ -1774,188 +1756,170 @@
     </div>
   </section>
 
- <section class="section reveal" id="eventos">
-  <div class="container">
-    <h2 class="section-title eventos-title">Eventos</h2>
+  <section class="section reveal" id="eventos">
+    <div class="container">
+      <h2 class="section-title eventos-title">Eventos</h2>
 
-    <p class="section-subtitle eventos-subtitle">
-      Actividades académicas, congresos, simposios y repositorio institucional de eventos de ACMI Santander.
-    </p>
+      <p class="section-subtitle eventos-subtitle">
+        Actividades académicas, congresos, simposios y repositorio institucional de eventos de ACMI Santander.
+      </p>
 
-    <!-- ==============================
-         BLOQUE 1: PRÓXIMOS EVENTOS
-         ============================== -->
-
-    <div class="evento-card-grande evento-card-proximos reveal">
-      <div class="evento-card-header">
-        <span class="bloque-etiqueta">
-          Agenda académica 2026
-        </span>
-
-        <h3>Próximos eventos</h3>
-
-        <p>
-          Conozca las próximas actividades académicas organizadas por ACMI Santander.
-        </p>
-      </div>
-
-      <div class="evento-card-contenido evento-card-contenido-proximos">
-        <div class="proximo-evento-info">
-          <span class="evento-label evento-label-proximo">
-            Próximamente
+      <div class="evento-card-grande evento-card-proximos reveal">
+        <div class="evento-card-header">
+          <span class="bloque-etiqueta">
+            Agenda académica 2026
           </span>
 
-          <h3>Congreso ACMI Santander</h3>
+          <h3>Próximos eventos</h3>
 
           <p>
-            Congreso académico de medicina interna organizado por ACMI Santander,
-            programado para septiembre en Bucaramanga.
+            Conozca las próximas actividades académicas organizadas por ACMI Santander.
           </p>
-
-          <div class="eventos-badges">
-            <div class="badge">Septiembre 2026</div>
-            <div class="badge">Bucaramanga, Santander</div>
-            <div class="badge">Medicina interna</div>
-          </div>
-
-          <div class="eventos-actions">
-            <a class="btn btn-primary" href="#contacto">
-              Solicitar información
-            </a>
-          </div>
         </div>
 
-        <div class="proximo-evento-decoracion">
-          <div class="decoracion-circulo">
-            <span>ACMI</span>
-          </div>
-        </div>
-      </div>
-    </div>
+        <div class="evento-card-contenido evento-card-contenido-proximos">
+          <div class="proximo-evento-info">
+            <span class="evento-label evento-label-proximo">
+              Próximamente
+            </span>
 
-    <!-- ==============================
-         BLOQUE 2: REPOSITORIO DE EVENTOS
-         ============================== -->
+            <h3>Congreso ACMI Santander</h3>
 
-    <div class="evento-card-grande evento-card-repositorio reveal">
-      <div class="evento-card-header evento-card-header-repositorio">
-        <span class="bloque-etiqueta bloque-etiqueta-azul">
-          Archivo académico institucional
-        </span>
+            <p>
+              Congreso académico de medicina interna organizado por ACMI Santander,
+              programado para septiembre en Bucaramanga.
+            </p>
 
-        <h3>Repositorio de eventos</h3>
+            <div class="eventos-badges">
+              <div class="badge">Septiembre 2026</div>
+              <div class="badge">Bucaramanga, Santander</div>
+              <div class="badge">Medicina interna</div>
+            </div>
 
-        <p>
-          Consulte fotografías, videos, diapositivas, afiches, certificados y material académico de eventos finalizados.
-        </p>
-      </div>
-
-      <div class="evento-card-contenido evento-card-contenido-repositorio">
-
-        <!-- Columna izquierda -->
-        <div class="repositorio-home-texto">
-          <span class="repositorio-home-badge">
-            Evento finalizado
-          </span>
-
-          <h3>
-            VI Simposio Regional ACMI<br>
-            San Gil – Santander 2026
-          </h3>
-
-          <p>
-            Acceda al repositorio académico del VI Simposio Regional ACMI:
-            fotos, videos, diapositivas, certificados, afiches y programa académico.
-          </p>
-
-          <div class="eventos-badges">
-            <div class="badge">26 y 27 de junio de 2026</div>
-            <div class="badge">Hotel Mundo Guarigua</div>
-            <div class="badge">Homenaje al Dr. Franklin Quiroz</div>
-          </div>
-
-          <div class="repositorio-home-actions">
-            <a class="btn btn-primary"
-               href="{{ site.baseurl }}/repositorio-eventos/">
-              Abrir repositorio
-            </a>
-
-            <a class="btn btn-light"
-               href="{{ site.baseurl }}/repositorio-eventos/fotos-y-videos.html">
-              Fotos y videos
-            </a>
-
-            <a class="btn btn-light"
-               href="{{ site.baseurl }}/repositorio-eventos/diapositivas/">
-              Diapositivas
-            </a>
-
-            <a class="btn btn-light"
-               href="{{ site.baseurl }}/repositorio-eventos/certificados/">
-              Certificados
-            </a>
-
-            <a class="btn btn-light"
-               href="{{ site.baseurl }}/repositorio-eventos/#afiches">
-              Ver afiches
-            </a>
-          </div>
-        </div>
-
-        <!-- Columna derecha: panel único -->
-        <div class="repositorio-home-panel">
-
-          <div class="repositorio-home-afiche">
-            <a href="{{ site.baseurl }}/repositorio-eventos/#afiches">
-              <img src="{{ site.baseurl }}/1.png"
-                   alt="Afiche VI Simposio Regional ACMI San Gil Santander 2026">
-            </a>
-
-            <div class="repositorio-home-afiche-texto">
-              <strong>Afiche oficial</strong>
-              <small>VI Simposio Regional ACMI San Gil – Santander 2026</small>
+            <div class="eventos-actions">
+              <a class="btn btn-primary" href="#contacto">
+                Solicitar información
+              </a>
             </div>
           </div>
 
-          <div class="repositorio-mini-grid">
-
-            <a class="repositorio-mini-card"
-               href="{{ site.baseurl }}/repositorio-eventos/fotos-y-videos.html">
-              <span>📸</span>
-              <strong>Fotos y videos</strong>
-              <small>Galería fotográfica institucional y registro audiovisual del evento.</small>
-            </a>
-
-            <a class="repositorio-mini-card"
-               href="{{ site.baseurl }}/repositorio-eventos/diapositivas/">
-              <span>📊</span>
-              <strong>Diapositivas</strong>
-              <small>Presentaciones autorizadas por conferencistas.</small>
-            </a>
-
-            <a class="repositorio-mini-card"
-               href="{{ site.baseurl }}/repositorio-eventos/#afiches">
-              <span>🖼️</span>
-              <strong>Afiches</strong>
-              <small>Material gráfico oficial del VI Simposio Regional ACMI.</small>
-            </a>
-
-            <a class="repositorio-mini-card"
-               href="{{ site.baseurl }}/repositorio-eventos/certificados/">
-              <span>🎓</span>
-              <strong>Certificados</strong>
-              <small>Descarga individual de certificados de asistencia.</small>
-            </a>
-
+          <div class="proximo-evento-decoracion">
+            <div class="decoracion-circulo">
+              <span>ACMI</span>
+            </div>
           </div>
-
         </div>
+      </div>
 
+<div class="evento-card-grande evento-card-repositorio reveal">
+  <div class="evento-card-header evento-card-header-repositorio">
+    <span class="bloque-etiqueta bloque-etiqueta-azul">
+      Archivo académico institucional
+    </span>
+
+    <h3>Repositorio de eventos</h3>
+
+    <p>
+      Consulte fotografías, videos, diapositivas, afiches, certificados y material académico de eventos finalizados.
+    </p>
+  </div>
+
+  <div class="evento-card-contenido evento-card-contenido-repositorio">
+    <div class="repositorio-home-texto">
+      <span class="repositorio-home-badge">
+        Evento finalizado
+      </span>
+
+      <h3>
+        VI Simposio Regional ACMI<br>
+        San Gil – Santander 2026
+      </h3>
+
+      <p>
+        Acceda al repositorio académico del VI Simposio Regional ACMI:
+        fotos, videos, diapositivas, certificados, afiches y programa académico.
+      </p>
+
+      <div class="eventos-badges">
+        <div class="badge">26 y 27 de junio de 2026</div>
+        <div class="badge">Hotel Mundo Guarigua</div>
+        <div class="badge">Homenaje al Dr. Franklin Quiroz</div>
+      </div>
+
+      <div class="repositorio-home-actions">
+        <a class="btn btn-primary"
+           href="{{ site.baseurl }}/repositorio-eventos/">
+          Abrir repositorio
+        </a>
+
+        <a class="btn btn-light"
+           href="{{ site.baseurl }}/repositorio-eventos/fotos-y-videos.html">
+          Fotos y videos
+        </a>
+
+        <a class="btn btn-light"
+           href="{{ site.baseurl }}/repositorio-eventos/diapositivas/">
+          Diapositivas
+        </a>
+
+        <a class="btn btn-light"
+           href="{{ site.baseurl }}/repositorio-eventos/certificados/">
+          Certificados
+        </a>
+
+        <a class="btn btn-light"
+           href="{{ site.baseurl }}/repositorio-eventos/#afiches">
+          Ver afiches
+        </a>
       </div>
     </div>
 
+    <div class="repositorio-home-afiche">
+      <a href="{{ site.baseurl }}/repositorio-eventos/#afiches">
+        <img src="{{ site.baseurl }}/1.png"
+             alt="Afiche VI Simposio Regional ACMI San Gil Santander 2026">
+      </a>
+
+      <div class="repositorio-home-afiche-texto">
+        <strong>Afiche oficial</strong>
+        <small>VI Simposio Regional ACMI San Gil – Santander 2026</small>
+      </div>
+    </div>
+
+    <div class="repositorio-mini-grid">
+
+      <a class="repositorio-mini-card"
+         href="{{ site.baseurl }}/repositorio-eventos/fotos-y-videos.html">
+        <span>📸</span>
+        <strong>Fotos y videos</strong>
+        <small>Galería fotográfica institucional y registro audiovisual del evento.</small>
+      </a>
+
+      <a class="repositorio-mini-card"
+         href="{{ site.baseurl }}/repositorio-eventos/diapositivas/">
+        <span>📊</span>
+        <strong>Diapositivas</strong>
+        <small>Presentaciones autorizadas por conferencistas.</small>
+      </a>
+
+      <a class="repositorio-mini-card"
+         href="{{ site.baseurl }}/repositorio-eventos/#afiches">
+        <span>🖼️</span>
+        <strong>Afiches</strong>
+        <small>Material gráfico oficial del VI Simposio Regional ACMI.</small>
+      </a>
+
+      <a class="repositorio-mini-card"
+         href="{{ site.baseurl }}/repositorio-eventos/certificados/">
+        <span>🎓</span>
+        <strong>Certificados</strong>
+        <small>Descarga individual de certificados de asistencia.</small>
+      </a>
+
+    </div>
   </div>
-</section>
+</div>
+
 <section class="section reveal" id="ultimas-publicaciones">
   <div class="container">
 
