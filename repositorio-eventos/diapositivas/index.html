@@ -418,6 +418,52 @@
       display:block;
     }
 
+
+
+    .slide-placeholder{
+      min-height:300px;
+      background:
+        radial-gradient(circle at top left, rgba(42,156,82,0.10), transparent 32%),
+        linear-gradient(135deg, #eef4fb, #ffffff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:34px;
+      text-align:center;
+      border-top:1px solid rgba(20,63,125,0.08);
+      border-bottom:1px solid rgba(20,63,125,0.08);
+    }
+
+    .slide-placeholder-inner{
+      max-width:620px;
+    }
+
+    .slide-placeholder-icon{
+      width:86px;
+      height:86px;
+      border-radius:24px;
+      margin:0 auto 18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:white;
+      color:var(--azul-acmi);
+      font-size:44px;
+      box-shadow:0 10px 24px rgba(0,0,0,0.08);
+    }
+
+    .slide-placeholder h4{
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-acmi);
+      font-size:24px;
+      margin-bottom:10px;
+    }
+
+    .slide-placeholder p{
+      color:#5b6d82;
+      font-size:17px;
+    }
+
     .slide-actions{
       padding:20px 30px 28px;
       display:flex;
@@ -547,7 +593,53 @@
         height:520px;
       }
 
-      .slide-actions{
+  
+
+    .slide-placeholder{
+      min-height:300px;
+      background:
+        radial-gradient(circle at top left, rgba(42,156,82,0.10), transparent 32%),
+        linear-gradient(135deg, #eef4fb, #ffffff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:34px;
+      text-align:center;
+      border-top:1px solid rgba(20,63,125,0.08);
+      border-bottom:1px solid rgba(20,63,125,0.08);
+    }
+
+    .slide-placeholder-inner{
+      max-width:620px;
+    }
+
+    .slide-placeholder-icon{
+      width:86px;
+      height:86px;
+      border-radius:24px;
+      margin:0 auto 18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:white;
+      color:var(--azul-acmi);
+      font-size:44px;
+      box-shadow:0 10px 24px rgba(0,0,0,0.08);
+    }
+
+    .slide-placeholder h4{
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-acmi);
+      font-size:24px;
+      margin-bottom:10px;
+    }
+
+    .slide-placeholder p{
+      color:#5b6d82;
+      font-size:17px;
+    }
+
+    .slide-actions{
         padding:18px 20px 24px;
         justify-content:center;
       }
@@ -643,9 +735,9 @@
 
         <div class="notice">
           <p>
-            <strong>Importante:</strong> si alguna presentación no carga dentro de la página,
-            verifica en Google Drive que el archivo esté compartido como
-            <strong>“Cualquier persona con el enlace puede ver”</strong>.
+            <strong>Importante:</strong> para evitar bloqueos por cookies de Google Drive en celulares,
+            las presentaciones no se incrustan dentro de la página. Use los botones
+            <strong>“Abrir presentación”</strong> o <strong>“Descargar PDF”</strong>.
           </p>
         </div>
 
@@ -756,8 +848,8 @@
     const slidesGrid = document.getElementById("slidesGrid");
 
     presentaciones.forEach((presentacion) => {
-      const previewUrl = `https://drive.google.com/file/d/${presentacion.id}/preview`;
-      const viewUrl = `https://drive.google.com/file/d/${presentacion.id}/view`;
+      const viewUrl = `https://drive.google.com/file/d/${presentacion.id}/view?usp=drive_link`;
+      const downloadUrl = `https://drive.google.com/uc?export=download&id=${presentacion.id}`;
 
       const card = document.createElement("article");
       card.className = "slide-card";
@@ -768,19 +860,28 @@
             <h3>${presentacion.titulo}</h3>
             <p>${presentacion.descripcion}</p>
           </div>
-          <span class="slide-badge">Google Drive</span>
+          <span class="slide-badge">PDF</span>
         </div>
 
-        <iframe
-          class="slide-viewer"
-          src="${previewUrl}"
-          title="${presentacion.titulo}"
-          allow="autoplay"
-          loading="lazy">
-        </iframe>
+        <div class="slide-placeholder">
+          <div class="slide-placeholder-inner">
+            <div class="slide-placeholder-icon">📄</div>
+            <h4>${presentacion.titulo}</h4>
+            <p>
+              Para evitar bloqueos por cookies de Google Drive en celulares,
+              abre o descarga la presentación usando los botones inferiores.
+            </p>
+          </div>
+        </div>
 
         <div class="slide-actions">
-          <a href="${viewUrl}" target="_blank" rel="noopener">Abrir presentación</a>
+          <a href="${viewUrl}" target="_blank" rel="noopener">
+            Abrir presentación
+          </a>
+
+          <a class="secondary" href="${downloadUrl}" target="_blank" rel="noopener">
+            Descargar PDF
+          </a>
         </div>
       `;
 
