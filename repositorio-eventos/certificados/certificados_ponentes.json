@@ -20,13 +20,22 @@ CARPETA_PDFS = os.path.join(
     "PONENTES"
 )
 
-# ESTA ES LA CARPETA DEL REPOSITORIO DE TU PÁGINA
-# AJUSTA ESTA RUTA SI TU REPOSITORIO ESTÁ EN OTRO LUGAR
+# ESTA DEBE SER LA CARPETA LOCAL DEL REPOSITORIO DE TU PÁGINA
+# Aquí deben estar:
+# index.html
+# certificados.json
+# certificados_ponentes.json
+# los PDF
 CARPETA_REPOSITORIO_CERTIFICADOS = os.path.join(
     CARPETA_BASE,
     "repositorio-eventos",
     "certificados"
 )
+
+
+# ============================================================
+# VALIDACIONES DE CARPETAS
+# ============================================================
 
 if not os.path.exists(CARPETA_BASE):
     raise FileNotFoundError(f"No existe la carpeta base: {CARPETA_BASE}")
@@ -45,8 +54,8 @@ if not os.path.exists(CARPETA_PDFS):
 
 if not os.path.exists(CARPETA_REPOSITORIO_CERTIFICADOS):
     raise FileNotFoundError(
-        "No existe la carpeta del repositorio donde debe ir el JSON. "
-        "Verifica esta ruta: "
+        "No existe la carpeta del repositorio donde debe ir el JSON.\n"
+        "Verifica esta ruta:\n"
         f"{CARPETA_REPOSITORIO_CERTIFICADOS}"
     )
 
@@ -86,6 +95,13 @@ def normalizar_celular(valor):
     if pd.isna(valor):
         return ""
 
+    # Evita casos en los que Excel/Pandas deje el celular como 3173007407.0
+    try:
+        if isinstance(valor, float):
+            valor = int(valor)
+    except Exception:
+        pass
+
     texto = str(valor).strip()
 
     if texto.endswith(".0"):
@@ -93,6 +109,7 @@ def normalizar_celular(valor):
 
     texto = re.sub(r"\D", "", texto)
 
+    # Si viene con prefijo Colombia 57, deja los últimos 10 dígitos
     if texto.startswith("57") and len(texto) > 10:
         texto = texto[-10:]
 
@@ -103,8 +120,8 @@ def hash_texto(texto):
     """
     IMPORTANTE:
     Este hash usa .lower().
-    El index.html también debe usar trim().toLowerCase()
-    antes de calcular SHA-256.
+    Por eso el index.html debe calcular el SHA-256 con:
+    String(texto).trim().toLowerCase()
     """
     texto = str(texto).strip().lower()
     return hashlib.sha256(texto.encode("utf-8")).hexdigest()
@@ -125,11 +142,13 @@ def buscar_columna(df, opciones):
 
     for opcion in opciones:
         opcion_norm = quitar_tildes(opcion.strip().lower())
+
         if opcion_norm in columnas:
             return columnas[opcion_norm]
 
     for opcion in opciones:
         opcion_norm = quitar_tildes(opcion.strip().lower())
+
         for col_norm, col_real in columnas.items():
             if opcion_norm in col_norm:
                 return col_real
@@ -187,8 +206,8 @@ col_nombre = buscar_columna(
 col_email = buscar_columna(
     df,
     [
-        "Email",
         "Correo",
+        "Email",
         "Correo electrónico",
         "E-mail"
     ]
@@ -230,7 +249,7 @@ print("Celular:", col_celular)
 # ============================================================
 
 registros = []
-no_encontrados = []
+pdf_no_encontrados = []
 
 for _, fila in df.iterrows():
 
@@ -241,9 +260,15 @@ for _, fila in df.iterrows():
 
     archivo_pdf = buscar_pdf_por_nombre(nombre_completo)
 
+    # MUY IMPORTANTE:
+    # Antes aquí había un continue.
+    # Eso hacía que si el PDF no coincidía exactamente,
+    # el ponente no entrara al JSON y la página no lo encontrara.
+    #
+    # Ahora lo dejamos dentro del JSON de todas formas.
     if archivo_pdf is None:
-        no_encontrados.append(nombre_completo)
-        continue
+        archivo_pdf = limpiar_nombre_archivo(nombre_completo) + ".pdf"
+        pdf_no_encontrados.append(nombre_completo)
 
     email = normalizar_email(fila[col_email]) if col_email is not None else ""
 
@@ -251,34 +276,42 @@ for _, fila in df.iterrows():
 
     if col_phone is not None:
         phone = normalizar_celular(fila[col_phone])
+
         if phone:
             celulares.append(phone)
 
     if col_celular is not None:
         celular = normalizar_celular(fila[col_celular])
+
         if celular:
             celulares.append(celular)
 
     celulares = sorted(list(set(celulares)))
 
+    nombres_hash = sorted(list(set([
+        hash_texto(nombre_completo),
+        hash_texto(nombre_completo.title()),
+        hash_texto(quitar_tildes(nombre_completo))
+    ])))
+
+    emails_hash = []
+
+    if email:
+        emails_hash.append(hash_texto(email))
+
+    celulares_hash = []
+
+    for celular in celulares:
+        celulares_hash.append(hash_texto(celular))
+
     registro = {
         "tipo_certificado": "Ponente",
         "nombre": nombre_completo.title(),
         "archivo": archivo_pdf,
-        "nombres_hash": [
-            hash_texto(nombre_completo),
-            hash_texto(nombre_completo.title()),
-            hash_texto(quitar_tildes(nombre_completo))
-        ],
-        "emails_hash": [],
-        "celulares_hash": []
+        "nombres_hash": nombres_hash,
+        "emails_hash": sorted(list(set(emails_hash))),
+        "celulares_hash": sorted(list(set(celulares_hash)))
     }
-
-    if email:
-        registro["emails_hash"].append(hash_texto(email))
-
-    for celular in celulares:
-        registro["celulares_hash"].append(hash_texto(celular))
 
     registros.append(registro)
 
@@ -287,7 +320,10 @@ for _, fila in df.iterrows():
 # GUARDAR JSON EN DOS LUGARES
 # ============================================================
 
-ruta_json_generado = os.path.join(CARPETA_PDFS, "certificados_ponentes.json")
+ruta_json_generado = os.path.join(
+    CARPETA_PDFS,
+    "certificados_ponentes.json"
+)
 
 ruta_json_repositorio = os.path.join(
     CARPETA_REPOSITORIO_CERTIFICADOS,
@@ -301,15 +337,26 @@ with open(ruta_json_repositorio, "w", encoding="utf-8") as f:
     json.dump(registros, f, ensure_ascii=False, indent=2)
 
 
+# ============================================================
+# REPORTE FINAL
+# ============================================================
+
 print("\n==============================================")
 print("PROCESO TERMINADO")
 print(f"Certificados de ponentes incluidos en JSON: {len(registros)}")
-print(f"JSON generado en carpeta de PDFs: {ruta_json_generado}")
-print(f"JSON copiado al repositorio: {ruta_json_repositorio}")
+print(f"JSON generado en carpeta de PDFs:")
+print(ruta_json_generado)
+print(f"JSON copiado al repositorio:")
+print(ruta_json_repositorio)
 print("==============================================")
 
 
-if no_encontrados:
-    print("\nNo encontré PDF para estos nombres:")
-    for nombre in no_encontrados:
+if pdf_no_encontrados:
+    print("\nNo encontré PDF exacto para estos nombres, pero SÍ quedaron en el JSON:")
+    for nombre in pdf_no_encontrados:
         print("-", nombre)
+
+
+print("\nPrimeros registros generados:")
+for item in registros[:5]:
+    print("-", item["nombre"], "|", item["archivo"])
