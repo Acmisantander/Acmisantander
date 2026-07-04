@@ -1,759 +1,276 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>
+  let certificados = [];
 
-  <title>Descargar certificado | ACMI Santander</title>
+  function quitarTildes(texto){
+    return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  function normalizarNombre(valor){
+    return quitarTildes(valor)
+      .trim()
+      .replace(/\s+/g, " ")
+      .toUpperCase();
+  }
 
-  <style>
-    :root{
-      --azul-acmi:#143f7d;
-      --azul-acmi-2:#0f3569;
-      --verde-acmi:#2a9c52;
-      --dorado:#c89b3c;
-      --gris-fondo:#f5f7fb;
-      --texto:#243244;
-      --blanco:#ffffff;
-      --sombra:0 14px 34px rgba(0,0,0,0.10);
-      --sombra-fuerte:0 24px 60px rgba(15,53,105,0.22);
+  function normalizarEmail(valor){
+    return valor
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, "");
+  }
+
+  function normalizarCelular(valor){
+    let texto = valor.replace(/\D/g, "");
+
+    if(texto.startsWith("57") && texto.length > 10){
+      texto = texto.slice(-10);
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    return texto;
+  }
+
+  async function sha256(texto){
+    const encoder = new TextEncoder();
+    const data = encoder.encode(texto.trim().toLowerCase());
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+    return hashArray
+      .map(b => b.toString(16).padStart(2, "0"))
+      .join("");
+  }
+
+  async function cargarJson(ruta, tipoCertificado){
+    const respuesta = await fetch(ruta + "?v=" + Date.now());
+
+    if(!respuesta.ok){
+      throw new Error("No se encontró " + ruta);
     }
 
-    html{
-      scroll-behavior:smooth;
+    const datos = await respuesta.json();
+
+    if(!Array.isArray(datos)){
+      throw new Error("El archivo " + ruta + " no tiene formato válido.");
     }
 
-    body{
-      font-family:'Lato', sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(42,156,82,0.08), transparent 32%),
-        radial-gradient(circle at top right, rgba(20,63,125,0.12), transparent 34%),
-        var(--gris-fondo);
-      color:var(--texto);
-      line-height:1.6;
-    }
+    return datos.map(item => ({
+      ...item,
+      tipo_certificado: tipoCertificado
+    }));
+  }
 
-    a{
-      text-decoration:none;
-    }
+  async function cargarCertificados(){
+    certificados = [];
 
-    img{
-      max-width:100%;
-      display:block;
-    }
-
-    .topbar{
-      background:var(--azul-acmi-2);
-      color:#dfe8f5;
-      padding:10px 40px;
-      font-size:14px;
-    }
-
-    .topbar-content{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .topbar a{
-      color:#dfe8f5;
-      font-weight:700;
-      margin-right:18px;
-    }
-
-    .topbar a:hover{
-      color:white;
-    }
-
-    header{
-      background:rgba(255,255,255,0.96);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid #e3eaf3;
-      box-shadow:0 4px 18px rgba(0,0,0,0.06);
-      position:sticky;
-      top:0;
-      z-index:999;
-    }
-
-    .main-header{
-      min-height:94px;
-      padding:14px 40px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:24px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:16px;
-    }
-
-    .brand-logo{
-      width:72px;
-      height:72px;
-      border-radius:50%;
-      background:#fff;
-      border:1px solid #d7e2ef;
-      padding:5px;
-      object-fit:contain;
-      box-shadow:0 4px 10px rgba(0,0,0,0.08);
-    }
-
-    .brand h1{
-      font-family:'Montserrat', sans-serif;
-      color:var(--azul-acmi);
-      font-size:28px;
-      line-height:1.1;
-    }
-
-    .brand p{
-      color:#50627a;
-      font-size:14px;
-    }
-
-    nav ul{
-      display:flex;
-      list-style:none;
-      align-items:center;
-      gap:22px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    nav a{
-      font-family:'Montserrat', sans-serif;
-      font-weight:700;
-      font-size:15px;
-      color:var(--azul-acmi);
-      transition:0.2s ease;
-    }
-
-    nav a:hover{
-      color:var(--verde-acmi);
-    }
-
-    .hero{
-      position:relative;
-      min-height:44vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:white;
-      overflow:hidden;
-      background:
-        linear-gradient(135deg, rgba(15,53,105,0.94), rgba(20,63,125,0.84)),
-        url("/chicamocha.jpg") center/cover no-repeat;
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 25% 20%, rgba(255,255,255,0.18), transparent 28%),
-        linear-gradient(90deg, rgba(42,156,82,0.22), transparent 45%);
-      pointer-events:none;
-    }
-
-    .hero-content{
-      position:relative;
-      z-index:2;
-      width:min(980px, 92%);
-      padding:76px 0;
-    }
-
-    .hero-badge{
-      display:inline-block;
-      padding:10px 18px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.14);
-      border:1px solid rgba(255,255,255,0.32);
-      font-family:'Montserrat', sans-serif;
-      font-weight:800;
-      font-size:14px;
-      letter-spacing:0.04em;
-      margin-bottom:22px;
-      text-transform:uppercase;
-    }
-
-    .hero h2{
-      font-family:'Montserrat', sans-serif;
-      font-size:54px;
-      line-height:1.08;
-      font-weight:800;
-      margin-bottom:18px;
-    }
-
-    .hero p{
-      font-size:21px;
-      max-width:850px;
-      margin:0 auto;
-      color:#edf5ff;
-    }
-
-    .section{
-      padding:80px 40px;
-    }
-
-    .container{
-      width:100%;
-      max-width:920px;
-      margin:0 auto;
-    }
-
-    .cert-card{
-      position:relative;
-      background:white;
-      border-radius:32px;
-      box-shadow:var(--sombra);
-      border:1px solid rgba(20,63,125,0.10);
-      padding:46px;
-      overflow:hidden;
-    }
-
-    .cert-card::before{
-      content:"";
-      position:absolute;
-      inset:0 0 auto 0;
-      height:7px;
-      background:linear-gradient(90deg, var(--azul-acmi), var(--verde-acmi), var(--dorado));
-    }
-
-    .cert-icon{
-      width:82px;
-      height:82px;
-      border-radius:24px;
-      background:linear-gradient(135deg, #eef4fb, #eaf4ee);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:42px;
-      margin:0 auto 22px;
-      color:var(--azul-acmi);
-    }
-
-    .cert-card h3{
-      font-family:'Montserrat', sans-serif;
-      color:var(--azul-acmi);
-      font-size:34px;
-      font-weight:800;
-      text-align:center;
-      margin-bottom:12px;
-    }
-
-    .cert-card > p{
-      text-align:center;
-      color:#5b6d82;
-      font-size:18px;
-      max-width:740px;
-      margin:0 auto 34px;
-    }
-
-    .form-group{
-      margin-bottom:20px;
-    }
-
-    label{
-      display:block;
-      font-family:'Montserrat', sans-serif;
-      font-weight:800;
-      color:var(--azul-acmi);
-      margin-bottom:8px;
-      font-size:15px;
-    }
-
-    input{
-      width:100%;
-      padding:17px 18px;
-      border-radius:15px;
-      border:1px solid #cfdbea;
-      background:#fbfdff;
-      font-size:18px;
-      font-family:'Lato', sans-serif;
-      color:var(--texto);
-      outline:none;
-      transition:0.2s ease;
-    }
-
-    input:focus{
-      border-color:var(--azul-acmi);
-      box-shadow:0 0 0 4px rgba(20,63,125,0.10);
-      background:white;
-    }
-
-    .btn{
-      width:100%;
-      border:0;
-      cursor:pointer;
-      display:inline-block;
-      padding:16px 22px;
-      border-radius:15px;
-      font-family:'Montserrat', sans-serif;
-      font-weight:800;
-      font-size:16px;
-      background:var(--verde-acmi);
-      color:white;
-      transition:0.22s ease;
-      box-shadow:0 10px 22px rgba(42,156,82,0.24);
-    }
-
-    .btn:hover{
-      background:#248546;
-      transform:translateY(-2px);
-    }
-
-    .resultado{
-      margin-top:26px;
-      padding:22px;
-      border-radius:20px;
-      display:none;
-      text-align:center;
-      font-size:17px;
-    }
-
-    .resultado.ok{
-      display:block;
-      background:#eaf6ef;
-      color:#195d35;
-      border:1px solid #bfe5ce;
-    }
-
-    .resultado.error{
-      display:block;
-      background:#fff0f0;
-      color:#8a1f1f;
-      border:1px solid #f1c0c0;
-    }
-
-    .resultado a{
-      display:inline-block;
-      margin-top:14px;
-      background:var(--azul-acmi);
-      color:white;
-      padding:12px 18px;
-      border-radius:12px;
-      font-family:'Montserrat', sans-serif;
-      font-weight:800;
-      transition:0.2s ease;
-    }
-
-    .resultado a:hover{
-      background:var(--verde-acmi);
-    }
-
-    .nota{
-      margin-top:26px;
-      font-size:14px;
-      color:#6c7d90;
-      text-align:center;
-    }
-
-    .nota strong{
-      color:var(--azul-acmi);
-    }
-
-    footer{
-      background:var(--azul-acmi-2);
-      color:white;
-      text-align:center;
-      padding:28px 18px;
-      margin-top:60px;
-    }
-
-    footer p{
-      margin:4px 0;
-    }
-
-    @media(max-width:820px){
-      .main-header{
-        flex-direction:column;
-        text-align:center;
+    const bases = [
+      {
+        ruta: "/repositorio-eventos/certificados/certificados.json",
+        tipo: "Asistente"
+      },
+      {
+        ruta: "/repositorio-eventos/certificados/certificados_ponentes.json",
+        tipo: "Ponente"
       }
+    ];
 
-      nav ul{
-        justify-content:center;
+    const resultados = await Promise.allSettled(
+      bases.map(base => cargarJson(base.ruta, base.tipo))
+    );
+
+    resultados.forEach(resultado => {
+      if(resultado.status === "fulfilled"){
+        certificados = certificados.concat(resultado.value);
       }
-
-      .hero h2{
-        font-size:40px;
-      }
-
-      .section{
-        padding:60px 22px;
-      }
-
-      .cert-card{
-        padding:38px 24px;
-      }
-
-      .cert-card h3{
-        font-size:28px;
-      }
-    }
-
-    @media(max-width:520px){
-      .topbar{
-        padding:10px 20px;
-      }
-
-      .brand{
-        flex-direction:column;
-      }
-
-      .hero h2{
-        font-size:34px;
-      }
-
-      .hero p{
-        font-size:18px;
-      }
-
-      input{
-        font-size:16px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="topbar">
-    <div class="topbar-content">
-      <div>
-        <a href="https://acmi.org.co/" target="_blank" rel="noopener">ACMI Nacional</a>
-        <a href="https://acmi.org.co/afiliese/" target="_blank" rel="noopener">Afiliaciones</a>
-      </div>
-
-      <div>
-        <a href="/repositorio-eventos/">Repositorio de eventos</a>
-        <a href="/#contacto">Contacto</a>
-      </div>
-    </div>
-  </div>
-
-  <header>
-    <div class="main-header">
-
-      <div class="brand">
-        <img class="brand-logo" src="/LOGO%20ACMI.png" alt="Logo ACMI Santander">
-
-        <div>
-          <h1>ACMI Santander</h1>
-          <p>Asociación Colombiana de Medicina Interna • Capítulo Santander</p>
-        </div>
-      </div>
-
-      <nav>
-        <ul>
-          <li><a href="/#inicio">Inicio</a></li>
-          <li><a href="/repositorio-eventos/">Eventos</a></li>
-          <li><a href="/repositorio-eventos/fotos-y-videos.html">Fotos y videos</a></li>
-          <li><a href="/repositorio-eventos/diapositivas/">Diapositivas</a></li>
-          <li><a href="/repositorio-eventos/certificados/">Certificados</a></li>
-          <li><a href="/#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">Validación individual</div>
-
-      <h2>Descarga de certificados</h2>
-
-      <p>
-        Ingrese su nombre completo, correo electrónico o número celular registrado durante el VI Simposio Regional ACMI San Gil – Santander 2026.
-      </p>
-    </div>
-  </section>
-
-  <main class="section">
-    <div class="container">
-
-      <div class="cert-card">
-        <div class="cert-icon">🎓</div>
-
-        <h3>Certificados de asistencia y ponentes</h3>
-
-        <p>
-          Escriba su nombre completo, correo electrónico o celular para consultar su certificado de asistencia o de ponente. Luego haga clic en descargar.
-        </p>
-
-        <form id="certForm">
-          <div class="form-group">
-            <label for="identificador">Nombre completo, correo electrónico o celular registrado</label>
-
-            <input
-              type="text"
-              id="identificador"
-              placeholder="Ejemplo: SERGIO ANDRÉS GÓMEZ, nombre@correo.com o 3001234567"
-              autocomplete="off"
-              required>
-          </div>
-
-          <button class="btn" type="submit">
-            Buscar certificado
-          </button>
-        </form>
-
-        <div id="resultado" class="resultado"></div>
-
-        <div class="nota">
-          <strong>Nota:</strong> si el sistema no encuentra su certificado, escriba su nombre completo o use el mismo correo/celular del registro.
-        </div>
-      </div>
-
-    </div>
-  </main>
-
-  <footer>
-    <p>© 2026 ACMI Santander</p>
-    <p>Educación continua que transforma la práctica clínica</p>
-  </footer>
-
-  <script>
-    let certificados = [];
-
-    function quitarTildes(texto){
-      return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    }
-
-    function normalizarNombre(valor){
-      return quitarTildes(valor)
-        .trim()
-        .replace(/\s+/g, " ")
-        .toUpperCase();
-    }
-
-    function normalizarEmail(valor){
-      return valor
-        .trim()
-        .toLowerCase()
-        .replace(/\s+/g, "");
-    }
-
-    function normalizarCelular(valor){
-      let texto = valor.replace(/\D/g, "");
-
-      if(texto.startsWith("57") && texto.length > 10){
-        texto = texto.slice(-10);
-      }
-
-      return texto;
-    }
-
-    async function sha256(texto){
-      const encoder = new TextEncoder();
-      const data = encoder.encode(texto.trim().toLowerCase());
-      const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-      const hashArray = Array.from(new Uint8Array(hashBuffer));
-
-      return hashArray
-        .map(b => b.toString(16).padStart(2, "0"))
-        .join("");
-    }
-
-    async function cargarJson(ruta, tipo){
-      const respuesta = await fetch(ruta + "?v=" + Date.now());
-
-      if(!respuesta.ok){
-        throw new Error("No se encontró " + ruta);
-      }
-
-      const datos = await respuesta.json();
-
-      if(!Array.isArray(datos)){
-        throw new Error("El archivo " + ruta + " no tiene formato JSON válido de lista.");
-      }
-
-      return datos.map(item => ({
-        ...item,
-        tipo_certificado: tipo
-      }));
-    }
-
-    async function cargarCertificados(){
-      certificados = [];
-
-      const archivosJson = [
-        {
-          ruta: "/repositorio-eventos/certificados/certificados.json",
-          tipo: "Asistencia"
-        },
-        {
-          ruta: "/repositorio-eventos/certificados/certificados_ponentes.json",
-          tipo: "Ponente"
-        }
-      ];
-
-      const resultados = await Promise.allSettled(
-        archivosJson.map(item => cargarJson(item.ruta, item.tipo))
-      );
-
-      resultados.forEach(resultado => {
-        if(resultado.status === "fulfilled"){
-          certificados = certificados.concat(resultado.value);
-        }
-      });
-
-      if(certificados.length === 0){
-        mostrarError(
-          "No se pudo cargar la base de certificados. Verifique que existan los archivos certificados.json y certificados_ponentes.json dentro de /repositorio-eventos/certificados/"
-        );
-      }
-    }
-
-    function mostrarError(mensaje){
-      const resultado = document.getElementById("resultado");
-      resultado.className = "resultado error";
-      resultado.innerHTML = mensaje;
-    }
-
-    function mostrarOk(nombre, archivo, tipo){
-      const resultado = document.getElementById("resultado");
-      const rutaArchivo = normalizarRutaArchivo(archivo);
-
-      resultado.className = "resultado ok";
-      resultado.innerHTML = `
-        <strong>Certificado encontrado</strong><br>
-        <strong>Tipo:</strong> ${tipo || "Certificado"}<br>
-        ${nombre}<br>
-        <a href="${rutaArchivo}" download>
-          Descargar certificado
-        </a>
-      `;
-    }
-
-    function normalizarRutaArchivo(archivo){
-      if(!archivo){
-        return "#";
-      }
-
-      archivo = String(archivo).trim();
-
-      if(archivo.startsWith("http")){
-        return archivo;
-      }
-
-      if(archivo.startsWith("/")){
-        return archivo;
-      }
-
-      if(archivo.startsWith("repositorio-eventos/certificados/")){
-        return "/" + archivo;
-      }
-
-      if(archivo.startsWith("certificados/")){
-        return "/repositorio-eventos/certificados/" + archivo.replace("certificados/", "");
-      }
-
-      return "/repositorio-eventos/certificados/" + archivo;
-    }
-
-    document.getElementById("certForm").addEventListener("submit", async function(event){
-      event.preventDefault();
-
-      const valorOriginal = document.getElementById("identificador").value.trim();
-
-      if(!valorOriginal){
-        mostrarError("Ingrese su nombre completo, correo electrónico o celular.");
-        return;
-      }
-
-      if(certificados.length === 0){
-        mostrarError("La base de certificados todavía no está cargada. Recargue la página e intente nuevamente.");
-        return;
-      }
-
-      const esCorreo = valorOriginal.includes("@");
-      const soloNumeros = valorOriginal.replace(/\D/g, "");
-      const esCelular = soloNumeros.length >= 7 && !esCorreo;
-
-      let hashEntrada;
-
-      if(esCorreo){
-        hashEntrada = await sha256(normalizarEmail(valorOriginal));
-      }else if(esCelular){
-        hashEntrada = await sha256(normalizarCelular(valorOriginal));
-      }else{
-        hashEntrada = await sha256(normalizarNombre(valorOriginal));
-      }
-
-      const encontrados = certificados.filter(item => {
-        const nombres = item.nombres_hash || [];
-        const emails = item.emails_hash || [];
-        const celulares = item.celulares_hash || [];
-
-        return (
-          nombres.includes(hashEntrada) ||
-          emails.includes(hashEntrada) ||
-          celulares.includes(hashEntrada)
-        );
-      });
-
-      if(encontrados.length === 0){
-        mostrarError("No encontramos un certificado asociado a ese nombre, correo o celular.");
-        return;
-      }
-
-      if(encontrados.length === 1){
-        const certificado = encontrados[0];
-
-        mostrarOk(
-          certificado.nombre,
-          certificado.archivo,
-          certificado.tipo_certificado
-        );
-
-        return;
-      }
-
-      mostrarMultiples(encontrados);
     });
 
-    function mostrarMultiples(lista){
-      const resultado = document.getElementById("resultado");
-      resultado.className = "resultado ok";
+    if(certificados.length === 0){
+      mostrarError(
+        "No se pudo cargar la base de certificados. Verifique que estén publicados certificados.json y certificados_ponentes.json en /repositorio-eventos/certificados/"
+      );
+    }
+  }
 
-      let html = `
-        <strong>Encontramos varios certificados asociados a sus datos</strong><br>
+  function mostrarError(mensaje){
+    const resultado = document.getElementById("resultado");
+    resultado.className = "resultado error";
+    resultado.innerHTML = mensaje;
+  }
+
+  function etiquetaTipo(tipo){
+    if(tipo === "Ponente"){
+      return `
+        <span style="
+          display:inline-block;
+          margin-bottom:10px;
+          padding:6px 12px;
+          border-radius:999px;
+          background:#fff5df;
+          color:#8a5a00;
+          border:1px solid #e4be6b;
+          font-family:Montserrat, sans-serif;
+          font-weight:800;
+          font-size:13px;
+        ">
+          Certificado de ponente
+        </span>
       `;
-
-      lista.forEach(item => {
-        const rutaArchivo = normalizarRutaArchivo(item.archivo);
-
-        html += `
-          <div style="margin-top:18px;">
-            <strong>Tipo:</strong> ${item.tipo_certificado || "Certificado"}<br>
-            ${item.nombre}<br>
-            <a href="${rutaArchivo}" download>
-              Descargar certificado
-            </a>
-          </div>
-        `;
-      });
-
-      resultado.innerHTML = html;
     }
 
-    cargarCertificados();
-  </script>
+    return `
+      <span style="
+        display:inline-block;
+        margin-bottom:10px;
+        padding:6px 12px;
+        border-radius:999px;
+        background:#eaf6ef;
+        color:#195d35;
+        border:1px solid #bfe5ce;
+        font-family:Montserrat, sans-serif;
+        font-weight:800;
+        font-size:13px;
+      ">
+        Certificado de asistente
+      </span>
+    `;
+  }
 
-</body>
-</html>
+  function mostrarOk(nombre, archivo, tipo){
+    const resultado = document.getElementById("resultado");
+    const rutaArchivo = normalizarRutaArchivo(archivo);
+
+    resultado.className = "resultado ok";
+    resultado.innerHTML = `
+      <strong>Certificado encontrado</strong><br><br>
+      ${etiquetaTipo(tipo)}
+      <br>
+      ${nombre}
+      <br>
+      <a href="${rutaArchivo}" download>
+        Descargar certificado
+      </a>
+    `;
+  }
+
+  function mostrarMultiples(lista){
+    const resultado = document.getElementById("resultado");
+    resultado.className = "resultado ok";
+
+    let html = `
+      <strong>Encontramos varios certificados asociados a sus datos</strong><br>
+      <span style="display:block; margin-top:6px;">
+        Puede descargar cada certificado según corresponda.
+      </span>
+    `;
+
+    lista.forEach(item => {
+      const rutaArchivo = normalizarRutaArchivo(item.archivo);
+
+      html += `
+        <div style="
+          margin-top:20px;
+          padding-top:18px;
+          border-top:1px solid rgba(20,63,125,0.15);
+        ">
+          ${etiquetaTipo(item.tipo_certificado)}
+          <br>
+          ${item.nombre}
+          <br>
+          <a href="${rutaArchivo}" download>
+            Descargar certificado
+          </a>
+        </div>
+      `;
+    });
+
+    resultado.innerHTML = html;
+  }
+
+  function normalizarRutaArchivo(archivo){
+    if(!archivo){
+      return "#";
+    }
+
+    archivo = String(archivo).trim();
+
+    if(archivo.startsWith("http")){
+      return archivo;
+    }
+
+    if(archivo.startsWith("/")){
+      return archivo;
+    }
+
+    if(archivo.startsWith("repositorio-eventos/certificados/")){
+      return "/" + archivo;
+    }
+
+    if(archivo.startsWith("certificados/")){
+      return "/repositorio-eventos/certificados/" + archivo.replace("certificados/", "");
+    }
+
+    return "/repositorio-eventos/certificados/" + archivo;
+  }
+
+  document.getElementById("certForm").addEventListener("submit", async function(event){
+    event.preventDefault();
+
+    const valorOriginal = document.getElementById("identificador").value.trim();
+
+    if(!valorOriginal){
+      mostrarError("Ingrese su nombre completo, correo electrónico o celular.");
+      return;
+    }
+
+    if(certificados.length === 0){
+      mostrarError("La base de certificados todavía no está cargada. Recargue la página e intente nuevamente.");
+      return;
+    }
+
+    const esCorreo = valorOriginal.includes("@");
+    const soloNumeros = valorOriginal.replace(/\D/g, "");
+    const esCelular = soloNumeros.length >= 7 && !esCorreo;
+
+    let hashEntrada;
+
+    if(esCorreo){
+      hashEntrada = await sha256(normalizarEmail(valorOriginal));
+    }else if(esCelular){
+      hashEntrada = await sha256(normalizarCelular(valorOriginal));
+    }else{
+      hashEntrada = await sha256(normalizarNombre(valorOriginal));
+    }
+
+    const encontrados = certificados.filter(item => {
+      const nombres = item.nombres_hash || [];
+      const emails = item.emails_hash || [];
+      const celulares = item.celulares_hash || [];
+
+      return (
+        nombres.includes(hashEntrada) ||
+        emails.includes(hashEntrada) ||
+        celulares.includes(hashEntrada)
+      );
+    });
+
+    if(encontrados.length === 0){
+      mostrarError("No encontramos un certificado asociado a ese nombre, correo o celular.");
+      return;
+    }
+
+    if(encontrados.length === 1){
+      const certificado = encontrados[0];
+
+      mostrarOk(
+        certificado.nombre,
+        certificado.archivo,
+        certificado.tipo_certificado
+      );
+
+      return;
+    }
+
+    mostrarMultiples(encontrados);
+  });
+
+  cargarCertificados();
+</script>
