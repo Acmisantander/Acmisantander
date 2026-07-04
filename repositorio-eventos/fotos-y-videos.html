@@ -525,7 +525,7 @@
       position:relative;
       z-index:2;
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:repeat(2, 1fr);
       gap:24px;
       margin-top:36px;
     }
@@ -554,8 +554,7 @@
       border:1px solid rgba(255,255,255,0.18);
     }
 
-    .video-frame video,
-    .video-frame iframe{
+    .video-frame video{
       width:100%;
       height:100%;
       display:block;
@@ -576,18 +575,6 @@
     .video-info p{
       color:#dfe8f5;
       font-size:15px;
-    }
-
-    .empty-video{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      height:100%;
-      text-align:center;
-      padding:24px;
-      color:#dfe8f5;
-      font-family:'Montserrat', sans-serif;
-      font-weight:800;
     }
 
     footer{
@@ -718,7 +705,7 @@
         <ul>
           <li><a href="/#inicio">Inicio</a></li>
           <li><a href="/repositorio-eventos/">Eventos</a></li>
-          <li><a href="/fotos-y-videos/">Fotos y videos</a></li>
+          <li><a href="/repositorio-eventos/fotos-y-videos.html">Fotos y videos</a></li>
           <li><a href="/educacion-medica-continuada/">Educación médica</a></li>
           <li><a href="/magazine/">Magazine</a></li>
           <li><a href="/#contacto">Contacto</a></li>
@@ -735,7 +722,7 @@
       <h2>Fotos y videos</h2>
 
       <p>
-        Álbum fotográfico y registro audiovisual de los eventos desarrollados por ACMI Santander.
+        Álbum fotográfico y registro audiovisual del VI Simposio Regional ACMI San Gil – Santander 2026.
       </p>
 
       <div class="hero-actions">
@@ -768,49 +755,7 @@
           </div>
         </div>
 
-        <div class="album-grid">
-
-          <a class="photo-tile featured" href="/ACMI%20CALI%201.png" target="_blank" rel="noopener">
-            <img src="/ACMI%20CALI%201.png" alt="Fotografía destacada ACMI Santander">
-            <div class="photo-caption">
-              <h4>Momentos destacados</h4>
-              <p>Registro institucional ACMI Santander</p>
-            </div>
-          </a>
-
-          <a class="photo-tile" href="/ACMI%20CALI%202.png" target="_blank" rel="noopener">
-            <img src="/ACMI%20CALI%202.png" alt="Fotografía ACMI Santander">
-            <div class="photo-caption">
-              <h4>Actividad académica</h4>
-              <p>Participación médica</p>
-            </div>
-          </a>
-
-          <a class="photo-tile" href="/ACMI%20CALI%203.jpeg" target="_blank" rel="noopener">
-            <img src="/ACMI%20CALI%203.jpeg" alt="Fotografía ACMI Santander">
-            <div class="photo-caption">
-              <h4>Encuentro científico</h4>
-              <p>Comunidad académica</p>
-            </div>
-          </a>
-
-          <a class="photo-tile wide" href="/ACMI%20CALI%204.jpeg" target="_blank" rel="noopener">
-            <img src="/ACMI%20CALI%204.jpeg" alt="Fotografía ACMI Santander">
-            <div class="photo-caption">
-              <h4>Memoria institucional</h4>
-              <p>Actividades y asistentes</p>
-            </div>
-          </a>
-
-          <a class="photo-tile" href="/ACMI%20CALI%206.jpeg" target="_blank" rel="noopener">
-            <img src="/ACMI%20CALI%206.jpeg" alt="Fotografía ACMI Santander">
-            <div class="photo-caption">
-              <h4>Galería ACMI</h4>
-              <p>Registro fotográfico</p>
-            </div>
-          </a>
-
-        </div>
+        <div class="album-grid" id="albumGrid"></div>
 
       </section>
 
@@ -819,15 +764,15 @@
         <h2 class="section-title">Videos del evento</h2>
 
         <p class="section-subtitle">
-          Registro audiovisual institucional. Cuando subas tus videos a la raíz del repositorio, usa los nombres video-1.mp4, video-2.mp4 y video-3.mp4.
+          Registro audiovisual institucional del VI Simposio Regional ACMI.
         </p>
 
         <div class="videos-grid">
 
           <div class="video-card">
             <div class="video-frame">
-              <video controls preload="metadata" poster="/1.png">
-                <source src="/video-1.mp4" type="video/mp4">
+              <video controls preload="metadata" poster="/repositorio-eventos/1.jpeg">
+                <source src="/repositorio-eventos/67.mp4" type="video/mp4">
                 Tu navegador no soporta la reproducción de video.
               </video>
             </div>
@@ -839,27 +784,14 @@
 
           <div class="video-card">
             <div class="video-frame">
-              <video controls preload="metadata" poster="/2.png">
-                <source src="/video-2.mp4" type="video/mp4">
+              <video controls preload="metadata" poster="/repositorio-eventos/2.jpeg">
+                <source src="/repositorio-eventos/68.mp4" type="video/mp4">
                 Tu navegador no soporta la reproducción de video.
               </video>
             </div>
             <div class="video-info">
               <h4>Video institucional 2</h4>
               <p>Momentos académicos y actividades institucionales.</p>
-            </div>
-          </div>
-
-          <div class="video-card">
-            <div class="video-frame">
-              <video controls preload="metadata" poster="/3.png">
-                <source src="/video-3.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de video.
-              </video>
-            </div>
-            <div class="video-info">
-              <h4>Video institucional 3</h4>
-              <p>Registro complementario del evento.</p>
             </div>
           </div>
 
@@ -875,6 +807,52 @@
     <p>© 2026 ACMI Santander</p>
     <p>Educación continua que transforma la práctica clínica</p>
   </footer>
+
+  <script>
+    const fotos = [
+      "1.jpeg", "2.jpeg",
+      "16.jpeg", "17.jpeg", "18.jpeg", "19.jpeg", "20.jpeg",
+      "21.jpeg", "22.jpeg", "23.jpeg", "24.jpeg", "26.jpeg",
+      "27.jpeg", "28.jpeg", "29.jpeg",
+      "30.jpeg", "31.jpeg", "32.jpeg", "33.jpeg", "34.jpeg",
+      "35.jpeg", "36.jpeg", "37.jpeg", "38.jpeg", "39.jpeg",
+      "40.jpeg", "41.jpeg", "42.jpeg", "43.jpeg", "44.jpeg",
+      "45.jpeg", "46.jpeg", "47.jpeg", "48.jpeg", "49.jpeg",
+      "50.jpeg", "51.jpeg", "52.jpeg", "53.jpeg", "54.jpeg",
+      "55.jpeg", "56.jpeg", "57.jpeg", "58.jpeg", "59.jpeg",
+      "61.jpeg", "62.jpeg", "63.jpeg", "64.jpeg", "65.jpeg",
+      "66.jpeg"
+    ];
+
+    const albumGrid = document.getElementById("albumGrid");
+
+    fotos.forEach((foto, index) => {
+      const enlace = document.createElement("a");
+
+      let clase = "photo-tile";
+
+      if(index === 0){
+        clase += " featured";
+      }else if(index === 3 || index === 8 || index === 13 || index === 21 || index === 32 || index === 45){
+        clase += " wide";
+      }
+
+      enlace.className = clase;
+      enlace.href = `/repositorio-eventos/${foto}`;
+      enlace.target = "_blank";
+      enlace.rel = "noopener";
+
+      enlace.innerHTML = `
+        <img src="/repositorio-eventos/${foto}" alt="Fotografía VI Simposio Regional ACMI">
+        <div class="photo-caption">
+          <h4>${index === 0 ? "Momentos destacados" : "Registro fotográfico"}</h4>
+          <p>VI Simposio Regional ACMI San Gil – Santander 2026</p>
+        </div>
+      `;
+
+      albumGrid.appendChild(enlace);
+    });
+  </script>
 
 </body>
 </html>
