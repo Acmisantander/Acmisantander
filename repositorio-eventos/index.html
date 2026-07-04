@@ -19,7 +19,6 @@
       --texto:#243244;
       --blanco:#ffffff;
       --sombra:0 14px 34px rgba(0,0,0,0.10);
-      --sombra-fuerte:0 24px 60px rgba(15,53,105,0.22);
       --radio:22px;
     }
 
@@ -487,283 +486,6 @@
       transform:translateY(-2px);
     }
 
-    /* =========================
-       ÁLBUM MODERNO DE FOTOS
-    ========================== */
-
-    .album-section{
-      margin-top:80px;
-      padding:56px 34px;
-      border-radius:34px;
-      background:
-        radial-gradient(circle at top left, rgba(42,156,82,0.13), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(20,63,125,0.14), transparent 34%),
-        linear-gradient(135deg, rgba(255,255,255,0.96), rgba(240,245,252,0.96));
-      border:1px solid rgba(20,63,125,0.10);
-      box-shadow:var(--sombra);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .album-section::before{
-      content:"";
-      position:absolute;
-      width:260px;
-      height:260px;
-      border-radius:50%;
-      background:rgba(200,155,60,0.13);
-      top:-120px;
-      right:-100px;
-    }
-
-    .album-header{
-      position:relative;
-      z-index:2;
-      text-align:center;
-      margin-bottom:36px;
-    }
-
-    .album-kicker{
-      display:inline-block;
-      padding:9px 16px;
-      border-radius:999px;
-      background:#eef4fb;
-      color:var(--azul-acmi);
-      border:1px solid #dbe7f5;
-      font-family:'Montserrat', sans-serif;
-      font-weight:800;
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:0.06em;
-      margin-bottom:14px;
-    }
-
-    .album-tabs{
-      display:flex;
-      justify-content:center;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:26px;
-    }
-
-    .album-tab{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:12px 18px;
-      border-radius:999px;
-      background:white;
-      color:var(--azul-acmi);
-      border:1px solid rgba(20,63,125,0.12);
-      box-shadow:0 8px 20px rgba(0,0,0,0.07);
-      font-family:'Montserrat', sans-serif;
-      font-weight:800;
-      font-size:14px;
-      transition:0.22s ease;
-    }
-
-    .album-tab:hover{
-      transform:translateY(-3px);
-      background:var(--azul-acmi);
-      color:white;
-    }
-
-    .album-grid{
-      position:relative;
-      z-index:2;
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      grid-auto-flow:dense;
-      gap:18px;
-    }
-
-    .photo-tile{
-      position:relative;
-      display:block;
-      min-height:245px;
-      border-radius:26px;
-      overflow:hidden;
-      background:#dfe8f5;
-      box-shadow:0 14px 34px rgba(15,53,105,0.16);
-      border:6px solid white;
-      transition:0.28s ease;
-      isolation:isolate;
-    }
-
-    .photo-tile.featured{
-      grid-column:span 2;
-      grid-row:span 2;
-      min-height:520px;
-    }
-
-    .photo-tile.wide{
-      grid-column:span 2;
-    }
-
-    .photo-tile img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      position:absolute;
-      inset:0;
-      transition:0.45s ease;
-    }
-
-    .photo-tile::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(180deg, transparent 35%, rgba(15,53,105,0.78)),
-        linear-gradient(45deg, rgba(42,156,82,0.16), transparent 50%);
-      opacity:0.86;
-      z-index:1;
-      transition:0.3s ease;
-    }
-
-    .photo-tile::after{
-      content:"Ver fotografía";
-      position:absolute;
-      left:18px;
-      bottom:18px;
-      z-index:2;
-      background:rgba(255,255,255,0.92);
-      color:var(--azul-acmi);
-      padding:9px 14px;
-      border-radius:999px;
-      font-family:'Montserrat', sans-serif;
-      font-weight:800;
-      font-size:13px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.16);
-    }
-
-    .photo-caption{
-      position:absolute;
-      z-index:2;
-      left:20px;
-      right:20px;
-      bottom:70px;
-      color:white;
-    }
-
-    .photo-caption h4{
-      font-family:'Montserrat', sans-serif;
-      font-size:21px;
-      line-height:1.15;
-      margin-bottom:4px;
-    }
-
-    .photo-caption p{
-      font-size:14px;
-      color:#edf5ff;
-    }
-
-    .photo-tile:hover{
-      transform:translateY(-8px) scale(1.01);
-      box-shadow:var(--sombra-fuerte);
-    }
-
-    .photo-tile:hover img{
-      transform:scale(1.08);
-    }
-
-    .photo-tile:hover::before{
-      opacity:0.96;
-    }
-
-    /* =========================
-       VIDEOS
-    ========================== */
-
-    .videos-section{
-      margin-top:80px;
-      padding:56px 34px;
-      border-radius:34px;
-      background:
-        linear-gradient(135deg, rgba(15,53,105,0.96), rgba(20,63,125,0.88)),
-        radial-gradient(circle at top right, rgba(42,156,82,0.35), transparent 32%);
-      color:white;
-      box-shadow:var(--sombra-fuerte);
-      overflow:hidden;
-      position:relative;
-    }
-
-    .videos-section::before{
-      content:"";
-      position:absolute;
-      width:360px;
-      height:360px;
-      right:-150px;
-      top:-160px;
-      border-radius:50%;
-      border:1px solid rgba(255,255,255,0.18);
-    }
-
-    .videos-section .section-title{
-      color:white;
-    }
-
-    .videos-section .section-subtitle{
-      color:#dfe8f5;
-    }
-
-    .videos-grid{
-      position:relative;
-      z-index:2;
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:24px;
-      margin-top:36px;
-    }
-
-    .video-card{
-      background:rgba(255,255,255,0.10);
-      border:1px solid rgba(255,255,255,0.22);
-      border-radius:26px;
-      padding:16px;
-      box-shadow:0 18px 40px rgba(0,0,0,0.22);
-      backdrop-filter:blur(8px);
-      transition:0.25s ease;
-    }
-
-    .video-card:hover{
-      transform:translateY(-8px);
-      background:rgba(255,255,255,0.15);
-    }
-
-    .video-frame{
-      position:relative;
-      overflow:hidden;
-      border-radius:20px;
-      background:#071f3f;
-      aspect-ratio:16/9;
-      border:1px solid rgba(255,255,255,0.18);
-    }
-
-    .video-frame video,
-    .video-frame iframe{
-      width:100%;
-      height:100%;
-      display:block;
-      border:0;
-      object-fit:cover;
-    }
-
-    .video-info{
-      padding:18px 6px 4px;
-    }
-
-    .video-info h4{
-      font-family:'Montserrat', sans-serif;
-      font-size:19px;
-      margin-bottom:6px;
-    }
-
-    .video-info p{
-      color:#dfe8f5;
-      font-size:15px;
-    }
-
     .afiches-section{
       margin-top:72px;
     }
@@ -860,19 +582,8 @@
         grid-template-columns:1fr;
       }
 
-      .album-grid,
-      .afiches-grid,
-      .videos-grid{
+      .afiches-grid{
         grid-template-columns:repeat(2, 1fr);
-      }
-
-      .photo-tile.featured{
-        grid-column:span 2;
-        min-height:420px;
-      }
-
-      .photo-tile.wide{
-        grid-column:span 2;
       }
     }
 
@@ -913,24 +624,8 @@
         font-size:28px;
       }
 
-      .album-section,
-      .videos-section{
-        padding:42px 18px;
-        border-radius:28px;
-      }
-
-      .album-grid,
-      .afiches-grid,
-      .videos-grid{
+      .afiches-grid{
         grid-template-columns:1fr;
-      }
-
-      .photo-tile,
-      .photo-tile.featured,
-      .photo-tile.wide{
-        grid-column:span 1;
-        grid-row:span 1;
-        min-height:330px;
       }
     }
   </style>
@@ -972,6 +667,7 @@
         <ul>
           <li><a href="{{ site.baseurl }}/#inicio">Inicio</a></li>
           <li><a href="{{ site.baseurl }}/repositorio-eventos/">Eventos</a></li>
+          <li><a href="{{ site.baseurl }}/fotos-y-videos/">Fotos y videos</a></li>
           <li><a href="{{ site.baseurl }}/educacion-medica-continuada/">Educación médica</a></li>
           <li><a href="{{ site.baseurl }}/magazine/">Magazine</a></li>
           <li><a href="{{ site.baseurl }}/#contacto">Contacto</a></li>
@@ -988,14 +684,13 @@
       <h2>Repositorio de eventos</h2>
 
       <p>
-        Memorias, fotografías, videos, diapositivas, programas académicos y certificados
+        Memorias, diapositivas, programas académicos, certificados y material institucional
         de los eventos desarrollados por ACMI Santander.
       </p>
 
       <div class="hero-actions">
         <a class="btn btn-primary" href="#vi-simposio">Ver VI Simposio</a>
-        <a class="btn btn-light" href="#album-fotos">Álbum fotográfico</a>
-        <a class="btn btn-light" href="#videos-evento">Videos</a>
+        <a class="btn btn-light" href="{{ site.baseurl }}/fotos-y-videos/">Fotos y videos</a>
       </div>
     </div>
   </section>
@@ -1006,7 +701,7 @@
       <h2 class="section-title">Eventos disponibles</h2>
 
       <p class="section-subtitle">
-        Consulte el material académico y gráfico disponible del VI Simposio Regional ACMI.
+        Consulte el material académico e institucional disponible del VI Simposio Regional ACMI.
       </p>
 
       <article class="evento-card">
@@ -1036,6 +731,11 @@
                  rel="noopener">
                 Programa académico
               </a>
+
+              <a class="btn btn-light"
+                 href="{{ site.baseurl }}/fotos-y-videos/">
+                Fotos y videos
+              </a>
             </div>
           </div>
 
@@ -1058,20 +758,11 @@
 
         <div class="repo-card">
           <div class="repo-icon">📸</div>
-          <h4>Fotos</h4>
+          <h4>Fotos y videos</h4>
           <p>
-            Álbum fotográfico institucional de conferencias, talleres y actividades.
+            Álbum fotográfico y registro audiovisual institucional del evento.
           </p>
-          <a href="#album-fotos">Ver fotos</a>
-        </div>
-
-        <div class="repo-card">
-          <div class="repo-icon">🎥</div>
-          <h4>Videos</h4>
-          <p>
-            Registro audiovisual y clips institucionales del evento.
-          </p>
-          <a href="#videos-evento">Ver videos</a>
+          <a href="{{ site.baseurl }}/fotos-y-videos/">Ver fotos y videos</a>
         </div>
 
         <div class="repo-card">
@@ -1094,234 +785,6 @@
 
       </div>
 
-      <!-- ÁLBUM MODERNO DE FOTOS -->
-      <section class="album-section" id="album-fotos">
-
-        <div class="album-header">
-          <span class="album-kicker">Álbum institucional</span>
-
-          <h2 class="section-title">Fotos del evento</h2>
-
-          <p class="section-subtitle">
-            Registro fotográfico del VI Simposio Regional ACMI San Gil – Santander 2026.
-            Una memoria visual de la actividad académica, científica e institucional.
-          </p>
-
-          <div class="album-tabs">
-            <a class="album-tab" href="#album-fotos">📸 Fotografías</a>
-            <a class="album-tab" href="#videos-evento">🎥 Videos</a>
-            <a class="album-tab" href="#afiches">🖼️ Afiches</a>
-          </div>
-        </div>
-
-        <div class="album-grid">
-
-          <a class="photo-tile featured"
-             href="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.47.58%20PM%20(1).jpeg"
-             target="_blank"
-             rel="noopener">
-            <img src="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.47.58%20PM%20(1).jpeg" alt="Fotografía destacada VI Simposio Regional ACMI">
-            <div class="photo-caption">
-              <h4>Momentos destacados</h4>
-              <p>VI Simposio Regional ACMI San Gil – Santander 2026</p>
-            </div>
-          </a>
-
-          <a class="photo-tile"
-             href="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.47.58%20PM.jpeg"
-             target="_blank"
-             rel="noopener">
-            <img src="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.47.58%20PM.jpeg" alt="Foto VI Simposio Regional ACMI">
-            <div class="photo-caption">
-              <h4>Registro académico</h4>
-              <p>Conferencias y actividades</p>
-            </div>
-          </a>
-
-          <a class="photo-tile"
-             href="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.00%20PM%20(1).jpeg"
-             target="_blank"
-             rel="noopener">
-            <img src="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.00%20PM%20(1).jpeg" alt="Foto VI Simposio Regional ACMI">
-            <div class="photo-caption">
-              <h4>Encuentro científico</h4>
-              <p>ACMI Santander</p>
-            </div>
-          </a>
-
-          <a class="photo-tile wide"
-             href="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.00%20PM.jpeg"
-             target="_blank"
-             rel="noopener">
-            <img src="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.00%20PM.jpeg" alt="Foto VI Simposio Regional ACMI">
-            <div class="photo-caption">
-              <h4>Memoria institucional</h4>
-              <p>Participantes y asistentes del evento</p>
-            </div>
-          </a>
-
-          <a class="photo-tile"
-             href="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.03%20PM.jpeg"
-             target="_blank"
-             rel="noopener">
-            <img src="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.03%20PM.jpeg" alt="Foto VI Simposio Regional ACMI">
-            <div class="photo-caption">
-              <h4>Actividad académica</h4>
-              <p>Educación médica continua</p>
-            </div>
-          </a>
-
-          <a class="photo-tile"
-             href="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(1).jpeg"
-             target="_blank"
-             rel="noopener">
-            <img src="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(1).jpeg" alt="Foto VI Simposio Regional ACMI">
-            <div class="photo-caption">
-              <h4>Integración médica</h4>
-              <p>Capítulo Santander</p>
-            </div>
-          </a>
-
-          <a class="photo-tile"
-             href="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(2).jpeg"
-             target="_blank"
-             rel="noopener">
-            <img src="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(2).jpeg" alt="Foto VI Simposio Regional ACMI">
-            <div class="photo-caption">
-              <h4>Simposio regional</h4>
-              <p>San Gil, Santander</p>
-            </div>
-          </a>
-
-          <a class="photo-tile wide"
-             href="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(3).jpeg"
-             target="_blank"
-             rel="noopener">
-            <img src="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(3).jpeg" alt="Foto VI Simposio Regional ACMI">
-            <div class="photo-caption">
-              <h4>Homenaje institucional</h4>
-              <p>Memoria académica ACMI</p>
-            </div>
-          </a>
-
-          <a class="photo-tile"
-             href="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(4).jpeg"
-             target="_blank"
-             rel="noopener">
-            <img src="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(4).jpeg" alt="Foto VI Simposio Regional ACMI">
-            <div class="photo-caption">
-              <h4>Galería ACMI</h4>
-              <p>Registro del evento</p>
-            </div>
-          </a>
-
-          <a class="photo-tile"
-             href="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(5).jpeg"
-             target="_blank"
-             rel="noopener">
-            <img src="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(5).jpeg" alt="Foto VI Simposio Regional ACMI">
-            <div class="photo-caption">
-              <h4>Participación médica</h4>
-              <p>Comunidad académica</p>
-            </div>
-          </a>
-
-          <a class="photo-tile"
-             href="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(6).jpeg"
-             target="_blank"
-             rel="noopener">
-            <img src="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(6).jpeg" alt="Foto VI Simposio Regional ACMI">
-            <div class="photo-caption">
-              <h4>Memorias visuales</h4>
-              <p>VI Simposio Regional</p>
-            </div>
-          </a>
-
-          <a class="photo-tile"
-             href="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(7).jpeg"
-             target="_blank"
-             rel="noopener">
-            <img src="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(7).jpeg" alt="Foto VI Simposio Regional ACMI">
-            <div class="photo-caption">
-              <h4>Encuentro regional</h4>
-              <p>ACMI Santander</p>
-            </div>
-          </a>
-
-          <a class="photo-tile wide"
-             href="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(8).jpeg"
-             target="_blank"
-             rel="noopener">
-            <img src="{{ site.baseurl }}/repositorio-eventos/WhatsApp%20Image%202026-07-03%20at%204.48.04%20PM%20(8).jpeg" alt="Foto VI Simposio Regional ACMI">
-            <div class="photo-caption">
-              <h4>Cierre fotográfico</h4>
-              <p>Álbum institucional del evento</p>
-            </div>
-          </a>
-
-        </div>
-      </section>
-
-      <!-- VIDEOS SEPARADOS DE FOTOS -->
-      <section class="videos-section" id="videos-evento">
-
-        <h2 class="section-title">Videos del evento</h2>
-
-        <p class="section-subtitle">
-          Registro audiovisual del VI Simposio Regional ACMI San Gil – Santander 2026.
-        </p>
-
-        <div class="videos-grid">
-
-          <!-- 
-            Cuando subas tus videos a GitHub, usa esta estructura.
-            Ejemplo de ruta:
-            {{ site.baseurl }}/repositorio-eventos/video-1.mp4
-          -->
-
-          <div class="video-card">
-            <div class="video-frame">
-              <video controls preload="metadata" poster="{{ site.baseurl }}/1.png">
-                <source src="{{ site.baseurl }}/repositorio-eventos/video-1.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de video.
-              </video>
-            </div>
-            <div class="video-info">
-              <h4>Video institucional 1</h4>
-              <p>Resumen audiovisual del evento.</p>
-            </div>
-          </div>
-
-          <div class="video-card">
-            <div class="video-frame">
-              <video controls preload="metadata" poster="{{ site.baseurl }}/2.png">
-                <source src="{{ site.baseurl }}/repositorio-eventos/video-2.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de video.
-              </video>
-            </div>
-            <div class="video-info">
-              <h4>Video institucional 2</h4>
-              <p>Momentos académicos y actividades del simposio.</p>
-            </div>
-          </div>
-
-          <div class="video-card">
-            <div class="video-frame">
-              <video controls preload="metadata" poster="{{ site.baseurl }}/3.png">
-                <source src="{{ site.baseurl }}/repositorio-eventos/video-3.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de video.
-              </video>
-            </div>
-            <div class="video-info">
-              <h4>Video institucional 3</h4>
-              <p>Registro complementario del VI Simposio Regional ACMI.</p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- AFICHES -->
       <div class="afiches-section" id="afiches">
         <h2 class="section-title">Afiches del evento</h2>
 
