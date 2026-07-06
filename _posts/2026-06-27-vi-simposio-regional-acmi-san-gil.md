@@ -364,50 +364,15 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
   gap:18px;
 }
 
-.sg-gallery figure{
-  margin:0;
-  padding:10px;
-  border-radius:22px;
-  background:white;
-  border:1px solid rgba(20,63,125,.12);
-  box-shadow:0 14px 34px rgba(8,40,79,.10);
-  overflow:hidden;
-  transition:.25s ease;
-}
-
-.sg-gallery figure:hover{
-  transform:translateY(-5px);
-  box-shadow:0 22px 48px rgba(8,40,79,.16);
-}
-
-.sg-gallery img{
-  width:100%;
-  height:260px;
-  object-fit:contain;
-  object-position:center center;
-  background:#f8fafc;
-  border-radius:16px;
-  display:block;
-  padding:6px;
-}
-
-.sg-gallery figcaption{
-  margin:10px 5px 2px;
-  color:var(--sg-suave);
-  font-family:'Montserrat', sans-serif;
-  font-size:12px;
-  font-weight:800;
-  line-height:1.45;
-  text-align:center;
-}
 
 .sg-main-photo{
   margin:0 0 30px;
-  padding:12px;
+  padding:10px;
   border-radius:26px;
   background:white;
   border:1px solid rgba(20,63,125,.12);
   box-shadow:0 16px 38px rgba(8,40,79,.12);
+  overflow:hidden;
 }
 
 .sg-main-photo img{
@@ -418,17 +383,34 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
   background:#f8fafc;
   border-radius:18px;
   display:block;
-  padding:6px;
+  padding:4px;
 }
 
-.sg-main-photo figcaption{
-  margin:12px 6px 2px;
-  color:var(--sg-suave);
-  font-family:'Montserrat', sans-serif;
-  font-size:13px;
-  font-weight:800;
-  line-height:1.5;
-  text-align:center;
+.sg-gallery figure{
+  margin:0;
+  padding:8px;
+  border-radius:22px;
+  background:white;
+  border:1px solid rgba(20,63,125,.12);
+  box-shadow:0 14px 34px rgba(8,40,79,.10);
+  overflow:hidden;
+  transition:.25s ease;
+}
+
+.sg-gallery img{
+  width:100%;
+  height:280px;
+  object-fit:contain;
+  object-position:center center;
+  background:#f8fafc;
+  border-radius:16px;
+  display:block;
+  padding:4px;
+}
+
+.sg-gallery figure:hover{
+  transform:translateY(-5px);
+  box-shadow:0 22px 48px rgba(8,40,79,.16);
 }
 
 @media(max-width:760px){
@@ -460,11 +442,6 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
 
   .sg-gallery{
     grid-template-columns:1fr;
-  }
-
-  .sg-gallery img{
-    height:auto;
-    max-height:520px;
   }
 
   .sg-main-photo img{
@@ -516,10 +493,7 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
 
 
       <figure class="sg-main-photo">
-        <img src="{{ site.baseurl }}/img/35.jpeg" alt="VI Simposio Regional ACMI San Gil Santander 2026">
-        <figcaption>
-          VI Simposio Regional ACMI San Gil Santander 2026 en San Gil, Santander.
-        </figcaption>
+        <img onerror="this.closest('figure').style.display='none';" loading="lazy" src="https://acmisantander.com.co/img/35.jpeg" alt="">
       </figure>
 
       <div class="sg-news-text">
@@ -555,24 +529,15 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
         <div class="sg-gallery">
 
           <figure>
-            <img src="{{ site.baseurl }}/img/35.jpeg" alt="Participantes del VI Simposio Regional ACMI San Gil Santander 2026">
-            <figcaption>
-              Participantes del VI Simposio Regional ACMI San Gil Santander 2026.
-            </figcaption>
+            <img onerror="this.closest('figure').style.display='none';" loading="lazy" src="https://acmisantander.com.co/img/35.jpeg" alt="">
           </figure>
 
           <figure>
-            <img src="{{ site.baseurl }}/img/42.jpeg" alt="Actividad académica del VI Simposio Regional ACMI Santander">
-            <figcaption>
-              Actividad académica y espacios de actualización médica.
-            </figcaption>
+            <img onerror="this.closest('figure').style.display='none';" loading="lazy" src="https://acmisantander.com.co/img/42.jpeg" alt="">
           </figure>
 
           <figure>
-            <img src="{{ site.baseurl }}/img/51.jpeg" alt="Encuentro académico ACMI Santander en San Gil">
-            <figcaption>
-              Encuentro académico de ACMI Santander en San Gil.
-            </figcaption>
+            <img onerror="this.closest('figure').style.display='none';" loading="lazy" src="https://acmisantander.com.co/img/51.jpeg" alt="">
           </figure>
 
         </div>
@@ -581,15 +546,15 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
 
       <div class="sg-news-actions">
 
-        <a class="sg-news-btn sg-news-btn-primary" href="{{ site.baseurl }}/repositorio-eventos/#afiches">
+        <a class="sg-news-btn sg-news-btn-primary" href="https://acmisantander.com.co/repositorio-eventos/#afiches">
           Ver repositorio del evento
         </a>
 
-        <a class="sg-news-btn sg-news-btn-light" href="{{ site.baseurl }}/repositorio-eventos/fotos-y-videos.html">
+        <a class="sg-news-btn sg-news-btn-light" href="https://acmisantander.com.co/repositorio-eventos/fotos-y-videos.html">
           Ver fotos y videos
         </a>
 
-        <a class="sg-news-btn sg-news-btn-light" href="{{ site.baseurl }}/magazine/">
+        <a class="sg-news-btn sg-news-btn-light" href="https://acmisantander.com.co/magazine/">
           Volver al Magazine
         </a>
 
