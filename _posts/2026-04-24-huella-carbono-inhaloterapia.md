@@ -9,6 +9,15 @@ subcategory: opinion
 
 <style>
 
+/* OCULTAR FORO ANTIGUO DEL LAYOUT POST */
+.post-discussion,
+.post-forum,
+.post-comments,
+.old-forum,
+#old-forum{
+  display:none !important;
+}
+
 .book-article{
   position:relative;
   animation:bookFadeIn .9s ease both;
@@ -171,7 +180,7 @@ subcategory: opinion
   color:#2a9c52;
 }
 
-/* FORO */
+/* FORO NUEVO */
 
 .book-forum-section{
   max-width:820px;
