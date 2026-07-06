@@ -3,494 +3,469 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-  {{ page.title }} | ACMI Santander
-</title>
+  <title>
+    {{ page.title }} | ACMI Santander
+  </title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
-<style>
+  <style>
 
-:root{
-  --azul-acmi:#143f7d;
-  --azul-acmi-2:#0f3569;
-  --azul-profundo:#08284f;
-  --verde-acmi:#2a9c52;
-  --verde-hover:#218443;
-  --dorado:#c89b3c;
-  --gris-texto:#243244;
-  --gris-suave:#f5f7fb;
-  --texto-suave:#5b6d82;
-  --blanco:#ffffff;
-}
+    :root{
+      --acmi-azul:#143f7d;
+      --acmi-azul-2:#0f3569;
+      --acmi-profundo:#08284f;
+      --acmi-verde:#2a9c52;
+      --acmi-verde-hover:#218443;
+      --acmi-texto:#243244;
+      --acmi-fondo:#f5f7fb;
+    }
 
-*{
-  box-sizing:border-box;
-}
+    *{
+      box-sizing:border-box;
+    }
 
-html{
-  scroll-behavior:smooth;
-}
+    html{
+      scroll-behavior:smooth;
+    }
 
-body{
-  margin:0;
-  font-family:'Lato',sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(42,156,82,0.08), transparent 32%),
-    radial-gradient(circle at top right, rgba(20,63,125,0.12), transparent 34%),
-    var(--gris-suave);
-  color:var(--gris-texto);
-  line-height:1.6;
-}
+    body{
+      margin:0;
+      font-family:'Lato',sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(42,156,82,0.08), transparent 32%),
+        radial-gradient(circle at top right, rgba(20,63,125,0.12), transparent 34%),
+        var(--acmi-fondo);
+      color:var(--acmi-texto);
+      line-height:1.6;
+    }
 
-a{
-  text-decoration:none;
-}
+    a{
+      text-decoration:none;
+    }
 
-img{
-  max-width:100%;
-  display:block;
-}
+    img{
+      max-width:100%;
+      display:block;
+    }
 
-.container{
-  width:100%;
-  max-width:1240px;
-  margin:0 auto;
-  padding:0 34px;
-}
+    .acmi-layout-container{
+      width:100%;
+      max-width:1440px;
+      margin:0 auto;
+      padding:0 34px;
+    }
 
-/* TOPBAR */
+    /* ==============================
+       TOPBAR
+       ============================== */
 
-.topbar{
-  background:linear-gradient(90deg, var(--azul-profundo), var(--azul-acmi-2));
-  color:#dfe8f5;
-  font-size:14px;
-  padding:10px 0;
-  position:relative;
-  z-index:1200;
-}
+    .acmi-topbar{
+      background:linear-gradient(90deg, var(--acmi-profundo), var(--acmi-azul-2));
+      color:#dfe8f5;
+      font-size:14px;
+      padding:10px 0;
+      position:relative;
+      z-index:1200;
+    }
 
-.topbar-content{
-  max-width:1440px;
-  margin:0 auto;
-  padding:0 34px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:18px;
-  flex-wrap:wrap;
-}
+    .acmi-topbar-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
 
-.topbar-left,
-.topbar-right{
-  display:flex;
-  gap:20px;
-  align-items:center;
-  flex-wrap:wrap;
-}
+    .acmi-topbar-left,
+    .acmi-topbar-right{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
 
-.topbar a{
-  color:#dfe8f5;
-  font-weight:700;
-  transition:.25s ease;
-}
+    .acmi-topbar a{
+      color:#dfe8f5;
+      font-weight:700;
+      transition:.25s ease;
+    }
 
-.topbar a:hover{
-  color:white;
-}
+    .acmi-topbar a:hover{
+      color:white;
+    }
 
-/* HEADER */
+    /* ==============================
+       HEADER
+       ============================== */
 
-header{
-  background:rgba(255,255,255,0.96);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  border-bottom:1px solid #e3eaf3;
-  box-shadow:0 4px 18px rgba(0,0,0,0.06);
-  position:sticky;
-  top:0;
-  z-index:1100;
-}
+    .acmi-header{
+      background:rgba(255,255,255,0.96);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid #e3eaf3;
+      box-shadow:0 4px 18px rgba(0,0,0,0.06);
+      position:sticky;
+      top:0;
+      z-index:1100;
+    }
 
-.header-flex{
-  min-height:94px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
-  padding:14px 34px;
-  max-width:1440px;
-  margin:0 auto;
-}
+    .acmi-header-flex{
+      min-height:94px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding-top:14px;
+      padding-bottom:14px;
+    }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  text-decoration:none;
-  flex-shrink:0;
-}
+    .acmi-brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      text-decoration:none;
+      flex-shrink:0;
+    }
 
-.brand-logo-wrap{
-  width:74px;
-  height:74px;
-  border-radius:50%;
-  background:white;
-  border:1px solid #d7e2ef;
-  padding:6px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.10);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  flex-shrink:0;
-}
+    .acmi-brand-logo-wrap{
+      width:74px;
+      height:74px;
+      border-radius:50%;
+      background:white;
+      border:1px solid #d7e2ef;
+      padding:6px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.10);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      flex-shrink:0;
+    }
 
-.brand-logo{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  border-radius:50%;
-  display:block;
-}
+    .acmi-brand-logo{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      border-radius:50%;
+      display:block;
+    }
 
-.brand-text h1{
-  font-family:'Montserrat',sans-serif;
-  margin:0;
-  font-size:28px;
-  color:var(--azul-acmi);
-  line-height:1.1;
-  font-weight:900;
-}
+    .acmi-brand-text h1{
+      font-family:'Montserrat',sans-serif;
+      margin:0;
+      font-size:28px;
+      color:var(--acmi-azul);
+      line-height:1.1;
+      font-weight:900;
+    }
 
-.brand-text p{
-  margin:4px 0 0;
-  font-size:14px;
-  color:#50627a;
-}
+    .acmi-brand-text p{
+      margin:4px 0 0;
+      font-size:14px;
+      color:#50627a;
+    }
 
-nav{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-}
+    .acmi-nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
 
-nav a{
-  color:var(--azul-acmi);
-  text-decoration:none;
-  font-family:'Montserrat',sans-serif;
-  font-weight:800;
-  font-size:14.5px;
-  transition:.25s ease;
-  padding:9px 10px;
-  border-radius:999px;
-}
+    .acmi-nav a{
+      color:var(--acmi-azul);
+      text-decoration:none;
+      font-family:'Montserrat',sans-serif;
+      font-weight:800;
+      font-size:14.5px;
+      transition:.25s ease;
+      padding:9px 10px;
+      border-radius:999px;
+    }
 
-nav a:hover{
-  color:var(--verde-acmi);
-  background:#eef7f1;
-}
+    .acmi-nav a:hover{
+      color:var(--acmi-verde);
+      background:#eef7f1;
+    }
 
-.dropdown{
-  position:relative;
-  display:inline-block;
-}
+    .acmi-dropdown{
+      position:relative;
+      display:inline-block;
+    }
 
-.dropdown > a{
-  display:inline-flex;
-  align-items:center;
-  gap:4px;
-}
+    .acmi-dropdown > a{
+      display:inline-flex;
+      align-items:center;
+      gap:4px;
+    }
 
-.dropdown-content{
-  display:none;
-  position:absolute;
-  top:100%;
-  left:0;
-  background:white;
-  min-width:280px;
-  box-shadow:0 18px 44px rgba(8,40,79,0.16);
-  border-radius:18px;
-  padding:10px;
-  z-index:2000;
-  border:1px solid rgba(20,63,125,0.08);
-}
+    .acmi-dropdown-content{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      background:white;
+      min-width:280px;
+      box-shadow:0 18px 44px rgba(8,40,79,0.16);
+      border-radius:18px;
+      padding:10px;
+      z-index:2000;
+      border:1px solid rgba(20,63,125,0.08);
+    }
 
-.dropdown-content a{
-  color:var(--azul-acmi);
-  display:block;
-  padding:12px 16px;
-  text-decoration:none;
-  font-weight:800;
-  white-space:nowrap;
-  border-radius:12px;
-}
+    .acmi-dropdown-content a{
+      color:var(--acmi-azul);
+      display:block;
+      padding:12px 16px;
+      text-decoration:none;
+      font-weight:800;
+      white-space:nowrap;
+      border-radius:12px;
+    }
 
-.dropdown-content a:hover{
-  background:#eef3f8;
-  color:var(--verde-acmi);
-}
+    .acmi-dropdown-content a:hover{
+      background:#eef3f8;
+      color:var(--acmi-verde);
+    }
 
-.dropdown:hover .dropdown-content{
-  display:block;
-}
+    .acmi-dropdown:hover .acmi-dropdown-content{
+      display:block;
+    }
 
-main{
-  min-height:60vh;
-}
+    .acmi-main{
+      min-height:60vh;
+    }
 
-h1,h2,h3{
-  font-family:'Montserrat',sans-serif;
-}
+    /* ==============================
+       FOOTER
+       ============================== */
 
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  background:var(--verde-acmi);
-  color:white;
-  padding:12px 20px;
-  border-radius:12px;
-  text-decoration:none;
-  font-family:'Montserrat',sans-serif;
-  font-weight:800;
-  border:none;
-  cursor:pointer;
-  transition:.25s ease;
-}
+    .acmi-footer{
+      background:
+        radial-gradient(circle at top left, rgba(42,156,82,0.22), transparent 28%),
+        linear-gradient(90deg, var(--acmi-profundo), var(--acmi-azul-2));
+      color:white;
+      text-align:center;
+      padding:30px 18px;
+    }
 
-.btn:hover{
-  background:var(--verde-hover);
-  color:white;
-  transform:translateY(-2px);
-}
+    .acmi-footer p{
+      margin:6px 0;
+      color:white;
+      font-weight:600;
+    }
 
-footer{
-  background:
-    radial-gradient(circle at top left, rgba(42,156,82,0.22), transparent 28%),
-    linear-gradient(90deg, var(--azul-profundo), var(--azul-acmi-2));
-  color:white;
-  text-align:center;
-  padding:30px 18px;
-}
+    /* ==============================
+       RESPONSIVE
+       ============================== */
 
-footer p{
-  margin:6px 0;
-  color:white;
-  font-weight:600;
-}
+    @media(max-width:980px){
 
-@media(max-width:980px){
+      .acmi-topbar-content,
+      .acmi-topbar-left,
+      .acmi-topbar-right{
+        justify-content:center;
+        text-align:center;
+      }
 
-  .topbar-content,
-  .topbar-left,
-  .topbar-right{
-    justify-content:center;
-    text-align:center;
-  }
+      .acmi-header-flex{
+        flex-direction:column;
+        text-align:center;
+      }
 
-  .header-flex{
-    flex-direction:column;
-    text-align:center;
-  }
+      .acmi-brand{
+        flex-direction:column;
+      }
 
-  .brand{
-    flex-direction:column;
-  }
+      .acmi-nav{
+        justify-content:center;
+        gap:10px;
+      }
 
-  nav{
-    justify-content:center;
-    gap:10px;
-  }
+      .acmi-dropdown-content{
+        left:50%;
+        transform:translateX(-50%);
+      }
 
-  .dropdown-content{
-    left:50%;
-    transform:translateX(-50%);
-  }
+    }
 
-}
+    @media(max-width:640px){
 
-@media(max-width:640px){
+      .acmi-layout-container{
+        padding-left:22px;
+        padding-right:22px;
+      }
 
-  .topbar-content,
-  .header-flex{
-    padding-left:22px;
-    padding-right:22px;
-  }
+      .acmi-nav{
+        flex-direction:column;
+      }
 
-  nav{
-    flex-direction:column;
-  }
+      .acmi-brand-text h1{
+        font-size:24px;
+      }
 
-  .brand-text h1{
-    font-size:24px;
-  }
+      .acmi-brand-text p{
+        font-size:13px;
+      }
 
-  .brand-text p{
-    font-size:13px;
-  }
+    }
 
-  .container{
-    padding:0 22px;
-  }
-
-}
-
-</style>
+  </style>
 
 </head>
 
 <body>
 
-<div class="topbar">
+  <div class="acmi-topbar">
 
-  <div class="topbar-content">
+    <div class="acmi-layout-container acmi-topbar-content">
 
-    <div class="topbar-left">
-      <a href="https://acmi.org.co/" target="_blank" rel="noopener">
-        ACMI Nacional
-      </a>
+      <div class="acmi-topbar-left">
 
-      <a href="https://acmi.org.co/afiliese/" target="_blank" rel="noopener">
-        Afiliaciones
-      </a>
-    </div>
+        <a href="https://acmi.org.co/" target="_blank" rel="noopener">
+          ACMI Nacional
+        </a>
 
-    <div class="topbar-right">
+        <a href="https://acmi.org.co/afiliese/" target="_blank" rel="noopener">
+          Afiliaciones
+        </a>
 
-      <a href="https://www.actamedicacolombiana.com/ojs/index.php/actamed" target="_blank" rel="noopener">
-        Acta Médica Colombiana
-      </a>
+      </div>
 
-      <a href="{{ site.baseurl }}/#patrocinios">
-        Patrocinios
-      </a>
+      <div class="acmi-topbar-right">
 
-      <a href="{{ site.baseurl }}/magazine/#foro-acmi">
-        Foro ACMI
-      </a>
+        <a href="https://www.actamedicacolombiana.com/ojs/index.php/actamed" target="_blank" rel="noopener">
+          Acta Médica Colombiana
+        </a>
 
-      <a href="{{ site.baseurl }}/#contacto">
-        Contacto
-      </a>
+        <a href="{{ site.baseurl }}/#patrocinios">
+          Patrocinios
+        </a>
+
+        <a href="{{ site.baseurl }}/magazine/#foro-acmi">
+          Foro ACMI
+        </a>
+
+        <a href="{{ site.baseurl }}/#contacto">
+          Contacto
+        </a>
+
+      </div>
 
     </div>
 
   </div>
 
-</div>
+  <header class="acmi-header">
 
-<header>
+    <div class="acmi-layout-container acmi-header-flex">
 
-  <div class="header-flex">
+      <a href="{{ site.baseurl }}/" class="acmi-brand">
 
-    <a href="{{ site.baseurl }}/" class="brand">
+        <span class="acmi-brand-logo-wrap">
 
-      <span class="brand-logo-wrap">
+          <img
+            src="{{ site.baseurl }}/LOGO%20ACMI.png"
+            alt="ACMI Santander"
+            class="acmi-brand-logo"
+          >
 
-        <img
-          src="{{ site.baseurl }}/LOGO%20ACMI.png"
-          alt="ACMI Santander"
-          class="brand-logo"
-        >
+        </span>
 
-      </span>
+        <div class="acmi-brand-text">
 
-      <div class="brand-text">
+          <h1>
+            ACMI Santander
+          </h1>
 
-        <h1>
-          ACMI Santander
-        </h1>
-
-        <p>
-          Asociación Colombiana de Medicina Interna • Capítulo Santander
-        </p>
-
-      </div>
-
-    </a>
-
-    <nav>
-
-      <a href="{{ site.baseurl }}/">
-        Inicio
-      </a>
-
-      <a href="{{ site.baseurl }}/educacion-medica-continuada/">
-        Educación médica continuada
-      </a>
-
-      <div class="dropdown">
-
-        <a href="{{ site.baseurl }}/magazine/">
-          Magazine ▾
-        </a>
-
-        <div class="dropdown-content">
-
-          <a href="{{ site.baseurl }}/magazine/#noticias">
-            Noticias
-          </a>
-
-          <a href="{{ site.baseurl }}/magazine/#opinion">
-            Opinión
-          </a>
-
-          <a href="{{ site.baseurl }}/magazine/manual-publicacion/">
-            Manual de publicación
-          </a>
-
-          <a href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
-            Enviar manuscrito
-          </a>
-
-          <a href="{{ site.baseurl }}/magazine/enviar-ponencias/">
-            Enviar ponencia
-          </a>
-
-          <a href="{{ site.baseurl }}/magazine/#foro-acmi">
-            Foro ACMI
-          </a>
+          <p>
+            Asociación Colombiana de Medicina Interna • Capítulo Santander
+          </p>
 
         </div>
 
-      </div>
-
-      <a href="{{ site.baseurl }}/repositorio-eventos/">
-        Eventos
       </a>
 
-      <a href="{{ site.baseurl }}/proyeccion-social/">
-        Proyección social
-      </a>
+      <nav class="acmi-nav">
 
-    </nav>
+        <a href="{{ site.baseurl }}/">
+          Inicio
+        </a>
 
-  </div>
+        <a href="{{ site.baseurl }}/educacion-medica-continuada/">
+          Educación médica continuada
+        </a>
 
-</header>
+        <div class="acmi-dropdown">
 
-<main>
-  {{ content }}
-</main>
+          <a href="{{ site.baseurl }}/magazine/">
+            Magazine ▾
+          </a>
 
-<footer>
+          <div class="acmi-dropdown-content">
 
-  <p>
-    © 2026 ACMI Santander
-  </p>
+            <a href="{{ site.baseurl }}/magazine/#noticias">
+              Noticias
+            </a>
 
-  <p>
-    Educación continua que transforma la práctica clínica
-  </p>
+            <a href="{{ site.baseurl }}/magazine/#opinion">
+              Opinión
+            </a>
 
-</footer>
+            <a href="{{ site.baseurl }}/magazine/manual-publicacion/">
+              Manual de publicación
+            </a>
+
+            <a href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
+              Enviar manuscrito
+            </a>
+
+            <a href="{{ site.baseurl }}/magazine/enviar-ponencias/">
+              Enviar ponencia
+            </a>
+
+            <a href="{{ site.baseurl }}/magazine/#foro-acmi">
+              Foro ACMI
+            </a>
+
+          </div>
+
+        </div>
+
+        <a href="{{ site.baseurl }}/repositorio-eventos/">
+          Eventos
+        </a>
+
+        <a href="{{ site.baseurl }}/proyeccion-social/">
+          Proyección social
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+  <main class="acmi-main">
+    {{ content }}
+  </main>
+
+  <footer class="acmi-footer">
+
+    <p>
+      © 2026 ACMI Santander
+    </p>
+
+    <p>
+      Educación continua que transforma la práctica clínica
+    </p>
+
+  </footer>
 
 </body>
 </html>
