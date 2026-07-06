@@ -2,49 +2,617 @@
 layout: default
 ---
 
-<article class="card">
+<style>
 
-<h1>{{ page.title }}</h1>
+:root{
+  --post-azul:#143f7d;
+  --post-azul-2:#0f3569;
+  --post-profundo:#08284f;
+  --post-verde:#2a9c52;
+  --post-verde-hover:#238244;
+  --post-dorado:#c89b3c;
+  --post-fondo:#f5f7fb;
+  --post-texto:#243244;
+  --post-suave:#5b6d82;
+  --post-borde:rgba(20,63,125,.12);
+  --post-sombra:0 16px 38px rgba(8,40,79,.12);
+  --post-sombra-fuerte:0 28px 70px rgba(8,40,79,.18);
+}
 
-<p class="meta">
-{{ page.date | date: "%d/%m/%Y" }} · {{ page.author }}
-</p>
+.post-page{
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.08), transparent 32%),
+    radial-gradient(circle at top right, rgba(20,63,125,.12), transparent 34%),
+    var(--post-fondo);
+}
 
-{{ content }}
+.post-page *{
+  box-sizing:border-box;
+}
 
-{% if page.categories contains "magazine" %}
+.post-container{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 34px;
+}
 
-<hr style="margin:40px 0; border:none; border-top:1px solid #e5e7eb;">
+/* HERO */
 
-<h3 style="margin-bottom:20px;">Discusión académica del artículo</h3>
+.post-hero{
+  position:relative;
+  min-height:48vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  overflow:hidden;
+  isolation:isolate;
+  background:
+    linear-gradient(135deg, rgba(8,40,79,.94), rgba(20,63,125,.78), rgba(42,156,82,.42)),
+    {% if page.cover %}
+    url('{{ site.baseurl }}{{ page.cover }}') center center / cover no-repeat;
+    {% else %}
+    url('{{ site.baseurl }}/assets/img/magazine-banner.jpg') center center / cover no-repeat;
+    {% endif %}
+}
 
-<div class="commentbox"></div>
+.post-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:
+    radial-gradient(circle at 16% 20%, rgba(255,255,255,.18), transparent 28%),
+    radial-gradient(circle at 84% 74%, rgba(126,212,154,.26), transparent 32%),
+    linear-gradient(135deg, rgba(8,40,79,.84), rgba(15,53,105,.52));
+}
 
-<script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
-<script>
-commentBox('5734850254340096-proj');
-</script>
+.post-orb{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:1;
+}
 
-{% endif %}
+.post-orb-one{
+  width:430px;
+  height:430px;
+  right:-130px;
+  top:-140px;
+  background:radial-gradient(circle, rgba(255,255,255,.18), transparent 62%);
+  animation:postFloatOne 8s ease-in-out infinite alternate;
+}
 
-<div style="margin-top:35px;">
+.post-orb-two{
+  width:350px;
+  height:350px;
+  left:-120px;
+  bottom:-150px;
+  background:radial-gradient(circle, rgba(126,212,154,.28), transparent 62%);
+  animation:postFloatTwo 9s ease-in-out infinite alternate-reverse;
+}
 
-{% if page.categories contains "magazine" %}
-<a class="btn" href="{{ site.baseurl }}/magazine/">
-Volver al Magazine
-</a>
+@keyframes postFloatOne{
+  from{transform:translate3d(0,0,0) scale(1);}
+  to{transform:translate3d(28px,18px,0) scale(1.06);}
+}
 
-{% elsif page.categories contains "educacion" %}
-<a class="btn" href="{{ site.baseurl }}/educacion-medica-continuada/">
-Volver a Educación médica
-</a>
+@keyframes postFloatTwo{
+  from{transform:translate3d(0,0,0) scale(1);}
+  to{transform:translate3d(-22px,-16px,0) scale(1.05);}
+}
 
-{% else %}
-<a class="btn" href="{{ site.baseurl }}/">
-Volver al inicio
-</a>
-{% endif %}
+.post-hero-content{
+  position:relative;
+  z-index:3;
+  width:min(1040px,92%);
+  padding:86px 24px 112px;
+  animation:postIntro .9s ease both;
+}
+
+@keyframes postIntro{
+  from{
+    opacity:0;
+    transform:translateY(26px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.post-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.32);
+  color:white;
+  font-family:'Montserrat', sans-serif;
+  font-size:13px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  margin-bottom:22px;
+  backdrop-filter:blur(8px);
+}
+
+.post-hero h1{
+  font-family:'Montserrat', sans-serif;
+  font-size:clamp(38px,5vw,68px);
+  line-height:1.05;
+  font-weight:900;
+  letter-spacing:-.055em;
+  margin:0 0 24px;
+  color:white;
+  text-wrap:balance;
+}
+
+.post-meta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:0 auto;
+  padding:12px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.30);
+  color:#f2f7ff;
+  font-family:'Montserrat', sans-serif;
+  font-size:14px;
+  font-weight:800;
+  backdrop-filter:blur(8px);
+}
+
+/* ARTICLE */
+
+.post-section{
+  margin-top:-66px;
+  position:relative;
+  z-index:8;
+  padding-bottom:86px;
+}
+
+.post-card{
+  background:white;
+  border-radius:34px;
+  border:1px solid var(--post-borde);
+  box-shadow:var(--post-sombra-fuerte);
+  overflow:hidden;
+  position:relative;
+  animation:postCardIn .8s ease both;
+}
+
+@keyframes postCardIn{
+  from{
+    opacity:0;
+    transform:translateY(24px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.post-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:8px;
+  background:linear-gradient(90deg, var(--post-verde), var(--post-azul), var(--post-dorado));
+}
+
+.post-content{
+  padding:54px;
+  color:var(--post-texto);
+  font-size:19px;
+  line-height:1.92;
+}
+
+.post-content > *:first-child{
+  margin-top:0;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4{
+  font-family:'Montserrat', sans-serif;
+  color:var(--post-azul);
+  line-height:1.18;
+  font-weight:900;
+  letter-spacing:-.035em;
+}
+
+.post-content h2{
+  font-size:clamp(28px,3vw,40px);
+  margin:42px 0 18px;
+}
+
+.post-content h3{
+  font-size:clamp(23px,2.5vw,30px);
+  margin:34px 0 14px;
+}
+
+.post-content p{
+  margin:0 0 24px;
+}
+
+.post-content strong{
+  color:var(--post-azul);
+}
+
+.post-content a{
+  color:var(--post-verde);
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+.post-content blockquote{
+  margin:34px 0;
+  padding:26px 30px;
+  border-left:6px solid var(--post-verde);
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 34%),
+    #f8fafc;
+  border-radius:22px;
+  color:#334155;
+  font-size:20px;
+  line-height:1.85;
+  box-shadow:0 10px 24px rgba(8,40,79,.07);
+}
+
+.post-content ul,
+.post-content ol{
+  padding-left:28px;
+  margin:0 0 26px;
+}
+
+.post-content li{
+  margin-bottom:10px;
+}
+
+.post-content img{
+  width:100%;
+  height:auto;
+  border-radius:24px;
+  box-shadow:0 18px 44px rgba(8,40,79,.14);
+  margin:34px auto;
+  border:1px solid rgba(20,63,125,.10);
+}
+
+.post-content table{
+  width:100%;
+  border-collapse:collapse;
+  margin:34px 0;
+  overflow:hidden;
+  border-radius:18px;
+  box-shadow:0 10px 24px rgba(8,40,79,.07);
+}
+
+.post-content th,
+.post-content td{
+  border:1px solid #e5eaf2;
+  padding:14px 16px;
+  text-align:left;
+}
+
+.post-content th{
+  background:var(--post-azul);
+  color:white;
+  font-family:'Montserrat', sans-serif;
+}
+
+.post-divider{
+  margin:46px 0;
+  border:none;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(20,63,125,.20), transparent);
+}
+
+/* DISCUSSION */
+
+.post-discussion{
+  padding:0 54px 54px;
+}
+
+.post-discussion-card{
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(20,63,125,.10), transparent 34%),
+    #f8fafc;
+  border:1px solid rgba(20,63,125,.10);
+  border-radius:28px;
+  padding:34px;
+  box-shadow:0 12px 28px rgba(8,40,79,.08);
+}
+
+.post-discussion-kicker{
+  display:inline-flex;
+  padding:9px 15px;
+  border-radius:999px;
+  background:#eef4fb;
+  color:var(--post-azul);
+  border:1px solid #dbe7f5;
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  margin-bottom:14px;
+}
+
+.post-discussion h3{
+  font-family:'Montserrat', sans-serif;
+  color:var(--post-azul);
+  font-size:clamp(26px,3vw,36px);
+  line-height:1.12;
+  font-weight:900;
+  letter-spacing:-.04em;
+  margin:0 0 14px;
+}
+
+.post-discussion p{
+  color:var(--post-suave);
+  font-size:17px;
+  line-height:1.8;
+  margin:0 0 24px;
+}
+
+/* ACTIONS */
+
+.post-actions{
+  padding:0 54px 54px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+
+.post-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 22px;
+  border-radius:14px;
+  text-decoration:none;
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  transition:.25s ease;
+  box-shadow:0 10px 22px rgba(8,40,79,.10);
+}
+
+.post-btn-primary{
+  background:linear-gradient(135deg, var(--post-verde), #35b862);
+  color:white;
+}
+
+.post-btn-primary:hover{
+  color:white;
+  transform:translateY(-3px);
+  box-shadow:0 18px 34px rgba(42,156,82,.26);
+}
+
+.post-btn-light{
+  background:#eef4fb;
+  color:var(--post-azul);
+}
+
+.post-btn-light:hover{
+  background:white;
+  color:var(--post-azul);
+  transform:translateY(-3px);
+}
+
+/* READING PROGRESS */
+
+.post-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:4px;
+  width:0%;
+  background:linear-gradient(90deg, var(--post-verde), var(--post-dorado));
+  z-index:9999;
+  box-shadow:0 0 12px rgba(42,156,82,.38);
+}
+
+@media(max-width:760px){
+
+  .post-container{
+    padding:0 22px;
+  }
+
+  .post-hero{
+    min-height:auto;
+  }
+
+  .post-hero-content{
+    padding:76px 20px 110px;
+  }
+
+  .post-section{
+    margin-top:-56px;
+    padding-bottom:68px;
+  }
+
+  .post-card{
+    border-radius:28px;
+  }
+
+  .post-content,
+  .post-discussion,
+  .post-actions{
+    padding-left:28px;
+    padding-right:28px;
+  }
+
+  .post-content{
+    padding-top:42px;
+    font-size:17px;
+    line-height:1.85;
+  }
+
+  .post-discussion-card{
+    padding:26px;
+  }
+
+  .post-actions{
+    flex-direction:column;
+  }
+
+  .post-btn{
+    width:100%;
+  }
+
+}
+
+</style>
+
+<div class="post-progress" id="postProgress"></div>
+
+<div class="post-page">
+
+  <section class="post-hero">
+
+    <div class="post-orb post-orb-one"></div>
+    <div class="post-orb post-orb-two"></div>
+
+    <div class="post-hero-content">
+
+      {% if page.categories contains "magazine" %}
+      <span class="post-badge">
+        Magazine ACMI Santander
+      </span>
+      {% elsif page.categories contains "educacion" %}
+      <span class="post-badge">
+        Educación médica continuada
+      </span>
+      {% else %}
+      <span class="post-badge">
+        ACMI Santander
+      </span>
+      {% endif %}
+
+      <h1>
+        {{ page.title }}
+      </h1>
+
+      <p class="post-meta">
+        <span>{{ page.date | date: "%d/%m/%Y" }}</span>
+        {% if page.author %}
+        <span>·</span>
+        <span>{{ page.author }}</span>
+        {% endif %}
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <section class="post-section">
+
+    <div class="post-container">
+
+      <article class="post-card">
+
+        <div class="post-content">
+
+          {{ content }}
+
+        </div>
+
+        {% if page.categories contains "magazine" %}
+
+        <div class="post-discussion">
+
+          <div class="post-discussion-card">
+
+            <span class="post-discussion-kicker">
+              Comunidad académica
+            </span>
+
+            <h3>
+              Discusión académica del artículo
+            </h3>
+
+            <p>
+              Comparta preguntas, comentarios, aportes o reflexiones relacionadas con este artículo.
+            </p>
+
+            <div class="commentbox"></div>
+
+          </div>
+
+        </div>
+
+        <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+        <script>
+          commentBox('5734850254340096-proj');
+        </script>
+
+        {% endif %}
+
+        <div class="post-actions">
+
+          {% if page.categories contains "magazine" %}
+
+          <a class="post-btn post-btn-primary" href="{{ site.baseurl }}/magazine/">
+            Volver al Magazine
+          </a>
+
+          {% elsif page.categories contains "educacion" %}
+
+          <a class="post-btn post-btn-primary" href="{{ site.baseurl }}/educacion-medica-continuada/">
+            Volver a Educación médica
+          </a>
+
+          {% else %}
+
+          <a class="post-btn post-btn-primary" href="{{ site.baseurl }}/">
+            Volver al inicio
+          </a>
+
+          {% endif %}
+
+          <a class="post-btn post-btn-light" href="{{ site.baseurl }}/">
+            Inicio ACMI
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
 
 </div>
 
-</article>
+<script>
+(function(){
+  const progress = document.getElementById("postProgress");
+
+  if (!progress) return;
+
+  function updateProgress(){
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progress.style.width = percent + "%";
+  }
+
+  window.addEventListener("scroll", updateProgress, { passive:true });
+  window.addEventListener("resize", updateProgress);
+  updateProgress();
+})();
+</script>
