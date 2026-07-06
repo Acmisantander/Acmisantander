@@ -136,12 +136,17 @@ cover: /ACMI%20CALI%203.jpeg
 .news-hero-photo{
   position:relative;
   background:#eef4fb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .news-hero-photo img{
   width:100%;
   height:520px;
-  object-fit:cover;
+  object-fit:contain;
+  object-position:center center;
+  background:#eef4fb;
   display:block;
 }
 
@@ -354,10 +359,13 @@ cover: /ACMI%20CALI%203.jpeg
 
 .news-photo img{
   width:100%;
-  height:285px;
-  object-fit:cover;
+  height:340px;
+  object-fit:contain;
+  object-position:center center;
+  background:#f8fafc;
   border-radius:16px;
   display:block;
+  padding:6px;
 }
 
 .news-photo figcaption{
@@ -375,9 +383,10 @@ cover: /ACMI%20CALI%203.jpeg
 }
 
 .news-closing-photo img{
-  height:auto;
-  max-height:560px;
+  height:420px;
+  max-height:none;
   object-fit:contain;
+  object-position:center center;
   background:#f8fafc;
 }
 
@@ -516,7 +525,9 @@ cover: /ACMI%20CALI%203.jpeg
     height:auto;
     max-height:520px;
     object-fit:contain;
+    object-position:center center;
     background:#f8fafc;
+    padding:4px;
   }
 
   .news-footer{
@@ -673,9 +684,32 @@ cover: /ACMI%20CALI%203.jpeg
 
     </section>
 
+
+    <section class="news-forum-section">
+
+      <div class="news-forum-card">
+
+        <span class="news-forum-kicker">
+          Comunidad académica
+        </span>
+
+        <h3>
+          Discusión académica de la noticia
+        </h3>
+
+        <p>
+          Comparta comentarios, preguntas o aportes relacionados con esta noticia del Magazine ACMI Santander.
+        </p>
+
+        <div class="commentbox"></div>
+
+      </div>
+
+    </section>
+
     <footer class="news-footer">
       <span>Magazine ACMI Santander</span>
-      <span>Noticias · Noticias</span>
+      <span>Noticia · Magazine ACMI Santander</span>
     </footer>
 
   </article>
@@ -685,5 +719,5 @@ cover: /ACMI%20CALI%203.jpeg
 
 <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 <script>
-  commentBox('5734850254340096-proj');
+  commentBox('5704224843235328-proj');
 </script>
