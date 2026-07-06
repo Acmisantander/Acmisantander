@@ -425,6 +425,76 @@
       display:block;
     }
 
+    .slide-pdf-object{
+      width:100%;
+      height:720px;
+      border:0;
+      display:block;
+      background:#eef4fb;
+    }
+
+    .slide-fallback{
+      min-height:300px;
+      background:
+        radial-gradient(circle at top left, rgba(42,156,82,0.10), transparent 32%),
+        linear-gradient(135deg, #eef4fb, #ffffff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:34px;
+      text-align:center;
+      border-top:1px solid rgba(20,63,125,0.08);
+      border-bottom:1px solid rgba(20,63,125,0.08);
+    }
+
+    .slide-fallback-inner{
+      max-width:680px;
+    }
+
+    .slide-fallback-icon{
+      width:86px;
+      height:86px;
+      border-radius:24px;
+      margin:0 auto 18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:white;
+      color:var(--azul-acmi);
+      font-size:44px;
+      box-shadow:0 10px 24px rgba(0,0,0,0.08);
+    }
+
+    .slide-fallback h4{
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-acmi);
+      font-size:24px;
+      margin-bottom:10px;
+    }
+
+    .slide-fallback p{
+      color:#5b6d82;
+      font-size:17px;
+      margin-bottom:16px;
+    }
+
+    .slide-fallback a{
+      display:inline-block;
+      background:var(--azul-acmi);
+      color:white;
+      padding:12px 18px;
+      border-radius:12px;
+      font-family:'Montserrat', sans-serif;
+      font-weight:800;
+      font-size:14px;
+      transition:0.2s ease;
+    }
+
+    .slide-fallback a:hover{
+      background:var(--verde-acmi);
+      transform:translateY(-2px);
+    }
+
     .iframe-fallback{
       padding:14px 22px;
       background:#fff8e8;
@@ -521,7 +591,8 @@
         font-size:42px;
       }
 
-      .slide-viewer{
+      .slide-viewer,
+      .slide-pdf-object{
         height:620px;
       }
     }
@@ -568,7 +639,8 @@
         font-size:22px;
       }
 
-      .slide-viewer{
+      .slide-viewer,
+      .slide-pdf-object{
         height:520px;
       }
 
@@ -673,16 +745,16 @@
 
         <div class="notice">
           <p>
-            <strong>Importante:</strong> este código usa vista incrustada de Google Drive mediante
-            <strong>/preview</strong>. Para que no pida autorización, cada archivo PDF o presentación debe estar
-            compartido en Google Drive como <strong>“Cualquier persona con el enlace” → “Lector”</strong>.
+            <strong>Importante:</strong> se cambió el visor para evitar el error de Google
+            <strong>“No se puede acceder a tu Cuenta de Google”</strong>, que aparece cuando Google Drive
+            bloquea cookies de terceros dentro de iframes. Ahora se intenta mostrar el PDF por URL directa.
           </p>
 
           <ul>
-            <li>El enlace correcto de la carpeta es: <strong>https://drive.google.com/drive/folders/1qBlSeZnttrcTfDB_1Of-otM2MwiMzGei?usp=drive_link</strong></li>
-            <li>Una carpeta de Drive no se incrusta como presentación única; se incrusta cada archivo con su ID individual.</li>
-            <li>Si un archivo está privado, Google Drive seguirá mostrando solicitud de acceso dentro del iframe.</li>
-            <li>El código no puede saltarse permisos de Google Drive; los permisos deben corregirse directamente en Drive.</li>
+            <li>La carpeta correcta es: <strong>https://drive.google.com/drive/folders/1qBlSeZnttrcTfDB_1Of-otM2MwiMzGei?usp=drive_link</strong></li>
+            <li>Cada archivo debe estar en: <strong>Cualquier persona con el enlace → Lector</strong>.</li>
+            <li>Si el navegador bloquea de todos modos la vista interna, el botón <strong>Abrir presentación</strong> funciona como respaldo.</li>
+            <li>La solución más estable para verlas siempre dentro de la página es subir los PDF directamente al hosting del sitio y no servirlos desde Drive.</li>
           </ul>
         </div>
 
@@ -701,22 +773,12 @@
       CARPETA CORRECTA:
       https://drive.google.com/drive/folders/1qBlSeZnttrcTfDB_1Of-otM2MwiMzGei?usp=drive_link
 
-      PASO OBLIGATORIO EN GOOGLE DRIVE PARA QUE NO PIDA AUTORIZACIÓN:
-      1. Abre la carpeta anterior.
-      2. Selecciona todos los archivos de las diapositivas.
-      3. Clic derecho → Compartir.
-      4. En “Acceso general”, cambia de “Restringido” a “Cualquier persona con el enlace”.
-      5. Rol: “Lector”.
-      6. Guarda los cambios.
-
-      IMPORTANTE:
-      - El iframe debe usar /preview.
-      - /view sirve para abrir en pestaña nueva.
-      - /uc?export=download sirve para descarga.
-      - Si Drive conserva el archivo como privado, el iframe pedirá autorización.
+      NOTA TÉCNICA:
+      - drive.google.com/file/d/ID/preview puede fallar dentro de iframe por cookies de terceros.
+      - Por eso usamos uc?export=view&id=ID dentro de <object>.
+      - Si el archivo no está compartido públicamente como lector, seguirá fallando.
+      - Para máxima estabilidad, subir los PDF al hosting del sitio y usar rutas locales.
     */
-
-    const folderUrl = "https://drive.google.com/drive/folders/1qBlSeZnttrcTfDB_1Of-otM2MwiMzGei?usp=drive_link";
 
     const presentaciones = [
       {
@@ -832,8 +894,19 @@
     const slidesGrid = document.getElementById("slidesGrid");
 
     presentaciones.forEach((presentacion) => {
-      const previewUrl = `https://drive.google.com/file/d/${presentacion.id}/preview`;
+      /*
+        Enlace directo para intentar mostrar el PDF sin visor de cuenta Google:
+      */
+      const directPdfUrl = `https://drive.google.com/uc?export=view&id=${presentacion.id}`;
+
+      /*
+        Enlace normal de Drive para abrir en pestaña nueva:
+      */
       const viewUrl = `https://drive.google.com/file/d/${presentacion.id}/view?usp=drive_link`;
+
+      /*
+        Enlace de descarga:
+      */
       const downloadUrl = `https://drive.google.com/uc?export=download&id=${presentacion.id}`;
 
       const card = document.createElement("article");
@@ -849,20 +922,31 @@
         </div>
 
         <div class="slide-viewer-wrap">
-          <iframe
-            class="slide-viewer"
-            src="${previewUrl}"
-            title="Vista previa de ${presentacion.titulo}"
-            loading="lazy"
-            allow="autoplay; fullscreen"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+          <object
+            class="slide-pdf-object"
+            data="${directPdfUrl}"
+            type="application/pdf"
+            aria-label="Vista previa de ${presentacion.titulo}">
+
+            <div class="slide-fallback">
+              <div class="slide-fallback-inner">
+                <div class="slide-fallback-icon">📄</div>
+                <h4>${presentacion.titulo}</h4>
+                <p>
+                  Este navegador no permitió mostrar el PDF dentro de la página.
+                  Puede abrir la presentación en una pestaña nueva.
+                </p>
+                <a href="${viewUrl}" target="_blank" rel="noopener">
+                  Abrir presentación
+                </a>
+              </div>
+            </div>
+          </object>
 
           <div class="iframe-fallback">
-            Si la presentación no carga aquí, revise que el archivo esté compartido como
-            <strong>“Cualquier persona con el enlace: lector”</strong>.
-            También puede <a href="${viewUrl}" target="_blank" rel="noopener">abrirla en una pestaña nueva</a>.
+            Si no se visualiza dentro de la página, el navegador puede estar bloqueando Drive.
+            Use <a href="${viewUrl}" target="_blank" rel="noopener">Abrir presentación</a>
+            o <a href="${downloadUrl}" target="_blank" rel="noopener">Descargar PDF</a>.
           </div>
         </div>
 
