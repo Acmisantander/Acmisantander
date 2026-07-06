@@ -566,6 +566,39 @@
       margin:0 auto;
     }
 
+    .forum-section{
+      position:relative;
+      z-index:2;
+      margin-top:38px;
+      background:white;
+      border-radius:30px;
+      padding:44px;
+      box-shadow:var(--sombra);
+      border:1px solid rgba(20,63,125,0.10);
+    }
+
+    .forum-title{
+      text-align:center;
+      font-family:'Montserrat', sans-serif;
+      color:var(--azul-acmi);
+      font-size:34px;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .forum-text{
+      text-align:center;
+      max-width:860px;
+      margin:0 auto 34px;
+      color:#5b6d82;
+      font-size:18px;
+      line-height:1.8;
+    }
+
+    .commentbox{
+      width:100%;
+    }
+
     footer{
       background:var(--azul-acmi-2);
       color:white;
@@ -674,6 +707,19 @@
       .acmi-photo-card p{
         font-size:17px;
       }
+
+      .forum-section{
+        padding:28px;
+        border-radius:24px;
+      }
+
+      .forum-title{
+        font-size:27px;
+      }
+
+      .forum-text{
+        font-size:16px;
+      }
     }
   </style>
 </head>
@@ -692,7 +738,7 @@
           Acta Médica Colombiana
         </a>
         <a href="/#patrocinios">Patrocinios</a>
-        <a href="/#foro">Foro</a>
+        <a href="#foro-acmi">Foro</a>
         <a href="/#contacto">Contacto</a>
       </div>
     </div>
@@ -718,6 +764,7 @@
           <li><a href="/repositorio-eventos/diapositivas/">Diapositivas</a></li>
           <li><a href="/educacion-medica-continuada/">Educación médica</a></li>
           <li><a href="/magazine/">Magazine</a></li>
+          <li><a href="#foro-acmi">Foro</a></li>
           <li><a href="/#contacto">Contacto</a></li>
         </ul>
       </nav>
@@ -738,6 +785,7 @@
       <div class="hero-actions">
         <a class="btn btn-primary" href="#presentaciones">Ver presentaciones</a>
         <a class="btn btn-light" href="/repositorio-eventos/">Volver al repositorio</a>
+        <a class="btn btn-light" href="#foro-acmi">Ir al foro</a>
       </div>
     </div>
   </section>
@@ -771,6 +819,17 @@
           </div>
         </section>
 
+        <section class="forum-section" id="foro-acmi">
+          <h2 class="forum-title">Foro ACMI</h2>
+
+          <p class="forum-text">
+            Espacio de discusión académica para comentar las presentaciones, compartir preguntas
+            y fortalecer la conversación científica del VI Simposio Regional ACMI Santander.
+          </p>
+
+          <div class="commentbox"></div>
+        </section>
+
       </section>
 
     </div>
@@ -783,9 +842,10 @@
 
   <script>
     /*
-      No se cargan los PDF automáticamente al abrir la página.
-      Cada PDF solo se incrusta cuando el usuario pulsa “Ver en la página”.
-      Esto evita descargas automáticas, consumo innecesario de datos y carga pesada inicial.
+      PREVISUALIZACIÓN TIPO IFRAME:
+      - Los PDF NO se cargan automáticamente al abrir la página.
+      - Cada PDF se carga dentro de un iframe únicamente cuando el usuario pulsa “Previsualizar PDF”.
+      - Esto evita carga pesada inicial y evita descargas automáticas.
     */
 
     const rutaBase = "/repositorio-eventos/diapositivas/";
@@ -933,10 +993,11 @@
             <div class="slide-placeholder-icon">📄</div>
             <h4>${presentacion.titulo}</h4>
             <p>
-              La presentación no se carga automáticamente. Pulse “Ver en la página” para visualizarla aquí.
+              La presentación está lista para previsualizarse dentro de esta página.
+              Pulse “Previsualizar PDF” para abrir el visor.
             </p>
             <button class="btn btn-primary" type="button" id="${buttonId}">
-              Ver en la página
+              Previsualizar PDF
             </button>
           </div>
         </div>
@@ -945,7 +1006,11 @@
 
         <div class="slide-actions">
           <button type="button" data-action="load" data-index="${index}">
-            Ver en la página
+            Previsualizar PDF
+          </button>
+
+          <button type="button" class="secondary" data-action="close" data-index="${index}">
+            Ocultar vista previa
           </button>
 
           <a href="${pdfUrl}" target="_blank" rel="noopener">
@@ -960,11 +1025,18 @@
 
       slidesGrid.appendChild(card);
 
-      const loadButtons = card.querySelectorAll(`[data-action="load"], #${buttonId}`);
+      const previewButtons = card.querySelectorAll(`[data-action="load"], #${buttonId}`);
+      const closeButtons = card.querySelectorAll(`[data-action="close"]`);
 
-      loadButtons.forEach((button) => {
+      previewButtons.forEach((button) => {
         button.addEventListener("click", () => {
           cargarPresentacion(index, pdfUrl, presentacion.titulo);
+        });
+      });
+
+      closeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          ocultarPresentacion(index);
         });
       });
     });
@@ -977,7 +1049,7 @@
         viewer.innerHTML = `
           <iframe
             class="slide-viewer"
-            src="${pdfUrl}#toolbar=1&navpanes=0"
+            src="${pdfUrl}#toolbar=1&navpanes=0&view=FitH"
             title="Vista previa de ${titulo}"
             loading="lazy">
           </iframe>
@@ -990,6 +1062,21 @@
       viewer.classList.add("is-open");
       viewer.scrollIntoView({ behavior:"smooth", block:"center" });
     }
+
+    function ocultarPresentacion(index){
+      const viewer = document.getElementById(`viewer-${index}`);
+      const placeholder = document.getElementById(`placeholder-${index}`);
+
+      viewer.classList.remove("is-open");
+      placeholder.style.display = "flex";
+      placeholder.scrollIntoView({ behavior:"smooth", block:"center" });
+    }
+  </script>
+
+  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+
+  <script>
+    commentBox('5704224843235328-proj');
   </script>
 
 </body>
