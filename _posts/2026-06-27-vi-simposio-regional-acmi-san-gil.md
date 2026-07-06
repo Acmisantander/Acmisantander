@@ -512,7 +512,7 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
           </span>
         </div>
 
-        <p>Además de su componente académico, el evento tuvo un sentido institucional especial al incluir un <strong>homenaje al Dr. Franklin Quiroz</strong>, resaltando su legado y aporte a la medicina interna y al desarrollo académico de la región.</p>
+        <p>Además de su componente académico, el evento tuvo un sentido institucional especial al incluir un <strong>homenaje al Dr. Franklin Quiroz</strong>, resaltando su legado y aporte a la medicina interna, la cardiología y al desarrollo académico de la región.</p>
 
         <p>El repositorio del evento reúne el material gráfico oficial y recursos académicos asociados al simposio.</p>
 
