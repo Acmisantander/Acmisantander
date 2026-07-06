@@ -417,6 +417,14 @@
       position:relative;
     }
 
+    .slide-viewer{
+      width:100%;
+      height:720px;
+      border:0;
+      background:#eef4fb;
+      display:block;
+    }
+
     .slide-pdf-object{
       width:100%;
       height:720px;
@@ -583,6 +591,7 @@
         font-size:42px;
       }
 
+      .slide-viewer,
       .slide-pdf-object{
         height:620px;
       }
@@ -630,6 +639,7 @@
         font-size:22px;
       }
 
+      .slide-viewer,
       .slide-pdf-object{
         height:520px;
       }
@@ -735,14 +745,16 @@
 
         <div class="notice">
           <p>
-            <strong>Importante:</strong> las diapositivas ahora se cargan directamente desde el repositorio,
-            sin Google Drive y sin solicitud de autorización.
+            <strong>Importante:</strong> se cambió el visor para evitar el error de Google
+            <strong>“No se puede acceder a tu Cuenta de Google”</strong>, que aparece cuando Google Drive
+            bloquea cookies de terceros dentro de iframes. Ahora se intenta mostrar el PDF por URL directa.
           </p>
 
           <ul>
-            <li>Ruta base usada: <strong>/repositorio-eventos/diapositivas/</strong></li>
-            <li>Si algún PDF no abre, revise que el nombre del archivo en GitHub sea exactamente igual al campo <strong>archivo</strong> del código.</li>
-            <li>Respete mayúsculas, tildes, espacios, guiones y paréntesis.</li>
+            <li>La carpeta correcta es: <strong>https://drive.google.com/drive/folders/1qBlSeZnttrcTfDB_1Of-otM2MwiMzGei?usp=drive_link</strong></li>
+            <li>Cada archivo debe estar en: <strong>Cualquier persona con el enlace → Lector</strong>.</li>
+            <li>Si el navegador bloquea de todos modos la vista interna, el botón <strong>Abrir presentación</strong> funciona como respaldo.</li>
+            <li>La solución más estable para verlas siempre dentro de la página es subir los PDF directamente al hosting del sitio y no servirlos desde Drive.</li>
           </ul>
         </div>
 
@@ -758,146 +770,144 @@
 
   <script>
     /*
-      Los PDF están subidos en:
-      /repositorio-eventos/diapositivas/
+      CARPETA CORRECTA:
+      https://drive.google.com/drive/folders/1qBlSeZnttrcTfDB_1Of-otM2MwiMzGei?usp=drive_link
 
-      Como este archivo normalmente vive dentro de esa misma carpeta,
-      usamos rutas relativas con encodeURIComponent para manejar espacios,
-      tildes y paréntesis.
-
-      Ejemplo final generado:
-      /repositorio-eventos/diapositivas/SILICOSIS%20CONFERENCIA%20SAN%20GIL.pdf
+      NOTA TÉCNICA:
+      - drive.google.com/file/d/ID/preview puede fallar dentro de iframe por cookies de terceros.
+      - Por eso usamos uc?export=view&id=ID dentro de <object>.
+      - Si el archivo no está compartido públicamente como lector, seguirá fallando.
+      - Para máxima estabilidad, subir los PDF al hosting del sitio y usar rutas locales.
     */
-
-    const rutaBase = "/repositorio-eventos/diapositivas/";
 
     const presentaciones = [
       {
         titulo: "Silicosis",
         descripcion: "Conferencia académica sobre silicosis.",
-        archivo: "SILICOSIS CONFERENCIA SAN GIL.pdf",
+        id: "1KNL-DYgVybBHh-G8is1nrBtaYNpavzEn",
         tipo: "PDF"
       },
       {
         titulo: "Anticoagulación en fibrilación auricular",
         descripcion: "Presentación académica sobre anticoagulación en FA.",
-        archivo: "Anticoagulación en FA.pdf",
+        id: "1Gs1bZr8D7PpoDussp7F7F93Apd0Q6nWD",
         tipo: "PDF"
       },
       {
-        titulo: "Sistema respiratorio",
-        descripcion: "Presentación académica sobre sistema respiratorio.",
-        archivo: "Blue Illustrated Human Respiratory System Group Project Presentation.pdf",
+        titulo: "Vapeo y tabaquismo",
+        descripcion: "Presentación académica sobre vapeo y tabaquismo.",
+        id: "1I2ZwDFI5CM8X3dOVD_oulFVBsTqsiOeC",
         tipo: "PDF"
       },
       {
-        titulo: "Control glucémico intrahospitalario",
-        descripcion: "Presentación académica sobre control glucémico en el paciente hospitalizado.",
-        archivo: "CONTROL GLUCEMICO INRTRAHOSPITALARIO.pdf",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Infarto agudo de miocardio",
-        descripcion: "Charla académica sobre IAM.",
-        archivo: "Charla IAM San Gil.pdf",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Radiografía de tórax",
-        descripcion: "Charla académica sobre interpretación de radiografía de tórax.",
-        archivo: "CharlaRxdeTóraxSanGil.pdf",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Dislipidemias",
-        descripcion: "Presentación académica sobre diagnóstico y manejo de dislipidemias.",
-        archivo: "DISLIPIDEMIAS.pdf",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Estabilidad en la EPOC",
-        descripcion: "Presentación académica sobre enfermedad pulmonar obstructiva crónica.",
-        archivo: "Estabilidad en la EPOC .pdf",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Exacerbaciones: asma vs EPOC",
-        descripcion: "Presentación académica sobre exacerbaciones obstructivas.",
-        archivo: "Exacerbaciones asma vs EPOC.pdf",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Falla cardiaca",
-        descripcion: "Presentación académica sobre falla cardiaca.",
-        archivo: "Falla_Cardiaca_ACMI.pdf",
-        tipo: "PDF"
-      },
-      {
-        titulo: "IA en radiología pulmonar",
-        descripcion: "Aplicaciones de inteligencia artificial en radiología pulmonar.",
-        archivo: "IAradiologíapulmonar.pdf",
-        tipo: "PDF"
-      },
-      {
-        titulo: "MASLD San Gil",
-        descripcion: "Presentación académica sobre enfermedad hepática metabólica.",
-        archivo: "MASLD SAN GIL .pdf",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Riesgo cardiovascular en Colombia 2026",
-        descripcion: "Presentación académica sobre riesgo cardiovascular.",
-        archivo: "Riesgo-Cardiovascular-en-Colombia-2026.pdf",
+        titulo: "Vacunación",
+        descripcion: "Material académico del VI Simposio Regional ACMI San Gil – Santander 2026.",
+        id: "1tTq44NLhJ7tl5wKt-O2UZfor-wtkLxN5",
         tipo: "PDF"
       },
       {
         titulo: "Taller de insulina",
         descripcion: "Taller académico sobre insulinoterapia y control glucémico.",
-        archivo: "TALLER DE INSULINA acmi 26.06.26 (1).pdf",
+        id: "1MeFI7KtApiP0YZggdSaNPvv1b3uqKiII",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Tabaquismo",
+        descripcion: "Presentación académica sobre tabaquismo.",
+        id: "1Pl4xdOdK1IhBSokwCTs-fPffwNK6gM27",
+        tipo: "PDF"
+      },
+      {
+        titulo: "SAHOS",
+        descripcion: "Presentación académica sobre síndrome de apnea-hipopnea obstructiva del sueño.",
+        id: "1vQ_lwAdWIAYCsiuOBc2v-f4tDhSPHM2L",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Riesgo cardiovascular en Colombia 2026",
+        descripcion: "Presentación académica sobre riesgo cardiovascular.",
+        id: "1U3T9vGvf-Yh4OKx2WlIBUxvNHibKq_LM",
+        tipo: "PDF"
+      },
+      {
+        titulo: "MASLD San Gil",
+        descripcion: "Presentación académica sobre enfermedad hepática metabólica.",
+        id: "1X4o1zXlVuyvGgt-_Q4mp3vBtJLCLhI1l",
+        tipo: "PDF"
+      },
+      {
+        titulo: "IA en radiología pulmonar",
+        descripcion: "Aplicaciones de inteligencia artificial en radiología pulmonar.",
+        id: "1bgnKkSdW4CPeqK8I7SiCPKvi0Cvlw0gv",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Estabilidad en la EPOC",
+        descripcion: "Presentación académica sobre enfermedad pulmonar obstructiva crónica.",
+        id: "18_ghuBKoGFJ19MYD7jVwbNqQx--BoVQQ",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Dislipidemias",
+        descripcion: "Presentación académica sobre diagnóstico y manejo de dislipidemias.",
+        id: "1J47_H0r4D1yD34sMoZxDl27BUKdn5aXo",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Control glucémico intrahospitalario",
+        descripcion: "Presentación académica sobre control glucémico en el paciente hospitalizado.",
+        id: "1-2fA0G8Lr12siz6FBOmVjStEtt9c1Cf3",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Radiografía de tórax",
+        descripcion: "Charla académica sobre interpretación de radiografía de tórax.",
+        id: "1Vq4ab04pADGIyzUUl5W7ZzdPqwU3bEkA",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Falla cardiaca",
+        descripcion: "Presentación académica sobre falla cardiaca.",
+        id: "1jK9RC0z9DMLYYc4zmK91E9_d8W-t-_0q",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Infarto agudo de miocardio",
+        descripcion: "Charla académica sobre IAM.",
+        id: "1nEN_UwBmw-cQKVFlGz4qhvgTSlzSY-_9",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Sistema respiratorio",
+        descripcion: "Presentación académica sobre sistema respiratorio.",
+        id: "1nj_6H0_0b3AiTawsJtI6Lb6kAoWXhM8u",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Exacerbaciones: asma vs EPOC",
+        descripcion: "Presentación académica sobre exacerbaciones obstructivas.",
+        id: "1b-E6G52twuXdIm783KR8nE0r-3-QK9rk",
         tipo: "PDF"
       }
-
-      /*
-        Si también subiste los siguientes PDF, agrégalos aquí con el nombre exacto del archivo en GitHub:
-
-        {
-          titulo: "Vapeo y tabaquismo",
-          descripcion: "Presentación académica sobre vapeo y tabaquismo.",
-          archivo: "NOMBRE EXACTO DEL PDF.pdf",
-          tipo: "PDF"
-        },
-        {
-          titulo: "Vacunación",
-          descripcion: "Material académico del VI Simposio Regional ACMI San Gil – Santander 2026.",
-          archivo: "NOMBRE EXACTO DEL PDF.pdf",
-          tipo: "PDF"
-        },
-        {
-          titulo: "Tabaquismo",
-          descripcion: "Presentación académica sobre tabaquismo.",
-          archivo: "NOMBRE EXACTO DEL PDF.pdf",
-          tipo: "PDF"
-        },
-        {
-          titulo: "SAHOS",
-          descripcion: "Presentación académica sobre síndrome de apnea-hipopnea obstructiva del sueño.",
-          archivo: "NOMBRE EXACTO DEL PDF.pdf",
-          tipo: "PDF"
-        }
-      */
     ];
-
-    function construirUrlArchivo(nombreArchivo){
-      return rutaBase + nombreArchivo
-        .split("/")
-        .map(parte => encodeURIComponent(parte))
-        .join("/");
-    }
 
     const slidesGrid = document.getElementById("slidesGrid");
 
     presentaciones.forEach((presentacion) => {
-      const pdfUrl = construirUrlArchivo(presentacion.archivo);
+      /*
+        Enlace directo para intentar mostrar el PDF sin visor de cuenta Google:
+      */
+      const directPdfUrl = `https://drive.google.com/uc?export=view&id=${presentacion.id}`;
+
+      /*
+        Enlace normal de Drive para abrir en pestaña nueva:
+      */
+      const viewUrl = `https://drive.google.com/file/d/${presentacion.id}/view?usp=drive_link`;
+
+      /*
+        Enlace de descarga:
+      */
+      const downloadUrl = `https://drive.google.com/uc?export=download&id=${presentacion.id}`;
 
       const card = document.createElement("article");
       card.className = "slide-card";
@@ -914,7 +924,7 @@
         <div class="slide-viewer-wrap">
           <object
             class="slide-pdf-object"
-            data="${pdfUrl}"
+            data="${directPdfUrl}"
             type="application/pdf"
             aria-label="Vista previa de ${presentacion.titulo}">
 
@@ -924,9 +934,9 @@
                 <h4>${presentacion.titulo}</h4>
                 <p>
                   Este navegador no permitió mostrar el PDF dentro de la página.
-                  Puede abrir o descargar la presentación.
+                  Puede abrir la presentación en una pestaña nueva.
                 </p>
-                <a href="${pdfUrl}" target="_blank" rel="noopener">
+                <a href="${viewUrl}" target="_blank" rel="noopener">
                   Abrir presentación
                 </a>
               </div>
@@ -934,18 +944,18 @@
           </object>
 
           <div class="iframe-fallback">
-            Si no se visualiza dentro de la página, use
-            <a href="${pdfUrl}" target="_blank" rel="noopener">Abrir presentación</a>
-            o descárguela desde el botón inferior.
+            Si no se visualiza dentro de la página, el navegador puede estar bloqueando Drive.
+            Use <a href="${viewUrl}" target="_blank" rel="noopener">Abrir presentación</a>
+            o <a href="${downloadUrl}" target="_blank" rel="noopener">Descargar PDF</a>.
           </div>
         </div>
 
         <div class="slide-actions">
-          <a href="${pdfUrl}" target="_blank" rel="noopener">
+          <a href="${viewUrl}" target="_blank" rel="noopener">
             Abrir presentación
           </a>
 
-          <a class="secondary" href="${pdfUrl}" download>
+          <a class="secondary" href="${downloadUrl}" target="_blank" rel="noopener">
             Descargar PDF
           </a>
         </div>
