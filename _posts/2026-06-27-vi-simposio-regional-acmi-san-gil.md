@@ -5,6 +5,7 @@ date: 2026-06-27
 author: "Sergio Gómez. Residente de medicina interna"
 categories: magazine
 subcategory: noticias
+cover: /img/35.jpeg
 excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander 2026, un espacio de educación médica continua, integración académica y homenaje institucional."
 ---
 
@@ -493,7 +494,7 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
 
 
       <figure class="sg-main-photo">
-        <img onerror="this.closest('figure').style.display='none';" loading="lazy" src="https://acmisantander.com.co/img/35.jpeg" alt="">
+        <img onerror="this.closest('figure').style.display='none';" loading="lazy" src="{{ site.baseurl }}/img/35.jpeg" alt="">
       </figure>
 
       <div class="sg-news-text">
@@ -529,15 +530,15 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
         <div class="sg-gallery">
 
           <figure>
-            <img onerror="this.closest('figure').style.display='none';" loading="lazy" src="https://acmisantander.com.co/img/35.jpeg" alt="">
+            <img onerror="this.closest('figure').style.display='none';" loading="lazy" src="{{ site.baseurl }}/img/35.jpeg" alt="">
           </figure>
 
           <figure>
-            <img onerror="this.closest('figure').style.display='none';" loading="lazy" src="https://acmisantander.com.co/img/42.jpeg" alt="">
+            <img onerror="this.closest('figure').style.display='none';" loading="lazy" src="{{ site.baseurl }}/img/42.jpeg" alt="">
           </figure>
 
           <figure>
-            <img onerror="this.closest('figure').style.display='none';" loading="lazy" src="https://acmisantander.com.co/img/51.jpeg" alt="">
+            <img onerror="this.closest('figure').style.display='none';" loading="lazy" src="{{ site.baseurl }}/img/51.jpeg" alt="">
           </figure>
 
         </div>
@@ -546,15 +547,15 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
 
       <div class="sg-news-actions">
 
-        <a class="sg-news-btn sg-news-btn-primary" href="https://acmisantander.com.co/repositorio-eventos/#afiches">
+        <a class="sg-news-btn sg-news-btn-primary" href="{{ site.baseurl }}/repositorio-eventos/#afiches">
           Ver repositorio del evento
         </a>
 
-        <a class="sg-news-btn sg-news-btn-light" href="https://acmisantander.com.co/repositorio-eventos/fotos-y-videos.html">
+        <a class="sg-news-btn sg-news-btn-light" href="{{ site.baseurl }}/repositorio-eventos/fotos-y-videos.html">
           Ver fotos y videos
         </a>
 
-        <a class="sg-news-btn sg-news-btn-light" href="https://acmisantander.com.co/magazine/">
+        <a class="sg-news-btn sg-news-btn-light" href="{{ site.baseurl }}/magazine/">
           Volver al Magazine
         </a>
 
