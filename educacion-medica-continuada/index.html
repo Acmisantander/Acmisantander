@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Educación médica continuada | ACMI Santander</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -76,6 +76,7 @@ header{
   margin:0;
   font-size:30px;
   line-height:1.1;
+  font-weight:900;
 }
 
 .brand p{
@@ -175,14 +176,27 @@ nav a:hover{
   letter-spacing:.04em;
   margin-bottom:22px;
   text-transform:uppercase;
+  color:white;
 }
 
 .hero h2{
   font-family:'Montserrat',sans-serif;
   font-size:clamp(38px,5vw,62px);
   line-height:1.08;
-  font-weight:800;
+  font-weight:900;
   margin:0 0 18px;
+  color:white !important;
+  text-shadow:0 4px 18px rgba(0,0,0,.28);
+}
+
+.hero h2::after{
+  content:"";
+  display:block;
+  width:90px;
+  height:4px;
+  border-radius:99px;
+  background:linear-gradient(90deg, var(--verde-acmi), var(--dorado));
+  margin:24px auto 0;
 }
 
 .hero p{
@@ -260,9 +274,10 @@ h2{
   color:var(--azul-acmi);
   margin:0 0 18px;
   line-height:1.15;
+  font-weight:900;
 }
 
-h2::after{
+.card h2::after{
   content:"";
   display:block;
   width:90px;
@@ -276,6 +291,7 @@ h3{
   font-size:30px;
   color:var(--azul-acmi);
   margin:42px 0 14px;
+  font-weight:900;
 }
 
 p{
