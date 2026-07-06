@@ -182,13 +182,8 @@
     }
 
     @keyframes floatCircle{
-      0%,100%{
-        transform:translateY(0);
-      }
-
-      50%{
-        transform:translateY(-18px);
-      }
+      0%,100%{ transform:translateY(0); }
+      50%{ transform:translateY(-18px); }
     }
 
     @keyframes fadeUp{
@@ -196,7 +191,6 @@
         opacity:0;
         transform:translateY(28px);
       }
-
       to{
         opacity:1;
         transform:translateY(0);
@@ -254,6 +248,8 @@
       font-family:'Montserrat', sans-serif;
       font-weight:800;
       transition:0.22s ease;
+      cursor:pointer;
+      border:0;
     }
 
     .btn-primary{
@@ -410,31 +406,8 @@
       white-space:nowrap;
     }
 
-    .slide-viewer-wrap{
-      background:#eef4fb;
-      border-top:1px solid rgba(20,63,125,0.08);
-      border-bottom:1px solid rgba(20,63,125,0.08);
-      position:relative;
-    }
-
-    .slide-viewer{
-      width:100%;
-      height:720px;
-      border:0;
-      background:#eef4fb;
-      display:block;
-    }
-
-    .slide-pdf-object{
-      width:100%;
-      height:720px;
-      border:0;
-      display:block;
-      background:#eef4fb;
-    }
-
-    .slide-fallback{
-      min-height:300px;
+    .slide-placeholder{
+      min-height:250px;
       background:
         radial-gradient(circle at top left, rgba(42,156,82,0.10), transparent 32%),
         linear-gradient(135deg, #eef4fb, #ffffff);
@@ -447,11 +420,11 @@
       border-bottom:1px solid rgba(20,63,125,0.08);
     }
 
-    .slide-fallback-inner{
+    .slide-placeholder-inner{
       max-width:680px;
     }
 
-    .slide-fallback-icon{
+    .slide-placeholder-icon{
       width:86px;
       height:86px;
       border-radius:24px;
@@ -465,48 +438,36 @@
       box-shadow:0 10px 24px rgba(0,0,0,0.08);
     }
 
-    .slide-fallback h4{
+    .slide-placeholder h4{
       font-family:'Montserrat', sans-serif;
       color:var(--azul-acmi);
       font-size:24px;
       margin-bottom:10px;
     }
 
-    .slide-fallback p{
+    .slide-placeholder p{
       color:#5b6d82;
       font-size:17px;
-      margin-bottom:16px;
+      margin-bottom:18px;
     }
 
-    .slide-fallback a{
-      display:inline-block;
-      background:var(--azul-acmi);
-      color:white;
-      padding:12px 18px;
-      border-radius:12px;
-      font-family:'Montserrat', sans-serif;
-      font-weight:800;
-      font-size:14px;
-      transition:0.2s ease;
+    .slide-viewer-wrap{
+      display:none;
+      background:#eef4fb;
+      border-top:1px solid rgba(20,63,125,0.08);
+      border-bottom:1px solid rgba(20,63,125,0.08);
     }
 
-    .slide-fallback a:hover{
-      background:var(--verde-acmi);
-      transform:translateY(-2px);
+    .slide-viewer-wrap.is-open{
+      display:block;
     }
 
-    .iframe-fallback{
-      padding:14px 22px;
-      background:#fff8e8;
-      color:#6b4b13;
-      border-top:1px solid rgba(200,155,60,0.24);
-      font-size:14px;
-      text-align:center;
-    }
-
-    .iframe-fallback a{
-      color:var(--azul-acmi);
-      font-weight:800;
+    .slide-viewer{
+      width:100%;
+      height:720px;
+      border:0;
+      background:#eef4fb;
+      display:block;
     }
 
     .slide-actions{
@@ -517,7 +478,8 @@
       flex-wrap:wrap;
     }
 
-    .slide-actions a{
+    .slide-actions a,
+    .slide-actions button{
       display:inline-block;
       background:var(--azul-acmi);
       color:white;
@@ -527,9 +489,12 @@
       font-weight:800;
       font-size:14px;
       transition:0.2s ease;
+      border:0;
+      cursor:pointer;
     }
 
-    .slide-actions a:hover{
+    .slide-actions a:hover,
+    .slide-actions button:hover{
       background:var(--verde-acmi);
       transform:translateY(-2px);
     }
@@ -545,24 +510,60 @@
       color:var(--azul-acmi);
     }
 
-    .notice{
-      margin-top:28px;
-      background:#fff;
-      border:1px solid rgba(20,63,125,0.12);
-      border-radius:22px;
-      padding:24px 28px;
-      color:#5b6d82;
-      box-shadow:0 10px 24px rgba(0,0,0,0.06);
+    .acmi-photo-card{
+      margin-top:38px;
       position:relative;
       z-index:2;
+      border-radius:30px;
+      overflow:hidden;
+      min-height:360px;
+      background:
+        linear-gradient(135deg, rgba(15,53,105,0.90), rgba(15,53,105,0.58)),
+        url("/assets/img/magazine-banner.jpg") center center / cover no-repeat;
+      box-shadow:var(--sombra-fuerte);
+      border:1px solid rgba(255,255,255,0.24);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
     }
 
-    .notice strong{
-      color:var(--azul-acmi);
+    .acmi-photo-content{
+      width:min(860px, 92%);
+      padding:70px 24px;
+      color:white;
     }
 
-    .notice ul{
-      margin:10px 0 0 20px;
+    .acmi-photo-badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 20px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.14);
+      border:1px solid rgba(255,255,255,0.24);
+      font-family:'Montserrat', sans-serif;
+      font-size:0.95rem;
+      font-weight:800;
+      margin-bottom:24px;
+      backdrop-filter:blur(6px);
+    }
+
+    .acmi-photo-card h3{
+      font-family:'Montserrat', sans-serif;
+      font-size:42px;
+      line-height:1.12;
+      font-weight:800;
+      color:white;
+      margin-bottom:18px;
+    }
+
+    .acmi-photo-card p{
+      font-size:20px;
+      line-height:1.8;
+      color:rgba(255,255,255,0.95);
+      max-width:780px;
+      margin:0 auto;
     }
 
     footer{
@@ -591,9 +592,12 @@
         font-size:42px;
       }
 
-      .slide-viewer,
-      .slide-pdf-object{
+      .slide-viewer{
         height:620px;
+      }
+
+      .acmi-photo-card h3{
+        font-size:34px;
       }
     }
 
@@ -639,8 +643,7 @@
         font-size:22px;
       }
 
-      .slide-viewer,
-      .slide-pdf-object{
+      .slide-viewer{
         height:520px;
       }
 
@@ -649,14 +652,27 @@
         justify-content:center;
       }
 
-      .slide-actions a{
+      .slide-actions a,
+      .slide-actions button{
         width:100%;
         text-align:center;
       }
 
-      .iframe-fallback{
-        font-size:13px;
-        padding:12px 16px;
+      .acmi-photo-card{
+        min-height:300px;
+        border-radius:24px;
+      }
+
+      .acmi-photo-content{
+        padding:54px 18px;
+      }
+
+      .acmi-photo-card h3{
+        font-size:28px;
+      }
+
+      .acmi-photo-card p{
+        font-size:17px;
       }
     }
   </style>
@@ -737,26 +753,23 @@
           <h2 class="section-title">Presentaciones del evento</h2>
 
           <p class="section-subtitle">
-            Consulte aquí las diapositivas disponibles del VI Simposio Regional ACMI.
+            Consulte aquí las 18 diapositivas disponibles del VI Simposio Regional ACMI.
           </p>
         </div>
 
         <div class="slides-grid" id="slidesGrid"></div>
 
-        <div class="notice">
-          <p>
-            <strong>Importante:</strong> se cambió el visor para evitar el error de Google
-            <strong>“No se puede acceder a tu Cuenta de Google”</strong>, que aparece cuando Google Drive
-            bloquea cookies de terceros dentro de iframes. Ahora se intenta mostrar el PDF por URL directa.
-          </p>
+        <section class="acmi-photo-card" aria-label="ACMI Santander">
+          <div class="acmi-photo-content">
+            <span class="acmi-photo-badge">ACMI Santander</span>
 
-          <ul>
-            <li>La carpeta correcta es: <strong>https://drive.google.com/drive/folders/1qBlSeZnttrcTfDB_1Of-otM2MwiMzGei?usp=drive_link</strong></li>
-            <li>Cada archivo debe estar en: <strong>Cualquier persona con el enlace → Lector</strong>.</li>
-            <li>Si el navegador bloquea de todos modos la vista interna, el botón <strong>Abrir presentación</strong> funciona como respaldo.</li>
-            <li>La solución más estable para verlas siempre dentro de la página es subir los PDF directamente al hosting del sitio y no servirlos desde Drive.</li>
-          </ul>
-        </div>
+            <h3>Educación médica continua que transforma la práctica clínica</h3>
+
+            <p>
+              Capítulo Santander de la Asociación Colombiana de Medicina Interna.
+            </p>
+          </div>
+        </section>
 
       </section>
 
@@ -770,144 +783,138 @@
 
   <script>
     /*
-      CARPETA CORRECTA:
-      https://drive.google.com/drive/folders/1qBlSeZnttrcTfDB_1Of-otM2MwiMzGei?usp=drive_link
-
-      NOTA TÉCNICA:
-      - drive.google.com/file/d/ID/preview puede fallar dentro de iframe por cookies de terceros.
-      - Por eso usamos uc?export=view&id=ID dentro de <object>.
-      - Si el archivo no está compartido públicamente como lector, seguirá fallando.
-      - Para máxima estabilidad, subir los PDF al hosting del sitio y usar rutas locales.
+      No se cargan los PDF automáticamente al abrir la página.
+      Cada PDF solo se incrusta cuando el usuario pulsa “Ver en la página”.
+      Esto evita descargas automáticas, consumo innecesario de datos y carga pesada inicial.
     */
+
+    const rutaBase = "/repositorio-eventos/diapositivas/";
 
     const presentaciones = [
       {
-        titulo: "Silicosis",
-        descripcion: "Conferencia académica sobre silicosis.",
-        id: "1KNL-DYgVybBHh-G8is1nrBtaYNpavzEn",
-        tipo: "PDF"
-      },
-      {
         titulo: "Anticoagulación en fibrilación auricular",
         descripcion: "Presentación académica sobre anticoagulación en FA.",
-        id: "1Gs1bZr8D7PpoDussp7F7F93Apd0Q6nWD",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Vapeo y tabaquismo",
-        descripcion: "Presentación académica sobre vapeo y tabaquismo.",
-        id: "1I2ZwDFI5CM8X3dOVD_oulFVBsTqsiOeC",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Vacunación",
-        descripcion: "Material académico del VI Simposio Regional ACMI San Gil – Santander 2026.",
-        id: "1tTq44NLhJ7tl5wKt-O2UZfor-wtkLxN5",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Taller de insulina",
-        descripcion: "Taller académico sobre insulinoterapia y control glucémico.",
-        id: "1MeFI7KtApiP0YZggdSaNPvv1b3uqKiII",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Tabaquismo",
-        descripcion: "Presentación académica sobre tabaquismo.",
-        id: "1Pl4xdOdK1IhBSokwCTs-fPffwNK6gM27",
-        tipo: "PDF"
-      },
-      {
-        titulo: "SAHOS",
-        descripcion: "Presentación académica sobre síndrome de apnea-hipopnea obstructiva del sueño.",
-        id: "1vQ_lwAdWIAYCsiuOBc2v-f4tDhSPHM2L",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Riesgo cardiovascular en Colombia 2026",
-        descripcion: "Presentación académica sobre riesgo cardiovascular.",
-        id: "1U3T9vGvf-Yh4OKx2WlIBUxvNHibKq_LM",
-        tipo: "PDF"
-      },
-      {
-        titulo: "MASLD San Gil",
-        descripcion: "Presentación académica sobre enfermedad hepática metabólica.",
-        id: "1X4o1zXlVuyvGgt-_Q4mp3vBtJLCLhI1l",
-        tipo: "PDF"
-      },
-      {
-        titulo: "IA en radiología pulmonar",
-        descripcion: "Aplicaciones de inteligencia artificial en radiología pulmonar.",
-        id: "1bgnKkSdW4CPeqK8I7SiCPKvi0Cvlw0gv",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Estabilidad en la EPOC",
-        descripcion: "Presentación académica sobre enfermedad pulmonar obstructiva crónica.",
-        id: "18_ghuBKoGFJ19MYD7jVwbNqQx--BoVQQ",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Dislipidemias",
-        descripcion: "Presentación académica sobre diagnóstico y manejo de dislipidemias.",
-        id: "1J47_H0r4D1yD34sMoZxDl27BUKdn5aXo",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Control glucémico intrahospitalario",
-        descripcion: "Presentación académica sobre control glucémico en el paciente hospitalizado.",
-        id: "1-2fA0G8Lr12siz6FBOmVjStEtt9c1Cf3",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Radiografía de tórax",
-        descripcion: "Charla académica sobre interpretación de radiografía de tórax.",
-        id: "1Vq4ab04pADGIyzUUl5W7ZzdPqwU3bEkA",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Falla cardiaca",
-        descripcion: "Presentación académica sobre falla cardiaca.",
-        id: "1jK9RC0z9DMLYYc4zmK91E9_d8W-t-_0q",
-        tipo: "PDF"
-      },
-      {
-        titulo: "Infarto agudo de miocardio",
-        descripcion: "Charla académica sobre IAM.",
-        id: "1nEN_UwBmw-cQKVFlGz4qhvgTSlzSY-_9",
+        archivo: "Anticoagulación en FA.pdf",
         tipo: "PDF"
       },
       {
         titulo: "Sistema respiratorio",
         descripcion: "Presentación académica sobre sistema respiratorio.",
-        id: "1nj_6H0_0b3AiTawsJtI6Lb6kAoWXhM8u",
+        archivo: "Blue Illustrated Human Respiratory System Group Project Presentation.pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Control glucémico intrahospitalario",
+        descripcion: "Presentación académica sobre control glucémico en el paciente hospitalizado.",
+        archivo: "CONTROL GLUCEMICO INRTRAHOSPITALARIO.pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Infarto agudo de miocardio",
+        descripcion: "Charla académica sobre IAM.",
+        archivo: "Charla IAM San Gil.pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Radiografía de tórax",
+        descripcion: "Charla académica sobre interpretación de radiografía de tórax.",
+        archivo: "CharlaRxdeTóraxSanGil.pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Dislipidemias",
+        descripcion: "Presentación académica sobre diagnóstico y manejo de dislipidemias.",
+        archivo: "DISLIPIDEMIAS.pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Estabilidad en la EPOC",
+        descripcion: "Presentación académica sobre enfermedad pulmonar obstructiva crónica.",
+        archivo: "Estabilidad en la EPOC .pdf",
         tipo: "PDF"
       },
       {
         titulo: "Exacerbaciones: asma vs EPOC",
         descripcion: "Presentación académica sobre exacerbaciones obstructivas.",
-        id: "1b-E6G52twuXdIm783KR8nE0r-3-QK9rk",
+        archivo: "Exacerbaciones asma vs EPOC.pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Falla cardiaca",
+        descripcion: "Presentación académica sobre falla cardiaca.",
+        archivo: "Falla_Cardiaca_ACMI.pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "IA en radiología pulmonar",
+        descripcion: "Aplicaciones de inteligencia artificial en radiología pulmonar.",
+        archivo: "IAradiologíapulmonar.pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "MASLD San Gil",
+        descripcion: "Presentación académica sobre enfermedad hepática metabólica.",
+        archivo: "MASLD SAN GIL .pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Riesgo cardiovascular en Colombia 2026",
+        descripcion: "Presentación académica sobre riesgo cardiovascular.",
+        archivo: "Riesgo-Cardiovascular-en-Colombia-2026.pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Silicosis",
+        descripcion: "Conferencia académica sobre silicosis.",
+        archivo: "SILICOSIS CONFERENCIA SAN GIL.pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Taller de insulina",
+        descripcion: "Taller académico sobre insulinoterapia y control glucémico.",
+        archivo: "TALLER DE INSULINA acmi 26.06.26 (1).pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Tabaquismo",
+        descripcion: "Presentación académica sobre tabaquismo.",
+        archivo: "Tabaquismo .pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Vacunación",
+        descripcion: "Presentación académica sobre vacunación.",
+        archivo: "Vacunacion.pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "Vapeo y tabaquismo",
+        descripcion: "Presentación académica sobre vapeo y tabaquismo.",
+        archivo: "Vapeo y tabaquismo.pdf",
+        tipo: "PDF"
+      },
+      {
+        titulo: "SAHOS",
+        descripcion: "Presentación académica sobre síndrome de apnea-hipopnea obstructiva del sueño.",
+        archivo: "sahos.pdf",
         tipo: "PDF"
       }
     ];
 
+    function construirUrlArchivo(nombreArchivo){
+      return rutaBase + nombreArchivo
+        .split("/")
+        .map(parte => encodeURIComponent(parte))
+        .join("/");
+    }
+
     const slidesGrid = document.getElementById("slidesGrid");
 
-    presentaciones.forEach((presentacion) => {
-      /*
-        Enlace directo para intentar mostrar el PDF sin visor de cuenta Google:
-      */
-      const directPdfUrl = `https://drive.google.com/uc?export=view&id=${presentacion.id}`;
-
-      /*
-        Enlace normal de Drive para abrir en pestaña nueva:
-      */
-      const viewUrl = `https://drive.google.com/file/d/${presentacion.id}/view?usp=drive_link`;
-
-      /*
-        Enlace de descarga:
-      */
-      const downloadUrl = `https://drive.google.com/uc?export=download&id=${presentacion.id}`;
+    presentaciones.forEach((presentacion, index) => {
+      const pdfUrl = construirUrlArchivo(presentacion.archivo);
+      const viewerId = `viewer-${index}`;
+      const placeholderId = `placeholder-${index}`;
+      const buttonId = `button-${index}`;
 
       const card = document.createElement("article");
       card.className = "slide-card";
@@ -921,48 +928,68 @@
           <span class="slide-badge">${presentacion.tipo}</span>
         </div>
 
-        <div class="slide-viewer-wrap">
-          <object
-            class="slide-pdf-object"
-            data="${directPdfUrl}"
-            type="application/pdf"
-            aria-label="Vista previa de ${presentacion.titulo}">
-
-            <div class="slide-fallback">
-              <div class="slide-fallback-inner">
-                <div class="slide-fallback-icon">📄</div>
-                <h4>${presentacion.titulo}</h4>
-                <p>
-                  Este navegador no permitió mostrar el PDF dentro de la página.
-                  Puede abrir la presentación en una pestaña nueva.
-                </p>
-                <a href="${viewUrl}" target="_blank" rel="noopener">
-                  Abrir presentación
-                </a>
-              </div>
-            </div>
-          </object>
-
-          <div class="iframe-fallback">
-            Si no se visualiza dentro de la página, el navegador puede estar bloqueando Drive.
-            Use <a href="${viewUrl}" target="_blank" rel="noopener">Abrir presentación</a>
-            o <a href="${downloadUrl}" target="_blank" rel="noopener">Descargar PDF</a>.
+        <div class="slide-placeholder" id="${placeholderId}">
+          <div class="slide-placeholder-inner">
+            <div class="slide-placeholder-icon">📄</div>
+            <h4>${presentacion.titulo}</h4>
+            <p>
+              La presentación no se carga automáticamente. Pulse “Ver en la página” para visualizarla aquí.
+            </p>
+            <button class="btn btn-primary" type="button" id="${buttonId}">
+              Ver en la página
+            </button>
           </div>
         </div>
 
+        <div class="slide-viewer-wrap" id="${viewerId}"></div>
+
         <div class="slide-actions">
-          <a href="${viewUrl}" target="_blank" rel="noopener">
-            Abrir presentación
+          <button type="button" data-action="load" data-index="${index}">
+            Ver en la página
+          </button>
+
+          <a href="${pdfUrl}" target="_blank" rel="noopener">
+            Abrir PDF
           </a>
 
-          <a class="secondary" href="${downloadUrl}" target="_blank" rel="noopener">
+          <a class="secondary" href="${pdfUrl}" download>
             Descargar PDF
           </a>
         </div>
       `;
 
       slidesGrid.appendChild(card);
+
+      const loadButtons = card.querySelectorAll(`[data-action="load"], #${buttonId}`);
+
+      loadButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          cargarPresentacion(index, pdfUrl, presentacion.titulo);
+        });
+      });
     });
+
+    function cargarPresentacion(index, pdfUrl, titulo){
+      const viewer = document.getElementById(`viewer-${index}`);
+      const placeholder = document.getElementById(`placeholder-${index}`);
+
+      if(!viewer.dataset.loaded){
+        viewer.innerHTML = `
+          <iframe
+            class="slide-viewer"
+            src="${pdfUrl}#toolbar=1&navpanes=0"
+            title="Vista previa de ${titulo}"
+            loading="lazy">
+          </iframe>
+        `;
+
+        viewer.dataset.loaded = "true";
+      }
+
+      placeholder.style.display = "none";
+      viewer.classList.add("is-open");
+      viewer.scrollIntoView({ behavior:"smooth", block:"center" });
+    }
   </script>
 
 </body>
