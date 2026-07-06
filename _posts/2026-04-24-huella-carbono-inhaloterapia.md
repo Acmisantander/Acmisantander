@@ -9,12 +9,17 @@ subcategory: opinion
 
 <style>
 
-/* OCULTAR FORO ANTIGUO DEL LAYOUT POST */
+/* 
+  BLOQUEO DEL FORO ANTIGUO DEL LAYOUT.
+  Deja visible únicamente el foro nuevo de este post.
+*/
 .post-discussion,
 .post-forum,
 .post-comments,
 .old-forum,
-#old-forum{
+#old-forum,
+.article-discussion,
+.magazine-discussion{
   display:none !important;
 }
 
@@ -180,13 +185,14 @@ subcategory: opinion
   color:#2a9c52;
 }
 
-/* FORO NUEVO */
+/* FORO NUEVO ÚNICO */
 
 .book-forum-section{
   max-width:820px;
   margin:34px auto 0;
   position:relative;
   animation:bookFadeIn .9s ease both;
+  display:block !important;
 }
 
 .book-forum-card{
@@ -244,6 +250,7 @@ subcategory: opinion
 
 .book-forum-card .commentbox{
   width:100%;
+  display:block !important;
 }
 
 @media(max-width:760px){
