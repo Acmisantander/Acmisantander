@@ -24,30 +24,27 @@
       --acmi-fondo:#f5f7fb;
     }
 
-    *{
-      box-sizing:border-box;
-    }
-
     html{
       scroll-behavior:smooth;
     }
 
     body{
       margin:0;
-      font-family:'Lato',sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(42,156,82,0.08), transparent 32%),
-        radial-gradient(circle at top right, rgba(20,63,125,0.12), transparent 34%),
-        var(--acmi-fondo);
+      font-family:'Lato', Arial, sans-serif;
+      background:var(--acmi-fondo);
       color:var(--acmi-texto);
-      line-height:1.6;
     }
 
-    a{
+    .acmi-layout,
+    .acmi-layout *{
+      box-sizing:border-box;
+    }
+
+    .acmi-layout a{
       text-decoration:none;
     }
 
-    img{
+    .acmi-layout img{
       max-width:100%;
       display:block;
     }
@@ -56,12 +53,9 @@
       width:100%;
       max-width:1440px;
       margin:0 auto;
-      padding:0 34px;
+      padding-left:34px;
+      padding-right:34px;
     }
-
-    /* ==============================
-       TOPBAR
-       ============================== */
 
     .acmi-topbar{
       background:linear-gradient(90deg, var(--acmi-profundo), var(--acmi-azul-2));
@@ -88,19 +82,15 @@
       flex-wrap:wrap;
     }
 
-    .acmi-topbar a{
+    .acmi-topbar-link{
       color:#dfe8f5;
       font-weight:700;
       transition:.25s ease;
     }
 
-    .acmi-topbar a:hover{
+    .acmi-topbar-link:hover{
       color:white;
     }
-
-    /* ==============================
-       HEADER
-       ============================== */
 
     .acmi-header{
       background:rgba(255,255,255,0.96);
@@ -127,8 +117,8 @@
       display:flex;
       align-items:center;
       gap:14px;
-      text-decoration:none;
       flex-shrink:0;
+      color:var(--acmi-azul);
     }
 
     .acmi-brand-logo-wrap{
@@ -151,11 +141,10 @@
       height:100%;
       object-fit:contain;
       border-radius:50%;
-      display:block;
     }
 
-    .acmi-brand-text h1{
-      font-family:'Montserrat',sans-serif;
+    .acmi-brand-title{
+      font-family:'Montserrat', Arial, sans-serif;
       margin:0;
       font-size:28px;
       color:var(--acmi-azul);
@@ -163,7 +152,7 @@
       font-weight:900;
     }
 
-    .acmi-brand-text p{
+    .acmi-brand-subtitle{
       margin:4px 0 0;
       font-size:14px;
       color:#50627a;
@@ -177,18 +166,20 @@
       justify-content:flex-end;
     }
 
-    .acmi-nav a{
+    .acmi-nav-link{
       color:var(--acmi-azul);
-      text-decoration:none;
-      font-family:'Montserrat',sans-serif;
+      font-family:'Montserrat', Arial, sans-serif;
       font-weight:800;
       font-size:14.5px;
       transition:.25s ease;
       padding:9px 10px;
       border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      gap:4px;
     }
 
-    .acmi-nav a:hover{
+    .acmi-nav-link:hover{
       color:var(--acmi-verde);
       background:#eef7f1;
     }
@@ -196,12 +187,6 @@
     .acmi-dropdown{
       position:relative;
       display:inline-block;
-    }
-
-    .acmi-dropdown > a{
-      display:inline-flex;
-      align-items:center;
-      gap:4px;
     }
 
     .acmi-dropdown-content{
@@ -218,17 +203,17 @@
       border:1px solid rgba(20,63,125,0.08);
     }
 
-    .acmi-dropdown-content a{
+    .acmi-dropdown-link{
       color:var(--acmi-azul);
       display:block;
       padding:12px 16px;
-      text-decoration:none;
+      font-family:'Montserrat', Arial, sans-serif;
       font-weight:800;
       white-space:nowrap;
       border-radius:12px;
     }
 
-    .acmi-dropdown-content a:hover{
+    .acmi-dropdown-link:hover{
       background:#eef3f8;
       color:var(--acmi-verde);
     }
@@ -239,11 +224,8 @@
 
     .acmi-main{
       min-height:60vh;
+      width:100%;
     }
-
-    /* ==============================
-       FOOTER
-       ============================== */
 
     .acmi-footer{
       background:
@@ -252,17 +234,14 @@
       color:white;
       text-align:center;
       padding:30px 18px;
+      font-family:'Lato', Arial, sans-serif;
     }
 
-    .acmi-footer p{
+    .acmi-footer-text{
       margin:6px 0;
       color:white;
       font-weight:600;
     }
-
-    /* ==============================
-       RESPONSIVE
-       ============================== */
 
     @media(max-width:980px){
 
@@ -305,11 +284,11 @@
         flex-direction:column;
       }
 
-      .acmi-brand-text h1{
+      .acmi-brand-title{
         font-size:24px;
       }
 
-      .acmi-brand-text p{
+      .acmi-brand-subtitle{
         font-size:13px;
       }
 
@@ -321,151 +300,159 @@
 
 <body>
 
-  <div class="acmi-topbar">
+  <div class="acmi-layout">
 
-    <div class="acmi-layout-container acmi-topbar-content">
+    <div class="acmi-topbar">
 
-      <div class="acmi-topbar-left">
+      <div class="acmi-layout-container acmi-topbar-content">
 
-        <a href="https://acmi.org.co/" target="_blank" rel="noopener">
-          ACMI Nacional
-        </a>
+        <div class="acmi-topbar-left">
 
-        <a href="https://acmi.org.co/afiliese/" target="_blank" rel="noopener">
-          Afiliaciones
-        </a>
-
-      </div>
-
-      <div class="acmi-topbar-right">
-
-        <a href="https://www.actamedicacolombiana.com/ojs/index.php/actamed" target="_blank" rel="noopener">
-          Acta Médica Colombiana
-        </a>
-
-        <a href="{{ site.baseurl }}/#patrocinios">
-          Patrocinios
-        </a>
-
-        <a href="{{ site.baseurl }}/magazine/#foro-acmi">
-          Foro ACMI
-        </a>
-
-        <a href="{{ site.baseurl }}/#contacto">
-          Contacto
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <header class="acmi-header">
-
-    <div class="acmi-layout-container acmi-header-flex">
-
-      <a href="{{ site.baseurl }}/" class="acmi-brand">
-
-        <span class="acmi-brand-logo-wrap">
-
-          <img
-            src="{{ site.baseurl }}/LOGO%20ACMI.png"
-            alt="ACMI Santander"
-            class="acmi-brand-logo"
-          >
-
-        </span>
-
-        <div class="acmi-brand-text">
-
-          <h1>
-            ACMI Santander
-          </h1>
-
-          <p>
-            Asociación Colombiana de Medicina Interna • Capítulo Santander
-          </p>
-
-        </div>
-
-      </a>
-
-      <nav class="acmi-nav">
-
-        <a href="{{ site.baseurl }}/">
-          Inicio
-        </a>
-
-        <a href="{{ site.baseurl }}/educacion-medica-continuada/">
-          Educación médica continuada
-        </a>
-
-        <div class="acmi-dropdown">
-
-          <a href="{{ site.baseurl }}/magazine/">
-            Magazine ▾
+          <a class="acmi-topbar-link" href="https://acmi.org.co/" target="_blank" rel="noopener">
+            ACMI Nacional
           </a>
 
-          <div class="acmi-dropdown-content">
-
-            <a href="{{ site.baseurl }}/magazine/#noticias">
-              Noticias
-            </a>
-
-            <a href="{{ site.baseurl }}/magazine/#opinion">
-              Opinión
-            </a>
-
-            <a href="{{ site.baseurl }}/magazine/manual-publicacion/">
-              Manual de publicación
-            </a>
-
-            <a href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
-              Enviar manuscrito
-            </a>
-
-            <a href="{{ site.baseurl }}/magazine/enviar-ponencias/">
-              Enviar ponencia
-            </a>
-
-            <a href="{{ site.baseurl }}/magazine/#foro-acmi">
-              Foro ACMI
-            </a>
-
-          </div>
+          <a class="acmi-topbar-link" href="https://acmi.org.co/afiliese/" target="_blank" rel="noopener">
+            Afiliaciones
+          </a>
 
         </div>
 
-        <a href="{{ site.baseurl }}/repositorio-eventos/">
-          Eventos
-        </a>
+        <div class="acmi-topbar-right">
 
-        <a href="{{ site.baseurl }}/proyeccion-social/">
-          Proyección social
-        </a>
+          <a class="acmi-topbar-link" href="https://www.actamedicacolombiana.com/ojs/index.php/actamed" target="_blank" rel="noopener">
+            Acta Médica Colombiana
+          </a>
 
-      </nav>
+          <a class="acmi-topbar-link" href="{{ site.baseurl }}/#patrocinios">
+            Patrocinios
+          </a>
+
+          <a class="acmi-topbar-link" href="{{ site.baseurl }}/magazine/#foro-acmi">
+            Foro ACMI
+          </a>
+
+          <a class="acmi-topbar-link" href="{{ site.baseurl }}/#contacto">
+            Contacto
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
 
-  </header>
+    <header class="acmi-header">
+
+      <div class="acmi-layout-container acmi-header-flex">
+
+        <a href="{{ site.baseurl }}/" class="acmi-brand">
+
+          <span class="acmi-brand-logo-wrap">
+
+            <img
+              src="{{ site.baseurl }}/LOGO%20ACMI.png"
+              alt="ACMI Santander"
+              class="acmi-brand-logo"
+            >
+
+          </span>
+
+          <span class="acmi-brand-text">
+
+            <span class="acmi-brand-title">
+              ACMI Santander
+            </span>
+
+            <span class="acmi-brand-subtitle">
+              Asociación Colombiana de Medicina Interna • Capítulo Santander
+            </span>
+
+          </span>
+
+        </a>
+
+        <nav class="acmi-nav">
+
+          <a class="acmi-nav-link" href="{{ site.baseurl }}/">
+            Inicio
+          </a>
+
+          <a class="acmi-nav-link" href="{{ site.baseurl }}/educacion-medica-continuada/">
+            Educación médica continuada
+          </a>
+
+          <span class="acmi-dropdown">
+
+            <a class="acmi-nav-link" href="{{ site.baseurl }}/magazine/">
+              Magazine ▾
+            </a>
+
+            <span class="acmi-dropdown-content">
+
+              <a class="acmi-dropdown-link" href="{{ site.baseurl }}/magazine/#noticias">
+                Noticias
+              </a>
+
+              <a class="acmi-dropdown-link" href="{{ site.baseurl }}/magazine/#opinion">
+                Opinión
+              </a>
+
+              <a class="acmi-dropdown-link" href="{{ site.baseurl }}/magazine/manual-publicacion/">
+                Manual de publicación
+              </a>
+
+              <a class="acmi-dropdown-link" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
+                Enviar manuscrito
+              </a>
+
+              <a class="acmi-dropdown-link" href="{{ site.baseurl }}/magazine/enviar-ponencias/">
+                Enviar ponencia
+              </a>
+
+              <a class="acmi-dropdown-link" href="{{ site.baseurl }}/magazine/#foro-acmi">
+                Foro ACMI
+              </a>
+
+            </span>
+
+          </span>
+
+          <a class="acmi-nav-link" href="{{ site.baseurl }}/repositorio-eventos/">
+            Eventos
+          </a>
+
+          <a class="acmi-nav-link" href="{{ site.baseurl }}/proyeccion-social/">
+            Proyección social
+          </a>
+
+        </nav>
+
+      </div>
+
+    </header>
+
+  </div>
 
   <main class="acmi-main">
     {{ content }}
   </main>
 
-  <footer class="acmi-footer">
+  <div class="acmi-layout">
 
-    <p>
-      © 2026 ACMI Santander
-    </p>
+    <footer class="acmi-footer">
 
-    <p>
-      Educación continua que transforma la práctica clínica
-    </p>
+      <p class="acmi-footer-text">
+        © 2026 ACMI Santander
+      </p>
 
-  </footer>
+      <p class="acmi-footer-text">
+        Educación continua que transforma la práctica clínica
+      </p>
+
+    </footer>
+
+  </div>
 
 </body>
 </html>
