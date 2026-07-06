@@ -6,12 +6,16 @@ permalink: /magazine/
 
 <section class="magazine-hero" id="inicio-magazine">
 
-  <div class="magazine-overlay"></div>
+  <div class="hero-orb hero-orb-one"></div>
+  <div class="hero-orb hero-orb-two"></div>
+  <div class="hero-orb hero-orb-three"></div>
 
-  <div class="magazine-content">
+  <div class="hero-overlay"></div>
+
+  <div class="magazine-hero-content">
 
     <span class="magazine-badge">
-      ACMI Santander
+      Magazine académico
     </span>
 
     <h1>
@@ -19,36 +23,108 @@ permalink: /magazine/
     </h1>
 
     <p>
-      Espacio académico y de divulgación científica orientado a la difusión
-      de noticias, opinión médica, experiencias clínicas, proyección social
-      y educación médica continuada en medicina interna.
+      Un espacio editorial para compartir conocimiento, noticias, opinión médica,
+      educación continuada y pensamiento científico en medicina interna.
     </p>
 
-    <div class="magazine-buttons">
+    <div class="hero-actions">
 
       <a class="btn btn-primary" href="#noticias">
-        Noticias
+        Explorar publicaciones
       </a>
 
-      <a class="btn btn-light" href="#opinion">
-        Opinión
-      </a>
-
-      <a class="btn btn-light" href="/magazine/manual-publicacion/">
-        Manual de publicación
+      <a class="btn btn-light" href="#editorial">
+        Publicar en ACMI
       </a>
 
       <a class="btn btn-light" href="#foro-acmi">
         Foro ACMI
       </a>
 
-      <a class="btn btn-light" href="/magazine/enviar-manuscrito/">
-        Enviar manuscrito
-      </a>
+    </div>
 
-      <a class="btn btn-light" href="/magazine/enviar-ponencias/">
-        Enviar ponencia
-      </a>
+  </div>
+
+</section>
+
+
+
+<section class="editorial-showcase" id="editorial">
+
+  <div class="container">
+
+    <div class="showcase-card">
+
+      <div class="showcase-text">
+
+        <span class="section-kicker">
+          Comunidad editorial ACMI
+        </span>
+
+        <h2>
+          Ciencia, criterio clínico y conversación académica
+        </h2>
+
+        <p>
+          El Magazine ACMI Santander reúne noticias institucionales, opinión médica,
+          propuestas académicas y reflexiones científicas para construir memoria editorial
+          desde el capítulo Santander.
+        </p>
+
+        <div class="showcase-actions">
+
+          <a class="btn btn-primary" href="/magazine/manual-publicacion/">
+            Manual de publicación
+          </a>
+
+          <a class="btn btn-light" href="/magazine/enviar-manuscrito/">
+            Enviar manuscrito
+          </a>
+
+          <a class="btn btn-light" href="/magazine/enviar-ponencias/">
+            Enviar ponencia
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="showcase-visual" aria-label="Secciones editoriales del Magazine ACMI Santander">
+
+        <a class="floating-card floating-card-one card-blue" href="#noticias">
+          <span>📰</span>
+          <strong>Noticias</strong>
+          <small>Actualidad científica e institucional</small>
+        </a>
+
+        <a class="floating-card floating-card-two card-green" href="#opinion">
+          <span>✍️</span>
+          <strong>Opinión</strong>
+          <small>Análisis médico y pensamiento clínico</small>
+        </a>
+
+        <a class="floating-card floating-card-three card-white" href="#foro-acmi">
+          <span>💬</span>
+          <strong>Foro ACMI</strong>
+          <small>Conversación académica abierta</small>
+        </a>
+
+        <a class="floating-card floating-card-four card-blue-soft" href="/magazine/enviar-manuscrito/">
+          <span>📨</span>
+          <strong>Enviar manuscrito</strong>
+          <small>Comparta artículos, revisiones y textos académicos</small>
+        </a>
+
+        <a class="floating-card floating-card-five card-green-soft" href="/magazine/enviar-ponencias/">
+          <span>🎙️</span>
+          <strong>Enviar ponencia</strong>
+          <small>Proponga conferencias y temas académicos</small>
+        </a>
+
+        <div class="visual-ring"></div>
+        <div class="visual-ring visual-ring-small"></div>
+
+      </div>
 
     </div>
 
@@ -62,90 +138,72 @@ permalink: /magazine/
 
   <div class="container">
 
-    <div class="section-header">
+    <div class="section-heading">
       <span class="section-kicker">
         Actualidad médica
       </span>
 
-      <h2 class="section-title">
+      <h2>
         Noticias
       </h2>
 
-      <p class="section-subtitle">
+      <p>
         Información académica, institucional y científica relevante para la comunidad médica
         de ACMI Santander.
       </p>
     </div>
 
+    {% assign noticias = site.categories.magazine | where: "subcategory","noticias" %}
+
+    {% if noticias.size > 0 %}
+
     <div class="magazine-grid">
 
-      {% assign noticias = site.categories.magazine | where: "subcategory","noticias" %}
+      {% for post in noticias %}
 
-      {% if noticias.size > 0 %}
+      <article class="magazine-card">
 
-        {% for post in noticias %}
+        {% if post.cover %}
+        <div class="card-image-wrap">
+          <img
+            src="{{ post.cover }}"
+            alt="{{ post.title }}"
+            class="card-image"
+          >
+        </div>
+        {% endif %}
 
-        <article class="magazine-card">
+        <div class="card-content">
 
-          {% if post.cover %}
-          <div class="magazine-cover-wrap">
-            <img
-              src="{{ post.cover }}"
-              alt="{{ post.title }}"
-              class="magazine-cover"
-            >
-          </div>
-          {% else %}
-          <div class="magazine-cover-placeholder">
-            <span>Noticias ACMI</span>
-          </div>
-          {% endif %}
-
-          <div class="magazine-card-content">
-
-            <p class="magazine-meta">
-              {{ post.date | date: "%d/%m/%Y" }}
-              {% if post.author %}
-              ·
-              {{ post.author }}
-              {% endif %}
-            </p>
-
-            <h3>
-              {{ post.title }}
-            </h3>
-
-            <p>
-              {{ post.excerpt | strip_html | truncate: 180 }}
-            </p>
-
-            <a
-              class="btn btn-card"
-              href="{{ post.url | relative_url }}"
-            >
-              Leer más
-            </a>
-
-          </div>
-
-        </article>
-
-        {% endfor %}
-
-      {% else %}
-
-        <article class="empty-card">
-          <span>📰</span>
-          <h3>Próximamente</h3>
-          <p>
-            En esta sección se publicarán noticias académicas e institucionales
-            del capítulo ACMI Santander.
+          <p class="card-meta">
+            {{ post.date | date: "%d/%m/%Y" }}
+            {% if post.author %}
+            ·
+            {{ post.author }}
+            {% endif %}
           </p>
-        </article>
 
-      {% endif %}
+          <h3>
+            {{ post.title }}
+          </h3>
+
+          <p>
+            {{ post.excerpt | strip_html | truncate: 190 }}
+          </p>
+
+          <a class="btn btn-card" href="{{ post.url | relative_url }}">
+            Leer noticia
+          </a>
+
+        </div>
+
+      </article>
+
+      {% endfor %}
 
     </div>
+
+    {% endif %}
 
   </div>
 
@@ -153,94 +211,76 @@ permalink: /magazine/
 
 
 
-<section class="magazine-section section-soft" id="opinion">
+<section class="magazine-section opinion-section" id="opinion">
 
   <div class="container">
 
-    <div class="section-header">
-      <span class="section-kicker">
+    <div class="section-heading section-heading-light">
+      <span class="section-kicker section-kicker-light">
         Perspectiva académica
       </span>
 
-      <h2 class="section-title">
+      <h2>
         Opinión
       </h2>
 
-      <p class="section-subtitle">
-        Columnas, reflexiones y análisis escritos por miembros de la comunidad médica
-        alrededor de medicina interna, educación y práctica clínica.
+      <p>
+        Columnas, análisis y reflexiones sobre medicina interna, educación médica,
+        investigación, práctica clínica y salud pública.
       </p>
     </div>
 
+    {% assign opiniones = site.categories.magazine | where: "subcategory","opinion" %}
+
+    {% if opiniones.size > 0 %}
+
     <div class="magazine-grid">
 
-      {% assign opiniones = site.categories.magazine | where: "subcategory","opinion" %}
+      {% for post in opiniones %}
 
-      {% if opiniones.size > 0 %}
+      <article class="magazine-card opinion-card">
 
-        {% for post in opiniones %}
+        {% if post.cover %}
+        <div class="card-image-wrap">
+          <img
+            src="{{ post.cover }}"
+            alt="{{ post.title }}"
+            class="card-image"
+          >
+        </div>
+        {% endif %}
 
-        <article class="magazine-card">
+        <div class="card-content">
 
-          {% if post.cover %}
-          <div class="magazine-cover-wrap">
-            <img
-              src="{{ post.cover }}"
-              alt="{{ post.title }}"
-              class="magazine-cover"
-            >
-          </div>
-          {% else %}
-          <div class="magazine-cover-placeholder">
-            <span>Opinión ACMI</span>
-          </div>
-          {% endif %}
-
-          <div class="magazine-card-content">
-
-            <p class="magazine-meta">
-              {{ post.date | date: "%d/%m/%Y" }}
-              {% if post.author %}
-              ·
-              {{ post.author }}
-              {% endif %}
-            </p>
-
-            <h3>
-              {{ post.title }}
-            </h3>
-
-            <p>
-              {{ post.excerpt | strip_html | truncate: 180 }}
-            </p>
-
-            <a
-              class="btn btn-card"
-              href="{{ post.url | relative_url }}"
-            >
-              Leer más
-            </a>
-
-          </div>
-
-        </article>
-
-        {% endfor %}
-
-      {% else %}
-
-        <article class="empty-card">
-          <span>✍️</span>
-          <h3>Próximamente</h3>
-          <p>
-            En esta sección se publicarán columnas de opinión y reflexiones académicas
-            de ACMI Santander.
+          <p class="card-meta">
+            {{ post.date | date: "%d/%m/%Y" }}
+            {% if post.author %}
+            ·
+            {{ post.author }}
+            {% endif %}
           </p>
-        </article>
 
-      {% endif %}
+          <h3>
+            {{ post.title }}
+          </h3>
+
+          <p>
+            {{ post.excerpt | strip_html | truncate: 190 }}
+          </p>
+
+          <a class="btn btn-card" href="{{ post.url | relative_url }}">
+            Leer columna
+          </a>
+
+        </div>
+
+      </article>
+
+      {% endfor %}
 
     </div>
+
+    {% endif %}
 
   </div>
 
@@ -248,70 +288,22 @@ permalink: /magazine/
 
 
 
-<section class="magazine-section" id="publicar">
+<section class="magazine-section forum-section" id="foro-acmi">
 
   <div class="container">
 
-    <div class="publish-card">
-
-      <div class="publish-content">
-
-        <span class="section-kicker">
-          Participación académica
-        </span>
-
-        <h2>
-          Publique y participe en el Magazine ACMI Santander
-        </h2>
-
-        <p>
-          Envíe noticias, columnas de opinión, experiencias académicas,
-          ponencias o manuscritos relacionados con medicina interna,
-          educación médica y actualización científica.
-        </p>
-
-      </div>
-
-      <div class="publish-actions">
-
-        <a class="btn btn-primary" href="/magazine/manual-publicacion/">
-          Manual de publicación
-        </a>
-
-        <a class="btn btn-light" href="/magazine/enviar-manuscrito/">
-          Enviar manuscrito
-        </a>
-
-        <a class="btn btn-light" href="/magazine/enviar-ponencias/">
-          Enviar ponencia
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<section class="magazine-section forum-wrapper" id="foro-acmi">
-
-  <div class="container">
-
-    <div class="section-header">
+    <div class="section-heading">
       <span class="section-kicker">
         Comunidad académica
       </span>
 
-      <h2 class="section-title">
+      <h2>
         Foro ACMI Magazine
       </h2>
 
-      <p class="section-subtitle">
+      <p>
         Espacio de discusión académica para comentar noticias, columnas de opinión,
-        experiencias clínicas, educación médica continuada y temas relacionados con medicina interna.
+        educación médica continuada y temas relacionados con medicina interna.
       </p>
     </div>
 
@@ -358,8 +350,6 @@ permalink: /magazine/
   --sombra:0 14px 34px rgba(0,0,0,0.10);
   --sombra-media:0 18px 44px rgba(8,40,79,0.12);
   --sombra-fuerte:0 28px 70px rgba(8,40,79,0.18);
-  --radio:24px;
-  --radio-grande:34px;
 }
 
 html{
@@ -382,77 +372,85 @@ body{
 
 .magazine-hero{
   position:relative;
-  width:100%;
-  min-height:660px;
-  background:
-    url('/assets/img/magazine-banner.jpg')
-    center center / cover no-repeat;
+  min-height:720px;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  overflow:hidden;
   color:white;
+  overflow:hidden;
   isolation:isolate;
+  background:
+    linear-gradient(135deg, rgba(8,40,79,.90), rgba(20,63,125,.76), rgba(42,156,82,.42)),
+    url('/assets/img/magazine-banner.jpg') center center / cover no-repeat;
 }
 
-.magazine-hero::before{
-  content:"";
-  position:absolute;
-  width:520px;
-  height:520px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(255,255,255,0.16), transparent 62%);
-  top:-160px;
-  right:-120px;
-  animation:floatGlow 8s ease-in-out infinite alternate;
-  z-index:1;
-}
-
-.magazine-hero::after{
-  content:"";
-  position:absolute;
-  width:420px;
-  height:420px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(126,212,154,0.26), transparent 62%);
-  bottom:-180px;
-  left:-120px;
-  animation:floatGlow 9s ease-in-out infinite alternate-reverse;
-  z-index:1;
-}
-
-@keyframes floatGlow{
-  from{
-    transform:translate3d(0,0,0) scale(1);
-  }
-
-  to{
-    transform:translate3d(28px,18px,0) scale(1.06);
-  }
-}
-
-.magazine-overlay{
+.hero-overlay{
   position:absolute;
   inset:0;
-  background:
-    radial-gradient(circle at top left, rgba(42,156,82,0.28), transparent 35%),
-    linear-gradient(
-      135deg,
-      rgba(8,40,79,.92),
-      rgba(20,63,125,.78),
-      rgba(42,156,82,.42)
-    );
   z-index:0;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255,255,255,.18), transparent 28%),
+    radial-gradient(circle at 84% 72%, rgba(126,212,154,.28), transparent 32%),
+    linear-gradient(135deg, rgba(8,40,79,.78), rgba(15,53,105,.44));
 }
 
-.magazine-content{
+.hero-orb{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:1;
+  filter:blur(.2px);
+}
+
+.hero-orb-one{
+  width:520px;
+  height:520px;
+  right:-160px;
+  top:-160px;
+  background:radial-gradient(circle, rgba(255,255,255,.20), transparent 64%);
+  animation:orbFloatOne 9s ease-in-out infinite alternate;
+}
+
+.hero-orb-two{
+  width:440px;
+  height:440px;
+  left:-140px;
+  bottom:-180px;
+  background:radial-gradient(circle, rgba(126,212,154,.32), transparent 64%);
+  animation:orbFloatTwo 10s ease-in-out infinite alternate-reverse;
+}
+
+.hero-orb-three{
+  width:190px;
+  height:190px;
+  left:14%;
+  top:22%;
+  border:1px solid rgba(255,255,255,.24);
+  animation:orbPulse 5s ease-in-out infinite;
+}
+
+@keyframes orbFloatOne{
+  from{transform:translate3d(0,0,0) scale(1);}
+  to{transform:translate3d(30px,20px,0) scale(1.07);}
+}
+
+@keyframes orbFloatTwo{
+  from{transform:translate3d(0,0,0) scale(1);}
+  to{transform:translate3d(-24px,-16px,0) scale(1.06);}
+}
+
+@keyframes orbPulse{
+  0%,100%{transform:scale(1); opacity:.55;}
+  50%{transform:scale(1.12); opacity:.95;}
+}
+
+.magazine-hero-content{
   position:relative;
-  z-index:2;
-  width:min(1100px, 92%);
-  padding:96px 24px;
-  color:white;
-  animation:heroIntro 0.9s ease both;
+  z-index:3;
+  width:min(1120px,92%);
+  padding:105px 24px;
+  animation:heroIntro .9s ease both;
 }
 
 @keyframes heroIntro{
@@ -478,7 +476,7 @@ body{
   font-size:13px;
   font-weight:800;
   text-transform:uppercase;
-  letter-spacing:0.06em;
+  letter-spacing:.06em;
 }
 
 .magazine-badge{
@@ -487,36 +485,30 @@ body{
   color:white;
   margin-bottom:24px;
   backdrop-filter:blur(8px);
-}
-
-.section-kicker{
-  background:#eef4fb;
-  color:var(--azul-acmi);
-  border:1px solid #dbe7f5;
-  margin-bottom:14px;
+  box-shadow:0 16px 36px rgba(0,0,0,.12);
 }
 
 .magazine-hero h1{
   font-family:'Montserrat', sans-serif;
-  font-size:clamp(42px, 5vw, 72px);
-  line-height:1.03;
-  margin-bottom:24px;
-  color:white;
+  font-size:clamp(44px,6vw,84px);
+  line-height:1.02;
   font-weight:900;
-  letter-spacing:-0.055em;
+  letter-spacing:-.065em;
+  margin:0 0 24px;
+  color:white;
+  text-wrap:balance;
 }
 
 .magazine-hero p{
-  width:100%;
-  max-width:940px;
-  margin:0 auto 38px auto;
-  font-size:clamp(18px, 2vw, 23px);
+  max-width:980px;
+  margin:0 auto 38px;
+  font-size:clamp(18px,2vw,24px);
   line-height:1.85;
-  color:rgba(255,255,255,.95);
+  color:#f2f7ff;
   font-weight:500;
 }
 
-.magazine-buttons{
+.hero-actions{
   display:flex;
   justify-content:center;
   align-items:center;
@@ -529,83 +521,322 @@ body{
   align-items:center;
   justify-content:center;
   gap:8px;
-  text-decoration:none;
-  transition:.25s ease;
+  padding:13px 22px;
   border-radius:14px;
   font-family:'Montserrat', sans-serif;
-  font-weight:800;
-  padding:13px 22px;
-  box-shadow:0 10px 22px rgba(8,40,79,0.10);
+  font-weight:900;
+  text-decoration:none;
+  transition:.25s ease;
+  box-shadow:0 10px 22px rgba(8,40,79,.10);
 }
 
 .btn-primary{
   background:linear-gradient(135deg, var(--verde-acmi), #35b862);
   color:white;
-  border:2px solid transparent;
 }
 
 .btn-primary:hover{
   color:white;
   transform:translateY(-3px);
-  box-shadow:0 18px 34px rgba(42,156,82,0.26);
-  filter:saturate(1.08);
+  box-shadow:0 18px 34px rgba(42,156,82,.26);
 }
 
 .btn-light{
   background:white;
   color:var(--azul-acmi);
-  border:2px solid white;
 }
 
 .btn-light:hover{
   background:#eef4fb;
   color:var(--azul-acmi);
   transform:translateY(-3px);
-  box-shadow:0 18px 34px rgba(8,40,79,0.18);
 }
 
 .btn-card{
   background:var(--azul-acmi);
   color:white;
-  border:2px solid var(--azul-acmi);
   padding:11px 17px;
   font-size:14px;
 }
 
 .btn-card:hover{
   background:var(--verde-acmi);
-  border-color:var(--verde-acmi);
   color:white;
   transform:translateY(-2px);
 }
 
-.magazine-section{
-  padding:92px 0;
+.editorial-showcase{
+  margin-top:-96px;
+  position:relative;
+  z-index:8;
+  padding-bottom:50px;
 }
 
-.section-soft{
+.showcase-card{
+  min-height:470px;
+  border-radius:38px;
+  padding:54px;
   background:
-    radial-gradient(circle at top right, rgba(20,63,125,0.08), transparent 32%),
-    #f8fafc;
+    radial-gradient(circle at top left, rgba(42,156,82,.14), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(20,63,125,.13), transparent 34%),
+    linear-gradient(135deg, rgba(255,255,255,.98), rgba(240,245,252,.98));
+  box-shadow:var(--sombra-fuerte);
+  border:1px solid rgba(20,63,125,.10);
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:42px;
+  align-items:center;
+  overflow:hidden;
+  position:relative;
 }
 
-.section-header{
+.showcase-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:8px;
+  background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi), var(--dorado));
+}
+
+.showcase-text{
+  position:relative;
+  z-index:3;
+}
+
+.section-kicker{
+  background:#eef4fb;
+  color:var(--azul-acmi);
+  border:1px solid #dbe7f5;
+  margin-bottom:14px;
+}
+
+.showcase-text h2{
+  font-family:'Montserrat', sans-serif;
+  color:var(--azul-acmi);
+  font-size:clamp(34px,4vw,52px);
+  line-height:1.06;
+  font-weight:900;
+  letter-spacing:-.05em;
+  margin:0 0 18px;
+}
+
+.showcase-text p{
+  color:var(--texto-suave);
+  font-size:18px;
+  line-height:1.85;
+  margin:0 0 28px;
+}
+
+.showcase-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.showcase-visual{
+  min-height:465px;
+  position:relative;
+}
+
+.floating-card{
+  position:absolute;
+  width:235px;
+  border-radius:26px;
+  padding:20px;
+  box-shadow:0 18px 44px rgba(8,40,79,.18);
+  border:1px solid rgba(255,255,255,.38);
+  z-index:3;
+  animation:floatCard 5.5s ease-in-out infinite;
+  overflow:hidden;
+  text-decoration:none;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+
+.floating-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,.32), transparent 42%),
+    linear-gradient(135deg, rgba(255,255,255,.18), transparent);
+  pointer-events:none;
+}
+
+.floating-card::after{
+  content:"";
+  position:absolute;
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  right:-36px;
+  bottom:-42px;
+  background:rgba(255,255,255,.16);
+  transition:.25s ease;
+}
+
+.floating-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 24px 58px rgba(8,40,79,.24);
+}
+
+.floating-card:hover::after{
+  transform:scale(1.25);
+}
+
+.card-blue{
+  background:linear-gradient(135deg, rgba(20,63,125,.96), rgba(15,53,105,.82));
+  color:white;
+}
+
+.card-green{
+  background:linear-gradient(135deg, rgba(42,156,82,.96), rgba(30,126,68,.86));
+  color:white;
+}
+
+.card-white{
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.13), transparent 36%),
+    linear-gradient(135deg, rgba(255,255,255,.94), rgba(238,244,251,.88));
+  color:var(--azul-acmi);
+  border:1px solid rgba(20,63,125,.12);
+}
+
+.card-blue-soft{
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,.28), transparent 34%),
+    linear-gradient(135deg, rgba(15,53,105,.92), rgba(20,63,125,.72));
+  color:white;
+}
+
+.card-green-soft{
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,.30), transparent 34%),
+    linear-gradient(135deg, rgba(42,156,82,.92), rgba(20,63,125,.70));
+  color:white;
+}
+
+.floating-card span{
+  display:block;
+  font-size:34px;
+  margin-bottom:10px;
+  position:relative;
+  z-index:2;
+}
+
+.floating-card strong{
+  display:block;
+  font-family:'Montserrat', sans-serif;
+  font-size:19px;
+  font-weight:900;
+  margin-bottom:6px;
+  position:relative;
+  z-index:2;
+  color:inherit;
+}
+
+.floating-card small{
+  display:block;
+  font-weight:700;
+  line-height:1.5;
+  position:relative;
+  z-index:2;
+  color:inherit;
+  opacity:.92;
+}
+
+.floating-card-one{
+  top:2px;
+  left:34px;
+}
+
+.floating-card-two{
+  top:54px;
+  right:8px;
+  animation-delay:.7s;
+}
+
+.floating-card-three{
+  top:168px;
+  left:50%;
+  transform:translateX(-50%);
+  animation-delay:1.3s;
+}
+
+.floating-card-four{
+  bottom:12px;
+  left:8px;
+  animation-delay:1.9s;
+}
+
+.floating-card-five{
+  bottom:0;
+  right:38px;
+  animation-delay:2.5s;
+}
+
+@keyframes floatCard{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-14px);}
+}
+
+.visual-ring{
+  position:absolute;
+  width:310px;
+  height:310px;
+  border-radius:50%;
+  border:1px solid rgba(20,63,125,.15);
+  right:94px;
+  top:78px;
+  animation:ringRotate 12s linear infinite;
+}
+
+.visual-ring::after{
+  content:"";
+  position:absolute;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:var(--verde-acmi);
+  top:22px;
+  left:58px;
+  box-shadow:0 0 0 10px rgba(42,156,82,.14);
+}
+
+.visual-ring-small{
+  width:210px;
+  height:210px;
+  right:144px;
+  top:128px;
+  animation-direction:reverse;
+  opacity:.7;
+}
+
+@keyframes ringRotate{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+.magazine-section{
+  padding:86px 0;
+}
+
+.section-heading{
   text-align:center;
   margin-bottom:42px;
 }
 
-.section-title{
-  text-align:center;
+.section-heading h2{
   font-family:'Montserrat', sans-serif;
-  font-size:clamp(34px, 4vw, 52px);
-  line-height:1.05;
-  margin-bottom:16px;
   color:var(--azul-acmi);
+  font-size:clamp(34px,4vw,52px);
+  line-height:1.05;
   font-weight:900;
-  letter-spacing:-0.045em;
+  letter-spacing:-.045em;
+  margin:0 0 16px;
 }
 
-.section-title::after{
+.section-heading h2::after{
   content:"";
   display:block;
   width:96px;
@@ -615,9 +846,8 @@ body{
   background:linear-gradient(90deg, var(--verde-acmi), var(--dorado));
 }
 
-.section-subtitle{
-  text-align:center;
-  max-width:940px;
+.section-heading p{
+  max-width:920px;
   margin:0 auto;
   color:var(--texto-suave);
   font-size:18px;
@@ -625,26 +855,38 @@ body{
   font-weight:500;
 }
 
+.section-heading-light h2,
+.section-heading-light p{
+  color:white;
+}
+
+.section-heading-light h2::after{
+  background:linear-gradient(90deg, var(--verde-claro), white);
+}
+
+.section-kicker-light{
+  background:rgba(255,255,255,.16);
+  color:white;
+  border:1px solid rgba(255,255,255,.28);
+}
+
 .magazine-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
   gap:30px;
-  margin-top:20px;
 }
 
-.magazine-card,
-.empty-card{
+.magazine-card{
   background:white;
   border-radius:28px;
   overflow:hidden;
   box-shadow:var(--sombra);
-  border:1px solid rgba(20,63,125,0.09);
+  border:1px solid rgba(20,63,125,.09);
   transition:.25s ease;
   position:relative;
 }
 
-.magazine-card::before,
-.empty-card::before{
+.magazine-card::before{
   content:"";
   position:absolute;
   inset:0 0 auto 0;
@@ -653,47 +895,32 @@ body{
   z-index:2;
 }
 
-.magazine-card:hover,
-.empty-card:hover{
+.magazine-card:hover{
   transform:translateY(-7px);
   box-shadow:var(--sombra-media);
 }
 
-.magazine-cover-wrap{
+.card-image-wrap{
   overflow:hidden;
   background:#e8eef6;
 }
 
-.magazine-cover{
+.card-image{
   width:100%;
   height:260px;
   object-fit:cover;
   transition:.45s ease;
 }
 
-.magazine-card:hover .magazine-cover{
+.magazine-card:hover .card-image{
   transform:scale(1.055);
 }
 
-.magazine-cover-placeholder{
-  height:260px;
-  background:
-    radial-gradient(circle at top left, rgba(42,156,82,0.16), transparent 35%),
-    linear-gradient(135deg, #eef4fb, #ffffff);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--azul-acmi);
-  font-family:'Montserrat', sans-serif;
-  font-size:22px;
-  font-weight:900;
-}
-
-.magazine-card-content{
+.card-content{
   padding:30px;
 }
 
-.magazine-meta{
+.card-meta{
   display:inline-flex;
   padding:7px 12px;
   border-radius:999px;
@@ -702,117 +929,58 @@ body{
   font-family:'Montserrat', sans-serif;
   font-size:12px;
   font-weight:800;
-  margin-bottom:15px;
+  margin:0 0 15px;
 }
 
-.magazine-card h3{
+.card-content h3{
   font-family:'Montserrat', sans-serif;
   font-size:1.55rem;
   line-height:1.28;
-  margin-bottom:16px;
+  margin:0 0 16px;
   color:var(--azul-acmi);
   font-weight:900;
 }
 
-.magazine-card p{
+.card-content p{
   line-height:1.85;
   color:#334155;
-  margin-bottom:20px;
+  margin:0 0 20px;
 }
 
-.empty-card{
-  padding:44px;
-  text-align:center;
-  grid-column:1 / -1;
-}
-
-.empty-card span{
-  display:block;
-  font-size:46px;
-  margin-bottom:14px;
-}
-
-.empty-card h3{
-  font-family:'Montserrat', sans-serif;
-  color:var(--azul-acmi);
-  font-size:28px;
-  margin-bottom:12px;
-}
-
-.empty-card p{
-  max-width:680px;
-  margin:0 auto;
-  color:var(--texto-suave);
-  line-height:1.8;
-}
-
-.publish-card{
+.opinion-section{
   background:
-    linear-gradient(135deg, rgba(8,40,79,0.96), rgba(20,63,125,0.90), rgba(42,156,82,0.62)),
-    url('/assets/img/magazine-banner.jpg') center center / cover no-repeat;
+    radial-gradient(circle at top left, rgba(42,156,82,.20), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(255,255,255,.12), transparent 32%),
+    linear-gradient(135deg, rgba(8,40,79,.98), rgba(20,63,125,.94));
   color:white;
-  border-radius:34px;
-  padding:48px;
-  box-shadow:var(--sombra-fuerte);
-  display:grid;
-  grid-template-columns:1.2fr 0.8fr;
-  gap:28px;
-  align-items:center;
-  overflow:hidden;
   position:relative;
+  overflow:hidden;
 }
 
-.publish-card::after{
+.opinion-section::before{
   content:"";
   position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 32%),
-    radial-gradient(circle at bottom left, rgba(126,212,154,0.20), transparent 30%);
-  pointer-events:none;
+  width:460px;
+  height:460px;
+  border-radius:50%;
+  right:-170px;
+  top:-170px;
+  border:1px solid rgba(255,255,255,.16);
 }
 
-.publish-card > *{
+.opinion-section .container{
   position:relative;
   z-index:2;
 }
 
-.publish-card .section-kicker{
-  background:rgba(255,255,255,0.16);
-  color:white;
-  border:1px solid rgba(255,255,255,0.28);
+.opinion-card{
+  box-shadow:0 20px 48px rgba(0,0,0,.20);
 }
 
-.publish-card h2{
-  font-family:'Montserrat', sans-serif;
-  font-size:clamp(32px, 3.3vw, 46px);
-  line-height:1.1;
-  font-weight:900;
-  letter-spacing:-0.045em;
-  margin-bottom:16px;
-}
-
-.publish-card p{
-  color:#edf5ff;
-  font-size:18px;
-  line-height:1.8;
-}
-
-.publish-actions{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  align-items:stretch;
-}
-
-.publish-actions .btn{
-  width:100%;
-}
-
-.forum-wrapper{
+.forum-section{
   background:
-    radial-gradient(circle at top left, rgba(42,156,82,0.10), transparent 34%),
-    radial-gradient(circle at top right, rgba(20,63,125,0.10), transparent 32%),
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 34%),
+    radial-gradient(circle at top right, rgba(20,63,125,.10), transparent 32%),
     #f5f7fb;
 }
 
@@ -821,7 +989,7 @@ body{
   border-radius:30px;
   padding:44px;
   box-shadow:var(--sombra);
-  border:1px solid rgba(20,63,125,0.10);
+  border:1px solid rgba(20,63,125,.10);
   position:relative;
   overflow:hidden;
 }
@@ -847,21 +1015,27 @@ body{
   width:100%;
 }
 
-@media(max-width:980px){
+@media(max-width:1080px){
 
-  .publish-card{
+  .showcase-card{
     grid-template-columns:1fr;
+  }
+
+  .showcase-text{
     text-align:center;
   }
 
-  .publish-actions{
-    max-width:420px;
-    margin:0 auto;
+  .showcase-actions{
+    justify-content:center;
+  }
+
+  .showcase-visual{
+    min-height:430px;
   }
 
 }
 
-@media(max-width:768px){
+@media(max-width:760px){
 
   .container{
     padding:0 22px;
@@ -871,36 +1045,69 @@ body{
     min-height:auto;
   }
 
-  .magazine-content{
-    padding:80px 20px;
+  .magazine-hero-content{
+    padding:86px 20px 150px;
   }
 
-  .magazine-buttons{
+  .hero-actions{
     flex-direction:column;
   }
 
-  .btn-primary,
-  .btn-light{
+  .btn{
     width:100%;
     max-width:340px;
   }
 
-  .magazine-grid{
-    grid-template-columns:1fr;
+  .editorial-showcase{
+    margin-top:-112px;
+  }
+
+  .showcase-card{
+    padding:34px 22px;
+    border-radius:28px;
+  }
+
+  .showcase-visual{
+    min-height:auto;
+    display:grid;
+    gap:16px;
+  }
+
+  .floating-card{
+    position:relative;
+    top:auto;
+    left:auto;
+    right:auto;
+    bottom:auto;
+    width:100%;
+    animation:none;
+    transform:none;
+  }
+
+  .floating-card-three{
+    transform:none;
+  }
+
+  .floating-card:hover{
+    transform:translateY(-4px);
+  }
+
+  .visual-ring,
+  .visual-ring-small{
+    display:none;
   }
 
   .magazine-section{
     padding:70px 0;
   }
 
-  .magazine-card-content,
-  .forum-card{
-    padding:28px;
+  .magazine-grid{
+    grid-template-columns:1fr;
   }
 
-  .publish-card{
-    padding:34px 24px;
-    border-radius:26px;
+  .card-content,
+  .forum-card{
+    padding:28px;
   }
 
 }
