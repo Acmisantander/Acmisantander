@@ -8,103 +8,484 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:'Lato',sans-serif;background:#f5f7fb;color:#243244;line-height:1.6}
-.container{width:90%;max-width:1100px;margin:auto}
-header{background:#143f7d;color:white;padding:22px 0;border-bottom:4px solid #2a9c52}
-h1,h2,h3{font-family:'Montserrat',sans-serif}
-h1{margin:0;font-size:30px}
-nav{margin-top:12px;display:flex;gap:20px;flex-wrap:wrap}
-nav a{color:white;text-decoration:none;font-weight:700}
-nav a:hover{text-decoration:underline}
-.section{padding:80px 0}
-.card{background:white;border-radius:18px;padding:34px;box-shadow:0 10px 24px rgba(0,0,0,.08)}
-h2{font-size:38px;color:#143f7d;margin-bottom:18px}
-h3{font-size:28px;color:#143f7d;margin-top:40px}
-p{font-size:18px}
-.video-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;margin:30px 0;box-shadow:0 10px 24px rgba(0,0,0,.12)}
-.video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%}
-.btn{display:inline-block;margin-top:25px;background:#2a9c52;color:white;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700}
-.btn:hover{background:#238244}
-.foro{margin-top:50px;padding-top:35px;border-top:2px solid #e3e8f0}
-footer{background:#0f3569;color:white;text-align:center;padding:22px;margin-top:40px}
+:root{
+  --azul-acmi:#143f7d;
+  --azul-acmi-2:#0f3569;
+  --verde-acmi:#2a9c52;
+  --verde-hover:#238244;
+  --dorado:#c89b3c;
+  --gris-fondo:#f5f7fb;
+  --texto:#243244;
+  --texto-suave:#5b6d82;
+  --blanco:#ffffff;
+  --sombra:0 14px 34px rgba(0,0,0,.10);
+  --sombra-fuerte:0 24px 60px rgba(15,53,105,.22);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:'Lato',sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.08), transparent 32%),
+    radial-gradient(circle at top right, rgba(20,63,125,.12), transparent 34%),
+    var(--gris-fondo);
+  color:var(--texto);
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+}
+
+.container{
+  width:90%;
+  max-width:1180px;
+  margin:auto;
+}
+
+header{
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #e3eaf3;
+  box-shadow:0 4px 18px rgba(0,0,0,.06);
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+
+.header-inner{
+  min-height:94px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:14px 0;
+}
+
+.brand h1{
+  font-family:'Montserrat',sans-serif;
+  color:var(--azul-acmi);
+  margin:0;
+  font-size:30px;
+  line-height:1.1;
+}
+
+.brand p{
+  margin:4px 0 0;
+  color:#50627a;
+  font-size:14px;
+}
+
+nav{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+nav a{
+  color:var(--azul-acmi);
+  font-family:'Montserrat',sans-serif;
+  font-weight:700;
+  font-size:15px;
+  transition:.2s ease;
+}
+
+nav a:hover{
+  color:var(--verde-acmi);
+}
+
+.hero{
+  position:relative;
+  min-height:54vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  overflow:hidden;
+  background:
+    linear-gradient(135deg, rgba(15,53,105,.94), rgba(20,63,125,.82)),
+    url("/chicamocha.jpg") center/cover no-repeat;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 25% 20%, rgba(255,255,255,.18), transparent 28%),
+    linear-gradient(90deg, rgba(42,156,82,.22), transparent 45%);
+  pointer-events:none;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:50%;
+  right:-120px;
+  bottom:-180px;
+  animation:floatCircle 7s ease-in-out infinite;
+}
+
+@keyframes floatCircle{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-18px);}
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(28px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  width:min(980px,92%);
+  padding:78px 0;
+  animation:fadeUp .9s ease both;
+}
+
+.hero-badge{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.32);
+  font-family:'Montserrat',sans-serif;
+  font-weight:800;
+  font-size:14px;
+  letter-spacing:.04em;
+  margin-bottom:22px;
+  text-transform:uppercase;
+}
+
+.hero h2{
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(38px,5vw,62px);
+  line-height:1.08;
+  font-weight:800;
+  margin:0 0 18px;
+}
+
+.hero p{
+  font-size:22px;
+  max-width:880px;
+  margin:0 auto 30px;
+  color:#edf5ff;
+}
+
+.hero-actions{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  background:var(--verde-acmi);
+  color:white;
+  padding:13px 22px;
+  border-radius:12px;
+  font-family:'Montserrat',sans-serif;
+  font-weight:800;
+  transition:.22s ease;
+  box-shadow:0 10px 22px rgba(42,156,82,.28);
+}
+
+.btn:hover{
+  background:var(--verde-hover);
+  transform:translateY(-3px);
+  color:white;
+}
+
+.btn-light{
+  background:white;
+  color:var(--azul-acmi);
+  box-shadow:0 10px 22px rgba(8,40,79,.10);
+}
+
+.btn-light:hover{
+  background:#eef4fb;
+  color:var(--azul-acmi);
+}
+
+.section{
+  padding:80px 0;
+}
+
+.card{
+  background:white;
+  border-radius:30px;
+  padding:44px;
+  box-shadow:var(--sombra);
+  border:1px solid rgba(20,63,125,.10);
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:7px;
+  background:linear-gradient(90deg, var(--azul-acmi), var(--verde-acmi), var(--dorado));
+}
+
+h1,h2,h3{
+  font-family:'Montserrat',sans-serif;
+}
+
+h2{
+  font-size:42px;
+  color:var(--azul-acmi);
+  margin:0 0 18px;
+  line-height:1.15;
+}
+
+h2::after{
+  content:"";
+  display:block;
+  width:90px;
+  height:4px;
+  border-radius:99px;
+  background:linear-gradient(90deg, var(--verde-acmi), var(--dorado));
+  margin:16px 0 0;
+}
+
+h3{
+  font-size:30px;
+  color:var(--azul-acmi);
+  margin:42px 0 14px;
+}
+
+p{
+  font-size:18px;
+  color:#425268;
+}
+
+.video-container{
+  position:relative;
+  padding-bottom:56.25%;
+  height:0;
+  overflow:hidden;
+  border-radius:24px;
+  margin:34px 0;
+  box-shadow:var(--sombra-fuerte);
+  background:#071f3f;
+}
+
+.video-container iframe{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.foro{
+  margin-top:56px;
+  padding:44px;
+  border-radius:28px;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 34%),
+    linear-gradient(135deg, #ffffff, #f0f5fc);
+  border:1px solid rgba(20,63,125,.10);
+  box-shadow:0 14px 34px rgba(0,0,0,.08);
+}
+
+.foro h3{
+  text-align:center;
+  margin-top:0;
+}
+
+.foro h3::after{
+  content:"";
+  display:block;
+  width:90px;
+  height:4px;
+  border-radius:99px;
+  background:linear-gradient(90deg, var(--verde-acmi), var(--dorado));
+  margin:16px auto 0;
+}
+
+.foro p{
+  text-align:center;
+  margin:20px auto 30px;
+  max-width:820px;
+  color:var(--texto-suave);
+}
+
+.commentbox{
+  width:100%;
+}
+
+footer{
+  background:var(--azul-acmi-2);
+  color:white;
+  text-align:center;
+  padding:28px 18px;
+  margin-top:40px;
+}
+
+footer p{
+  margin:4px 0;
+  color:white;
+}
+
+@media(max-width:900px){
+  .header-inner{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  nav{
+    justify-content:center;
+  }
+
+  .hero p{
+    font-size:18px;
+  }
+
+  .card{
+    padding:32px 24px;
+    border-radius:26px;
+  }
+
+  h2{
+    font-size:34px;
+  }
+
+  h3{
+    font-size:26px;
+  }
+
+  .foro{
+    padding:30px 22px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="container">
-<h1>ACMI Santander</h1>
-<nav>
-<a href="../">Inicio</a>
-<a href="../#eventos">Eventos</a>
-<a href="../educacion-medica-continuada/">Educación médica continuada</a>
-<a href="../magazine/">Magazine</a>
-<a href="../proyeccion-social/">Proyección social</a>
-</nav>
-</div>
+  <div class="container header-inner">
+    <div class="brand">
+      <h1>ACMI Santander</h1>
+      <p>Asociación Colombiana de Medicina Interna • Capítulo Santander</p>
+    </div>
+
+    <nav>
+      <a href="../">Inicio</a>
+      <a href="../#eventos">Eventos</a>
+      <a href="../educacion-medica-continuada/">Educación médica continuada</a>
+      <a href="../magazine/">Magazine</a>
+      <a href="../proyeccion-social/">Proyección social</a>
+      <a href="#foro-acmi">Foro ACMI</a>
+    </nav>
+  </div>
 </header>
 
-<section class="section">
-<div class="container">
-<div class="card">
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Educación médica continuada</div>
 
-<h2>Educación médica continuada</h2>
+    <h2>Educación médica continuada</h2>
 
-<p>
-Espacio académico de ACMI Santander orientado a la actualización científica,
-la formación clínica permanente y el fortalecimiento de competencias médicas
-para internistas, residentes, médicos generales y estudiantes.
-</p>
+    <p>
+      Actualización científica, formación clínica permanente y fortalecimiento académico
+      para internistas, residentes, médicos generales y estudiantes.
+    </p>
 
-<p>
-Aquí se podrán publicar cursos, simposios, conferencias, revisiones clínicas,
-material académico, bancos de preguntas, enlaces a programas científicos y
-recursos de educación médica.
-</p>
+    <div class="hero-actions">
+      <a class="btn" href="#contenido">Ver contenido</a>
+      <a class="btn btn-light" href="#foro-acmi">Foro ACMI</a>
+      <a class="btn btn-light" href="../">Volver al inicio</a>
+    </div>
+  </div>
+</section>
 
-<h3>Actividad promocional del VI Simposio Regional ACMI</h3>
+<section class="section" id="contenido">
+  <div class="container">
+    <div class="card">
 
-<p>
-Video promocional del VI Simposio Regional ACMI Santander 2026, un espacio de
-educación médica continuada orientado al fortalecimiento académico y clínico
-en medicina interna y neumología.
-</p>
+      <h2>Educación médica continuada</h2>
 
-<div class="video-container">
-<iframe
-src="https://www.youtube.com/embed/EA9oWKuoZ6I"
-title="Actividad promocional del VI Simposio Regional ACMI Santander 2026"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen>
-</iframe>
-</div>
+      <p>
+        Espacio académico de ACMI Santander orientado a la actualización científica,
+        la formación clínica permanente y el fortalecimiento de competencias médicas
+        para internistas, residentes, médicos generales y estudiantes.
+      </p>
 
-<div class="foro">
-<h3 style="text-align:center;">Foro ACMI Santander</h3>
+      <p>
+        Aquí se podrán publicar cursos, simposios, conferencias, revisiones clínicas,
+        material académico, bancos de preguntas, enlaces a programas científicos y
+        recursos de educación médica.
+      </p>
 
-<p style="text-align:center; margin-bottom:30px;">
-Espacio de discusión académica para noticias, columnas de opinión y temas de medicina interna.
-</p>
+      <h3>Actividad promocional del VI Simposio Regional ACMI</h3>
 
-<div class="commentbox"></div>
-</div>
+      <p>
+        Video promocional del VI Simposio Regional ACMI Santander 2026, un espacio de
+        educación médica continuada orientado al fortalecimiento académico y clínico
+        en medicina interna y neumología.
+      </p>
 
-<a class="btn" href="../">Volver al inicio</a>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/EA9oWKuoZ6I"
+          title="Actividad promocional del VI Simposio Regional ACMI Santander 2026"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
 
-</div>
-</div>
+      <div class="foro" id="foro-acmi">
+        <h3>Foro ACMI Santander</h3>
+
+        <p>
+          Espacio de discusión académica para educación médica continuada,
+          medicina interna, eventos académicos, preguntas clínicas y actualización científica.
+        </p>
+
+        <div class="commentbox"></div>
+      </div>
+
+      <a class="btn" href="../">Volver al inicio</a>
+
+    </div>
+  </div>
 </section>
 
 <footer>
-<p>© 2026 ACMI Santander</p>
-<p>Educación continua que transforma la práctica clínica</p>
+  <p>© 2026 ACMI Santander</p>
+  <p>Educación continua que transforma la práctica clínica</p>
 </footer>
 
 <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 <script>
-commentBox('5734850254340096-proj');
+  commentBox('5704224843235328-proj');
 </script>
 
 </body>
