@@ -4,330 +4,6 @@ title: Magazine ACMI Santander
 permalink: /magazine/
 ---
 
-<section class="magazine-hero" id="inicio-magazine">
-
-  <div class="hero-orb hero-orb-one"></div>
-  <div class="hero-orb hero-orb-two"></div>
-  <div class="hero-orb hero-orb-three"></div>
-
-  <div class="hero-overlay"></div>
-
-  <div class="magazine-hero-content">
-
-    <span class="magazine-badge">
-      Magazine académico
-    </span>
-
-    <h1>
-      Magazine ACMI Santander
-    </h1>
-
-    <p>
-      Un espacio editorial para compartir conocimiento, noticias, opinión médica,
-      educación continuada y pensamiento científico en medicina interna.
-    </p>
-
-    <div class="hero-actions">
-
-      <a class="btn btn-primary" href="#noticias">
-        Explorar publicaciones
-      </a>
-
-      <a class="btn btn-light" href="#editorial">
-        Publicar en ACMI
-      </a>
-
-      <a class="btn btn-light" href="#foro-acmi">
-        Foro ACMI
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<section class="editorial-showcase" id="editorial">
-
-  <div class="container">
-
-    <div class="showcase-card">
-
-      <div class="showcase-text">
-
-        <span class="section-kicker">
-          Comunidad editorial ACMI
-        </span>
-
-        <h2>
-          Ciencia, criterio clínico y conversación académica
-        </h2>
-
-        <p>
-          El Magazine ACMI Santander reúne noticias institucionales, opinión médica,
-          propuestas académicas y reflexiones científicas para construir memoria editorial
-          desde el capítulo Santander.
-        </p>
-
-        <div class="showcase-actions">
-
-          <a class="btn btn-primary" href="{{ site.baseurl }}/magazine/manual-publicacion/">
-            Manual de publicación
-          </a>
-
-          <a class="btn btn-light" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
-            Enviar manuscrito
-          </a>
-
-          <a class="btn btn-light" href="{{ site.baseurl }}/magazine/enviar-ponencias/">
-            Enviar ponencia
-          </a>
-
-        </div>
-
-      </div>
-
-      <div class="showcase-visual" aria-label="Accesos editoriales principales del Magazine ACMI Santander">
-
-        <div class="quick-box">
-
-          <a class="quick-tile quick-blue" href="#noticias">
-            <span>📰</span>
-            <strong>Noticias</strong>
-            <small>Actualidad científica e institucional</small>
-          </a>
-
-          <a class="quick-tile quick-green" href="#opinion">
-            <span>✍️</span>
-            <strong>Opinión</strong>
-            <small>Análisis médico y pensamiento clínico</small>
-          </a>
-
-          <a class="quick-tile quick-blue-soft" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
-            <span>📨</span>
-            <strong>Enviar manuscrito</strong>
-            <small>Artículos, revisiones y textos académicos</small>
-          </a>
-
-          <a class="quick-tile quick-green-soft" href="{{ site.baseurl }}/magazine/enviar-ponencias/">
-            <span>🎙️</span>
-            <strong>Enviar ponencia</strong>
-            <small>Conferencias y temas académicos</small>
-          </a>
-
-        </div>
-
-      </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<section class="magazine-section" id="noticias">
-
-  <div class="container">
-
-    <div class="section-heading">
-      <span class="section-kicker">
-        Actualidad médica
-      </span>
-
-      <h2>
-        Noticias
-      </h2>
-
-      <p>
-        Información académica, institucional y científica relevante para la comunidad médica
-        de ACMI Santander.
-      </p>
-    </div>
-
-    {% assign noticias = site.categories.magazine | where: "subcategory","noticias" %}
-
-    {% if noticias.size > 0 %}
-
-    <div class="magazine-grid">
-
-      {% for post in noticias %}
-
-      <article class="magazine-card">
-
-        {% if post.cover %}
-        <div class="card-image-wrap">
-          <img
-            src="{{ post.cover }}"
-            alt="{{ post.title }}"
-            class="card-image"
-          >
-        </div>
-        {% endif %}
-
-        <div class="card-content">
-
-          <p class="card-meta">
-            {{ post.date | date: "%d/%m/%Y" }}
-            {% if post.author %}
-            ·
-            {{ post.author }}
-            {% endif %}
-          </p>
-
-          <h3>
-            {{ post.title }}
-          </h3>
-
-          <p>
-            {{ post.excerpt | strip_html | truncate: 190 }}
-          </p>
-
-          <a class="btn btn-card" href="{{ post.url | relative_url }}">
-            Leer noticia
-          </a>
-
-        </div>
-
-      </article>
-
-      {% endfor %}
-
-    </div>
-
-    {% endif %}
-
-  </div>
-
-</section>
-
-
-
-<section class="magazine-section opinion-section" id="opinion">
-
-  <div class="container">
-
-    <div class="section-heading section-heading-light">
-      <span class="section-kicker section-kicker-light">
-        Perspectiva académica
-      </span>
-
-      <h2>
-        Opinión
-      </h2>
-
-      <p>
-        Columnas, análisis y reflexiones sobre medicina interna, educación médica,
-        investigación, práctica clínica y salud pública.
-      </p>
-    </div>
-
-    {% assign opiniones = site.categories.magazine | where: "subcategory","opinion" %}
-
-    {% if opiniones.size > 0 %}
-
-    <div class="magazine-grid">
-
-      {% for post in opiniones %}
-
-      <article class="magazine-card opinion-card">
-
-        {% if post.cover %}
-        <div class="card-image-wrap">
-          <img
-            src="{{ post.cover }}"
-            alt="{{ post.title }}"
-            class="card-image"
-          >
-        </div>
-        {% endif %}
-
-        <div class="card-content">
-
-          <p class="card-meta">
-            {{ post.date | date: "%d/%m/%Y" }}
-            {% if post.author %}
-            ·
-            {{ post.author }}
-            {% endif %}
-          </p>
-
-          <h3>
-            {{ post.title }}
-          </h3>
-
-          <p>
-            {{ post.excerpt | strip_html | truncate: 190 }}
-          </p>
-
-          <a class="btn btn-card" href="{{ post.url | relative_url }}">
-            Leer columna
-          </a>
-
-        </div>
-
-      </article>
-
-      {% endfor %}
-
-    </div>
-
-    {% endif %}
-
-  </div>
-
-</section>
-
-
-
-<section class="magazine-section forum-section" id="foro-acmi">
-
-  <div class="container">
-
-    <div class="section-heading">
-      <span class="section-kicker">
-        Comunidad académica
-      </span>
-
-      <h2>
-        Foro ACMI Magazine
-      </h2>
-
-      <p>
-        Espacio de discusión académica para comentar noticias, columnas de opinión,
-        educación médica continuada y temas relacionados con medicina interna.
-      </p>
-    </div>
-
-    <div class="forum-card">
-
-      <p class="forum-text">
-        Participe con preguntas, comentarios, propuestas editoriales, reflexiones académicas
-        y aportes para fortalecer la conversación científica del capítulo ACMI Santander.
-      </p>
-
-      <div class="commentbox"></div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
-
-<script>
-  commentBox('5704224843235328-proj');
-</script>
-
-
-
 <style>
 
 :root{
@@ -348,23 +24,21 @@ permalink: /magazine/
   --sombra-fuerte:0 28px 70px rgba(8,40,79,0.18);
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
-body{
+.magazine-page{
   background:
     radial-gradient(circle at top left, rgba(42,156,82,0.08), transparent 32%),
     radial-gradient(circle at top right, rgba(20,63,125,0.12), transparent 34%),
     var(--gris-bg);
 }
 
-.container{
+.magazine-page .container{
   width:100%;
   max-width:1240px;
   margin:0 auto;
   padding:0 34px;
 }
+
+/* HERO */
 
 .magazine-hero{
   position:relative;
@@ -396,7 +70,6 @@ body{
   border-radius:50%;
   pointer-events:none;
   z-index:1;
-  filter:blur(.2px);
 }
 
 .hero-orb-one{
@@ -492,7 +165,6 @@ body{
   letter-spacing:-.065em;
   margin:0 0 24px;
   color:white;
-  text-wrap:balance;
 }
 
 .magazine-hero p{
@@ -504,7 +176,8 @@ body{
   font-weight:500;
 }
 
-.hero-actions{
+.hero-actions,
+.showcase-actions{
   display:flex;
   justify-content:center;
   align-items:center;
@@ -512,7 +185,7 @@ body{
   gap:14px;
 }
 
-.btn{
+.magazine-page .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -526,40 +199,42 @@ body{
   box-shadow:0 10px 22px rgba(8,40,79,.10);
 }
 
-.btn-primary{
+.magazine-page .btn-primary{
   background:linear-gradient(135deg, var(--verde-acmi), #35b862);
   color:white;
 }
 
-.btn-primary:hover{
+.magazine-page .btn-primary:hover{
   color:white;
   transform:translateY(-3px);
   box-shadow:0 18px 34px rgba(42,156,82,.26);
 }
 
-.btn-light{
+.magazine-page .btn-light{
   background:white;
   color:var(--azul-acmi);
 }
 
-.btn-light:hover{
+.magazine-page .btn-light:hover{
   background:#eef4fb;
   color:var(--azul-acmi);
   transform:translateY(-3px);
 }
 
-.btn-card{
+.magazine-page .btn-card{
   background:var(--azul-acmi);
   color:white;
   padding:11px 17px;
   font-size:14px;
 }
 
-.btn-card:hover{
+.magazine-page .btn-card:hover{
   background:var(--verde-acmi);
   color:white;
   transform:translateY(-2px);
 }
+
+/* BLOQUE EDITORIAL */
 
 .editorial-showcase{
   margin-top:-96px;
@@ -623,15 +298,10 @@ body{
   margin:0 0 28px;
 }
 
-.showcase-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-}
+/* CUADRITO DE 4 TARJETAS */
 
 .showcase-visual{
   min-height:430px;
-  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -772,6 +442,8 @@ body{
   color:inherit;
   opacity:.92;
 }
+
+/* SECCIONES */
 
 .magazine-section{
   padding:86px 0;
@@ -985,15 +657,11 @@ body{
     justify-content:center;
   }
 
-  .showcase-visual{
-    min-height:430px;
-  }
-
 }
 
 @media(max-width:760px){
 
-  .container{
+  .magazine-page .container{
     padding:0 22px;
   }
 
@@ -1009,7 +677,7 @@ body{
     flex-direction:column;
   }
 
-  .btn{
+  .magazine-page .btn{
     width:100%;
     max-width:340px;
   }
@@ -1053,3 +721,328 @@ body{
 }
 
 </style>
+
+<div class="magazine-page">
+
+  <section class="magazine-hero" id="inicio-magazine">
+
+    <div class="hero-orb hero-orb-one"></div>
+    <div class="hero-orb hero-orb-two"></div>
+    <div class="hero-orb hero-orb-three"></div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="magazine-hero-content">
+
+      <span class="magazine-badge">
+        Magazine académico
+      </span>
+
+      <h1>
+        Magazine ACMI Santander
+      </h1>
+
+      <p>
+        Un espacio editorial para compartir conocimiento, noticias, opinión médica,
+        educación continuada y pensamiento científico en medicina interna.
+      </p>
+
+      <div class="hero-actions">
+
+        <a class="btn btn-primary" href="#noticias">
+          Explorar publicaciones
+        </a>
+
+        <a class="btn btn-light" href="#editorial">
+          Publicar en ACMI
+        </a>
+
+        <a class="btn btn-light" href="#foro-acmi">
+          Foro ACMI
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section class="editorial-showcase" id="editorial">
+
+    <div class="container">
+
+      <div class="showcase-card">
+
+        <div class="showcase-text">
+
+          <span class="section-kicker">
+            Comunidad editorial ACMI
+          </span>
+
+          <h2>
+            Ciencia, criterio clínico y conversación académica
+          </h2>
+
+          <p>
+            El Magazine ACMI Santander reúne noticias institucionales, opinión médica,
+            propuestas académicas y reflexiones científicas para construir memoria editorial
+            desde el capítulo Santander.
+          </p>
+
+          <div class="showcase-actions">
+
+            <a class="btn btn-primary" href="{{ site.baseurl }}/magazine/manual-publicacion/">
+              Manual de publicación
+            </a>
+
+            <a class="btn btn-light" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
+              Enviar manuscrito
+            </a>
+
+            <a class="btn btn-light" href="{{ site.baseurl }}/magazine/enviar-ponencias/">
+              Enviar ponencia
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="showcase-visual" aria-label="Accesos editoriales principales del Magazine ACMI Santander">
+
+          <div class="quick-box">
+
+            <a class="quick-tile quick-blue" href="#noticias">
+              <span>📰</span>
+              <strong>Noticias</strong>
+              <small>Actualidad científica e institucional</small>
+            </a>
+
+            <a class="quick-tile quick-green" href="#opinion">
+              <span>✍️</span>
+              <strong>Opinión</strong>
+              <small>Análisis médico y pensamiento clínico</small>
+            </a>
+
+            <a class="quick-tile quick-blue-soft" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
+              <span>📨</span>
+              <strong>Enviar manuscrito</strong>
+              <small>Artículos, revisiones y textos académicos</small>
+            </a>
+
+            <a class="quick-tile quick-green-soft" href="{{ site.baseurl }}/magazine/enviar-ponencias/">
+              <span>🎙️</span>
+              <strong>Enviar ponencia</strong>
+              <small>Conferencias y temas académicos</small>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section class="magazine-section" id="noticias">
+
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="section-kicker">
+          Actualidad médica
+        </span>
+
+        <h2>
+          Noticias
+        </h2>
+
+        <p>
+          Información académica, institucional y científica relevante para la comunidad médica
+          de ACMI Santander.
+        </p>
+      </div>
+
+      {% assign noticias = site.categories.magazine | where: "subcategory","noticias" %}
+
+      {% if noticias.size > 0 %}
+
+      <div class="magazine-grid">
+
+        {% for post in noticias %}
+
+        <article class="magazine-card">
+
+          {% if post.cover %}
+          <div class="card-image-wrap">
+            <img
+              src="{{ site.baseurl }}{{ post.cover }}"
+              alt="{{ post.title }}"
+              class="card-image"
+            >
+          </div>
+          {% endif %}
+
+          <div class="card-content">
+
+            <p class="card-meta">
+              {{ post.date | date: "%d/%m/%Y" }}
+              {% if post.author %}
+              ·
+              {{ post.author }}
+              {% endif %}
+            </p>
+
+            <h3>
+              {{ post.title }}
+            </h3>
+
+            <p>
+              {{ post.excerpt | strip_html | truncate: 190 }}
+            </p>
+
+            <a class="btn btn-card" href="{{ site.baseurl }}{{ post.url }}">
+              Leer noticia
+            </a>
+
+          </div>
+
+        </article>
+
+        {% endfor %}
+
+      </div>
+
+      {% endif %}
+
+    </div>
+
+  </section>
+
+
+
+  <section class="magazine-section opinion-section" id="opinion">
+
+    <div class="container">
+
+      <div class="section-heading section-heading-light">
+        <span class="section-kicker section-kicker-light">
+          Perspectiva académica
+        </span>
+
+        <h2>
+          Opinión
+        </h2>
+
+        <p>
+          Columnas, análisis y reflexiones sobre medicina interna, educación médica,
+          investigación, práctica clínica y salud pública.
+        </p>
+      </div>
+
+      {% assign opiniones = site.categories.magazine | where: "subcategory","opinion" %}
+
+      {% if opiniones.size > 0 %}
+
+      <div class="magazine-grid">
+
+        {% for post in opiniones %}
+
+        <article class="magazine-card opinion-card">
+
+          {% if post.cover %}
+          <div class="card-image-wrap">
+            <img
+              src="{{ site.baseurl }}{{ post.cover }}"
+              alt="{{ post.title }}"
+              class="card-image"
+            >
+          </div>
+          {% endif %}
+
+          <div class="card-content">
+
+            <p class="card-meta">
+              {{ post.date | date: "%d/%m/%Y" }}
+              {% if post.author %}
+              ·
+              {{ post.author }}
+              {% endif %}
+            </p>
+
+            <h3>
+              {{ post.title }}
+            </h3>
+
+            <p>
+              {{ post.excerpt | strip_html | truncate: 190 }}
+            </p>
+
+            <a class="btn btn-card" href="{{ site.baseurl }}{{ post.url }}">
+              Leer columna
+            </a>
+
+          </div>
+
+        </article>
+
+        {% endfor %}
+
+      </div>
+
+      {% endif %}
+
+    </div>
+
+  </section>
+
+
+
+  <section class="magazine-section forum-section" id="foro-acmi">
+
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="section-kicker">
+          Comunidad académica
+        </span>
+
+        <h2>
+          Foro ACMI Magazine
+        </h2>
+
+        <p>
+          Espacio de discusión académica para comentar noticias, columnas de opinión,
+          educación médica continuada y temas relacionados con medicina interna.
+        </p>
+      </div>
+
+      <div class="forum-card">
+
+        <p class="forum-text">
+          Participe con preguntas, comentarios, propuestas editoriales, reflexiones académicas
+          y aportes para fortalecer la conversación científica del capítulo ACMI Santander.
+        </p>
+
+        <div class="commentbox"></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+
+<script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+
+<script>
+  commentBox('5704224843235328-proj');
+</script>
