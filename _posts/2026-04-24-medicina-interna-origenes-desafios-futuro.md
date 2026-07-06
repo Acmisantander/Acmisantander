@@ -274,6 +274,74 @@ cover: /img/Sir William Osler.png
   color:#2a9c52;
 }
 
+
+/* FORO */
+
+.mi-forum-section{
+  max-width:920px;
+  margin:34px auto 0;
+  position:relative;
+  animation:miBookFadeIn .9s ease both;
+}
+
+.mi-forum-card{
+  position:relative;
+  padding:34px;
+  border-radius:28px;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(20,63,125,.10), transparent 34%),
+    #f8fafc;
+  border:1px solid rgba(20,63,125,.10);
+  box-shadow:0 16px 38px rgba(8,40,79,.10);
+  overflow:hidden;
+}
+
+.mi-forum-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:7px;
+  background:linear-gradient(90deg, #2a9c52, #143f7d, #c89b3c);
+}
+
+.mi-forum-kicker{
+  display:inline-flex;
+  padding:9px 15px;
+  border-radius:999px;
+  background:#eef4fb;
+  color:#143f7d;
+  border:1px solid #dbe7f5;
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  margin-bottom:14px;
+}
+
+.mi-forum-card h3{
+  font-family:'Montserrat', sans-serif;
+  color:#143f7d;
+  font-size:clamp(26px,3vw,36px);
+  line-height:1.12;
+  font-weight:900;
+  letter-spacing:-.04em;
+  margin:0 0 14px;
+}
+
+.mi-forum-card p{
+  color:#5b6d82;
+  font-size:17px;
+  line-height:1.8;
+  margin:0 0 24px;
+}
+
+.mi-forum-card .commentbox{
+  width:100%;
+}
+
+
 @media(max-width:760px){
 
   .mi-book-paper{
@@ -301,6 +369,15 @@ cover: /img/Sir William Osler.png
   .mi-book-footer-note{
     flex-direction:column;
     align-items:flex-start;
+  }
+
+  .mi-forum-section{
+    margin-top:28px;
+  }
+
+  .mi-forum-card{
+    padding:26px;
+    border-radius:24px;
   }
 
 }
@@ -375,4 +452,31 @@ cover: /img/Sir William Osler.png
 
   </article>
 
+  <section class="mi-forum-section">
+
+    <div class="mi-forum-card">
+
+      <span class="mi-forum-kicker">
+        Comunidad académica
+      </span>
+
+      <h3>
+        Discusión académica del artículo
+      </h3>
+
+      <p>
+        Comparta comentarios, preguntas o aportes relacionados con esta columna de opinión del Magazine ACMI Santander.
+      </p>
+
+      <div class="commentbox"></div>
+
+    </div>
+
+  </section>
+
 </div>
+
+<script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+<script>
+  commentBox('5704224843235328-proj');
+</script>
