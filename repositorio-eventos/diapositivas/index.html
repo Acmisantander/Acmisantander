@@ -410,6 +410,13 @@
       white-space:nowrap;
     }
 
+    .slide-viewer-wrap{
+      background:#eef4fb;
+      border-top:1px solid rgba(20,63,125,0.08);
+      border-bottom:1px solid rgba(20,63,125,0.08);
+      position:relative;
+    }
+
     .slide-viewer{
       width:100%;
       height:720px;
@@ -418,50 +425,18 @@
       display:block;
     }
 
-
-
-    .slide-placeholder{
-      min-height:300px;
-      background:
-        radial-gradient(circle at top left, rgba(42,156,82,0.10), transparent 32%),
-        linear-gradient(135deg, #eef4fb, #ffffff);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:34px;
+    .iframe-fallback{
+      padding:14px 22px;
+      background:#fff8e8;
+      color:#6b4b13;
+      border-top:1px solid rgba(200,155,60,0.24);
+      font-size:14px;
       text-align:center;
-      border-top:1px solid rgba(20,63,125,0.08);
-      border-bottom:1px solid rgba(20,63,125,0.08);
     }
 
-    .slide-placeholder-inner{
-      max-width:620px;
-    }
-
-    .slide-placeholder-icon{
-      width:86px;
-      height:86px;
-      border-radius:24px;
-      margin:0 auto 18px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:white;
+    .iframe-fallback a{
       color:var(--azul-acmi);
-      font-size:44px;
-      box-shadow:0 10px 24px rgba(0,0,0,0.08);
-    }
-
-    .slide-placeholder h4{
-      font-family:'Montserrat', sans-serif;
-      color:var(--azul-acmi);
-      font-size:24px;
-      margin-bottom:10px;
-    }
-
-    .slide-placeholder p{
-      color:#5b6d82;
-      font-size:17px;
+      font-weight:800;
     }
 
     .slide-actions{
@@ -514,6 +489,10 @@
 
     .notice strong{
       color:var(--azul-acmi);
+    }
+
+    .notice ul{
+      margin:10px 0 0 20px;
     }
 
     footer{
@@ -593,53 +572,7 @@
         height:520px;
       }
 
-  
-
-    .slide-placeholder{
-      min-height:300px;
-      background:
-        radial-gradient(circle at top left, rgba(42,156,82,0.10), transparent 32%),
-        linear-gradient(135deg, #eef4fb, #ffffff);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:34px;
-      text-align:center;
-      border-top:1px solid rgba(20,63,125,0.08);
-      border-bottom:1px solid rgba(20,63,125,0.08);
-    }
-
-    .slide-placeholder-inner{
-      max-width:620px;
-    }
-
-    .slide-placeholder-icon{
-      width:86px;
-      height:86px;
-      border-radius:24px;
-      margin:0 auto 18px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:white;
-      color:var(--azul-acmi);
-      font-size:44px;
-      box-shadow:0 10px 24px rgba(0,0,0,0.08);
-    }
-
-    .slide-placeholder h4{
-      font-family:'Montserrat', sans-serif;
-      color:var(--azul-acmi);
-      font-size:24px;
-      margin-bottom:10px;
-    }
-
-    .slide-placeholder p{
-      color:#5b6d82;
-      font-size:17px;
-    }
-
-    .slide-actions{
+      .slide-actions{
         padding:18px 20px 24px;
         justify-content:center;
       }
@@ -647,6 +580,11 @@
       .slide-actions a{
         width:100%;
         text-align:center;
+      }
+
+      .iframe-fallback{
+        font-size:13px;
+        padding:12px 16px;
       }
     }
   </style>
@@ -735,10 +673,17 @@
 
         <div class="notice">
           <p>
-            <strong>Importante:</strong> para evitar bloqueos por cookies de Google Drive en celulares,
-            las presentaciones no se incrustan dentro de la página. Use los botones
-            <strong>“Abrir presentación”</strong> o <strong>“Descargar PDF”</strong>.
+            <strong>Importante:</strong> este código usa vista incrustada de Google Drive mediante
+            <strong>/preview</strong>. Para que no pida autorización, cada archivo PDF o presentación debe estar
+            compartido en Google Drive como <strong>“Cualquier persona con el enlace” → “Lector”</strong>.
           </p>
+
+          <ul>
+            <li>El enlace correcto de la carpeta es: <strong>https://drive.google.com/drive/folders/1qBlSeZnttrcTfDB_1Of-otM2MwiMzGei?usp=drive_link</strong></li>
+            <li>Una carpeta de Drive no se incrusta como presentación única; se incrusta cada archivo con su ID individual.</li>
+            <li>Si un archivo está privado, Google Drive seguirá mostrando solicitud de acceso dentro del iframe.</li>
+            <li>El código no puede saltarse permisos de Google Drive; los permisos deben corregirse directamente en Drive.</li>
+          </ul>
         </div>
 
       </section>
@@ -752,102 +697,142 @@
   </footer>
 
   <script>
+    /*
+      CARPETA CORRECTA:
+      https://drive.google.com/drive/folders/1qBlSeZnttrcTfDB_1Of-otM2MwiMzGei?usp=drive_link
+
+      PASO OBLIGATORIO EN GOOGLE DRIVE PARA QUE NO PIDA AUTORIZACIÓN:
+      1. Abre la carpeta anterior.
+      2. Selecciona todos los archivos de las diapositivas.
+      3. Clic derecho → Compartir.
+      4. En “Acceso general”, cambia de “Restringido” a “Cualquier persona con el enlace”.
+      5. Rol: “Lector”.
+      6. Guarda los cambios.
+
+      IMPORTANTE:
+      - El iframe debe usar /preview.
+      - /view sirve para abrir en pestaña nueva.
+      - /uc?export=download sirve para descarga.
+      - Si Drive conserva el archivo como privado, el iframe pedirá autorización.
+    */
+
+    const folderUrl = "https://drive.google.com/drive/folders/1qBlSeZnttrcTfDB_1Of-otM2MwiMzGei?usp=drive_link";
+
     const presentaciones = [
       {
         titulo: "Silicosis",
         descripcion: "Conferencia académica sobre silicosis.",
-        id: "1KNL-DYgVybBHh-G8is1nrBtaYNpavzEn"
+        id: "1KNL-DYgVybBHh-G8is1nrBtaYNpavzEn",
+        tipo: "PDF"
       },
       {
         titulo: "Anticoagulación en fibrilación auricular",
         descripcion: "Presentación académica sobre anticoagulación en FA.",
-        id: "1Gs1bZr8D7PpoDussp7F7F93Apd0Q6nWD"
+        id: "1Gs1bZr8D7PpoDussp7F7F93Apd0Q6nWD",
+        tipo: "PDF"
       },
       {
         titulo: "Vapeo y tabaquismo",
         descripcion: "Presentación académica sobre vapeo y tabaquismo.",
-        id: "1I2ZwDFI5CM8X3dOVD_oulFVBsTqsiOeC"
+        id: "1I2ZwDFI5CM8X3dOVD_oulFVBsTqsiOeC",
+        tipo: "PDF"
       },
       {
         titulo: "Vacunación",
         descripcion: "Material académico del VI Simposio Regional ACMI San Gil – Santander 2026.",
-        id: "1tTq44NLhJ7tl5wKt-O2UZfor-wtkLxN5"
+        id: "1tTq44NLhJ7tl5wKt-O2UZfor-wtkLxN5",
+        tipo: "PDF"
       },
       {
         titulo: "Taller de insulina",
         descripcion: "Taller académico sobre insulinoterapia y control glucémico.",
-        id: "1MeFI7KtApiP0YZggdSaNPvv1b3uqKiII"
+        id: "1MeFI7KtApiP0YZggdSaNPvv1b3uqKiII",
+        tipo: "PDF"
       },
       {
         titulo: "Tabaquismo",
         descripcion: "Presentación académica sobre tabaquismo.",
-        id: "1Pl4xdOdK1IhBSokwCTs-fPffwNK6gM27"
+        id: "1Pl4xdOdK1IhBSokwCTs-fPffwNK6gM27",
+        tipo: "PDF"
       },
       {
         titulo: "SAHOS",
         descripcion: "Presentación académica sobre síndrome de apnea-hipopnea obstructiva del sueño.",
-        id: "1vQ_lwAdWIAYCsiuOBc2v-f4tDhSPHM2L"
+        id: "1vQ_lwAdWIAYCsiuOBc2v-f4tDhSPHM2L",
+        tipo: "PDF"
       },
       {
         titulo: "Riesgo cardiovascular en Colombia 2026",
         descripcion: "Presentación académica sobre riesgo cardiovascular.",
-        id: "1U3T9vGvf-Yh4OKx2WlIBUxvNHibKq_LM"
+        id: "1U3T9vGvf-Yh4OKx2WlIBUxvNHibKq_LM",
+        tipo: "PDF"
       },
       {
         titulo: "MASLD San Gil",
         descripcion: "Presentación académica sobre enfermedad hepática metabólica.",
-        id: "1X4o1zXlVuyvGgt-_Q4mp3vBtJLCLhI1l"
+        id: "1X4o1zXlVuyvGgt-_Q4mp3vBtJLCLhI1l",
+        tipo: "PDF"
       },
       {
         titulo: "IA en radiología pulmonar",
         descripcion: "Aplicaciones de inteligencia artificial en radiología pulmonar.",
-        id: "1bgnKkSdW4CPeqK8I7SiCPKvi0Cvlw0gv"
+        id: "1bgnKkSdW4CPeqK8I7SiCPKvi0Cvlw0gv",
+        tipo: "PDF"
       },
       {
         titulo: "Estabilidad en la EPOC",
         descripcion: "Presentación académica sobre enfermedad pulmonar obstructiva crónica.",
-        id: "18_ghuBKoGFJ19MYD7jVwbNqQx--BoVQQ"
+        id: "18_ghuBKoGFJ19MYD7jVwbNqQx--BoVQQ",
+        tipo: "PDF"
       },
       {
         titulo: "Dislipidemias",
         descripcion: "Presentación académica sobre diagnóstico y manejo de dislipidemias.",
-        id: "1J47_H0r4D1yD34sMoZxDl27BUKdn5aXo"
+        id: "1J47_H0r4D1yD34sMoZxDl27BUKdn5aXo",
+        tipo: "PDF"
       },
       {
         titulo: "Control glucémico intrahospitalario",
         descripcion: "Presentación académica sobre control glucémico en el paciente hospitalizado.",
-        id: "1-2fA0G8Lr12siz6FBOmVjStEtt9c1Cf3"
+        id: "1-2fA0G8Lr12siz6FBOmVjStEtt9c1Cf3",
+        tipo: "PDF"
       },
       {
         titulo: "Radiografía de tórax",
         descripcion: "Charla académica sobre interpretación de radiografía de tórax.",
-        id: "1Vq4ab04pADGIyzUUl5W7ZzdPqwU3bEkA"
+        id: "1Vq4ab04pADGIyzUUl5W7ZzdPqwU3bEkA",
+        tipo: "PDF"
       },
       {
         titulo: "Falla cardiaca",
         descripcion: "Presentación académica sobre falla cardiaca.",
-        id: "1jK9RC0z9DMLYYc4zmK91E9_d8W-t-_0q"
+        id: "1jK9RC0z9DMLYYc4zmK91E9_d8W-t-_0q",
+        tipo: "PDF"
       },
       {
         titulo: "Infarto agudo de miocardio",
         descripcion: "Charla académica sobre IAM.",
-        id: "1nEN_UwBmw-cQKVFlGz4qhvgTSlzSY-_9"
+        id: "1nEN_UwBmw-cQKVFlGz4qhvgTSlzSY-_9",
+        tipo: "PDF"
       },
       {
         titulo: "Sistema respiratorio",
         descripcion: "Presentación académica sobre sistema respiratorio.",
-        id: "1nj_6H0_0b3AiTawsJtI6Lb6kAoWXhM8u"
+        id: "1nj_6H0_0b3AiTawsJtI6Lb6kAoWXhM8u",
+        tipo: "PDF"
       },
       {
         titulo: "Exacerbaciones: asma vs EPOC",
         descripcion: "Presentación académica sobre exacerbaciones obstructivas.",
-        id: "1b-E6G52twuXdIm783KR8nE0r-3-QK9rk"
+        id: "1b-E6G52twuXdIm783KR8nE0r-3-QK9rk",
+        tipo: "PDF"
       }
     ];
 
     const slidesGrid = document.getElementById("slidesGrid");
 
     presentaciones.forEach((presentacion) => {
+      const previewUrl = `https://drive.google.com/file/d/${presentacion.id}/preview`;
       const viewUrl = `https://drive.google.com/file/d/${presentacion.id}/view?usp=drive_link`;
       const downloadUrl = `https://drive.google.com/uc?export=download&id=${presentacion.id}`;
 
@@ -860,17 +845,24 @@
             <h3>${presentacion.titulo}</h3>
             <p>${presentacion.descripcion}</p>
           </div>
-          <span class="slide-badge">PDF</span>
+          <span class="slide-badge">${presentacion.tipo}</span>
         </div>
 
-        <div class="slide-placeholder">
-          <div class="slide-placeholder-inner">
-            <div class="slide-placeholder-icon">📄</div>
-            <h4>${presentacion.titulo}</h4>
-            <p>
-              Para evitar bloqueos por cookies de Google Drive en celulares,
-              abre o descarga la presentación usando los botones inferiores.
-            </p>
+        <div class="slide-viewer-wrap">
+          <iframe
+            class="slide-viewer"
+            src="${previewUrl}"
+            title="Vista previa de ${presentacion.titulo}"
+            loading="lazy"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+
+          <div class="iframe-fallback">
+            Si la presentación no carga aquí, revise que el archivo esté compartido como
+            <strong>“Cualquier persona con el enlace: lector”</strong>.
+            También puede <a href="${viewUrl}" target="_blank" rel="noopener">abrirla en una pestaña nueva</a>.
           </div>
         </div>
 
