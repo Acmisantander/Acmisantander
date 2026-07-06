@@ -12,19 +12,10 @@ excerpt: "La carga emocional y su impacto clínico en pacientes sin hallazgos or
 <style>
 
 /* 
-  Este post usa layout: default para evitar que _layouts/post.html
-  inserte el foro antiguo. Se deja únicamente el foro nuevo.
+  CORRECCIÓN DEFINITIVA:
+  layout: default evita que _layouts/post.html agregue el foro antiguo.
+  Este archivo deja visible únicamente el foro nuevo incluido al final.
 */
-.post-discussion,
-.post-forum,
-.post-comments,
-.old-forum,
-#old-forum,
-.article-discussion,
-.magazine-discussion{
-  display:none !important;
-}
-
 
 .emotional-book{
   position:relative;
@@ -303,6 +294,13 @@ excerpt: "La carga emocional y su impacto clínico en pacientes sin hallazgos or
   display:block !important;
 }
 
+
+/* FORO NUEVO ÚNICO */
+.emotional-forum-section,
+.emotional-forum-card,
+.emotional-forum-card .commentbox{
+  display:block !important;
+}
 
 /* FORO NUEVO */
 
