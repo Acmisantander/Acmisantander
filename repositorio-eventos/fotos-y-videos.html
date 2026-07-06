@@ -630,6 +630,39 @@
       font-size:14px;
     }
 
+
+    .forum-section{
+      margin-top:80px;
+      padding:56px 34px;
+      border-radius:34px;
+      background:white;
+      box-shadow:var(--sombra);
+      border:1px solid rgba(20,63,125,0.10);
+      position:relative;
+      z-index:2;
+    }
+
+    .forum-card{
+      background:#ffffff;
+      border-radius:28px;
+      padding:44px;
+      box-shadow:0 14px 34px rgba(0,0,0,0.08);
+      border:1px solid rgba(20,63,125,0.10);
+    }
+
+    .forum-text{
+      font-size:18px;
+      line-height:1.9;
+      color:#52667d;
+      margin:0 auto 30px;
+      text-align:center;
+      max-width:920px;
+    }
+
+    .commentbox{
+      width:100%;
+    }
+
     footer{
       background:var(--azul-acmi-2);
       color:white;
@@ -691,9 +724,14 @@
       }
 
       .album-section,
-      .videos-section{
+      .videos-section,
+      .forum-section{
         padding:42px 18px;
         border-radius:28px;
+      }
+
+      .forum-card{
+        padding:28px;
       }
 
       .lightbox{
@@ -737,7 +775,7 @@
           Acta Médica Colombiana
         </a>
         <a href="/#patrocinios">Patrocinios</a>
-        <a href="/#foro">Foro</a>
+        <a href="#foro-acmi">Foro ACMI</a>
         <a href="/#contacto">Contacto</a>
       </div>
     </div>
@@ -762,6 +800,7 @@
           <li><a href="/repositorio-eventos/fotos-y-videos.html">Fotos y videos</a></li>
           <li><a href="/educacion-medica-continuada/">Educación médica</a></li>
           <li><a href="/magazine/">Magazine</a></li>
+          <li><a href="#foro-acmi">Foro ACMI</a></li>
           <li><a href="/#contacto">Contacto</a></li>
         </ul>
       </nav>
@@ -782,6 +821,7 @@
       <div class="hero-actions">
         <a class="btn btn-primary" href="#fotos">Ver fotografías</a>
         <a class="btn btn-light" href="#videos">Ver videos</a>
+        <a class="btn btn-light" href="#foro-acmi">Foro ACMI</a>
         <a class="btn btn-light" href="/repositorio-eventos/">Volver al repositorio</a>
       </div>
     </div>
@@ -805,6 +845,7 @@
           <div class="album-tabs">
             <a class="album-tab" href="#fotos">📸 Fotografías</a>
             <a class="album-tab" href="#videos">🎥 Videos</a>
+            <a class="album-tab" href="#foro-acmi">💬 Foro ACMI</a>
             <a class="album-tab" href="/repositorio-eventos/">📁 Repositorio</a>
           </div>
         </div>
@@ -852,6 +893,29 @@
         </div>
 
       </section>
+
+      <section class="forum-section" id="foro-acmi">
+
+        <h2 class="section-title">Foro ACMI</h2>
+
+        <p class="section-subtitle">
+          Espacio de discusión académica para comentar las fotografías, videos y momentos
+          del VI Simposio Regional ACMI San Gil – Santander 2026.
+        </p>
+
+        <div class="forum-card">
+
+          <p class="forum-text">
+            Participe con comentarios, preguntas, recuerdos del evento, aportes académicos
+            y reflexiones sobre educación médica continua en medicina interna.
+          </p>
+
+          <div class="commentbox"></div>
+
+        </div>
+
+      </section>
+
 
     </div>
 
@@ -983,6 +1047,13 @@
         fotoSiguiente();
       }
     });
+  </script>
+
+
+  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+
+  <script>
+    commentBox('5704224843235328-proj');
   </script>
 
 </body>
