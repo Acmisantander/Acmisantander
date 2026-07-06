@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: "La carga emocional: el diagnóstico que no aparece en la historia clínica"
 date: 2026-05-05
 author: "Dr. Jaime Alberto Gómez Ayala, Md FACP, Msc, Internista"
@@ -12,8 +12,8 @@ excerpt: "La carga emocional y su impacto clínico en pacientes sin hallazgos or
 <style>
 
 /* 
-  BLOQUEO DEL FORO ANTIGUO DEL LAYOUT.
-  Deja visible únicamente el foro nuevo de este post.
+  Este post usa layout: default para evitar que _layouts/post.html
+  inserte el foro antiguo. Se deja únicamente el foro nuevo.
 */
 .post-discussion,
 .post-forum,
