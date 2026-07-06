@@ -11,6 +11,21 @@ excerpt: "La carga emocional y su impacto clínico en pacientes sin hallazgos or
 
 <style>
 
+/* 
+  BLOQUEO DEL FORO ANTIGUO DEL LAYOUT.
+  Deja visible únicamente el foro nuevo de este post.
+*/
+.post-discussion,
+.post-forum,
+.post-comments,
+.old-forum,
+#old-forum,
+.article-discussion,
+.magazine-discussion{
+  display:none !important;
+}
+
+
 .emotional-book{
   position:relative;
   animation:emotionalBookFadeIn .9s ease both;
@@ -277,6 +292,15 @@ excerpt: "La carga emocional y su impacto clínico en pacientes sin hallazgos or
 
 .emotional-footer-note span:last-child{
   color:#2a9c52;
+}
+
+
+
+/* ASEGURAR VISIBILIDAD DEL FORO NUEVO */
+.emotional-forum-section,
+.emotional-forum-card,
+.emotional-forum-card .commentbox{
+  display:block !important;
 }
 
 
