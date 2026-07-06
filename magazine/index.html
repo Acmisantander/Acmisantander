@@ -73,15 +73,15 @@ permalink: /magazine/
 
         <div class="showcase-actions">
 
-          <a class="btn btn-primary" href="/magazine/manual-publicacion/">
+          <a class="btn btn-primary" href="{{ site.baseurl }}/magazine/manual-publicacion/">
             Manual de publicación
           </a>
 
-          <a class="btn btn-light" href="/magazine/enviar-manuscrito/">
+          <a class="btn btn-light" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
             Enviar manuscrito
           </a>
 
-          <a class="btn btn-light" href="/magazine/enviar-ponencias/">
+          <a class="btn btn-light" href="{{ site.baseurl }}/magazine/enviar-ponencias/">
             Enviar ponencia
           </a>
 
@@ -89,41 +89,37 @@ permalink: /magazine/
 
       </div>
 
-      <div class="showcase-visual" aria-label="Secciones editoriales del Magazine ACMI Santander">
+      <div class="showcase-visual" aria-label="Accesos editoriales principales del Magazine ACMI Santander">
 
-        <a class="floating-card floating-card-one card-blue" href="#noticias">
-          <span>📰</span>
-          <strong>Noticias</strong>
-          <small>Actualidad científica e institucional</small>
-        </a>
+        <div class="quick-box">
 
-        <a class="floating-card floating-card-two card-green" href="#opinion">
-          <span>✍️</span>
-          <strong>Opinión</strong>
-          <small>Análisis médico y pensamiento clínico</small>
-        </a>
+          <a class="quick-tile quick-blue" href="#noticias">
+            <span>📰</span>
+            <strong>Noticias</strong>
+            <small>Actualidad científica e institucional</small>
+          </a>
 
-        <a class="floating-card floating-card-three card-white" href="#foro-acmi">
-          <span>💬</span>
-          <strong>Foro ACMI</strong>
-          <small>Conversación académica abierta</small>
-        </a>
+          <a class="quick-tile quick-green" href="#opinion">
+            <span>✍️</span>
+            <strong>Opinión</strong>
+            <small>Análisis médico y pensamiento clínico</small>
+          </a>
 
-        <a class="floating-card floating-card-four card-blue-soft" href="/magazine/enviar-manuscrito/">
-          <span>📨</span>
-          <strong>Enviar manuscrito</strong>
-          <small>Comparta artículos, revisiones y textos académicos</small>
-        </a>
+          <a class="quick-tile quick-blue-soft" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
+            <span>📨</span>
+            <strong>Enviar manuscrito</strong>
+            <small>Artículos, revisiones y textos académicos</small>
+          </a>
 
-        <a class="floating-card floating-card-five card-green-soft" href="/magazine/enviar-ponencias/">
-          <span>🎙️</span>
-          <strong>Enviar ponencia</strong>
-          <small>Proponga conferencias y temas académicos</small>
-        </a>
+          <a class="quick-tile quick-green-soft" href="{{ site.baseurl }}/magazine/enviar-ponencias/">
+            <span>🎙️</span>
+            <strong>Enviar ponencia</strong>
+            <small>Conferencias y temas académicos</small>
+          </a>
 
-        <div class="visual-ring"></div>
-        <div class="visual-ring visual-ring-small"></div>
+        </div>
 
+      </div>
       </div>
 
     </div>
@@ -382,7 +378,7 @@ body{
   isolation:isolate;
   background:
     linear-gradient(135deg, rgba(8,40,79,.90), rgba(20,63,125,.76), rgba(42,156,82,.42)),
-    url('/assets/img/magazine-banner.jpg') center center / cover no-repeat;
+    url('{{ site.baseurl }}/assets/img/magazine-banner.jpg') center center / cover no-repeat;
 }
 
 .hero-overlay{
@@ -634,89 +630,120 @@ body{
 }
 
 .showcase-visual{
-  min-height:465px;
+  min-height:430px;
   position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.floating-card{
-  position:absolute;
-  width:235px;
-  border-radius:26px;
-  padding:20px;
-  box-shadow:0 18px 44px rgba(8,40,79,.18);
-  border:1px solid rgba(255,255,255,.38);
-  z-index:3;
-  animation:floatCard 5.5s ease-in-out infinite;
-  overflow:hidden;
-  text-decoration:none;
+.quick-box{
+  width:100%;
+  max-width:560px;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:18px;
+  padding:26px;
+  border-radius:34px;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.14), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(20,63,125,.14), transparent 34%),
+    linear-gradient(135deg, rgba(255,255,255,.78), rgba(238,244,251,.82));
+  border:1px solid rgba(255,255,255,.72);
+  box-shadow:0 24px 58px rgba(8,40,79,.16);
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
+  position:relative;
+  overflow:hidden;
 }
 
-.floating-card::before{
+.quick-box::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:7px;
+  background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi), var(--dorado));
+}
+
+.quick-box::after{
+  content:"";
+  position:absolute;
+  width:190px;
+  height:190px;
+  right:-90px;
+  bottom:-100px;
+  border-radius:50%;
+  background:rgba(42,156,82,.12);
+}
+
+.quick-tile{
+  min-height:168px;
+  border-radius:24px;
+  padding:22px;
+  color:white;
+  text-decoration:none;
+  box-shadow:0 14px 32px rgba(8,40,79,.14);
+  border:1px solid rgba(255,255,255,.28);
+  position:relative;
+  overflow:hidden;
+  transition:.25s ease;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.quick-tile::before{
   content:"";
   position:absolute;
   inset:0;
   background:
-    radial-gradient(circle at top left, rgba(255,255,255,.32), transparent 42%),
-    linear-gradient(135deg, rgba(255,255,255,.18), transparent);
+    radial-gradient(circle at top left, rgba(255,255,255,.28), transparent 42%),
+    linear-gradient(135deg, rgba(255,255,255,.14), transparent);
   pointer-events:none;
 }
 
-.floating-card::after{
+.quick-tile::after{
   content:"";
   position:absolute;
-  width:92px;
-  height:92px;
+  width:88px;
+  height:88px;
   border-radius:50%;
-  right:-36px;
-  bottom:-42px;
-  background:rgba(255,255,255,.16);
+  right:-34px;
+  bottom:-40px;
+  background:rgba(255,255,255,.15);
   transition:.25s ease;
 }
 
-.floating-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 24px 58px rgba(8,40,79,.24);
+.quick-tile:hover{
+  transform:translateY(-7px);
+  box-shadow:0 22px 48px rgba(8,40,79,.22);
 }
 
-.floating-card:hover::after{
+.quick-tile:hover::after{
   transform:scale(1.25);
 }
 
-.card-blue{
-  background:linear-gradient(135deg, rgba(20,63,125,.96), rgba(15,53,105,.82));
-  color:white;
+.quick-blue{
+  background:linear-gradient(135deg, rgba(20,63,125,.98), rgba(15,53,105,.84));
 }
 
-.card-green{
-  background:linear-gradient(135deg, rgba(42,156,82,.96), rgba(30,126,68,.86));
-  color:white;
+.quick-green{
+  background:linear-gradient(135deg, rgba(42,156,82,.98), rgba(30,126,68,.88));
 }
 
-.card-white{
-  background:
-    radial-gradient(circle at top left, rgba(42,156,82,.13), transparent 36%),
-    linear-gradient(135deg, rgba(255,255,255,.94), rgba(238,244,251,.88));
-  color:var(--azul-acmi);
-  border:1px solid rgba(20,63,125,.12);
-}
-
-.card-blue-soft{
-  background:
-    radial-gradient(circle at top left, rgba(255,255,255,.28), transparent 34%),
-    linear-gradient(135deg, rgba(15,53,105,.92), rgba(20,63,125,.72));
-  color:white;
-}
-
-.card-green-soft{
+.quick-blue-soft{
   background:
     radial-gradient(circle at top left, rgba(255,255,255,.30), transparent 34%),
-    linear-gradient(135deg, rgba(42,156,82,.92), rgba(20,63,125,.70));
-  color:white;
+    linear-gradient(135deg, rgba(15,53,105,.94), rgba(20,63,125,.74));
 }
 
-.floating-card span{
+.quick-green-soft{
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,.30), transparent 34%),
+    linear-gradient(135deg, rgba(42,156,82,.94), rgba(20,63,125,.72));
+}
+
+.quick-tile span{
   display:block;
   font-size:34px;
   margin-bottom:10px;
@@ -724,97 +751,26 @@ body{
   z-index:2;
 }
 
-.floating-card strong{
+.quick-tile strong{
   display:block;
   font-family:'Montserrat', sans-serif;
   font-size:19px;
   font-weight:900;
-  margin-bottom:6px;
+  line-height:1.2;
+  margin-bottom:7px;
   position:relative;
   z-index:2;
   color:inherit;
 }
 
-.floating-card small{
+.quick-tile small{
   display:block;
   font-weight:700;
-  line-height:1.5;
+  line-height:1.45;
   position:relative;
   z-index:2;
   color:inherit;
   opacity:.92;
-}
-
-.floating-card-one{
-  top:2px;
-  left:34px;
-}
-
-.floating-card-two{
-  top:54px;
-  right:8px;
-  animation-delay:.7s;
-}
-
-.floating-card-three{
-  top:168px;
-  left:50%;
-  transform:translateX(-50%);
-  animation-delay:1.3s;
-}
-
-.floating-card-four{
-  bottom:12px;
-  left:8px;
-  animation-delay:1.9s;
-}
-
-.floating-card-five{
-  bottom:0;
-  right:38px;
-  animation-delay:2.5s;
-}
-
-@keyframes floatCard{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-14px);}
-}
-
-.visual-ring{
-  position:absolute;
-  width:310px;
-  height:310px;
-  border-radius:50%;
-  border:1px solid rgba(20,63,125,.15);
-  right:94px;
-  top:78px;
-  animation:ringRotate 12s linear infinite;
-}
-
-.visual-ring::after{
-  content:"";
-  position:absolute;
-  width:16px;
-  height:16px;
-  border-radius:50%;
-  background:var(--verde-acmi);
-  top:22px;
-  left:58px;
-  box-shadow:0 0 0 10px rgba(42,156,82,.14);
-}
-
-.visual-ring-small{
-  width:210px;
-  height:210px;
-  right:144px;
-  top:128px;
-  animation-direction:reverse;
-  opacity:.7;
-}
-
-@keyframes ringRotate{
-  from{transform:rotate(0deg);}
-  to{transform:rotate(360deg);}
 }
 
 .magazine-section{
@@ -1069,32 +1025,16 @@ body{
 
   .showcase-visual{
     min-height:auto;
-    display:grid;
-    gap:16px;
   }
 
-  .floating-card{
-    position:relative;
-    top:auto;
-    left:auto;
-    right:auto;
-    bottom:auto;
-    width:100%;
-    animation:none;
-    transform:none;
+  .quick-box{
+    grid-template-columns:1fr;
+    padding:20px;
+    border-radius:28px;
   }
 
-  .floating-card-three{
-    transform:none;
-  }
-
-  .floating-card:hover{
-    transform:translateY(-4px);
-  }
-
-  .visual-ring,
-  .visual-ring-small{
-    display:none;
+  .quick-tile{
+    min-height:140px;
   }
 
   .magazine-section{
