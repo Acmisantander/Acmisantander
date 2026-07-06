@@ -13,6 +13,16 @@ cover: /ACMI%20CALI%203.jpeg
 
 <style>
 
+/* OCULTAR FORO ANTIGUO DEL LAYOUT POST */
+.post-discussion,
+.post-forum,
+.post-comments,
+.old-forum,
+#old-forum{
+  display:none !important;
+}
+
+
 .news-feature{
   position:relative;
   animation:newsFadeIn .85s ease both;
