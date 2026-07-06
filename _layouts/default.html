@@ -10,51 +10,79 @@
   {{ page.title }} | ACMI Santander
 </title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
-  --azul-acmi:#0f3569;
-  --azul-acmi-2:#143f7d;
+  --azul-acmi:#143f7d;
+  --azul-acmi-2:#0f3569;
+  --azul-profundo:#08284f;
   --verde-acmi:#2a9c52;
   --verde-hover:#218443;
+  --dorado:#c89b3c;
   --gris-texto:#243244;
   --gris-suave:#f5f7fb;
+  --texto-suave:#5b6d82;
+  --blanco:#ffffff;
+  --sombra:0 14px 34px rgba(0,0,0,0.10);
 }
 
 *{
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   font-family:'Lato',sans-serif;
-  background:var(--gris-suave);
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,0.08), transparent 32%),
+    radial-gradient(circle at top right, rgba(20,63,125,0.12), transparent 34%),
+    var(--gris-suave);
   color:var(--gris-texto);
   line-height:1.6;
 }
 
+a{
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
 .container{
-  width:90%;
-  max-width:1150px;
-  margin:auto;
+  width:100%;
+  max-width:1240px;
+  margin:0 auto;
+  padding:0 34px;
 }
 
 header{
-  background:white;
-  border-bottom:4px solid var(--verde-acmi);
-  box-shadow:0 3px 12px rgba(0,0,0,0.08);
-  position:relative;
-  z-index:100;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid #e3eaf3;
+  box-shadow:0 4px 18px rgba(0,0,0,0.06);
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .header-flex{
+  min-height:94px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:24px;
-  padding:16px 0;
+  padding:14px 34px;
+  max-width:1440px;
+  margin:0 auto;
 }
 
 .brand{
@@ -62,6 +90,7 @@ header{
   align-items:center;
   gap:14px;
   text-decoration:none;
+  flex-shrink:0;
 }
 
 .brand-logo-wrap{
@@ -91,8 +120,9 @@ header{
   font-family:'Montserrat',sans-serif;
   margin:0;
   font-size:28px;
-  color:var(--azul-acmi-2);
+  color:var(--azul-acmi);
   line-height:1.1;
+  font-weight:900;
 }
 
 .brand-text p{
@@ -104,19 +134,25 @@ header{
 nav{
   display:flex;
   align-items:center;
-  gap:22px;
+  gap:18px;
   flex-wrap:wrap;
+  justify-content:flex-end;
 }
 
 nav a{
-  color:var(--azul-acmi-2);
+  color:var(--azul-acmi);
   text-decoration:none;
-  font-weight:700;
+  font-family:'Montserrat',sans-serif;
+  font-weight:800;
+  font-size:14.5px;
   transition:.25s ease;
+  padding:9px 10px;
+  border-radius:999px;
 }
 
 nav a:hover{
   color:var(--verde-acmi);
+  background:#eef7f1;
 }
 
 .dropdown{
@@ -136,20 +172,22 @@ nav a:hover{
   top:100%;
   left:0;
   background:white;
-  min-width:250px;
-  box-shadow:0 8px 18px rgba(0,0,0,0.15);
-  border-radius:12px;
-  padding:10px 0;
+  min-width:270px;
+  box-shadow:0 18px 44px rgba(8,40,79,0.16);
+  border-radius:18px;
+  padding:10px;
   z-index:1000;
+  border:1px solid rgba(20,63,125,0.08);
 }
 
 .dropdown-content a{
-  color:var(--azul-acmi-2);
+  color:var(--azul-acmi);
   display:block;
-  padding:11px 16px;
+  padding:12px 16px;
   text-decoration:none;
-  font-weight:600;
+  font-weight:800;
   white-space:nowrap;
+  border-radius:12px;
 }
 
 .dropdown-content a:hover{
@@ -161,37 +199,29 @@ nav a:hover{
   display:block;
 }
 
+/* IMPORTANTE:
+   No encerramos {{ content }} en un .container.
+   Así páginas como Magazine, Repositorio, Fotos y Educación pueden tener hero full-width. */
 main{
-  padding:70px 0;
+  min-height:60vh;
 }
 
 h1,h2,h3{
   font-family:'Montserrat',sans-serif;
-  color:var(--azul-acmi-2);
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:24px;
-}
-
-.card{
-  background:white;
-  border-radius:18px;
-  padding:28px;
-  box-shadow:0 10px 24px rgba(0,0,0,.08);
 }
 
 .btn{
-  display:inline-block;
-  margin-top:16px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
   background:var(--verde-acmi);
   color:white;
-  padding:11px 18px;
-  border-radius:10px;
+  padding:12px 20px;
+  border-radius:12px;
   text-decoration:none;
-  font-weight:700;
+  font-family:'Montserrat',sans-serif;
+  font-weight:800;
   border:none;
   cursor:pointer;
   transition:.25s ease;
@@ -200,27 +230,25 @@ h1,h2,h3{
 .btn:hover{
   background:var(--verde-hover);
   color:white;
-}
-
-.meta{
-  font-size:14px;
-  color:#607086;
-  margin-bottom:12px;
+  transform:translateY(-2px);
 }
 
 footer{
-  background:var(--azul-acmi);
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,0.22), transparent 28%),
+    linear-gradient(90deg, var(--azul-profundo), var(--azul-acmi-2));
   color:white;
   text-align:center;
-  padding:22px;
-  margin-top:40px;
+  padding:30px 18px;
 }
 
 footer p{
   margin:6px 0;
+  color:white;
+  font-weight:600;
 }
 
-@media(max-width:900px){
+@media(max-width:980px){
 
   .header-flex{
     flex-direction:column;
@@ -233,7 +261,7 @@ footer p{
 
   nav{
     justify-content:center;
-    gap:16px;
+    gap:10px;
   }
 
   .dropdown-content{
@@ -244,6 +272,10 @@ footer p{
 }
 
 @media(max-width:640px){
+
+  .header-flex{
+    padding:16px 22px;
+  }
 
   nav{
     flex-direction:column;
@@ -257,8 +289,8 @@ footer p{
     font-size:13px;
   }
 
-  main{
-    padding:45px 0;
+  .container{
+    padding:0 22px;
   }
 
 }
@@ -271,7 +303,7 @@ footer p{
 
 <header>
 
-  <div class="container header-flex">
+  <div class="header-flex">
 
     <a href="{{ site.baseurl }}/" class="brand">
 
@@ -337,9 +369,17 @@ footer p{
             Enviar ponencia
           </a>
 
+          <a href="{{ site.baseurl }}/magazine/#foro-acmi">
+            Foro ACMI
+          </a>
+
         </div>
 
       </div>
+
+      <a href="{{ site.baseurl }}/repositorio-eventos/">
+        Eventos
+      </a>
 
       <a href="{{ site.baseurl }}/proyeccion-social/">
         Proyección social
@@ -352,13 +392,7 @@ footer p{
 </header>
 
 <main>
-
-  <div class="container">
-
-    {{ content }}
-
-  </div>
-
+  {{ content }}
 </main>
 
 <footer>
