@@ -325,6 +325,112 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
   width:100%;
 }
 
+
+.sg-gallery-section{
+  margin:34px 0 10px;
+  padding-top:28px;
+  border-top:1px solid rgba(20,63,125,.10);
+}
+
+.sg-gallery-title{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:0 0 22px;
+}
+
+.sg-gallery-title::before{
+  content:"";
+  width:54px;
+  height:5px;
+  border-radius:999px;
+  background:linear-gradient(90deg, var(--sg-verde), var(--sg-dorado));
+  flex-shrink:0;
+}
+
+.sg-gallery-title h2{
+  font-family:'Montserrat', sans-serif;
+  color:var(--sg-azul);
+  font-size:28px;
+  line-height:1.15;
+  font-weight:900;
+  letter-spacing:-.04em;
+  margin:0;
+}
+
+.sg-gallery{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:18px;
+}
+
+.sg-gallery figure{
+  margin:0;
+  padding:10px;
+  border-radius:22px;
+  background:white;
+  border:1px solid rgba(20,63,125,.12);
+  box-shadow:0 14px 34px rgba(8,40,79,.10);
+  overflow:hidden;
+  transition:.25s ease;
+}
+
+.sg-gallery figure:hover{
+  transform:translateY(-5px);
+  box-shadow:0 22px 48px rgba(8,40,79,.16);
+}
+
+.sg-gallery img{
+  width:100%;
+  height:260px;
+  object-fit:contain;
+  object-position:center center;
+  background:#f8fafc;
+  border-radius:16px;
+  display:block;
+  padding:6px;
+}
+
+.sg-gallery figcaption{
+  margin:10px 5px 2px;
+  color:var(--sg-suave);
+  font-family:'Montserrat', sans-serif;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.45;
+  text-align:center;
+}
+
+.sg-main-photo{
+  margin:0 0 30px;
+  padding:12px;
+  border-radius:26px;
+  background:white;
+  border:1px solid rgba(20,63,125,.12);
+  box-shadow:0 16px 38px rgba(8,40,79,.12);
+}
+
+.sg-main-photo img{
+  width:100%;
+  max-height:520px;
+  object-fit:contain;
+  object-position:center center;
+  background:#f8fafc;
+  border-radius:18px;
+  display:block;
+  padding:6px;
+}
+
+.sg-main-photo figcaption{
+  margin:12px 6px 2px;
+  color:var(--sg-suave);
+  font-family:'Montserrat', sans-serif;
+  font-size:13px;
+  font-weight:800;
+  line-height:1.5;
+  text-align:center;
+}
+
 @media(max-width:760px){
 
   .sg-news-page{
@@ -349,6 +455,21 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
 
   .sg-news-text p:first-of-type::first-letter{
     font-size:4.1rem;
+  }
+
+
+  .sg-gallery{
+    grid-template-columns:1fr;
+  }
+
+  .sg-gallery img{
+    height:auto;
+    max-height:520px;
+  }
+
+  .sg-main-photo img{
+    height:auto;
+    max-height:520px;
   }
 
   .sg-news-actions{
@@ -393,6 +514,14 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
         ACMI Santander desarrolló el <strong>VI Simposio Regional ACMI San Gil Santander 2026</strong>, un espacio académico orientado a la actualización médica, la integración profesional y el reconocimiento institucional en el corazón de Santander.
       </p>
 
+
+      <figure class="sg-main-photo">
+        <img src="{{ site.baseurl }}/img/35.jpeg" alt="VI Simposio Regional ACMI San Gil Santander 2026">
+        <figcaption>
+          VI Simposio Regional ACMI San Gil Santander 2026 en San Gil, Santander.
+        </figcaption>
+      </figure>
+
       <div class="sg-news-text">
 
         <p>Los días <strong>26 y 27 de junio de 2026</strong>, el <strong>Hotel Mundo Guarigua de San Gil, Santander</strong>, fue escenario del VI Simposio Regional ACMI, evento que convocó a médicos internistas, residentes, docentes, profesionales de la salud y participantes interesados en fortalecer la educación médica continua en la región.</p>
@@ -410,11 +539,45 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
 
         <p>Además de su componente académico, el evento tuvo un sentido institucional especial al incluir un <strong>homenaje al Dr. Franklin Quiroz</strong>, resaltando su legado y aporte a la medicina interna y al desarrollo académico de la región.</p>
 
-        <p>El repositorio del evento reúne el material gráfico oficial, afiches, fotografías, videos y recursos académicos asociados al simposio. La galería fotográfica y audiovisual permite conservar la memoria visual de las actividades, los encuentros médicos y los momentos destacados vividos durante esta jornada.</p>
+        <p>El repositorio del evento reúne el material gráfico oficial y recursos académicos asociados al simposio.</p>
 
         <p>Con esta actividad, ACMI Santander reafirma su compromiso con la educación médica continua, la formación de talento humano en salud y la consolidación de espacios académicos que fortalecen la práctica clínica y el vínculo entre los profesionales de la medicina interna en el nororiente colombiano.</p>
 
       </div>
+
+
+      <section class="sg-gallery-section">
+
+        <div class="sg-gallery-title">
+          <h2>Galería del evento</h2>
+        </div>
+
+        <div class="sg-gallery">
+
+          <figure>
+            <img src="{{ site.baseurl }}/img/35.jpeg" alt="Participantes del VI Simposio Regional ACMI San Gil Santander 2026">
+            <figcaption>
+              Participantes del VI Simposio Regional ACMI San Gil Santander 2026.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img src="{{ site.baseurl }}/img/42.jpeg" alt="Actividad académica del VI Simposio Regional ACMI Santander">
+            <figcaption>
+              Actividad académica y espacios de actualización médica.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img src="{{ site.baseurl }}/img/51.jpeg" alt="Encuentro académico ACMI Santander en San Gil">
+            <figcaption>
+              Encuentro académico de ACMI Santander en San Gil.
+            </figcaption>
+          </figure>
+
+        </div>
+
+      </section>
 
       <div class="sg-news-actions">
 
@@ -471,4 +634,3 @@ excerpt: "ACMI Santander realizó el VI Simposio Regional ACMI San Gil Santander
 <script>
   commentBox('5704224843235328-proj');
 </script>
-
