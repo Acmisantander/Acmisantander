@@ -10,6 +10,16 @@ cover: /img/Sir William Osler.png
 
 <style>
 
+/* OCULTAR FORO ANTIGUO DEL LAYOUT POST */
+.post-discussion,
+.post-forum,
+.post-comments,
+.old-forum,
+#old-forum{
+  display:none !important;
+}
+
+
 .mi-book-article{
   position:relative;
   animation:miBookFadeIn .9s ease both;
