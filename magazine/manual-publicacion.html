@@ -8,112 +8,46 @@ permalink: /magazine/manual-publicacion/
 
 :root{
   --manual-azul:#143f7d;
-  --manual-azul-2:#0f3569;
   --manual-profundo:#08284f;
   --manual-verde:#2a9c52;
-  --manual-verde-hover:#238244;
   --manual-dorado:#c89b3c;
   --manual-fondo:#f5f7fb;
   --manual-texto:#243244;
   --manual-suave:#5b6d82;
   --manual-borde:rgba(20,63,125,.12);
-  --manual-sombra:0 16px 38px rgba(8,40,79,.12);
-  --manual-sombra-fuerte:0 28px 70px rgba(8,40,79,.18);
+  --manual-sombra:0 24px 64px rgba(8,40,79,.14);
 }
 
-.manual-page{
+.manual-simple-page{
+  min-height:100vh;
+  padding:72px 22px;
   background:
-    radial-gradient(circle at top left, rgba(42,156,82,.08), transparent 32%),
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 32%),
     radial-gradient(circle at top right, rgba(20,63,125,.12), transparent 34%),
-    var(--manual-fondo);
+    linear-gradient(180deg, #f5f7fb, #ffffff);
 }
 
-.manual-page *{
+.manual-simple-page *{
   box-sizing:border-box;
 }
 
-.manual-container{
+.manual-simple-card{
   width:100%;
-  max-width:1180px;
+  max-width:960px;
   margin:0 auto;
-  padding:0 34px;
-}
-
-/* HERO */
-
-.manual-hero{
-  position:relative;
-  min-height:54vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:white;
+  background:#ffffff;
+  border:1px solid var(--manual-borde);
+  border-radius:32px;
+  box-shadow:var(--manual-sombra);
   overflow:hidden;
-  isolation:isolate;
-  background:
-    linear-gradient(135deg, rgba(8,40,79,.92), rgba(20,63,125,.78), rgba(42,156,82,.45)),
-    url('{{ site.baseurl }}/assets/img/magazine-banner.jpg') center center / cover no-repeat;
-}
-
-.manual-hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at 18% 20%, rgba(255,255,255,.18), transparent 28%),
-    radial-gradient(circle at 84% 74%, rgba(126,212,154,.26), transparent 32%),
-    linear-gradient(135deg, rgba(8,40,79,.76), rgba(15,53,105,.44));
-  z-index:0;
-}
-
-.manual-orb{
-  position:absolute;
-  border-radius:50%;
-  pointer-events:none;
-  z-index:1;
-}
-
-.manual-orb-one{
-  width:460px;
-  height:460px;
-  right:-140px;
-  top:-140px;
-  background:radial-gradient(circle, rgba(255,255,255,.18), transparent 62%);
-  animation:manualFloatOne 8s ease-in-out infinite alternate;
-}
-
-.manual-orb-two{
-  width:360px;
-  height:360px;
-  left:-110px;
-  bottom:-150px;
-  background:radial-gradient(circle, rgba(126,212,154,.28), transparent 62%);
-  animation:manualFloatTwo 9s ease-in-out infinite alternate-reverse;
-}
-
-@keyframes manualFloatOne{
-  from{transform:translate3d(0,0,0) scale(1);}
-  to{transform:translate3d(28px,18px,0) scale(1.06);}
-}
-
-@keyframes manualFloatTwo{
-  from{transform:translate3d(0,0,0) scale(1);}
-  to{transform:translate3d(-22px,-16px,0) scale(1.05);}
-}
-
-.manual-hero-content{
   position:relative;
-  z-index:3;
-  width:min(1040px,92%);
-  padding:88px 24px;
-  animation:manualIntro .9s ease both;
+  animation:manualSimpleIn .8s ease both;
 }
 
-@keyframes manualIntro{
+@keyframes manualSimpleIn{
   from{
     opacity:0;
-    transform:translateY(26px);
+    transform:translateY(18px);
   }
   to{
     opacity:1;
@@ -121,252 +55,137 @@ permalink: /magazine/manual-publicacion/
   }
 }
 
-.manual-badge{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px 18px;
-  border-radius:999px;
-  background:rgba(255,255,255,.16);
-  border:1px solid rgba(255,255,255,.32);
-  color:white;
-  font-family:'Montserrat', sans-serif;
-  font-size:13px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.06em;
-  margin-bottom:22px;
-  backdrop-filter:blur(8px);
-}
-
-.manual-hero h1{
-  font-family:'Montserrat', sans-serif;
-  font-size:clamp(40px,5vw,68px);
-  line-height:1.04;
-  font-weight:900;
-  letter-spacing:-.055em;
-  margin:0 0 22px;
-  color:white;
-}
-
-.manual-hero p{
-  max-width:920px;
-  margin:0 auto 32px;
-  font-size:clamp(18px,2vw,22px);
-  line-height:1.85;
-  color:#f2f7ff;
-  font-weight:500;
-}
-
-.manual-actions{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:14px;
-}
-
-.manual-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  padding:13px 22px;
-  border-radius:14px;
-  border:0;
-  text-decoration:none;
-  font-family:'Montserrat', sans-serif;
-  font-weight:900;
-  cursor:pointer;
-  transition:.25s ease;
-  box-shadow:0 10px 22px rgba(8,40,79,.12);
-}
-
-.manual-btn-primary{
-  background:linear-gradient(135deg, var(--manual-verde), #35b862);
-  color:white;
-}
-
-.manual-btn-primary:hover{
-  color:white;
-  transform:translateY(-3px);
-  box-shadow:0 18px 34px rgba(42,156,82,.26);
-}
-
-.manual-btn-light{
-  background:white;
-  color:var(--manual-azul);
-}
-
-.manual-btn-light:hover{
-  background:#eef4fb;
-  color:var(--manual-azul);
-  transform:translateY(-3px);
-}
-
-/* CONTENT */
-
-.manual-section{
-  padding:86px 0;
-}
-
-.manual-shell{
-  display:grid;
-  grid-template-columns:.84fr 1.16fr;
-  gap:30px;
-  align-items:start;
-}
-
-.manual-summary-card,
-.manual-content-card{
-  background:white;
-  border-radius:32px;
-  border:1px solid var(--manual-borde);
-  box-shadow:var(--manual-sombra);
-  overflow:hidden;
-  position:relative;
-}
-
-.manual-summary-card::before,
-.manual-content-card::before{
+.manual-simple-card::before{
   content:"";
   position:absolute;
   inset:0 0 auto 0;
-  height:7px;
+  height:8px;
   background:linear-gradient(90deg, var(--manual-verde), var(--manual-azul), var(--manual-dorado));
 }
 
-.manual-summary-card{
-  padding:38px;
-  position:sticky;
-  top:126px;
+.manual-simple-header{
+  padding:46px 46px 28px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 36%),
+    radial-gradient(circle at bottom right, rgba(20,63,125,.08), transparent 36%),
+    #ffffff;
+  border-bottom:1px solid rgba(20,63,125,.08);
 }
 
-.manual-content-card{
-  padding:42px;
-}
-
-.manual-kicker{
+.manual-simple-badge{
   display:inline-flex;
-  padding:9px 15px;
+  padding:9px 16px;
   border-radius:999px;
   background:#eef4fb;
   color:var(--manual-azul);
   border:1px solid #dbe7f5;
   font-family:'Montserrat', sans-serif;
-  font-weight:900;
   font-size:12px;
+  font-weight:900;
   text-transform:uppercase;
   letter-spacing:.06em;
-  margin-bottom:16px;
+  margin-bottom:18px;
 }
 
-.manual-summary-card h2,
-.manual-content-card h2{
+.manual-simple-header h1{
   font-family:'Montserrat', sans-serif;
   color:var(--manual-azul);
-  font-size:clamp(28px,3vw,40px);
-  line-height:1.08;
+  font-size:clamp(34px,4vw,52px);
+  line-height:1.05;
   font-weight:900;
-  letter-spacing:-.045em;
-  margin:0 0 18px;
+  letter-spacing:-.055em;
+  margin:0 0 16px;
 }
 
-.manual-summary-card h2::after,
-.manual-content-card h2::after{
+.manual-simple-header p{
+  max-width:760px;
+  margin:0 auto;
+  color:var(--manual-suave);
+  font-size:18px;
+  line-height:1.75;
+}
+
+.manual-simple-body{
+  padding:38px 46px 46px;
+}
+
+.manual-note{
+  margin:0 0 30px;
+  padding:20px 22px;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 34%),
+    #f8fafc;
+  border:1px solid rgba(20,63,125,.08);
+  color:#334155;
+  font-size:16px;
+  line-height:1.75;
+}
+
+.manual-simple-body h2{
+  font-family:'Montserrat', sans-serif;
+  color:var(--manual-azul);
+  font-size:clamp(25px,3vw,34px);
+  line-height:1.15;
+  font-weight:900;
+  letter-spacing:-.04em;
+  margin:34px 0 14px;
+}
+
+.manual-simple-body h2:first-of-type{
+  margin-top:0;
+}
+
+.manual-simple-body h2::after{
   content:"";
   display:block;
-  width:86px;
-  height:5px;
+  width:74px;
+  height:4px;
   border-radius:999px;
-  margin:16px 0 0;
+  margin-top:12px;
   background:linear-gradient(90deg, var(--manual-verde), var(--manual-dorado));
 }
 
-.manual-summary-card p,
-.manual-content-card p{
+.manual-simple-body p{
   color:var(--manual-suave);
   font-size:17px;
   line-height:1.85;
+  margin:0 0 18px;
 }
 
-.manual-notice{
-  background:
-    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 36%),
-    #f8fafc;
-  border:1px solid rgba(20,63,125,.10);
-  border-radius:22px;
-  padding:22px;
-  margin:0 0 28px;
-  color:#334155;
-  font-size:17px;
-  line-height:1.8;
-}
-
-.manual-list{
+.manual-type-grid{
   display:grid;
-  gap:14px;
-  margin:28px 0 0;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:20px 0 30px;
 }
 
-.manual-list-item{
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-  padding:14px;
-  border-radius:18px;
+.manual-type{
+  padding:22px;
+  border-radius:22px;
   background:
-    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 36%),
+    radial-gradient(circle at top left, rgba(42,156,82,.09), transparent 34%),
     #f8fafc;
   border:1px solid rgba(20,63,125,.08);
 }
 
-.manual-list-item span{
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg, var(--manual-verde), var(--manual-azul));
-  color:white;
-  flex-shrink:0;
-}
-
-.manual-list-item strong{
+.manual-type strong{
   display:block;
   color:var(--manual-azul);
   font-family:'Montserrat', sans-serif;
   font-weight:900;
-  margin-bottom:3px;
-}
-
-.manual-list-item small{
-  color:var(--manual-suave);
-  line-height:1.5;
-  font-weight:600;
-}
-
-.manual-content-card h3{
-  font-family:'Montserrat', sans-serif;
-  color:var(--manual-azul);
-  font-size:24px;
-  line-height:1.25;
-  margin:32px 0 10px;
-  font-weight:900;
-}
-
-.manual-content-card h3:first-of-type{
-  margin-top:16px;
+  font-size:18px;
+  margin-bottom:8px;
 }
 
 .manual-rule{
-  padding:22px;
+  padding:20px 22px;
   border-radius:22px;
-  background:white;
+  background:#ffffff;
   border:1px solid rgba(20,63,125,.10);
-  box-shadow:0 10px 24px rgba(8,40,79,.07);
-  margin:18px 0;
+  box-shadow:0 10px 24px rgba(8,40,79,.06);
+  margin:16px 0;
   position:relative;
   overflow:hidden;
 }
@@ -382,91 +201,89 @@ permalink: /magazine/manual-publicacion/
 }
 
 .manual-rule h3{
-  margin-top:0;
+  font-family:'Montserrat', sans-serif;
+  color:var(--manual-azul);
+  font-size:21px;
+  line-height:1.25;
+  margin:0 0 8px;
+  font-weight:900;
+  letter-spacing:-.025em;
 }
 
 .manual-rule p{
-  margin-bottom:0;
+  margin:0;
 }
 
-.manual-type-grid{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:18px;
-  margin:24px 0;
-}
-
-.manual-type-card{
-  background:
-    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 36%),
-    linear-gradient(135deg, #ffffff, #f8fafc);
-  border:1px solid rgba(20,63,125,.10);
-  border-radius:24px;
-  padding:24px;
-  box-shadow:0 10px 24px rgba(8,40,79,.07);
-}
-
-.manual-type-card span{
-  display:inline-flex;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg, var(--manual-verde), var(--manual-azul));
-  color:white;
-  margin-bottom:12px;
-  font-size:22px;
-}
-
-.manual-type-card h3{
-  margin:0 0 8px;
-}
-
-.manual-bottom-actions{
+.manual-actions{
   display:flex;
   gap:14px;
   flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
   margin-top:34px;
+  padding-top:28px;
+  border-top:1px solid rgba(20,63,125,.10);
 }
 
-@media(max-width:980px){
-
-  .manual-shell{
-    grid-template-columns:1fr;
-  }
-
-  .manual-summary-card{
-    position:relative;
-    top:auto;
-  }
-
+.manual-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 22px;
+  border-radius:14px;
+  border:0;
+  text-decoration:none;
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  cursor:pointer;
+  transition:.25s ease;
+  box-shadow:0 10px 22px rgba(8,40,79,.10);
 }
 
-@media(max-width:720px){
+.manual-btn-primary{
+  background:linear-gradient(135deg, var(--manual-verde), #35b862);
+  color:white;
+}
+
+.manual-btn-primary:hover{
+  color:white;
+  transform:translateY(-3px);
+  box-shadow:0 18px 34px rgba(42,156,82,.22);
+}
+
+.manual-btn-light{
+  background:#eef4fb;
+  color:var(--manual-azul);
+}
+
+.manual-btn-light:hover{
+  background:#dbe7f5;
+  color:var(--manual-azul);
+  transform:translateY(-3px);
+}
+
+@media(max-width:760px){
+
+  .manual-simple-page{
+    padding:42px 16px;
+  }
+
+  .manual-simple-card{
+    border-radius:24px;
+  }
+
+  .manual-simple-header,
+  .manual-simple-body{
+    padding-left:24px;
+    padding-right:24px;
+  }
 
   .manual-type-grid{
     grid-template-columns:1fr;
   }
 
-}
-
-@media(max-width:640px){
-
-  .manual-container{
-    padding:0 22px;
-  }
-
-  .manual-hero{
-    min-height:auto;
-  }
-
-  .manual-hero-content{
-    padding:76px 20px;
-  }
-
-  .manual-actions,
-  .manual-bottom-actions{
+  .manual-actions{
     flex-direction:column;
   }
 
@@ -474,30 +291,17 @@ permalink: /magazine/manual-publicacion/
     width:100%;
   }
 
-  .manual-section{
-    padding:64px 0;
-  }
-
-  .manual-summary-card,
-  .manual-content-card{
-    padding:28px 22px;
-    border-radius:26px;
-  }
-
 }
 
 </style>
 
-<div class="manual-page">
+<div class="manual-simple-page">
 
-  <section class="manual-hero">
+  <main class="manual-simple-card">
 
-    <div class="manual-orb manual-orb-one"></div>
-    <div class="manual-orb manual-orb-two"></div>
+    <header class="manual-simple-header">
 
-    <div class="manual-hero-content">
-
-      <span class="manual-badge">
+      <span class="manual-simple-badge">
         Magazine ACMI Santander
       </span>
 
@@ -506,9 +310,91 @@ permalink: /magazine/manual-publicacion/
       </h1>
 
       <p>
-        Normas editoriales para preparar noticias, columnas de opinión y textos académicos
-        dirigidos al Magazine ACMI Santander, incluyendo citación de textos, imágenes y figuras.
+        Normas editoriales para preparar noticias, columnas de opinión y textos académicos, incluyendo citación de textos, imágenes, tablas y figuras.
       </p>
+
+    </header>
+
+    <section class="manual-simple-body">
+
+      <p class="manual-note">
+        Antes de enviar su manuscrito al <strong>Magazine ACMI Santander</strong>, revise estas normas para asegurar que el texto, las imágenes y los anexos cumplan con los requisitos de publicación, citación y referencia.
+      </p>
+
+      <h2>
+        Propósito del Magazine
+      </h2>
+
+      <p>
+        El Magazine ACMI Santander es un espacio de comunicación académica y divulgación científica orientado a difundir actividades académicas, experiencias formativas, análisis y opiniones relacionadas con la medicina interna, la educación médica continua y la proyección académica regional.
+      </p>
+
+      <h2>
+        Tipos de publicaciones
+      </h2>
+
+      <div class="manual-type-grid">
+
+        <div class="manual-type">
+          <strong>📰 Noticias</strong>
+          <p>
+            Reportajes breves sobre eventos académicos o actividades institucionales, como cursos, congresos, jornadas académicas, actividades universitarias y eventos organizados por ACMI.
+          </p>
+        </div>
+
+        <div class="manual-type">
+          <strong>✍️ Opinión</strong>
+          <p>
+            Textos de reflexión académica o análisis sobre temas clínicos, científicos, profesionales, educativos o de salud pública.
+          </p>
+        </div>
+
+      </div>
+
+      <h2>
+        Normas editoriales</h2>
+
+      <div class="manual-rule">
+        <h3>Extensión recomendada</h3>
+        <p>
+          Se recomienda que los artículos tengan una extensión aproximada entre <strong>600 y 1200 palabras</strong>.
+        </p>
+      </div>
+
+      <div class="manual-rule">
+        <h3>Estilo de redacción</h3>
+        <p>
+          Las publicaciones deben tener lenguaje claro, académico y respetuoso. En noticias se recomienda utilizar tercera persona.
+        </p>
+      </div>
+
+      <div class="manual-rule">
+        <h3>Uso de imágenes, figuras y material gráfico</h3>
+        <p>
+          Las imágenes, fotografías, tablas, esquemas, figuras, capturas o cualquier material gráfico deben corresponder al evento o tema tratado, tener buena calidad, no vulnerar derechos de privacidad y contar con fuente, autoría, permiso de uso o referencia verificable. Cuando la imagen sea propia, debe indicarse como elaboración propia o archivo del autor.
+        </p>
+      </div>
+
+      <div class="manual-rule">
+        <h3>Citación y referencias</h3>
+        <p>
+          Todo texto, dato, afirmación académica, imagen, tabla, figura o material tomado de fuentes externas debe estar debidamente citado y referenciado. Las citas deben permitir identificar claramente la fuente original. El comité editorial podrá solicitar ajustes cuando falten referencias, atribución de imágenes, permisos de uso o información bibliográfica suficiente.
+        </p>
+      </div>
+
+      <div class="manual-rule">
+        <h3>Proceso editorial</h3>
+        <p>
+          El contenido se envía al equipo editorial del Magazine ACMI Santander, donde es revisado para verificar coherencia académica y pertinencia institucional.
+        </p>
+      </div>
+
+      <div class="manual-rule">
+        <h3>Responsabilidad de los autores</h3>
+        <p>
+          Los autores son responsables de la veracidad del contenido y del respeto a normas éticas.
+        </p>
+      </div>
 
       <div class="manual-actions">
 
@@ -522,204 +408,8 @@ permalink: /magazine/manual-publicacion/
 
       </div>
 
-    </div>
+    </section>
 
-  </section>
-
-
-
-  <section class="manual-section">
-
-    <div class="manual-container">
-
-      <div class="manual-shell">
-
-        <aside class="manual-summary-card">
-
-          <span class="manual-kicker">
-            Guía editorial
-          </span>
-
-          <h2>
-            Antes de enviar
-          </h2>
-
-          <p>
-            Revise cuidadosamente estas normas editoriales para asegurar que el texto
-            cumpla con los requisitos de publicación del Magazine ACMI Santander.
-          </p>
-
-          <div class="manual-list">
-
-            <div class="manual-list-item">
-              <span>1</span>
-              <div>
-                <strong>Defina el tipo de texto</strong>
-                <small>Noticia, opinión, editorial o artículo académico.</small>
-              </div>
-            </div>
-
-            <div class="manual-list-item">
-              <span>2</span>
-              <div>
-                <strong>Revise extensión y estilo</strong>
-                <small>Lenguaje claro, académico, respetuoso y pertinente.</small>
-              </div>
-            </div>
-
-            <div class="manual-list-item">
-              <span>3</span>
-              <div>
-                <strong>Prepare imágenes y anexos</strong>
-                <small>Use material de buena calidad, con autorización y con fuente citada.</small>
-              </div>
-            </div>
-
-            <div class="manual-list-item">
-              <span>4</span>
-              <div>
-                <strong>Cite texto e imágenes</strong>
-                <small>Todo contenido textual, visual, tabla o figura debe estar referenciado.</small>
-              </div>
-            </div>
-
-            <div class="manual-list-item">
-              <span>5</span>
-              <div>
-                <strong>Envíe al comité editorial</strong>
-                <small>El equipo revisará pertinencia, coherencia y presentación.</small>
-              </div>
-            </div>
-
-          </div>
-
-        </aside>
-
-
-
-        <article class="manual-content-card">
-
-          <span class="manual-kicker">
-            Normas de publicación
-          </span>
-
-          <h2>
-            Magazine ACMI Santander
-          </h2>
-
-          <div class="manual-notice">
-            Antes de enviar su manuscrito al <strong>Magazine ACMI Santander</strong>,
-            revise cuidadosamente estas normas editoriales para asegurar que su texto,
-            imágenes, tablas y figuras cumplan con los requisitos de publicación,
-            citación y referencia.
-          </div>
-
-          <p>
-            El Magazine ACMI Santander es un espacio de comunicación académica y divulgación
-            científica orientado a difundir actividades académicas, experiencias formativas,
-            análisis y opiniones relacionadas con la medicina interna, la educación médica
-            continua y la proyección académica regional.
-          </p>
-
-          <h2>
-            Tipos de publicaciones
-          </h2>
-
-          <div class="manual-type-grid">
-
-            <div class="manual-type-card">
-              <span>📰</span>
-              <h3>Noticias</h3>
-              <p>
-                Reportajes breves sobre eventos académicos o actividades institucionales,
-                como cursos, congresos, jornadas académicas, actividades universitarias
-                y eventos organizados por ACMI.
-              </p>
-            </div>
-
-            <div class="manual-type-card">
-              <span>✍️</span>
-              <h3>Opinión</h3>
-              <p>
-                Textos de reflexión académica o análisis sobre temas clínicos, científicos,
-                profesionales, educativos o de salud pública.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="manual-rule">
-            <h3>Extensión recomendada del artículo</h3>
-            <p>
-              Se recomienda que los artículos tengan una extensión aproximada entre
-              <strong>600 y 1200 palabras</strong>.
-            </p>
-          </div>
-
-          <div class="manual-rule">
-            <h3>Requisitos editoriales</h3>
-            <p>
-              Las publicaciones deben tener lenguaje claro, académico y respetuoso.
-              En noticias se recomienda utilizar tercera persona.
-            </p>
-          </div>
-
-          <div class="manual-rule">
-            <h3>Uso de imágenes, figuras y material gráfico</h3>
-            <p>
-              Las imágenes, fotografías, tablas, esquemas, figuras, capturas o cualquier
-              material gráfico deben corresponder al evento o tema tratado, tener buena calidad,
-              no vulnerar derechos de privacidad y contar con fuente, autoría, permiso de uso
-              o referencia verificable. Cuando la imagen sea propia, debe indicarse como
-              elaboración propia o archivo del autor.
-            </p>
-          </div>
-
-          <div class="manual-rule">
-            <h3>Citación y referencias</h3>
-            <p>
-              Todo texto, dato, afirmación académica, imagen, tabla, figura o material tomado
-              de fuentes externas debe estar debidamente citado y referenciado. Las citas deben
-              permitir identificar claramente la fuente original. El comité editorial podrá
-              solicitar ajustes cuando falten referencias, atribución de imágenes, permisos de
-              uso o información bibliográfica suficiente.
-            </p>
-          </div>
-
-          <div class="manual-rule">
-            <h3>Proceso editorial</h3>
-            <p>
-              El contenido se envía al equipo editorial del Magazine ACMI Santander,
-              donde es revisado para verificar coherencia académica y pertinencia institucional.
-            </p>
-          </div>
-
-          <div class="manual-rule">
-            <h3>Responsabilidad de los autores</h3>
-            <p>
-              Los autores son responsables de la veracidad del contenido y del respeto
-              a normas éticas.
-            </p>
-          </div>
-
-          <div class="manual-bottom-actions">
-
-            <a class="manual-btn manual-btn-primary" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
-              Enviar manuscrito
-            </a>
-
-            <a class="manual-btn manual-btn-light" href="{{ site.baseurl }}/magazine/">
-              Volver al Magazine
-            </a>
-
-          </div>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
+  </main>
 
 </div>
