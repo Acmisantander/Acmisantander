@@ -537,6 +537,7 @@ permalink: /magazine/
   width:100%;
   height:260px;
   object-fit:cover;
+  object-position:center center;
   transition:.45s ease;
 }
 
@@ -720,6 +721,14 @@ permalink: /magazine/
 
 }
 
+
+
+/* ENCUADRE ESPECIAL PARA FOTO DE VISTA PREVIA DE SAN GIL
+   Mantiene la tarjeta uniforme, pero mueve el encuadre para mostrar mejor las caras. */
+.card-image-san-gil{
+  object-position:center 16% !important;
+}
+
 </style>
 
 <div class="magazine-page">
@@ -883,7 +892,7 @@ permalink: /magazine/
             <img
               src="{{ site.baseurl }}{{ post.cover }}"
               alt="{{ post.title }}"
-              class="card-image"
+              class="card-image{% if post.cover == '/img/35.jpeg' %} card-image-san-gil{% endif %}"
             >
           </div>
           {% endif %}
@@ -960,7 +969,7 @@ permalink: /magazine/
             <img
               src="{{ site.baseurl }}{{ post.cover }}"
               alt="{{ post.title }}"
-              class="card-image"
+              class="card-image{% if post.cover == '/img/35.jpeg' %} card-image-san-gil{% endif %}"
             >
           </div>
           {% endif %}
