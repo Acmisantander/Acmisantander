@@ -1946,6 +1946,402 @@
         gap:24px;
       }
     }
+
+    /* ==========================================================
+       CORRECCIONES FINALES RESPONSIVE: TOPBAR, HEADER Y EVENTO
+       ========================================================== */
+
+    html,
+    body{
+      width:100%;
+      max-width:100%;
+      overflow-x:hidden;
+    }
+
+    *,
+    *::before,
+    *::after{
+      min-width:0;
+    }
+
+    img,
+    video,
+    iframe{
+      max-width:100%;
+    }
+
+    .topbar,
+    header,
+    main,
+    section,
+    footer{
+      width:100%;
+      max-width:100%;
+    }
+
+    .congreso-lugar{
+      display:flex;
+      align-items:flex-start;
+      gap:11px;
+      width:100%;
+      max-width:580px;
+      padding:14px 16px;
+      margin:0 0 20px;
+      border-radius:17px;
+      background:rgba(20,63,125,0.06);
+      border:1px solid rgba(20,63,125,0.10);
+      color:var(--azul-acmi);
+    }
+
+    .congreso-lugar-icono{
+      flex:0 0 auto;
+      font-size:23px;
+      line-height:1.2;
+    }
+
+    .congreso-lugar strong,
+    .congreso-lugar span{
+      display:block;
+    }
+
+    .congreso-lugar strong{
+      font-size:15px;
+      font-weight:900;
+    }
+
+    .congreso-lugar div > span{
+      margin-top:4px;
+      color:#52667d;
+      font-size:13px;
+      line-height:1.45;
+      font-weight:600;
+    }
+
+    .congreso-acciones{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:12px;
+      width:100%;
+      max-width:600px;
+      margin-top:22px;
+    }
+
+    .congreso-acciones .btn{
+      width:100%;
+      min-height:52px;
+      padding:12px 14px;
+      text-align:center;
+      line-height:1.25;
+      white-space:normal;
+    }
+
+    .congreso-btn-inscripcion{
+      background:linear-gradient(135deg,var(--verde-acmi),#35b862);
+      color:white;
+    }
+
+    .congreso-btn-programa{
+      background:linear-gradient(135deg,var(--azul-acmi),var(--azul-acmi-2));
+      color:white;
+    }
+
+    .congreso-btn-poster{
+      background:linear-gradient(135deg,#6b46c1,#805ad5);
+      color:white;
+    }
+
+    .congreso-btn-afiche{
+      background:white;
+      color:var(--azul-acmi);
+      border:1px solid rgba(20,63,125,0.16);
+    }
+
+    .congreso-btn-gps{
+      grid-column:1 / -1;
+      background:#eef7f1;
+      color:var(--verde-acmi);
+      border:1px solid rgba(42,156,82,0.24);
+    }
+
+    .congreso-afiche{
+      display:block;
+      width:100%;
+      height:auto;
+      max-height:720px;
+      object-fit:contain;
+      border-radius:18px;
+    }
+
+    @media(max-width:1100px){
+      .main-header{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .brand{
+        justify-content:center;
+      }
+
+      nav,
+      nav ul{
+        width:100%;
+      }
+
+      nav ul{
+        justify-content:center;
+        flex-wrap:wrap;
+      }
+
+      .evento-card-contenido-proximos,
+      .evento-card-contenido-repositorio{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:768px){
+      .container{
+        width:100%;
+        max-width:100%;
+        padding-left:14px;
+        padding-right:14px;
+      }
+
+      .topbar{
+        padding:8px 0;
+        font-size:11px;
+      }
+
+      .topbar-content{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:7px;
+      }
+
+      .topbar-left,
+      .topbar-right{
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        width:100%;
+        gap:5px;
+      }
+
+      .topbar a{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:100%;
+        min-height:34px;
+        padding:5px;
+        border-radius:8px;
+        text-align:center;
+        line-height:1.2;
+        white-space:normal;
+        overflow-wrap:anywhere;
+      }
+
+      header{
+        position:relative;
+      }
+
+      .main-header{
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        width:100%;
+        gap:12px;
+        padding:10px 0 14px;
+      }
+
+      .brand{
+        flex-direction:row;
+        width:100%;
+        min-width:0;
+        gap:10px;
+        justify-content:center;
+        text-align:left;
+      }
+
+      .brand-logo{
+        width:54px;
+        height:54px;
+        flex:0 0 54px;
+      }
+
+      .brand-text h1{
+        font-size:21px;
+        overflow-wrap:anywhere;
+      }
+
+      .brand-text p{
+        font-size:11px;
+        line-height:1.3;
+        overflow-wrap:anywhere;
+      }
+
+      nav,
+      nav ul{
+        width:100%;
+        max-width:100%;
+      }
+
+      nav ul{
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:6px;
+        padding:0;
+        margin:0;
+      }
+
+      nav li{
+        width:100%;
+      }
+
+      nav a{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:100%;
+        min-height:44px;
+        padding:7px 5px;
+        border-radius:11px;
+        background:#f3f7fb;
+        font-size:11px;
+        line-height:1.2;
+        text-align:center;
+        white-space:normal;
+        overflow-wrap:anywhere;
+      }
+
+      .dropdown-menu,
+      .submenu-menu{
+        position:static;
+        width:100%;
+        min-width:0;
+        max-width:100%;
+        margin:6px 0 0;
+        padding:6px;
+        box-shadow:none;
+      }
+
+      .dropdown:hover > .dropdown-menu,
+      .dropdown:focus-within > .dropdown-menu,
+      .submenu:hover > .submenu-menu,
+      .submenu:focus-within > .submenu-menu{
+        display:block;
+      }
+
+      .dropdown-menu > a,
+      .dropdown-menu .submenu > a,
+      .submenu-menu a{
+        width:100%;
+        padding:9px 6px;
+        font-size:11px;
+        line-height:1.25;
+        text-align:center;
+        white-space:normal;
+        overflow-wrap:anywhere;
+      }
+
+      .hero{
+        width:100%;
+        min-height:auto;
+      }
+
+      .hero-content{
+        width:100%;
+        max-width:100%;
+        padding:58px 16px;
+      }
+
+      .hero h2{
+        font-size:clamp(34px,11vw,48px);
+        letter-spacing:-0.045em;
+        overflow-wrap:anywhere;
+      }
+
+      .hero p{
+        font-size:17px;
+        line-height:1.55;
+      }
+
+      .section{
+        width:100%;
+        padding:62px 0;
+      }
+
+      .card,
+      .evento-card-grande{
+        width:100%;
+        max-width:100%;
+      }
+
+      .evento-card-header{
+        padding:34px 16px 18px;
+      }
+
+      .evento-card-contenido{
+        padding:18px 14px 28px;
+      }
+
+      .evento-card-contenido-proximos,
+      .evento-card-contenido-repositorio{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:24px;
+      }
+
+      .proximo-evento-info,
+      .repositorio-home-texto{
+        width:100%;
+        text-align:center;
+      }
+
+      .eventos-badges{
+        align-items:stretch;
+        width:100%;
+      }
+
+      .badge{
+        width:100%;
+        max-width:100%;
+        border-radius:14px;
+        text-align:center;
+        white-space:normal;
+        overflow-wrap:anywhere;
+      }
+
+      .congreso-lugar{
+        max-width:100%;
+        text-align:left;
+      }
+
+      .congreso-acciones{
+        grid-template-columns:1fr;
+        max-width:100%;
+      }
+
+      .congreso-btn-gps{
+        grid-column:auto;
+      }
+
+      .proximo-evento-decoracion{
+        width:100%;
+        min-height:auto;
+        padding:9px;
+      }
+
+      .congreso-afiche{
+        max-height:none;
+        border-radius:13px;
+      }
+
+      .cards-grid,
+      .org-grid,
+      .magazine-contenido,
+      .repositorio-mini-grid{
+        grid-template-columns:1fr;
+      }
+    }
   </style>
 </head>
 
@@ -1991,6 +2387,10 @@
             <a href="{{ site.baseurl }}/#eventos">Eventos ▾</a>
 
             <div class="dropdown-menu">
+              <a href="{{ site.baseurl }}/#eventos">
+                Próximos eventos — Congreso ACMI
+              </a>
+
               <div class="submenu">
                 <a href="{{ site.baseurl }}/repositorio-eventos/">
                   Repositorio de eventos ▸
@@ -2167,44 +2567,41 @@
 <div class="evento-card-contenido evento-card-contenido-proximos">
 
   <div class="proximo-evento-info">
-    <span class="evento-label evento-label-proximo">
-      Próximamente
-    </span>
+    <span class="evento-label evento-label-proximo">Próximamente</span>
 
     <h3>Congreso ACMI Santander</h3>
 
     <p>
       Congreso académico de medicina interna organizado por ACMI Santander,
-      programado para el 30 y 31 de octubre de 2026 en Bucaramanga.
+      que se realizará el 30 y 31 de octubre de 2026 en el Club Campestre
+      de Bucaramanga.
     </p>
 
     <div class="eventos-badges">
-      <div class="badge">30 y 31 de octubre de 2026</div>
-      <div class="badge">Bucaramanga, Santander</div>
-      <div class="badge">Medicina interna</div>
+      <div class="badge">📅 30 y 31 de octubre de 2026</div>
+      <div class="badge">📍 Club Campestre de Bucaramanga</div>
+      <div class="badge">🩺 Medicina interna</div>
     </div>
 
-    <div class="eventos-actions">
-      <a class="btn btn-primary" href="#contacto">
-        Solicitar información
-      </a>
+    <div class="congreso-lugar">
+      <span class="congreso-lugar-icono">📍</span>
+      <div>
+        <strong>Club Campestre de Bucaramanga</strong>
+        <span>Cra. 21 #30-02, Floridablanca, Santander</span>
+      </div>
+    </div>
+
+    <div class="congreso-acciones">
+      <a class="btn congreso-btn-inscripcion" href="#contacto">📝 Inscripción al evento</a>
+      <a class="btn congreso-btn-programa" href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf" target="_blank" rel="noopener">📄 Programa académico</a>
+      <a class="btn congreso-btn-poster" href="#contacto">📊 Enviar póster</a>
+      <a class="btn congreso-btn-afiche" href="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpeg" download="Afiche-Congreso-ACMI-Bucaramanga-2026.jpeg">📥 Descargar afiche</a>
+      <a class="btn congreso-btn-gps" href="https://www.google.com/maps/dir/?api=1&destination=7.06497,-73.11332" target="_blank" rel="noopener">📍 Cómo llegar al Club Campestre</a>
     </div>
   </div>
 
   <div class="proximo-evento-decoracion">
-    <img
-      src="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpeg"
-      alt="Afiche oficial del Congreso ACMI Bucaramanga 2026"
-      loading="lazy"
-      style="
-        display:block;
-        width:100%;
-        height:auto;
-        max-height:720px;
-        object-fit:contain;
-        border-radius:20px;
-      "
-    >
+    <img class="congreso-afiche" src="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpeg" alt="Afiche oficial del Congreso ACMI Bucaramanga 2026" loading="lazy">
   </div>
 
 </div>
