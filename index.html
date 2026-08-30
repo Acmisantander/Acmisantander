@@ -503,7 +503,7 @@
 
 
 /* ==============================
-   MENÃš DE OPCIONES DEL CONGRESO
+   MENÚ DE OPCIONES DEL CONGRESO
    ============================== */
 
 .evento-menu{
@@ -533,13 +533,13 @@
 }
 
 .evento-opciones summary::after{
-  content:"â–¼";
+  content:"▼";
   margin-left:10px;
   font-size:11px;
 }
 
 .evento-opciones[open] summary::after{
-  content:"â–²";
+  content:"▲";
 }
 
 .evento-opciones-lista{
@@ -571,7 +571,7 @@
 }
 
 
-/* MenÃº del evento adaptado para celulares */
+/* Menú del evento adaptado para celulares */
 
 @media (max-width:768px){
 
@@ -625,7 +625,7 @@
   backdrop-filter:blur(8px);
 }
     /* ==============================
-       QUIÃ‰NES SOMOS
+       QUIÉNES SOMOS
        ============================== */
 
     .about-block{
@@ -1133,7 +1133,7 @@
 }
 
 
-/* BotÃ³n GPS */
+/* Botón GPS */
 
 .evento-ubicacion-actions{
   display:flex;
@@ -1157,7 +1157,7 @@
 }
 
 
-/* Afiche del prÃ³ximo evento */
+/* Afiche del próximo evento */
 
 .proximo-evento-decoracion{
   min-height:340px;
@@ -1233,7 +1233,7 @@
 }
 
 
-/* Tarjetas pequeÃ±as del repositorio */
+/* Tarjetas pequeñas del repositorio */
 
 .repositorio-mini-grid{
   display:grid;
@@ -1446,8 +1446,8 @@
   }
 }
 /* ==============================
-   ÃšLTIMAS PUBLICACIONES
-   TARJETA ÃšNICA GRANDE
+   ÚLTIMAS PUBLICACIONES
+   TARJETA ÚNICA GRANDE
    ============================== */
 
 .publicaciones-card-unica{
@@ -2035,18 +2035,6 @@
       white-space:normal;
     }
 
-    .congreso-btn-sitio{
-      grid-column:1 / -1;
-      background:linear-gradient(135deg,#08284f,#167c80);
-      color:white;
-      box-shadow:0 14px 30px rgba(8,40,79,0.20);
-    }
-
-    .congreso-btn-sitio:hover{
-      transform:translateY(-3px);
-      box-shadow:0 20px 38px rgba(8,40,79,0.28);
-    }
-
     .congreso-btn-inscripcion{
       background:linear-gradient(135deg,var(--verde-acmi),#35b862);
       color:white;
@@ -2066,11 +2054,6 @@
       background:white;
       color:var(--azul-acmi);
       border:1px solid rgba(20,63,125,0.16);
-    }
-
-    .congreso-btn-descarga{
-      background:linear-gradient(135deg,#0f766e,#14b8a6);
-      color:white;
     }
 
     .congreso-btn-gps{
@@ -2361,7 +2344,7 @@
     }
 
     /* ==========================================================
-       EXPERIENCIA MÃ“VIL MODERNA
+       EXPERIENCIA MÓVIL MODERNA
        ========================================================== */
 
     .menu-toggle{
@@ -2564,7 +2547,7 @@
 
       <div class="topbar-right">
         <a href="https://www.actamedicacolombiana.com/ojs/index.php/actamed" target="_blank">
-          Acta MÃ©dica Colombiana
+          Acta Médica Colombiana
         </a>
         <a href="#patrocinios">Patrocinios</a>
         <a href="#foro">Foro</a>
@@ -2581,31 +2564,31 @@
 
         <div class="brand-text">
           <h1>ACMI Santander</h1>
-          <p>AsociaciÃ³n Colombiana de Medicina Interna â€¢ CapÃ­tulo Santander</p>
+          <p>Asociación Colombiana de Medicina Interna • Capítulo Santander</p>
         </div>
       </div>
 
-      <button class="menu-toggle" type="button" aria-label="Abrir menÃº" aria-expanded="false" aria-controls="navegacion-principal">
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navegacion-principal">
         <span></span><span></span><span></span>
       </button>
 
       <nav id="navegacion-principal">
         <ul>
           <li><a href="{{ site.baseurl }}/#inicio">Inicio</a></li>
-          <li><a href="{{ site.baseurl }}/#quienes">QuiÃ©nes somos</a></li>
+          <li><a href="{{ site.baseurl }}/#quienes">Quiénes somos</a></li>
           <li><a href="{{ site.baseurl }}/#organigrama">Organigrama</a></li>
 
           <li class="dropdown">
-            <a href="{{ site.baseurl }}/#eventos">Eventos â–¾</a>
+            <a href="{{ site.baseurl }}/#eventos">Eventos ▾</a>
 
             <div class="dropdown-menu">
               <div class="submenu">
                 <a href="{{ site.baseurl }}/#eventos">
-                  PrÃ³ximos eventos â–¸
+                  Próximos eventos ▸
                 </a>
 
                 <div class="submenu-menu">
-                  <a href="{{ site.baseurl }}/congreso-acmi/">
+                  <a href="{{ site.baseurl }}/#eventos">
                     Congreso ACMI Santander
                   </a>
                 </div>
@@ -2613,7 +2596,7 @@
 
               <div class="submenu">
                 <a href="{{ site.baseurl }}/repositorio-eventos/">
-                  Repositorio de eventos â–¸
+                  Repositorio de eventos ▸
                 </a>
 
                 <div class="submenu-menu">
@@ -2627,13 +2610,13 @@
 
           <li>
             <a href="{{ site.baseurl }}/educacion-medica-continuada/">
-              EducaciÃ³n mÃ©dica continuada
+              Educación médica continuada
             </a>
           </li>
 
           <li>
             <a href="{{ site.baseurl }}/proyeccion-social/">
-              ProyecciÃ³n social
+              Proyección social
             </a>
           </li>
 
@@ -2661,13 +2644,13 @@
       <h2>Bienvenidos a ACMI Santander</h2>
 
       <p>
-        CapÃ­tulo regional de la AsociaciÃ³n Colombiana de Medicina Interna,
-        comprometido con la educaciÃ³n mÃ©dica continuada, la integraciÃ³n acadÃ©mica
-        y el fortalecimiento cientÃ­fico de la medicina interna en Santander.
+        Capítulo regional de la Asociación Colombiana de Medicina Interna,
+        comprometido con la educación médica continuada, la integración académica
+        y el fortalecimiento científico de la medicina interna en Santander.
       </p>
 
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#quienes">Conocer mÃ¡s</a>
+        <a class="btn btn-primary" href="#quienes">Conocer más</a>
         <a class="btn btn-light" href="#eventos">Ver eventos</a>
         <a class="btn btn-light" href="#foro">Foro ACMI</a>
       </div>
@@ -2676,51 +2659,51 @@
 
   <section class="section reveal" id="quienes">
     <div class="container">
-      <h2 class="section-title">QuiÃ©nes somos</h2>
+      <h2 class="section-title">Quiénes somos</h2>
 
       <p class="section-subtitle">
-        ACMI Santander es el capÃ­tulo regional de la AsociaciÃ³n Colombiana de Medicina Interna,
-        comprometido con la formaciÃ³n cientÃ­fica, la integraciÃ³n acadÃ©mica y el fortalecimiento
+        ACMI Santander es el capítulo regional de la Asociación Colombiana de Medicina Interna,
+        comprometido con la formación científica, la integración académica y el fortalecimiento
         del ejercicio profesional en medicina interna.
       </p>
 
       <div class="card about-block">
-        <h3>MisiÃ³n</h3>
+        <h3>Misión</h3>
         <p>
-          Promover el desarrollo cientÃ­fico, acadÃ©mico y profesional de la medicina interna
-          en Santander mediante programas de educaciÃ³n mÃ©dica continuada, investigaciÃ³n clÃ­nica
-          y espacios de intercambio acadÃ©mico que fortalezcan la prÃ¡ctica mÃ©dica y la atenciÃ³n
+          Promover el desarrollo científico, académico y profesional de la medicina interna
+          en Santander mediante programas de educación médica continuada, investigación clínica
+          y espacios de intercambio académico que fortalezcan la práctica médica y la atención
           de los pacientes.
         </p>
 
-        <h3>VisiÃ³n</h3>
+        <h3>Visión</h3>
         <p>
-          Ser un referente regional y nacional en educaciÃ³n mÃ©dica continuada, investigaciÃ³n clÃ­nica
-          y liderazgo acadÃ©mico en medicina interna, contribuyendo al fortalecimiento de la comunidad
-          mÃ©dica y al desarrollo del conocimiento cientÃ­fico.
+          Ser un referente regional y nacional en educación médica continuada, investigación clínica
+          y liderazgo académico en medicina interna, contribuyendo al fortalecimiento de la comunidad
+          médica y al desarrollo del conocimiento científico.
         </p>
 
         <h3>Objetivos</h3>
 
         <div class="cards-grid">
           <div class="mini-card reveal">
-            <h4>EducaciÃ³n mÃ©dica</h4>
-            <p>Fortalecer la educaciÃ³n mÃ©dica continuada de especialistas, residentes y mÃ©dicos generales.</p>
+            <h4>Educación médica</h4>
+            <p>Fortalecer la educación médica continuada de especialistas, residentes y médicos generales.</p>
           </div>
 
           <div class="mini-card reveal">
-            <h4>InvestigaciÃ³n</h4>
-            <p>Promover la investigaciÃ³n clÃ­nica y la producciÃ³n cientÃ­fica en medicina interna.</p>
+            <h4>Investigación</h4>
+            <p>Promover la investigación clínica y la producción científica en medicina interna.</p>
           </div>
 
           <div class="mini-card reveal">
-            <h4>IntegraciÃ³n acadÃ©mica</h4>
-            <p>Fomentar la interacciÃ³n acadÃ©mica entre especialistas, residentes y estudiantes.</p>
+            <h4>Integración académica</h4>
+            <p>Fomentar la interacción académica entre especialistas, residentes y estudiantes.</p>
           </div>
 
           <div class="mini-card reveal">
             <h4>Liderazgo regional</h4>
-            <p>Consolidar el liderazgo cientÃ­fico de la medicina interna en Santander.</p>
+            <p>Consolidar el liderazgo científico de la medicina interna en Santander.</p>
           </div>
         </div>
       </div>
@@ -2732,7 +2715,7 @@
       <h2 class="section-title">Organigrama</h2>
 
       <p class="section-subtitle">
-        ComitÃ© organizador y estructura institucional del VI Simposio Regional ACMI San Gil â€“ Santander.
+        Comité organizador y estructura institucional del VI Simposio Regional ACMI San Gil – Santander.
       </p>
 
       <div class="org-grid">
@@ -2743,13 +2726,13 @@
 
         <div class="org-card reveal">
           <h3>Junta Directiva</h3>
-          <p>Dr. Jaime GÃ³mez</p>
+          <p>Dr. Jaime Gómez</p>
           <p>Dr. Reynaldo Badillo</p>
           <p>Dra. Julieta Rueda</p>
-          <p>Dr. Sergio AndrÃ©s Lobo</p>
+          <p>Dr. Sergio Andrés Lobo</p>
           <p>Dr. Julio Oliveros</p>
           <p>Dr. Javier Fajardo</p>
-          <p>Dr. Edgar GÃ³mez Lahitton</p>
+          <p>Dr. Edgar Gómez Lahitton</p>
           <p>Dra. Sandra Acevedo</p>
         </div>
 
@@ -2768,47 +2751,43 @@
       <h2 class="section-title eventos-title">Eventos</h2>
 
       <p class="section-subtitle eventos-subtitle">
-        Actividades acadÃ©micas, congresos, simposios y repositorio institucional de eventos de ACMI Santander.
+        Actividades académicas, congresos, simposios y repositorio institucional de eventos de ACMI Santander.
       </p>
 
       <div class="evento-card-grande evento-card-proximos reveal">
         <div class="evento-card-header">
           <span class="bloque-etiqueta">
-            Agenda acadÃ©mica 2026
+            Agenda académica 2026
           </span>
 
-<h3>PrÃ³ximos eventos</h3>
+<h3>Próximos eventos</h3>
 
 <p>
-  Conozca las prÃ³ximas actividades acadÃ©micas organizadas por ACMI Santander.
+  Conozca las próximas actividades académicas organizadas por ACMI Santander.
 </p>
 </div>
 
 <div class="evento-card-contenido evento-card-contenido-proximos">
 
   <div class="proximo-evento-info">
-    <span class="evento-label evento-label-proximo">PrÃ³ximamente</span>
+    <span class="evento-label evento-label-proximo">Próximamente</span>
 
-    <h3>
-      <a href="{{ site.baseurl }}/congreso-acmi/">
-        Congreso ACMI Santander
-      </a>
-    </h3>
+    <h3>Congreso ACMI Santander</h3>
 
     <p>
-      Congreso acadÃ©mico de medicina interna organizado por ACMI Santander,
-      que se realizarÃ¡ el 30 y 31 de octubre de 2026 en el Club Campestre
+      Congreso académico de medicina interna organizado por ACMI Santander,
+      que se realizará el 30 y 31 de octubre de 2026 en el Club Campestre
       de Bucaramanga.
     </p>
 
     <div class="eventos-badges">
-      <div class="badge">ðŸ“… 30 y 31 de octubre de 2026</div>
-      <div class="badge">ðŸ“ Club Campestre de Bucaramanga</div>
-      <div class="badge">ðŸ©º Medicina interna</div>
+      <div class="badge">📅 30 y 31 de octubre de 2026</div>
+      <div class="badge">📍 Club Campestre de Bucaramanga</div>
+      <div class="badge">🩺 Medicina interna</div>
     </div>
 
     <div class="congreso-lugar">
-      <span class="congreso-lugar-icono">ðŸ“</span>
+      <span class="congreso-lugar-icono">📍</span>
       <div>
         <strong>Club Campestre de Bucaramanga</strong>
         <span>Cra. 21 #30-02, Floridablanca, Bucaramanga, Santander</span>
@@ -2817,19 +2796,12 @@
 
 <div class="congreso-acciones">
   <a
-    class="btn congreso-btn-sitio"
-    href="{{ site.baseurl }}/congreso-acmi/"
-  >
-    ðŸŒ Sitio oficial del Congreso
-  </a>
-
-  <a
     class="btn congreso-btn-inscripcion"
     href="https://www.instagram.com/acmi_santander/"
     target="_blank"
     rel="noopener noreferrer"
   >
-    ðŸ“ InscripciÃ³n al evento
+    📝 Inscripción al evento
   </a>
 
   <a
@@ -2838,7 +2810,7 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    ðŸ“„ Programa acadÃ©mico
+    📄 Programa académico
   </a>
 
   <a
@@ -2847,7 +2819,7 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    ðŸ“Š Enviar pÃ³ster
+    📊 Enviar póster
   </a>
 
   <a
@@ -2856,7 +2828,7 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    ðŸ‘ï¸ Ver afiche
+    👁️ Ver afiche
   </a>
 
   <a
@@ -2864,7 +2836,7 @@
     href="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg"
     download="Afiche-Congreso-ACMI-Bucaramanga-2026.jpg"
   >
-    ðŸ“¥ Descargar afiche
+    📥 Descargar afiche
   </a>
 
   <a
@@ -2873,37 +2845,32 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    ðŸ“ CÃ³mo llegar al Club Campestre
+    📍 Cómo llegar al Club Campestre
   </a>
 </div>
 
 </div>
 
 <div class="proximo-evento-decoracion">
-  <a
-    href="{{ site.baseurl }}/congreso-acmi/"
-    aria-label="Abrir sitio oficial del Congreso ACMI Bucaramanga 2026"
+  <img
+    class="congreso-afiche"
+    src="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg"
+    alt="Afiche oficial del Congreso ACMI Bucaramanga 2026"
+    loading="lazy"
   >
-    <img
-      class="congreso-afiche"
-      src="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg"
-      alt="Afiche oficial del Congreso ACMI Bucaramanga 2026"
-      loading="lazy"
-    >
-  </a>
 </div>
 
 </div>
 </div>   <div class="evento-card-grande evento-card-repositorio reveal">
   <div class="evento-card-header evento-card-header-repositorio">
     <span class="bloque-etiqueta bloque-etiqueta-azul">
-      Archivo acadÃ©mico institucional
+      Archivo académico institucional
     </span>
 
     <h3>Repositorio de eventos</h3>
 
     <p>
-      Consulte fotografÃ­as, videos, diapositivas, afiches, certificados y material acadÃ©mico de eventos finalizados.
+      Consulte fotografías, videos, diapositivas, afiches, certificados y material académico de eventos finalizados.
     </p>
   </div>
 
@@ -2915,12 +2882,12 @@
 
       <h3>
         VI Simposio Regional ACMI<br>
-        San Gil â€“ Santander 2026
+        San Gil – Santander 2026
       </h3>
 
       <p>
-        Acceda al repositorio acadÃ©mico del VI Simposio Regional ACMI:
-        fotos, videos, diapositivas, certificados, afiches y programa acadÃ©mico.
+        Acceda al repositorio académico del VI Simposio Regional ACMI:
+        fotos, videos, diapositivas, certificados, afiches y programa académico.
       </p>
 
       <div class="eventos-badges">
@@ -2955,25 +2922,25 @@
  <div class="repositorio-mini-grid">
 
   <a class="repositorio-mini-card" href="{{ site.baseurl }}/repositorio-eventos/fotos-y-videos.html">
-    <span>ðŸ“¸</span>
+    <span>📸</span>
     <strong>Fotos y videos</strong>
-    <small>GalerÃ­a fotogrÃ¡fica institucional y registro audiovisual del evento.</small>
+    <small>Galería fotográfica institucional y registro audiovisual del evento.</small>
   </a>
 
   <a class="repositorio-mini-card" href="{{ site.baseurl }}/repositorio-eventos/diapositivas/">
-    <span>ðŸ“Š</span>
+    <span>📊</span>
     <strong>Diapositivas</strong>
     <small>Presentaciones autorizadas por conferencistas.</small>
   </a>
 
   <a class="repositorio-mini-card" href="{{ site.baseurl }}/repositorio-eventos/#afiches">
-    <span>ðŸ–¼ï¸</span>
+    <span>🖼️</span>
     <strong>Afiches</strong>
-    <small>Material grÃ¡fico oficial del VI Simposio Regional ACMI.</small>
+    <small>Material gráfico oficial del VI Simposio Regional ACMI.</small>
   </a>
 
   <a class="repositorio-mini-card" href="{{ site.baseurl }}/repositorio-eventos/certificados/">
-    <span>ðŸŽ“</span>
+    <span>🎓</span>
     <strong>Certificados</strong>
     <small>Descarga individual de certificados de asistencia.</small>
   </a>
@@ -2987,10 +2954,10 @@
 <section class="section reveal" id="ultimas-publicaciones">
   <div class="container">
 
-    <h2 class="section-title">Ãšltimas publicaciones</h2>
+    <h2 class="section-title">Últimas publicaciones</h2>
 
     <p class="section-subtitle">
-      Contenido reciente de educaciÃ³n mÃ©dica, magazine y proyecciÃ³n social.
+      Contenido reciente de educación médica, magazine y proyección social.
     </p>
 
     <div class="publicaciones-card-unica">
@@ -2998,11 +2965,11 @@
       <div class="publicaciones-card-header">
         <span class="bloque-etiqueta">Contenido reciente</span>
 
-        <h3>EducaciÃ³n, magazine y proyecciÃ³n social</h3>
+        <h3>Educación, magazine y proyección social</h3>
 
         <p>
-          Consulte el material mÃ¡s reciente de ACMI Santander en educaciÃ³n mÃ©dica continuada,
-          magazine acadÃ©mico y actividades de proyecciÃ³n social.
+          Consulte el material más reciente de ACMI Santander en educación médica continuada,
+          magazine académico y actividades de proyección social.
         </p>
       </div>
 
@@ -3012,10 +2979,10 @@
         <div class="publicacion-feature">
           <span class="publicacion-badge">Destacado</span>
 
-          <h4>EducaciÃ³n mÃ©dica continuada</h4>
+          <h4>Educación médica continuada</h4>
 
           <p>
-            Actividad promocional del VI Simposio Regional ACMI San Gil â€“ Santander 2026.
+            Actividad promocional del VI Simposio Regional ACMI San Gil – Santander 2026.
           </p>
 
           <div class="video-mini publicacion-video">
@@ -3028,12 +2995,12 @@
           </div>
 
           <p class="publicacion-caption">
-            Video promocional del VI Simposio Regional ACMI San Gil â€“ Santander 2026.
+            Video promocional del VI Simposio Regional ACMI San Gil – Santander 2026.
           </p>
 
           <a class="btn btn-primary"
              href="{{ site.baseurl }}/educacion-medica-continuada/">
-            Ver mÃ¡s
+            Ver más
           </a>
         </div>
 
@@ -3068,12 +3035,12 @@
                     Leer noticia
                   </a>
                 {% else %}
-                  <p>PrÃ³ximamente se publicarÃ¡n nuevas noticias.</p>
+                  <p>Próximamente se publicarán nuevas noticias.</p>
                 {% endif %}
               </div>
 
               <div class="magazine-item">
-                <h5>OpiniÃ³n</h5>
+                <h5>Opinión</h5>
 
                 {% if opinion %}
                   {% if opinion.cover %}
@@ -3093,21 +3060,21 @@
                     Leer columna
                   </a>
                 {% else %}
-                  <p>PrÃ³ximamente se publicarÃ¡n nuevas columnas de opiniÃ³n.</p>
+                  <p>Próximamente se publicarán nuevas columnas de opinión.</p>
                 {% endif %}
               </div>
 
             </div>
           </div>
 
-          <!-- PROYECCIÃ“N SOCIAL -->
+          <!-- PROYECCIÓN SOCIAL -->
           <div class="publicacion-box publicacion-social">
             <span class="publicacion-badge publicacion-badge-verde">Comunidad</span>
 
-            <h4>ProyecciÃ³n social</h4>
+            <h4>Proyección social</h4>
 
             <p>
-              Jornada comunitaria de educaciÃ³n en salud respiratoria en Santander.
+              Jornada comunitaria de educación en salud respiratoria en Santander.
             </p>
 
             <a class="btn btn-light"
@@ -3129,8 +3096,8 @@
       <h2 class="section-title">Patrocinios</h2>
 
       <p class="section-subtitle">
-        Empresas que apoyan el desarrollo acadÃ©mico y cientÃ­fico del
-        VI Simposio Regional ACMI â€“ CapÃ­tulo Santander.
+        Empresas que apoyan el desarrollo académico y científico del
+        VI Simposio Regional ACMI – Capítulo Santander.
       </p>
 
       <div class="patrocinadores">
@@ -3150,9 +3117,9 @@
       <h2 class="section-title">Foro ACMI Santander</h2>
 
       <p class="section-subtitle">
-        Espacio de discusiÃ³n acadÃ©mica para compartir preguntas, comentarios,
-        reflexiones y aportes sobre educaciÃ³n mÃ©dica continuada, eventos,
-        medicina interna y actividades del capÃ­tulo Santander.
+        Espacio de discusión académica para compartir preguntas, comentarios,
+        reflexiones y aportes sobre educación médica continuada, eventos,
+        medicina interna y actividades del capítulo Santander.
       </p>
 
       <div class="card edu-box">
@@ -3188,14 +3155,14 @@
           </a>
         </div>
 
-        <p><strong>UbicaciÃ³n:</strong> Santander, Colombia</p>
+        <p><strong>Ubicación:</strong> Santander, Colombia</p>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>Â© 2026 ACMI Santander</p>
-    <p>EducaciÃ³n continua que transforma la prÃ¡ctica clÃ­nica</p>
+    <p>© 2026 ACMI Santander</p>
+    <p>Educación continua que transforma la práctica clínica</p>
   </footer>
 
   <script>
