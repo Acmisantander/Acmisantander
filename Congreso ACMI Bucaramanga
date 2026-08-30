@@ -1,0 +1,21 @@
+<!-- 1. En el menú desplegable Eventos, reemplace el enlace anterior por este -->
+<a href="{{ site.baseurl }}/congreso-acmi/">
+  Próximos eventos — Congreso ACMI
+</a>
+
+<!-- 2. Agregue este botón como primer botón de .congreso-acciones -->
+<a class="btn congreso-btn-inscripcion" href="{{ site.baseurl }}/congreso-acmi/">
+  🌐 Sitio oficial del Congreso
+</a>
+
+<!-- 3. También puede convertir el afiche de la página de inicio en enlace -->
+<div class="proximo-evento-decoracion">
+  <a href="{{ site.baseurl }}/congreso-acmi/" aria-label="Abrir sitio oficial del Congreso ACMI Bucaramanga 2026">
+    <img
+      class="congreso-afiche"
+      src="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg"
+      alt="Afiche oficial del Congreso ACMI Bucaramanga 2026"
+      loading="lazy"
+    >
+  </a>
+</div>
