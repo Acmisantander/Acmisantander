@@ -1,0 +1,631 @@
+---
+layout: default
+title: Recepción de ponencias y pósteres | Congreso ACMI Bucaramanga 2026
+permalink: /congreso-acmi/recepcion-ponencias-posters/
+---
+
+<style>
+
+:root{
+  --ponencia-azul:#143f7d;
+  --ponencia-profundo:#08284f;
+  --ponencia-verde:#2a9c52;
+  --ponencia-dorado:#c89b3c;
+  --ponencia-fondo:#f5f7fb;
+  --ponencia-texto:#243244;
+  --ponencia-suave:#5b6d82;
+  --ponencia-borde:rgba(20,63,125,.12);
+  --ponencia-sombra:0 24px 64px rgba(8,40,79,.14);
+}
+
+.ponencia-simple-page{
+  min-height:100vh;
+  padding:72px 22px;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 32%),
+    radial-gradient(circle at top right, rgba(20,63,125,.12), transparent 34%),
+    linear-gradient(180deg, #f5f7fb, #ffffff);
+}
+
+.ponencia-simple-page *{
+  box-sizing:border-box;
+}
+
+.ponencia-simple-card{
+  width:100%;
+  max-width:920px;
+  margin:0 auto;
+  background:#ffffff;
+  border:1px solid var(--ponencia-borde);
+  border-radius:32px;
+  box-shadow:var(--ponencia-sombra);
+  overflow:hidden;
+  position:relative;
+  animation:ponenciaSimpleIn .8s ease both;
+}
+
+@keyframes ponenciaSimpleIn{
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.ponencia-simple-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:8px;
+  background:linear-gradient(90deg, var(--ponencia-verde), var(--ponencia-azul), var(--ponencia-dorado));
+}
+
+.ponencia-simple-header{
+  padding:46px 46px 28px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 36%),
+    radial-gradient(circle at bottom right, rgba(20,63,125,.08), transparent 36%),
+    #ffffff;
+  border-bottom:1px solid rgba(20,63,125,.08);
+}
+
+.ponencia-simple-badge{
+  display:inline-flex;
+  padding:9px 16px;
+  border-radius:999px;
+  background:#eef4fb;
+  color:var(--ponencia-azul);
+  border:1px solid #dbe7f5;
+  font-family:'Montserrat', sans-serif;
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  margin-bottom:18px;
+}
+
+.ponencia-simple-header h1{
+  font-family:'Montserrat', sans-serif;
+  color:var(--ponencia-azul);
+  font-size:clamp(34px,4vw,52px);
+  line-height:1.05;
+  font-weight:900;
+  letter-spacing:-.055em;
+  margin:0 0 16px;
+}
+
+.ponencia-simple-header p{
+  max-width:720px;
+  margin:0 auto;
+  color:var(--ponencia-suave);
+  font-size:18px;
+  line-height:1.75;
+}
+
+.ponencia-simple-body{
+  padding:38px 46px 46px;
+}
+
+.ponencia-note{
+  margin:0 0 28px;
+  padding:20px 22px;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 34%),
+    #f8fafc;
+  border:1px solid rgba(20,63,125,.08);
+  color:#334155;
+  font-size:16px;
+  line-height:1.75;
+}
+
+.ponencia-form{
+  display:grid;
+  gap:20px;
+}
+
+.ponencia-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.ponencia-field{
+  display:grid;
+  gap:8px;
+}
+
+.ponencia-field label{
+  color:var(--ponencia-azul);
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  font-size:15px;
+}
+
+.ponencia-field input,
+.ponencia-field select,
+.ponencia-field textarea{
+  width:100%;
+  border:1px solid #dbe7f5;
+  border-radius:16px;
+  padding:14px 15px;
+  font-family:'Lato', sans-serif;
+  font-size:16px;
+  color:var(--ponencia-texto);
+  background:#fbfdff;
+  outline:none;
+  transition:.22s ease;
+}
+
+.ponencia-field input:focus,
+.ponencia-field select:focus,
+.ponencia-field textarea:focus{
+  border-color:var(--ponencia-verde);
+  box-shadow:0 0 0 4px rgba(42,156,82,.12);
+  background:white;
+}
+
+.ponencia-field textarea{
+  resize:vertical;
+  min-height:130px;
+}
+
+.ponencia-file-input{
+  border:1px dashed rgba(20,63,125,.25) !important;
+  background:#fbfdff !important;
+}
+
+.ponencia-help{
+  margin:-8px 0 0;
+  color:var(--ponencia-suave);
+  font-size:15px;
+  line-height:1.65;
+}
+
+.ponencia-error{
+  display:none;
+  margin:4px 0;
+  padding:18px;
+  background:#fff7ed;
+  border:2px solid #ea580c;
+  border-radius:18px;
+  color:#9a3412;
+  font-weight:700;
+  line-height:1.7;
+}
+
+.ponencia-alternativas{
+  margin:4px 0;
+  padding:0;
+  background:white;
+  border:1px solid rgba(20,63,125,.12);
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.ponencia-alternativas summary{
+  cursor:pointer;
+  padding:17px 20px;
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  color:var(--ponencia-azul);
+  background:#f8fafc;
+}
+
+.ponencia-alternativas-content{
+  padding:22px;
+  font-size:16px;
+  line-height:1.75;
+  color:#334155;
+  border-top:1px solid rgba(20,63,125,.08);
+}
+
+.ponencia-progress{
+  display:none;
+  margin:6px 0 4px;
+}
+
+.ponencia-progress-track{
+  width:100%;
+  background:#e5e7eb;
+  border-radius:999px;
+  overflow:hidden;
+  height:13px;
+}
+
+.ponencia-progress-bar{
+  width:0%;
+  height:100%;
+  background:linear-gradient(90deg, var(--ponencia-verde), var(--ponencia-azul));
+  transition:width .25s;
+}
+
+.ponencia-progress-text{
+  font-size:15px;
+  margin:8px 0 0;
+  color:#475569;
+  font-weight:700;
+}
+
+.ponencia-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  margin-top:12px;
+}
+
+.ponencia-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 22px;
+  border-radius:14px;
+  border:0;
+  text-decoration:none;
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  cursor:pointer;
+  transition:.25s ease;
+  box-shadow:0 10px 22px rgba(8,40,79,.10);
+}
+
+.ponencia-btn-primary{
+  background:linear-gradient(135deg, var(--ponencia-verde), #35b862);
+  color:white;
+}
+
+.ponencia-btn-primary:hover{
+  color:white;
+  transform:translateY(-3px);
+  box-shadow:0 18px 34px rgba(42,156,82,.22);
+}
+
+.ponencia-btn-light{
+  background:#eef4fb;
+  color:var(--ponencia-azul);
+}
+
+.ponencia-btn-light:hover{
+  background:#dbe7f5;
+  color:var(--ponencia-azul);
+  transform:translateY(-3px);
+}
+
+.ponencia-btn:disabled{
+  opacity:.68;
+  cursor:not-allowed;
+  transform:none !important;
+}
+
+@media(max-width:760px){
+
+  .ponencia-simple-page{
+    padding:42px 16px;
+  }
+
+  .ponencia-simple-card{
+    border-radius:24px;
+  }
+
+  .ponencia-simple-header,
+  .ponencia-simple-body{
+    padding-left:24px;
+    padding-right:24px;
+  }
+
+  .ponencia-grid{
+    grid-template-columns:1fr;
+  }
+
+  .ponencia-actions{
+    flex-direction:column;
+  }
+
+  .ponencia-btn{
+    width:100%;
+  }
+
+}
+
+</style>
+
+<div class="ponencia-simple-page">
+
+  <main class="ponencia-simple-card">
+
+    <header class="ponencia-simple-header">
+
+      <span class="ponencia-simple-badge">
+        Congreso ACMI Bucaramanga 2026
+      </span>
+
+      <h1>
+        Recepción de ponencias y pósteres
+      </h1>
+
+      <p>
+        Complete los datos del autor, seleccione el tipo de trabajo y adjunte el archivo correspondiente para evaluación por el comité académico.
+      </p>
+
+    </header>
+
+    <section class="ponencia-simple-body">
+
+      <p class="ponencia-note">
+        Convocatoria oficial del Congreso ACMI Bucaramanga 2026. Se reciben ponencias orales y pósteres académicos en PDF, PPT, PPTX, DOC o DOCX hasta un máximo de <strong>100 MB</strong>.
+      </p>
+
+      <form
+        id="formEnvioPonencia"
+        class="ponencia-form"
+        method="POST"
+        onsubmit="return enviarPonencia(event);">
+
+        <div class="ponencia-grid">
+
+          <div class="ponencia-field">
+            <label for="nombrePonente">Nombre completo del autor principal</label>
+            <input id="nombrePonente" type="text" name="Nombre_Ponente" autocomplete="name" required>
+          </div>
+
+          <div class="ponencia-field">
+            <label for="afiliacion">Afiliación institucional</label>
+            <input id="afiliacion" type="text" name="Afiliacion" required>
+          </div>
+
+        </div>
+
+        <div class="ponencia-grid">
+
+          <div class="ponencia-field">
+            <label for="email">Correo electrónico</label>
+            <input id="email" type="email" name="email" autocomplete="email" required>
+          </div>
+
+          <div class="ponencia-field">
+            <label for="evento">Evento académico</label>
+            <select id="evento" name="Evento" required>
+              <option value="Congreso ACMI Bucaramanga 2026" selected>Congreso ACMI Bucaramanga 2026</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="ponencia-grid">
+
+          <div class="ponencia-field">
+            <label for="tipoTrabajo">Tipo de trabajo</label>
+            <select id="tipoTrabajo" name="Tipo_Trabajo" required>
+              <option value="">Seleccione una opción</option>
+              <option value="Ponencia oral">Ponencia oral</option>
+              <option value="Póster académico">Póster académico</option>
+            </select>
+          </div>
+
+          <div class="ponencia-field">
+            <label for="categoriaTrabajo">Categoría o área temática</label>
+            <input id="categoriaTrabajo" type="text" name="Categoria_Trabajo" placeholder="Ej.: Cardiología, infectología o investigación clínica" required>
+          </div>
+
+        </div>
+
+        <div class="ponencia-field">
+          <label for="coautores">Coautores</label>
+          <textarea id="coautores" name="Coautores" rows="3" placeholder="Escriba los nombres completos separados por comas. Si no aplica, escriba: Ninguno."></textarea>
+        </div>
+
+        <div class="ponencia-field">
+          <label for="tituloPonencia">Título del trabajo</label>
+          <input id="tituloPonencia" type="text" name="Titulo_Ponencia" required>
+        </div>
+
+        <div class="ponencia-field">
+          <label for="archivoPonencia">Cargar ponencia o póster</label>
+          <input
+            id="archivoPonencia"
+            class="ponencia-file-input"
+            type="file"
+            accept=".pdf,.ppt,.pptx,.doc,.docx">
+        </div>
+
+        <p class="ponencia-help">
+          Si el archivo supera los <strong>100 MB</strong>, utilice el enlace alternativo, Google Drive o el correo institucional.
+        </p>
+
+        <div id="mensajeErrorPonencia" class="ponencia-error"></div>
+
+        <details id="opcionesAlternativasPonencia" class="ponencia-alternativas">
+
+          <summary>
+            Opciones para archivos grandes
+          </summary>
+
+          <div class="ponencia-alternativas-content">
+
+            <div class="ponencia-field">
+              <label for="linkPonencia">Enlace de la ponencia opcional</label>
+              <input
+                id="linkPonencia"
+                type="url"
+                name="Link_Ponencia"
+                placeholder="Ej: Google Drive, Dropbox, OneDrive o WeTransfer">
+            </div>
+
+            <p>
+              También puede subir el archivo a Google Drive o enviarlo directamente al correo:
+              <strong>santanderacmi@gmail.com</strong>
+            </p>
+
+            <a
+              class="ponencia-btn ponencia-btn-primary"
+              href="https://drive.google.com/drive/folders/1698LR3iRCIVKmTyWjNRRMI-nhHpELREM?usp=drive_link"
+              target="_blank"
+              rel="noopener">
+              Subir a Google Drive
+            </a>
+
+          </div>
+
+        </details>
+
+        <div class="ponencia-field">
+          <label for="mensaje">Mensaje opcional para el comité académico</label>
+          <textarea id="mensaje" name="Mensaje" rows="5"></textarea>
+        </div>
+
+        <div id="barraContainerPonencia" class="ponencia-progress">
+
+          <div class="ponencia-progress-track">
+            <div id="barraPonencia" class="ponencia-progress-bar"></div>
+          </div>
+
+          <p id="textoCargaPonencia" class="ponencia-progress-text">
+            Preparando envío...
+          </p>
+
+        </div>
+
+        <div class="ponencia-actions">
+
+          <button id="botonEnviarPonencia" class="ponencia-btn ponencia-btn-primary" type="submit">
+            Enviar trabajo académico
+          </button>
+
+          <a class="ponencia-btn ponencia-btn-light" href="{{ site.baseurl }}/congreso-acmi/#inicio">
+            Volver al sitio del Congreso
+          </a>
+
+        </div>
+
+      </form>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script>
+async function enviarPonencia(event) {
+
+  event.preventDefault();
+
+  const WORKER_URL = "https://dawn-base-5480.santanderacmi.workers.dev";
+  const URL_GRACIAS = "{{ site.baseurl }}/congreso-acmi/#inicio";
+
+  const form = document.getElementById("formEnvioPonencia");
+  const archivoInput = document.getElementById("archivoPonencia");
+  const archivo = archivoInput && archivoInput.files.length > 0 ? archivoInput.files[0] : null;
+
+  const boton = document.getElementById("botonEnviarPonencia");
+  const barra = document.getElementById("barraPonencia");
+  const contenedor = document.getElementById("barraContainerPonencia");
+  const textoCarga = document.getElementById("textoCargaPonencia");
+  const mensajeError = document.getElementById("mensajeErrorPonencia");
+  const opciones = document.getElementById("opcionesAlternativasPonencia");
+
+  const limiteBytes = 100 * 1024 * 1024;
+
+  mensajeError.style.display = "none";
+  mensajeError.innerHTML = "";
+
+  if (archivo && archivo.size > limiteBytes) {
+
+    mensajeError.style.display = "block";
+
+    mensajeError.innerHTML =
+      "<div style='background:#dc2626; color:white; padding:14px 16px; border-radius:12px; font-weight:900; margin-bottom:14px; text-decoration:underline;'>" +
+      "⚠ El archivo supera el límite máximo permitido de 100 MB." +
+      "</div>" +
+      "Utilice las opciones para archivos grandes.";
+
+    if (opciones) opciones.open = true;
+
+    return false;
+  }
+
+  boton.disabled = true;
+  boton.innerText = "Enviando información...";
+
+  contenedor.style.display = "block";
+  barra.style.width = "20%";
+  textoCarga.innerText = "Preparando envío...";
+
+  try {
+
+    const datos = new FormData();
+
+    datos.append("tipoFormulario", "ponencia");
+    datos.append("origenFormulario", "Congreso ACMI Bucaramanga 2026");
+    datos.append("nombrePonente", form.Nombre_Ponente.value);
+    datos.append("afiliacion", form.Afiliacion.value);
+    datos.append("email", form.email.value);
+    datos.append("tituloPonencia", form.Titulo_Ponencia.value);
+    datos.append("evento", form.Evento.value);
+    datos.append("mensaje", form.Mensaje.value);
+    datos.append("tipoTrabajo", form.Tipo_Trabajo.value);
+    datos.append("categoriaTrabajo", form.Categoria_Trabajo.value);
+    datos.append("coautores", form.Coautores.value);
+
+    if (form.Link_Ponencia) {
+      datos.append("linkPonencia", form.Link_Ponencia.value);
+    }
+
+    if (archivo) {
+      datos.append("archivo", archivo);
+      barra.style.width = "45%";
+      textoCarga.innerText = "Cargando archivo adjunto...";
+    } else {
+      barra.style.width = "55%";
+      textoCarga.innerText = "Enviando información...";
+    }
+
+    const respuesta = await fetch(WORKER_URL, {
+      method: "POST",
+      body: datos
+    });
+
+    const resultado = await respuesta.json();
+
+    if (!respuesta.ok || !resultado.success) {
+      throw new Error(resultado.error || "No fue posible completar el envío.");
+    }
+
+    barra.style.width = "100%";
+    textoCarga.innerText = "Trabajo enviado correctamente";
+
+    setTimeout(function() {
+      window.location.href = URL_GRACIAS;
+    }, 1200);
+
+  } catch (error) {
+
+    boton.disabled = false;
+    boton.innerText = "Enviar trabajo académico";
+
+    contenedor.style.display = "none";
+    barra.style.width = "0%";
+
+    mensajeError.style.display = "block";
+    mensajeError.innerHTML =
+      "<div style='background:#ea580c; color:white; padding:14px 16px; border-radius:12px; font-weight:900; margin-bottom:14px;'>" +
+      "⚠ No fue posible completar el envío." +
+      "</div>" +
+      "<div style='margin-bottom:12px;'>" +
+      error.message +
+      "</div>" +
+      "Puede intentar nuevamente o usar las opciones para archivos grandes.";
+
+    if (opciones) opciones.open = true;
+  }
+
+  return false;
+}
+</script>
