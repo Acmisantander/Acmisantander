@@ -78,11 +78,13 @@ permalink: /congreso-acmi/
     .hero-data span{padding:9px 13px;border-radius:12px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);font-size:13px;font-weight:800;backdrop-filter:blur(8px)}
     .actions{display:flex;gap:12px;flex-wrap:wrap}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 19px;border:1px solid transparent;border-radius:15px;font-weight:900;transition:var(--transicion);box-shadow:0 12px 30px rgba(7,29,49,.13)}
-    .btn:hover{transform:translateY(-3px)}
+    .btn:hover{transform:translateY(-1px)}
     .btn-primary{color:#fff;background:linear-gradient(135deg,var(--verde-2),#17aa8e);box-shadow:0 16px 35px rgba(19,168,143,.25)}
     .btn-primary:hover{box-shadow:0 20px 42px rgba(19,168,143,.35)}
     .btn-light{color:var(--azul);background:#fff}
     .btn-outline{color:#fff;border-color:rgba(255,255,255,.32);background:rgba(255,255,255,.08);backdrop-filter:blur(8px)}
+    .btn-poster-hero{color:var(--noche);background:linear-gradient(135deg,#ffe08a,#d9a72e);border-color:#ffe9ac;box-shadow:0 14px 30px rgba(217,167,46,.28)}
+    .btn-poster-hero:hover{color:var(--noche);box-shadow:0 17px 34px rgba(217,167,46,.36)}
     .poster-wrap{position:relative;max-width:430px;margin-inline:auto;animation:posterFloat 5s ease-in-out infinite}
     .poster-wrap::before{content:"";position:absolute;inset:8% -8% -4% 8%;z-index:-1;border-radius:38px;background:linear-gradient(135deg,rgba(59,208,186,.45),rgba(18,63,125,.2));filter:blur(25px)}
     .poster{width:100%;max-height:680px;object-fit:contain;border:12px solid rgba(255,255,255,.08);border-radius:28px;box-shadow:0 35px 90px rgba(0,0,0,.38)}
@@ -91,7 +93,7 @@ permalink: /congreso-acmi/
     .quick-nav{position:relative;z-index:4;margin-top:-30px}
     .quick-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;padding:16px;background:rgba(255,255,255,.86);border:1px solid rgba(255,255,255,.6);border-radius:24px;box-shadow:var(--sombra);backdrop-filter:blur(18px)}
     .quick-grid a{display:flex;align-items:center;gap:12px;padding:15px;border-radius:17px;color:var(--azul);font-weight:900;background:#fff;border:1px solid var(--borde);transition:var(--transicion)}
-    .quick-grid a:hover{transform:translateY(-4px);color:var(--verde-2);box-shadow:0 14px 30px rgba(7,29,49,.10)}
+    .quick-grid a:hover{color:var(--verde-2);box-shadow:0 12px 26px rgba(7,29,49,.10)}
     .quick-icon{display:grid;place-items:center;flex:0 0 38px;height:38px;border-radius:12px;background:#eaf6f1}
     .section{padding:94px 0}
     .section-alt{background:#fff}
@@ -138,7 +140,7 @@ permalink: /congreso-acmi/
     .poster-invitation:hover .poster-sheet{transform:rotate(0) translateY(-5px)}
     .poster-sheet::before{content:"";position:absolute;inset:13px;border:1px solid rgba(18,63,125,.12);border-radius:14px;pointer-events:none}
     .poster-sheet-badge{display:inline-flex;padding:6px 10px;border-radius:999px;color:#fff;background:var(--verde);font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
-    .poster-sheet strong{display:block;margin:35px 0 10px;font-family:'Montserrat',sans-serif;font-size:31px;line-height:.94;letter-spacing:-.055em}
+    .poster-sheet strong{display:block;margin:35px 0 10px;font-family:'Montserrat',sans-serif;font-size:31px;line-height:.98;letter-spacing:-.045em}
     .poster-sheet span:last-child{display:block;color:var(--azul);font-size:13px;font-weight:800}
     .poster-invitation-copy{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:58px}
     .poster-invitation .section-kicker{color:#69e0c8}
@@ -179,10 +181,10 @@ permalink: /congreso-acmi/
     .footer-links{display:flex;gap:18px;flex-wrap:wrap;font-weight:700;font-size:14px}
     .footer-links a:hover{color:#52d8c1}
 
-    .reveal{opacity:0;transform:translateY(34px);transition:opacity .82s cubic-bezier(.2,.8,.2,1),transform .82s cubic-bezier(.2,.8,.2,1);transition-delay:var(--reveal-delay,0ms);will-change:opacity,transform}
-    .reveal-left{transform:translateX(-72px)}
-    .reveal-right{transform:translateX(72px)}
-    .reveal-scale{transform:translateY(22px) scale(.96)}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .68s cubic-bezier(.2,.8,.2,1),transform .68s cubic-bezier(.2,.8,.2,1);transition-delay:var(--reveal-delay,0ms);will-change:opacity,transform}
+    .reveal-left{transform:translateX(-42px)}
+    .reveal-right{transform:translateX(42px)}
+    .reveal-scale{transform:translateY(16px) scale(.98)}
     .reveal.visible{opacity:1;transform:none}
 
     @media (max-width:1020px){
@@ -307,7 +309,7 @@ permalink: /congreso-acmi/
           <div class="actions">
             <a class="btn btn-primary" href="https://stage.peewah.co/congreso-acmi-bucaramanga" target="_blank" rel="noopener"> Inscripci&oacute;n al evento</a>
             <a class="btn btn-outline" href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf" target="_blank" rel="noopener"> Programa acad&eacute;mico</a>
-            <a class="btn btn-outline" href="{{ site.baseurl }}/congreso-acmi/recepcion-ponencias-posters/">Enviar ponencia o p&oacute;ster</a>
+            <a class="btn btn-poster-hero" href="{{ site.baseurl }}/congreso-acmi/recepcion-ponencias-posters/">Enviar ponencia o p&oacute;ster</a>
           </div>
         </div>
 
@@ -392,7 +394,7 @@ permalink: /congreso-acmi/
           <div class="poster-visual" aria-hidden="true">
             <div class="poster-sheet">
               <span class="poster-sheet-badge">Convocatoria abierta</span>
-              <strong>Tu ciencia merece ser compartida</strong>
+              <strong>Convocatoria de p&oacute;steres 2026</strong>
               <span>Congreso ACMI Bucaramanga 2026</span>
             </div>
           </div>
@@ -535,7 +537,7 @@ permalink: /congreso-acmi/
     window.addEventListener('resize',()=>{if(window.innerWidth>1020) cerrarMenu()});
 
     const gruposAnimados = document.querySelectorAll(
-      '.about-grid, .participate-grid, .venue-grid, .poster-invitation, .quick-grid'
+      '.about-grid, .participate-grid, .venue-grid, .poster-invitation'
     );
 
     gruposAnimados.forEach(grupo=>{
@@ -546,7 +548,7 @@ permalink: /congreso-acmi/
       elementos.forEach((elemento,indice)=>{
         elemento.classList.add('reveal');
         elemento.classList.add(indice % 2 === 0 ? 'reveal-left' : 'reveal-right');
-        elemento.style.setProperty('--reveal-delay',`${Math.min(indice,4) * 90}ms`);
+        elemento.style.setProperty('--reveal-delay',`${Math.min(indice,4) * 60}ms`);
       });
     });
 
