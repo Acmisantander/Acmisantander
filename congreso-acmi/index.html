@@ -8,7 +8,7 @@ permalink: /congreso-acmi/
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#071d31">
-  <meta name="description" content="Congreso ACMI Bucaramanga 2026. Medicina interna, ciencia, innovación y humanismo. 30 y 31 de octubre de 2026.">
+  <meta name="description" content="Congreso ACMI Bucaramanga 2026. Medicina interna, ciencia, innovaciÃ³n y humanismo. 30 y 31 de octubre de 2026.">
   <title>Congreso ACMI Bucaramanga 2026</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -130,6 +130,16 @@ permalink: /congreso-acmi/
     .participate-card p{min-height:78px;margin:0 0 20px;color:var(--suave)}
     .text-link{color:var(--verde-2);font-weight:900}
 
+    .poster-featured{border:2px solid rgba(47,177,102,.52);background:linear-gradient(145deg,#fff,#ecfaf4);box-shadow:0 22px 55px rgba(19,168,143,.18)}
+    .poster-featured::before{content:"Convocatoria abierta";display:inline-flex;margin-bottom:16px;padding:7px 11px;border-radius:999px;color:#fff;background:linear-gradient(135deg,var(--verde-2),var(--verde));font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    .poster-featured .text-link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 16px;border-radius:13px;color:#fff;background:linear-gradient(135deg,var(--verde-2),var(--verde));box-shadow:0 12px 28px rgba(19,168,143,.22)}
+
+    .forum-section{background:linear-gradient(180deg,#fff,#edf6f4)}
+    .forum-card{position:relative;overflow:hidden;padding:42px;border-radius:30px;background:#fff;border:1px solid var(--borde);box-shadow:var(--sombra)}
+    .forum-card::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(90deg,var(--verde-2),var(--verde),var(--azul))}
+    .forum-intro{max-width:900px;margin:0 auto 30px;color:var(--suave);font-size:17px;text-align:center}
+    .commentbox{width:100%}
+
     .venue-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:stretch}
     .venue-card{padding:38px;border-radius:28px;color:#fff;background:linear-gradient(145deg,var(--noche),var(--azul));box-shadow:var(--sombra)}
     .venue-card h3{margin:0 0 12px;font-family:'Montserrat',sans-serif;font-size:30px}
@@ -193,6 +203,7 @@ permalink: /congreso-acmi/
       .program-points{grid-template-columns:1fr}
       .participate-grid{grid-template-columns:1fr}
       .participate-card p{min-height:0}
+      .forum-card{padding:28px 18px}
       .map-card{min-height:320px}
       .download-card{grid-template-columns:1fr;text-align:center;padding:26px}
       .download-card .actions{justify-content:center}
@@ -231,21 +242,22 @@ permalink: /congreso-acmi/
         <img class="brand-logo" src="{{ site.baseurl }}/LOGO%20ACMI.png" alt="Logo ACMI Santander">
         <span class="brand-copy">
           <strong>Congreso ACMI 2026</strong>
-          <span>Bucaramanga · Santander</span>
+          <span>Bucaramanga Â· Santander</span>
         </span>
       </a>
 
-      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+      <button class="menu-toggle" type="button" aria-label="Abrir menÃº" aria-expanded="false" aria-controls="menu-principal">
         <span></span><span></span><span></span>
       </button>
 
-      <nav id="menu-principal" aria-label="Navegación principal">
+      <nav id="menu-principal" aria-label="NavegaciÃ³n principal">
         <ul class="nav-list">
           <li><a href="https://acmisantander.com.co/#inicio">Inicio</a></li>
           <li><a href="#congreso">Congreso</a></li>
           <li><a href="#programa">Programa</a></li>
-          <li><a href="#participar">Participar</a></li>
-          <li><a href="#sede">Sede</a></li>
+           <li><a href="#participar">Participar</a></li>
+           <li><a href="#foro-acmi">Foro</a></li>
+           <li><a href="#sede">Sede</a></li>
           <li><a href="#afiche">Afiche</a></li>
         </ul>
       </nav>
@@ -256,17 +268,17 @@ permalink: /congreso-acmi/
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">Medicina interna · Bucaramanga 2026</span>
+          <span class="eyebrow">Medicina interna Â· Bucaramanga 2026</span>
           <h1>Congreso ACMI <span>Bucaramanga</span></h1>
-          <p class="hero-lead">Ciencia, experiencia y humanismo al servicio del paciente. Un encuentro para actualizar conocimientos y fortalecer la conexión académica.</p>
+          <p class="hero-lead">Ciencia, experiencia y humanismo al servicio del paciente. Un encuentro para actualizar conocimientos y fortalecer la conexiÃ³n acadÃ©mica.</p>
           <div class="hero-data">
-            <span>📅 30 y 31 de octubre de 2026</span>
-            <span>📍 Club Campestre de Bucaramanga</span>
+            <span>ðŸ“… 30 y 31 de octubre de 2026</span>
+            <span>ðŸ“ Club Campestre de Bucaramanga</span>
           </div>
           <div class="actions">
-            <a class="btn btn-primary" href="https://stage.peewah.co/congreso-acmi-bucaramanga" target="_blank" rel="noopener">📝 Inscripción al evento</a>
-            <a class="btn btn-outline" href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf" target="_blank" rel="noopener">📄 Programa académico</a>
-            <a class="btn btn-outline" href="{{ site.baseurl }}/congreso-acmi/recepcion-ponencias-posters/">📊 Enviar ponencia o póster</a>
+            <a class="btn btn-primary" href="https://stage.peewah.co/congreso-acmi-bucaramanga" target="_blank" rel="noopener">ðŸ“ InscripciÃ³n al evento</a>
+            <a class="btn btn-outline" href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf" target="_blank" rel="noopener">ðŸ“„ Programa acadÃ©mico</a>
+            <a class="btn btn-primary" href="{{ site.baseurl }}/congreso-acmi/recepcion-ponencias-posters/">ðŸ“Š Enviar pÃ³ster</a>
           </div>
         </div>
 
@@ -276,13 +288,13 @@ permalink: /congreso-acmi/
       </div>
     </section>
 
-    <div class="container quick-nav" aria-label="Accesos rápidos">
+    <div class="container quick-nav" aria-label="Accesos rÃ¡pidos">
       <div class="quick-grid">
-        <a href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf" target="_blank" rel="noopener"><span class="quick-icon">📄</span>Programa</a>
-        <a href="https://stage.peewah.co/congreso-acmi-bucaramanga" target="_blank" rel="noopener"><span class="quick-icon">📝</span>Inscripción</a>
-        <a href="{{ site.baseurl }}/congreso-acmi/recepcion-ponencias-posters/"><span class="quick-icon">📊</span>Enviar trabajos</a>
-        <a href="#sede"><span class="quick-icon">📍</span>Cómo llegar</a>
-        <a href="#afiche"><span class="quick-icon">📥</span>Descargas</a>
+        <a href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf" target="_blank" rel="noopener"><span class="quick-icon">ðŸ“„</span>Programa</a>
+        <a href="https://stage.peewah.co/congreso-acmi-bucaramanga" target="_blank" rel="noopener"><span class="quick-icon">ðŸ“</span>InscripciÃ³n</a>
+        <a href="{{ site.baseurl }}/congreso-acmi/recepcion-ponencias-posters/"><span class="quick-icon">ðŸ“Š</span>Enviar pÃ³ster</a>
+        <a href="#sede"><span class="quick-icon">ðŸ“</span>CÃ³mo llegar</a>
+        <a href="#afiche"><span class="quick-icon">ðŸ“¥</span>Descargas</a>
       </div>
     </div>
 
@@ -291,26 +303,26 @@ permalink: /congreso-acmi/
         <div class="section-heading reveal">
           <span class="section-kicker">Internistas que dejan huella</span>
           <h2 class="section-title">Un congreso para aprender, conectar e inspirar</h2>
-          <p class="section-copy">Dos jornadas dedicadas a la actualización científica, la innovación y el intercambio de experiencias en medicina interna.</p>
+          <p class="section-copy">Dos jornadas dedicadas a la actualizaciÃ³n cientÃ­fica, la innovaciÃ³n y el intercambio de experiencias en medicina interna.</p>
         </div>
 
         <div class="about-grid">
           <article class="glass-card reveal">
-            <h3>Actualización científica</h3>
-            <p>Contenidos clínicos aplicables, discusión académica y una mirada integral al cuidado del paciente adulto.</p>
+            <h3>ActualizaciÃ³n cientÃ­fica</h3>
+            <p>Contenidos clÃ­nicos aplicables, discusiÃ³n acadÃ©mica y una mirada integral al cuidado del paciente adulto.</p>
             <div class="feature-list">
-              <div class="feature"><b>🔬</b><div><strong>Ciencia</strong><small>Evidencia para la práctica cotidiana.</small></div></div>
-              <div class="feature"><b>💡</b><div><strong>Innovación</strong><small>Nuevas perspectivas en medicina interna.</small></div></div>
-              <div class="feature"><b>🤝</b><div><strong>Conexión</strong><small>Encuentro con colegas y líderes académicos.</small></div></div>
+              <div class="feature"><b>ðŸ”¬</b><div><strong>Ciencia</strong><small>Evidencia para la prÃ¡ctica cotidiana.</small></div></div>
+              <div class="feature"><b>ðŸ’¡</b><div><strong>InnovaciÃ³n</strong><small>Nuevas perspectivas en medicina interna.</small></div></div>
+              <div class="feature"><b>ðŸ¤</b><div><strong>ConexiÃ³n</strong><small>Encuentro con colegas y lÃ­deres acadÃ©micos.</small></div></div>
             </div>
           </article>
 
           <article class="glass-card reveal">
-            <h3>Información del evento</h3>
+            <h3>InformaciÃ³n del evento</h3>
             <div class="feature-list">
-              <div class="feature"><b>📅</b><div><strong>Fecha</strong><small>Viernes 30 y sábado 31 de octubre de 2026.</small></div></div>
-              <div class="feature"><b>📍</b><div><strong>Lugar</strong><small>Club Campestre de Bucaramanga, Floridablanca.</small></div></div>
-              <div class="feature"><b>🩺</b><div><strong>Área académica</strong><small>Medicina interna y atención integral del adulto.</small></div></div>
+              <div class="feature"><b>ðŸ“…</b><div><strong>Fecha</strong><small>Viernes 30 y sÃ¡bado 31 de octubre de 2026.</small></div></div>
+              <div class="feature"><b>ðŸ“</b><div><strong>Lugar</strong><small>Club Campestre de Bucaramanga, Floridablanca.</small></div></div>
+              <div class="feature"><b>ðŸ©º</b><div><strong>Ãrea acadÃ©mica</strong><small>Medicina interna y atenciÃ³n integral del adulto.</small></div></div>
             </div>
           </article>
         </div>
@@ -320,25 +332,25 @@ permalink: /congreso-acmi/
     <section class="section section-alt" id="programa">
       <div class="container">
         <div class="section-heading reveal">
-          <span class="section-kicker">Agenda académica</span>
+          <span class="section-kicker">Agenda acadÃ©mica</span>
           <h2 class="section-title">Programa del Congreso</h2>
-          <p class="section-copy">Consulte la programación completa y manténgala disponible en su dispositivo.</p>
+          <p class="section-copy">Consulte la programaciÃ³n completa y mantÃ©ngala disponible en su dispositivo.</p>
         </div>
 
         <article class="program-card reveal">
           <div class="program-visual" role="img" aria-label="Imagen del Congreso ACMI Bucaramanga"></div>
           <div class="program-copy">
-            <h3>Dos días de medicina interna</h3>
-            <p>Una agenda orientada a compartir conocimiento actualizado, experiencias clínicas y herramientas útiles para la atención del paciente.</p>
+            <h3>Dos dÃ­as de medicina interna</h3>
+            <p>Una agenda orientada a compartir conocimiento actualizado, experiencias clÃ­nicas y herramientas Ãºtiles para la atenciÃ³n del paciente.</p>
             <div class="program-points">
-              <span>📅 Jornada del 30 de octubre</span>
-              <span>📅 Jornada del 31 de octubre</span>
-              <span>🎤 Conferencias académicas</span>
-              <span>🤝 Espacios de conexión</span>
+              <span>ðŸ“… Jornada del 30 de octubre</span>
+              <span>ðŸ“… Jornada del 31 de octubre</span>
+              <span>ðŸŽ¤ Conferencias acadÃ©micas</span>
+              <span>ðŸ¤ Espacios de conexiÃ³n</span>
             </div>
             <div class="actions">
-              <a class="btn btn-primary" href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf" target="_blank" rel="noopener">📄 Ver programa</a>
-              <a class="btn btn-light" href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf" download="Programa-Academico-Congreso-ACMI-2026.pdf">📥 Descargar programa</a>
+              <a class="btn btn-primary" href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf" target="_blank" rel="noopener">ðŸ“„ Ver programa</a>
+              <a class="btn btn-light" href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf" download="Programa-Academico-Congreso-ACMI-2026.pdf">ðŸ“¥ Descargar programa</a>
             </div>
           </div>
         </article>
@@ -350,27 +362,27 @@ permalink: /congreso-acmi/
         <div class="section-heading reveal">
           <span class="section-kicker">Participe</span>
           <h2 class="section-title">Sea parte del Congreso ACMI</h2>
-          <p class="section-copy">Acceda a las opciones principales del evento. Los enlaces se abren en una pestaña nueva.</p>
+          <p class="section-copy">Acceda a las opciones principales del evento. Los enlaces se abren en una pestaÃ±a nueva.</p>
         </div>
 
         <div class="participate-grid">
           <article class="participate-card reveal">
-            <div class="icon">📝</div>
-            <h3>Inscripción</h3>
-            <p>Complete su registro en línea para participar en el congreso.</p>
-            <a class="text-link" href="https://stage.peewah.co/congreso-acmi-bucaramanga" target="_blank" rel="noopener">Ir a inscripción →</a>
+            <div class="icon">ðŸ“</div>
+            <h3>InscripciÃ³n</h3>
+            <p>Complete su registro en lÃ­nea para participar en el congreso.</p>
+            <a class="text-link" href="https://stage.peewah.co/congreso-acmi-bucaramanga" target="_blank" rel="noopener">Ir a inscripciÃ³n â†’</a>
+          </article>
+          <article class="participate-card poster-featured reveal">
+            <div class="icon">ðŸ“Š</div>
+            <h3>EnvÃ­e su pÃ³ster cientÃ­fico</h3>
+            <p>Presente su trabajo acadÃ©mico. Los pÃ³steres serÃ¡n sometidos a revisiÃ³n por el comitÃ© del Congreso y la aceptaciÃ³n se notificarÃ¡ por correo electrÃ³nico.</p>
+            <a class="text-link" href="{{ site.baseurl }}/congreso-acmi/recepcion-ponencias-posters/">Enviar pÃ³ster ahora â†’</a>
           </article>
           <article class="participate-card reveal">
-            <div class="icon">📊</div>
-            <h3>Ponencias y pósteres</h3>
-            <p>Envíe su trabajo académico y adjunte el archivo para revisión por el comité del Congreso.</p>
-            <a class="text-link" href="{{ site.baseurl }}/congreso-acmi/recepcion-ponencias-posters/">Abrir recepción de trabajos →</a>
-          </article>
-          <article class="participate-card reveal">
-            <div class="icon">📣</div>
+            <div class="icon">ðŸ“£</div>
             <h3>Novedades</h3>
-            <p>Siga las actualizaciones, anuncios e información oficial del evento.</p>
-            <a class="text-link" href="https://www.instagram.com/acmi_santander/" target="_blank" rel="noopener">Seguir @acmi_santander →</a>
+            <p>Siga las actualizaciones, anuncios e informaciÃ³n oficial del evento.</p>
+            <a class="text-link" href="https://www.instagram.com/acmi_santander/" target="_blank" rel="noopener">Seguir @acmi_santander â†’</a>
           </article>
         </div>
       </div>
@@ -381,15 +393,15 @@ permalink: /congreso-acmi/
         <div class="section-heading reveal">
           <span class="section-kicker">Sede del evento</span>
           <h2 class="section-title">Club Campestre de Bucaramanga</h2>
-          <p class="section-copy">Ubicación confirmada en Floridablanca, área metropolitana de Bucaramanga.</p>
+          <p class="section-copy">UbicaciÃ³n confirmada en Floridablanca, Ã¡rea metropolitana de Bucaramanga.</p>
         </div>
 
         <div class="venue-grid">
           <article class="venue-card reveal">
-            <h3>Cómo llegar</h3>
-            <p>Abra la ruta desde su ubicación actual directamente en Google Maps.</p>
-            <div class="venue-address"><span>📍</span><div><strong>Club Campestre de Bucaramanga</strong><small>Cra. 21 #30-02, Floridablanca, Santander</small></div></div>
-            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=Club+Campestre+de+Bucaramanga%2C+Cra.+21+%2330-02%2C+Floridablanca%2C+Santander" target="_blank" rel="noopener">🧭 Iniciar ruta con Google Maps</a>
+            <h3>CÃ³mo llegar</h3>
+            <p>Abra la ruta desde su ubicaciÃ³n actual directamente en Google Maps.</p>
+            <div class="venue-address"><span>ðŸ“</span><div><strong>Club Campestre de Bucaramanga</strong><small>Cra. 21 #30-02, Floridablanca, Santander</small></div></div>
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=Club+Campestre+de+Bucaramanga%2C+Cra.+21+%2330-02%2C+Floridablanca%2C+Santander" target="_blank" rel="noopener">ðŸ§­ Iniciar ruta con Google Maps</a>
           </article>
 
           <iframe class="map-card reveal" title="Mapa del Club Campestre de Bucaramanga" src="https://www.google.com/maps?q=Club%20Campestre%20de%20Bucaramanga%2C%20Cra.%2021%20%2330-02%2C%20Floridablanca%2C%20Santander&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
@@ -403,12 +415,27 @@ permalink: /congreso-acmi/
           <div>
             <span class="section-kicker">Material oficial</span>
             <h3>Afiche del Congreso ACMI Bucaramanga 2026</h3>
-            <p>Puede visualizarlo en tamaño completo o descargarlo para compartirlo.</p>
+            <p>Puede visualizarlo en tamaÃ±o completo o descargarlo para compartirlo.</p>
           </div>
           <div class="actions">
-            <a class="btn btn-light" href="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg" target="_blank" rel="noopener">👁️ Ver afiche</a>
-            <a class="btn btn-primary" href="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg" download="Afiche-Congreso-ACMI-Bucaramanga-2026.jpg">📥 Descargar afiche</a>
+            <a class="btn btn-light" href="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg" target="_blank" rel="noopener">ðŸ‘ï¸ Ver afiche</a>
+            <a class="btn btn-primary" href="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg" download="Afiche-Congreso-ACMI-Bucaramanga-2026.jpg">ðŸ“¥ Descargar afiche</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section forum-section" id="foro-acmi">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Comunidad acadÃ©mica</span>
+          <h2 class="section-title">Foro del Congreso ACMI</h2>
+          <p class="section-copy">Un espacio para preguntas, comentarios y conversaciÃ³n acadÃ©mica alrededor del Congreso ACMI Bucaramanga 2026.</p>
+        </div>
+
+        <div class="forum-card reveal">
+          <p class="forum-intro">Participe con inquietudes sobre el evento, el programa acadÃ©mico, el envÃ­o de pÃ³steres y otros temas de interÃ©s para nuestra comunidad mÃ©dica.</p>
+          <div class="commentbox"></div>
         </div>
       </div>
     </section>
@@ -423,7 +450,8 @@ permalink: /congreso-acmi/
       <div class="footer-links">
         <a href="https://acmi.org.co/" target="_blank" rel="noopener">ACMI Nacional</a>
         <a href="https://www.instagram.com/acmi_santander/" target="_blank" rel="noopener">Instagram</a>
-        <a href="#inicio">Volver arriba ↑</a>
+        <a href="#foro-acmi">Foro</a>
+        <a href="#inicio">Volver arriba â†‘</a>
       </div>
     </div>
   </footer>
@@ -459,6 +487,10 @@ permalink: /congreso-acmi/
     },{threshold:.12});
 
     document.querySelectorAll('.reveal').forEach(elemento=>observer.observe(elemento));
+  </script>
+  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+  <script>
+    commentBox('5658907703771136-proj');
   </script>
 </body>
 </html>
