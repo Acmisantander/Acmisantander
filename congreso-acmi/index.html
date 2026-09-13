@@ -64,7 +64,7 @@ permalink: /congreso-acmi/
     .menu-toggle.activo span:nth-child(2){opacity:0}
     .menu-toggle.activo span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-    .hero{position:relative;isolation:isolate;min-height:calc(100svh - 120px);display:flex;align-items:center;color:#fff;overflow:hidden;background:linear-gradient(120deg,rgba(5,24,41,.98) 0%,rgba(10,47,76,.95) 48%,rgba(8,91,88,.84) 100%)}
+    .hero{position:relative;isolation:isolate;min-height:620px;display:flex;align-items:center;color:#fff;overflow:hidden;background:linear-gradient(120deg,rgba(5,24,41,.98) 0%,rgba(10,47,76,.95) 48%,rgba(8,91,88,.84) 100%)}
     .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(circle at 78% 20%,rgba(28,206,178,.28),transparent 26%),radial-gradient(circle at 12% 82%,rgba(47,177,102,.20),transparent 30%)}
     .hero::after{content:"";position:absolute;inset:-40%;z-index:-1;background:repeating-linear-gradient(115deg,transparent 0 44px,rgba(255,255,255,.025) 45px 46px);animation:heroMove 18s linear infinite}
     @keyframes heroMove{to{transform:translate3d(80px,40px,0)}}
@@ -90,22 +90,14 @@ permalink: /congreso-acmi/
     .poster{width:100%;max-height:680px;object-fit:contain;border:12px solid rgba(255,255,255,.08);border-radius:28px;box-shadow:0 35px 90px rgba(0,0,0,.38)}
     @keyframes posterFloat{50%{transform:translateY(-10px) rotate(.35deg)}}
 
-    .quick-nav{position:relative;z-index:4;margin-top:-30px}
-    .quick-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;padding:16px;background:rgba(255,255,255,.86);border:1px solid rgba(255,255,255,.6);border-radius:24px;box-shadow:var(--sombra);backdrop-filter:blur(18px)}
+    .quick-nav{position:relative;z-index:4;margin-top:28px}
+    .quick-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:14px;background:#fff;border:1px solid var(--borde);border-radius:22px;box-shadow:0 16px 42px rgba(7,29,49,.10)}
     .quick-grid a{display:flex;align-items:center;gap:12px;padding:15px;border-radius:17px;color:var(--azul);font-weight:900;background:#fff;border:1px solid var(--borde);transition:var(--transicion)}
     .quick-grid a:hover{transform:translateY(-4px);color:var(--verde-2);box-shadow:0 14px 30px rgba(7,29,49,.10)}
     .quick-icon{display:grid;place-items:center;flex:0 0 38px;height:38px;border-radius:12px;background:#eaf6f1}
-    .quick-grid .quick-poster{color:#fff;background:linear-gradient(135deg,var(--verde-2),var(--verde));border-color:transparent;box-shadow:0 14px 34px rgba(19,168,143,.28)}
+    .quick-grid .quick-poster{color:#fff;background:linear-gradient(135deg,var(--verde-2),var(--verde));border-color:transparent;box-shadow:0 12px 28px rgba(19,168,143,.22)}
     .quick-grid .quick-poster:hover{color:#fff;box-shadow:0 20px 42px rgba(19,168,143,.38)}
     .quick-grid .quick-poster .quick-icon{color:var(--azul);background:#fff}
-
-    .poster-callout{position:relative;z-index:6;margin-top:-18px}
-    .poster-callout-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:22px;padding:25px 28px;border:2px solid rgba(255,255,255,.58);border-radius:24px;color:#fff;background:linear-gradient(115deg,#c89123 0%,#e3ad36 25%,#13a88f 75%,#0b7d70 100%);box-shadow:0 24px 60px rgba(7,29,49,.24)}
-    .poster-callout-icon{display:grid;place-items:center;width:64px;height:64px;border-radius:19px;color:var(--azul);background:#fff;font-size:30px;box-shadow:0 12px 30px rgba(7,29,49,.16)}
-    .poster-callout small{display:block;margin-bottom:3px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-    .poster-callout strong{display:block;font-family:'Montserrat',sans-serif;font-size:clamp(22px,3vw,34px);line-height:1.08}
-    .poster-callout p{margin:7px 0 0;color:#f4fffc;font-weight:600}
-    .poster-callout .btn{min-width:220px;color:var(--azul);background:#fff;box-shadow:0 14px 32px rgba(7,29,49,.20)}
 
     .section{padding:94px 0}
     .section-alt{background:#fff}
@@ -204,11 +196,7 @@ permalink: /congreso-acmi/
       .hero-data,.actions{justify-content:center}
       .poster-wrap{width:min(310px,88%)}
       .poster{border-width:8px;border-radius:22px}
-      .quick-nav{margin-top:-24px}
-      .poster-callout{margin-top:-14px}
-      .poster-callout-inner{grid-template-columns:1fr;text-align:center;padding:24px 18px}
-      .poster-callout-icon{margin-inline:auto}
-      .poster-callout .btn{width:100%;min-width:0}
+      .quick-nav{margin-top:18px}
       .quick-grid{grid-template-columns:1fr 1fr;gap:8px;padding:9px;border-radius:20px}
       .quick-grid a{justify-content:center;flex-direction:column;text-align:center;gap:7px;padding:12px 7px;font-size:12px}
       .section{padding:70px 0}
@@ -305,20 +293,6 @@ permalink: /congreso-acmi/
       </div>
     </section>
 
-    <aside class="poster-callout" aria-label="Convocatoria para env&iacute;o de p&oacute;steres">
-      <div class="container">
-        <div class="poster-callout-inner">
-          <div class="poster-callout-icon" aria-hidden="true">&#128202;</div>
-          <div>
-            <small>Convocatoria abierta</small>
-            <strong>Env&iacute;e su p&oacute;ster cient&iacute;fico al Congreso ACMI 2026</strong>
-            <p>Comparta su investigaci&oacute;n con la comunidad acad&eacute;mica. Los trabajos ser&aacute;n evaluados por el comit&eacute; del Congreso.</p>
-          </div>
-          <a class="btn" href="{{ site.baseurl }}/congreso-acmi/recepcion-ponencias-posters/">Enviar p&oacute;ster ahora &rarr;</a>
-        </div>
-      </div>
-    </aside>
-
     <div class="container quick-nav" aria-label="Accesos r&aacute;pidos">
       <div class="quick-grid">
         <a href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf" target="_blank" rel="noopener"><span class="quick-icon">&#128196;</span>Programa</a>
@@ -398,19 +372,19 @@ permalink: /congreso-acmi/
 
         <div class="participate-grid">
           <article class="participate-card reveal">
-            <div class="icon"></div>
+            <div class="icon" aria-hidden="true">&#128221;</div>
             <h3>Inscripci&oacute;n</h3>
             <p>Complete su registro en l&iacute;nea para participar en el congreso.</p>
             <a class="text-link" href="https://stage.peewah.co/congreso-acmi-bucaramanga" target="_blank" rel="noopener">Ir a inscripci&oacute;n &rarr;</a>
           </article>
           <article class="participate-card poster-featured reveal">
-            <div class="icon"></div>
+            <div class="icon" aria-hidden="true">&#128202;</div>
             <h3>Env&iacute;e su p&oacute;ster cient&iacute;fico</h3>
             <p>Presente su trabajo acad&eacute;mico. Los p&oacute;steres ser&aacute;n sometidos a revisi&oacute;n por el comit&eacute; del Congreso y la aceptaci&oacute;n se notificar&aacute; por correo electr&oacute;nico.</p>
             <a class="text-link" href="{{ site.baseurl }}/congreso-acmi/recepcion-ponencias-posters/">Enviar p&oacute;ster ahora &rarr;</a>
           </article>
           <article class="participate-card reveal">
-            <div class="icon"></div>
+            <div class="icon" aria-hidden="true">&#128227;</div>
             <h3>Novedades</h3>
             <p>Siga las actualizaciones, anuncios e informaci&oacute;n oficial del evento.</p>
             <a class="text-link" href="https://www.instagram.com/acmi_santander/" target="_blank" rel="noopener">Seguir @acmi_santander &rarr;</a>
@@ -431,7 +405,7 @@ permalink: /congreso-acmi/
           <article class="venue-card reveal">
             <h3>C&oacute;mo llegar</h3>
             <p>Abra la ruta desde su ubicaci&oacute;n actual directamente en Google Maps.</p>
-            <div class="venue-address"><span></span><div><strong>Club Campestre de Bucaramanga</strong><small>Cra. 21 #30-02, Floridablanca, Santander</small></div></div>
+            <div class="venue-address"><span aria-hidden="true">&#128205;</span><div><strong>Club Campestre de Bucaramanga</strong><small>Cra. 21 #30-02, Floridablanca, Santander</small></div></div>
             <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=Club+Campestre+de+Bucaramanga%2C+Cra.+21+%2330-02%2C+Floridablanca%2C+Santander" target="_blank" rel="noopener"> Iniciar ruta con Google Maps</a>
           </article>
 
