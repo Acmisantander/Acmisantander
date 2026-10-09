@@ -5,3 +5,8 @@ baseurl: ""
 url: "https://acmisantander.com.co"
 
 permalink: /:categories/:title/
+
+collections:
+  publicaciones:
+    output: true
+    permalink: /publicaciones/:name/
