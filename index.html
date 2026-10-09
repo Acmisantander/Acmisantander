@@ -8,8 +8,11 @@
 
   <title>ACMI Santander</title>
 
+  <meta name="description" content="ACMI Santander: educación médica continuada, eventos científicos, publicaciones y fortalecimiento de la medicina interna en Santander." />
+  <meta name="theme-color" content="#0f3569" />
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -2534,6 +2537,310 @@
       0%,100%{transform:translateY(0)}
       50%{transform:translateY(-6px)}
     }
+
+    /* ==========================================================
+       DISEÑO HÍBRIDO ACMI 2026
+       Amplitud institucional + portal científico editorial
+       ========================================================== */
+
+    :root{
+      --ancho:1720px;
+      --ancho-lectura:1280px;
+      --borde-ui:1px solid rgba(20,63,125,.10);
+      --fondo-claro:#f5f8fc;
+    }
+
+    body{
+      background:#fff;
+      font-size:16px;
+    }
+
+    h1,h2,h3,h4,
+    .brand-text h1,
+    .section-title,
+    .evento-card-header h3{
+      font-family:'Poppins',sans-serif;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--ancho);
+      padding-inline:clamp(22px,4vw,74px);
+    }
+
+    .topbar{
+      padding:8px 0;
+      background:linear-gradient(90deg,#061d39,#0f3569 58%,#174a88);
+    }
+
+    header{
+      background:rgba(255,255,255,.96);
+      border-top:4px solid var(--azul-acmi);
+      border-bottom:var(--borde-ui);
+      box-shadow:0 10px 30px rgba(8,40,79,.07);
+    }
+
+    .main-header{
+      min-height:94px;
+      gap:clamp(18px,3vw,50px);
+    }
+
+    .brand{
+      min-width:310px;
+    }
+
+    .brand-logo{
+      width:68px;
+      height:68px;
+      box-shadow:0 10px 24px rgba(8,40,79,.11);
+    }
+
+    .brand-text h1{
+      font-size:clamp(24px,2vw,31px);
+      letter-spacing:-.045em;
+    }
+
+    nav ul{gap:4px}
+    nav a{padding:10px 11px;font-size:14px}
+
+    nav a:focus-visible,
+    .btn:focus-visible,
+    .portal-card:focus-visible,
+    .topbar a:focus-visible{
+      outline:3px solid rgba(42,156,82,.42);
+      outline-offset:3px;
+    }
+
+    .hero{
+      min-height:clamp(570px,68vh,760px);
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(circle at 83% 18%,rgba(126,212,154,.34),transparent 28%),
+        radial-gradient(circle at 12% 86%,rgba(255,255,255,.14),transparent 27%),
+        linear-gradient(118deg,#08284f 0%,#174a88 52%,#4ba67c 100%);
+    }
+
+    .hero-content{
+      width:min(1380px,calc(100% - 44px));
+      padding:clamp(88px,10vh,130px) 0;
+    }
+
+    .hero h2{
+      max-width:1120px;
+      margin-inline:auto;
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(50px,6vw,88px);
+      line-height:.98;
+      letter-spacing:-.065em;
+    }
+
+    .hero p{
+      max-width:1120px;
+      font-size:clamp(19px,1.65vw,25px);
+      line-height:1.62;
+    }
+
+    .hero-actions .btn{
+      min-height:54px;
+      padding:14px 23px;
+      border-radius:14px;
+    }
+
+    /* Portal visual: contenido principal + accesos editoriales */
+
+    .portal-destacado{
+      position:relative;
+      z-index:4;
+      margin-top:-54px;
+      padding-bottom:30px;
+    }
+
+    .portal-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.55fr) minmax(360px,.85fr);
+      gap:20px;
+    }
+
+    .portal-card{
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      color:inherit;
+      background:#fff;
+      border:var(--borde-ui);
+      border-radius:26px;
+      box-shadow:0 22px 58px rgba(8,40,79,.16);
+      transition:transform .28s ease,box-shadow .28s ease;
+    }
+
+    .portal-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 30px 66px rgba(8,40,79,.21);
+    }
+
+    .portal-card-principal{
+      min-height:440px;
+      align-items:flex-end;
+      background:
+        linear-gradient(90deg,rgba(5,28,56,.94) 0%,rgba(8,40,79,.76) 50%,rgba(8,40,79,.10) 100%),
+        url('{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg') center 43% / cover no-repeat;
+      color:#fff;
+    }
+
+    .portal-card-principal .portal-copy{
+      max-width:760px;
+      padding:clamp(30px,4vw,58px);
+    }
+
+    .portal-eyebrow{
+      display:inline-flex;
+      padding:8px 13px;
+      margin-bottom:17px;
+      border-radius:999px;
+      background:var(--verde-acmi);
+      color:#fff;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .portal-copy h2{
+      margin:0 0 12px;
+      font-size:clamp(30px,3.2vw,52px);
+      line-height:1.03;
+      letter-spacing:-.05em;
+    }
+
+    .portal-copy p{
+      max-width:690px;
+      margin:0 0 22px;
+      color:rgba(255,255,255,.9);
+      font-size:17px;
+      line-height:1.6;
+    }
+
+    .portal-cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:12px;
+      background:#fff;
+      color:var(--azul-acmi);
+      font-weight:900;
+    }
+
+    .portal-secundarios{
+      display:grid;
+      grid-template-rows:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .portal-card-secundaria{
+      min-height:132px;
+      align-items:center;
+      justify-content:space-between;
+      padding:22px 24px;
+    }
+
+    .portal-card-secundaria::after{
+      content:'→';
+      flex:0 0 42px;
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      margin-left:18px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--verde-acmi),#35b862);
+      color:#fff;
+      font-size:21px;
+      font-weight:900;
+    }
+
+    .portal-card-secundaria h3{
+      margin-bottom:5px;
+      color:var(--azul-acmi);
+      font-size:clamp(18px,1.4vw,23px);
+      line-height:1.2;
+    }
+
+    .portal-card-secundaria p{
+      color:var(--texto-suave);
+      font-size:14px;
+      line-height:1.45;
+    }
+
+    .section{
+      padding:clamp(80px,8vw,120px) 0;
+    }
+
+    #quienes,#eventos,#patrocinios,#contacto{background:var(--fondo-claro)}
+    #organigrama,#ultimas-publicaciones,#foro{background:#fff}
+
+    .section-title{
+      font-size:clamp(38px,4.3vw,66px);
+      line-height:1.02;
+      letter-spacing:-.055em;
+    }
+
+    .section-subtitle{
+      max-width:1080px;
+      font-size:clamp(17px,1.5vw,21px);
+    }
+
+    .card,.mini-card,.org-card,.evento-card-grande,.patrocinador-card{
+      border:var(--borde-ui);
+      box-shadow:0 16px 42px rgba(8,40,79,.09);
+    }
+
+    .card:hover,.mini-card:hover,.org-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 24px 54px rgba(8,40,79,.14);
+    }
+
+    .about-block,.cards-grid{max-width:1280px}
+    .org-grid,.evento-card-grande{max-width:1480px}
+    .evento-card-grande{border-radius:30px}
+
+    .patrocinador-card{
+      width:min(100%,1180px);
+      padding:clamp(16px,2.4vw,34px);
+    }
+
+    .patrocinador-card img{
+      width:100%;
+      height:auto;
+      max-height:none;
+      object-fit:contain;
+      border-radius:16px;
+    }
+
+    @media(max-width:1180px){
+      .brand{min-width:260px}
+      .portal-grid{grid-template-columns:1fr}
+      .portal-secundarios{grid-template-columns:repeat(3,1fr);grid-template-rows:auto}
+      .portal-card-secundaria{min-height:150px}
+    }
+
+    @media(max-width:768px){
+      :root{--ancho:100%;--ancho-lectura:100%}
+      .container{padding-inline:16px}
+      header{border-top-width:3px}
+      .hero{min-height:auto}
+      .hero-content{width:100%;padding:72px 18px 106px}
+      .hero h2{font-size:clamp(42px,12.5vw,60px)}
+      .hero p{font-size:17px}
+      .portal-destacado{margin-top:-60px}
+      .portal-card-principal{min-height:480px;background-position:center top}
+      .portal-card-principal .portal-copy{padding:28px 22px}
+      .portal-secundarios{grid-template-columns:1fr}
+      .portal-card-secundaria{min-height:104px;padding:18px}
+      .section{padding:70px 0}
+      .section-title{font-size:clamp(36px,11vw,50px)}
+    }
   </style>
 </head>
 
@@ -2637,6 +2944,8 @@
     </div>
   </header>
 
+  <main>
+
   <section class="hero" id="inicio">
     <div class="hero-content">
       <div class="hero-badge">ACMI Santander</div>
@@ -2653,6 +2962,42 @@
         <a class="btn btn-primary" href="#quienes">Conocer más</a>
         <a class="btn btn-light" href="#eventos">Ver eventos</a>
         <a class="btn btn-light" href="#foro">Foro ACMI</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="portal-destacado" aria-label="Contenidos destacados">
+    <div class="container portal-grid">
+      <a class="portal-card portal-card-principal" href="{{ site.baseurl }}/congreso-acmi/#inicio">
+        <div class="portal-copy">
+          <span class="portal-eyebrow">Evento destacado</span>
+          <h2>Congreso ACMI Bucaramanga 2026</h2>
+          <p>30 y 31 de octubre en el Club Campestre de Bucaramanga. Ciencia, innovación y humanismo bajo el lema «Internistas que dejan huella».</p>
+          <span class="portal-cta">Conocer el congreso <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
+
+      <div class="portal-secundarios">
+        <a class="portal-card portal-card-secundaria" href="{{ site.baseurl }}/educacion-medica-continuada/">
+          <div>
+            <h3>Educación médica</h3>
+            <p>Actualización científica para la práctica clínica.</p>
+          </div>
+        </a>
+
+        <a class="portal-card portal-card-secundaria" href="{{ site.baseurl }}/magazine/">
+          <div>
+            <h3>Magazine ACMI</h3>
+            <p>Artículos, análisis y producción académica.</p>
+          </div>
+        </a>
+
+        <a class="portal-card portal-card-secundaria" href="{{ site.baseurl }}/repositorio-eventos/">
+          <div>
+            <h3>Repositorio de eventos</h3>
+            <p>Memorias, certificados, fotografías y presentaciones.</p>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -3166,6 +3511,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <footer>
     <p>© 2026 ACMI Santander</p>
