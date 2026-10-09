@@ -487,13 +487,25 @@ layout: default
 
     <div class="post-hero-content">
 
-      {% if page.categories contains "magazine" %}
+      {% if page.subcategory == "articulo-academico" %}
+      <span class="post-badge">
+        ArtÃ­culo acadÃ©mico
+      </span>
+      {% elsif page.subcategory == "noticias" %}
+      <span class="post-badge">
+        Noticias ACMI
+      </span>
+      {% elsif page.subcategory == "opinion" %}
+      <span class="post-badge">
+        OpiniÃ³n ACMI
+      </span>
+      {% elsif page.categories contains "magazine" %}
       <span class="post-badge">
         Magazine ACMI Santander
       </span>
       {% elsif page.categories contains "educacion" %}
       <span class="post-badge">
-        Educación médica continuada
+        EducaciÃ³n mÃ©dica continuada
       </span>
       {% else %}
       <span class="post-badge">
@@ -508,8 +520,12 @@ layout: default
       <p class="post-meta">
         <span>{{ page.date | date: "%d/%m/%Y" }}</span>
         {% if page.author %}
-        <span>·</span>
+        <span>Â·</span>
         <span>{{ page.author }}</span>
+        {% endif %}
+        {% if page.affiliation %}
+        <span>Â·</span>
+        <span>{{ page.affiliation }}</span>
         {% endif %}
       </p>
 
@@ -538,15 +554,15 @@ layout: default
           <div class="post-discussion-card">
 
             <span class="post-discussion-kicker">
-              Comunidad académica
+              Comunidad acadÃ©mica
             </span>
 
             <h3>
-              Discusión académica del artículo
+              DiscusiÃ³n acadÃ©mica del artÃ­culo
             </h3>
 
             <p>
-              Comparta preguntas, comentarios, aportes o reflexiones relacionadas con este artículo.
+              Comparta preguntas, comentarios, aportes o reflexiones relacionadas con este artÃ­culo.
             </p>
 
             <div class="commentbox"></div>
@@ -573,7 +589,7 @@ layout: default
           {% elsif page.categories contains "educacion" %}
 
           <a class="post-btn post-btn-primary" href="{{ site.baseurl }}/educacion-medica-continuada/">
-            Volver a Educación médica
+            Volver a EducaciÃ³n mÃ©dica
           </a>
 
           {% else %}
