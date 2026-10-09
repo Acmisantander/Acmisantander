@@ -8,6 +8,8 @@ categories: magazine
 subcategory: opinion
 permalink: /magazine/inteligencia-artificial-internista/
 excerpt: "Guía práctica de herramientas de inteligencia artificial disponibles en Colombia, con su evidencia, costo y límites para la práctica clínica."
+---
+
 <style>
 
 /* 
@@ -476,6 +478,8 @@ excerpt: "Guía práctica de herramientas de inteligencia artificial disponibles
   }
 
 }
+
+</style>
 
 <div class="emotional-book">
 <div class="emotional-label">
