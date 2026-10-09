@@ -905,7 +905,7 @@ permalink: /magazine/
         </p>
       </div>
 
-      {% assign noticias = site.categories.magazine | where: "subcategory","noticias" %}
+      {% assign noticias = site.publicaciones | where: "subcategory","noticias" | sort: "date" | reverse %}
 
       {% if noticias.size > 0 %}
 
@@ -982,7 +982,7 @@ permalink: /magazine/
         </p>
       </div>
 
-      {% assign articulos_academicos = site.categories.magazine | where: "subcategory","articulo-academico" %}
+      {% assign articulos_academicos = site.publicaciones | where: "subcategory","articulo-academico" | sort: "date" | reverse %}
 
       {% if articulos_academicos.size > 0 %}
 
@@ -1068,7 +1068,7 @@ permalink: /magazine/
         </p>
       </div>
 
-      {% assign opiniones = site.categories.magazine | where: "subcategory","opinion" %}
+      {% assign opiniones = site.publicaciones | where: "subcategory","opinion" | sort: "date" | reverse %}
 
       {% if opiniones.size > 0 %}
 
