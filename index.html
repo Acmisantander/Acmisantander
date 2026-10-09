@@ -3471,18 +3471,18 @@
 
       <div class="dropdown-menu">
   <div class="submenu">
-    <a href="{{ sitio.baseurl }}/#eventos">
+    <a href="{{ site.baseurl }}/#eventos">
       Próximos eventos â–¸
     </a>
 
     <div class="submenu-menu">
-      <a href="{{ sitio.baseurl }}/congreso-acmi/#inicio">
+      <a href="{{ site.baseurl }}/congreso-acmi/#inicio">
         Congreso ACMI Santander
       </a>
     </div>
   </div>
               <div class="submenu">
-                <a href="{{ sitio.baseurl }}/repositorio-eventos/">
+                <a href="{{ site.baseurl }}/repositorio-eventos/">
                   Repositorio de eventos â–¸
                 </a>
 
@@ -3830,7 +3830,7 @@
 
       <div class="repositorio-home-actions">
         <a class="btn btn-primary"
-           href="{{ sitio.baseurl }}/repositorio-eventos/">
+           href="{{ site.baseurl }}/repositorio-eventos/">
           Abrir repositorio
         </a>
 
@@ -3916,9 +3916,9 @@
   </div>
 </section>
 
-{% asignar articulo_academico = site.categories.magazine | donde: "subcategoría","artículo-academico" | primero %}
+{% assign articulo_academico = site.categories.magazine | where: "subcategory","articulo-academico" | first %}
 {% assign noticia = site.categories.magazine | where: "subcategory","noticias" | first %}
-{% asignar opinión = sitio.categorías.revista | donde: "subcategoría","opinión" | primero %}
+{% assign opinion = site.categories.magazine | where: "subcategory","opinion" | first %}
 
 <section class="contenido-revista independiente-revelación independiente" id="revista-destacado">
   <div class="container">
@@ -3932,8 +3932,8 @@
 
       <artículo
         class="publicacion-destacada-tarjeta publicacion-articulo"
-        {% si articulo_academico y articulo_academico.cover %}
-        style="background-image:url('{{ site.baseurl }}{{ article_académico.cover }}');"
+        {% if articulo_academico and articulo_academico.cover %}
+        style="background-image:url('{{ site.baseurl }}{{ articulo_academico.cover }}');"
         {% endif %}>
 
         <div class="publicacion-destacada-copia">
@@ -3946,9 +3946,9 @@
           </h3>
 
           <p>
-            {% if article_académico %}
-              {{ artículo_academico.extracto | tira_html | truncar: 180 }}
-            {% demás %}
+            {% if articulo_academico %}
+              {{ articulo_academico.excerpt | strip_html | truncate: 180 }}
+            {% else %}
               Investigación, revisiones, casos clínicos y educación médica basada en la evidencia.
             {% endif %}
           </p>
@@ -3965,13 +3965,13 @@
 
         <article class="publicacion-destacada-card publicacion-editorial-card">
           <span class="publicacion-badge publicacion-badge-azul">Noticias</span>
-          {% if noticia y noticia.cover %}
+          {% if noticia and noticia.cover %}
             <img src="{{ site.baseurl }}{{ noticia.cover }}" alt="{{ noticia.title }}" class="publicacion-mini-cover">
-          {% demás %}
+          {% else %}
             <div class="publicacion-cover-placeholder" aria-hidden="true">N</div>
           {% endif %}
           <h3>{% if noticia %}{{ noticia.title }}{% else %}Noticias ACMI{% endif %}</h3>
-          <p>{% si noticia %}{{ noticia.extracto | tira_html | truncate: 105 }}{% else %}Actualidad científica e institucional de ACMI Santander.{% endif %}</p>
+          <p>{% if noticia %}{{ noticia.excerpt | strip_html | truncate: 105 }}{% else %}Actualidad científica e institucional de ACMI Santander.{% endif %}</p>
           <a class="btn btn-light" href="{% if noticia %}{{ site.baseurl }}{{ noticia.url }}{% else %}{{ site.baseurl }}/magazine/#noticias{% endif %}">
             Ver noticias <span aria-hidden="true">â†'</span>
           </a>
@@ -3979,13 +3979,13 @@
 
         <article class="publicacion-destacada-card publicacion-editorial-card publicacion-opinion">
           <span class="publicacion-badge publicacion-badge-azul">Opinión</span>
-          {% si la opinión y la opinión cubren %}
+          {% if opinion and opinion.cover %}
             <img src="{{ site.baseurl }}{{ opinion.cover }}" alt="{{ opinion.title }}" class="publicacion-mini-cover">
-          {% demás %}
+          {% else %}
             <div class="publicacion-cover-placeholder" aria-hidden="true">O</div>
           {% endif %}
           <h3>{% if opinion %}{{ opinion.title }}{% else %}Opinión médica{% endif %}</h3>
-          <p>{% si opinión %}{{ opinión.excerpt | tira_html | truncate: 105 }}{% else %}Análisis, reflexión y pensamiento clínico de nuestra comunidad académica.{% endif %}</p>
+          <p>{% if opinion %}{{ opinion.excerpt | strip_html | truncate: 105 }}{% else %}Análisis, reflexión y pensamiento clínico de nuestra comunidad académica.{% endif %}</p>
           <a class="btn btn-light" href="{% if opinion %}{{ site.baseurl }}{{ opinion.url }}{% else %}{{ site.baseurl }}/magazine/#opinion{% endif %}">
             Leer opinión <span aria-hidden="true">â†'</span>
           </a>
