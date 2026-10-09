@@ -3357,7 +3357,67 @@
       .section{padding:70px 0}
       .section-title{font-size:clamp(36px,11vw,50px)}
     }
-  </style>
+  
+/* Magazine de inicio: tres tarjetas proporcionadas y foto con encuadre superior. */
+#magazine-destacado .magazine-destacado-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;
+  align-items:stretch;
+}
+#magazine-destacado .publicacion-articulo{
+  min-height:0;
+  align-items:stretch;
+}
+#magazine-destacado .publicacion-articulo .publicacion-destacada-copy{
+  width:100%;
+  max-width:none;
+  padding:28px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+#magazine-destacado .publicacion-articulo h3,
+#magazine-destacado .publicacion-editorial-card h3{
+  font-size:clamp(22px,2vw,28px);
+  line-height:1.2;
+}
+#magazine-destacado .publicacion-articulo p,
+#magazine-destacado .publicacion-editorial-card p{
+  font-size:15px;
+  line-height:1.65;
+}
+#magazine-destacado .publicacion-articulo .btn{
+  margin-top:auto;
+}
+#magazine-destacado .publicacion-editorial-card{
+  min-height:0;
+  padding:28px;
+}
+#magazine-destacado .publicacion-mini-cover{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:2.3 / 1;
+  object-fit:cover;
+  object-position:center 16%;
+  flex-shrink:0;
+}
+@media(max-width:1080px){
+  #magazine-destacado .magazine-destacado-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:760px){
+  #magazine-destacado .magazine-destacado-grid{
+    grid-template-columns:1fr;
+  }
+  #magazine-destacado .publicacion-articulo .publicacion-destacada-copy,
+  #magazine-destacado .publicacion-editorial-card{
+    padding:24px;
+  }
+}
+
+</style>
 </head>
 
 <body>
@@ -3897,7 +3957,6 @@
         </div>
       </article>
 
-      <div class="magazine-accesos">
 
         <article class="publicacion-destacada-card publicacion-editorial-card">
           <span class="publicacion-badge publicacion-badge-azul">Noticias</span>
@@ -3923,7 +3982,6 @@
           </a>
         </article>
 
-      </div>
     </div>
 
   </div>
