@@ -484,7 +484,6 @@ excerpt: "Guía práctica de herramientas de inteligencia artificial disponibles
     <h2 class="emotional-title">
       ¿Qué inteligencia artificial puede usar hoy un internista, y para qué?
     </h2>
-
     <p class="emotional-subtitle">
       Guía práctica de herramientas disponibles en Colombia, con su evidencia, su costo y sus límites
     </p>
@@ -650,7 +649,6 @@ excerpt: "Guía práctica de herramientas de inteligencia artificial disponibles
 </article>
 <section class="emotional-forum-section">
     <div class="emotional-forum-card">
-
       <span class="emotional-forum-kicker">
         Comunidad académica
       </span>
@@ -669,5 +667,7 @@ excerpt: "Guía práctica de herramientas de inteligencia artificial disponibles
 
 </section>
 </div>
+<script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 <script>
   commentBox('5704224843235328-proj');
+</script>
