@@ -757,6 +757,29 @@ permalink: /magazine/
   object-position:center 16% !important;
 }
 
+
+/* Mini tarjetas: una sola publicación conserva el ancho de una columna. */
+.academic-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:stretch;
+}
+.academic-grid .card-content{
+  height:100%;
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.academic-grid .card-meta{ max-width:100%; box-sizing:border-box; }
+.academic-grid .btn-card{ margin-top:auto; }
+.academic-grid .card-image-wrap + .card-content{ height:auto; }
+@media(max-width:1080px){
+  .academic-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:760px){
+  .academic-grid{ grid-template-columns:1fr; }
+}
+
 </style>
 
 <div class="magazine-page">
@@ -982,13 +1005,18 @@ permalink: /magazine/
         </p>
       </div>
 
-      {% assign articulos_academicos = site.publicaciones | where: "subcategory","articulo-academico" | sort: "date" | reverse %}
+      {% assign documentos_academicos = site.documents | where: "subcategory", "articulo-academico" %}
+      {% assign paginas_academicas = site.pages | where: "subcategory", "articulo-academico" %}
+      {% assign articulos_academicos = documentos_academicos | concat: paginas_academicas | uniq: "url" | sort: "date" | reverse %}
+      {% assign theran_visible = false %}
 
-      {% if articulos_academicos.size > 0 %}
-
-      <div class="magazine-grid">
+      <div class="magazine-grid academic-grid">
 
         {% for post in articulos_academicos %}
+
+        {% if post.url == '/magazine/inteligencia-artificial-internista/' or post.title == '¿Qué inteligencia artificial puede usar hoy un internista, y para qué?' %}
+          {% assign theran_visible = true %}
+        {% endif %}
 
         <article class="magazine-card academic-card">
 
@@ -1030,18 +1058,18 @@ permalink: /magazine/
 
         {% endfor %}
 
+        {% unless theran_visible %}
+        <article class="magazine-card academic-card">
+          <div class="card-content">
+            <p class="card-meta">08/10/2026 · Dr. Juan Sebastián Therán León</p>
+            <h3>¿Qué inteligencia artificial puede usar hoy un internista, y para qué?</h3>
+            <p>Guía práctica de herramientas de inteligencia artificial disponibles en Colombia, con su evidencia, costo y límites para la práctica clínica.</p>
+            <a class="btn btn-card" href="{{ '/magazine/inteligencia-artificial-internista/' | relative_url }}">Leer artículo</a>
+          </div>
+        </article>
+        {% endunless %}
+
       </div>
-
-      {% else %}
-
-      <div class="academic-empty">
-        <p>Próximamente encontrarás aquí nuevos artículos académicos.</p>
-        <a class="btn btn-primary" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
-          Enviar un manuscrito
-        </a>
-      </div>
-
-      {% endif %}
 
     </div>
 
