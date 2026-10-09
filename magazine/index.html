@@ -1011,15 +1011,11 @@ permalink: /magazine/
       </div>
 
       {% assign articulos_academicos = publicaciones_magazine | where: "subcategory", "articulo-academico" | sort: "date" | reverse %}
-      {% assign theran_visible = false %}
 
       <div class="magazine-grid academic-grid">
 
         {% for post in articulos_academicos %}
 
-        {% if post.url == '/magazine/inteligencia-artificial-internista/' or post.title == '¿Qué inteligencia artificial puede usar hoy un internista, y para qué?' %}
-          {% assign theran_visible = true %}
-        {% endif %}
 
         <article class="magazine-card academic-card">
 
@@ -1061,16 +1057,7 @@ permalink: /magazine/
 
         {% endfor %}
 
-        {% unless theran_visible %}
-        <article class="magazine-card academic-card">
-          <div class="card-content">
-            <p class="card-meta">08/10/2026 · Dr. Juan Sebastián Therán León</p>
-            <h3>¿Qué inteligencia artificial puede usar hoy un internista, y para qué?</h3>
-            <p>Guía práctica de herramientas de inteligencia artificial disponibles en Colombia, con su evidencia, costo y límites para la práctica clínica.</p>
-            <a class="btn btn-card" href="{{ '/magazine/inteligencia-artificial-internista/' | relative_url }}">Leer artículo</a>
-          </div>
-        </article>
-        {% endunless %}
+
 
       </div>
 
@@ -1100,12 +1087,17 @@ permalink: /magazine/
       </div>
 
       {% assign opiniones = publicaciones_magazine | where: "subcategory","opinion" | sort: "date" | reverse %}
+      {% assign theran_visible = false %}
 
-      {% if opiniones.size > 0 %}
 
-      <div class="magazine-grid">
+      <div class="magazine-grid academic-grid">
 
         {% for post in opiniones %}
+
+        {% if post.url == '/magazine/inteligencia-artificial-internista/' or post.title == '¿Qué inteligencia artificial puede usar hoy un internista, y para qué?' %}
+          {% assign theran_visible = true %}
+        {% endif %}
+
 
         <article class="magazine-card opinion-card">
 
@@ -1147,9 +1139,20 @@ permalink: /magazine/
 
         {% endfor %}
 
+        {% unless theran_visible %}
+        <article class="magazine-card opinion-card">
+          <div class="card-content">
+            <p class="card-meta">08/10/2026 · Dr. Juan Sebastián Therán León</p>
+            <h3>¿Qué inteligencia artificial puede usar hoy un internista, y para qué?</h3>
+            <p>Guía práctica de herramientas de inteligencia artificial disponibles en Colombia, con su evidencia, costo y límites para la práctica clínica.</p>
+            <a class="btn btn-card" href="{{ '/magazine/inteligencia-artificial-internista/' | relative_url }}">Leer columna</a>
+          </div>
+        </article>
+        {% endunless %}
+
       </div>
 
-      {% endif %}
+
 
     </div>
 
