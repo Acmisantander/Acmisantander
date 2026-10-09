@@ -576,6 +576,34 @@ permalink: /magazine/
   margin:0 0 20px;
 }
 
+.academic-section{
+  background:
+    radial-gradient(circle at top right, rgba(42,156,82,.10), transparent 34%),
+    linear-gradient(180deg, #f7fafc 0%, #eef4fb 100%);
+}
+
+.academic-card::before{
+  background:linear-gradient(90deg, var(--dorado), var(--verde-acmi), var(--azul-acmi));
+}
+
+.academic-empty{
+  max-width:760px;
+  margin:0 auto;
+  padding:38px;
+  border-radius:28px;
+  text-align:center;
+  background:white;
+  border:1px solid rgba(20,63,125,.10);
+  box-shadow:var(--sombra);
+}
+
+.academic-empty p{
+  margin:0 0 22px;
+  color:var(--texto-suave);
+  font-size:18px;
+  line-height:1.7;
+}
+
 .opinion-section{
   background:
     radial-gradient(circle at top left, rgba(42,156,82,.20), transparent 34%),
@@ -834,10 +862,10 @@ permalink: /magazine/
               <small>Análisis médico y pensamiento clínico</small>
             </a>
 
-            <a class="quick-tile quick-blue-soft" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
-              <span>📨</span>
-              <strong>Enviar manuscrito</strong>
-              <small>Artículos, revisiones y textos académicos</small>
+            <a class="quick-tile quick-blue-soft" href="#articulo-academico">
+              <span>📚</span>
+              <strong>Artículo académico</strong>
+              <small>Investigación, revisiones y educación médica</small>
             </a>
 
             <a class="quick-tile quick-green-soft" href="{{ site.baseurl }}/magazine/enviar-ponencias/">
@@ -925,6 +953,92 @@ permalink: /magazine/
 
         {% endfor %}
 
+      </div>
+
+      {% endif %}
+
+    </div>
+
+  </section>
+
+
+
+  <section class="magazine-section academic-section" id="articulo-academico">
+
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="section-kicker">
+          Conocimiento científico
+        </span>
+
+        <h2>
+          Artículo académico
+        </h2>
+
+        <p>
+          Artículos originales, revisiones, casos clínicos y contenidos de educación médica
+          para fortalecer la práctica de la medicina interna basada en la evidencia.
+        </p>
+      </div>
+
+      {% assign articulos_academicos = site.categories.magazine | where: "subcategory","articulo-academico" %}
+
+      {% if articulos_academicos.size > 0 %}
+
+      <div class="magazine-grid">
+
+        {% for post in articulos_academicos %}
+
+        <article class="magazine-card academic-card">
+
+          {% if post.cover %}
+          <div class="card-image-wrap">
+            <img
+              src="{{ site.baseurl }}{{ post.cover }}"
+              alt="{{ post.title }}"
+              class="card-image{% if post.cover == '/img/35.jpeg' %} card-image-san-gil{% endif %}"
+            >
+          </div>
+          {% endif %}
+
+          <div class="card-content">
+
+            <p class="card-meta">
+              {{ post.date | date: "%d/%m/%Y" }}
+              {% if post.author %}
+              ·
+              {{ post.author }}
+              {% endif %}
+            </p>
+
+            <h3>
+              {{ post.title }}
+            </h3>
+
+            <p>
+              {{ post.excerpt | strip_html | truncate: 190 }}
+            </p>
+
+            <a class="btn btn-card" href="{{ site.baseurl }}{{ post.url }}">
+              Leer artículo
+            </a>
+
+          </div>
+
+        </article>
+
+        {% endfor %}
+
+      </div>
+
+      {% else %}
+
+      <div class="academic-empty">
+        <p>Próximamente encontrarás aquí nuevos artículos académicos.</p>
+        <a class="btn btn-primary" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
+          Enviar un manuscrito
+        </a>
       </div>
 
       {% endif %}
