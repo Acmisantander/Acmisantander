@@ -1732,14 +1732,13 @@
       display:flex;
       justify-content:center;
       align-items:center;
-      gap:60px;
-      flex-wrap:wrap;
       margin-top:40px;
     }
 
     .patrocinador-card{
       background:white;
-      padding:34px;
+      width:min(100%, 980px);
+      padding:28px;
       border-radius:24px;
       box-shadow:var(--sombra-suave);
       transition:var(--transicion);
@@ -1752,9 +1751,10 @@
     }
 
     .patrocinador-card img{
-      height:96px;
-      width:auto;
+      width:100%;
+      height:auto;
       object-fit:contain;
+      border-radius:14px;
     }
 
     .contact-buttons{
@@ -1942,8 +1942,9 @@
         font-size:30px;
       }
 
-      .patrocinadores{
-        gap:24px;
+      .patrocinador-card{
+        padding:16px;
+        border-radius:18px;
       }
     }
 
@@ -3103,16 +3104,16 @@
 
       <p class="section-subtitle">
         Empresas que apoyan el desarrollo académico y científico del
-        VI Simposio Regional ACMI – Capítulo Santander.
+        Congreso ACMI Bucaramanga 2026.
       </p>
 
       <div class="patrocinadores">
         <div class="patrocinador-card reveal">
-          <img src="{{ site.baseurl }}/GSK.png" alt="GSK">
-        </div>
-
-        <div class="patrocinador-card reveal">
-          <img src="{{ site.baseurl }}/SANOFI.png" alt="Sanofi">
+          <img
+            src="{{ site.baseurl }}/Patrocinios.png"
+            alt="Empresas patrocinadoras del Congreso ACMI Bucaramanga 2026"
+            loading="lazy"
+          >
         </div>
       </div>
     </div>
