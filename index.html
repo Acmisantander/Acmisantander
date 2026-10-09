@@ -1960,6 +1960,208 @@
 }
 
 /* ==============================
+   SECCIONES INDEPENDIENTES DE CONTENIDO
+   ============================== */
+
+.contenido-independiente{
+  position:relative;
+  padding:96px 0;
+  overflow:hidden;
+}
+
+.contenido-independiente .section-subtitle{
+  margin-bottom:42px;
+}
+
+.educacion-independiente{
+  background:
+    radial-gradient(circle at 10% 15%,rgba(42,156,82,.12),transparent 28%),
+    linear-gradient(180deg,#f7fbff,#eef4fa);
+}
+
+.educacion-independiente .publicacion-educacion{
+  width:100%;
+  max-width:1280px;
+  min-height:430px;
+  margin:0 auto;
+  grid-column:auto;
+  grid-template-columns:minmax(320px,.82fr) minmax(420px,1.18fr);
+}
+
+.educacion-independiente .publicacion-educacion-copy{
+  padding:clamp(38px,5vw,66px);
+}
+
+.educacion-independiente .publicacion-destacada-copy h3{
+  font-size:clamp(34px,4vw,56px);
+}
+
+.magazine-independiente{
+  background:
+    radial-gradient(circle at 88% 8%,rgba(126,212,154,.18),transparent 27%),
+    #ffffff;
+}
+
+.magazine-destacado-grid{
+  max-width:1280px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(340px,.65fr);
+  gap:24px;
+  align-items:stretch;
+}
+
+.magazine-independiente .publicacion-articulo{
+  grid-column:auto;
+  min-height:540px;
+}
+
+.magazine-independiente .publicacion-articulo .publicacion-destacada-copy{
+  max-width:740px;
+  padding:clamp(38px,5vw,66px);
+}
+
+.magazine-independiente .publicacion-articulo h3{
+  font-size:clamp(36px,4.2vw,58px);
+}
+
+.magazine-accesos{
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  gap:24px;
+}
+
+.magazine-accesos .publicacion-editorial-card{
+  min-height:0;
+  padding:28px;
+}
+
+.magazine-accesos .publicacion-mini-cover{
+  height:125px;
+}
+
+.proyeccion-independiente{
+  background:
+    linear-gradient(120deg,rgba(8,40,79,.98),rgba(20,63,125,.94) 55%,rgba(42,156,82,.88));
+}
+
+.proyeccion-independiente .section-title,
+.proyeccion-independiente .section-subtitle{
+  color:white;
+}
+
+.proyeccion-independiente .section-title::after{
+  background:linear-gradient(90deg,var(--verde-claro),white);
+}
+
+.proyeccion-hero-card{
+  max-width:1280px;
+  min-height:390px;
+  margin:0 auto;
+  padding:clamp(38px,6vw,76px);
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  border-radius:30px;
+  color:white;
+  background:
+    radial-gradient(circle at 82% 28%,rgba(126,212,154,.35),transparent 25%),
+    radial-gradient(circle at 90% 82%,rgba(255,255,255,.14),transparent 22%),
+    linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.06));
+  border:1px solid rgba(255,255,255,.24);
+  box-shadow:0 26px 64px rgba(0,0,0,.20);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+
+.proyeccion-hero-card::after{
+  content:"ACMI";
+  position:absolute;
+  right:4%;
+  bottom:-12%;
+  color:rgba(255,255,255,.08);
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(120px,18vw,260px);
+  font-weight:900;
+  line-height:1;
+  letter-spacing:-.08em;
+}
+
+.proyeccion-hero-copy{
+  position:relative;
+  z-index:2;
+  max-width:720px;
+}
+
+.proyeccion-hero-copy h3{
+  margin:0 0 16px;
+  color:white;
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(36px,4.6vw,62px);
+  font-weight:900;
+  line-height:1.03;
+  letter-spacing:-.05em;
+}
+
+.proyeccion-hero-copy p{
+  margin:0 0 26px;
+  color:rgba(255,255,255,.88);
+  font-size:18px;
+  line-height:1.7;
+}
+
+.proyeccion-hero-copy .publicacion-badge{
+  color:white;
+  background:var(--verde-acmi);
+  border-color:rgba(255,255,255,.28);
+}
+
+.proyeccion-hero-copy .btn{
+  background:white;
+  color:var(--azul-acmi);
+}
+
+@media(max-width:1050px){
+  .magazine-destacado-grid{
+    grid-template-columns:1fr;
+  }
+
+  .magazine-independiente .publicacion-articulo{
+    min-height:460px;
+  }
+
+  .magazine-accesos{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:auto;
+  }
+}
+
+@media(max-width:760px){
+  .contenido-independiente{
+    padding:72px 0;
+  }
+
+  .educacion-independiente .publicacion-educacion{
+    min-height:0;
+    grid-template-columns:1fr;
+  }
+
+  .magazine-accesos{
+    grid-template-columns:1fr;
+  }
+
+  .magazine-independiente .publicacion-articulo{
+    min-height:390px;
+  }
+
+  .proyeccion-hero-card{
+    min-height:380px;
+    padding:34px 26px;
+  }
+}
+
+/* ==============================
    RESPONSIVE
    ============================== */
 
@@ -3092,7 +3294,7 @@
     }
 
     #quienes,#eventos,#patrocinios,#contacto{background:var(--fondo-claro)}
-    #organigrama,#ultimas-publicaciones,#foro{background:#fff}
+    #organigrama,#foro{background:#fff}
 
     .section-title{
       font-size:clamp(38px,4.3vw,66px);
@@ -3617,42 +3819,52 @@
     </div>
 </section>
 
-<section class="section reveal" id="ultimas-publicaciones">
+<section class="contenido-independiente educacion-independiente reveal" id="educacion-destacada">
   <div class="container">
 
-    <h2 class="section-title">Últimas publicaciones</h2>
-
+    <h2 class="section-title">Educación médica continuada</h2>
     <p class="section-subtitle">
-      Contenido reciente de educación médica, magazine y proyección social.
+      Actualización científica, conferencias y recursos audiovisuales para fortalecer la práctica clínica.
     </p>
 
-    {% assign articulo_academico = site.categories.magazine | where: "subcategory","articulo-academico" | first %}
-    {% assign noticia = site.categories.magazine | where: "subcategory","noticias" | first %}
-    {% assign opinion = site.categories.magazine | where: "subcategory","opinion" | first %}
+    <article class="publicacion-destacada-card publicacion-educacion">
+      <div class="publicacion-destacada-copy publicacion-educacion-copy">
+        <span class="publicacion-badge">Contenido destacado</span>
+        <h3>Aprendizaje que transforma la práctica clínica</h3>
+        <p>Consulte actividades académicas, conferencias y contenidos de educación médica desarrollados por ACMI Santander.</p>
+        <a class="btn btn-light" href="{{ site.baseurl }}/educacion-medica-continuada/">
+          Explorar educación <span aria-hidden="true">→</span>
+        </a>
+      </div>
 
-    <div class="publicaciones-destacadas">
-
-      <article class="publicacion-destacada-card publicacion-educacion">
-        <div class="publicacion-destacada-copy publicacion-educacion-copy">
-          <span class="publicacion-badge">Educación destacada</span>
-          <h3>Educación médica continuada</h3>
-          <p>Actualización científica y contenidos audiovisuales para fortalecer la práctica clínica.</p>
-          <a class="btn btn-light" href="{{ site.baseurl }}/educacion-medica-continuada/">
-            Explorar educación <span aria-hidden="true">→</span>
-          </a>
+      <div class="publicacion-educacion-media">
+        <div class="video-mini">
+          <iframe
+            src="https://www.youtube.com/embed/EA9oWKuoZ6I"
+            title="VI Simposio Regional ACMI"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
         </div>
+      </div>
+    </article>
 
-        <div class="publicacion-educacion-media">
-          <div class="video-mini">
-            <iframe
-              src="https://www.youtube.com/embed/EA9oWKuoZ6I"
-              title="VI Simposio Regional ACMI"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
-          </div>
-        </div>
-      </article>
+  </div>
+</section>
+
+{% assign articulo_academico = site.categories.magazine | where: "subcategory","articulo-academico" | first %}
+{% assign noticia = site.categories.magazine | where: "subcategory","noticias" | first %}
+{% assign opinion = site.categories.magazine | where: "subcategory","opinion" | first %}
+
+<section class="contenido-independiente magazine-independiente reveal" id="magazine-destacado">
+  <div class="container">
+
+    <h2 class="section-title">Magazine ACMI</h2>
+    <p class="section-subtitle">
+      Artículos académicos, noticias institucionales y opinión médica en un espacio editorial propio.
+    </p>
+
+    <div class="magazine-destacado-grid">
 
       <article
         class="publicacion-destacada-card publicacion-articulo"
@@ -3662,7 +3874,7 @@
 
         <div class="publicacion-destacada-copy">
           <span class="publicacion-badge">
-            {% if articulo_academico %}Artículo destacado{% else %}Nueva sección{% endif %}
+            {% if articulo_academico %}Artículo académico destacado{% else %}Nueva sección{% endif %}
           </span>
 
           <h3>
@@ -3671,7 +3883,7 @@
 
           <p>
             {% if articulo_academico %}
-              {{ articulo_academico.excerpt | strip_html | truncate: 150 }}
+              {{ articulo_academico.excerpt | strip_html | truncate: 180 }}
             {% else %}
               Investigación, revisiones, casos clínicos y educación médica basada en la evidencia.
             {% endif %}
@@ -3685,17 +3897,15 @@
         </div>
       </article>
 
-      <div class="publicaciones-editoriales">
+      <div class="magazine-accesos">
 
         <article class="publicacion-destacada-card publicacion-editorial-card">
           <span class="publicacion-badge publicacion-badge-azul">Noticias</span>
-
           {% if noticia and noticia.cover %}
             <img src="{{ site.baseurl }}{{ noticia.cover }}" alt="{{ noticia.title }}" class="publicacion-mini-cover">
           {% endif %}
-
           <h3>{% if noticia %}{{ noticia.title }}{% else %}Noticias ACMI{% endif %}</h3>
-          <p>{% if noticia %}{{ noticia.excerpt | strip_html | truncate: 115 }}{% else %}Actualidad científica e institucional de ACMI Santander.{% endif %}</p>
+          <p>{% if noticia %}{{ noticia.excerpt | strip_html | truncate: 105 }}{% else %}Actualidad científica e institucional de ACMI Santander.{% endif %}</p>
           <a class="btn btn-light" href="{% if noticia %}{{ site.baseurl }}{{ noticia.url }}{% else %}{{ site.baseurl }}/magazine/#noticias{% endif %}">
             Ver noticias <span aria-hidden="true">→</span>
           </a>
@@ -3703,30 +3913,40 @@
 
         <article class="publicacion-destacada-card publicacion-editorial-card publicacion-opinion">
           <span class="publicacion-badge publicacion-badge-azul">Opinión</span>
-
           {% if opinion and opinion.cover %}
             <img src="{{ site.baseurl }}{{ opinion.cover }}" alt="{{ opinion.title }}" class="publicacion-mini-cover">
           {% endif %}
-
           <h3>{% if opinion %}{{ opinion.title }}{% else %}Opinión médica{% endif %}</h3>
-          <p>{% if opinion %}{{ opinion.excerpt | strip_html | truncate: 115 }}{% else %}Análisis, reflexión y pensamiento clínico de nuestra comunidad académica.{% endif %}</p>
+          <p>{% if opinion %}{{ opinion.excerpt | strip_html | truncate: 105 }}{% else %}Análisis, reflexión y pensamiento clínico de nuestra comunidad académica.{% endif %}</p>
           <a class="btn btn-light" href="{% if opinion %}{{ site.baseurl }}{{ opinion.url }}{% else %}{{ site.baseurl }}/magazine/#opinion{% endif %}">
             Leer opinión <span aria-hidden="true">→</span>
           </a>
         </article>
 
-        <article class="publicacion-destacada-card publicacion-editorial-card publicacion-social-independiente">
-          <span class="publicacion-badge publicacion-badge-verde">Comunidad</span>
-          <h3>Proyección social</h3>
-          <p>Actividades de educación en salud y trabajo comunitario desarrolladas por ACMI Santander.</p>
-          <a class="btn btn-light" href="{{ site.baseurl }}/proyeccion-social/">
-            Ver actividades <span aria-hidden="true">→</span>
-          </a>
-        </article>
-
       </div>
-
     </div>
+
+  </div>
+</section>
+
+<section class="contenido-independiente proyeccion-independiente reveal" id="proyeccion-destacada">
+  <div class="container">
+
+    <h2 class="section-title">Proyección social</h2>
+    <p class="section-subtitle">
+      Medicina interna al servicio de la comunidad mediante educación, prevención y participación territorial.
+    </p>
+
+    <article class="proyeccion-hero-card">
+      <div class="proyeccion-hero-copy">
+        <span class="publicacion-badge">Comunidad ACMI</span>
+        <h3>Conocimiento médico con impacto social</h3>
+        <p>Conozca las actividades comunitarias, jornadas de educación en salud y proyectos de bienestar desarrollados por ACMI Santander.</p>
+        <a class="btn btn-light" href="{{ site.baseurl }}/proyeccion-social/">
+          Ver actividades <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </article>
 
   </div>
 </section>
