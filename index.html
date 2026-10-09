@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    :root{
+    :raíz{
       --azul-acmi:#143f7d;
       --azul-acmi-2:#0f3569;
       --azul-profundo:#08284f;
@@ -33,430 +33,430 @@
       --radio-grande:34px;
       --ancho:1440px;
       --ancho-lectura:1120px;
-      --transicion:all 0.28s ease;
+      --transición:todos 0,28 s de facilidad;
     }
 
     *{
-      margin:0;
-      padding:0;
+      margen:0;
+      relleno:0;
       box-sizing:border-box;
     }
 
     html{
-      scroll-behavior:smooth;
+      comportamiento de desplazamiento: suave;
     }
 
-    body{
+    cuerpo{
       font-family:'Inter', sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(42,156,82,0.08), transparent 28%),
-        radial-gradient(circle at top right, rgba(20,63,125,0.10), transparent 30%),
+      fondo:
+        gradiente radial(círculo en la parte superior izquierda, rgba(42,156,82,0.08), transparente 28%),
+        gradiente radial(círculo en la parte superior derecha, rgba(20,63,125,0.10), transparente 30%),
         var(--gris-fondo);
       color:var(--texto);
-      line-height:1.7;
-      overflow-x:hidden;
+      interlineado: 1,7;
+      desbordamiento-x:oculto;
     }
 
-    img{
-      max-width:100%;
-      display:block;
+    imagen{
+      ancho máximo: 100%;
+      mostrar:bloque;
     }
 
     a{
-      text-decoration:none;
+      decoración de texto: ninguna;
     }
 
-    section{
-      scroll-margin-top:120px;
+    sección{
+      margen de desplazamiento superior: 120px;
     }
 
-    .container{
-      width:100%;
-      max-width:var(--ancho);
-      margin:0 auto;
-      padding:0 56px;
+    .recipiente{
+      ancho:100%;
+      ancho-máximo:var(--ancho);
+      margen:0 automático;
+      relleno: 0 56px;
     }
 
-    .reveal{
-      opacity:0;
-      transform:translateY(24px);
-      transition:opacity 0.75s ease, transform 0.75s ease;
+    .revelar{
+      opacidad:0;
+      transformar:translateY(24px);
+      transición:opacidad 0,75 s fácil, transformación 0,75 s fácil;
     }
 
     .reveal.is-visible{
-      opacity:1;
-      transform:translateY(0);
+      opacidad:1;
+      transformar:translateY(0);
     }
 
     @media(prefers-reduced-motion:reduce){
       *,
-      *::before,
-      *::after{
-        animation:none !important;
-        transition:none !important;
-        scroll-behavior:auto !important;
+      *::antes,
+      *::después{
+        animación:ninguna !importante;
+        transición:ninguna !importante;
+        comportamiento de desplazamiento:automático !importante;
       }
 
-      .reveal{
-        opacity:1;
-        transform:none;
+      .revelar{
+        opacidad:1;
+        transformar:ninguno;
       }
     }
 
     /* ==============================
-       TOPBAR
+       BARRA SUPERIOR
        ============================== */
 
-    .topbar{
-      background:linear-gradient(90deg, var(--azul-profundo), var(--azul-acmi-2));
+    .barra superior{
+      fondo:gradiente lineal(90deg, var(--azul-profundo), var(--azul-acmi-2));
       color:#dfe8f5;
-      font-size:14px;
-      padding:10px 0;
-      position:relative;
-      z-index:1200;
+      tamaño de fuente: 14px;
+      relleno: 10px 0;
+      posición:relativa;
+      índice z:1200;
     }
 
     .topbar-content{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:18px;
+      pantalla:flex;
+      justificar-contenido:espacio-entre;
+      alinear-elementos:centro;
+      espacio: 18px;
       flex-wrap:wrap;
     }
 
-    .topbar-left,
-    .topbar-right{
-      display:flex;
-      gap:20px;
-      align-items:center;
+    .barra-superior-izquierda,
+    .barra-superior-derecha{
+      pantalla:flex;
+      espacio: 20px;
+      alinear-elementos:centro;
       flex-wrap:wrap;
     }
 
-    .topbar a{
+    .barra superior a{
       color:#dfe8f5;
-      font-weight:700;
-      transition:var(--transicion);
+      peso de fuente: 700;
+      transición:var(--transición);
     }
 
     .topbar a:hover{
-      color:white;
-      transform:translateY(-1px);
+      color:blanco;
+      transformar:translateY(-1px);
     }
 
     /* ==============================
-       HEADER
+       ENCABEZAMIENTO
        ============================== */
 
-    header{
-      background:rgba(255,255,255,0.88);
-      backdrop-filter:blur(16px);
+    encabezamiento{
+      fondo:rgba(255,255,255,0.88);
+      filtro de fondo: desenfoque (16px);
       -webkit-backdrop-filter:blur(16px);
       box-shadow:0 8px 24px rgba(8,40,79,0.08);
-      border-bottom:1px solid rgba(20,63,125,0.08);
-      position:sticky;
-      top:0;
-      z-index:1100;
+      borde inferior: 1px sólido rgba(20,63,125,0.08);
+      posición:pegajosa;
+      arriba:0;
+      índice z:1100;
     }
 
-    .main-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:24px;
-      min-height:98px;
-      padding:14px 0;
+    .encabezado-principal{
+      pantalla:flex;
+      justificar-contenido:espacio-entre;
+      alinear-elementos:centro;
+      espacio: 24px;
+      altura mínima: 98px;
+      relleno: 14px 0;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      min-width:260px;
+    .marca{
+      pantalla:flex;
+      alinear-elementos:centro;
+      espacio: 16px;
+      ancho mínimo: 260px;
     }
 
-    .brand-logo{
-      width:74px;
-      height:74px;
-      border-radius:50%;
-      background:white;
-      border:1px solid #d7e2ef;
-      padding:6px;
-      object-fit:contain;
+    .logotipo-de-marca{
+      ancho: 74px;
+      altura: 74px;
+      radio de borde: 50%;
+      fondo:blanco;
+      borde:1px sólido #d7e2ef;
+      relleno: 6px;
+      objeto-ajustar:contener;
       box-shadow:0 10px 26px rgba(8,40,79,0.12);
-      transition:var(--transicion);
+      transición:var(--transición);
     }
 
     .brand:hover .brand-logo{
-      transform:scale(1.04) rotate(-2deg);
+      transformar: escalar(1.04) rotar(-2 grados);
     }
 
     .brand-text h1{
       font-family:'Montserrat', sans-serif;
-      font-size:29px;
-      line-height:1.05;
+      tamaño de fuente: 29px;
+      interlineado: 1,05;
       color:var(--azul-acmi);
-      margin-bottom:4px;
-      letter-spacing:-0.04em;
-      font-weight:900;
+      margen inferior: 4px;
+      espaciado entre letras: -0,04em;
+      peso de fuente: 900;
     }
 
-    .brand-text p{
-      font-size:14px;
+    .texto-de-marca p{
+      tamaño de fuente: 14px;
       color:#50627a;
-      font-weight:500;
-      line-height:1.35;
+      peso de fuente: 500;
+      interlineado: 1,35;
     }
 
-  nav ul{
-  list-style:none;
-  display:flex;
-  gap:6px;
-  align-items:center;
+  navegación ul{
+  estilo de lista: ninguno;
+  pantalla:flex;
+  espacio: 6px;
+  alinear-elementos:centro;
   flex-wrap:nowrap;
-  justify-content:flex-end;
+  justificar-contenido:flex-end;
 }
 
     nav li{
-      position:relative;
+      posición:relativa;
     }
 
-    nav a{
+    navegación a{
       display:inline-flex;
-      align-items:center;
-      padding:10px 12px;
-      border-radius:999px;
+      alinear-elementos:centro;
+      relleno: 10px 12px;
+      radio de borde: 999px;
       font-family:'Inter', sans-serif;
-      font-size:14.5px;
-      font-weight:800;
+      tamaño de fuente: 14,5px;
+      peso de fuente: 800;
       color:var(--azul-acmi);
-      transition:var(--transicion);
-      white-space:nowrap;
+      transición:var(--transición);
+      espacio en blanco:nowrap;
     }
 
-    nav a:hover{
+    navegación a:hover{
       color:var(--verde-acmi);
-      background:#eef7f1;
-      transform:translateY(-1px);
+      fondo:#eef7f1;
+      transformar:translateY(-1px);
     }
 
-    header,
-    nav,
-    nav ul,
+    encabezamiento,
+    navegación,
+    ul de navegación,
     nav li{
-      overflow:visible;
+      desbordamiento:visible;
     }
 
-    .dropdown-menu{
-      display:none;
-      position:absolute;
-      top:100%;
-      left:0;
-      right:auto;
-      background:white;
-      min-width:285px;
+    .menú desplegable{
+      mostrar:ninguno;
+      posición:absoluta;
+      superior: 100%;
+      izquierda:0;
+      derecha:automático;
+      fondo:blanco;
+      ancho mínimo: 285px;
       box-shadow:0 18px 44px rgba(8,40,79,0.16);
-      border-radius:18px;
-      padding:10px;
-      z-index:9999;
-      border:1px solid rgba(20,63,125,0.08);
-      animation:menuFade 0.22s ease;
+      radio de borde: 18px;
+      relleno: 10px;
+      índice z: 9999;
+      borde:1px sólido rgba(20,63,125,0.08);
+      animación:menuFade 0.22s ease;
     }
 
     @keyframes menuFade{
-      from{
-        opacity:0;
-        transform:translateY(8px);
+      desde{
+        opacidad:0;
+        transformar:translateY(8px);
       }
-      to{
-        opacity:1;
-        transform:translateY(0);
+      a{
+        opacidad:1;
+        transformar:translateY(0);
       }
     }
 
     .dropdown:hover > .dropdown-menu{
-      display:block;
+      mostrar:bloque;
     }
 
-    .dropdown-menu > a,
-    .dropdown-menu .submenu > a{
-      display:block;
-      padding:12px 16px;
+    .menú desplegable > a,
+    .menú desplegable .submenú > a{
+      mostrar:bloque;
+      relleno: 12px 16px;
       color:var(--azul-acmi);
-      white-space:nowrap;
-      font-size:14px;
-      font-weight:800;
-      border-radius:12px;
+      espacio en blanco:nowrap;
+      tamaño de fuente: 14px;
+      peso de fuente: 800;
+      radio de borde: 12px;
     }
 
-    .dropdown-menu > a:hover,
-    .dropdown-menu .submenu > a:hover{
-      background:#eef3f8;
+    .menú desplegable > a:hover,
+    .menú desplegable .submenú > a:hover{
+      fondo:#eef3f8;
       color:var(--verde-acmi);
     }
 
-    .submenu{
-      position:relative;
+    .submenú{
+      posición:relativa;
     }
 
-    .submenu-menu{
-      display:none;
-      position:absolute;
-      top:0;
-      left:100%;
-      right:auto;
-      background:white;
-      min-width:280px;
+    .submenú-menú{
+      mostrar:ninguno;
+      posición:absoluta;
+      arriba:0;
+      izquierda: 100%;
+      derecha:automático;
+      fondo:blanco;
+      ancho mínimo: 280px;
       box-shadow:0 18px 44px rgba(8,40,79,0.16);
-      border-radius:18px;
-      padding:10px;
-      z-index:10000;
-      border:1px solid rgba(20,63,125,0.08);
-      animation:menuFade 0.22s ease;
+      radio de borde: 18px;
+      relleno: 10px;
+      índice z:10000;
+      borde:1px sólido rgba(20,63,125,0.08);
+      animación:menuFade 0.22s ease;
     }
 
     .submenu:hover > .submenu-menu{
-      display:block;
+      mostrar:bloque;
     }
 
-    .submenu-menu a{
-      display:block;
-      padding:12px 16px;
+    .submenú-menú a{
+      mostrar:bloque;
+      relleno: 12px 16px;
       color:var(--azul-acmi);
-      white-space:nowrap;
-      font-size:14px;
-      font-weight:800;
-      border-radius:12px;
+      espacio en blanco:nowrap;
+      tamaño de fuente: 14px;
+      peso de fuente: 800;
+      radio de borde: 12px;
     }
 
-    .submenu-menu a:hover{
-      background:#eef3f8;
+    .submenú-menú a:hover{
+      fondo:#eef3f8;
       color:var(--verde-acmi);
     }
 
 /* ==============================
-   HERO
+   HÉROE
    ============================== */
 
-.hero{
-  position:relative;
-  background:
-    linear-gradient(
-      135deg,
+.héroe{
+  posición:relativa;
+  fondo:
+    gradiente lineal(
+      135 grados,
       rgba(8,40,79,0.86),
       rgba(20,63,125,0.72),
       rgba(42,156,82,0.48)
     ),
-    url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
-  min-height:68vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:white;
-  overflow:hidden;
-  isolation:isolate;
+    url("{{ site.baseurl }}/chicamocha.jpg") centro/cubierta sin repetición;
+  altura mínima: 68vh;
+  pantalla:flex;
+  alinear-elementos:centro;
+  justificar-contenido:centro;
+  alineación de texto:centro;
+  color:blanco;
+  desbordamiento:oculto;
+  aislamiento: aislar;
 }
 
 .hero::before{
-  content:"";
-  position:absolute;
-  width:520px;
-  height:520px;
-  border-radius:50%;
-  background:radial-gradient(
-    circle,
+  contenido:"";
+  posición:absoluta;
+  ancho: 520px;
+  altura: 520px;
+  radio de borde: 50%;
+  fondo:gradiente radial(
+    círculo,
     rgba(255,255,255,0.16),
-    transparent 62%
+    transparente 62%
   );
-  top:-160px;
-  right:-120px;
-  animation:floatGlow 8s ease-in-out infinite alternate;
-  z-index:-1;
+  superior:-160px;
+  derecha:-120px;
+  animación:floatGlow 8s ease-in-out infinite alternate;
+  índice z:-1;
 }
 
 .hero::after{
-  content:"";
-  position:absolute;
-  width:420px;
-  height:420px;
-  border-radius:50%;
-  background:radial-gradient(
-    circle,
+  contenido:"";
+  posición:absoluta;
+  ancho: 420px;
+  altura: 420px;
+  radio de borde: 50%;
+  fondo:gradiente radial(
+    círculo,
     rgba(126,212,154,0.26),
-    transparent 62%
+    transparente 62%
   );
-  bottom:-180px;
-  left:-120px;
-  animation:floatGlow 9s ease-in-out infinite alternate-reverse;
-  z-index:-1;
+  parte inferior:-180px;
+  izquierda:-120px;
+  animación:floatGlow 9s ease-in-out infinite alternate-reverse;
+  índice z:-1;
 }
 
 @keyframes floatGlow{
-  from{
-    transform:translate3d(0,0,0) scale(1);
+  desde{
+    transformar:translate3d(0,0,0) escala(1);
   }
 
-  to{
-    transform:translate3d(28px,18px,0) scale(1.06);
+  a{
+    transformar:translate3d(28px,18px,0) escala(1.06);
   }
 }
 
 .hero-content{
-  position:relative;
-  z-index:1;
-  width:min(1080px, 92%);
-  padding:90px 0;
-  animation:heroIntro 0.95s ease both;
+  posición:relativa;
+  índice z:1;
+  ancho: mín(1080px, 92%);
+  relleno: 90px 0;
+  animación:heroIntro 0.95s facilidad ambos;
 }
 
 @keyframes heroIntro{
-  from{
-    opacity:0;
-    transform:translateY(28px);
+  desde{
+    opacidad:0;
+    transformar:translateY(28px);
   }
 
-  to{
-    opacity:1;
-    transform:translateY(0);
+  a{
+    opacidad:1;
+    transformar:translateY(0);
   }
 }
 
-.hero-badge{
-  display:inline-block;
-  padding:11px 20px;
-  border-radius:999px;
-  background:rgba(255,255,255,0.16);
-  border:1px solid rgba(255,255,255,0.32);
-  font-weight:800;
-  font-size:14px;
-  margin-bottom:22px;
+.héroe-insignia{
+  mostrar:bloque-en-línea;
+  relleno: 11px 20px;
+  radio de borde: 999px;
+  fondo:rgba(255,255,255,0.16);
+  borde:1px sólido rgba(255,255,255,0.32);
+  peso de fuente: 800;
+  tamaño de fuente: 14px;
+  margen inferior: 22px;
   box-shadow:0 16px 36px rgba(0,0,0,0.12);
-  backdrop-filter:blur(8px);
+  filtro de fondo: desenfoque (8px);
 }
 
-.hero h2{
+.héroe h2{
   font-family:'Montserrat', sans-serif;
   font-size:clamp(42px, 5vw, 74px);
-  line-height:1.02;
-  margin-bottom:22px;
-  font-weight:900;
-  letter-spacing:-0.065em;
-  text-wrap:balance;
+  interlineado: 1,02;
+  margen inferior: 22px;
+  peso de fuente: 900;
+  espaciado entre letras: -0,065em;
+  ajuste de texto:balance;
 }
 
-.hero p{
+.héroe p{
   font-size:clamp(18px, 2vw, 24px);
-  max-width:980px;
-  margin:0 auto 34px;
+  ancho máximo: 980px;
+  margen:0 auto 34px;
   color:#f2f7ff;
-  font-weight:500;
+  peso de fuente: 500;
 }
 
-.hero-actions,
-.eventos-actions{
-  display:flex;
-  justify-content:center;
-  gap:14px;
+.acciones-de-héroe,
+.eventos-acciones{
+  pantalla:flex;
+  justificar-contenido:centro;
+  espacio: 14px;
   flex-wrap:wrap;
 }
 
@@ -467,110 +467,110 @@
 
 .btn{
   display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  padding:13px 22px;
-  border-radius:14px;
-  border:none;
-  font-weight:900;
-  transition:var(--transicion);
+  alinear-elementos:centro;
+  justificar-contenido:centro;
+  espacio: 8px;
+  relleno: 13px 22px;
+  radio de borde: 14px;
+  borde:ninguno;
+  peso de fuente: 900;
+  transición:var(--transición);
   box-shadow:0 10px 22px rgba(8,40,79,0.10);
 }
 
 .btn-primary{
-  background:linear-gradient(
-    135deg,
+  fondo:gradiente-lineal(
+    135 grados,
     var(--verde-acmi),
     #35b862
   );
-  color:white;
+  color:blanco;
 }
 
 .btn-primary:hover{
-  transform:translateY(-3px);
+  transformar:translateY(-3px);
   box-shadow:0 18px 34px rgba(42,156,82,0.26);
-  filter:saturate(1.08);
+  filtro:saturar(1.08);
 }
 
 .btn-light{
-  background:white;
+  fondo:blanco;
   color:var(--azul-acmi);
 }
 
 .btn-light:hover{
-  transform:translateY(-3px);
-  background:#eef4fb;
+  transformar:translateY(-3px);
+  fondo:#eef4fb;
   box-shadow:0 18px 34px rgba(8,40,79,0.18);
 }
 
 
 /* ==============================
-   MENÚ DE OPCIONES DEL CONGRESO
+   MENÚS DE OPCIONES DEL CONGRESO
    ============================== */
 
 .evento-menu{
-  display:flex;
-  justify-content:center;
-  width:100%;
-  margin-top:22px;
+  pantalla:flex;
+  justificar-contenido:centro;
+  ancho:100%;
+  margen superior: 22px;
 }
 
-.evento-opciones{
-  position:relative;
-  width:min(100%, 320px);
+.opciones-evento{
+  posición:relativa;
+  ancho:min(100%, 320px);
 }
 
 .evento-opciones summary{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:100%;
-  cursor:pointer;
-  list-style:none;
-  user-select:none;
+  pantalla:flex;
+  alinear-elementos:centro;
+  justificar-contenido:centro;
+  ancho:100%;
+  cursor:puntero;
+  estilo de lista: ninguno;
+  selección de usuario: ninguna;
 }
 
 .evento-opciones summary::-webkit-details-marker{
-  display:none;
+  mostrar:ninguno;
 }
 
-.evento-opciones summary::after{
-  content:"▼";
-  margin-left:10px;
-  font-size:11px;
+.evento-opciones resumen::después{
+  contenido:"▼";
+  margen izquierdo: 10px;
+  tamaño de fuente: 11px;
 }
 
-.evento-opciones[open] summary::after{
-  content:"▲";
+.evento-opciones[abrir] resumen::después{
+  contenido:"→";
 }
 
 .evento-opciones-lista{
-  position:absolute;
-  z-index:1000;
-  top:calc(100% + 10px);
-  left:0;
-  width:100%;
-  padding:8px;
-  background:white;
-  border:1px solid rgba(20,63,125,0.12);
-  border-radius:16px;
+  posición:absoluta;
+  índice z:1000;
+  superior:calc(100% + 10px);
+  izquierda:0;
+  ancho:100%;
+  relleno: 8px;
+  fondo:blanco;
+  borde:1px sólido rgba(20,63,125,0.12);
+  radio de borde: 16px;
   box-shadow:0 18px 42px rgba(8,40,79,0.20);
 }
 
 .evento-opciones-lista a{
-  display:block;
-  padding:13px 14px;
-  border-radius:11px;
+  mostrar:bloque;
+  relleno: 13px 14px;
+  radio de borde: 11px;
   color:var(--azul-acmi);
-  font-weight:800;
-  text-align:left;
-  transition:var(--transicion);
+  peso de fuente: 800;
+  alineación de texto:izquierda;
+  transición:var(--transición);
 }
 
 .evento-opciones-lista a:hover{
   color:var(--verde-acmi);
-  background:#eef7f1;
+  fondo:#eef7f1;
 }
 
 
@@ -578,14 +578,14 @@
 
 @media (max-width:768px){
 
-  .evento-menu,
-  .evento-opciones{
-    width:100%;
+  .menú-evento,
+  .opciones-evento{
+    ancho:100%;
   }
 
   .evento-opciones-lista{
-    position:static;
-    margin-top:10px;
+    posición:estática;
+    margen superior: 10px;
   }
 }
 
@@ -594,127 +594,127 @@
    SECCIONES GENERALES
    ============================== */
 
-.section{
-  padding:96px 0;
+.sección{
+  relleno: 96px 0;
 }
 
 .section-title{
-  text-align:center;
-  margin-bottom:18px;
+  alineación de texto:centro;
+  margen inferior: 18px;
   font-family:'Montserrat', sans-serif;
   font-size:clamp(34px, 4vw, 52px);
   color:var(--azul-acmi);
-  font-weight:900;
-  letter-spacing:-0.055em;
-  line-height:1.05;
+  peso de fuente: 900;
+  espaciado entre letras: -0,055em;
+  interlineado: 1,05;
 }
 
-.section-subtitle{
-  text-align:center;
-  max-width:980px;
-  margin:0 auto 44px;
+.subtítulo-de-sección{
+  alineación de texto:centro;
+  ancho máximo: 980px;
+  margen:0 auto 44px;
   color:var(--texto-suave);
-  font-size:19px;
-  line-height:1.75;
-  font-weight:500;
+  tamaño de fuente: 19px;
+  interlineado: 1,75;
+  peso de fuente: 500;
 }
 
-.card{
-  background:rgba(255,255,255,0.92);
-  border-radius:var(--radio-grande);
-  box-shadow:var(--sombra-media);
-  padding:38px;
-  border:1px solid rgba(20,63,125,0.08);
-  backdrop-filter:blur(8px);
+.tarjeta{
+  fondo:rgba(255,255,255,0.92);
+  radio-frontera:var(--radio-grande);
+  sombra-caja:var(--sombra-media);
+  relleno: 38px;
+  borde:1px sólido rgba(20,63,125,0.08);
+  filtro de fondo: desenfoque (8px);
 }
     /* ==============================
        QUIÉNES SOMOS
        ============================== */
 
     .about-block{
-      max-width:var(--ancho-lectura);
-      margin:0 auto;
+      ancho máximo:var(--ancho-lectura);
+      margen:0 automático;
     }
 
     .about-block h3{
       font-family:'Montserrat', sans-serif;
       color:var(--azul-acmi);
-      margin:26px 0 12px;
-      font-size:26px;
-      font-weight:900;
-      letter-spacing:-0.035em;
+      margen:26px 0 12px;
+      tamaño de fuente: 26px;
+      peso de fuente: 900;
+      espaciado entre letras: -0,035em;
     }
 
     .about-block p{
       color:#425268;
-      font-size:17px;
-      font-weight:500;
+      tamaño de fuente: 17px;
+      peso de fuente: 500;
     }
 
     .cards-grid{
-      display:grid;
+      mostrar:cuadrícula;
       grid-template-columns:repeat(4, 1fr);
-      gap:22px;
-      max-width:var(--ancho-lectura);
-      margin:34px auto 0 auto;
+      espacio: 22px;
+      ancho máximo:var(--ancho-lectura);
+      margen:34px auto 0 auto;
     }
 
-    .mini-card,
+    .mini-tarjeta,
     .evento-item{
-      background:#fff;
-      border-radius:22px;
+      fondo:#fff;
+      radio de borde: 22px;
       box-shadow:var(--sombra-suave);
-      padding:28px;
-      text-align:center;
-      border:1px solid rgba(20,63,125,0.08);
-      border-top:5px solid var(--verde-acmi);
-      transition:var(--transicion);
-      position:relative;
-      overflow:hidden;
+      relleno: 28px;
+      alineación de texto:centro;
+      borde:1px sólido rgba(20,63,125,0.08);
+      borde superior: 5px solid var (--verde-acmi);
+      transición:var(--transición);
+      posición:relativa;
+      desbordamiento:oculto;
     }
 
-    .mini-card::before,
+    .mini-tarjeta::antes,
     .evento-item::before{
-      content:"";
-      position:absolute;
+      contenido:"";
+      posición:absoluta;
       inset:auto -40px -70px auto;
-      width:140px;
-      height:140px;
-      border-radius:50%;
-      background:rgba(42,156,82,0.08);
-      transition:var(--transicion);
+      ancho:140px;
+      altura: 140px;
+      radio de borde: 50%;
+      fondo:rgba(42,156,82,0.08);
+      transición:var(--transición);
     }
 
-    .mini-card:hover,
+    .mini-tarjeta:hover,
     .evento-item:hover{
-      transform:translateY(-7px);
-      box-shadow:var(--sombra-media);
+      transformar:translateY(-7px);
+      sombra-caja:var(--sombra-media);
     }
 
-    .mini-card:hover::before,
+    .mini-tarjeta:hover::antes,
     .evento-item:hover::before{
-      transform:scale(1.18);
-      background:rgba(20,63,125,0.08);
+      transformar:escala(1.18);
+      fondo:rgba(20,63,125,0.08);
     }
 
-    .mini-card h4,
+    .mini-tarjeta h4,
     .evento-item h4{
       font-family:'Montserrat', sans-serif;
       color:var(--azul-acmi);
-      margin-bottom:9px;
-      font-size:20px;
-      font-weight:900;
-      letter-spacing:-0.03em;
-      position:relative;
-      z-index:2;
+      margen inferior: 9px;
+      tamaño de fuente: 20px;
+      peso de fuente: 900;
+      espaciado entre letras: -0,03em;
+      posición:relativa;
+      índice z:2;
     }
 
-    .mini-card p,
+    .mini-tarjeta p,
     .evento-item p{
-      position:relative;
-      z-index:2;
+      posición:relativa;
+      índice z:2;
       color:#52667d;
-      font-weight:500;
+      peso de fuente: 500;
     }
 
     /* ==============================
@@ -722,76 +722,76 @@
        ============================== */
 
     #organigrama{
-      background:
-        radial-gradient(circle at top right, rgba(20,63,125,0.08), transparent 30%),
+      fondo:
+        gradiente radial(círculo en la parte superior derecha, rgba(20,63,125,0.08), transparente 30%),
         #f5f7fb;
     }
 
     .org-grid{
-      display:grid;
+      mostrar:cuadrícula;
       grid-template-columns:repeat(3, 1fr);
-      gap:26px;
-      max-width:1280px;
-      margin:0 auto;
-      align-items:stretch;
+      espacio: 26px;
+      ancho máximo: 1280px;
+      margen:0 automático;
+      alinear-elementos:estirar;
     }
 
     .org-card{
-      background:rgba(255,255,255,0.96);
-      border-radius:26px;
+      fondo:rgba(255,255,255,0.96);
+      radio de borde: 26px;
       box-shadow:var(--sombra-suave);
-      padding:34px 26px;
-      border:1px solid rgba(20,63,125,0.08);
-      border-top:6px solid var(--azul-acmi);
-      text-align:center;
-      transition:var(--transicion);
-      position:relative;
-      overflow:hidden;
+      relleno: 34px 26px;
+      borde:1px sólido rgba(20,63,125,0.08);
+      borde superior: 6px solid var (--azul-acmi);
+      alineación de texto:centro;
+      transición:var(--transición);
+      posición:relativa;
+      desbordamiento:oculto;
     }
 
     .org-card::after{
-      content:"";
-      position:absolute;
-      width:170px;
-      height:170px;
-      border-radius:50%;
-      background:linear-gradient(135deg, rgba(20,63,125,0.08), rgba(42,156,82,0.08));
-      bottom:-90px;
-      right:-70px;
-      transition:var(--transicion);
+      contenido:"";
+      posición:absoluta;
+      ancho:170px;
+      altura: 170px;
+      radio de borde: 50%;
+      fondo:linear-gradient(135deg, rgba(20,63,125,0.08), rgba(42,156,82,0.08));
+      parte inferior:-90px;
+      derecha:-70px;
+      transición:var(--transición);
     }
 
     .org-card:hover{
-      transform:translateY(-8px);
-      box-shadow:var(--sombra-media);
-      border-top-color:var(--verde-acmi);
+      transformar:translateY(-8px);
+      sombra-caja:var(--sombra-media);
+      color-superior del borde:var(--verde-acmi);
     }
 
     .org-card:hover::after{
-      transform:scale(1.25);
+      transformar:escala(1.25);
     }
 
     .org-card h3{
       font-family:'Montserrat', sans-serif;
       color:var(--azul-acmi);
-      margin-bottom:16px;
-      font-size:23px;
-      line-height:1.2;
-      font-weight:900;
-      letter-spacing:-0.04em;
-      position:relative;
-      z-index:2;
+      margen inferior: 16px;
+      tamaño de fuente: 23px;
+      interlineado: 1,2;
+      peso de fuente: 900;
+      espaciado entre letras: -0,04em;
+      posición:relativa;
+      índice z:2;
     }
 
     .org-card p{
-      margin:7px 0;
+      margen:7px 0;
       color:#2d3d52;
-      font-size:16px;
-      line-height:1.5;
-      text-align:center;
-      font-weight:600;
-      position:relative;
-      z-index:2;
+      tamaño de fuente: 16px;
+      interlineado: 1,5;
+      alineación de texto:centro;
+      peso de fuente: 600;
+      posición:relativa;
+      índice z:2;
     }
 
  /* ==============================
@@ -799,176 +799,176 @@
    ============================== */
 
 #eventos{
-  background:
-    radial-gradient(
-      circle at top left,
+  fondo:
+    gradiente radial(
+      círculo en la parte superior izquierda,
       rgba(42,156,82,0.10),
-      transparent 34%
+      transparente 34%
     ),
-    radial-gradient(
-      circle at top right,
+    gradiente radial(
+      círculo en la parte superior derecha,
       rgba(20,63,125,0.12),
-      transparent 32%
+      transparente 32%
     ),
     #f5f7fb;
 }
 
-.eventos-title{
+.eventos-título{
   font-size:clamp(38px, 4.8vw, 60px);
-  letter-spacing:-0.06em;
-  margin-bottom:14px;
-  position:relative;
+  espaciado entre letras: -0,06em;
+  margen inferior: 14px;
+  posición:relativa;
 }
 
 .eventos-title::after{
-  content:"";
-  display:block;
-  width:132px;
-  height:6px;
-  border-radius:999px;
-  margin:20px auto 0;
-  background:linear-gradient(
-    90deg,
+  contenido:"";
+  mostrar:bloque;
+  ancho: 132px;
+  altura: 6px;
+  radio de borde: 999px;
+  margen:20px auto 0;
+  fondo:gradiente-lineal(
+    90 grados,
     var(--verde-acmi),
     var(--azul-acmi)
   );
   box-shadow:0 8px 18px rgba(20,63,125,0.18);
 }
 
-.eventos-subtitle{
-  max-width:980px;
-  font-size:19px;
-  line-height:1.75;
-  margin-bottom:54px;
+.eventos-subtítulo{
+  ancho máximo: 980px;
+  tamaño de fuente: 19px;
+  interlineado: 1,75;
+  margen inferior: 54px;
 }
 
 
 /* Tarjetas principales */
 
 .evento-card-grande{
-  max-width:1280px;
-  margin:0 auto 58px;
-  border-radius:34px;
-  overflow:hidden;
-  position:relative;
+  ancho máximo: 1280px;
+  margen:0 automático 58px;
+  radio de borde: 34px;
+  desbordamiento:oculto;
+  posición:relativa;
   box-shadow:var(--sombra-fuerte);
-  border:1px solid rgba(20,63,125,0.10);
-  transition:var(--transicion);
+  borde:1px sólido rgba(20,63,125,0.10);
+  transición:var(--transición);
 }
 
 .evento-card-grande:hover{
-  transform:translateY(-4px);
+  transformar:translateY(-4px);
   box-shadow:0 34px 80px rgba(8,40,79,0.20);
 }
 
 .evento-card-grande::before{
-  content:"";
-  position:absolute;
+  contenido:"";
+  posición:absoluta;
   inset:0 0 auto 0;
-  height:8px;
-  z-index:3;
-  background:linear-gradient(
-    90deg,
+  altura: 8px;
+  índice z:3;
+  fondo:gradiente-lineal(
+    90 grados,
     var(--verde-acmi),
     var(--azul-acmi)
   );
 }
 
 .evento-card-proximos{
-  overflow:visible;
-  background:linear-gradient(
-    180deg,
+  desbordamiento:visible;
+  fondo:gradiente-lineal(
+    180 grados,
     rgba(255,255,255,0.96),
     rgba(248,251,255,0.98)
   );
 }
 
-.evento-card-repositorio{
-  background:
-    linear-gradient(
-      135deg,
+.repositorio-de-tarjetas-de-eventos{
+  fondo:
+    gradiente lineal(
+      135 grados,
       rgba(8,40,79,0.98),
       rgba(20,63,125,0.94),
       rgba(42,156,82,0.58)
     ),
-    url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
-  color:white;
+    url("{{ site.baseurl }}/chicamocha.jpg") centro/cubierta sin repetición;
+  color:blanco;
 }
 
-.evento-card-repositorio::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(
-      circle at top left,
+.evento-card-repositorio::después{
+  contenido:"";
+  posición:absoluta;
+  recuadro:0;
+  fondo:
+    gradiente radial(
+      círculo en la parte superior izquierda,
       rgba(42,156,82,0.25),
-      transparent 34%
+      transparente 34%
     ),
-    radial-gradient(
-      circle at bottom right,
+    gradiente radial(
+      círculo en la parte inferior derecha,
       rgba(255,255,255,0.12),
-      transparent 30%
+      transparente 30%
     );
-  pointer-events:none;
+  eventos de puntero: ninguno;
 }
 
-.evento-card-repositorio > *{
-  position:relative;
-  z-index:2;
+.repositorio-tarjeta-evento > *{
+  posición:relativa;
+  índice z:2;
 }
 
 
 /* Encabezado de las tarjetas */
 
-.evento-card-header{
-  text-align:center;
-  max-width:940px;
-  margin:0 auto;
-  padding:50px 38px 28px;
+.encabezado-tarjeta-evento{
+  alineación de texto:centro;
+  ancho máximo: 940px;
+  margen:0 automático;
+  relleno: 50px 38px 28px;
 }
 
-.evento-card-header h3{
+.encabezado-tarjeta-evento h3{
   font-family:'Montserrat', sans-serif;
   color:var(--azul-acmi);
   font-size:clamp(32px, 3.4vw, 48px);
-  line-height:1.08;
-  font-weight:900;
-  letter-spacing:-0.055em;
-  margin-bottom:12px;
+  interlineado: 1,08;
+  peso de fuente: 900;
+  espaciado entre letras: -0,055em;
+  margen inferior: 12px;
 }
 
-.evento-card-header h3::after{
-  content:"";
-  display:block;
-  width:100px;
-  height:5px;
-  border-radius:999px;
-  margin:18px auto 0;
-  background:linear-gradient(
-    90deg,
+.encabezado-tarjeta-evento h3::después{
+  contenido:"";
+  mostrar:bloque;
+  ancho:100px;
+  altura: 5px;
+  radio de borde: 999px;
+  margen:18px auto 0;
+  fondo:gradiente-lineal(
+    90 grados,
     var(--verde-acmi),
     var(--azul-acmi)
   );
 }
 
-.evento-card-header p{
+.encabezado-tarjeta-evento p{
   color:#5b6d82;
-  font-size:18px;
-  line-height:1.75;
-  max-width:800px;
-  margin:20px auto 0;
-  font-weight:500;
+  tamaño de fuente: 18px;
+  interlineado: 1,75;
+  ancho máximo: 800px;
+  margen:20px auto 0;
+  peso de fuente: 500;
 }
 
 .evento-card-header-repositorio h3,
 .evento-card-header-repositorio p{
-  color:white;
+  color:blanco;
 }
 
-.evento-card-header-repositorio h3::after{
-  background:linear-gradient(
-    90deg,
+.evento-card-header-repositorio h3::después{
+  fondo:gradiente-lineal(
+    90 grados,
     var(--verde-claro),
     #ffffff
   );
@@ -978,218 +978,218 @@
 /* Etiquetas */
 
 .bloque-etiqueta{
-  display:inline-block;
-  padding:10px 18px;
-  border-radius:999px;
-  background:#eaf4ee;
+  mostrar:bloque-en-línea;
+  relleno: 10px 18px;
+  radio de borde: 999px;
+  fondo:#eaf4ee;
   color:var(--verde-acmi);
-  border:1px solid rgba(42,156,82,0.22);
-  font-size:13px;
-  font-weight:900;
-  text-transform:uppercase;
-  letter-spacing:0.08em;
-  margin-bottom:18px;
+  borde:1px sólido rgba(42,156,82,0.22);
+  tamaño de fuente: 13px;
+  peso de fuente: 900;
+  transformación de texto: mayúsculas;
+  espaciado entre letras: 0,08em;
+  margen inferior: 18px;
   box-shadow:0 8px 18px rgba(42,156,82,0.10);
 }
 
 .bloque-etiqueta-azul{
-  background:rgba(255,255,255,0.16);
-  color:white;
-  border:1px solid rgba(255,255,255,0.30);
+  fondo:rgba(255,255,255,0.16);
+  color:blanco;
+  borde:1px sólido rgba(255,255,255,0.30);
   box-shadow:0 8px 18px rgba(20,63,125,0.10);
-  backdrop-filter:blur(8px);
+  filtro de fondo: desenfoque (8px);
 }
 
 
 /* Contenido de las tarjetas */
 
 .evento-card-contenido{
-  padding:22px 52px 52px;
+  relleno: 22px 52px 52px;
 }
 
 .evento-card-contenido-proximos{
-  display:grid;
-  grid-template-columns:1.2fr 0.8fr;
-  gap:34px;
-  align-items:center;
+  mostrar:cuadrícula;
+  columnas-de-plantilla-de-cuadrícula:1.2fr 0.8fr;
+  espacio: 34px;
+  alinear-elementos:centro;
 }
 
 .evento-card-contenido-repositorio{
-  display:grid;
-  grid-template-columns:1.1fr 0.9fr;
-  gap:34px;
-  align-items:center;
+  mostrar:cuadrícula;
+  columnas-de-plantilla-de-cuadrícula:1.1fr 0.9fr;
+  espacio: 34px;
+  alinear-elementos:centro;
 }
 
 .proximo-evento-info{
-  text-align:left;
+  alineación de texto:izquierda;
 }
 
-.evento-label,
+.etiqueta-de-evento,
 .repositorio-home-badge{
-  display:inline-block;
-  padding:10px 16px;
-  border-radius:999px;
-  font-weight:900;
-  font-size:13px;
-  text-transform:uppercase;
-  letter-spacing:0.07em;
-  margin-bottom:18px;
+  mostrar:bloque-en-línea;
+  relleno: 10px 16px;
+  radio de borde: 999px;
+  peso de fuente: 900;
+  tamaño de fuente: 13px;
+  transformación de texto: mayúsculas;
+  espaciado entre letras: 0,07em;
+  margen inferior: 18px;
 }
 
-.evento-label-proximo{
-  background:#eaf4ee;
+.evento-etiqueta-próximo{
+  fondo:#eaf4ee;
   color:var(--verde-acmi);
-  border:1px solid rgba(42,156,82,0.22);
+  borde:1px sólido rgba(42,156,82,0.22);
 }
 
 .repositorio-home-badge{
-  background:rgba(255,255,255,0.16);
-  border:1px solid rgba(255,255,255,0.30);
-  color:white;
-  backdrop-filter:blur(8px);
+  fondo:rgba(255,255,255,0.16);
+  borde:1px sólido rgba(255,255,255,0.30);
+  color:blanco;
+  filtro de fondo: desenfoque (8px);
 }
 
 .proximo-evento-info h3{
   font-family:'Montserrat', sans-serif;
   color:var(--azul-acmi);
   font-size:clamp(30px, 3vw, 42px);
-  line-height:1.12;
-  font-weight:900;
-  letter-spacing:-0.05em;
-  margin-bottom:15px;
+  interlineado: 1,12;
+  peso de fuente: 900;
+  espaciado entre letras: -0,05em;
+  margen inferior: 15px;
 }
 
 .proximo-evento-info p{
   color:#52667d;
-  font-size:18px;
-  line-height:1.75;
-  margin-bottom:24px;
-  font-weight:500;
+  tamaño de fuente: 18px;
+  interlineado: 1,75;
+  margen inferior: 24px;
+  peso de fuente: 500;
 }
 
 
 /* Datos del evento */
 
-.eventos-badges{
-  display:flex;
+.eventos-insignias{
+  pantalla:flex;
   flex-direction:column;
-  align-items:flex-start;
-  gap:10px;
-  margin-bottom:22px;
+  alinear-elementos:flex-start;
+  espacio: 10px;
+  margen inferior: 22px;
 }
 
-.badge{
-  width:fit-content;
-  max-width:100%;
-  font-size:15px;
-  line-height:1.4;
-  color:inherit;
-  padding:8px 12px;
-  border-radius:999px;
-  background:rgba(20,63,125,0.06);
-  font-weight:700;
+.insignia{
+  ancho:ajustar-contenido;
+  ancho máximo: 100%;
+  tamaño de fuente: 15px;
+  interlineado: 1,4;
+  color:heredar;
+  relleno: 8px 12px;
+  radio de borde: 999px;
+  fondo:rgba(20,63,125,0.06);
+  peso de fuente: 700;
 }
 
 
 /* Lugar del evento */
 
 .evento-lugar{
-  display:flex;
-  align-items:flex-start;
-  gap:11px;
-  width:100%;
-  max-width:570px;
-  padding:14px 16px;
-  margin:0 0 18px;
-  border-radius:17px;
-  background:rgba(20,63,125,0.06);
-  border:1px solid rgba(20,63,125,0.08);
+  pantalla:flex;
+  alinear-elementos:flex-start;
+  espacio: 11px;
+  ancho:100%;
+  ancho máximo: 570px;
+  relleno: 14px 16px;
+  margen:0 0 18px;
+  radio de borde: 17px;
+  fondo:rgba(20,63,125,0.06);
+  borde:1px sólido rgba(20,63,125,0.08);
   color:var(--azul-acmi);
 }
 
 .evento-lugar-icono{
-  flex:0 0 auto;
-  font-size:22px;
-  line-height:1.2;
+  flex:0 0 automático;
+  tamaño de fuente: 22px;
+  interlineado: 1,2;
 }
 
 .evento-lugar-texto{
-  min-width:0;
-  line-height:1.45;
+  ancho mínimo: 0;
+  interlineado: 1,45;
 }
 
-.evento-lugar-texto strong{
-  display:block;
+.evento-lugar-texto fuerte{
+  mostrar:bloque;
   color:var(--azul-acmi);
-  font-size:15px;
-  font-weight:900;
+  tamaño de fuente: 15px;
+  peso de fuente: 900;
 }
 
 .evento-lugar-texto span{
-  display:block;
-  margin-top:4px;
+  mostrar:bloque;
+  margen superior: 4px;
   color:#52667d;
-  font-size:13px;
-  line-height:1.5;
-  font-weight:600;
+  tamaño de fuente: 13px;
+  interlineado: 1,5;
+  peso de fuente: 600;
 }
 
 
 /* Botón GPS */
 
 .evento-ubicacion-actions{
-  display:flex;
-  justify-content:flex-start;
+  pantalla:flex;
+  justificar-contenido:flex-start;
   flex-wrap:wrap;
-  gap:12px;
-  margin:0 0 18px;
+  espacio: 12px;
+  margen:0 0 18px;
 }
 
 .btn-ubicacion{
-  background:white;
+  fondo:blanco;
   color:var(--azul-acmi);
-  border:1px solid rgba(20,63,125,0.14);
+  borde:1px sólido rgba(20,63,125,0.14);
 }
 
 .btn-ubicacion:hover{
   color:var(--verde-acmi);
-  background:#eef7f1;
-  transform:translateY(-3px);
+  fondo:#eef7f1;
+  transformar:translateY(-3px);
   box-shadow:0 18px 34px rgba(8,40,79,0.16);
 }
 
 
 /* Afiche del próximo evento */
 
-.proximo-evento-decoracion{
-  min-height:340px;
-  padding:14px;
-  border-radius:28px;
-  background:#061b2a;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  overflow:hidden;
-  box-shadow:
+.próximo-evento-decoracion{
+  altura mínima: 340px;
+  relleno: 14px;
+  radio de borde: 28px;
+  fondo:#061b2a;
+  pantalla:flex;
+  alinear-elementos:centro;
+  justificar-contenido:centro;
+  posición:relativa;
+  desbordamiento:oculto;
+  sombra de caja:
     inset 0 0 0 1px rgba(255,255,255,0.18),
     0 18px 42px rgba(8,40,79,0.16);
 }
 
-.proximo-evento-afiche{
-  display:block;
-  width:100%;
-  height:auto;
-  max-height:720px;
-  object-fit:contain;
-  border-radius:18px;
+.próximo-evento-afiche{
+  mostrar:bloque;
+  ancho:100%;
+  altura:automática;
+  altura máxima: 720px;
+  objeto-ajustar:contener;
+  radio de borde: 18px;
   box-shadow:0 18px 42px rgba(0,0,0,0.28);
-  transition:transform 0.28s ease;
+  transición:transformación 0,28 s facilidad;
 }
 
 .proximo-evento-decoracion:hover .proximo-evento-afiche{
-  transform:scale(1.015);
+  transformar:escala(1.015);
 }
 
 
@@ -1198,37 +1198,37 @@
 .repositorio-home-texto h3{
   font-family:'Montserrat', sans-serif;
   font-size:clamp(30px, 3.1vw, 44px);
-  line-height:1.12;
-  margin-bottom:15px;
-  color:white;
-  letter-spacing:-0.05em;
-  font-weight:900;
+  interlineado: 1,12;
+  margen inferior: 15px;
+  color:blanco;
+  espaciado entre letras: -0,05em;
+  peso de fuente: 900;
 }
 
 .repositorio-home-texto p{
   color:#edf5ff;
-  font-size:18px;
-  line-height:1.75;
-  max-width:700px;
-  margin-bottom:24px;
-  font-weight:500;
+  tamaño de fuente: 18px;
+  interlineado: 1,75;
+  ancho máximo: 700px;
+  margen inferior: 24px;
+  peso de fuente: 500;
 }
 
 .evento-card-repositorio .badge{
-  background:rgba(255,255,255,0.14);
-  border:1px solid rgba(255,255,255,0.16);
-  color:white;
-  backdrop-filter:blur(8px);
+  fondo:rgba(255,255,255,0.14);
+  borde:1px sólido rgba(255,255,255,0.16);
+  color:blanco;
+  filtro de fondo: desenfoque (8px);
 }
 
 .repositorio-home-actions{
-  display:flex;
-  gap:14px;
+  pantalla:flex;
+  espacio: 14px;
   flex-wrap:wrap;
 }
 
 .repositorio-home-actions .btn{
-  border-radius:14px;
+  radio de borde: 14px;
 }
 
 .repositorio-home-actions .btn-light{
@@ -1239,72 +1239,72 @@
 /* Tarjetas pequeñas del repositorio */
 
 .repositorio-mini-grid{
-  display:grid;
+  mostrar:cuadrícula;
   grid-template-columns:repeat(2, 1fr);
-  gap:18px;
+  espacio: 18px;
 }
 
 .repositorio-mini-card{
-  background:rgba(255,255,255,0.96);
+  fondo:rgba(255,255,255,0.96);
   color:var(--azul-acmi);
-  border-radius:22px;
-  padding:22px;
+  radio de borde: 22px;
+  relleno: 22px;
   box-shadow:0 12px 26px rgba(0,0,0,0.14);
-  transition:var(--transicion);
-  text-align:left;
-  border:1px solid rgba(20,63,125,0.08);
-  position:relative;
-  overflow:hidden;
+  transición:var(--transición);
+  alineación de texto:izquierda;
+  borde:1px sólido rgba(20,63,125,0.08);
+  posición:relativa;
+  desbordamiento:oculto;
 }
 
 .repositorio-mini-card::after{
-  content:"";
-  position:absolute;
+  contenido:"";
+  posición:absoluta;
   inset:auto -35px -55px auto;
-  width:110px;
-  height:110px;
-  border-radius:50%;
-  background:rgba(42,156,82,0.09);
-  transition:var(--transicion);
+  ancho:110px;
+  altura: 110px;
+  radio de borde: 50%;
+  fondo:rgba(42,156,82,0.09);
+  transición:var(--transición);
 }
 
 .repositorio-mini-card:hover{
-  transform:translateY(-7px);
-  background:white;
+  transformar:translateY(-7px);
+  fondo:blanco;
   box-shadow:0 18px 36px rgba(0,0,0,0.18);
 }
 
 .repositorio-mini-card:hover::after{
-  transform:scale(1.2);
-  background:rgba(20,63,125,0.08);
+  transformar: escala(1.2);
+  fondo:rgba(20,63,125,0.08);
 }
 
 .repositorio-mini-card span{
-  display:block;
-  font-size:32px;
-  margin-bottom:8px;
-  position:relative;
-  z-index:2;
+  mostrar:bloque;
+  tamaño de fuente: 32px;
+  margen inferior: 8px;
+  posición:relativa;
+  índice z:2;
 }
 
 .repositorio-mini-card strong{
-  display:block;
+  mostrar:bloque;
   font-family:'Montserrat', sans-serif;
-  font-size:18px;
-  margin-bottom:6px;
-  font-weight:900;
-  letter-spacing:-0.03em;
-  position:relative;
-  z-index:2;
+  tamaño de fuente: 18px;
+  margen inferior: 6px;
+  peso de fuente: 900;
+  espaciado entre letras: -0,03em;
+  posición:relativa;
+  índice z:2;
 }
 
-.repositorio-mini-card small{
+.repositorio-mini-card pequeña{
   color:#52667d;
-  font-size:13px;
-  line-height:1.55;
-  font-weight:600;
-  position:relative;
-  z-index:2;
+  tamaño de fuente: 13px;
+  interlineado: 1,55;
+  peso de fuente: 600;
+  posición:relativa;
+  índice z:2;
 }
 
 
@@ -1316,30 +1316,30 @@
 
   .evento-card-contenido-proximos,
   .evento-card-contenido-repositorio{
-    grid-template-columns:1fr;
+    columnas-de-plantilla-de-cuadrícula:1fr;
   }
 
   .proximo-evento-info,
   .repositorio-home-texto{
-    text-align:center;
+    alineación de texto:centro;
   }
 
-  .eventos-badges{
-    align-items:center;
+  .eventos-insignias{
+    alinear-elementos:centro;
   }
 
   .evento-lugar{
-    margin-left:auto;
-    margin-right:auto;
-    text-align:left;
+    margen izquierdo:automático;
+    margen derecho:automático;
+    alineación de texto:izquierda;
   }
 
   .evento-ubicacion-actions{
-    justify-content:center;
+    justificar-contenido:centro;
   }
 
   .repositorio-home-actions{
-    justify-content:center;
+    justificar-contenido:centro;
   }
 }
 
@@ -1350,94 +1350,94 @@
 
 @media (max-width:768px){
 
-  .eventos-title{
-    font-size:36px;
+  .eventos-título{
+    tamaño de fuente: 36px;
   }
 
-  .eventos-subtitle{
-    font-size:16px;
-    line-height:1.6;
-    margin-bottom:36px;
+  .eventos-subtítulo{
+    tamaño de fuente: 16px;
+    interlineado: 1,6;
+    margen inferior: 36px;
   }
 
   .evento-card-grande{
-    margin-bottom:40px;
-    border-radius:24px;
+    margen inferior: 40px;
+    radio de borde: 24px;
   }
 
-  .evento-card-header{
-    padding:38px 18px 20px;
+  .encabezado-tarjeta-evento{
+    relleno: 38px 18px 20px;
   }
 
-  .evento-card-header h3{
-    font-size:30px;
+  .encabezado-tarjeta-evento h3{
+    tamaño de fuente: 30px;
   }
 
-  .evento-card-header p{
-    font-size:16px;
-    line-height:1.6;
+  .encabezado-tarjeta-evento p{
+    tamaño de fuente: 16px;
+    interlineado: 1,6;
   }
 
   .evento-card-contenido{
-    padding:18px 16px 30px;
+    relleno: 18px 16px 30px;
   }
 
   .evento-card-contenido-proximos,
   .evento-card-contenido-repositorio{
-    grid-template-columns:1fr;
-    gap:26px;
+    columnas-de-plantilla-de-cuadrícula:1fr;
+    espacio: 26px;
   }
 
   .proximo-evento-info h3,
   .repositorio-home-texto h3{
-    font-size:28px;
+    tamaño de fuente: 28px;
   }
 
   .proximo-evento-info p,
   .repositorio-home-texto p{
-    font-size:16px;
-    line-height:1.6;
+    tamaño de fuente: 16px;
+    interlineado: 1,6;
   }
 
-  .eventos-badges{
-    align-items:stretch;
-    width:100%;
+  .eventos-insignias{
+    alinear-elementos:estirar;
+    ancho:100%;
   }
 
-  .badge{
-    width:100%;
-    max-width:100%;
-    border-radius:14px;
-    text-align:center;
-    white-space:normal;
+  .insignia{
+    ancho:100%;
+    ancho máximo: 100%;
+    radio de borde: 14px;
+    alineación de texto:centro;
+    espacio en blanco:normal;
   }
 
   .evento-lugar{
-    width:100%;
-    max-width:100%;
-    margin-bottom:16px;
+    ancho:100%;
+    ancho máximo: 100%;
+    margen inferior: 16px;
   }
 
   .evento-ubicacion-actions,
-  .evento-ubicacion-actions .btn{
-    width:100%;
+  .evento-ubicacion-acciones .btn{
+    ancho:100%;
   }
 
-  .proximo-evento-decoracion{
-    width:100%;
-    min-height:auto;
-    padding:9px;
-    border-radius:20px;
+  .próximo-evento-decoracion{
+    ancho:100%;
+    altura mínima:automática;
+    relleno: 9px;
+    radio de borde: 20px;
   }
 
-  .proximo-evento-afiche{
-    width:100%;
-    max-height:none;
-    border-radius:13px;
+  .próximo-evento-afiche{
+    ancho:100%;
+    altura máxima: ninguna;
+    radio de borde: 13px;
   }
 
   .repositorio-mini-grid{
-    grid-template-columns:1fr;
+    columnas-de-plantilla-de-cuadrícula:1fr;
   }
 
   .repositorio-home-actions{
@@ -1445,295 +1445,295 @@
   }
 
   .repositorio-home-actions .btn{
-    width:100%;
+    ancho:100%;
   }
 }
 /* ==============================
-   ÚLTIMAS PUBLICACIONES
-   TARJETA ÚNICA GRANDE
+   ÃšLTIMAS PUBLICACIONES
+   TARJETA ÃšNICA GRANDE
    ============================== */
 
-.publicaciones-card-unica{
-  max-width:1280px;
-  margin:0 auto;
-  background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,251,255,0.98));
-  border-radius:34px;
-  border:1px solid rgba(20,63,125,0.10);
+.publicaciones-card-única{
+  ancho máximo: 1280px;
+  margen:0 automático;
+  fondo:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,251,255,0.98));
+  radio de borde: 34px;
+  borde:1px sólido rgba(20,63,125,0.10);
   box-shadow:0 28px 70px rgba(8,40,79,0.14);
-  overflow:hidden;
-  position:relative;
+  desbordamiento:oculto;
+  posición:relativa;
 }
 
-.publicaciones-card-unica::before{
-  content:"";
-  position:absolute;
+.publicaciones-card-unica::antes{
+  contenido:"";
+  posición:absoluta;
   inset:0 0 auto 0;
-  height:8px;
-  background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
-  z-index:2;
+  altura: 8px;
+  fondo: gradiente lineal (90 grados, var (--verde-acmi), var (--azul-acmi));
+  índice z:2;
 }
 
 .publicaciones-card-header{
-  text-align:center;
-  max-width:940px;
-  margin:0 auto;
-  padding:48px 36px 26px 36px;
+  alineación de texto:centro;
+  ancho máximo: 940px;
+  margen:0 automático;
+  relleno: 48px 36px 26px 36px;
 }
 
 .publicaciones-card-header h3{
   font-family:'Montserrat', sans-serif;
   color:var(--azul-acmi);
-  font-size:44px;
-  line-height:1.08;
-  font-weight:800;
-  letter-spacing:-0.03em;
-  margin-bottom:12px;
+  tamaño de fuente: 44px;
+  interlineado: 1,08;
+  peso de fuente: 800;
+  espaciado entre letras: -0,03em;
+  margen inferior: 12px;
 }
 
-.publicaciones-card-header h3::after{
-  content:"";
-  display:block;
-  width:96px;
-  height:5px;
-  border-radius:999px;
-  margin:18px auto 0 auto;
-  background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
+.publicaciones-card-header h3::después{
+  contenido:"";
+  mostrar:bloque;
+  ancho: 96px;
+  altura: 5px;
+  radio de borde: 999px;
+  margen:18px automático 0 automático;
+  fondo: gradiente lineal (90 grados, var (--verde-acmi), var (--azul-acmi));
 }
 
 .publicaciones-card-header p{
   color:#5b6d82;
-  font-size:18px;
-  line-height:1.75;
-  margin:18px auto 0 auto;
-  max-width:800px;
+  tamaño de fuente: 18px;
+  interlineado: 1,75;
+  margen:18px automático 0 automático;
+  ancho máximo: 800px;
 }
 
 .publicaciones-layout{
-  display:grid;
-  grid-template-columns:1.1fr 0.9fr;
-  gap:28px;
-  padding:18px 38px 38px 38px;
-  align-items:start;
+  mostrar:cuadrícula;
+  columnas-de-plantilla-de-cuadrícula:1.1fr 0.9fr;
+  espacio: 28px;
+  relleno: 18px 38px 38px 38px;
+  alinear-elementos:inicio;
 }
 
 .publicacion-feature,
 .publicacion-box{
-  background:#ffffff;
-  border:1px solid rgba(20,63,125,0.08);
-  border-radius:26px;
+  fondo:#ffffff;
+  borde:1px sólido rgba(20,63,125,0.08);
+  radio de borde: 26px;
   box-shadow:0 14px 30px rgba(8,40,79,0.08);
-  padding:28px;
-  position:relative;
-  overflow:hidden;
+  relleno: 28px;
+  posición:relativa;
+  desbordamiento:oculto;
 }
 
 .publicacion-feature::before,
 .publicacion-box::before{
-  content:"";
-  position:absolute;
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  right:-55px;
-  bottom:-70px;
-  background:rgba(42,156,82,0.07);
+  contenido:"";
+  posición:absoluta;
+  ancho:150px;
+  altura: 150px;
+  radio de borde: 50%;
+  derecha:-55px;
+  parte inferior:-70px;
+  fondo:rgba(42,156,82,0.07);
 }
 
 .publicacion-badge{
-  display:inline-block;
-  padding:9px 16px;
-  border-radius:999px;
+  mostrar:bloque-en-línea;
+  relleno: 9px 16px;
+  radio de borde: 999px;
   font-family:'Montserrat', sans-serif;
-  font-size:13px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:0.06em;
-  margin-bottom:16px;
-  background:#eef4fb;
+  tamaño de fuente: 13px;
+  peso de fuente: 800;
+  transformación de texto: mayúsculas;
+  espaciado entre letras: 0,06em;
+  margen inferior: 16px;
+  fondo:#eef4fb;
   color:var(--azul-acmi);
-  border:1px solid #dbe7f5;
+  borde:1px sólido #dbe7f5;
 }
 
 .publicacion-badge-verde{
-  background:#eaf4ee;
+  fondo:#eaf4ee;
   color:var(--verde-acmi);
-  border:1px solid rgba(42,156,82,0.22);
+  borde:1px sólido rgba(42,156,82,0.22);
 }
 
 .publicacion-badge-azul{
-  background:#eef4fb;
+  fondo:#eef4fb;
   color:var(--azul-acmi);
-  border:1px solid #dbe7f5;
+  borde:1px sólido #dbe7f5;
 }
 
 .publicacion-feature h4,
 .publicacion-box h4{
   font-family:'Montserrat', sans-serif;
   color:var(--azul-acmi);
-  font-size:31px;
-  line-height:1.12;
-  font-weight:800;
-  letter-spacing:-0.02em;
-  margin-bottom:14px;
-  position:relative;
-  z-index:2;
+  tamaño de fuente: 31px;
+  interlineado: 1,12;
+  peso de fuente: 800;
+  espaciado entre letras: -0,02em;
+  margen inferior: 14px;
+  posición:relativa;
+  índice z:2;
 }
 
 .publicacion-feature p,
 .publicacion-box p{
   color:#52667d;
-  font-size:17px;
-  line-height:1.75;
-  margin-bottom:18px;
-  position:relative;
-  z-index:2;
+  tamaño de fuente: 17px;
+  interlineado: 1,75;
+  margen inferior: 18px;
+  posición:relativa;
+  índice z:2;
 }
 
 .publicacion-caption{
   font-size:15px !important;
-  color:#5b6d82 !important;
+  color:#5b6d82 !importante;
 }
 
 .publicacion-video{
-  max-width:100%;
-  margin:22px 0 18px 0;
+  ancho máximo: 100%;
+  margen:22px 0 18px 0;
 }
 
 .publicaciones-side{
-  display:grid;
-  grid-template-rows:auto auto;
-  gap:24px;
+  mostrar:cuadrícula;
+  filas-de-plantilla-de-cuadrícula:auto auto;
+  espacio: 24px;
 }
 
 .publicacion-magazine{
-  min-height:100%;
+  altura mínima: 100%;
 }
 
-.articulo-academico-destacado{
-  min-height:290px;
-  margin:10px 0 20px;
-  border-radius:22px;
-  overflow:hidden;
-  position:relative;
-  display:flex;
-  align-items:flex-end;
-  isolation:isolate;
-  background:
-    radial-gradient(circle at 82% 18%, rgba(126,212,154,.34), transparent 28%),
-    linear-gradient(135deg, var(--azul-profundo), var(--azul-acmi));
+.artículo-academico-destacado{
+  altura mínima: 290px;
+  margen:10px 0 20px;
+  radio de borde: 22px;
+  desbordamiento:oculto;
+  posición:relativa;
+  pantalla:flex;
+  alinear-elementos:flex-end;
+  aislamiento: aislar;
+  fondo:
+    gradiente radial(círculo al 82% 18%, rgba(126,212,154,.34), transparente 28%),
+    gradiente-lineal(135deg, var(--azul-profundo), var(--azul-acmi));
   box-shadow:0 18px 38px rgba(8,40,79,.18);
 }
 
-.articulo-academico-destacado::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:0;
-  background:linear-gradient(90deg, rgba(5,28,56,.96) 0%, rgba(8,40,79,.82) 55%, rgba(8,40,79,.30) 100%);
+.articulo-academico-destacado::antes{
+  contenido:"";
+  posición:absoluta;
+  recuadro:0;
+  índice z:0;
+  fondo: gradiente-lineal(90 grados, rgba(5,28,56,.96) 0%, rgba(8,40,79,.82) 55%, rgba(8,40,79,.30) 100%);
 }
 
-.articulo-academico-destacado::after{
-  content:"";
-  position:absolute;
-  width:210px;
-  height:210px;
-  right:-70px;
-  bottom:-105px;
-  z-index:1;
-  border-radius:50%;
-  background:rgba(126,212,154,.20);
+.articulo-academico-destacado::después{
+  contenido:"";
+  posición:absoluta;
+  ancho:210px;
+  altura: 210px;
+  derecha:-70px;
+  parte inferior: -105px;
+  índice z:1;
+  radio de borde: 50%;
+  fondo:rgba(126,212,154,.20);
 }
 
-.articulo-academico-con-portada{
-  background-position:center;
-  background-size:cover;
+.artículo-academico-con-portada{
+  posición de fondo:centro;
+  tamaño de fondo: cubrir;
   background-repeat:no-repeat;
 }
 
-.articulo-academico-copy{
-  width:min(78%, 650px);
-  padding:30px;
-  position:relative;
-  z-index:2;
+.articulo-académico-copy{
+  ancho:min(78%, 650px);
+  relleno: 30px;
+  posición:relativa;
+  índice z:2;
 }
 
-.articulo-academico-copy .publicacion-badge{
-  margin-bottom:13px;
-  color:white;
-  background:var(--verde-acmi);
-  border-color:rgba(255,255,255,.22);
+.articulo-academico-copia .publicacion-badge{
+  margen inferior: 13px;
+  color:blanco;
+  fondo:var(--verde-acmi);
+  color del borde:rgba(255,255,255,.22);
 }
 
-.articulo-academico-copy h5{
-  margin:0 0 11px;
-  color:white;
+.articulo-académico-copy h5{
+  margen:0 0 11px;
+  color:blanco;
   font-family:'Montserrat', sans-serif;
   font-size:clamp(25px,2.5vw,35px);
-  font-weight:900;
-  line-height:1.12;
-  letter-spacing:-.035em;
+  peso de fuente: 900;
+  interlineado: 1,12;
+  espaciado entre letras: -0,035em;
 }
 
-.articulo-academico-copy p{
-  margin:0 0 18px;
+.articulo-académico-copy p{
+  margen:0 0 18px;
   color:rgba(255,255,255,.88);
-  font-size:15px;
-  line-height:1.65;
+  tamaño de fuente: 15px;
+  interlineado: 1,65;
 }
 
-.articulo-academico-copy .btn{
-  background:white;
+.artículo-academico-copia .btn{
+  fondo:blanco;
   color:var(--azul-acmi);
   box-shadow:0 10px 24px rgba(0,0,0,.16);
 }
 
-.articulo-academico-copy .btn:hover{
-  background:var(--verde-acmi);
-  color:white;
+.articulo-academico-copia .btn:hover{
+  fondo:var(--verde-acmi);
+  color:blanco;
 }
 
-.magazine-grid-mejorado{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-  margin-top:10px;
+.revista-cuadrícula-mejorado{
+  mostrar:cuadrícula;
+  columnas-de-plantilla-de-cuadrícula:1fr 1fr;
+  espacio: 18px;
+  margen superior: 10px;
 }
 
-.magazine-item{
-  background:#f8fbff;
-  border:1px solid rgba(20,63,125,0.07);
-  border-radius:20px;
-  padding:18px;
-  text-align:center;
+.artículo-de-revista{
+  fondo:#f8fbff;
+  borde:1px sólido rgba(20,63,125,0.07);
+  radio de borde: 20px;
+  relleno: 18px;
+  alineación de texto:centro;
 }
 
 .magazine-item h5{
   font-family:'Montserrat', sans-serif;
-  font-size:18px;
+  tamaño de fuente: 18px;
   color:var(--azul-acmi);
-  margin-bottom:12px;
-  font-weight:800;
+  margen inferior: 12px;
+  peso de fuente: 800;
 }
 
 .magazine-thumb{
-  width:100%;
-  height:170px;
-  object-fit:cover;
-  border-radius:16px;
-  margin-bottom:12px;
+  ancho:100%;
+  altura: 170px;
+  ajuste-objeto:cubrir;
+  radio de borde: 16px;
+  margen inferior: 12px;
 }
 
 .magazine-thumb-placeholder{
-  width:100%;
-  height:170px;
-  border-radius:16px;
-  margin-bottom:12px;
-  background:#e8eef6;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  ancho:100%;
+  altura: 170px;
+  radio de borde: 16px;
+  margen inferior: 12px;
+  fondo:#e8eef6;
+  pantalla:flex;
+  alinear-elementos:centro;
+  justificar-contenido:centro;
   color:var(--azul-acmi);
-  font-weight:800;
+  peso de fuente: 800;
   font-family:'Montserrat', sans-serif;
 }
 
@@ -1742,505 +1742,569 @@
    ============================== */
 
 .publicaciones-destacadas{
-  display:grid;
+  mostrar:cuadrícula;
   grid-template-columns:repeat(12,minmax(0,1fr));
-  gap:24px;
-  max-width:1280px;
-  margin:42px auto 0;
+  espacio: 24px;
+  ancho máximo: 1280px;
+  margen:42px auto 0;
 }
 
 .publicacion-destacada-card{
-  position:relative;
-  overflow:hidden;
-  min-height:360px;
-  border-radius:28px;
-  border:1px solid rgba(20,63,125,.10);
+  posición:relativa;
+  desbordamiento:oculto;
+  altura mínima: 360px;
+  radio de borde: 28px;
+  borde:1px sólido rgba(20,63,125,.10);
   box-shadow:0 22px 54px rgba(8,40,79,.14);
-  background:white;
-  transition:transform .28s ease,box-shadow .28s ease;
+  fondo:blanco;
+  transición:transformación .28s de facilidad,box-shadow .28s de facilidad;
 }
 
 .publicacion-destacada-card:hover{
-  transform:translateY(-6px);
+  transformar:translateY(-6px);
   box-shadow:0 30px 66px rgba(8,40,79,.20);
 }
 
 .publicacion-educacion{
-  grid-column:span 7;
-  display:grid;
+  columna de cuadrícula:span 7;
+  mostrar:cuadrícula;
   grid-template-columns:minmax(260px,.88fr) minmax(320px,1.12fr);
-  background:linear-gradient(135deg,#08284f,#174a88);
-  color:white;
+  fondo:gradiente-lineal(135deg,#08284f,#174a88);
+  color:blanco;
 }
 
 .publicacion-educacion-copy{
-  padding:38px;
-  display:flex;
+  relleno: 38px;
+  pantalla:flex;
   flex-direction:column;
-  justify-content:center;
-  position:relative;
+  justificar-contenido:centro;
+  posición:relativa;
 }
 
-.publicacion-educacion-copy::after{
-  content:"";
-  position:absolute;
-  width:220px;
-  height:220px;
-  left:-90px;
-  bottom:-125px;
-  border-radius:50%;
-  background:rgba(126,212,154,.20);
+.publicacion-educacion-copia::despues{
+  contenido:"";
+  posición:absoluta;
+  ancho:220px;
+  altura: 220px;
+  izquierda:-90px;
+  parte inferior: -125px;
+  radio de borde: 50%;
+  fondo:rgba(126,212,154,.20);
 }
 
 .publicacion-educacion-media{
-  padding:22px;
-  display:flex;
-  align-items:center;
-  background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(42,156,82,.18));
+  relleno: 22px;
+  pantalla:flex;
+  alinear-elementos:centro;
+  fondo:linear-gradient(135deg,rgba(255,255,255,.08),rgba(42,156,82,.18));
 }
 
 .publicacion-articulo{
-  grid-column:span 5;
-  display:flex;
-  align-items:flex-end;
-  color:white;
-  background:
-    radial-gradient(circle at 82% 18%,rgba(126,212,154,.34),transparent 28%),
-    linear-gradient(135deg,#08284f,#143f7d);
-  background-position:center;
-  background-size:cover;
+  columna de cuadrícula: abarca 5;
+  pantalla:flex;
+  alinear-elementos:flex-end;
+  color:blanco;
+  fondo:
+    gradiente radial(círculo al 82% 18%,rgba(126,212,154,.34),transparente 28%),
+    gradiente-lineal(135 grados,#08284f,#143f7d);
+  posición de fondo:centro;
+  tamaño de fondo: cubrir;
 }
 
-.publicacion-articulo::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg,rgba(5,28,56,.97),rgba(8,40,79,.76) 62%,rgba(8,40,79,.30));
+.publicacion-articulo::antes{
+  contenido:"";
+  posición:absoluta;
+  recuadro:0;
+  fondo:linear-gradient(90deg,rgba(5,28,56,.97),rgba(8,40,79,.76) 62%,rgba(8,40,79,.30));
 }
 
 .publicacion-destacada-copy{
-  position:relative;
-  z-index:2;
-  padding:38px;
+  posición:relativa;
+  índice z:2;
+  relleno: 38px;
 }
 
-.publicacion-destacada-copy h3{
-  margin:0 0 13px;
-  color:white;
+.publicacion-destacada-copia h3{
+  margen:0 0 13px;
+  color:blanco;
   font-family:'Montserrat',sans-serif;
   font-size:clamp(28px,3vw,42px);
-  font-weight:900;
-  line-height:1.06;
-  letter-spacing:-.045em;
+  peso de fuente: 900;
+  interlineado: 1,06;
+  espaciado entre letras: -0,045em;
 }
 
-.publicacion-destacada-copy p{
-  margin:0 0 22px;
+.publicacion-destacada-copia p{
+  margen:0 0 22px;
   color:rgba(255,255,255,.88);
-  font-size:16px;
-  line-height:1.65;
+  tamaño de fuente: 16px;
+  interlineado: 1,65;
 }
 
-.publicacion-destacada-copy .publicacion-badge{
-  color:white;
-  background:var(--verde-acmi);
-  border-color:rgba(255,255,255,.24);
+.publicacion-destacada-copia .publicacion-badge{
+  color:blanco;
+  fondo:var(--verde-acmi);
+  color del borde:rgba(255,255,255,.24);
 }
 
-.publicacion-destacada-copy .btn{
-  position:relative;
-  z-index:3;
-  background:white;
+.publicacion-destacada-copia .btn{
+  posición:relativa;
+  índice z:3;
+  fondo:blanco;
   color:var(--azul-acmi);
 }
 
 .publicaciones-editoriales{
-  grid-column:1 / -1;
-  display:grid;
+  columna de cuadrícula:1 / -1;
+  mostrar:cuadrícula;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:24px;
+  espacio: 24px;
 }
 
 .publicacion-editorial-card{
-  min-height:290px;
-  padding:30px;
-  display:flex;
+  altura mínima: 290px;
+  relleno: 30px;
+  pantalla:flex;
   flex-direction:column;
-  align-items:flex-start;
-  background:white;
+  alinear-elementos:flex-start;
+  fondo:blanco;
 }
 
-.publicacion-editorial-card::before{
-  content:"";
-  position:absolute;
+.publicacion-editorial-card::antes{
+  contenido:"";
+  posición:absoluta;
   inset:0 0 auto 0;
-  height:6px;
-  background:linear-gradient(90deg,var(--verde-acmi),var(--azul-acmi));
+  altura: 6px;
+  fondo:gradiente lineal(90deg,var(--verde-acmi),var(--azul-acmi));
 }
 
-.publicacion-editorial-card h3{
-  margin:0 0 12px;
+.publicacion-editorial-tarjeta h3{
+  margen:0 0 12px;
   color:var(--azul-acmi);
   font-family:'Montserrat',sans-serif;
-  font-size:27px;
-  font-weight:900;
-  line-height:1.15;
+  tamaño de fuente: 27px;
+  peso de fuente: 900;
+  interlineado: 1,15;
 }
 
-.publicacion-editorial-card p{
-  margin:0 0 20px;
+.publicacion-editorial-tarjeta p{
+  margen:0 0 20px;
   color:#52667d;
-  line-height:1.65;
+  interlineado: 1,65;
 }
 
 .publicacion-editorial-card .btn{
-  margin-top:auto;
+  margen superior:automático;
 }
 
 .publicacion-mini-cover{
-  width:100%;
-  height:155px;
-  margin:0 0 18px;
-  border-radius:18px;
-  object-fit:cover;
+  ancho:100%;
+  altura: 155px;
+  margen:0 0 18px;
+  radio de borde: 18px;
+  ajuste-objeto:cubrir;
 }
 
 .publicacion-opinion{
-  background:linear-gradient(145deg,#ffffff,#f1f6fc);
+  fondo:gradiente-lineal(145deg,#ffffff,#f1f6fc);
 }
 
 .publicacion-social-independiente{
-  background:
-    radial-gradient(circle at 90% 15%,rgba(126,212,154,.30),transparent 30%),
-    linear-gradient(145deg,#edf9f1,#ffffff);
+  fondo:
+    gradiente radial(círculo al 90% 15%,rgba(126,212,154,.30),transparente 30%),
+    gradiente-lineal(145grados,#edf9f1,#ffffff);
 }
 
 @media(max-width:1050px){
   .publicacion-educacion,
   .publicacion-articulo{
-    grid-column:1 / -1;
+    columna de cuadrícula:1 / -1;
   }
 
   .publicaciones-editoriales{
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    columnas-de-plantilla-de-cuadrícula:repetir(2,minmax(0,1fr));
   }
 
   .publicacion-social-independiente{
-    grid-column:1 / -1;
+    columna de cuadrícula:1 / -1;
   }
 }
 
 @media(max-width:700px){
   .publicaciones-destacadas{
-    gap:18px;
+    espacio: 18px;
   }
 
   .publicacion-educacion{
-    grid-template-columns:1fr;
+    columnas-de-plantilla-de-cuadrícula:1fr;
   }
 
   .publicacion-educacion-copy,
   .publicacion-destacada-copy,
   .publicacion-editorial-card{
-    padding:24px;
+    relleno: 24px;
   }
 
   .publicacion-educacion-media{
-    padding:0 18px 22px;
+    relleno:0 18px 22px;
   }
 
   .publicaciones-editoriales{
-    grid-template-columns:1fr;
+    columnas-de-plantilla-de-cuadrícula:1fr;
   }
 
   .publicacion-editorial-card,
   .publicacion-articulo{
-    min-height:300px;
+    altura mínima: 300px;
   }
 }
 
 /* ==============================
-   SECCIONES INDEPENDIENTES DE CONTENIDO
+   SECCIONES INDEPENDIENTE DE CONTENIDO
    ============================== */
 
 .contenido-independiente{
-  position:relative;
-  padding:96px 0;
-  overflow:hidden;
+  posición:relativa;
+  relleno: 96px 0;
+  desbordamiento:oculto;
 }
 
-.contenido-independiente .section-subtitle{
-  margin-bottom:42px;
+.contenido-independiente .sección-subtítulo{
+  margen inferior: 42px;
 }
 
 .educacion-independiente{
-  background:
-    radial-gradient(circle at 10% 15%,rgba(42,156,82,.12),transparent 28%),
-    linear-gradient(180deg,#f7fbff,#eef4fa);
+  fondo:
+    gradiente radial(círculo al 10% 15%,rgba(42,156,82,.12),transparente 28%),
+    gradiente-lineal(180 grados,#f7fbff,#eef4fa);
 }
 
 .educacion-independiente .publicacion-educacion{
-  width:100%;
-  max-width:1280px;
-  min-height:430px;
-  margin:0 auto;
-  grid-column:auto;
+  ancho:100%;
+  ancho máximo: 1280px;
+  altura mínima: 430px;
+  margen:0 automático;
+  columna de cuadrícula:automático;
   grid-template-columns:minmax(320px,.82fr) minmax(420px,1.18fr);
 }
 
-.educacion-independiente .publicacion-educacion-copy{
-  padding:clamp(38px,5vw,66px);
+.educacion-independiente .publicacion-educacion-copia{
+  relleno:clamp(38px,5vw,66px);
 }
 
-.educacion-independiente .publicacion-destacada-copy h3{
+.educacion-independiente .publicacion-destacada-copia h3{
   font-size:clamp(34px,4vw,56px);
 }
 
-.magazine-independiente{
-  background:
-    radial-gradient(circle at 88% 8%,rgba(126,212,154,.18),transparent 27%),
+.revista-independiente{
+  fondo:
+    gradiente radial(círculo al 88% 8%,rgba(126,212,154,.18),transparente 27%),
     #ffffff;
 }
 
-.magazine-destacado-grid{
-  max-width:1280px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:minmax(0,1.35fr) minmax(340px,.65fr);
-  gap:24px;
-  align-items:stretch;
+.revista-destacado-grid{
+  ancho máximo: 1280px;
+  margen:0 automático;
+  mostrar:cuadrícula;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  espacio: 24px;
+  alinear-elementos:estirar;
 }
 
 .magazine-independiente .publicacion-articulo{
-  grid-column:auto;
-  min-height:540px;
+  columna de cuadrícula:automático;
+  altura mínima: 510px;
+  fondo:
+    gradiente radial(círculo al 78% 18%,rgba(126,212,154,.34),transparente 25%),
+    gradiente radial(círculo al 15% 82%,rgba(255,255,255,.10),transparente 24%),
+    gradiente-lineal(145 grados,#08284f,#143f7d 62%,#216d69);
 }
 
-.magazine-independiente .publicacion-articulo .publicacion-destacada-copy{
-  max-width:740px;
-  padding:clamp(38px,5vw,66px);
+.magazine-independiente .publicacion-articulo::después{
+  contenido:"IA";
+  posición:absoluta;
+  superior: 34px;
+  derecha: 28px;
+  color:rgba(255,255,255,.08);
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(100px,12vw,180px);
+  peso de fuente: 900;
+  altura de línea:1;
+  espaciado entre letras: -0,08em;
+  eventos de puntero: ninguno;
+}
+
+.magazine-independiente .publicacion-articulo .publicacion-destacada-copia{
+  ancho máximo: 100%;
+  relleno: 34px;
 }
 
 .magazine-independiente .publicacion-articulo h3{
-  font-size:clamp(36px,4.2vw,58px);
+  font-size:clamp(29px,2.6vw,40px);
 }
 
-.magazine-accesos{
-  display:grid;
-  grid-template-rows:1fr 1fr;
-  gap:24px;
+.accesos-de-revista{
+  mostrar:contenido;
 }
 
-.magazine-accesos .publicacion-editorial-card{
-  min-height:0;
-  padding:28px;
+.accesos-revista .tarjeta-publicacion-editorial{
+  altura mínima: 510px;
+  relleno: 28px;
 }
 
-.magazine-accesos .publicacion-mini-cover{
-  height:125px;
+.revista-accesos .publicacion-mini-portada{
+  altura: 210px;
+  relleno: 8px;
+  objeto-ajustar:contener;
+  posición del objeto:centro centro;
+  fondo:#eef3f8;
+  borde:1px sólido rgba(20,63,125,.08);
 }
 
-.proyeccion-independiente{
-  background:
-    linear-gradient(120deg,rgba(8,40,79,.98),rgba(20,63,125,.94) 55%,rgba(42,156,82,.88));
+.publicacion-portada-placeholder{
+  ancho:100%;
+  altura: 210px;
+  margen:0 0 18px;
+  radio de borde: 18px;
+  pantalla:flex;
+  alinear-elementos:centro;
+  justificar-contenido:centro;
+  color:var(--azul-acmi);
+  font-family:'Montserrat',sans-serif;
+  tamaño de fuente: 54px;
+  peso de fuente: 900;
+  fondo:
+    gradiente radial(círculo al 80% 20%,rgba(42,156,82,.20),transparente 28%),
+    gradiente-lineal(145grados,#eef4fb,#f8fbff);
+  borde:1px sólido rgba(20,63,125,.08);
 }
 
-.proyeccion-independiente .section-title,
-.proyeccion-independiente .section-subtitle{
-  color:white;
+.revista-accesos .publicacion-editorial-tarjeta h3{
+  tamaño de fuente:clamp(24px,2vw,30px);
 }
 
-.proyeccion-independiente .section-title::after{
-  background:linear-gradient(90deg,var(--verde-claro),white);
+.revista-accesos .publicacion-editorial-tarjeta p{
+  tamaño de fuente: 15px;
 }
 
-.proyeccion-hero-card{
-  max-width:1280px;
-  min-height:390px;
-  margin:0 auto;
-  padding:clamp(38px,6vw,76px);
-  display:flex;
-  align-items:center;
-  position:relative;
-  overflow:hidden;
-  border-radius:30px;
-  color:white;
-  background:
-    radial-gradient(circle at 82% 28%,rgba(126,212,154,.35),transparent 25%),
-    radial-gradient(circle at 90% 82%,rgba(255,255,255,.14),transparent 22%),
-    linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.06));
-  border:1px solid rgba(255,255,255,.24);
+.projeccion-independiente{
+  fondo:
+    gradiente-lineal(120 grados,rgba(8,40,79,.98),rgba(20,63,125,.94) 55%,rgba(42,156,82,.88));
+}
+
+.proyeccion-independiente .sección-título,
+.proyeccion-independiente .sección-subtítulo{
+  color:blanco;
+}
+
+.proyeccion-independiente .section-title::después{
+  fondo:gradiente-lineal(90deg,var(--verde-claro),blanco);
+}
+
+.proyecto-tarjeta-héroe{
+  ancho máximo: 1280px;
+  altura mínima: 390px;
+  margen:0 automático;
+  relleno:clamp(38px,6vw,76px);
+  pantalla:flex;
+  alinear-elementos:centro;
+  posición:relativa;
+  desbordamiento:oculto;
+  radio de borde: 30px;
+  color:blanco;
+  fondo:
+    gradiente radial(círculo al 82% 28%,rgba(126,212,154,.35),transparente 25%),
+    gradiente radial(círculo al 90% 82%,rgba(255,255,255,.14),transparente 22%),
+    gradiente-lineal(135 grados,rgba(255,255,255,.13),rgba(255,255,255,.06));
+  borde:1px sólido rgba(255,255,255,.24);
   box-shadow:0 26px 64px rgba(0,0,0,.20);
-  backdrop-filter:blur(12px);
+  filtro de fondo: desenfoque (12px);
   -webkit-backdrop-filter:blur(12px);
 }
 
-.proyeccion-hero-card::after{
-  content:"ACMI";
-  position:absolute;
-  right:4%;
-  bottom:-12%;
+.proyección-hero-card::after{
+  contenido:"ACMI";
+  posición:absoluta;
+  derecha: 4%;
+  fondo:-12%;
   color:rgba(255,255,255,.08);
   font-family:'Montserrat',sans-serif;
   font-size:clamp(120px,18vw,260px);
-  font-weight:900;
-  line-height:1;
-  letter-spacing:-.08em;
+  peso de fuente: 900;
+  altura de línea:1;
+  espaciado entre letras: -0,08em;
 }
 
-.proyeccion-hero-copy{
-  position:relative;
-  z-index:2;
-  max-width:720px;
+.proyección-hero-copy{
+  posición:relativa;
+  índice z:2;
+  ancho máximo: 720px;
 }
 
 .proyeccion-hero-copy h3{
-  margin:0 0 16px;
-  color:white;
+  margen:0 0 16px;
+  color:blanco;
   font-family:'Montserrat',sans-serif;
   font-size:clamp(36px,4.6vw,62px);
-  font-weight:900;
-  line-height:1.03;
-  letter-spacing:-.05em;
+  peso de fuente: 900;
+  interlineado: 1,03;
+  espaciado entre letras: -0,05em;
 }
 
-.proyeccion-hero-copy p{
-  margin:0 0 26px;
+.proyección-hero-copia p{
+  margen:0 0 26px;
   color:rgba(255,255,255,.88);
-  font-size:18px;
-  line-height:1.7;
+  tamaño de fuente: 18px;
+  interlineado: 1,7;
 }
 
 .proyeccion-hero-copy .publicacion-badge{
-  color:white;
-  background:var(--verde-acmi);
-  border-color:rgba(255,255,255,.28);
+  color:blanco;
+  fondo:var(--verde-acmi);
+  color del borde:rgba(255,255,255,.28);
 }
 
 .proyeccion-hero-copy .btn{
-  background:white;
+  fondo:blanco;
   color:var(--azul-acmi);
 }
 
 @media(max-width:1050px){
-  .magazine-destacado-grid{
-    grid-template-columns:1fr;
+  .revista-destacado-grid{
+    columnas-de-plantilla-de-cuadrícula:repetir(2,minmax(0,1fr));
   }
 
   .magazine-independiente .publicacion-articulo{
-    min-height:460px;
+    altura mínima: 470px;
+    columna de cuadrícula:1 / -1;
   }
 
-  .magazine-accesos{
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:auto;
+  .accesos-de-revista{
+    mostrar:contenido;
   }
 }
 
 @media(max-width:760px){
   .contenido-independiente{
-    padding:72px 0;
+    relleno: 72px 0;
   }
 
   .educacion-independiente .publicacion-educacion{
-    min-height:0;
-    grid-template-columns:1fr;
+    altura mínima:0;
+    columnas-de-plantilla-de-cuadrícula:1fr;
   }
 
-  .magazine-accesos{
-    grid-template-columns:1fr;
+  .accesos-de-revista{
+    mostrar:contenido;
+  }
+
+  .revista-destacado-grid{
+    columnas-de-plantilla-de-cuadrícula:1fr;
   }
 
   .magazine-independiente .publicacion-articulo{
-    min-height:390px;
+    altura mínima: 390px;
   }
 
-  .proyeccion-hero-card{
-    min-height:380px;
-    padding:34px 26px;
+  .accesos-revista .tarjeta-publicacion-editorial{
+    altura mínima:automática;
+  }
+
+  .revista-accesos .publicacion-mini-portada{
+    altura:automática;
+    altura máxima: 300px;
+  }
+
+  .publicacion-portada-placeholder{
+    altura: 190px;
+  }
+
+  .proyecto-tarjeta-héroe{
+    altura mínima: 380px;
+    relleno: 34px 26px;
   }
 }
 
 /* ==============================
-   RESPONSIVE
+   SENSIBLE
    ============================== */
 
 @media(max-width:1024px){
   .publicaciones-layout{
-    grid-template-columns:1fr;
+    columnas-de-plantilla-de-cuadrícula:1fr;
   }
 
   .publicaciones-side{
-    grid-template-columns:1fr;
-    grid-template-rows:auto;
+    columnas-de-plantilla-de-cuadrícula:1fr;
+    filas-de-plantilla-de-cuadrícula:automático;
   }
 }
 
 @media(max-width:700px){
   .publicaciones-card-header{
-    padding:36px 22px 18px 22px;
+    relleno: 36px 22px 18px 22px;
   }
 
   .publicaciones-card-header h3{
-    font-size:30px;
+    tamaño de fuente: 30px;
   }
 
   .publicaciones-card-header p{
-    font-size:16px;
+    tamaño de fuente: 16px;
   }
 
   .publicaciones-layout{
-    padding:16px 20px 24px 20px;
+    relleno: 16px 20px 24px 20px;
   }
 
   .publicacion-feature,
   .publicacion-box{
-    padding:22px;
-    border-radius:22px;
+    relleno: 22px;
+    radio de borde: 22px;
   }
 
   .publicacion-feature h4,
   .publicacion-box h4{
-    font-size:25px;
+    tamaño de fuente: 25px;
   }
 
-  .magazine-grid-mejorado{
-    grid-template-columns:1fr;
+  .revista-cuadrícula-mejorado{
+    columnas-de-plantilla-de-cuadrícula:1fr;
   }
 
-  .articulo-academico-destacado{
-    min-height:330px;
+  .artículo-academico-destacado{
+    altura mínima: 330px;
   }
 
-  .articulo-academico-copy{
-    width:100%;
-    padding:24px;
+  .articulo-académico-copy{
+    ancho:100%;
+    relleno: 24px;
   }
 
   .magazine-thumb,
   .magazine-thumb-placeholder{
-    height:190px;
+    altura: 190px;
   }
 }
 
 
     .video-mini{
-      position:relative;
-      width:100%;
-      aspect-ratio:16 / 9;
-      border-radius:22px;
-      overflow:hidden;
+      posición:relativa;
+      ancho:100%;
+      relación de aspecto: 16 / 9;
+      radio de borde: 22px;
+      desbordamiento:oculto;
       box-shadow:0 16px 34px rgba(8,40,79,0.14);
-      background:#e8eef6;
+      fondo:#e8eef6;
     }
 
     .video-mini iframe{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:0;
-      display:block;
+      posición:absoluta;
+      recuadro:0;
+      ancho:100%;
+      altura:100%;
+      borde:0;
+      mostrar:bloque;
     }
 
     /* ==============================
@@ -2248,71 +2312,71 @@
        ============================== */
 
     .patrocinadores{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      margin-top:40px;
+      pantalla:flex;
+      justificar-contenido:centro;
+      alinear-elementos:centro;
+      margen superior: 40px;
     }
 
     .patrocinador-card{
-      background:white;
-      width:min(100%, 980px);
-      padding:28px;
-      border-radius:24px;
+      fondo:blanco;
+      ancho:min(100%, 980px);
+      relleno: 28px;
+      radio de borde: 24px;
       box-shadow:var(--sombra-suave);
-      transition:var(--transicion);
-      border:1px solid rgba(20,63,125,0.08);
+      transición:var(--transición);
+      borde:1px sólido rgba(20,63,125,0.08);
     }
 
     .patrocinador-card:hover{
-      transform:translateY(-6px);
-      box-shadow:var(--sombra-media);
+      transformar:translateY(-6px);
+      sombra-caja:var(--sombra-media);
     }
 
     .patrocinador-card img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      border-radius:14px;
+      ancho:100%;
+      altura:automática;
+      objeto-ajustar:contener;
+      radio de borde: 14px;
     }
 
-    .contact-buttons{
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      margin-bottom:24px;
+    .botones-de-contacto{
+      pantalla:flex;
+      justificar-contenido:centro;
+      espacio: 20px;
+      margen inferior: 24px;
       flex-wrap:wrap;
     }
 
     .edu-box,
     .contact-box{
-      max-width:1050px;
-      margin:0 auto;
+      ancho máximo: 1050px;
+      margen:0 automático;
     }
 
     .contact-box p{
-      margin:10px 0;
-      text-align:center;
-      font-weight:600;
+      margen:10px 0;
+      alineación de texto:centro;
+      peso de fuente: 600;
     }
 
-    footer{
-      background:
-        radial-gradient(circle at top left, rgba(42,156,82,0.22), transparent 28%),
-        linear-gradient(90deg, var(--azul-profundo), var(--azul-acmi-2));
-      color:white;
-      text-align:center;
-      padding:32px 18px;
-      margin-top:10px;
+    pie de página{
+      fondo:
+        gradiente radial(círculo en la parte superior izquierda, rgba(42,156,82,0.22), transparente 28%),
+        gradiente-lineal(90deg, var(--azul-profundo), var(--azul-acmi-2));
+      color:blanco;
+      alineación de texto:centro;
+      relleno: 32px 18px;
+      margen superior: 10px;
     }
 
-    footer p{
-      margin:4px 0;
-      font-weight:600;
+    pie de página p{
+      margen:4px 0;
+      peso de fuente: 600;
     }
 
     /* ==============================
-       RESPONSIVE
+       SENSIBLE
        ============================== */
 
     @media(max-width:1180px){
@@ -2320,573 +2384,573 @@
         grid-template-columns:repeat(2, 1fr);
       }
 
-      .main-header{
+      .encabezado-principal{
         flex-direction:column;
-        align-items:center;
+        alinear-elementos:centro;
       }
 
-      nav ul{
-        justify-content:center;
+      navegación ul{
+        justificar-contenido:centro;
       }
     }
 
     @media(max-width:980px){
-      .container{
-        padding:0 34px;
+      .recipiente{
+        relleno: 0 34px;
       }
 
-      .hero h2{
-        font-size:44px;
+      .héroe h2{
+        tamaño de fuente: 44px;
       }
 
-      .hero p{
-        font-size:20px;
+      .héroe p{
+        tamaño de fuente: 20px;
       }
 
       .org-grid{
-        grid-template-columns:1fr;
-        max-width:760px;
+        columnas-de-plantilla-de-cuadrícula:1fr;
+        ancho máximo: 760px;
       }
 
       .evento-card-contenido-proximos,
       .evento-card-contenido-repositorio{
-        grid-template-columns:1fr;
+        columnas-de-plantilla-de-cuadrícula:1fr;
       }
 
       .proximo-evento-info,
       .repositorio-home-texto{
-        text-align:center;
+        alineación de texto:centro;
       }
 
-      .eventos-actions,
+      .eventos-acciones,
       .repositorio-home-actions{
-        justify-content:center;
+        justificar-contenido:centro;
       }
 
-      .eventos-badges{
-        align-items:center;
+      .eventos-insignias{
+        alinear-elementos:centro;
       }
 
-      .badge{
-        width:auto;
+      .insignia{
+        ancho:automático;
       }
     }
 
     @media(max-width:720px){
       .topbar-content,
-      .topbar-left,
-      .topbar-right{
-        justify-content:center;
-        text-align:center;
+      .barra-superior-izquierda,
+      .barra-superior-derecha{
+        justificar-contenido:centro;
+        alineación de texto:centro;
       }
 
-      .container{
-        padding:0 22px;
+      .recipiente{
+        relleno: 0 22px;
       }
 
-      .brand{
+      .marca{
         flex-direction:column;
-        text-align:center;
+        alineación de texto:centro;
       }
 
-      nav ul{
-        gap:6px;
+      navegación ul{
+        espacio: 6px;
       }
 
-      nav a{
-        font-size:13px;
-        padding:9px 10px;
+      navegación a{
+        tamaño de fuente: 13px;
+        relleno: 9px 10px;
       }
 
-      .dropdown-menu,
-      .submenu-menu{
-        position:static;
-        min-width:100%;
-        box-shadow:none;
-        border:1px solid #e3eaf3;
-        margin-top:8px;
+      .menú desplegable,
+      .submenú-menú{
+        posición:estática;
+        ancho mínimo: 100%;
+        sombra de caja: ninguna;
+        borde:1px sólido #e3eaf3;
+        margen superior: 8px;
       }
 
-      .submenu-menu{
-        margin-left:0;
+      .submenú-menú{
+        margen izquierdo:0;
       }
 
-      .hero{
-        min-height:56vh;
+      .héroe{
+        altura mínima: 56vh;
       }
 
       .hero-content{
-        padding:68px 0;
+        relleno: 68px 0;
       }
 
-      .section{
-        padding:70px 0;
+      .sección{
+        relleno: 70px 0;
       }
 
-      section{
-        scroll-margin-top:180px;
+      sección{
+        margen de desplazamiento superior: 180px;
       }
 
-      .cards-grid,
-      .magazine-contenido,
+      .cuadrícula-tarjetas,
+      .revista-contenido,
       .repositorio-mini-grid{
-        grid-template-columns:1fr;
+        columnas-de-plantilla-de-cuadrícula:1fr;
       }
 
-      .card{
-        padding:28px 22px;
-        border-radius:26px;
+      .tarjeta{
+        relleno: 28px 22px;
+        radio de borde: 26px;
       }
 
       .evento-card-grande{
-        border-radius:26px;
-        margin-bottom:40px;
+        radio de borde: 26px;
+        margen inferior: 40px;
       }
 
-      .evento-card-header{
-        padding:38px 24px 20px 24px;
+      .encabezado-tarjeta-evento{
+        relleno: 38px 24px 20px 24px;
       }
 
       .evento-card-contenido{
-        padding:18px 24px 32px 24px;
+        relleno: 18px 24px 32px 24px;
       }
 
-      .proximo-evento-decoracion{
-        min-height:230px;
+      .próximo-evento-decoracion{
+        altura mínima: 230px;
       }
 
       .decoracion-circulo{
-        width:140px;
-        height:140px;
-        font-size:30px;
+        ancho:140px;
+        altura: 140px;
+        tamaño de fuente: 30px;
       }
 
       .patrocinador-card{
-        padding:16px;
-        border-radius:18px;
+        relleno: 16px;
+        radio de borde: 18px;
       }
     }
 
     /* ==========================================================
        CORRECCIONES FINALES RESPONSIVE: TOPBAR, HEADER Y EVENTO
-       ========================================================== */
+       =========================================================== */
 
     html,
-    body{
-      width:100%;
-      max-width:100%;
-      overflow-x:hidden;
+    cuerpo{
+      ancho:100%;
+      ancho máximo: 100%;
+      desbordamiento-x:oculto;
     }
 
     *,
-    *::before,
-    *::after{
-      min-width:0;
+    *::antes,
+    *::después{
+      ancho mínimo: 0;
     }
 
-    img,
+    imagen,
     video,
     iframe{
-      max-width:100%;
+      ancho máximo: 100%;
     }
 
-    .topbar,
-    header,
-    main,
-    section,
-    footer{
-      width:100%;
-      max-width:100%;
+    .barra superior,
+    encabezamiento,
+    principal,
+    sección,
+    pie de página{
+      ancho:100%;
+      ancho máximo: 100%;
     }
 
     .congreso-lugar{
-      display:flex;
-      align-items:flex-start;
-      gap:11px;
-      width:100%;
-      max-width:580px;
-      padding:14px 16px;
-      margin:0 0 20px;
-      border-radius:17px;
-      background:rgba(20,63,125,0.06);
-      border:1px solid rgba(20,63,125,0.10);
+      pantalla:flex;
+      alinear-elementos:flex-start;
+      espacio: 11px;
+      ancho:100%;
+      ancho máximo: 580px;
+      relleno: 14px 16px;
+      margen:0 0 20px;
+      radio de borde: 17px;
+      fondo:rgba(20,63,125,0.06);
+      borde:1px sólido rgba(20,63,125,0.10);
       color:var(--azul-acmi);
     }
 
     .congreso-lugar-icono{
-      flex:0 0 auto;
-      font-size:23px;
-      line-height:1.2;
+      flex:0 0 automático;
+      tamaño de fuente: 23px;
+      interlineado: 1,2;
     }
 
-    .congreso-lugar strong,
+    .congreso-lugar fuerte,
     .congreso-lugar span{
-      display:block;
+      mostrar:bloque;
     }
 
-    .congreso-lugar strong{
-      font-size:15px;
-      font-weight:900;
+    .congreso-lugar fuerte{
+      tamaño de fuente: 15px;
+      peso de fuente: 900;
     }
 
     .congreso-lugar div > span{
-      margin-top:4px;
+      margen superior: 4px;
       color:#52667d;
-      font-size:13px;
-      line-height:1.45;
-      font-weight:600;
+      tamaño de fuente: 13px;
+      interlineado: 1,45;
+      peso de fuente: 600;
     }
 
     .congreso-acciones{
-      display:grid;
+      mostrar:cuadrícula;
       grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:12px;
-      width:100%;
-      max-width:600px;
-      margin-top:22px;
+      espacio: 12px;
+      ancho:100%;
+      ancho máximo: 600px;
+      margen superior: 22px;
     }
 
     .congreso-acciones .btn{
-      width:100%;
-      min-height:52px;
-      padding:12px 14px;
-      text-align:center;
-      line-height:1.25;
-      white-space:normal;
+      ancho:100%;
+      altura mínima: 52px;
+      relleno: 12px 14px;
+      alineación de texto:centro;
+      interlineado: 1,25;
+      espacio en blanco:normal;
     }
 
     .congreso-btn-inscripcion{
-      background:linear-gradient(135deg,var(--verde-acmi),#35b862);
-      color:white;
+      fondo:gradiente lineal(135deg,var(--verde-acmi),#35b862);
+      color:blanco;
     }
 
     .congreso-btn-programa{
-      background:linear-gradient(135deg,var(--azul-acmi),var(--azul-acmi-2));
-      color:white;
+      fondo:linear-gradient(135deg,var(--azul-acmi),var(--azul-acmi-2));
+      color:blanco;
     }
 
     .congreso-btn-poster{
-      background:linear-gradient(135deg,#6b46c1,#805ad5);
-      color:white;
+      fondo:gradiente-lineal(135deg,#6b46c1,#805ad5);
+      color:blanco;
     }
 
     .congreso-btn-afiche{
-      background:white;
+      fondo:blanco;
       color:var(--azul-acmi);
-      border:1px solid rgba(20,63,125,0.16);
+      borde:1px sólido rgba(20,63,125,0.16);
     }
 
     .congreso-btn-gps{
-      grid-column:1 / -1;
-      background:#eef7f1;
+      columna de cuadrícula:1 / -1;
+      fondo:#eef7f1;
       color:var(--verde-acmi);
-      border:1px solid rgba(42,156,82,0.24);
+      borde:1px sólido rgba(42,156,82,0.24);
     }
 
     .congreso-afiche{
-      display:block;
-      width:100%;
-      height:auto;
-      max-height:720px;
-      object-fit:contain;
-      border-radius:18px;
+      mostrar:bloque;
+      ancho:100%;
+      altura:automática;
+      altura máxima: 720px;
+      objeto-ajustar:contener;
+      radio de borde: 18px;
     }
 
     @media(max-width:1100px){
-      .main-header{
+      .encabezado-principal{
         flex-direction:column;
-        align-items:stretch;
+        alinear-elementos:estirar;
       }
 
-      .brand{
-        justify-content:center;
+      .marca{
+        justificar-contenido:centro;
       }
 
-      nav,
-      nav ul{
-        width:100%;
+      navegación,
+      navegación ul{
+        ancho:100%;
       }
 
-      nav ul{
-        justify-content:center;
+      navegación ul{
+        justificar-contenido:centro;
         flex-wrap:wrap;
       }
 
       .evento-card-contenido-proximos,
       .evento-card-contenido-repositorio{
-        grid-template-columns:1fr;
+        columnas-de-plantilla-de-cuadrícula:1fr;
       }
     }
 
     @media(max-width:768px){
-      .container{
-        width:100%;
-        max-width:100%;
-        padding-left:14px;
-        padding-right:14px;
+      .recipiente{
+        ancho:100%;
+        ancho máximo: 100%;
+        relleno-izquierdo:14px;
+        relleno derecho: 14px;
       }
 
-      .topbar{
-        padding:8px 0;
-        font-size:11px;
+      .barra superior{
+        relleno: 8px 0;
+        tamaño de fuente: 11px;
       }
 
       .topbar-content{
-        display:grid;
-        grid-template-columns:1fr;
-        gap:7px;
+        mostrar:cuadrícula;
+        columnas-de-plantilla-de-cuadrícula:1fr;
+        espacio: 7px;
       }
 
-      .topbar-left,
-      .topbar-right{
-        display:grid;
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        width:100%;
-        gap:5px;
+      .barra-superior-izquierda,
+      .barra-superior-derecha{
+        mostrar:cuadrícula;
+        columnas-de-plantilla-de-cuadrícula:repetir(2,minmax(0,1fr));
+        ancho:100%;
+        espacio: 5px;
       }
 
-      .topbar a{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        width:100%;
-        min-height:34px;
-        padding:5px;
-        border-radius:8px;
-        text-align:center;
-        line-height:1.2;
-        white-space:normal;
+      .barra superior a{
+        pantalla:flex;
+        alinear-elementos:centro;
+        justificar-contenido:centro;
+        ancho:100%;
+        altura mínima: 34px;
+        relleno: 5px;
+        radio de borde: 8px;
+        alineación de texto:centro;
+        interlineado: 1,2;
+        espacio en blanco:normal;
         overflow-wrap:anywhere;
       }
 
-      header{
-        position:relative;
+      encabezamiento{
+        posición:relativa;
       }
 
-      .main-header{
-        display:flex;
+      .encabezado-principal{
+        pantalla:flex;
         flex-direction:column;
-        align-items:stretch;
-        width:100%;
-        gap:12px;
-        padding:10px 0 14px;
+        alinear-elementos:estirar;
+        ancho:100%;
+        espacio: 12px;
+        relleno: 10px 0 14px;
       }
 
-      .brand{
-        flex-direction:row;
-        width:100%;
-        min-width:0;
-        gap:10px;
-        justify-content:center;
-        text-align:left;
+      .marca{
+        flex-direction:fila;
+        ancho:100%;
+        ancho mínimo: 0;
+        espacio: 10px;
+        justificar-contenido:centro;
+        alineación de texto:izquierda;
       }
 
-      .brand-logo{
-        width:54px;
-        height:54px;
+      .logotipo-de-marca{
+        ancho: 54px;
+        altura: 54px;
         flex:0 0 54px;
       }
 
       .brand-text h1{
-        font-size:21px;
+        tamaño de fuente: 21px;
         overflow-wrap:anywhere;
       }
 
-      .brand-text p{
-        font-size:11px;
-        line-height:1.3;
+      .texto-de-marca p{
+        tamaño de fuente: 11px;
+        interlineado: 1,3;
         overflow-wrap:anywhere;
       }
 
-      nav,
-      nav ul{
-        width:100%;
-        max-width:100%;
+      navegación,
+      navegación ul{
+        ancho:100%;
+        ancho máximo: 100%;
       }
 
-      nav ul{
-        display:grid;
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:6px;
-        padding:0;
-        margin:0;
+      navegación ul{
+        mostrar:cuadrícula;
+        columnas-de-plantilla-de-cuadrícula:repetir(2,minmax(0,1fr));
+        espacio: 6px;
+        relleno:0;
+        margen:0;
       }
 
       nav li{
-        width:100%;
+        ancho:100%;
       }
 
-      nav a{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        width:100%;
-        min-height:44px;
-        padding:7px 5px;
-        border-radius:11px;
-        background:#f3f7fb;
-        font-size:11px;
-        line-height:1.2;
-        text-align:center;
-        white-space:normal;
+      navegación a{
+        pantalla:flex;
+        alinear-elementos:centro;
+        justificar-contenido:centro;
+        ancho:100%;
+        altura mínima: 44px;
+        relleno: 7px 5px;
+        radio de borde: 11px;
+        fondo:#f3f7fb;
+        tamaño de fuente: 11px;
+        interlineado: 1,2;
+        alineación de texto:centro;
+        espacio en blanco:normal;
         overflow-wrap:anywhere;
       }
 
-      .dropdown-menu,
-      .submenu-menu{
-        position:static;
-        width:100%;
-        min-width:0;
-        max-width:100%;
-        margin:6px 0 0;
-        padding:6px;
-        box-shadow:none;
+      .menú desplegable,
+      .submenú-menú{
+        posición:estática;
+        ancho:100%;
+        ancho mínimo: 0;
+        ancho máximo: 100%;
+        margen:6px 0 0;
+        relleno: 6px;
+        sombra de caja: ninguna;
       }
 
       .dropdown:hover > .dropdown-menu,
       .dropdown:focus-within > .dropdown-menu,
       .submenu:hover > .submenu-menu,
       .submenu:focus-within > .submenu-menu{
-        display:block;
+        mostrar:bloque;
       }
 
-      .dropdown-menu > a,
-      .dropdown-menu .submenu > a,
-      .submenu-menu a{
-        width:100%;
-        padding:9px 6px;
-        font-size:11px;
-        line-height:1.25;
-        text-align:center;
-        white-space:normal;
+      .menú desplegable > a,
+      .menú desplegable .submenú > a,
+      .submenú-menú a{
+        ancho:100%;
+        relleno: 9px 6px;
+        tamaño de fuente: 11px;
+        interlineado: 1,25;
+        alineación de texto:centro;
+        espacio en blanco:normal;
         overflow-wrap:anywhere;
       }
 
-      .hero{
-        width:100%;
-        min-height:auto;
+      .héroe{
+        ancho:100%;
+        altura mínima:automática;
       }
 
       .hero-content{
-        width:100%;
-        max-width:100%;
-        padding:58px 16px;
+        ancho:100%;
+        ancho máximo: 100%;
+        relleno: 58px 16px;
       }
 
-      .hero h2{
-        font-size:clamp(34px,11vw,48px);
-        letter-spacing:-0.045em;
+      .héroe h2{
+        tamaño de fuente:clamp(34px,11vw,48px);
+        espaciado entre letras: -0,045em;
         overflow-wrap:anywhere;
       }
 
-      .hero p{
-        font-size:17px;
-        line-height:1.55;
+      .héroe p{
+        tamaño de fuente: 17px;
+        interlineado: 1,55;
       }
 
-      .section{
-        width:100%;
-        padding:62px 0;
+      .sección{
+        ancho:100%;
+        relleno: 62px 0;
       }
 
-      .card,
+      .tarjeta,
       .evento-card-grande{
-        width:100%;
-        max-width:100%;
+        ancho:100%;
+        ancho máximo: 100%;
       }
 
-      .evento-card-header{
-        padding:34px 16px 18px;
+      .encabezado-tarjeta-evento{
+        relleno: 34px 16px 18px;
       }
 
       .evento-card-contenido{
-        padding:18px 14px 28px;
+        relleno: 18px 14px 28px;
       }
 
       .evento-card-contenido-proximos,
       .evento-card-contenido-repositorio{
-        display:grid;
-        grid-template-columns:1fr;
-        gap:24px;
+        mostrar:cuadrícula;
+        columnas-de-plantilla-de-cuadrícula:1fr;
+        espacio: 24px;
       }
 
       .proximo-evento-info,
       .repositorio-home-texto{
-        width:100%;
-        text-align:center;
+        ancho:100%;
+        alineación de texto:centro;
       }
 
-      .eventos-badges{
-        align-items:stretch;
-        width:100%;
+      .eventos-insignias{
+        alinear-elementos:estirar;
+        ancho:100%;
       }
 
-      .badge{
-        width:100%;
-        max-width:100%;
-        border-radius:14px;
-        text-align:center;
-        white-space:normal;
+      .insignia{
+        ancho:100%;
+        ancho máximo: 100%;
+        radio de borde: 14px;
+        alineación de texto:centro;
+        espacio en blanco:normal;
         overflow-wrap:anywhere;
       }
 
       .congreso-lugar{
-        max-width:100%;
-        text-align:left;
+        ancho máximo: 100%;
+        alineación de texto:izquierda;
       }
 
       .congreso-acciones{
-        grid-template-columns:1fr;
-        max-width:100%;
+        columnas-de-plantilla-de-cuadrícula:1fr;
+        ancho máximo: 100%;
       }
 
       .congreso-btn-gps{
-        grid-column:auto;
+        columna de cuadrícula:automático;
       }
 
-      .proximo-evento-decoracion{
-        width:100%;
-        min-height:auto;
-        padding:9px;
+      .próximo-evento-decoracion{
+        ancho:100%;
+        altura mínima:automática;
+        relleno: 9px;
       }
 
       .congreso-afiche{
-        max-height:none;
-        border-radius:13px;
+        altura máxima: ninguna;
+        radio de borde: 13px;
       }
 
-      .cards-grid,
+      .cuadrícula-tarjetas,
       .org-grid,
-      .magazine-contenido,
+      .revista-contenido,
       .repositorio-mini-grid{
-        grid-template-columns:1fr;
+        columnas-de-plantilla-de-cuadrícula:1fr;
       }
     }
 
     /* ==========================================================
-       EXPERIENCIA MÓVIL MODERNA
-       ========================================================== */
+       EXPERIENCIA MÃ“VIL MODERNA
+       =========================================================== */
 
     .menu-toggle{
-      display:none;
-      width:46px;
-      height:46px;
-      padding:11px;
-      border:0;
-      border-radius:14px;
-      background:linear-gradient(135deg,var(--azul-acmi),var(--azul-acmi-2));
+      mostrar:ninguno;
+      ancho: 46px;
+      altura: 46px;
+      relleno: 11px;
+      borde:0;
+      radio de borde: 14px;
+      fondo:linear-gradient(135deg,var(--azul-acmi),var(--azul-acmi-2));
       box-shadow:0 12px 24px rgba(8,40,79,.18);
-      cursor:pointer;
+      cursor:puntero;
     }
 
     .menu-toggle span{
-      display:block;
-      width:100%;
-      height:2px;
-      margin:5px 0;
-      border-radius:999px;
-      background:white;
-      transition:transform .28s ease,opacity .2s ease;
+      mostrar:bloque;
+      ancho:100%;
+      altura: 2px;
+      margen:5px 0;
+      radio de borde: 999px;
+      fondo:blanco;
+      transición:transformación .28s de facilidad,opacidad .2s de facilidad;
     }
 
     .menu-toggle.is-active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -2895,158 +2959,158 @@
 
     @media(max-width:768px){
       .topbar-content{
-        display:block;
-        overflow-x:auto;
-        scrollbar-width:none;
+        mostrar:bloque;
+        desbordamiento-x:automático;
+        ancho de la barra de desplazamiento: ninguno;
       }
 
       .topbar-content::-webkit-scrollbar{display:none}
 
-      .topbar-left,
-      .topbar-right{
-        display:flex;
+      .barra-superior-izquierda,
+      .barra-superior-derecha{
+        pantalla:flex;
         flex-wrap:nowrap;
-        width:max-content;
-        gap:7px;
+        ancho:max-content;
+        espacio: 7px;
       }
 
       .topbar-left{display:inline-flex;margin-right:7px}
       .topbar-right{display:inline-flex}
 
-      .topbar a{
-        width:auto;
-        min-height:34px;
-        padding:7px 12px;
-        border:1px solid rgba(255,255,255,.12);
-        border-radius:999px;
-        background:rgba(255,255,255,.07);
-        white-space:nowrap;
-        font-size:11px;
+      .barra superior a{
+        ancho:automático;
+        altura mínima: 34px;
+        relleno: 7px 12px;
+        borde:1px sólido rgba(255,255,255,.12);
+        radio de borde: 999px;
+        fondo:rgba(255,255,255,.07);
+        espacio en blanco:nowrap;
+        tamaño de fuente: 11px;
       }
 
-      header{
-        position:sticky;
-        top:0;
-        background:rgba(255,255,255,.94);
+      encabezamiento{
+        posición:pegajosa;
+        arriba:0;
+        fondo:rgba(255,255,255,.94);
       }
 
-      .main-header{
-        display:grid;
+      .encabezado-principal{
+        mostrar:cuadrícula;
         grid-template-columns:minmax(0,1fr) 46px;
-        align-items:center;
-        gap:10px;
-        padding:10px 0;
+        alinear-elementos:centro;
+        espacio: 10px;
+        relleno: 10px 0;
       }
 
-      .brand{
-        justify-content:flex-start;
+      .marca{
+        justificar-contenido:flex-start;
       }
 
       .menu-toggle{
-        display:block;
+        mostrar:bloque;
       }
 
-      #navegacion-principal{
-        display:none;
-        grid-column:1 / -1;
-        width:100%;
-        padding:8px 0 2px;
-        animation:mobileMenuIn .32s ease both;
+      #navegación-principal{
+        mostrar:ninguno;
+        columna de cuadrícula:1 / -1;
+        ancho:100%;
+        relleno: 8px 0 2px;
+        animación:mobileMenuEn .32s facilita ambos;
       }
 
-      #navegacion-principal.is-open{display:block}
+      #navegacion-principal.está-abierta{display:block}
 
-      #navegacion-principal ul{
-        display:grid;
-        grid-template-columns:1fr;
-        gap:7px;
+      #navegación-principal ul{
+        mostrar:cuadrícula;
+        columnas-de-plantilla-de-cuadrícula:1fr;
+        espacio: 7px;
       }
 
       #navegacion-principal > ul > li > a{
-        min-height:46px;
-        justify-content:flex-start;
-        padding:11px 14px;
-        border:1px solid rgba(20,63,125,.08);
-        border-radius:14px;
-        background:linear-gradient(180deg,#fff,#f6f9fc);
+        altura mínima: 46px;
+        justificar-contenido:flex-start;
+        relleno: 11px 14px;
+        borde:1px sólido rgba(20,63,125,.08);
+        radio de borde: 14px;
+        fondo:gradiente-lineal(180 grados,#fff,#f6f9fc);
         box-shadow:0 8px 18px rgba(8,40,79,.06);
-        font-size:13px;
-        text-align:left;
+        tamaño de fuente: 13px;
+        alineación de texto:izquierda;
       }
 
-      .dropdown-menu,
-      .submenu-menu{
-        display:none !important;
-        margin:7px 0 0 12px;
-        width:calc(100% - 12px);
-        border:0;
-        border-left:3px solid var(--verde-acmi);
-        border-radius:0 14px 14px 0;
-        background:#f3f8f5;
-        box-shadow:none;
+      .menú desplegable,
+      .submenú-menú{
+        mostrar:ninguno !importante;
+        margen:7px 0 0 12px;
+        ancho:calc(100% - 12px);
+        borde:0;
+        borde izquierdo: 3px solid var(--verde-acmi);
+        radio de borde: 0 14px 14px 0;
+        fondo:#f3f8f5;
+        sombra de caja: ninguna;
       }
 
       .dropdown.open > .dropdown-menu,
       .submenu.open > .submenu-menu{
-        display:block !important;
-        animation:submenuIn .28s ease both;
+        mostrar:bloquear !importante;
+        animación:submenúEn .28s suavizar ambos;
       }
 
-      .dropdown-menu > a,
-      .dropdown-menu .submenu > a,
-      .submenu-menu a{
-        justify-content:flex-start;
-        min-height:42px;
-        text-align:left;
-        background:transparent;
-        border:0;
+      .menú desplegable > a,
+      .menú desplegable .submenú > a,
+      .submenú-menú a{
+        justificar-contenido:flex-start;
+        altura mínima: 42px;
+        alineación de texto:izquierda;
+        fondo:transparente;
+        borde:0;
       }
 
       .hero-content{
-        padding:64px 20px 72px;
+        relleno: 64px 20px 72px;
       }
 
-      .hero-badge{
-        animation:softFloat 3.6s ease-in-out infinite;
+      .héroe-insignia{
+        animación:softFloat 3.6s ease-in-out infinito;
       }
 
-      .hero h2{
+      .héroe h2{
         font-size:clamp(40px,12vw,58px);
-        line-height:.98;
+        interlineado: 0,98;
       }
 
-      .hero-actions{
-        display:grid;
-        grid-template-columns:1fr;
+      .acciones-de-héroe{
+        mostrar:cuadrícula;
+        columnas-de-plantilla-de-cuadrícula:1fr;
       }
 
-      .hero-actions .btn{
-        width:100%;
+      .acciones-de-héroe .btn{
+        ancho:100%;
       }
 
       .evento-card-grande,
-      .card,
-      .mini-card,
+      .tarjeta,
+      .mini-tarjeta,
       .org-card{
-        border-radius:22px;
+        radio de borde: 22px;
         box-shadow:0 18px 45px rgba(8,40,79,.11);
       }
 
       .congreso-acciones .btn{
-        min-height:54px;
-        border-radius:16px;
+        altura mínima: 54px;
+        radio de borde: 16px;
         box-shadow:0 10px 24px rgba(8,40,79,.10);
       }
     }
 
     @keyframes mobileMenuIn{
-      from{opacity:0;transform:translateY(-10px)}
-      to{opacity:1;transform:translateY(0)}
+      desde{opacidad:0;transformación:translateY(-10px)}
+      a{opacidad:1;transformación:translateY(0)}
     }
 
     @keyframes submenuIn{
-      from{opacity:0;transform:translateX(-8px)}
-      to{opacity:1;transform:translateX(0)}
+      desde{opacidad:0;transformación:translateX(-8px)}
+      a{opacidad:1;transformación:translateX(0)}
     }
 
     @keyframes softFloat{
@@ -3055,265 +3119,265 @@
     }
 
     /* ==========================================================
-       DISEÑO HÍBRIDO ACMI 2026
+       DISEÃ'O HÃ BRIDO ACMI 2026
        Amplitud institucional + portal científico editorial
-       ========================================================== */
+       =========================================================== */
 
-    :root{
+    :raíz{
       --ancho:1720px;
       --ancho-lectura:1280px;
       --borde-ui:1px solid rgba(20,63,125,.10);
       --fondo-claro:#f5f8fc;
     }
 
-    body{
-      background:#fff;
-      font-size:16px;
+    cuerpo{
+      fondo:#fff;
+      tamaño de fuente: 16px;
     }
 
     h1,h2,h3,h4,
-    .brand-text h1,
-    .section-title,
-    .evento-card-header h3{
+    .texto-de-marca h1,
+    .título-de-sección,
+    .encabezado-tarjeta-evento h3{
       font-family:'Poppins',sans-serif;
     }
 
-    .container{
-      width:100%;
-      max-width:var(--ancho);
-      padding-inline:clamp(22px,4vw,74px);
+    .recipiente{
+      ancho:100%;
+      ancho-máximo:var(--ancho);
+      relleno en línea:clamp(22px,4vw,74px);
     }
 
-    .topbar{
-      padding:8px 0;
-      background:linear-gradient(90deg,#061d39,#0f3569 58%,#174a88);
+    .barra superior{
+      relleno: 8px 0;
+      fondo:linear-gradient(90deg,#061d39,#0f3569 58%,#174a88);
     }
 
-    header{
-      background:rgba(255,255,255,.96);
-      border-top:4px solid var(--azul-acmi);
-      border-bottom:var(--borde-ui);
+    encabezamiento{
+      fondo:rgba(255,255,255,.96);
+      borde superior: 4px sólido var(--azul-acmi);
+      borde-inferior:var(--borde-ui);
       box-shadow:0 10px 30px rgba(8,40,79,.07);
     }
 
-    .main-header{
-      min-height:94px;
-      gap:clamp(18px,3vw,50px);
+    .encabezado-principal{
+      altura mínima: 94px;
+      espacio:clamp(18px,3vw,50px);
     }
 
-    .brand{
-      min-width:310px;
+    .marca{
+      ancho mínimo: 310px;
     }
 
-    .brand-logo{
-      width:68px;
-      height:68px;
+    .logotipo-de-marca{
+      ancho: 68px;
+      altura: 68px;
       box-shadow:0 10px 24px rgba(8,40,79,.11);
     }
 
     .brand-text h1{
       font-size:clamp(24px,2vw,31px);
-      letter-spacing:-.045em;
+      espaciado entre letras: -0,045em;
     }
 
-    nav ul{gap:4px}
-    nav a{padding:10px 11px;font-size:14px}
+    navegación ul{gap:4px}
+    navegación a{padding:10px 11px;font-size:14px}
 
-    nav a:focus-visible,
+    navegación a:focus-visible,
     .btn:focus-visible,
-    .portal-card:focus-visible,
+    .tarjeta-portal:enfoque-visible,
     .topbar a:focus-visible{
-      outline:3px solid rgba(42,156,82,.42);
-      outline-offset:3px;
+      contorno:3px sólido rgba(42,156,82,.42);
+      contorno-desplazamiento:3px;
     }
 
-    .hero{
-      min-height:clamp(570px,68vh,760px);
-      display:grid;
-      place-items:center;
-      background:
-        radial-gradient(circle at 83% 18%,rgba(126,212,154,.34),transparent 28%),
-        radial-gradient(circle at 12% 86%,rgba(255,255,255,.14),transparent 27%),
-        linear-gradient(118deg,#08284f 0%,#174a88 52%,#4ba67c 100%);
+    .héroe{
+      altura mínima:clamp(570px,68vh,760px);
+      mostrar:cuadrícula;
+      colocar-elementos:centro;
+      fondo:
+        gradiente radial(círculo al 83% 18%,rgba(126,212,154,.34),transparente 28%),
+        gradiente radial(círculo al 12% 86%,rgba(255,255,255,.14),transparente 27%),
+        gradiente-lineal(118 grados,#08284f 0%,#174a88 52%,#4ba67c 100%);
     }
 
     .hero-content{
-      width:min(1380px,calc(100% - 44px));
-      padding:clamp(88px,10vh,130px) 0;
+      ancho:min(1380px,calc(100% - 44px));
+      relleno:clamp(88px,10vh,130px) 0;
     }
 
-    .hero h2{
-      max-width:1120px;
-      margin-inline:auto;
+    .héroe h2{
+      ancho máximo: 1120px;
+      margen en línea:automático;
       font-family:'Poppins',sans-serif;
       font-size:clamp(50px,6vw,88px);
-      line-height:.98;
-      letter-spacing:-.065em;
+      interlineado: 0,98;
+      espaciado entre letras: -0,065em;
     }
 
-    .hero p{
-      max-width:1120px;
+    .héroe p{
+      ancho máximo: 1120px;
       font-size:clamp(19px,1.65vw,25px);
-      line-height:1.62;
+      interlineado: 1,62;
     }
 
-    .hero-actions .btn{
-      min-height:54px;
-      padding:14px 23px;
-      border-radius:14px;
+    .acciones-de-héroe .btn{
+      altura mínima: 54px;
+      relleno: 14px 23px;
+      radio de borde: 14px;
     }
 
-    /* Portal visual: contenido principal + accesos editoriales */
+    /* Portal visual: contenido principal + accesorios editoriales */
 
     .portal-destacado{
-      position:relative;
-      z-index:4;
-      margin-top:-54px;
-      padding-bottom:30px;
+      posición:relativa;
+      índice z:4;
+      margen superior:-54px;
+      relleno inferior: 30px;
     }
 
     .portal-grid{
-      display:grid;
+      mostrar:cuadrícula;
       grid-template-columns:minmax(0,1.55fr) minmax(360px,.85fr);
-      gap:20px;
+      espacio: 20px;
     }
 
-    .portal-card{
-      position:relative;
-      overflow:hidden;
-      display:flex;
-      color:inherit;
-      background:#fff;
-      border:var(--borde-ui);
-      border-radius:26px;
+    .tarjeta-portal{
+      posición:relativa;
+      desbordamiento:oculto;
+      pantalla:flex;
+      color:heredar;
+      fondo:#fff;
+      borde:var(--borde-ui);
+      radio de borde: 26px;
       box-shadow:0 22px 58px rgba(8,40,79,.16);
-      transition:transform .28s ease,box-shadow .28s ease;
+      transición:transformación .28s de facilidad,box-shadow .28s de facilidad;
     }
 
-    .portal-card:hover{
-      transform:translateY(-6px);
+    .tarjeta-portal:hover{
+      transformar:translateY(-6px);
       box-shadow:0 30px 66px rgba(8,40,79,.21);
     }
 
     .portal-card-principal{
-      min-height:440px;
-      align-items:flex-end;
-      background:
-        linear-gradient(90deg,rgba(5,28,56,.94) 0%,rgba(8,40,79,.76) 50%,rgba(8,40,79,.10) 100%),
-        url('{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg') center 43% / cover no-repeat;
+      altura mínima: 440px;
+      alinear-elementos:flex-end;
+      fondo:
+        gradiente-lineal(90 grados,rgba(5,28,56,.94) 0%,rgba(8,40,79,.76) 50%,rgba(8,40,79,.10) 100%),
+        url('{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg') centro 43% / portada sin repetición;
       color:#fff;
     }
 
     .portal-card-principal .portal-copy{
-      max-width:760px;
-      padding:clamp(30px,4vw,58px);
+      ancho máximo: 760px;
+      relleno:clamp(30px,4vw,58px);
     }
 
     .portal-eyebrow{
       display:inline-flex;
-      padding:8px 13px;
-      margin-bottom:17px;
-      border-radius:999px;
-      background:var(--verde-acmi);
+      relleno: 8px 13px;
+      margen inferior: 17px;
+      radio de borde: 999px;
+      fondo:var(--verde-acmi);
       color:#fff;
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:.08em;
-      text-transform:uppercase;
+      tamaño de fuente: 12px;
+      peso de fuente: 900;
+      espaciado entre letras: 0,08em;
+      transformación de texto: mayúsculas;
     }
 
     .portal-copy h2{
-      margin:0 0 12px;
+      margen:0 0 12px;
       font-size:clamp(30px,3.2vw,52px);
-      line-height:1.03;
-      letter-spacing:-.05em;
+      interlineado: 1,03;
+      espaciado entre letras: -0,05em;
     }
 
     .portal-copy p{
-      max-width:690px;
-      margin:0 0 22px;
+      ancho máximo: 690px;
+      margen:0 0 22px;
       color:rgba(255,255,255,.9);
-      font-size:17px;
-      line-height:1.6;
+      tamaño de fuente: 17px;
+      interlineado: 1,6;
     }
 
     .portal-cta{
       display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:12px 18px;
-      border-radius:12px;
-      background:#fff;
+      alinear-elementos:centro;
+      espacio: 10px;
+      relleno: 12px 18px;
+      radio de borde: 12px;
+      fondo:#fff;
       color:var(--azul-acmi);
-      font-weight:900;
+      peso de fuente: 900;
     }
 
     .portal-secundarios{
-      display:grid;
-      grid-template-rows:repeat(3,1fr);
-      gap:14px;
+      mostrar:cuadrícula;
+      filas-de-plantilla-de-cuadrícula:repetir(3,1fr);
+      espacio: 14px;
     }
 
     .portal-card-secundaria{
-      min-height:132px;
-      align-items:center;
-      justify-content:space-between;
-      padding:22px 24px;
+      altura mínima: 132px;
+      alinear-elementos:centro;
+      justificar-contenido:espacio-entre;
+      relleno: 22px 24px;
     }
 
-    .portal-card-secundaria::after{
-      content:'→';
+    .portal-tarjeta-secundaria::después{
+      contenido:'â†'';
       flex:0 0 42px;
-      width:42px;
-      height:42px;
-      display:grid;
-      place-items:center;
-      margin-left:18px;
-      border-radius:50%;
-      background:linear-gradient(135deg,var(--verde-acmi),#35b862);
+      ancho: 42px;
+      altura: 42px;
+      mostrar:cuadrícula;
+      colocar-elementos:centro;
+      margen izquierdo: 18px;
+      radio de borde: 50%;
+      fondo:gradiente lineal(135deg,var(--verde-acmi),#35b862);
       color:#fff;
-      font-size:21px;
-      font-weight:900;
+      tamaño de fuente: 21px;
+      peso de fuente: 900;
     }
 
     .portal-card-secundaria h3{
-      margin-bottom:5px;
+      margen inferior: 5px;
       color:var(--azul-acmi);
       font-size:clamp(18px,1.4vw,23px);
-      line-height:1.2;
+      interlineado: 1,2;
     }
 
     .portal-card-secundaria p{
       color:var(--texto-suave);
-      font-size:14px;
-      line-height:1.45;
+      tamaño de fuente: 14px;
+      interlineado: 1,45;
     }
 
-    .section{
-      padding:clamp(80px,8vw,120px) 0;
+    .sección{
+      relleno:clamp(80px,8vw,120px) 0;
     }
 
-    #quienes,#eventos,#patrocinios,#contacto{background:var(--fondo-claro)}
+    #quienes,#eventos,#patrocinios,#contacto{fondo:var(--fondo-claro)}
     #organigrama,#foro{background:#fff}
 
     .section-title{
       font-size:clamp(38px,4.3vw,66px);
-      line-height:1.02;
-      letter-spacing:-.055em;
+      interlineado: 1,02;
+      espaciado entre letras: -0,055em;
     }
 
-    .section-subtitle{
-      max-width:1080px;
+    .subtítulo-de-sección{
+      ancho máximo: 1080px;
       font-size:clamp(17px,1.5vw,21px);
     }
 
-    .card,.mini-card,.org-card,.evento-card-grande,.patrocinador-card{
-      border:var(--borde-ui);
+    .tarjeta,.mini-tarjeta,.org-tarjeta,.evento-tarjeta-grande,.patrocinador-tarjeta{
+      borde:var(--borde-ui);
       box-shadow:0 16px 42px rgba(8,40,79,.09);
     }
 
     .card:hover,.mini-card:hover,.org-card:hover{
-      transform:translateY(-5px);
+      transformar:translateY(-5px);
       box-shadow:0 24px 54px rgba(8,40,79,.14);
     }
 
@@ -3322,16 +3386,16 @@
     .evento-card-grande{border-radius:30px}
 
     .patrocinador-card{
-      width:min(100%,1180px);
-      padding:clamp(16px,2.4vw,34px);
+      ancho:min(100%,1180px);
+      relleno:clamp(16px,2.4vw,34px);
     }
 
     .patrocinador-card img{
-      width:100%;
-      height:auto;
-      max-height:none;
-      object-fit:contain;
-      border-radius:16px;
+      ancho:100%;
+      altura:automática;
+      altura máxima: ninguna;
+      objeto-ajustar:contener;
+      radio de borde: 16px;
     }
 
     @media(max-width:1180px){
@@ -3344,7 +3408,7 @@
     @media(max-width:768px){
       :root{--ancho:100%;--ancho-lectura:100%}
       .container{padding-inline:16px}
-      header{border-top-width:3px}
+      encabezado{borde-superior-ancho:3px}
       .hero{min-height:auto}
       .hero-content{width:100%;padding:72px 18px 106px}
       .hero h2{font-size:clamp(42px,12.5vw,60px)}
@@ -3360,7 +3424,7 @@
   </style>
 </head>
 
-<body>
+<cuerpo>
 
   <div class="topbar">
     <div class="container topbar-content">
@@ -3380,7 +3444,7 @@
     </div>
   </div>
 
-  <header>
+  <encabezado>
     <div class="container main-header">
 
       <div class="brand">
@@ -3388,11 +3452,11 @@
 
         <div class="brand-text">
           <h1>ACMI Santander</h1>
-          <p>Asociación Colombiana de Medicina Interna • Capítulo Santander</p>
+          <p>Asociación Colombiana de Medicina Interna â€¢ Capítulo Santander</p>
         </div>
       </div>
 
-      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navegacion-principal">
+      <botón class="menu-toggle" type="botón" aria-label="Abrir menú" aria-expanded="false" aria-controls="navegacion-principal">
         <span></span><span></span><span></span>
       </button>
 
@@ -3403,23 +3467,23 @@
           <li><a href="{{ site.baseurl }}/#organigrama">Organigrama</a></li>
 
           <li class="dropdown">
-            <a href="{{ site.baseurl }}/#eventos">Eventos ▾</a>
+            <a href="{{ site.baseurl }}/#eventos">Eventos â–¾</a>
 
       <div class="dropdown-menu">
   <div class="submenu">
-    <a href="{{ site.baseurl }}/#eventos">
-      Próximos eventos ▸
+    <a href="{{ sitio.baseurl }}/#eventos">
+      Próximos eventos â–¸
     </a>
 
     <div class="submenu-menu">
-      <a href="{{ site.baseurl }}/congreso-acmi/#inicio">
+      <a href="{{ sitio.baseurl }}/congreso-acmi/#inicio">
         Congreso ACMI Santander
       </a>
     </div>
   </div>
               <div class="submenu">
-                <a href="{{ site.baseurl }}/repositorio-eventos/">
-                  Repositorio de eventos ▸
+                <a href="{{ sitio.baseurl }}/repositorio-eventos/">
+                  Repositorio de eventos â–¸
                 </a>
 
                 <div class="submenu-menu">
@@ -3439,13 +3503,13 @@
 
           <li>
             <a href="{{ site.baseurl }}/proyeccion-social/">
-              Proyección social
+              Proyecto social
             </a>
           </li>
 
           <li>
             <a href="{{ site.baseurl }}/magazine/">
-              Magazine
+              Revista
             </a>
           </li>
 
@@ -3460,7 +3524,7 @@
     </div>
   </header>
 
-  <main>
+  <principal>
 
   <section class="hero" id="inicio">
     <div class="hero-content">
@@ -3470,7 +3534,7 @@
 
       <p>
         Capítulo regional de la Asociación Colombiana de Medicina Interna,
-        comprometido con la educación médica continuada, la integración académica
+        comprometidos con la educación médica continuada, la integración académica
         y el fortalecimiento científico de la medicina interna en Santander.
       </p>
 
@@ -3484,17 +3548,17 @@
 
   <section class="portal-destacado" aria-label="Contenidos destacados">
     <div class="container portal-grid">
-      <a class="portal-card portal-card-principal" href="{{ site.baseurl }}/congreso-acmi/#inicio">
+      <a class="tarjeta-portal tarjeta-portal-principal" href="{{ site.baseurl }}/congreso-acmi/#inicio">
         <div class="portal-copy">
           <span class="portal-eyebrow">Evento destacado</span>
           <h2>Congreso ACMI Bucaramanga 2026</h2>
           <p>30 y 31 de octubre en el Club Campestre de Bucaramanga. Ciencia, innovación y humanismo bajo el lema «Internistas que dejan huella».</p>
-          <span class="portal-cta">Conocer el congreso <span aria-hidden="true">→</span></span>
+          <span class="portal-cta">Conocer el congreso <span aria-hidden="true">â†'</span></span>
         </div>
       </a>
 
       <div class="portal-secundarios">
-        <a class="portal-card portal-card-secundaria" href="{{ site.baseurl }}/educacion-medica-continuada/">
+        <a class="tarjeta-portal tarjeta-portal-secundaria" href="{{ site.baseurl }}/educacion-medica-continuada/">
           <div>
             <h3>Educación médica</h3>
             <p>Actualización científica para la práctica clínica.</p>
@@ -3503,12 +3567,12 @@
 
         <a class="portal-card portal-card-secundaria" href="{{ site.baseurl }}/magazine/">
           <div>
-            <h3>Magazine ACMI</h3>
+            <h3>Revista ACMI</h3>
             <p>Artículos, análisis y producción académica.</p>
           </div>
         </a>
 
-        <a class="portal-card portal-card-secundaria" href="{{ site.baseurl }}/repositorio-eventos/">
+        <a class="tarjeta-portal tarjeta-portal-secundaria" href="{{ site.baseurl }}/repositorio-eventos/">
           <div>
             <h3>Repositorio de eventos</h3>
             <p>Memorias, certificados, fotografías y presentaciones.</p>
@@ -3520,24 +3584,24 @@
 
   <section class="section reveal" id="quienes">
     <div class="container">
-      <h2 class="section-title">Quiénes somos</h2>
+      <h2 class="section-title">QuiÃ©nes somos</h2>
 
       <p class="section-subtitle">
         ACMI Santander es el capítulo regional de la Asociación Colombiana de Medicina Interna,
-        comprometido con la formación científica, la integración académica y el fortalecimiento
+        comprometidos con la formación científica, la integración académica y el fortalecimiento
         del ejercicio profesional en medicina interna.
       </p>
 
       <div class="card about-block">
         <h3>Misión</h3>
         <p>
-          Promover el desarrollo científico, académico y profesional de la medicina interna
+          Promover el desarrollo científico, académico y profesional de la medicina interna.
           en Santander mediante programas de educación médica continuada, investigación clínica
-          y espacios de intercambio académico que fortalezcan la práctica médica y la atención
+          y espacios de intercambio académico que fortalecen la práctica médica y la atención
           de los pacientes.
         </p>
 
-        <h3>Visión</h3>
+        <h3>VisíÃ³n</h3>
         <p>
           Ser un referente regional y nacional en educación médica continuada, investigación clínica
           y liderazgo académico en medicina interna, contribuyendo al fortalecimiento de la comunidad
@@ -3554,7 +3618,7 @@
 
           <div class="mini-card reveal">
             <h4>Investigación</h4>
-            <p>Promover la investigación clínica y la producción científica en medicina interna.</p>
+            <p>Promotor de la investigación clínica y la producción científica en medicina interna.</p>
           </div>
 
           <div class="mini-card reveal">
@@ -3590,10 +3654,10 @@
           <p>Dr. Jaime Gómez</p>
           <p>Dr. Reynaldo Badillo</p>
           <p>Dra. Julieta Rueda</p>
-          <p>Dr. Sergio Andrés Lobo</p>
+          <p>Dra. Sergio Andrés Lobo</p>
           <p>Dr. Julio Oliveros</p>
           <p>Dr. Javier Fajardo</p>
-          <p>Dr. Edgar Gómez Lahitton</p>
+          <p>Dra. Edgar Gómez Lahitton</p>
           <p>Dra. Sandra Acevedo</p>
         </div>
 
@@ -3615,8 +3679,8 @@
         Actividades académicas, congresos, simposios y repositorio institucional de eventos de ACMI Santander.
       </p>
 
-      <div class="evento-card-grande evento-card-proximos reveal">
-        <div class="evento-card-header">
+      <div class="evento-card-grande evento-card-proximos revelación">
+        <div class="encabezado-tarjeta-evento">
           <span class="bloque-etiqueta">
             Agenda académica 2026
           </span>
@@ -3642,16 +3706,16 @@
     </p>
 
     <div class="eventos-badges">
-      <div class="badge">📅 30 y 31 de octubre de 2026</div>
-      <div class="badge">📍 Club Campestre de Bucaramanga</div>
-      <div class="badge">🩺 Medicina interna</div>
+      <div class="badge">ðŸ“… 30 y 31 de octubre de 2026</div>
+      <div class="badge">ðŸ“ Club Campestre de Bucaramanga</div>
+      <div class="badge">ðŸ©º Medicina interna</div>
     </div>
 
     <div class="congreso-lugar">
-      <span class="congreso-lugar-icono">📍</span>
+      <span class="congreso-lugar-icono">ðŸ“ </span>
       <div>
         <strong>Club Campestre de Bucaramanga</strong>
-        <span>Cra. 21 #30-02, Floridablanca, Bucaramanga, Santander</span>
+        <span>Ocra. 21 #30-02, Floridablanca, Bucaramanga, Santander</span>
       </div>
     </div>
 
@@ -3660,60 +3724,60 @@
   class="btn congreso-btn-inscripcion"
   href="https://acmisantander.com.co/congreso-acmi/#inicio"
 >
-  📝 Inscripción al evento
+  ðŸ“ Inscripción al evento
 </a>
 
 <a
   class="btn congreso-btn-inscripcion"
   href="https://stage.peewah.co/congreso-acmi-bucaramanga"
-  target="_blank"
+  objetivo="_blank"
   rel="noopener noreferrer"
 >
-  🔗 Link de inscripción
+  ðŸ”— Enlace de inscripción
 </a>
 
 <a
   class="btn congreso-btn-programa"
     href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf"
-    target="_blank"
+    objetivo="_blank"
     rel="noopener noreferrer"
   >
-    📄 Programa académico
+    ðŸ“„ Programa académico
   </a>
 
   <a
-    class="btn congreso-btn-poster"
+    clase="btn congreso-btn-poster"
     href="https://acmisantander.com.co/congreso-acmi/recepcion-ponencias-posters/"
-    target="_blank"
+    objetivo="_blank"
     rel="noopener noreferrer"
   >
-    📊 Enviar póster
+    ðŸ“Š Enviar pÃ³ster
   </a>
 
   <a
     class="btn congreso-btn-afiche"
     href="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg"
-    target="_blank"
+    objetivo="_blank"
     rel="noopener noreferrer"
   >
-    👁️ Ver afiche
+    ðŸ' ï¸ Ver ficha
   </a>
 
   <a
     class="btn congreso-btn-descarga"
     href="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg"
-    download="Afiche-Congreso-ACMI-Bucaramanga-2026.jpg"
+    descargar="Afiche-Congreso-ACMI-Bucaramanga-2026.jpg"
   >
-    📥 Descargar afiche
+    ðŸ“¥ Descargar ficha
   </a>
 
   <a
-    class="btn congreso-btn-gps"
+    clase="btn congreso-btn-gps"
     href="https://www.google.com/maps/dir/?api=1&destination=Club+Campestre+de+Bucaramanga%2C+Cra.+21+%2330-02%2C+Floridablanca%2C+Santander"
-    target="_blank"
+    objetivo="_blank"
     rel="noopener noreferrer"
   >
-    📍 Cómo llegar al Club Campestre
+    ðŸ“ Cómo llegar al Club Campestre
   </a>
 </div>
 
@@ -3721,15 +3785,15 @@
 
 <div class="proximo-evento-decoracion">
   <img
-    class="congreso-afiche"
+    clase="congreso-afiche"
     src="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg"
-    alt="Afiche oficial del Congreso ACMI Bucaramanga 2026"
-    loading="lazy"
+    alt="Ficha oficial del Congreso ACMI Bucaramanga 2026"
+    cargando="perezoso"
   >
 </div>
 
 </div>
-</div>   <div class="evento-card-grande evento-card-repositorio reveal">
+</div> <div class="evento-card-grande evento-card-repositorio revelación">
   <div class="evento-card-header evento-card-header-repositorio">
     <span class="bloque-etiqueta bloque-etiqueta-azul">
       Archivo académico institucional
@@ -3766,7 +3830,7 @@
 
       <div class="repositorio-home-actions">
         <a class="btn btn-primary"
-           href="{{ site.baseurl }}/repositorio-eventos/">
+           href="{{ sitio.baseurl }}/repositorio-eventos/">
           Abrir repositorio
         </a>
 
@@ -3782,7 +3846,7 @@
 
         <a class="btn btn-light"
            href="{{ site.baseurl }}/repositorio-eventos/#afiches">
-          Ver afiches
+          Ver fichas
         </a>
       </div>
     </div>
@@ -3790,25 +3854,25 @@
  <div class="repositorio-mini-grid">
 
   <a class="repositorio-mini-card" href="{{ site.baseurl }}/repositorio-eventos/fotos-y-videos.html">
-    <span>📸</span>
-    <strong>Fotos y videos</strong>
+    <span>ðŸ“¸</span>
+    <strong>Fotos y vídeos</strong>
     <small>Galería fotográfica institucional y registro audiovisual del evento.</small>
   </a>
 
   <a class="repositorio-mini-card" href="{{ site.baseurl }}/repositorio-eventos/diapositivas/">
-    <span>📊</span>
+    <span>ðŸ“Š</span>
     <strong>Diapositivas</strong>
     <small>Presentaciones autorizadas por conferencistas.</small>
   </a>
 
   <a class="repositorio-mini-card" href="{{ site.baseurl }}/repositorio-eventos/#afiches">
-    <span>🖼️</span>
-    <strong>Afiches</strong>
+    <span>ðŸ–¼ï¸ </span>
+    <strong>Fichas</strong>
     <small>Material gráfico oficial del VI Simposio Regional ACMI.</small>
   </a>
 
   <a class="repositorio-mini-card" href="{{ site.baseurl }}/repositorio-eventos/certificados/">
-    <span>🎓</span>
+    <span>ðŸŽ“</span>
     <strong>Certificados</strong>
     <small>Descarga individual de certificados de asistencia.</small>
   </a>
@@ -3819,21 +3883,21 @@
     </div>
 </section>
 
-<section class="contenido-independiente educacion-independiente reveal" id="educacion-destacada">
+<section class="contenido-independiente educacion-independiente revelación" id="educacion-destacada">
   <div class="container">
 
-    <h2 class="section-title">Educación médica continuada</h2>
+    <h2 class="section-title">Educación médica continua</h2>
     <p class="section-subtitle">
       Actualización científica, conferencias y recursos audiovisuales para fortalecer la práctica clínica.
     </p>
 
-    <article class="publicacion-destacada-card publicacion-educacion">
-      <div class="publicacion-destacada-copy publicacion-educacion-copy">
+    <article class="publicacion-destacada-tarjeta publicacion-educacion">
+      <div class="publicacion-destacada-copia publicacion-educacion-copia">
         <span class="publicacion-badge">Contenido destacado</span>
         <h3>Aprendizaje que transforma la práctica clínica</h3>
         <p>Consulte actividades académicas, conferencias y contenidos de educación médica desarrollados por ACMI Santander.</p>
         <a class="btn btn-light" href="{{ site.baseurl }}/educacion-medica-continuada/">
-          Explorar educación <span aria-hidden="true">→</span>
+          Explorar educación <span aria-hidden="true">â†'</span>
         </a>
       </div>
 
@@ -3842,37 +3906,37 @@
           <iframe
             src="https://www.youtube.com/embed/EA9oWKuoZ6I"
             title="VI Simposio Regional ACMI"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
+            permitir="acelerómetro; reproducción automática; escritura en el portapapeles; medios cifrados; giroscopio; imagen en imagen; compartir web"
+            permitir pantalla completa>
           </iframe>
         </div>
       </div>
-    </article>
+    </artículo>
 
   </div>
 </section>
 
-{% assign articulo_academico = site.categories.magazine | where: "subcategory","articulo-academico" | first %}
+{% asignar articulo_academico = site.categories.magazine | donde: "subcategoría","artículo-academico" | primero %}
 {% assign noticia = site.categories.magazine | where: "subcategory","noticias" | first %}
-{% assign opinion = site.categories.magazine | where: "subcategory","opinion" | first %}
+{% asignar opinión = sitio.categorías.revista | donde: "subcategoría","opinión" | primero %}
 
-<section class="contenido-independiente magazine-independiente reveal" id="magazine-destacado">
+<section class="contenido-revista independiente-revelación independiente" id="revista-destacado">
   <div class="container">
 
-    <h2 class="section-title">Magazine ACMI</h2>
+    <h2 class="section-title">Revista ACMI</h2>
     <p class="section-subtitle">
       Artículos académicos, noticias institucionales y opinión médica en un espacio editorial propio.
     </p>
 
-    <div class="magazine-destacado-grid">
+    <div class="revista-destacado-grid">
 
-      <article
-        class="publicacion-destacada-card publicacion-articulo"
-        {% if articulo_academico and articulo_academico.cover %}
-        style="background-image:url('{{ site.baseurl }}{{ articulo_academico.cover }}');"
+      <artículo
+        class="publicacion-destacada-tarjeta publicacion-articulo"
+        {% si articulo_academico y articulo_academico.cover %}
+        style="background-image:url('{{ site.baseurl }}{{ article_académico.cover }}');"
         {% endif %}>
 
-        <div class="publicacion-destacada-copy">
+        <div class="publicacion-destacada-copia">
           <span class="publicacion-badge">
             {% if articulo_academico %}Artículo académico destacado{% else %}Nueva sección{% endif %}
           </span>
@@ -3882,9 +3946,9 @@
           </h3>
 
           <p>
-            {% if articulo_academico %}
-              {{ articulo_academico.excerpt | strip_html | truncate: 180 }}
-            {% else %}
+            {% if article_académico %}
+              {{ artículo_academico.extracto | tira_html | truncar: 180 }}
+            {% demás %}
               Investigación, revisiones, casos clínicos y educación médica basada en la evidencia.
             {% endif %}
           </p>
@@ -3892,36 +3956,40 @@
           <a class="btn btn-light"
              href="{% if articulo_academico %}{{ site.baseurl }}{{ articulo_academico.url }}{% else %}{{ site.baseurl }}/magazine/#articulo-academico{% endif %}">
             {% if articulo_academico %}Leer artículo{% else %}Explorar sección{% endif %}
-            <span aria-hidden="true">→</span>
+            <span aria-hidden="true">â†'</span>
           </a>
         </div>
-      </article>
+      </artículo>
 
       <div class="magazine-accesos">
 
         <article class="publicacion-destacada-card publicacion-editorial-card">
           <span class="publicacion-badge publicacion-badge-azul">Noticias</span>
-          {% if noticia and noticia.cover %}
+          {% if noticia y noticia.cover %}
             <img src="{{ site.baseurl }}{{ noticia.cover }}" alt="{{ noticia.title }}" class="publicacion-mini-cover">
+          {% demás %}
+            <div class="publicacion-cover-placeholder" aria-hidden="true">N</div>
           {% endif %}
           <h3>{% if noticia %}{{ noticia.title }}{% else %}Noticias ACMI{% endif %}</h3>
-          <p>{% if noticia %}{{ noticia.excerpt | strip_html | truncate: 105 }}{% else %}Actualidad científica e institucional de ACMI Santander.{% endif %}</p>
+          <p>{% si noticia %}{{ noticia.extracto | tira_html | truncate: 105 }}{% else %}Actualidad científica e institucional de ACMI Santander.{% endif %}</p>
           <a class="btn btn-light" href="{% if noticia %}{{ site.baseurl }}{{ noticia.url }}{% else %}{{ site.baseurl }}/magazine/#noticias{% endif %}">
-            Ver noticias <span aria-hidden="true">→</span>
+            Ver noticias <span aria-hidden="true">â†'</span>
           </a>
-        </article>
+        </artículo>
 
         <article class="publicacion-destacada-card publicacion-editorial-card publicacion-opinion">
           <span class="publicacion-badge publicacion-badge-azul">Opinión</span>
-          {% if opinion and opinion.cover %}
+          {% si la opinión y la opinión cubren %}
             <img src="{{ site.baseurl }}{{ opinion.cover }}" alt="{{ opinion.title }}" class="publicacion-mini-cover">
+          {% demás %}
+            <div class="publicacion-cover-placeholder" aria-hidden="true">O</div>
           {% endif %}
           <h3>{% if opinion %}{{ opinion.title }}{% else %}Opinión médica{% endif %}</h3>
-          <p>{% if opinion %}{{ opinion.excerpt | strip_html | truncate: 105 }}{% else %}Análisis, reflexión y pensamiento clínico de nuestra comunidad académica.{% endif %}</p>
+          <p>{% si opinión %}{{ opinión.excerpt | tira_html | truncate: 105 }}{% else %}Análisis, reflexión y pensamiento clínico de nuestra comunidad académica.{% endif %}</p>
           <a class="btn btn-light" href="{% if opinion %}{{ site.baseurl }}{{ opinion.url }}{% else %}{{ site.baseurl }}/magazine/#opinion{% endif %}">
-            Leer opinión <span aria-hidden="true">→</span>
+            Leer opinión <span aria-hidden="true">â†'</span>
           </a>
-        </article>
+        </artículo>
 
       </div>
     </div>
@@ -3929,7 +3997,7 @@
   </div>
 </section>
 
-<section class="contenido-independiente proyeccion-independiente reveal" id="proyeccion-destacada">
+<section class="contenido-independiente proyección-independiente revelación" id="proyeccion-destacada">
   <div class="container">
 
     <h2 class="section-title">Proyección social</h2>
@@ -3937,16 +4005,16 @@
       Medicina interna al servicio de la comunidad mediante educación, prevención y participación territorial.
     </p>
 
-    <article class="proyeccion-hero-card">
+    <artículo class="proyeccion-hero-card">
       <div class="proyeccion-hero-copy">
         <span class="publicacion-badge">Comunidad ACMI</span>
         <h3>Conocimiento médico con impacto social</h3>
         <p>Conozca las actividades comunitarias, jornadas de educación en salud y proyectos de bienestar desarrollados por ACMI Santander.</p>
         <a class="btn btn-light" href="{{ site.baseurl }}/proyeccion-social/">
-          Ver actividades <span aria-hidden="true">→</span>
+          Ver actividades <span aria-hidden="true">â†'</span>
         </a>
       </div>
-    </article>
+    </artículo>
 
   </div>
 </section>
@@ -3964,7 +4032,7 @@
           <img
             src="{{ site.baseurl }}/Patrocinios.png"
             alt="Empresas patrocinadoras del Congreso ACMI Bucaramanga 2026"
-            loading="lazy"
+            cargando="perezoso"
           >
         </div>
       </div>
@@ -3987,7 +4055,7 @@
         <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 
         <script>
-          if (typeof commentBox === 'function') {
+          si (typeof commentBox === 'function') {
             commentBox('5704224843235328-proj');
           }
         </script>
@@ -4003,13 +4071,13 @@
         <div class="contact-buttons">
           <a class="btn btn-primary"
              href="https://www.instagram.com/acmi_santander/"
-             target="_blank">
+             objetivo="_blank">
             Instagram
           </a>
 
           <a class="btn btn-primary"
              href="https://web.facebook.com/acmi.capitulo.santander?locale=es_LA"
-             target="_blank">
+             objetivo="_blank">
             Facebook
           </a>
         </div>
@@ -4021,7 +4089,7 @@
 
   </main>
 
-  <footer>
+  <pie de página>
     <p>© 2026 ACMI Santander</p>
     <p>Educación continua que transforma la práctica clínica</p>
   </footer>
@@ -4030,24 +4098,24 @@
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
+      entradas.forEach((entrada) => {
+        si(entrada.esIntersecante){
+          entrada.target.classList.add('is-visible');
+          revealObserver.unobserve(entrada.obget);
         }
       });
     }, {
-      threshold: 0.12
+      umbral: 0,12
     });
 
-    revealElements.forEach((element) => {
-      revealObserver.observe(element);
+    revelarElementos.paraCada((elemento) => {
+      revealObserver.observe(elemento);
     });
 
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('#navegacion-principal');
 
-    if(menuToggle && mainNav){
+    si(menuToggle && mainNav){
       menuToggle.addEventListener('click', () => {
         const open = mainNav.classList.toggle('is-open');
         menuToggle.classList.toggle('is-active', open);
@@ -4056,16 +4124,16 @@
     }
 
     document.querySelectorAll('.dropdown > a, .submenu > a').forEach((trigger) => {
-      trigger.addEventListener('click', (event) => {
+      trigger.addEventListener('click', (evento) => {
         if(window.innerWidth <= 768 && trigger.nextElementSibling){
-          event.preventDefault();
+          evento.preventDefault();
           trigger.parentElement.classList.toggle('open');
         }
       });
     });
 
-    document.querySelectorAll('#navegacion-principal a').forEach((link) => {
-      link.addEventListener('click', () => {
+    document.querySelectorAll('#navegacion-principal a').forEach((enlace) => {
+      enlace.addEventListener('click', () => {
         if(window.innerWidth <= 768 && !link.nextElementSibling){
           mainNav?.classList.remove('is-open');
           menuToggle?.classList.remove('is-active');
