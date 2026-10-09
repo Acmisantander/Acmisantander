@@ -782,6 +782,11 @@ permalink: /magazine/
 
 </style>
 
+{% assign lista_vacia = "" | split: "," %}
+{% assign publicaciones_coleccion = site.publicaciones | default: lista_vacia %}
+{% assign publicaciones_posts = site.posts | default: lista_vacia %}
+{% assign publicaciones_magazine = publicaciones_coleccion | concat: publicaciones_posts | uniq: "url" %}
+
 <div class="magazine-page">
 
   <section class="magazine-hero" id="inicio-magazine">
@@ -928,7 +933,7 @@ permalink: /magazine/
         </p>
       </div>
 
-      {% assign noticias = site.publicaciones | where: "subcategory","noticias" | sort: "date" | reverse %}
+      {% assign noticias = publicaciones_magazine | where: "subcategory","noticias" | sort: "date" | reverse %}
 
       {% if noticias.size > 0 %}
 
@@ -1005,9 +1010,7 @@ permalink: /magazine/
         </p>
       </div>
 
-      {% assign documentos_academicos = site.documents | where: "subcategory", "articulo-academico" %}
-      {% assign paginas_academicas = site.pages | where: "subcategory", "articulo-academico" %}
-      {% assign articulos_academicos = documentos_academicos | concat: paginas_academicas | uniq: "url" | sort: "date" | reverse %}
+      {% assign articulos_academicos = publicaciones_magazine | where: "subcategory", "articulo-academico" | sort: "date" | reverse %}
       {% assign theran_visible = false %}
 
       <div class="magazine-grid academic-grid">
@@ -1096,7 +1099,7 @@ permalink: /magazine/
         </p>
       </div>
 
-      {% assign opiniones = site.publicaciones | where: "subcategory","opinion" | sort: "date" | reverse %}
+      {% assign opiniones = publicaciones_magazine | where: "subcategory","opinion" | sort: "date" | reverse %}
 
       {% if opiniones.size > 0 %}
 
