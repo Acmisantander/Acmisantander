@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "¿Qué inteligencia artificial puede usar hoy un internista, y para qué?"
-date: 2026-10-09
+date: 2026-10-08
 author: "Dr. Juan Sebastián Therán León"
 affiliation: "Médico familiar, Magíster en Inteligencia Artificial en Salud"
 categories: magazine
@@ -669,6 +669,5 @@ excerpt: "Guía práctica de herramientas de inteligencia artificial disponibles
 
 </section>
 </div>
-<script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 <script>
   commentBox('5704224843235328-proj');
