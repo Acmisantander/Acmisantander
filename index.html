@@ -1609,6 +1609,89 @@
   min-height:100%;
 }
 
+.articulo-academico-destacado{
+  min-height:290px;
+  margin:10px 0 20px;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(126,212,154,.34), transparent 28%),
+    linear-gradient(135deg, var(--azul-profundo), var(--azul-acmi));
+  box-shadow:0 18px 38px rgba(8,40,79,.18);
+}
+
+.articulo-academico-destacado::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:linear-gradient(90deg, rgba(5,28,56,.96) 0%, rgba(8,40,79,.82) 55%, rgba(8,40,79,.30) 100%);
+}
+
+.articulo-academico-destacado::after{
+  content:"";
+  position:absolute;
+  width:210px;
+  height:210px;
+  right:-70px;
+  bottom:-105px;
+  z-index:1;
+  border-radius:50%;
+  background:rgba(126,212,154,.20);
+}
+
+.articulo-academico-con-portada{
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+.articulo-academico-copy{
+  width:min(78%, 650px);
+  padding:30px;
+  position:relative;
+  z-index:2;
+}
+
+.articulo-academico-copy .publicacion-badge{
+  margin-bottom:13px;
+  color:white;
+  background:var(--verde-acmi);
+  border-color:rgba(255,255,255,.22);
+}
+
+.articulo-academico-copy h5{
+  margin:0 0 11px;
+  color:white;
+  font-family:'Montserrat', sans-serif;
+  font-size:clamp(25px,2.5vw,35px);
+  font-weight:900;
+  line-height:1.12;
+  letter-spacing:-.035em;
+}
+
+.articulo-academico-copy p{
+  margin:0 0 18px;
+  color:rgba(255,255,255,.88);
+  font-size:15px;
+  line-height:1.65;
+}
+
+.articulo-academico-copy .btn{
+  background:white;
+  color:var(--azul-acmi);
+  box-shadow:0 10px 24px rgba(0,0,0,.16);
+}
+
+.articulo-academico-copy .btn:hover{
+  background:var(--verde-acmi);
+  color:white;
+}
+
 .magazine-grid-mejorado{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -1699,6 +1782,15 @@
 
   .magazine-grid-mejorado{
     grid-template-columns:1fr;
+  }
+
+  .articulo-academico-destacado{
+    min-height:330px;
+  }
+
+  .articulo-academico-copy{
+    width:100%;
+    padding:24px;
   }
 
   .magazine-thumb,
@@ -3365,8 +3457,46 @@
 
             <h4>Magazine ACMI</h4>
 
+            {% assign articulo_academico = site.categories.magazine | where: "subcategory","articulo-academico" | first %}
             {% assign noticia = site.categories.magazine | where: "subcategory","noticias" | first %}
             {% assign opinion = site.categories.magazine | where: "subcategory","opinion" | first %}
+
+            {% if articulo_academico %}
+              <div
+                class="articulo-academico-destacado{% if articulo_academico.cover %} articulo-academico-con-portada{% endif %}"
+                {% if articulo_academico.cover %}
+                style="background-image:url('{{ site.baseurl }}{{ articulo_academico.cover }}');"
+                {% endif %}>
+
+                <div class="articulo-academico-copy">
+                  <span class="publicacion-badge">Artículo académico destacado</span>
+
+                  <h5>{{ articulo_academico.title }}</h5>
+
+                  <p>
+                    {{ articulo_academico.excerpt | strip_html | truncate: 145 }}
+                  </p>
+
+                  <a class="btn btn-light" href="{{ site.baseurl }}{{ articulo_academico.url }}">
+                    Leer artículo <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+
+              </div>
+            {% else %}
+              <div class="articulo-academico-destacado">
+                <div class="articulo-academico-copy">
+                  <span class="publicacion-badge">Nueva sección</span>
+                  <h5>Artículo académico</h5>
+                  <p>
+                    Investigación, revisiones, casos clínicos y educación médica basada en la evidencia.
+                  </p>
+                  <a class="btn btn-light" href="{{ site.baseurl }}/magazine/#articulo-academico">
+                    Explorar sección <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            {% endif %}
 
             <div class="magazine-grid-mejorado">
 
