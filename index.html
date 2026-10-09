@@ -1738,6 +1738,228 @@
 }
 
 /* ==============================
+   PUBLICACIONES EN BLOQUES INDEPENDIENTES
+   ============================== */
+
+.publicaciones-destacadas{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:24px;
+  max-width:1280px;
+  margin:42px auto 0;
+}
+
+.publicacion-destacada-card{
+  position:relative;
+  overflow:hidden;
+  min-height:360px;
+  border-radius:28px;
+  border:1px solid rgba(20,63,125,.10);
+  box-shadow:0 22px 54px rgba(8,40,79,.14);
+  background:white;
+  transition:transform .28s ease,box-shadow .28s ease;
+}
+
+.publicacion-destacada-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 66px rgba(8,40,79,.20);
+}
+
+.publicacion-educacion{
+  grid-column:span 7;
+  display:grid;
+  grid-template-columns:minmax(260px,.88fr) minmax(320px,1.12fr);
+  background:linear-gradient(135deg,#08284f,#174a88);
+  color:white;
+}
+
+.publicacion-educacion-copy{
+  padding:38px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:relative;
+}
+
+.publicacion-educacion-copy::after{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  left:-90px;
+  bottom:-125px;
+  border-radius:50%;
+  background:rgba(126,212,154,.20);
+}
+
+.publicacion-educacion-media{
+  padding:22px;
+  display:flex;
+  align-items:center;
+  background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(42,156,82,.18));
+}
+
+.publicacion-articulo{
+  grid-column:span 5;
+  display:flex;
+  align-items:flex-end;
+  color:white;
+  background:
+    radial-gradient(circle at 82% 18%,rgba(126,212,154,.34),transparent 28%),
+    linear-gradient(135deg,#08284f,#143f7d);
+  background-position:center;
+  background-size:cover;
+}
+
+.publicacion-articulo::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(5,28,56,.97),rgba(8,40,79,.76) 62%,rgba(8,40,79,.30));
+}
+
+.publicacion-destacada-copy{
+  position:relative;
+  z-index:2;
+  padding:38px;
+}
+
+.publicacion-destacada-copy h3{
+  margin:0 0 13px;
+  color:white;
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(28px,3vw,42px);
+  font-weight:900;
+  line-height:1.06;
+  letter-spacing:-.045em;
+}
+
+.publicacion-destacada-copy p{
+  margin:0 0 22px;
+  color:rgba(255,255,255,.88);
+  font-size:16px;
+  line-height:1.65;
+}
+
+.publicacion-destacada-copy .publicacion-badge{
+  color:white;
+  background:var(--verde-acmi);
+  border-color:rgba(255,255,255,.24);
+}
+
+.publicacion-destacada-copy .btn{
+  position:relative;
+  z-index:3;
+  background:white;
+  color:var(--azul-acmi);
+}
+
+.publicaciones-editoriales{
+  grid-column:1 / -1;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;
+}
+
+.publicacion-editorial-card{
+  min-height:290px;
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  background:white;
+}
+
+.publicacion-editorial-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:6px;
+  background:linear-gradient(90deg,var(--verde-acmi),var(--azul-acmi));
+}
+
+.publicacion-editorial-card h3{
+  margin:0 0 12px;
+  color:var(--azul-acmi);
+  font-family:'Montserrat',sans-serif;
+  font-size:27px;
+  font-weight:900;
+  line-height:1.15;
+}
+
+.publicacion-editorial-card p{
+  margin:0 0 20px;
+  color:#52667d;
+  line-height:1.65;
+}
+
+.publicacion-editorial-card .btn{
+  margin-top:auto;
+}
+
+.publicacion-mini-cover{
+  width:100%;
+  height:155px;
+  margin:0 0 18px;
+  border-radius:18px;
+  object-fit:cover;
+}
+
+.publicacion-opinion{
+  background:linear-gradient(145deg,#ffffff,#f1f6fc);
+}
+
+.publicacion-social-independiente{
+  background:
+    radial-gradient(circle at 90% 15%,rgba(126,212,154,.30),transparent 30%),
+    linear-gradient(145deg,#edf9f1,#ffffff);
+}
+
+@media(max-width:1050px){
+  .publicacion-educacion,
+  .publicacion-articulo{
+    grid-column:1 / -1;
+  }
+
+  .publicaciones-editoriales{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .publicacion-social-independiente{
+    grid-column:1 / -1;
+  }
+}
+
+@media(max-width:700px){
+  .publicaciones-destacadas{
+    gap:18px;
+  }
+
+  .publicacion-educacion{
+    grid-template-columns:1fr;
+  }
+
+  .publicacion-educacion-copy,
+  .publicacion-destacada-copy,
+  .publicacion-editorial-card{
+    padding:24px;
+  }
+
+  .publicacion-educacion-media{
+    padding:0 18px 22px;
+  }
+
+  .publicaciones-editoriales{
+    grid-template-columns:1fr;
+  }
+
+  .publicacion-editorial-card,
+  .publicacion-articulo{
+    min-height:300px;
+  }
+}
+
+/* ==============================
    RESPONSIVE
    ============================== */
 
@@ -3404,32 +3626,24 @@
       Contenido reciente de educación médica, magazine y proyección social.
     </p>
 
-    <div class="publicaciones-card-unica">
+    {% assign articulo_academico = site.categories.magazine | where: "subcategory","articulo-academico" | first %}
+    {% assign noticia = site.categories.magazine | where: "subcategory","noticias" | first %}
+    {% assign opinion = site.categories.magazine | where: "subcategory","opinion" | first %}
 
-      <div class="publicaciones-card-header">
-        <span class="bloque-etiqueta">Contenido reciente</span>
+    <div class="publicaciones-destacadas">
 
-        <h3>Educación, magazine y proyección social</h3>
+      <article class="publicacion-destacada-card publicacion-educacion">
+        <div class="publicacion-destacada-copy publicacion-educacion-copy">
+          <span class="publicacion-badge">Educación destacada</span>
+          <h3>Educación médica continuada</h3>
+          <p>Actualización científica y contenidos audiovisuales para fortalecer la práctica clínica.</p>
+          <a class="btn btn-light" href="{{ site.baseurl }}/educacion-medica-continuada/">
+            Explorar educación <span aria-hidden="true">→</span>
+          </a>
+        </div>
 
-        <p>
-          Consulte el material más reciente de ACMI Santander en educación médica continuada,
-          magazine académico y actividades de proyección social.
-        </p>
-      </div>
-
-      <div class="publicaciones-layout">
-
-        <!-- BLOQUE PRINCIPAL -->
-        <div class="publicacion-feature">
-          <span class="publicacion-badge">Destacado</span>
-
-          <h4>Educación médica continuada</h4>
-
-          <p>
-            Actividad promocional del VI Simposio Regional ACMI San Gil – Santander 2026.
-          </p>
-
-          <div class="video-mini publicacion-video">
+        <div class="publicacion-educacion-media">
+          <div class="video-mini">
             <iframe
               src="https://www.youtube.com/embed/EA9oWKuoZ6I"
               title="VI Simposio Regional ACMI"
@@ -3437,135 +3651,78 @@
               allowfullscreen>
             </iframe>
           </div>
+        </div>
+      </article>
 
-          <p class="publicacion-caption">
-            Video promocional del VI Simposio Regional ACMI San Gil – Santander 2026.
+      <article
+        class="publicacion-destacada-card publicacion-articulo"
+        {% if articulo_academico and articulo_academico.cover %}
+        style="background-image:url('{{ site.baseurl }}{{ articulo_academico.cover }}');"
+        {% endif %}>
+
+        <div class="publicacion-destacada-copy">
+          <span class="publicacion-badge">
+            {% if articulo_academico %}Artículo destacado{% else %}Nueva sección{% endif %}
+          </span>
+
+          <h3>
+            {% if articulo_academico %}{{ articulo_academico.title }}{% else %}Artículo académico{% endif %}
+          </h3>
+
+          <p>
+            {% if articulo_academico %}
+              {{ articulo_academico.excerpt | strip_html | truncate: 150 }}
+            {% else %}
+              Investigación, revisiones, casos clínicos y educación médica basada en la evidencia.
+            {% endif %}
           </p>
 
-          <a class="btn btn-primary"
-             href="{{ site.baseurl }}/educacion-medica-continuada/">
-            Ver más
+          <a class="btn btn-light"
+             href="{% if articulo_academico %}{{ site.baseurl }}{{ articulo_academico.url }}{% else %}{{ site.baseurl }}/magazine/#articulo-academico{% endif %}">
+            {% if articulo_academico %}Leer artículo{% else %}Explorar sección{% endif %}
+            <span aria-hidden="true">→</span>
           </a>
         </div>
+      </article>
 
-        <!-- COLUMNA DERECHA -->
-        <div class="publicaciones-side">
+      <div class="publicaciones-editoriales">
 
-          <!-- MAGAZINE -->
-          <div class="publicacion-box publicacion-magazine">
-            <span class="publicacion-badge publicacion-badge-azul">Magazine</span>
+        <article class="publicacion-destacada-card publicacion-editorial-card">
+          <span class="publicacion-badge publicacion-badge-azul">Noticias</span>
 
-            <h4>Magazine ACMI</h4>
+          {% if noticia and noticia.cover %}
+            <img src="{{ site.baseurl }}{{ noticia.cover }}" alt="{{ noticia.title }}" class="publicacion-mini-cover">
+          {% endif %}
 
-            {% assign articulo_academico = site.categories.magazine | where: "subcategory","articulo-academico" | first %}
-            {% assign noticia = site.categories.magazine | where: "subcategory","noticias" | first %}
-            {% assign opinion = site.categories.magazine | where: "subcategory","opinion" | first %}
+          <h3>{% if noticia %}{{ noticia.title }}{% else %}Noticias ACMI{% endif %}</h3>
+          <p>{% if noticia %}{{ noticia.excerpt | strip_html | truncate: 115 }}{% else %}Actualidad científica e institucional de ACMI Santander.{% endif %}</p>
+          <a class="btn btn-light" href="{% if noticia %}{{ site.baseurl }}{{ noticia.url }}{% else %}{{ site.baseurl }}/magazine/#noticias{% endif %}">
+            Ver noticias <span aria-hidden="true">→</span>
+          </a>
+        </article>
 
-            {% if articulo_academico %}
-              <div
-                class="articulo-academico-destacado{% if articulo_academico.cover %} articulo-academico-con-portada{% endif %}"
-                {% if articulo_academico.cover %}
-                style="background-image:url('{{ site.baseurl }}{{ articulo_academico.cover }}');"
-                {% endif %}>
+        <article class="publicacion-destacada-card publicacion-editorial-card publicacion-opinion">
+          <span class="publicacion-badge publicacion-badge-azul">Opinión</span>
 
-                <div class="articulo-academico-copy">
-                  <span class="publicacion-badge">Artículo académico destacado</span>
+          {% if opinion and opinion.cover %}
+            <img src="{{ site.baseurl }}{{ opinion.cover }}" alt="{{ opinion.title }}" class="publicacion-mini-cover">
+          {% endif %}
 
-                  <h5>{{ articulo_academico.title }}</h5>
+          <h3>{% if opinion %}{{ opinion.title }}{% else %}Opinión médica{% endif %}</h3>
+          <p>{% if opinion %}{{ opinion.excerpt | strip_html | truncate: 115 }}{% else %}Análisis, reflexión y pensamiento clínico de nuestra comunidad académica.{% endif %}</p>
+          <a class="btn btn-light" href="{% if opinion %}{{ site.baseurl }}{{ opinion.url }}{% else %}{{ site.baseurl }}/magazine/#opinion{% endif %}">
+            Leer opinión <span aria-hidden="true">→</span>
+          </a>
+        </article>
 
-                  <p>
-                    {{ articulo_academico.excerpt | strip_html | truncate: 145 }}
-                  </p>
-
-                  <a class="btn btn-light" href="{{ site.baseurl }}{{ articulo_academico.url }}">
-                    Leer artículo <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-
-              </div>
-            {% else %}
-              <div class="articulo-academico-destacado">
-                <div class="articulo-academico-copy">
-                  <span class="publicacion-badge">Nueva sección</span>
-                  <h5>Artículo académico</h5>
-                  <p>
-                    Investigación, revisiones, casos clínicos y educación médica basada en la evidencia.
-                  </p>
-                  <a class="btn btn-light" href="{{ site.baseurl }}/magazine/#articulo-academico">
-                    Explorar sección <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </div>
-            {% endif %}
-
-            <div class="magazine-grid-mejorado">
-
-              <div class="magazine-item">
-                <h5>Noticias</h5>
-
-                {% if noticia %}
-                  {% if noticia.cover %}
-                    <img
-                      src="{{ site.baseurl }}{{ noticia.cover }}"
-                      alt="{{ noticia.title }}"
-                      class="magazine-thumb">
-                  {% endif %}
-
-                  <p>{{ noticia.title }}</p>
-
-                  <a class="btn btn-light" href="{{ site.baseurl }}{{ noticia.url }}">
-                    Leer noticia
-                  </a>
-                {% else %}
-                  <p>Próximamente se publicarán nuevas noticias.</p>
-                {% endif %}
-              </div>
-
-              <div class="magazine-item">
-                <h5>Opinión</h5>
-
-                {% if opinion %}
-                  {% if opinion.cover %}
-                    <img
-                      src="{{ site.baseurl }}{{ opinion.cover }}"
-                      alt="{{ opinion.title }}"
-                      class="magazine-thumb">
-                  {% else %}
-                    <div class="magazine-thumb-placeholder">
-                      Columna
-                    </div>
-                  {% endif %}
-
-                  <p>{{ opinion.title }}</p>
-
-                  <a class="btn btn-light" href="{{ site.baseurl }}{{ opinion.url }}">
-                    Leer columna
-                  </a>
-                {% else %}
-                  <p>Próximamente se publicarán nuevas columnas de opinión.</p>
-                {% endif %}
-              </div>
-
-            </div>
-          </div>
-
-          <!-- PROYECCIÓN SOCIAL -->
-          <div class="publicacion-box publicacion-social">
-            <span class="publicacion-badge publicacion-badge-verde">Comunidad</span>
-
-            <h4>Proyección social</h4>
-
-            <p>
-              Jornada comunitaria de educación en salud respiratoria en Santander.
-            </p>
-
-            <a class="btn btn-light"
-               href="{{ site.baseurl }}/proyeccion-social/">
-              Ver actividad
-            </a>
-          </div>
-
-        </div>
+        <article class="publicacion-destacada-card publicacion-editorial-card publicacion-social-independiente">
+          <span class="publicacion-badge publicacion-badge-verde">Comunidad</span>
+          <h3>Proyección social</h3>
+          <p>Actividades de educación en salud y trabajo comunitario desarrolladas por ACMI Santander.</p>
+          <a class="btn btn-light" href="{{ site.baseurl }}/proyeccion-social/">
+            Ver actividades <span aria-hidden="true">→</span>
+          </a>
+        </article>
 
       </div>
 
