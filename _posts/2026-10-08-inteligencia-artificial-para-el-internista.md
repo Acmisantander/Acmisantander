@@ -5,7 +5,8 @@ date: 2026-10-08
 author: "Dr. Juan Sebastián Therán León"
 affiliation: "Médico familiar, Magíster en Inteligencia Artificial en Salud"
 categories: magazine
-subcategory: articulo-academico
+subcategory: opinion
+permalink: /magazine/inteligencia-artificial-internista/
 excerpt: "Guía práctica de herramientas de inteligencia artificial disponibles en Colombia, con su evidencia, costo y límites para la práctica clínica."
 <style>
 
@@ -478,7 +479,7 @@ excerpt: "Guía práctica de herramientas de inteligencia artificial disponibles
 
 <div class="emotional-book">
 <div class="emotional-label">
-    <span>Artículo académico</span>
+    <span>Opinión</span>
   </div>
 <article class="emotional-paper">
     <h2 class="emotional-title">
@@ -643,7 +644,7 @@ excerpt: "Guía práctica de herramientas de inteligencia artificial disponibles
 
     <div class="emotional-footer-note">
       <span>Magazine ACMI Santander</span>
-      <span>Artículo académico · Inteligencia artificial en salud</span>
+      <span>Opinión · Inteligencia artificial en salud</span>
     </div>
 
 </article>
