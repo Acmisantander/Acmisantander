@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    :raíz{
+    :root{
       --azul-acmi:#143f7d;
       --azul-acmi-2:#0f3569;
       --azul-profundo:#08284f;
@@ -33,430 +33,430 @@
       --radio-grande:34px;
       --ancho:1440px;
       --ancho-lectura:1120px;
-      --transición:todos 0,28 s de facilidad;
+      --transicion:all 0.28s ease;
     }
 
     *{
-      margen:0;
-      relleno:0;
+      margin:0;
+      padding:0;
       box-sizing:border-box;
     }
 
     html{
-      comportamiento de desplazamiento: suave;
+      scroll-behavior:smooth;
     }
 
-    cuerpo{
+    body{
       font-family:'Inter', sans-serif;
-      fondo:
-        gradiente radial(círculo en la parte superior izquierda, rgba(42,156,82,0.08), transparente 28%),
-        gradiente radial(círculo en la parte superior derecha, rgba(20,63,125,0.10), transparente 30%),
+      background:
+        radial-gradient(circle at top left, rgba(42,156,82,0.08), transparent 28%),
+        radial-gradient(circle at top right, rgba(20,63,125,0.10), transparent 30%),
         var(--gris-fondo);
       color:var(--texto);
-      interlineado: 1,7;
-      desbordamiento-x:oculto;
+      line-height:1.7;
+      overflow-x:hidden;
     }
 
-    imagen{
-      ancho máximo: 100%;
-      mostrar:bloque;
+    img{
+      max-width:100%;
+      display:block;
     }
 
     a{
-      decoración de texto: ninguna;
+      text-decoration:none;
     }
 
-    sección{
-      margen de desplazamiento superior: 120px;
+    section{
+      scroll-margin-top:120px;
     }
 
-    .recipiente{
-      ancho:100%;
-      ancho-máximo:var(--ancho);
-      margen:0 automático;
-      relleno: 0 56px;
+    .container{
+      width:100%;
+      max-width:var(--ancho);
+      margin:0 auto;
+      padding:0 56px;
     }
 
-    .revelar{
-      opacidad:0;
-      transformar:translateY(24px);
-      transición:opacidad 0,75 s fácil, transformación 0,75 s fácil;
+    .reveal{
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity 0.75s ease, transform 0.75s ease;
     }
 
     .reveal.is-visible{
-      opacidad:1;
-      transformar:translateY(0);
+      opacity:1;
+      transform:translateY(0);
     }
 
     @media(prefers-reduced-motion:reduce){
       *,
-      *::antes,
-      *::después{
-        animación:ninguna !importante;
-        transición:ninguna !importante;
-        comportamiento de desplazamiento:automático !importante;
+      *::before,
+      *::after{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
       }
 
-      .revelar{
-        opacidad:1;
-        transformar:ninguno;
+      .reveal{
+        opacity:1;
+        transform:none;
       }
     }
 
     /* ==============================
-       BARRA SUPERIOR
+       TOPBAR
        ============================== */
 
-    .barra superior{
-      fondo:gradiente lineal(90deg, var(--azul-profundo), var(--azul-acmi-2));
+    .topbar{
+      background:linear-gradient(90deg, var(--azul-profundo), var(--azul-acmi-2));
       color:#dfe8f5;
-      tamaño de fuente: 14px;
-      relleno: 10px 0;
-      posición:relativa;
-      índice z:1200;
+      font-size:14px;
+      padding:10px 0;
+      position:relative;
+      z-index:1200;
     }
 
     .topbar-content{
-      pantalla:flex;
-      justificar-contenido:espacio-entre;
-      alinear-elementos:centro;
-      espacio: 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
       flex-wrap:wrap;
     }
 
-    .barra-superior-izquierda,
-    .barra-superior-derecha{
-      pantalla:flex;
-      espacio: 20px;
-      alinear-elementos:centro;
+    .topbar-left,
+    .topbar-right{
+      display:flex;
+      gap:20px;
+      align-items:center;
       flex-wrap:wrap;
     }
 
-    .barra superior a{
+    .topbar a{
       color:#dfe8f5;
-      peso de fuente: 700;
-      transición:var(--transición);
+      font-weight:700;
+      transition:var(--transicion);
     }
 
     .topbar a:hover{
-      color:blanco;
-      transformar:translateY(-1px);
+      color:white;
+      transform:translateY(-1px);
     }
 
     /* ==============================
-       ENCABEZAMIENTO
+       HEADER
        ============================== */
 
-    encabezamiento{
-      fondo:rgba(255,255,255,0.88);
-      filtro de fondo: desenfoque (16px);
+    header{
+      background:rgba(255,255,255,0.88);
+      backdrop-filter:blur(16px);
       -webkit-backdrop-filter:blur(16px);
       box-shadow:0 8px 24px rgba(8,40,79,0.08);
-      borde inferior: 1px sólido rgba(20,63,125,0.08);
-      posición:pegajosa;
-      arriba:0;
-      índice z:1100;
+      border-bottom:1px solid rgba(20,63,125,0.08);
+      position:sticky;
+      top:0;
+      z-index:1100;
     }
 
-    .encabezado-principal{
-      pantalla:flex;
-      justificar-contenido:espacio-entre;
-      alinear-elementos:centro;
-      espacio: 24px;
-      altura mínima: 98px;
-      relleno: 14px 0;
+    .main-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:24px;
+      min-height:98px;
+      padding:14px 0;
     }
 
-    .marca{
-      pantalla:flex;
-      alinear-elementos:centro;
-      espacio: 16px;
-      ancho mínimo: 260px;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      min-width:260px;
     }
 
-    .logotipo-de-marca{
-      ancho: 74px;
-      altura: 74px;
-      radio de borde: 50%;
-      fondo:blanco;
-      borde:1px sólido #d7e2ef;
-      relleno: 6px;
-      objeto-ajustar:contener;
+    .brand-logo{
+      width:74px;
+      height:74px;
+      border-radius:50%;
+      background:white;
+      border:1px solid #d7e2ef;
+      padding:6px;
+      object-fit:contain;
       box-shadow:0 10px 26px rgba(8,40,79,0.12);
-      transición:var(--transición);
+      transition:var(--transicion);
     }
 
     .brand:hover .brand-logo{
-      transformar: escalar(1.04) rotar(-2 grados);
+      transform:scale(1.04) rotate(-2deg);
     }
 
     .brand-text h1{
       font-family:'Montserrat', sans-serif;
-      tamaño de fuente: 29px;
-      interlineado: 1,05;
+      font-size:29px;
+      line-height:1.05;
       color:var(--azul-acmi);
-      margen inferior: 4px;
-      espaciado entre letras: -0,04em;
-      peso de fuente: 900;
+      margin-bottom:4px;
+      letter-spacing:-0.04em;
+      font-weight:900;
     }
 
-    .texto-de-marca p{
-      tamaño de fuente: 14px;
+    .brand-text p{
+      font-size:14px;
       color:#50627a;
-      peso de fuente: 500;
-      interlineado: 1,35;
+      font-weight:500;
+      line-height:1.35;
     }
 
-  navegación ul{
-  estilo de lista: ninguno;
-  pantalla:flex;
-  espacio: 6px;
-  alinear-elementos:centro;
+  nav ul{
+  list-style:none;
+  display:flex;
+  gap:6px;
+  align-items:center;
   flex-wrap:nowrap;
-  justificar-contenido:flex-end;
+  justify-content:flex-end;
 }
 
     nav li{
-      posición:relativa;
+      position:relative;
     }
 
-    navegación a{
+    nav a{
       display:inline-flex;
-      alinear-elementos:centro;
-      relleno: 10px 12px;
-      radio de borde: 999px;
+      align-items:center;
+      padding:10px 12px;
+      border-radius:999px;
       font-family:'Inter', sans-serif;
-      tamaño de fuente: 14,5px;
-      peso de fuente: 800;
+      font-size:14.5px;
+      font-weight:800;
       color:var(--azul-acmi);
-      transición:var(--transición);
-      espacio en blanco:nowrap;
+      transition:var(--transicion);
+      white-space:nowrap;
     }
 
-    navegación a:hover{
+    nav a:hover{
       color:var(--verde-acmi);
-      fondo:#eef7f1;
-      transformar:translateY(-1px);
+      background:#eef7f1;
+      transform:translateY(-1px);
     }
 
-    encabezamiento,
-    navegación,
-    ul de navegación,
+    header,
+    nav,
+    nav ul,
     nav li{
-      desbordamiento:visible;
+      overflow:visible;
     }
 
-    .menú desplegable{
-      mostrar:ninguno;
-      posición:absoluta;
-      superior: 100%;
-      izquierda:0;
-      derecha:automático;
-      fondo:blanco;
-      ancho mínimo: 285px;
+    .dropdown-menu{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      right:auto;
+      background:white;
+      min-width:285px;
       box-shadow:0 18px 44px rgba(8,40,79,0.16);
-      radio de borde: 18px;
-      relleno: 10px;
-      índice z: 9999;
-      borde:1px sólido rgba(20,63,125,0.08);
-      animación:menuFade 0.22s ease;
+      border-radius:18px;
+      padding:10px;
+      z-index:9999;
+      border:1px solid rgba(20,63,125,0.08);
+      animation:menuFade 0.22s ease;
     }
 
     @keyframes menuFade{
-      desde{
-        opacidad:0;
-        transformar:translateY(8px);
+      from{
+        opacity:0;
+        transform:translateY(8px);
       }
-      a{
-        opacidad:1;
-        transformar:translateY(0);
+      to{
+        opacity:1;
+        transform:translateY(0);
       }
     }
 
     .dropdown:hover > .dropdown-menu{
-      mostrar:bloque;
+      display:block;
     }
 
-    .menú desplegable > a,
-    .menú desplegable .submenú > a{
-      mostrar:bloque;
-      relleno: 12px 16px;
+    .dropdown-menu > a,
+    .dropdown-menu .submenu > a{
+      display:block;
+      padding:12px 16px;
       color:var(--azul-acmi);
-      espacio en blanco:nowrap;
-      tamaño de fuente: 14px;
-      peso de fuente: 800;
-      radio de borde: 12px;
+      white-space:nowrap;
+      font-size:14px;
+      font-weight:800;
+      border-radius:12px;
     }
 
-    .menú desplegable > a:hover,
-    .menú desplegable .submenú > a:hover{
-      fondo:#eef3f8;
+    .dropdown-menu > a:hover,
+    .dropdown-menu .submenu > a:hover{
+      background:#eef3f8;
       color:var(--verde-acmi);
     }
 
-    .submenú{
-      posición:relativa;
+    .submenu{
+      position:relative;
     }
 
-    .submenú-menú{
-      mostrar:ninguno;
-      posición:absoluta;
-      arriba:0;
-      izquierda: 100%;
-      derecha:automático;
-      fondo:blanco;
-      ancho mínimo: 280px;
+    .submenu-menu{
+      display:none;
+      position:absolute;
+      top:0;
+      left:100%;
+      right:auto;
+      background:white;
+      min-width:280px;
       box-shadow:0 18px 44px rgba(8,40,79,0.16);
-      radio de borde: 18px;
-      relleno: 10px;
-      índice z:10000;
-      borde:1px sólido rgba(20,63,125,0.08);
-      animación:menuFade 0.22s ease;
+      border-radius:18px;
+      padding:10px;
+      z-index:10000;
+      border:1px solid rgba(20,63,125,0.08);
+      animation:menuFade 0.22s ease;
     }
 
     .submenu:hover > .submenu-menu{
-      mostrar:bloque;
+      display:block;
     }
 
-    .submenú-menú a{
-      mostrar:bloque;
-      relleno: 12px 16px;
+    .submenu-menu a{
+      display:block;
+      padding:12px 16px;
       color:var(--azul-acmi);
-      espacio en blanco:nowrap;
-      tamaño de fuente: 14px;
-      peso de fuente: 800;
-      radio de borde: 12px;
+      white-space:nowrap;
+      font-size:14px;
+      font-weight:800;
+      border-radius:12px;
     }
 
-    .submenú-menú a:hover{
-      fondo:#eef3f8;
+    .submenu-menu a:hover{
+      background:#eef3f8;
       color:var(--verde-acmi);
     }
 
 /* ==============================
-   HÉROE
+   HERO
    ============================== */
 
-.héroe{
-  posición:relativa;
-  fondo:
-    gradiente lineal(
-      135 grados,
+.hero{
+  position:relative;
+  background:
+    linear-gradient(
+      135deg,
       rgba(8,40,79,0.86),
       rgba(20,63,125,0.72),
       rgba(42,156,82,0.48)
     ),
-    url("{{ site.baseurl }}/chicamocha.jpg") centro/cubierta sin repetición;
-  altura mínima: 68vh;
-  pantalla:flex;
-  alinear-elementos:centro;
-  justificar-contenido:centro;
-  alineación de texto:centro;
-  color:blanco;
-  desbordamiento:oculto;
-  aislamiento: aislar;
+    url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
+  min-height:68vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  overflow:hidden;
+  isolation:isolate;
 }
 
 .hero::before{
-  contenido:"";
-  posición:absoluta;
-  ancho: 520px;
-  altura: 520px;
-  radio de borde: 50%;
-  fondo:gradiente radial(
-    círculo,
+  content:"";
+  position:absolute;
+  width:520px;
+  height:520px;
+  border-radius:50%;
+  background:radial-gradient(
+    circle,
     rgba(255,255,255,0.16),
-    transparente 62%
+    transparent 62%
   );
-  superior:-160px;
-  derecha:-120px;
-  animación:floatGlow 8s ease-in-out infinite alternate;
-  índice z:-1;
+  top:-160px;
+  right:-120px;
+  animation:floatGlow 8s ease-in-out infinite alternate;
+  z-index:-1;
 }
 
 .hero::after{
-  contenido:"";
-  posición:absoluta;
-  ancho: 420px;
-  altura: 420px;
-  radio de borde: 50%;
-  fondo:gradiente radial(
-    círculo,
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  background:radial-gradient(
+    circle,
     rgba(126,212,154,0.26),
-    transparente 62%
+    transparent 62%
   );
-  parte inferior:-180px;
-  izquierda:-120px;
-  animación:floatGlow 9s ease-in-out infinite alternate-reverse;
-  índice z:-1;
+  bottom:-180px;
+  left:-120px;
+  animation:floatGlow 9s ease-in-out infinite alternate-reverse;
+  z-index:-1;
 }
 
 @keyframes floatGlow{
-  desde{
-    transformar:translate3d(0,0,0) escala(1);
+  from{
+    transform:translate3d(0,0,0) scale(1);
   }
 
-  a{
-    transformar:translate3d(28px,18px,0) escala(1.06);
+  to{
+    transform:translate3d(28px,18px,0) scale(1.06);
   }
 }
 
 .hero-content{
-  posición:relativa;
-  índice z:1;
-  ancho: mín(1080px, 92%);
-  relleno: 90px 0;
-  animación:heroIntro 0.95s facilidad ambos;
+  position:relative;
+  z-index:1;
+  width:min(1080px, 92%);
+  padding:90px 0;
+  animation:heroIntro 0.95s ease both;
 }
 
 @keyframes heroIntro{
-  desde{
-    opacidad:0;
-    transformar:translateY(28px);
+  from{
+    opacity:0;
+    transform:translateY(28px);
   }
 
-  a{
-    opacidad:1;
-    transformar:translateY(0);
+  to{
+    opacity:1;
+    transform:translateY(0);
   }
 }
 
-.héroe-insignia{
-  mostrar:bloque-en-línea;
-  relleno: 11px 20px;
-  radio de borde: 999px;
-  fondo:rgba(255,255,255,0.16);
-  borde:1px sólido rgba(255,255,255,0.32);
-  peso de fuente: 800;
-  tamaño de fuente: 14px;
-  margen inferior: 22px;
+.hero-badge{
+  display:inline-block;
+  padding:11px 20px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.16);
+  border:1px solid rgba(255,255,255,0.32);
+  font-weight:800;
+  font-size:14px;
+  margin-bottom:22px;
   box-shadow:0 16px 36px rgba(0,0,0,0.12);
-  filtro de fondo: desenfoque (8px);
+  backdrop-filter:blur(8px);
 }
 
-.héroe h2{
+.hero h2{
   font-family:'Montserrat', sans-serif;
   font-size:clamp(42px, 5vw, 74px);
-  interlineado: 1,02;
-  margen inferior: 22px;
-  peso de fuente: 900;
-  espaciado entre letras: -0,065em;
-  ajuste de texto:balance;
+  line-height:1.02;
+  margin-bottom:22px;
+  font-weight:900;
+  letter-spacing:-0.065em;
+  text-wrap:balance;
 }
 
-.héroe p{
+.hero p{
   font-size:clamp(18px, 2vw, 24px);
-  ancho máximo: 980px;
-  margen:0 auto 34px;
+  max-width:980px;
+  margin:0 auto 34px;
   color:#f2f7ff;
-  peso de fuente: 500;
+  font-weight:500;
 }
 
-.acciones-de-héroe,
-.eventos-acciones{
-  pantalla:flex;
-  justificar-contenido:centro;
-  espacio: 14px;
+.hero-actions,
+.eventos-actions{
+  display:flex;
+  justify-content:center;
+  gap:14px;
   flex-wrap:wrap;
 }
 
@@ -467,110 +467,110 @@
 
 .btn{
   display:inline-flex;
-  alinear-elementos:centro;
-  justificar-contenido:centro;
-  espacio: 8px;
-  relleno: 13px 22px;
-  radio de borde: 14px;
-  borde:ninguno;
-  peso de fuente: 900;
-  transición:var(--transición);
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 22px;
+  border-radius:14px;
+  border:none;
+  font-weight:900;
+  transition:var(--transicion);
   box-shadow:0 10px 22px rgba(8,40,79,0.10);
 }
 
 .btn-primary{
-  fondo:gradiente-lineal(
-    135 grados,
+  background:linear-gradient(
+    135deg,
     var(--verde-acmi),
     #35b862
   );
-  color:blanco;
+  color:white;
 }
 
 .btn-primary:hover{
-  transformar:translateY(-3px);
+  transform:translateY(-3px);
   box-shadow:0 18px 34px rgba(42,156,82,0.26);
-  filtro:saturar(1.08);
+  filter:saturate(1.08);
 }
 
 .btn-light{
-  fondo:blanco;
+  background:white;
   color:var(--azul-acmi);
 }
 
 .btn-light:hover{
-  transformar:translateY(-3px);
-  fondo:#eef4fb;
+  transform:translateY(-3px);
+  background:#eef4fb;
   box-shadow:0 18px 34px rgba(8,40,79,0.18);
 }
 
 
 /* ==============================
-   MENÚS DE OPCIONES DEL CONGRESO
+   MENÚ DE OPCIONES DEL CONGRESO
    ============================== */
 
 .evento-menu{
-  pantalla:flex;
-  justificar-contenido:centro;
-  ancho:100%;
-  margen superior: 22px;
+  display:flex;
+  justify-content:center;
+  width:100%;
+  margin-top:22px;
 }
 
-.opciones-evento{
-  posición:relativa;
-  ancho:min(100%, 320px);
+.evento-opciones{
+  position:relative;
+  width:min(100%, 320px);
 }
 
 .evento-opciones summary{
-  pantalla:flex;
-  alinear-elementos:centro;
-  justificar-contenido:centro;
-  ancho:100%;
-  cursor:puntero;
-  estilo de lista: ninguno;
-  selección de usuario: ninguna;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  cursor:pointer;
+  list-style:none;
+  user-select:none;
 }
 
 .evento-opciones summary::-webkit-details-marker{
-  mostrar:ninguno;
+  display:none;
 }
 
-.evento-opciones resumen::después{
-  contenido:"▼";
-  margen izquierdo: 10px;
-  tamaño de fuente: 11px;
+.evento-opciones summary::after{
+  content:"▼";
+  margin-left:10px;
+  font-size:11px;
 }
 
-.evento-opciones[abrir] resumen::después{
-  contenido:"→";
+.evento-opciones[open] summary::after{
+  content:"▲";
 }
 
 .evento-opciones-lista{
-  posición:absoluta;
-  índice z:1000;
-  superior:calc(100% + 10px);
-  izquierda:0;
-  ancho:100%;
-  relleno: 8px;
-  fondo:blanco;
-  borde:1px sólido rgba(20,63,125,0.12);
-  radio de borde: 16px;
+  position:absolute;
+  z-index:1000;
+  top:calc(100% + 10px);
+  left:0;
+  width:100%;
+  padding:8px;
+  background:white;
+  border:1px solid rgba(20,63,125,0.12);
+  border-radius:16px;
   box-shadow:0 18px 42px rgba(8,40,79,0.20);
 }
 
 .evento-opciones-lista a{
-  mostrar:bloque;
-  relleno: 13px 14px;
-  radio de borde: 11px;
+  display:block;
+  padding:13px 14px;
+  border-radius:11px;
   color:var(--azul-acmi);
-  peso de fuente: 800;
-  alineación de texto:izquierda;
-  transición:var(--transición);
+  font-weight:800;
+  text-align:left;
+  transition:var(--transicion);
 }
 
 .evento-opciones-lista a:hover{
   color:var(--verde-acmi);
-  fondo:#eef7f1;
+  background:#eef7f1;
 }
 
 
@@ -578,14 +578,14 @@
 
 @media (max-width:768px){
 
-  .menú-evento,
-  .opciones-evento{
-    ancho:100%;
+  .evento-menu,
+  .evento-opciones{
+    width:100%;
   }
 
   .evento-opciones-lista{
-    posición:estática;
-    margen superior: 10px;
+    position:static;
+    margin-top:10px;
   }
 }
 
@@ -594,127 +594,127 @@
    SECCIONES GENERALES
    ============================== */
 
-.sección{
-  relleno: 96px 0;
+.section{
+  padding:96px 0;
 }
 
 .section-title{
-  alineación de texto:centro;
-  margen inferior: 18px;
+  text-align:center;
+  margin-bottom:18px;
   font-family:'Montserrat', sans-serif;
   font-size:clamp(34px, 4vw, 52px);
   color:var(--azul-acmi);
-  peso de fuente: 900;
-  espaciado entre letras: -0,055em;
-  interlineado: 1,05;
+  font-weight:900;
+  letter-spacing:-0.055em;
+  line-height:1.05;
 }
 
-.subtítulo-de-sección{
-  alineación de texto:centro;
-  ancho máximo: 980px;
-  margen:0 auto 44px;
+.section-subtitle{
+  text-align:center;
+  max-width:980px;
+  margin:0 auto 44px;
   color:var(--texto-suave);
-  tamaño de fuente: 19px;
-  interlineado: 1,75;
-  peso de fuente: 500;
+  font-size:19px;
+  line-height:1.75;
+  font-weight:500;
 }
 
-.tarjeta{
-  fondo:rgba(255,255,255,0.92);
-  radio-frontera:var(--radio-grande);
-  sombra-caja:var(--sombra-media);
-  relleno: 38px;
-  borde:1px sólido rgba(20,63,125,0.08);
-  filtro de fondo: desenfoque (8px);
+.card{
+  background:rgba(255,255,255,0.92);
+  border-radius:var(--radio-grande);
+  box-shadow:var(--sombra-media);
+  padding:38px;
+  border:1px solid rgba(20,63,125,0.08);
+  backdrop-filter:blur(8px);
 }
     /* ==============================
        QUIÉNES SOMOS
        ============================== */
 
     .about-block{
-      ancho máximo:var(--ancho-lectura);
-      margen:0 automático;
+      max-width:var(--ancho-lectura);
+      margin:0 auto;
     }
 
     .about-block h3{
       font-family:'Montserrat', sans-serif;
       color:var(--azul-acmi);
-      margen:26px 0 12px;
-      tamaño de fuente: 26px;
-      peso de fuente: 900;
-      espaciado entre letras: -0,035em;
+      margin:26px 0 12px;
+      font-size:26px;
+      font-weight:900;
+      letter-spacing:-0.035em;
     }
 
     .about-block p{
       color:#425268;
-      tamaño de fuente: 17px;
-      peso de fuente: 500;
+      font-size:17px;
+      font-weight:500;
     }
 
     .cards-grid{
-      mostrar:cuadrícula;
+      display:grid;
       grid-template-columns:repeat(4, 1fr);
-      espacio: 22px;
-      ancho máximo:var(--ancho-lectura);
-      margen:34px auto 0 auto;
+      gap:22px;
+      max-width:var(--ancho-lectura);
+      margin:34px auto 0 auto;
     }
 
-    .mini-tarjeta,
+    .mini-card,
     .evento-item{
-      fondo:#fff;
-      radio de borde: 22px;
+      background:#fff;
+      border-radius:22px;
       box-shadow:var(--sombra-suave);
-      relleno: 28px;
-      alineación de texto:centro;
-      borde:1px sólido rgba(20,63,125,0.08);
-      borde superior: 5px solid var (--verde-acmi);
-      transición:var(--transición);
-      posición:relativa;
-      desbordamiento:oculto;
+      padding:28px;
+      text-align:center;
+      border:1px solid rgba(20,63,125,0.08);
+      border-top:5px solid var(--verde-acmi);
+      transition:var(--transicion);
+      position:relative;
+      overflow:hidden;
     }
 
-    .mini-tarjeta::antes,
+    .mini-card::before,
     .evento-item::before{
-      contenido:"";
-      posición:absoluta;
+      content:"";
+      position:absolute;
       inset:auto -40px -70px auto;
-      ancho:140px;
-      altura: 140px;
-      radio de borde: 50%;
-      fondo:rgba(42,156,82,0.08);
-      transición:var(--transición);
+      width:140px;
+      height:140px;
+      border-radius:50%;
+      background:rgba(42,156,82,0.08);
+      transition:var(--transicion);
     }
 
-    .mini-tarjeta:hover,
+    .mini-card:hover,
     .evento-item:hover{
-      transformar:translateY(-7px);
-      sombra-caja:var(--sombra-media);
+      transform:translateY(-7px);
+      box-shadow:var(--sombra-media);
     }
 
-    .mini-tarjeta:hover::antes,
+    .mini-card:hover::before,
     .evento-item:hover::before{
-      transformar:escala(1.18);
-      fondo:rgba(20,63,125,0.08);
+      transform:scale(1.18);
+      background:rgba(20,63,125,0.08);
     }
 
-    .mini-tarjeta h4,
+    .mini-card h4,
     .evento-item h4{
       font-family:'Montserrat', sans-serif;
       color:var(--azul-acmi);
-      margen inferior: 9px;
-      tamaño de fuente: 20px;
-      peso de fuente: 900;
-      espaciado entre letras: -0,03em;
-      posición:relativa;
-      índice z:2;
+      margin-bottom:9px;
+      font-size:20px;
+      font-weight:900;
+      letter-spacing:-0.03em;
+      position:relative;
+      z-index:2;
     }
 
-    .mini-tarjeta p,
+    .mini-card p,
     .evento-item p{
-      posición:relativa;
-      índice z:2;
+      position:relative;
+      z-index:2;
       color:#52667d;
-      peso de fuente: 500;
+      font-weight:500;
     }
 
     /* ==============================
@@ -722,76 +722,76 @@
        ============================== */
 
     #organigrama{
-      fondo:
-        gradiente radial(círculo en la parte superior derecha, rgba(20,63,125,0.08), transparente 30%),
+      background:
+        radial-gradient(circle at top right, rgba(20,63,125,0.08), transparent 30%),
         #f5f7fb;
     }
 
     .org-grid{
-      mostrar:cuadrícula;
+      display:grid;
       grid-template-columns:repeat(3, 1fr);
-      espacio: 26px;
-      ancho máximo: 1280px;
-      margen:0 automático;
-      alinear-elementos:estirar;
+      gap:26px;
+      max-width:1280px;
+      margin:0 auto;
+      align-items:stretch;
     }
 
     .org-card{
-      fondo:rgba(255,255,255,0.96);
-      radio de borde: 26px;
+      background:rgba(255,255,255,0.96);
+      border-radius:26px;
       box-shadow:var(--sombra-suave);
-      relleno: 34px 26px;
-      borde:1px sólido rgba(20,63,125,0.08);
-      borde superior: 6px solid var (--azul-acmi);
-      alineación de texto:centro;
-      transición:var(--transición);
-      posición:relativa;
-      desbordamiento:oculto;
+      padding:34px 26px;
+      border:1px solid rgba(20,63,125,0.08);
+      border-top:6px solid var(--azul-acmi);
+      text-align:center;
+      transition:var(--transicion);
+      position:relative;
+      overflow:hidden;
     }
 
     .org-card::after{
-      contenido:"";
-      posición:absoluta;
-      ancho:170px;
-      altura: 170px;
-      radio de borde: 50%;
-      fondo:linear-gradient(135deg, rgba(20,63,125,0.08), rgba(42,156,82,0.08));
-      parte inferior:-90px;
-      derecha:-70px;
-      transición:var(--transición);
+      content:"";
+      position:absolute;
+      width:170px;
+      height:170px;
+      border-radius:50%;
+      background:linear-gradient(135deg, rgba(20,63,125,0.08), rgba(42,156,82,0.08));
+      bottom:-90px;
+      right:-70px;
+      transition:var(--transicion);
     }
 
     .org-card:hover{
-      transformar:translateY(-8px);
-      sombra-caja:var(--sombra-media);
-      color-superior del borde:var(--verde-acmi);
+      transform:translateY(-8px);
+      box-shadow:var(--sombra-media);
+      border-top-color:var(--verde-acmi);
     }
 
     .org-card:hover::after{
-      transformar:escala(1.25);
+      transform:scale(1.25);
     }
 
     .org-card h3{
       font-family:'Montserrat', sans-serif;
       color:var(--azul-acmi);
-      margen inferior: 16px;
-      tamaño de fuente: 23px;
-      interlineado: 1,2;
-      peso de fuente: 900;
-      espaciado entre letras: -0,04em;
-      posición:relativa;
-      índice z:2;
+      margin-bottom:16px;
+      font-size:23px;
+      line-height:1.2;
+      font-weight:900;
+      letter-spacing:-0.04em;
+      position:relative;
+      z-index:2;
     }
 
     .org-card p{
-      margen:7px 0;
+      margin:7px 0;
       color:#2d3d52;
-      tamaño de fuente: 16px;
-      interlineado: 1,5;
-      alineación de texto:centro;
-      peso de fuente: 600;
-      posición:relativa;
-      índice z:2;
+      font-size:16px;
+      line-height:1.5;
+      text-align:center;
+      font-weight:600;
+      position:relative;
+      z-index:2;
     }
 
  /* ==============================
@@ -799,176 +799,176 @@
    ============================== */
 
 #eventos{
-  fondo:
-    gradiente radial(
-      círculo en la parte superior izquierda,
+  background:
+    radial-gradient(
+      circle at top left,
       rgba(42,156,82,0.10),
-      transparente 34%
+      transparent 34%
     ),
-    gradiente radial(
-      círculo en la parte superior derecha,
+    radial-gradient(
+      circle at top right,
       rgba(20,63,125,0.12),
-      transparente 32%
+      transparent 32%
     ),
     #f5f7fb;
 }
 
-.eventos-título{
+.eventos-title{
   font-size:clamp(38px, 4.8vw, 60px);
-  espaciado entre letras: -0,06em;
-  margen inferior: 14px;
-  posición:relativa;
+  letter-spacing:-0.06em;
+  margin-bottom:14px;
+  position:relative;
 }
 
 .eventos-title::after{
-  contenido:"";
-  mostrar:bloque;
-  ancho: 132px;
-  altura: 6px;
-  radio de borde: 999px;
-  margen:20px auto 0;
-  fondo:gradiente-lineal(
-    90 grados,
+  content:"";
+  display:block;
+  width:132px;
+  height:6px;
+  border-radius:999px;
+  margin:20px auto 0;
+  background:linear-gradient(
+    90deg,
     var(--verde-acmi),
     var(--azul-acmi)
   );
   box-shadow:0 8px 18px rgba(20,63,125,0.18);
 }
 
-.eventos-subtítulo{
-  ancho máximo: 980px;
-  tamaño de fuente: 19px;
-  interlineado: 1,75;
-  margen inferior: 54px;
+.eventos-subtitle{
+  max-width:980px;
+  font-size:19px;
+  line-height:1.75;
+  margin-bottom:54px;
 }
 
 
 /* Tarjetas principales */
 
 .evento-card-grande{
-  ancho máximo: 1280px;
-  margen:0 automático 58px;
-  radio de borde: 34px;
-  desbordamiento:oculto;
-  posición:relativa;
+  max-width:1280px;
+  margin:0 auto 58px;
+  border-radius:34px;
+  overflow:hidden;
+  position:relative;
   box-shadow:var(--sombra-fuerte);
-  borde:1px sólido rgba(20,63,125,0.10);
-  transición:var(--transición);
+  border:1px solid rgba(20,63,125,0.10);
+  transition:var(--transicion);
 }
 
 .evento-card-grande:hover{
-  transformar:translateY(-4px);
+  transform:translateY(-4px);
   box-shadow:0 34px 80px rgba(8,40,79,0.20);
 }
 
 .evento-card-grande::before{
-  contenido:"";
-  posición:absoluta;
+  content:"";
+  position:absolute;
   inset:0 0 auto 0;
-  altura: 8px;
-  índice z:3;
-  fondo:gradiente-lineal(
-    90 grados,
+  height:8px;
+  z-index:3;
+  background:linear-gradient(
+    90deg,
     var(--verde-acmi),
     var(--azul-acmi)
   );
 }
 
 .evento-card-proximos{
-  desbordamiento:visible;
-  fondo:gradiente-lineal(
-    180 grados,
+  overflow:visible;
+  background:linear-gradient(
+    180deg,
     rgba(255,255,255,0.96),
     rgba(248,251,255,0.98)
   );
 }
 
-.repositorio-de-tarjetas-de-eventos{
-  fondo:
-    gradiente lineal(
-      135 grados,
+.evento-card-repositorio{
+  background:
+    linear-gradient(
+      135deg,
       rgba(8,40,79,0.98),
       rgba(20,63,125,0.94),
       rgba(42,156,82,0.58)
     ),
-    url("{{ site.baseurl }}/chicamocha.jpg") centro/cubierta sin repetición;
-  color:blanco;
+    url("{{ site.baseurl }}/chicamocha.jpg") center/cover no-repeat;
+  color:white;
 }
 
-.evento-card-repositorio::después{
-  contenido:"";
-  posición:absoluta;
-  recuadro:0;
-  fondo:
-    gradiente radial(
-      círculo en la parte superior izquierda,
+.evento-card-repositorio::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(
+      circle at top left,
       rgba(42,156,82,0.25),
-      transparente 34%
+      transparent 34%
     ),
-    gradiente radial(
-      círculo en la parte inferior derecha,
+    radial-gradient(
+      circle at bottom right,
       rgba(255,255,255,0.12),
-      transparente 30%
+      transparent 30%
     );
-  eventos de puntero: ninguno;
+  pointer-events:none;
 }
 
-.repositorio-tarjeta-evento > *{
-  posición:relativa;
-  índice z:2;
+.evento-card-repositorio > *{
+  position:relative;
+  z-index:2;
 }
 
 
 /* Encabezado de las tarjetas */
 
-.encabezado-tarjeta-evento{
-  alineación de texto:centro;
-  ancho máximo: 940px;
-  margen:0 automático;
-  relleno: 50px 38px 28px;
+.evento-card-header{
+  text-align:center;
+  max-width:940px;
+  margin:0 auto;
+  padding:50px 38px 28px;
 }
 
-.encabezado-tarjeta-evento h3{
+.evento-card-header h3{
   font-family:'Montserrat', sans-serif;
   color:var(--azul-acmi);
   font-size:clamp(32px, 3.4vw, 48px);
-  interlineado: 1,08;
-  peso de fuente: 900;
-  espaciado entre letras: -0,055em;
-  margen inferior: 12px;
+  line-height:1.08;
+  font-weight:900;
+  letter-spacing:-0.055em;
+  margin-bottom:12px;
 }
 
-.encabezado-tarjeta-evento h3::después{
-  contenido:"";
-  mostrar:bloque;
-  ancho:100px;
-  altura: 5px;
-  radio de borde: 999px;
-  margen:18px auto 0;
-  fondo:gradiente-lineal(
-    90 grados,
+.evento-card-header h3::after{
+  content:"";
+  display:block;
+  width:100px;
+  height:5px;
+  border-radius:999px;
+  margin:18px auto 0;
+  background:linear-gradient(
+    90deg,
     var(--verde-acmi),
     var(--azul-acmi)
   );
 }
 
-.encabezado-tarjeta-evento p{
+.evento-card-header p{
   color:#5b6d82;
-  tamaño de fuente: 18px;
-  interlineado: 1,75;
-  ancho máximo: 800px;
-  margen:20px auto 0;
-  peso de fuente: 500;
+  font-size:18px;
+  line-height:1.75;
+  max-width:800px;
+  margin:20px auto 0;
+  font-weight:500;
 }
 
 .evento-card-header-repositorio h3,
 .evento-card-header-repositorio p{
-  color:blanco;
+  color:white;
 }
 
-.evento-card-header-repositorio h3::después{
-  fondo:gradiente-lineal(
-    90 grados,
+.evento-card-header-repositorio h3::after{
+  background:linear-gradient(
+    90deg,
     var(--verde-claro),
     #ffffff
   );
@@ -978,218 +978,218 @@
 /* Etiquetas */
 
 .bloque-etiqueta{
-  mostrar:bloque-en-línea;
-  relleno: 10px 18px;
-  radio de borde: 999px;
-  fondo:#eaf4ee;
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:999px;
+  background:#eaf4ee;
   color:var(--verde-acmi);
-  borde:1px sólido rgba(42,156,82,0.22);
-  tamaño de fuente: 13px;
-  peso de fuente: 900;
-  transformación de texto: mayúsculas;
-  espaciado entre letras: 0,08em;
-  margen inferior: 18px;
+  border:1px solid rgba(42,156,82,0.22);
+  font-size:13px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  margin-bottom:18px;
   box-shadow:0 8px 18px rgba(42,156,82,0.10);
 }
 
 .bloque-etiqueta-azul{
-  fondo:rgba(255,255,255,0.16);
-  color:blanco;
-  borde:1px sólido rgba(255,255,255,0.30);
+  background:rgba(255,255,255,0.16);
+  color:white;
+  border:1px solid rgba(255,255,255,0.30);
   box-shadow:0 8px 18px rgba(20,63,125,0.10);
-  filtro de fondo: desenfoque (8px);
+  backdrop-filter:blur(8px);
 }
 
 
 /* Contenido de las tarjetas */
 
 .evento-card-contenido{
-  relleno: 22px 52px 52px;
+  padding:22px 52px 52px;
 }
 
 .evento-card-contenido-proximos{
-  mostrar:cuadrícula;
-  columnas-de-plantilla-de-cuadrícula:1.2fr 0.8fr;
-  espacio: 34px;
-  alinear-elementos:centro;
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:34px;
+  align-items:center;
 }
 
 .evento-card-contenido-repositorio{
-  mostrar:cuadrícula;
-  columnas-de-plantilla-de-cuadrícula:1.1fr 0.9fr;
-  espacio: 34px;
-  alinear-elementos:centro;
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:34px;
+  align-items:center;
 }
 
 .proximo-evento-info{
-  alineación de texto:izquierda;
+  text-align:left;
 }
 
-.etiqueta-de-evento,
+.evento-label,
 .repositorio-home-badge{
-  mostrar:bloque-en-línea;
-  relleno: 10px 16px;
-  radio de borde: 999px;
-  peso de fuente: 900;
-  tamaño de fuente: 13px;
-  transformación de texto: mayúsculas;
-  espaciado entre letras: 0,07em;
-  margen inferior: 18px;
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:0.07em;
+  margin-bottom:18px;
 }
 
-.evento-etiqueta-próximo{
-  fondo:#eaf4ee;
+.evento-label-proximo{
+  background:#eaf4ee;
   color:var(--verde-acmi);
-  borde:1px sólido rgba(42,156,82,0.22);
+  border:1px solid rgba(42,156,82,0.22);
 }
 
 .repositorio-home-badge{
-  fondo:rgba(255,255,255,0.16);
-  borde:1px sólido rgba(255,255,255,0.30);
-  color:blanco;
-  filtro de fondo: desenfoque (8px);
+  background:rgba(255,255,255,0.16);
+  border:1px solid rgba(255,255,255,0.30);
+  color:white;
+  backdrop-filter:blur(8px);
 }
 
 .proximo-evento-info h3{
   font-family:'Montserrat', sans-serif;
   color:var(--azul-acmi);
   font-size:clamp(30px, 3vw, 42px);
-  interlineado: 1,12;
-  peso de fuente: 900;
-  espaciado entre letras: -0,05em;
-  margen inferior: 15px;
+  line-height:1.12;
+  font-weight:900;
+  letter-spacing:-0.05em;
+  margin-bottom:15px;
 }
 
 .proximo-evento-info p{
   color:#52667d;
-  tamaño de fuente: 18px;
-  interlineado: 1,75;
-  margen inferior: 24px;
-  peso de fuente: 500;
+  font-size:18px;
+  line-height:1.75;
+  margin-bottom:24px;
+  font-weight:500;
 }
 
 
 /* Datos del evento */
 
-.eventos-insignias{
-  pantalla:flex;
+.eventos-badges{
+  display:flex;
   flex-direction:column;
-  alinear-elementos:flex-start;
-  espacio: 10px;
-  margen inferior: 22px;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:22px;
 }
 
-.insignia{
-  ancho:ajustar-contenido;
-  ancho máximo: 100%;
-  tamaño de fuente: 15px;
-  interlineado: 1,4;
-  color:heredar;
-  relleno: 8px 12px;
-  radio de borde: 999px;
-  fondo:rgba(20,63,125,0.06);
-  peso de fuente: 700;
+.badge{
+  width:fit-content;
+  max-width:100%;
+  font-size:15px;
+  line-height:1.4;
+  color:inherit;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(20,63,125,0.06);
+  font-weight:700;
 }
 
 
 /* Lugar del evento */
 
 .evento-lugar{
-  pantalla:flex;
-  alinear-elementos:flex-start;
-  espacio: 11px;
-  ancho:100%;
-  ancho máximo: 570px;
-  relleno: 14px 16px;
-  margen:0 0 18px;
-  radio de borde: 17px;
-  fondo:rgba(20,63,125,0.06);
-  borde:1px sólido rgba(20,63,125,0.08);
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  width:100%;
+  max-width:570px;
+  padding:14px 16px;
+  margin:0 0 18px;
+  border-radius:17px;
+  background:rgba(20,63,125,0.06);
+  border:1px solid rgba(20,63,125,0.08);
   color:var(--azul-acmi);
 }
 
 .evento-lugar-icono{
-  flex:0 0 automático;
-  tamaño de fuente: 22px;
-  interlineado: 1,2;
+  flex:0 0 auto;
+  font-size:22px;
+  line-height:1.2;
 }
 
 .evento-lugar-texto{
-  ancho mínimo: 0;
-  interlineado: 1,45;
+  min-width:0;
+  line-height:1.45;
 }
 
-.evento-lugar-texto fuerte{
-  mostrar:bloque;
+.evento-lugar-texto strong{
+  display:block;
   color:var(--azul-acmi);
-  tamaño de fuente: 15px;
-  peso de fuente: 900;
+  font-size:15px;
+  font-weight:900;
 }
 
 .evento-lugar-texto span{
-  mostrar:bloque;
-  margen superior: 4px;
+  display:block;
+  margin-top:4px;
   color:#52667d;
-  tamaño de fuente: 13px;
-  interlineado: 1,5;
-  peso de fuente: 600;
+  font-size:13px;
+  line-height:1.5;
+  font-weight:600;
 }
 
 
 /* Botón GPS */
 
 .evento-ubicacion-actions{
-  pantalla:flex;
-  justificar-contenido:flex-start;
+  display:flex;
+  justify-content:flex-start;
   flex-wrap:wrap;
-  espacio: 12px;
-  margen:0 0 18px;
+  gap:12px;
+  margin:0 0 18px;
 }
 
 .btn-ubicacion{
-  fondo:blanco;
+  background:white;
   color:var(--azul-acmi);
-  borde:1px sólido rgba(20,63,125,0.14);
+  border:1px solid rgba(20,63,125,0.14);
 }
 
 .btn-ubicacion:hover{
   color:var(--verde-acmi);
-  fondo:#eef7f1;
-  transformar:translateY(-3px);
+  background:#eef7f1;
+  transform:translateY(-3px);
   box-shadow:0 18px 34px rgba(8,40,79,0.16);
 }
 
 
 /* Afiche del próximo evento */
 
-.próximo-evento-decoracion{
-  altura mínima: 340px;
-  relleno: 14px;
-  radio de borde: 28px;
-  fondo:#061b2a;
-  pantalla:flex;
-  alinear-elementos:centro;
-  justificar-contenido:centro;
-  posición:relativa;
-  desbordamiento:oculto;
-  sombra de caja:
+.proximo-evento-decoracion{
+  min-height:340px;
+  padding:14px;
+  border-radius:28px;
+  background:#061b2a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  box-shadow:
     inset 0 0 0 1px rgba(255,255,255,0.18),
     0 18px 42px rgba(8,40,79,0.16);
 }
 
-.próximo-evento-afiche{
-  mostrar:bloque;
-  ancho:100%;
-  altura:automática;
-  altura máxima: 720px;
-  objeto-ajustar:contener;
-  radio de borde: 18px;
+.proximo-evento-afiche{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:720px;
+  object-fit:contain;
+  border-radius:18px;
   box-shadow:0 18px 42px rgba(0,0,0,0.28);
-  transición:transformación 0,28 s facilidad;
+  transition:transform 0.28s ease;
 }
 
 .proximo-evento-decoracion:hover .proximo-evento-afiche{
-  transformar:escala(1.015);
+  transform:scale(1.015);
 }
 
 
@@ -1198,37 +1198,37 @@
 .repositorio-home-texto h3{
   font-family:'Montserrat', sans-serif;
   font-size:clamp(30px, 3.1vw, 44px);
-  interlineado: 1,12;
-  margen inferior: 15px;
-  color:blanco;
-  espaciado entre letras: -0,05em;
-  peso de fuente: 900;
+  line-height:1.12;
+  margin-bottom:15px;
+  color:white;
+  letter-spacing:-0.05em;
+  font-weight:900;
 }
 
 .repositorio-home-texto p{
   color:#edf5ff;
-  tamaño de fuente: 18px;
-  interlineado: 1,75;
-  ancho máximo: 700px;
-  margen inferior: 24px;
-  peso de fuente: 500;
+  font-size:18px;
+  line-height:1.75;
+  max-width:700px;
+  margin-bottom:24px;
+  font-weight:500;
 }
 
 .evento-card-repositorio .badge{
-  fondo:rgba(255,255,255,0.14);
-  borde:1px sólido rgba(255,255,255,0.16);
-  color:blanco;
-  filtro de fondo: desenfoque (8px);
+  background:rgba(255,255,255,0.14);
+  border:1px solid rgba(255,255,255,0.16);
+  color:white;
+  backdrop-filter:blur(8px);
 }
 
 .repositorio-home-actions{
-  pantalla:flex;
-  espacio: 14px;
+  display:flex;
+  gap:14px;
   flex-wrap:wrap;
 }
 
 .repositorio-home-actions .btn{
-  radio de borde: 14px;
+  border-radius:14px;
 }
 
 .repositorio-home-actions .btn-light{
@@ -1239,72 +1239,72 @@
 /* Tarjetas pequeñas del repositorio */
 
 .repositorio-mini-grid{
-  mostrar:cuadrícula;
+  display:grid;
   grid-template-columns:repeat(2, 1fr);
-  espacio: 18px;
+  gap:18px;
 }
 
 .repositorio-mini-card{
-  fondo:rgba(255,255,255,0.96);
+  background:rgba(255,255,255,0.96);
   color:var(--azul-acmi);
-  radio de borde: 22px;
-  relleno: 22px;
+  border-radius:22px;
+  padding:22px;
   box-shadow:0 12px 26px rgba(0,0,0,0.14);
-  transición:var(--transición);
-  alineación de texto:izquierda;
-  borde:1px sólido rgba(20,63,125,0.08);
-  posición:relativa;
-  desbordamiento:oculto;
+  transition:var(--transicion);
+  text-align:left;
+  border:1px solid rgba(20,63,125,0.08);
+  position:relative;
+  overflow:hidden;
 }
 
 .repositorio-mini-card::after{
-  contenido:"";
-  posición:absoluta;
+  content:"";
+  position:absolute;
   inset:auto -35px -55px auto;
-  ancho:110px;
-  altura: 110px;
-  radio de borde: 50%;
-  fondo:rgba(42,156,82,0.09);
-  transición:var(--transición);
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  background:rgba(42,156,82,0.09);
+  transition:var(--transicion);
 }
 
 .repositorio-mini-card:hover{
-  transformar:translateY(-7px);
-  fondo:blanco;
+  transform:translateY(-7px);
+  background:white;
   box-shadow:0 18px 36px rgba(0,0,0,0.18);
 }
 
 .repositorio-mini-card:hover::after{
-  transformar: escala(1.2);
-  fondo:rgba(20,63,125,0.08);
+  transform:scale(1.2);
+  background:rgba(20,63,125,0.08);
 }
 
 .repositorio-mini-card span{
-  mostrar:bloque;
-  tamaño de fuente: 32px;
-  margen inferior: 8px;
-  posición:relativa;
-  índice z:2;
+  display:block;
+  font-size:32px;
+  margin-bottom:8px;
+  position:relative;
+  z-index:2;
 }
 
 .repositorio-mini-card strong{
-  mostrar:bloque;
+  display:block;
   font-family:'Montserrat', sans-serif;
-  tamaño de fuente: 18px;
-  margen inferior: 6px;
-  peso de fuente: 900;
-  espaciado entre letras: -0,03em;
-  posición:relativa;
-  índice z:2;
+  font-size:18px;
+  margin-bottom:6px;
+  font-weight:900;
+  letter-spacing:-0.03em;
+  position:relative;
+  z-index:2;
 }
 
-.repositorio-mini-card pequeña{
+.repositorio-mini-card small{
   color:#52667d;
-  tamaño de fuente: 13px;
-  interlineado: 1,55;
-  peso de fuente: 600;
-  posición:relativa;
-  índice z:2;
+  font-size:13px;
+  line-height:1.55;
+  font-weight:600;
+  position:relative;
+  z-index:2;
 }
 
 
@@ -1316,30 +1316,30 @@
 
   .evento-card-contenido-proximos,
   .evento-card-contenido-repositorio{
-    columnas-de-plantilla-de-cuadrícula:1fr;
+    grid-template-columns:1fr;
   }
 
   .proximo-evento-info,
   .repositorio-home-texto{
-    alineación de texto:centro;
+    text-align:center;
   }
 
-  .eventos-insignias{
-    alinear-elementos:centro;
+  .eventos-badges{
+    align-items:center;
   }
 
   .evento-lugar{
-    margen izquierdo:automático;
-    margen derecho:automático;
-    alineación de texto:izquierda;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
   }
 
   .evento-ubicacion-actions{
-    justificar-contenido:centro;
+    justify-content:center;
   }
 
   .repositorio-home-actions{
-    justificar-contenido:centro;
+    justify-content:center;
   }
 }
 
@@ -1350,94 +1350,94 @@
 
 @media (max-width:768px){
 
-  .eventos-título{
-    tamaño de fuente: 36px;
+  .eventos-title{
+    font-size:36px;
   }
 
-  .eventos-subtítulo{
-    tamaño de fuente: 16px;
-    interlineado: 1,6;
-    margen inferior: 36px;
+  .eventos-subtitle{
+    font-size:16px;
+    line-height:1.6;
+    margin-bottom:36px;
   }
 
   .evento-card-grande{
-    margen inferior: 40px;
-    radio de borde: 24px;
+    margin-bottom:40px;
+    border-radius:24px;
   }
 
-  .encabezado-tarjeta-evento{
-    relleno: 38px 18px 20px;
+  .evento-card-header{
+    padding:38px 18px 20px;
   }
 
-  .encabezado-tarjeta-evento h3{
-    tamaño de fuente: 30px;
+  .evento-card-header h3{
+    font-size:30px;
   }
 
-  .encabezado-tarjeta-evento p{
-    tamaño de fuente: 16px;
-    interlineado: 1,6;
+  .evento-card-header p{
+    font-size:16px;
+    line-height:1.6;
   }
 
   .evento-card-contenido{
-    relleno: 18px 16px 30px;
+    padding:18px 16px 30px;
   }
 
   .evento-card-contenido-proximos,
   .evento-card-contenido-repositorio{
-    columnas-de-plantilla-de-cuadrícula:1fr;
-    espacio: 26px;
+    grid-template-columns:1fr;
+    gap:26px;
   }
 
   .proximo-evento-info h3,
   .repositorio-home-texto h3{
-    tamaño de fuente: 28px;
+    font-size:28px;
   }
 
   .proximo-evento-info p,
   .repositorio-home-texto p{
-    tamaño de fuente: 16px;
-    interlineado: 1,6;
+    font-size:16px;
+    line-height:1.6;
   }
 
-  .eventos-insignias{
-    alinear-elementos:estirar;
-    ancho:100%;
+  .eventos-badges{
+    align-items:stretch;
+    width:100%;
   }
 
-  .insignia{
-    ancho:100%;
-    ancho máximo: 100%;
-    radio de borde: 14px;
-    alineación de texto:centro;
-    espacio en blanco:normal;
+  .badge{
+    width:100%;
+    max-width:100%;
+    border-radius:14px;
+    text-align:center;
+    white-space:normal;
   }
 
   .evento-lugar{
-    ancho:100%;
-    ancho máximo: 100%;
-    margen inferior: 16px;
+    width:100%;
+    max-width:100%;
+    margin-bottom:16px;
   }
 
   .evento-ubicacion-actions,
-  .evento-ubicacion-acciones .btn{
-    ancho:100%;
+  .evento-ubicacion-actions .btn{
+    width:100%;
   }
 
-  .próximo-evento-decoracion{
-    ancho:100%;
-    altura mínima:automática;
-    relleno: 9px;
-    radio de borde: 20px;
+  .proximo-evento-decoracion{
+    width:100%;
+    min-height:auto;
+    padding:9px;
+    border-radius:20px;
   }
 
-  .próximo-evento-afiche{
-    ancho:100%;
-    altura máxima: ninguna;
-    radio de borde: 13px;
+  .proximo-evento-afiche{
+    width:100%;
+    max-height:none;
+    border-radius:13px;
   }
 
   .repositorio-mini-grid{
-    columnas-de-plantilla-de-cuadrícula:1fr;
+    grid-template-columns:1fr;
   }
 
   .repositorio-home-actions{
@@ -1445,295 +1445,295 @@
   }
 
   .repositorio-home-actions .btn{
-    ancho:100%;
+    width:100%;
   }
 }
 /* ==============================
-   ÃšLTIMAS PUBLICACIONES
-   TARJETA ÃšNICA GRANDE
+   ÚLTIMAS PUBLICACIONES
+   TARJETA ÚNICA GRANDE
    ============================== */
 
-.publicaciones-card-única{
-  ancho máximo: 1280px;
-  margen:0 automático;
-  fondo:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,251,255,0.98));
-  radio de borde: 34px;
-  borde:1px sólido rgba(20,63,125,0.10);
+.publicaciones-card-unica{
+  max-width:1280px;
+  margin:0 auto;
+  background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,251,255,0.98));
+  border-radius:34px;
+  border:1px solid rgba(20,63,125,0.10);
   box-shadow:0 28px 70px rgba(8,40,79,0.14);
-  desbordamiento:oculto;
-  posición:relativa;
+  overflow:hidden;
+  position:relative;
 }
 
-.publicaciones-card-unica::antes{
-  contenido:"";
-  posición:absoluta;
+.publicaciones-card-unica::before{
+  content:"";
+  position:absolute;
   inset:0 0 auto 0;
-  altura: 8px;
-  fondo: gradiente lineal (90 grados, var (--verde-acmi), var (--azul-acmi));
-  índice z:2;
+  height:8px;
+  background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
+  z-index:2;
 }
 
 .publicaciones-card-header{
-  alineación de texto:centro;
-  ancho máximo: 940px;
-  margen:0 automático;
-  relleno: 48px 36px 26px 36px;
+  text-align:center;
+  max-width:940px;
+  margin:0 auto;
+  padding:48px 36px 26px 36px;
 }
 
 .publicaciones-card-header h3{
   font-family:'Montserrat', sans-serif;
   color:var(--azul-acmi);
-  tamaño de fuente: 44px;
-  interlineado: 1,08;
-  peso de fuente: 800;
-  espaciado entre letras: -0,03em;
-  margen inferior: 12px;
+  font-size:44px;
+  line-height:1.08;
+  font-weight:800;
+  letter-spacing:-0.03em;
+  margin-bottom:12px;
 }
 
-.publicaciones-card-header h3::después{
-  contenido:"";
-  mostrar:bloque;
-  ancho: 96px;
-  altura: 5px;
-  radio de borde: 999px;
-  margen:18px automático 0 automático;
-  fondo: gradiente lineal (90 grados, var (--verde-acmi), var (--azul-acmi));
+.publicaciones-card-header h3::after{
+  content:"";
+  display:block;
+  width:96px;
+  height:5px;
+  border-radius:999px;
+  margin:18px auto 0 auto;
+  background:linear-gradient(90deg, var(--verde-acmi), var(--azul-acmi));
 }
 
 .publicaciones-card-header p{
   color:#5b6d82;
-  tamaño de fuente: 18px;
-  interlineado: 1,75;
-  margen:18px automático 0 automático;
-  ancho máximo: 800px;
+  font-size:18px;
+  line-height:1.75;
+  margin:18px auto 0 auto;
+  max-width:800px;
 }
 
 .publicaciones-layout{
-  mostrar:cuadrícula;
-  columnas-de-plantilla-de-cuadrícula:1.1fr 0.9fr;
-  espacio: 28px;
-  relleno: 18px 38px 38px 38px;
-  alinear-elementos:inicio;
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:28px;
+  padding:18px 38px 38px 38px;
+  align-items:start;
 }
 
 .publicacion-feature,
 .publicacion-box{
-  fondo:#ffffff;
-  borde:1px sólido rgba(20,63,125,0.08);
-  radio de borde: 26px;
+  background:#ffffff;
+  border:1px solid rgba(20,63,125,0.08);
+  border-radius:26px;
   box-shadow:0 14px 30px rgba(8,40,79,0.08);
-  relleno: 28px;
-  posición:relativa;
-  desbordamiento:oculto;
+  padding:28px;
+  position:relative;
+  overflow:hidden;
 }
 
 .publicacion-feature::before,
 .publicacion-box::before{
-  contenido:"";
-  posición:absoluta;
-  ancho:150px;
-  altura: 150px;
-  radio de borde: 50%;
-  derecha:-55px;
-  parte inferior:-70px;
-  fondo:rgba(42,156,82,0.07);
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  right:-55px;
+  bottom:-70px;
+  background:rgba(42,156,82,0.07);
 }
 
 .publicacion-badge{
-  mostrar:bloque-en-línea;
-  relleno: 9px 16px;
-  radio de borde: 999px;
+  display:inline-block;
+  padding:9px 16px;
+  border-radius:999px;
   font-family:'Montserrat', sans-serif;
-  tamaño de fuente: 13px;
-  peso de fuente: 800;
-  transformación de texto: mayúsculas;
-  espaciado entre letras: 0,06em;
-  margen inferior: 16px;
-  fondo:#eef4fb;
+  font-size:13px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  margin-bottom:16px;
+  background:#eef4fb;
   color:var(--azul-acmi);
-  borde:1px sólido #dbe7f5;
+  border:1px solid #dbe7f5;
 }
 
 .publicacion-badge-verde{
-  fondo:#eaf4ee;
+  background:#eaf4ee;
   color:var(--verde-acmi);
-  borde:1px sólido rgba(42,156,82,0.22);
+  border:1px solid rgba(42,156,82,0.22);
 }
 
 .publicacion-badge-azul{
-  fondo:#eef4fb;
+  background:#eef4fb;
   color:var(--azul-acmi);
-  borde:1px sólido #dbe7f5;
+  border:1px solid #dbe7f5;
 }
 
 .publicacion-feature h4,
 .publicacion-box h4{
   font-family:'Montserrat', sans-serif;
   color:var(--azul-acmi);
-  tamaño de fuente: 31px;
-  interlineado: 1,12;
-  peso de fuente: 800;
-  espaciado entre letras: -0,02em;
-  margen inferior: 14px;
-  posición:relativa;
-  índice z:2;
+  font-size:31px;
+  line-height:1.12;
+  font-weight:800;
+  letter-spacing:-0.02em;
+  margin-bottom:14px;
+  position:relative;
+  z-index:2;
 }
 
 .publicacion-feature p,
 .publicacion-box p{
   color:#52667d;
-  tamaño de fuente: 17px;
-  interlineado: 1,75;
-  margen inferior: 18px;
-  posición:relativa;
-  índice z:2;
+  font-size:17px;
+  line-height:1.75;
+  margin-bottom:18px;
+  position:relative;
+  z-index:2;
 }
 
 .publicacion-caption{
   font-size:15px !important;
-  color:#5b6d82 !importante;
+  color:#5b6d82 !important;
 }
 
 .publicacion-video{
-  ancho máximo: 100%;
-  margen:22px 0 18px 0;
+  max-width:100%;
+  margin:22px 0 18px 0;
 }
 
 .publicaciones-side{
-  mostrar:cuadrícula;
-  filas-de-plantilla-de-cuadrícula:auto auto;
-  espacio: 24px;
+  display:grid;
+  grid-template-rows:auto auto;
+  gap:24px;
 }
 
 .publicacion-magazine{
-  altura mínima: 100%;
+  min-height:100%;
 }
 
-.artículo-academico-destacado{
-  altura mínima: 290px;
-  margen:10px 0 20px;
-  radio de borde: 22px;
-  desbordamiento:oculto;
-  posición:relativa;
-  pantalla:flex;
-  alinear-elementos:flex-end;
-  aislamiento: aislar;
-  fondo:
-    gradiente radial(círculo al 82% 18%, rgba(126,212,154,.34), transparente 28%),
-    gradiente-lineal(135deg, var(--azul-profundo), var(--azul-acmi));
+.articulo-academico-destacado{
+  min-height:290px;
+  margin:10px 0 20px;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(126,212,154,.34), transparent 28%),
+    linear-gradient(135deg, var(--azul-profundo), var(--azul-acmi));
   box-shadow:0 18px 38px rgba(8,40,79,.18);
 }
 
-.articulo-academico-destacado::antes{
-  contenido:"";
-  posición:absoluta;
-  recuadro:0;
-  índice z:0;
-  fondo: gradiente-lineal(90 grados, rgba(5,28,56,.96) 0%, rgba(8,40,79,.82) 55%, rgba(8,40,79,.30) 100%);
+.articulo-academico-destacado::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:linear-gradient(90deg, rgba(5,28,56,.96) 0%, rgba(8,40,79,.82) 55%, rgba(8,40,79,.30) 100%);
 }
 
-.articulo-academico-destacado::después{
-  contenido:"";
-  posición:absoluta;
-  ancho:210px;
-  altura: 210px;
-  derecha:-70px;
-  parte inferior: -105px;
-  índice z:1;
-  radio de borde: 50%;
-  fondo:rgba(126,212,154,.20);
+.articulo-academico-destacado::after{
+  content:"";
+  position:absolute;
+  width:210px;
+  height:210px;
+  right:-70px;
+  bottom:-105px;
+  z-index:1;
+  border-radius:50%;
+  background:rgba(126,212,154,.20);
 }
 
-.artículo-academico-con-portada{
-  posición de fondo:centro;
-  tamaño de fondo: cubrir;
+.articulo-academico-con-portada{
+  background-position:center;
+  background-size:cover;
   background-repeat:no-repeat;
 }
 
-.articulo-académico-copy{
-  ancho:min(78%, 650px);
-  relleno: 30px;
-  posición:relativa;
-  índice z:2;
+.articulo-academico-copy{
+  width:min(78%, 650px);
+  padding:30px;
+  position:relative;
+  z-index:2;
 }
 
-.articulo-academico-copia .publicacion-badge{
-  margen inferior: 13px;
-  color:blanco;
-  fondo:var(--verde-acmi);
-  color del borde:rgba(255,255,255,.22);
+.articulo-academico-copy .publicacion-badge{
+  margin-bottom:13px;
+  color:white;
+  background:var(--verde-acmi);
+  border-color:rgba(255,255,255,.22);
 }
 
-.articulo-académico-copy h5{
-  margen:0 0 11px;
-  color:blanco;
+.articulo-academico-copy h5{
+  margin:0 0 11px;
+  color:white;
   font-family:'Montserrat', sans-serif;
   font-size:clamp(25px,2.5vw,35px);
-  peso de fuente: 900;
-  interlineado: 1,12;
-  espaciado entre letras: -0,035em;
+  font-weight:900;
+  line-height:1.12;
+  letter-spacing:-.035em;
 }
 
-.articulo-académico-copy p{
-  margen:0 0 18px;
+.articulo-academico-copy p{
+  margin:0 0 18px;
   color:rgba(255,255,255,.88);
-  tamaño de fuente: 15px;
-  interlineado: 1,65;
+  font-size:15px;
+  line-height:1.65;
 }
 
-.artículo-academico-copia .btn{
-  fondo:blanco;
+.articulo-academico-copy .btn{
+  background:white;
   color:var(--azul-acmi);
   box-shadow:0 10px 24px rgba(0,0,0,.16);
 }
 
-.articulo-academico-copia .btn:hover{
-  fondo:var(--verde-acmi);
-  color:blanco;
+.articulo-academico-copy .btn:hover{
+  background:var(--verde-acmi);
+  color:white;
 }
 
-.revista-cuadrícula-mejorado{
-  mostrar:cuadrícula;
-  columnas-de-plantilla-de-cuadrícula:1fr 1fr;
-  espacio: 18px;
-  margen superior: 10px;
+.magazine-grid-mejorado{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:10px;
 }
 
-.artículo-de-revista{
-  fondo:#f8fbff;
-  borde:1px sólido rgba(20,63,125,0.07);
-  radio de borde: 20px;
-  relleno: 18px;
-  alineación de texto:centro;
+.magazine-item{
+  background:#f8fbff;
+  border:1px solid rgba(20,63,125,0.07);
+  border-radius:20px;
+  padding:18px;
+  text-align:center;
 }
 
 .magazine-item h5{
   font-family:'Montserrat', sans-serif;
-  tamaño de fuente: 18px;
+  font-size:18px;
   color:var(--azul-acmi);
-  margen inferior: 12px;
-  peso de fuente: 800;
+  margin-bottom:12px;
+  font-weight:800;
 }
 
 .magazine-thumb{
-  ancho:100%;
-  altura: 170px;
-  ajuste-objeto:cubrir;
-  radio de borde: 16px;
-  margen inferior: 12px;
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  border-radius:16px;
+  margin-bottom:12px;
 }
 
 .magazine-thumb-placeholder{
-  ancho:100%;
-  altura: 170px;
-  radio de borde: 16px;
-  margen inferior: 12px;
-  fondo:#e8eef6;
-  pantalla:flex;
-  alinear-elementos:centro;
-  justificar-contenido:centro;
+  width:100%;
+  height:170px;
+  border-radius:16px;
+  margin-bottom:12px;
+  background:#e8eef6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   color:var(--azul-acmi);
-  peso de fuente: 800;
+  font-weight:800;
   font-family:'Montserrat', sans-serif;
 }
 
@@ -1742,569 +1742,505 @@
    ============================== */
 
 .publicaciones-destacadas{
-  mostrar:cuadrícula;
+  display:grid;
   grid-template-columns:repeat(12,minmax(0,1fr));
-  espacio: 24px;
-  ancho máximo: 1280px;
-  margen:42px auto 0;
+  gap:24px;
+  max-width:1280px;
+  margin:42px auto 0;
 }
 
 .publicacion-destacada-card{
-  posición:relativa;
-  desbordamiento:oculto;
-  altura mínima: 360px;
-  radio de borde: 28px;
-  borde:1px sólido rgba(20,63,125,.10);
+  position:relative;
+  overflow:hidden;
+  min-height:360px;
+  border-radius:28px;
+  border:1px solid rgba(20,63,125,.10);
   box-shadow:0 22px 54px rgba(8,40,79,.14);
-  fondo:blanco;
-  transición:transformación .28s de facilidad,box-shadow .28s de facilidad;
+  background:white;
+  transition:transform .28s ease,box-shadow .28s ease;
 }
 
 .publicacion-destacada-card:hover{
-  transformar:translateY(-6px);
+  transform:translateY(-6px);
   box-shadow:0 30px 66px rgba(8,40,79,.20);
 }
 
 .publicacion-educacion{
-  columna de cuadrícula:span 7;
-  mostrar:cuadrícula;
+  grid-column:span 7;
+  display:grid;
   grid-template-columns:minmax(260px,.88fr) minmax(320px,1.12fr);
-  fondo:gradiente-lineal(135deg,#08284f,#174a88);
-  color:blanco;
+  background:linear-gradient(135deg,#08284f,#174a88);
+  color:white;
 }
 
 .publicacion-educacion-copy{
-  relleno: 38px;
-  pantalla:flex;
+  padding:38px;
+  display:flex;
   flex-direction:column;
-  justificar-contenido:centro;
-  posición:relativa;
+  justify-content:center;
+  position:relative;
 }
 
-.publicacion-educacion-copia::despues{
-  contenido:"";
-  posición:absoluta;
-  ancho:220px;
-  altura: 220px;
-  izquierda:-90px;
-  parte inferior: -125px;
-  radio de borde: 50%;
-  fondo:rgba(126,212,154,.20);
+.publicacion-educacion-copy::after{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  left:-90px;
+  bottom:-125px;
+  border-radius:50%;
+  background:rgba(126,212,154,.20);
 }
 
 .publicacion-educacion-media{
-  relleno: 22px;
-  pantalla:flex;
-  alinear-elementos:centro;
-  fondo:linear-gradient(135deg,rgba(255,255,255,.08),rgba(42,156,82,.18));
+  padding:22px;
+  display:flex;
+  align-items:center;
+  background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(42,156,82,.18));
 }
 
 .publicacion-articulo{
-  columna de cuadrícula: abarca 5;
-  pantalla:flex;
-  alinear-elementos:flex-end;
-  color:blanco;
-  fondo:
-    gradiente radial(círculo al 82% 18%,rgba(126,212,154,.34),transparente 28%),
-    gradiente-lineal(135 grados,#08284f,#143f7d);
-  posición de fondo:centro;
-  tamaño de fondo: cubrir;
+  grid-column:span 5;
+  display:flex;
+  align-items:flex-end;
+  color:white;
+  background:
+    radial-gradient(circle at 82% 18%,rgba(126,212,154,.34),transparent 28%),
+    linear-gradient(135deg,#08284f,#143f7d);
+  background-position:center;
+  background-size:cover;
 }
 
-.publicacion-articulo::antes{
-  contenido:"";
-  posición:absoluta;
-  recuadro:0;
-  fondo:linear-gradient(90deg,rgba(5,28,56,.97),rgba(8,40,79,.76) 62%,rgba(8,40,79,.30));
+.publicacion-articulo::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(5,28,56,.97),rgba(8,40,79,.76) 62%,rgba(8,40,79,.30));
 }
 
 .publicacion-destacada-copy{
-  posición:relativa;
-  índice z:2;
-  relleno: 38px;
+  position:relative;
+  z-index:2;
+  padding:38px;
 }
 
-.publicacion-destacada-copia h3{
-  margen:0 0 13px;
-  color:blanco;
+.publicacion-destacada-copy h3{
+  margin:0 0 13px;
+  color:white;
   font-family:'Montserrat',sans-serif;
   font-size:clamp(28px,3vw,42px);
-  peso de fuente: 900;
-  interlineado: 1,06;
-  espaciado entre letras: -0,045em;
+  font-weight:900;
+  line-height:1.06;
+  letter-spacing:-.045em;
 }
 
-.publicacion-destacada-copia p{
-  margen:0 0 22px;
+.publicacion-destacada-copy p{
+  margin:0 0 22px;
   color:rgba(255,255,255,.88);
-  tamaño de fuente: 16px;
-  interlineado: 1,65;
+  font-size:16px;
+  line-height:1.65;
 }
 
-.publicacion-destacada-copia .publicacion-badge{
-  color:blanco;
-  fondo:var(--verde-acmi);
-  color del borde:rgba(255,255,255,.24);
+.publicacion-destacada-copy .publicacion-badge{
+  color:white;
+  background:var(--verde-acmi);
+  border-color:rgba(255,255,255,.24);
 }
 
-.publicacion-destacada-copia .btn{
-  posición:relativa;
-  índice z:3;
-  fondo:blanco;
+.publicacion-destacada-copy .btn{
+  position:relative;
+  z-index:3;
+  background:white;
   color:var(--azul-acmi);
 }
 
 .publicaciones-editoriales{
-  columna de cuadrícula:1 / -1;
-  mostrar:cuadrícula;
+  grid-column:1 / -1;
+  display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  espacio: 24px;
+  gap:24px;
 }
 
 .publicacion-editorial-card{
-  altura mínima: 290px;
-  relleno: 30px;
-  pantalla:flex;
+  min-height:290px;
+  padding:30px;
+  display:flex;
   flex-direction:column;
-  alinear-elementos:flex-start;
-  fondo:blanco;
+  align-items:flex-start;
+  background:white;
 }
 
-.publicacion-editorial-card::antes{
-  contenido:"";
-  posición:absoluta;
+.publicacion-editorial-card::before{
+  content:"";
+  position:absolute;
   inset:0 0 auto 0;
-  altura: 6px;
-  fondo:gradiente lineal(90deg,var(--verde-acmi),var(--azul-acmi));
+  height:6px;
+  background:linear-gradient(90deg,var(--verde-acmi),var(--azul-acmi));
 }
 
-.publicacion-editorial-tarjeta h3{
-  margen:0 0 12px;
+.publicacion-editorial-card h3{
+  margin:0 0 12px;
   color:var(--azul-acmi);
   font-family:'Montserrat',sans-serif;
-  tamaño de fuente: 27px;
-  peso de fuente: 900;
-  interlineado: 1,15;
+  font-size:27px;
+  font-weight:900;
+  line-height:1.15;
 }
 
-.publicacion-editorial-tarjeta p{
-  margen:0 0 20px;
+.publicacion-editorial-card p{
+  margin:0 0 20px;
   color:#52667d;
-  interlineado: 1,65;
+  line-height:1.65;
 }
 
 .publicacion-editorial-card .btn{
-  margen superior:automático;
+  margin-top:auto;
 }
 
 .publicacion-mini-cover{
-  ancho:100%;
-  altura: 155px;
-  margen:0 0 18px;
-  radio de borde: 18px;
-  ajuste-objeto:cubrir;
+  width:100%;
+  height:155px;
+  margin:0 0 18px;
+  border-radius:18px;
+  object-fit:cover;
 }
 
 .publicacion-opinion{
-  fondo:gradiente-lineal(145deg,#ffffff,#f1f6fc);
+  background:linear-gradient(145deg,#ffffff,#f1f6fc);
 }
 
 .publicacion-social-independiente{
-  fondo:
-    gradiente radial(círculo al 90% 15%,rgba(126,212,154,.30),transparente 30%),
-    gradiente-lineal(145grados,#edf9f1,#ffffff);
+  background:
+    radial-gradient(circle at 90% 15%,rgba(126,212,154,.30),transparent 30%),
+    linear-gradient(145deg,#edf9f1,#ffffff);
 }
 
 @media(max-width:1050px){
   .publicacion-educacion,
   .publicacion-articulo{
-    columna de cuadrícula:1 / -1;
+    grid-column:1 / -1;
   }
 
   .publicaciones-editoriales{
-    columnas-de-plantilla-de-cuadrícula:repetir(2,minmax(0,1fr));
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
 
   .publicacion-social-independiente{
-    columna de cuadrícula:1 / -1;
+    grid-column:1 / -1;
   }
 }
 
 @media(max-width:700px){
   .publicaciones-destacadas{
-    espacio: 18px;
+    gap:18px;
   }
 
   .publicacion-educacion{
-    columnas-de-plantilla-de-cuadrícula:1fr;
+    grid-template-columns:1fr;
   }
 
   .publicacion-educacion-copy,
   .publicacion-destacada-copy,
   .publicacion-editorial-card{
-    relleno: 24px;
+    padding:24px;
   }
 
   .publicacion-educacion-media{
-    relleno:0 18px 22px;
+    padding:0 18px 22px;
   }
 
   .publicaciones-editoriales{
-    columnas-de-plantilla-de-cuadrícula:1fr;
+    grid-template-columns:1fr;
   }
 
   .publicacion-editorial-card,
   .publicacion-articulo{
-    altura mínima: 300px;
+    min-height:300px;
   }
 }
 
 /* ==============================
-   SECCIONES INDEPENDIENTE DE CONTENIDO
+   SECCIONES INDEPENDIENTES DE CONTENIDO
    ============================== */
 
 .contenido-independiente{
-  posición:relativa;
-  relleno: 96px 0;
-  desbordamiento:oculto;
+  position:relative;
+  padding:96px 0;
+  overflow:hidden;
 }
 
-.contenido-independiente .sección-subtítulo{
-  margen inferior: 42px;
+.contenido-independiente .section-subtitle{
+  margin-bottom:42px;
 }
 
 .educacion-independiente{
-  fondo:
-    gradiente radial(círculo al 10% 15%,rgba(42,156,82,.12),transparente 28%),
-    gradiente-lineal(180 grados,#f7fbff,#eef4fa);
+  background:
+    radial-gradient(circle at 10% 15%,rgba(42,156,82,.12),transparent 28%),
+    linear-gradient(180deg,#f7fbff,#eef4fa);
 }
 
 .educacion-independiente .publicacion-educacion{
-  ancho:100%;
-  ancho máximo: 1280px;
-  altura mínima: 430px;
-  margen:0 automático;
-  columna de cuadrícula:automático;
+  width:100%;
+  max-width:1280px;
+  min-height:430px;
+  margin:0 auto;
+  grid-column:auto;
   grid-template-columns:minmax(320px,.82fr) minmax(420px,1.18fr);
 }
 
-.educacion-independiente .publicacion-educacion-copia{
-  relleno:clamp(38px,5vw,66px);
+.educacion-independiente .publicacion-educacion-copy{
+  padding:clamp(38px,5vw,66px);
 }
 
-.educacion-independiente .publicacion-destacada-copia h3{
+.educacion-independiente .publicacion-destacada-copy h3{
   font-size:clamp(34px,4vw,56px);
 }
 
-.revista-independiente{
-  fondo:
-    gradiente radial(círculo al 88% 8%,rgba(126,212,154,.18),transparente 27%),
+.magazine-independiente{
+  background:
+    radial-gradient(circle at 88% 8%,rgba(126,212,154,.18),transparent 27%),
     #ffffff;
 }
 
-.revista-destacado-grid{
-  ancho máximo: 1280px;
-  margen:0 automático;
-  mostrar:cuadrícula;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  espacio: 24px;
-  alinear-elementos:estirar;
+.magazine-destacado-grid{
+  max-width:1280px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(340px,.65fr);
+  gap:24px;
+  align-items:stretch;
 }
 
 .magazine-independiente .publicacion-articulo{
-  columna de cuadrícula:automático;
-  altura mínima: 510px;
-  fondo:
-    gradiente radial(círculo al 78% 18%,rgba(126,212,154,.34),transparente 25%),
-    gradiente radial(círculo al 15% 82%,rgba(255,255,255,.10),transparente 24%),
-    gradiente-lineal(145 grados,#08284f,#143f7d 62%,#216d69);
+  grid-column:auto;
+  min-height:540px;
 }
 
-.magazine-independiente .publicacion-articulo::después{
-  contenido:"IA";
-  posición:absoluta;
-  superior: 34px;
-  derecha: 28px;
-  color:rgba(255,255,255,.08);
-  font-family:'Montserrat',sans-serif;
-  font-size:clamp(100px,12vw,180px);
-  peso de fuente: 900;
-  altura de línea:1;
-  espaciado entre letras: -0,08em;
-  eventos de puntero: ninguno;
-}
-
-.magazine-independiente .publicacion-articulo .publicacion-destacada-copia{
-  ancho máximo: 100%;
-  relleno: 34px;
+.magazine-independiente .publicacion-articulo .publicacion-destacada-copy{
+  max-width:740px;
+  padding:clamp(38px,5vw,66px);
 }
 
 .magazine-independiente .publicacion-articulo h3{
-  font-size:clamp(29px,2.6vw,40px);
+  font-size:clamp(36px,4.2vw,58px);
 }
 
-.accesos-de-revista{
-  mostrar:contenido;
+.magazine-accesos{
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  gap:24px;
 }
 
-.accesos-revista .tarjeta-publicacion-editorial{
-  altura mínima: 510px;
-  relleno: 28px;
+.magazine-accesos .publicacion-editorial-card{
+  min-height:0;
+  padding:28px;
 }
 
-.revista-accesos .publicacion-mini-portada{
-  altura: 210px;
-  relleno: 8px;
-  objeto-ajustar:contener;
-  posición del objeto:centro centro;
-  fondo:#eef3f8;
-  borde:1px sólido rgba(20,63,125,.08);
+.magazine-accesos .publicacion-mini-cover{
+  height:125px;
 }
 
-.publicacion-portada-placeholder{
-  ancho:100%;
-  altura: 210px;
-  margen:0 0 18px;
-  radio de borde: 18px;
-  pantalla:flex;
-  alinear-elementos:centro;
-  justificar-contenido:centro;
-  color:var(--azul-acmi);
-  font-family:'Montserrat',sans-serif;
-  tamaño de fuente: 54px;
-  peso de fuente: 900;
-  fondo:
-    gradiente radial(círculo al 80% 20%,rgba(42,156,82,.20),transparente 28%),
-    gradiente-lineal(145grados,#eef4fb,#f8fbff);
-  borde:1px sólido rgba(20,63,125,.08);
+.proyeccion-independiente{
+  background:
+    linear-gradient(120deg,rgba(8,40,79,.98),rgba(20,63,125,.94) 55%,rgba(42,156,82,.88));
 }
 
-.revista-accesos .publicacion-editorial-tarjeta h3{
-  tamaño de fuente:clamp(24px,2vw,30px);
+.proyeccion-independiente .section-title,
+.proyeccion-independiente .section-subtitle{
+  color:white;
 }
 
-.revista-accesos .publicacion-editorial-tarjeta p{
-  tamaño de fuente: 15px;
+.proyeccion-independiente .section-title::after{
+  background:linear-gradient(90deg,var(--verde-claro),white);
 }
 
-.projeccion-independiente{
-  fondo:
-    gradiente-lineal(120 grados,rgba(8,40,79,.98),rgba(20,63,125,.94) 55%,rgba(42,156,82,.88));
-}
-
-.proyeccion-independiente .sección-título,
-.proyeccion-independiente .sección-subtítulo{
-  color:blanco;
-}
-
-.proyeccion-independiente .section-title::después{
-  fondo:gradiente-lineal(90deg,var(--verde-claro),blanco);
-}
-
-.proyecto-tarjeta-héroe{
-  ancho máximo: 1280px;
-  altura mínima: 390px;
-  margen:0 automático;
-  relleno:clamp(38px,6vw,76px);
-  pantalla:flex;
-  alinear-elementos:centro;
-  posición:relativa;
-  desbordamiento:oculto;
-  radio de borde: 30px;
-  color:blanco;
-  fondo:
-    gradiente radial(círculo al 82% 28%,rgba(126,212,154,.35),transparente 25%),
-    gradiente radial(círculo al 90% 82%,rgba(255,255,255,.14),transparente 22%),
-    gradiente-lineal(135 grados,rgba(255,255,255,.13),rgba(255,255,255,.06));
-  borde:1px sólido rgba(255,255,255,.24);
+.proyeccion-hero-card{
+  max-width:1280px;
+  min-height:390px;
+  margin:0 auto;
+  padding:clamp(38px,6vw,76px);
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  border-radius:30px;
+  color:white;
+  background:
+    radial-gradient(circle at 82% 28%,rgba(126,212,154,.35),transparent 25%),
+    radial-gradient(circle at 90% 82%,rgba(255,255,255,.14),transparent 22%),
+    linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.06));
+  border:1px solid rgba(255,255,255,.24);
   box-shadow:0 26px 64px rgba(0,0,0,.20);
-  filtro de fondo: desenfoque (12px);
+  backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
 }
 
-.proyección-hero-card::after{
-  contenido:"ACMI";
-  posición:absoluta;
-  derecha: 4%;
-  fondo:-12%;
+.proyeccion-hero-card::after{
+  content:"ACMI";
+  position:absolute;
+  right:4%;
+  bottom:-12%;
   color:rgba(255,255,255,.08);
   font-family:'Montserrat',sans-serif;
   font-size:clamp(120px,18vw,260px);
-  peso de fuente: 900;
-  altura de línea:1;
-  espaciado entre letras: -0,08em;
+  font-weight:900;
+  line-height:1;
+  letter-spacing:-.08em;
 }
 
-.proyección-hero-copy{
-  posición:relativa;
-  índice z:2;
-  ancho máximo: 720px;
+.proyeccion-hero-copy{
+  position:relative;
+  z-index:2;
+  max-width:720px;
 }
 
 .proyeccion-hero-copy h3{
-  margen:0 0 16px;
-  color:blanco;
+  margin:0 0 16px;
+  color:white;
   font-family:'Montserrat',sans-serif;
   font-size:clamp(36px,4.6vw,62px);
-  peso de fuente: 900;
-  interlineado: 1,03;
-  espaciado entre letras: -0,05em;
+  font-weight:900;
+  line-height:1.03;
+  letter-spacing:-.05em;
 }
 
-.proyección-hero-copia p{
-  margen:0 0 26px;
+.proyeccion-hero-copy p{
+  margin:0 0 26px;
   color:rgba(255,255,255,.88);
-  tamaño de fuente: 18px;
-  interlineado: 1,7;
+  font-size:18px;
+  line-height:1.7;
 }
 
 .proyeccion-hero-copy .publicacion-badge{
-  color:blanco;
-  fondo:var(--verde-acmi);
-  color del borde:rgba(255,255,255,.28);
+  color:white;
+  background:var(--verde-acmi);
+  border-color:rgba(255,255,255,.28);
 }
 
 .proyeccion-hero-copy .btn{
-  fondo:blanco;
+  background:white;
   color:var(--azul-acmi);
 }
 
 @media(max-width:1050px){
-  .revista-destacado-grid{
-    columnas-de-plantilla-de-cuadrícula:repetir(2,minmax(0,1fr));
+  .magazine-destacado-grid{
+    grid-template-columns:1fr;
   }
 
   .magazine-independiente .publicacion-articulo{
-    altura mínima: 470px;
-    columna de cuadrícula:1 / -1;
+    min-height:460px;
   }
 
-  .accesos-de-revista{
-    mostrar:contenido;
+  .magazine-accesos{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:auto;
   }
 }
 
 @media(max-width:760px){
   .contenido-independiente{
-    relleno: 72px 0;
+    padding:72px 0;
   }
 
   .educacion-independiente .publicacion-educacion{
-    altura mínima:0;
-    columnas-de-plantilla-de-cuadrícula:1fr;
+    min-height:0;
+    grid-template-columns:1fr;
   }
 
-  .accesos-de-revista{
-    mostrar:contenido;
-  }
-
-  .revista-destacado-grid{
-    columnas-de-plantilla-de-cuadrícula:1fr;
+  .magazine-accesos{
+    grid-template-columns:1fr;
   }
 
   .magazine-independiente .publicacion-articulo{
-    altura mínima: 390px;
+    min-height:390px;
   }
 
-  .accesos-revista .tarjeta-publicacion-editorial{
-    altura mínima:automática;
-  }
-
-  .revista-accesos .publicacion-mini-portada{
-    altura:automática;
-    altura máxima: 300px;
-  }
-
-  .publicacion-portada-placeholder{
-    altura: 190px;
-  }
-
-  .proyecto-tarjeta-héroe{
-    altura mínima: 380px;
-    relleno: 34px 26px;
+  .proyeccion-hero-card{
+    min-height:380px;
+    padding:34px 26px;
   }
 }
 
 /* ==============================
-   SENSIBLE
+   RESPONSIVE
    ============================== */
 
 @media(max-width:1024px){
   .publicaciones-layout{
-    columnas-de-plantilla-de-cuadrícula:1fr;
+    grid-template-columns:1fr;
   }
 
   .publicaciones-side{
-    columnas-de-plantilla-de-cuadrícula:1fr;
-    filas-de-plantilla-de-cuadrícula:automático;
+    grid-template-columns:1fr;
+    grid-template-rows:auto;
   }
 }
 
 @media(max-width:700px){
   .publicaciones-card-header{
-    relleno: 36px 22px 18px 22px;
+    padding:36px 22px 18px 22px;
   }
 
   .publicaciones-card-header h3{
-    tamaño de fuente: 30px;
+    font-size:30px;
   }
 
   .publicaciones-card-header p{
-    tamaño de fuente: 16px;
+    font-size:16px;
   }
 
   .publicaciones-layout{
-    relleno: 16px 20px 24px 20px;
+    padding:16px 20px 24px 20px;
   }
 
   .publicacion-feature,
   .publicacion-box{
-    relleno: 22px;
-    radio de borde: 22px;
+    padding:22px;
+    border-radius:22px;
   }
 
   .publicacion-feature h4,
   .publicacion-box h4{
-    tamaño de fuente: 25px;
+    font-size:25px;
   }
 
-  .revista-cuadrícula-mejorado{
-    columnas-de-plantilla-de-cuadrícula:1fr;
+  .magazine-grid-mejorado{
+    grid-template-columns:1fr;
   }
 
-  .artículo-academico-destacado{
-    altura mínima: 330px;
+  .articulo-academico-destacado{
+    min-height:330px;
   }
 
-  .articulo-académico-copy{
-    ancho:100%;
-    relleno: 24px;
+  .articulo-academico-copy{
+    width:100%;
+    padding:24px;
   }
 
   .magazine-thumb,
   .magazine-thumb-placeholder{
-    altura: 190px;
+    height:190px;
   }
 }
 
 
     .video-mini{
-      posición:relativa;
-      ancho:100%;
-      relación de aspecto: 16 / 9;
-      radio de borde: 22px;
-      desbordamiento:oculto;
+      position:relative;
+      width:100%;
+      aspect-ratio:16 / 9;
+      border-radius:22px;
+      overflow:hidden;
       box-shadow:0 16px 34px rgba(8,40,79,0.14);
-      fondo:#e8eef6;
+      background:#e8eef6;
     }
 
     .video-mini iframe{
-      posición:absoluta;
-      recuadro:0;
-      ancho:100%;
-      altura:100%;
-      borde:0;
-      mostrar:bloque;
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
     }
 
     /* ==============================
@@ -2312,71 +2248,71 @@
        ============================== */
 
     .patrocinadores{
-      pantalla:flex;
-      justificar-contenido:centro;
-      alinear-elementos:centro;
-      margen superior: 40px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin-top:40px;
     }
 
     .patrocinador-card{
-      fondo:blanco;
-      ancho:min(100%, 980px);
-      relleno: 28px;
-      radio de borde: 24px;
+      background:white;
+      width:min(100%, 980px);
+      padding:28px;
+      border-radius:24px;
       box-shadow:var(--sombra-suave);
-      transición:var(--transición);
-      borde:1px sólido rgba(20,63,125,0.08);
+      transition:var(--transicion);
+      border:1px solid rgba(20,63,125,0.08);
     }
 
     .patrocinador-card:hover{
-      transformar:translateY(-6px);
-      sombra-caja:var(--sombra-media);
+      transform:translateY(-6px);
+      box-shadow:var(--sombra-media);
     }
 
     .patrocinador-card img{
-      ancho:100%;
-      altura:automática;
-      objeto-ajustar:contener;
-      radio de borde: 14px;
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      border-radius:14px;
     }
 
-    .botones-de-contacto{
-      pantalla:flex;
-      justificar-contenido:centro;
-      espacio: 20px;
-      margen inferior: 24px;
+    .contact-buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      margin-bottom:24px;
       flex-wrap:wrap;
     }
 
     .edu-box,
     .contact-box{
-      ancho máximo: 1050px;
-      margen:0 automático;
+      max-width:1050px;
+      margin:0 auto;
     }
 
     .contact-box p{
-      margen:10px 0;
-      alineación de texto:centro;
-      peso de fuente: 600;
+      margin:10px 0;
+      text-align:center;
+      font-weight:600;
     }
 
-    pie de página{
-      fondo:
-        gradiente radial(círculo en la parte superior izquierda, rgba(42,156,82,0.22), transparente 28%),
-        gradiente-lineal(90deg, var(--azul-profundo), var(--azul-acmi-2));
-      color:blanco;
-      alineación de texto:centro;
-      relleno: 32px 18px;
-      margen superior: 10px;
+    footer{
+      background:
+        radial-gradient(circle at top left, rgba(42,156,82,0.22), transparent 28%),
+        linear-gradient(90deg, var(--azul-profundo), var(--azul-acmi-2));
+      color:white;
+      text-align:center;
+      padding:32px 18px;
+      margin-top:10px;
     }
 
-    pie de página p{
-      margen:4px 0;
-      peso de fuente: 600;
+    footer p{
+      margin:4px 0;
+      font-weight:600;
     }
 
     /* ==============================
-       SENSIBLE
+       RESPONSIVE
        ============================== */
 
     @media(max-width:1180px){
@@ -2384,573 +2320,573 @@
         grid-template-columns:repeat(2, 1fr);
       }
 
-      .encabezado-principal{
+      .main-header{
         flex-direction:column;
-        alinear-elementos:centro;
+        align-items:center;
       }
 
-      navegación ul{
-        justificar-contenido:centro;
+      nav ul{
+        justify-content:center;
       }
     }
 
     @media(max-width:980px){
-      .recipiente{
-        relleno: 0 34px;
+      .container{
+        padding:0 34px;
       }
 
-      .héroe h2{
-        tamaño de fuente: 44px;
+      .hero h2{
+        font-size:44px;
       }
 
-      .héroe p{
-        tamaño de fuente: 20px;
+      .hero p{
+        font-size:20px;
       }
 
       .org-grid{
-        columnas-de-plantilla-de-cuadrícula:1fr;
-        ancho máximo: 760px;
+        grid-template-columns:1fr;
+        max-width:760px;
       }
 
       .evento-card-contenido-proximos,
       .evento-card-contenido-repositorio{
-        columnas-de-plantilla-de-cuadrícula:1fr;
+        grid-template-columns:1fr;
       }
 
       .proximo-evento-info,
       .repositorio-home-texto{
-        alineación de texto:centro;
+        text-align:center;
       }
 
-      .eventos-acciones,
+      .eventos-actions,
       .repositorio-home-actions{
-        justificar-contenido:centro;
+        justify-content:center;
       }
 
-      .eventos-insignias{
-        alinear-elementos:centro;
+      .eventos-badges{
+        align-items:center;
       }
 
-      .insignia{
-        ancho:automático;
+      .badge{
+        width:auto;
       }
     }
 
     @media(max-width:720px){
       .topbar-content,
-      .barra-superior-izquierda,
-      .barra-superior-derecha{
-        justificar-contenido:centro;
-        alineación de texto:centro;
+      .topbar-left,
+      .topbar-right{
+        justify-content:center;
+        text-align:center;
       }
 
-      .recipiente{
-        relleno: 0 22px;
+      .container{
+        padding:0 22px;
       }
 
-      .marca{
+      .brand{
         flex-direction:column;
-        alineación de texto:centro;
+        text-align:center;
       }
 
-      navegación ul{
-        espacio: 6px;
+      nav ul{
+        gap:6px;
       }
 
-      navegación a{
-        tamaño de fuente: 13px;
-        relleno: 9px 10px;
+      nav a{
+        font-size:13px;
+        padding:9px 10px;
       }
 
-      .menú desplegable,
-      .submenú-menú{
-        posición:estática;
-        ancho mínimo: 100%;
-        sombra de caja: ninguna;
-        borde:1px sólido #e3eaf3;
-        margen superior: 8px;
+      .dropdown-menu,
+      .submenu-menu{
+        position:static;
+        min-width:100%;
+        box-shadow:none;
+        border:1px solid #e3eaf3;
+        margin-top:8px;
       }
 
-      .submenú-menú{
-        margen izquierdo:0;
+      .submenu-menu{
+        margin-left:0;
       }
 
-      .héroe{
-        altura mínima: 56vh;
+      .hero{
+        min-height:56vh;
       }
 
       .hero-content{
-        relleno: 68px 0;
+        padding:68px 0;
       }
 
-      .sección{
-        relleno: 70px 0;
+      .section{
+        padding:70px 0;
       }
 
-      sección{
-        margen de desplazamiento superior: 180px;
+      section{
+        scroll-margin-top:180px;
       }
 
-      .cuadrícula-tarjetas,
-      .revista-contenido,
+      .cards-grid,
+      .magazine-contenido,
       .repositorio-mini-grid{
-        columnas-de-plantilla-de-cuadrícula:1fr;
+        grid-template-columns:1fr;
       }
 
-      .tarjeta{
-        relleno: 28px 22px;
-        radio de borde: 26px;
+      .card{
+        padding:28px 22px;
+        border-radius:26px;
       }
 
       .evento-card-grande{
-        radio de borde: 26px;
-        margen inferior: 40px;
+        border-radius:26px;
+        margin-bottom:40px;
       }
 
-      .encabezado-tarjeta-evento{
-        relleno: 38px 24px 20px 24px;
+      .evento-card-header{
+        padding:38px 24px 20px 24px;
       }
 
       .evento-card-contenido{
-        relleno: 18px 24px 32px 24px;
+        padding:18px 24px 32px 24px;
       }
 
-      .próximo-evento-decoracion{
-        altura mínima: 230px;
+      .proximo-evento-decoracion{
+        min-height:230px;
       }
 
       .decoracion-circulo{
-        ancho:140px;
-        altura: 140px;
-        tamaño de fuente: 30px;
+        width:140px;
+        height:140px;
+        font-size:30px;
       }
 
       .patrocinador-card{
-        relleno: 16px;
-        radio de borde: 18px;
+        padding:16px;
+        border-radius:18px;
       }
     }
 
     /* ==========================================================
        CORRECCIONES FINALES RESPONSIVE: TOPBAR, HEADER Y EVENTO
-       =========================================================== */
+       ========================================================== */
 
     html,
-    cuerpo{
-      ancho:100%;
-      ancho máximo: 100%;
-      desbordamiento-x:oculto;
+    body{
+      width:100%;
+      max-width:100%;
+      overflow-x:hidden;
     }
 
     *,
-    *::antes,
-    *::después{
-      ancho mínimo: 0;
+    *::before,
+    *::after{
+      min-width:0;
     }
 
-    imagen,
+    img,
     video,
     iframe{
-      ancho máximo: 100%;
+      max-width:100%;
     }
 
-    .barra superior,
-    encabezamiento,
-    principal,
-    sección,
-    pie de página{
-      ancho:100%;
-      ancho máximo: 100%;
+    .topbar,
+    header,
+    main,
+    section,
+    footer{
+      width:100%;
+      max-width:100%;
     }
 
     .congreso-lugar{
-      pantalla:flex;
-      alinear-elementos:flex-start;
-      espacio: 11px;
-      ancho:100%;
-      ancho máximo: 580px;
-      relleno: 14px 16px;
-      margen:0 0 20px;
-      radio de borde: 17px;
-      fondo:rgba(20,63,125,0.06);
-      borde:1px sólido rgba(20,63,125,0.10);
+      display:flex;
+      align-items:flex-start;
+      gap:11px;
+      width:100%;
+      max-width:580px;
+      padding:14px 16px;
+      margin:0 0 20px;
+      border-radius:17px;
+      background:rgba(20,63,125,0.06);
+      border:1px solid rgba(20,63,125,0.10);
       color:var(--azul-acmi);
     }
 
     .congreso-lugar-icono{
-      flex:0 0 automático;
-      tamaño de fuente: 23px;
-      interlineado: 1,2;
+      flex:0 0 auto;
+      font-size:23px;
+      line-height:1.2;
     }
 
-    .congreso-lugar fuerte,
+    .congreso-lugar strong,
     .congreso-lugar span{
-      mostrar:bloque;
+      display:block;
     }
 
-    .congreso-lugar fuerte{
-      tamaño de fuente: 15px;
-      peso de fuente: 900;
+    .congreso-lugar strong{
+      font-size:15px;
+      font-weight:900;
     }
 
     .congreso-lugar div > span{
-      margen superior: 4px;
+      margin-top:4px;
       color:#52667d;
-      tamaño de fuente: 13px;
-      interlineado: 1,45;
-      peso de fuente: 600;
+      font-size:13px;
+      line-height:1.45;
+      font-weight:600;
     }
 
     .congreso-acciones{
-      mostrar:cuadrícula;
+      display:grid;
       grid-template-columns:repeat(2, minmax(0,1fr));
-      espacio: 12px;
-      ancho:100%;
-      ancho máximo: 600px;
-      margen superior: 22px;
+      gap:12px;
+      width:100%;
+      max-width:600px;
+      margin-top:22px;
     }
 
     .congreso-acciones .btn{
-      ancho:100%;
-      altura mínima: 52px;
-      relleno: 12px 14px;
-      alineación de texto:centro;
-      interlineado: 1,25;
-      espacio en blanco:normal;
+      width:100%;
+      min-height:52px;
+      padding:12px 14px;
+      text-align:center;
+      line-height:1.25;
+      white-space:normal;
     }
 
     .congreso-btn-inscripcion{
-      fondo:gradiente lineal(135deg,var(--verde-acmi),#35b862);
-      color:blanco;
+      background:linear-gradient(135deg,var(--verde-acmi),#35b862);
+      color:white;
     }
 
     .congreso-btn-programa{
-      fondo:linear-gradient(135deg,var(--azul-acmi),var(--azul-acmi-2));
-      color:blanco;
+      background:linear-gradient(135deg,var(--azul-acmi),var(--azul-acmi-2));
+      color:white;
     }
 
     .congreso-btn-poster{
-      fondo:gradiente-lineal(135deg,#6b46c1,#805ad5);
-      color:blanco;
+      background:linear-gradient(135deg,#6b46c1,#805ad5);
+      color:white;
     }
 
     .congreso-btn-afiche{
-      fondo:blanco;
+      background:white;
       color:var(--azul-acmi);
-      borde:1px sólido rgba(20,63,125,0.16);
+      border:1px solid rgba(20,63,125,0.16);
     }
 
     .congreso-btn-gps{
-      columna de cuadrícula:1 / -1;
-      fondo:#eef7f1;
+      grid-column:1 / -1;
+      background:#eef7f1;
       color:var(--verde-acmi);
-      borde:1px sólido rgba(42,156,82,0.24);
+      border:1px solid rgba(42,156,82,0.24);
     }
 
     .congreso-afiche{
-      mostrar:bloque;
-      ancho:100%;
-      altura:automática;
-      altura máxima: 720px;
-      objeto-ajustar:contener;
-      radio de borde: 18px;
+      display:block;
+      width:100%;
+      height:auto;
+      max-height:720px;
+      object-fit:contain;
+      border-radius:18px;
     }
 
     @media(max-width:1100px){
-      .encabezado-principal{
+      .main-header{
         flex-direction:column;
-        alinear-elementos:estirar;
+        align-items:stretch;
       }
 
-      .marca{
-        justificar-contenido:centro;
+      .brand{
+        justify-content:center;
       }
 
-      navegación,
-      navegación ul{
-        ancho:100%;
+      nav,
+      nav ul{
+        width:100%;
       }
 
-      navegación ul{
-        justificar-contenido:centro;
+      nav ul{
+        justify-content:center;
         flex-wrap:wrap;
       }
 
       .evento-card-contenido-proximos,
       .evento-card-contenido-repositorio{
-        columnas-de-plantilla-de-cuadrícula:1fr;
+        grid-template-columns:1fr;
       }
     }
 
     @media(max-width:768px){
-      .recipiente{
-        ancho:100%;
-        ancho máximo: 100%;
-        relleno-izquierdo:14px;
-        relleno derecho: 14px;
+      .container{
+        width:100%;
+        max-width:100%;
+        padding-left:14px;
+        padding-right:14px;
       }
 
-      .barra superior{
-        relleno: 8px 0;
-        tamaño de fuente: 11px;
+      .topbar{
+        padding:8px 0;
+        font-size:11px;
       }
 
       .topbar-content{
-        mostrar:cuadrícula;
-        columnas-de-plantilla-de-cuadrícula:1fr;
-        espacio: 7px;
+        display:grid;
+        grid-template-columns:1fr;
+        gap:7px;
       }
 
-      .barra-superior-izquierda,
-      .barra-superior-derecha{
-        mostrar:cuadrícula;
-        columnas-de-plantilla-de-cuadrícula:repetir(2,minmax(0,1fr));
-        ancho:100%;
-        espacio: 5px;
+      .topbar-left,
+      .topbar-right{
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        width:100%;
+        gap:5px;
       }
 
-      .barra superior a{
-        pantalla:flex;
-        alinear-elementos:centro;
-        justificar-contenido:centro;
-        ancho:100%;
-        altura mínima: 34px;
-        relleno: 5px;
-        radio de borde: 8px;
-        alineación de texto:centro;
-        interlineado: 1,2;
-        espacio en blanco:normal;
+      .topbar a{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:100%;
+        min-height:34px;
+        padding:5px;
+        border-radius:8px;
+        text-align:center;
+        line-height:1.2;
+        white-space:normal;
         overflow-wrap:anywhere;
       }
 
-      encabezamiento{
-        posición:relativa;
+      header{
+        position:relative;
       }
 
-      .encabezado-principal{
-        pantalla:flex;
+      .main-header{
+        display:flex;
         flex-direction:column;
-        alinear-elementos:estirar;
-        ancho:100%;
-        espacio: 12px;
-        relleno: 10px 0 14px;
+        align-items:stretch;
+        width:100%;
+        gap:12px;
+        padding:10px 0 14px;
       }
 
-      .marca{
-        flex-direction:fila;
-        ancho:100%;
-        ancho mínimo: 0;
-        espacio: 10px;
-        justificar-contenido:centro;
-        alineación de texto:izquierda;
+      .brand{
+        flex-direction:row;
+        width:100%;
+        min-width:0;
+        gap:10px;
+        justify-content:center;
+        text-align:left;
       }
 
-      .logotipo-de-marca{
-        ancho: 54px;
-        altura: 54px;
+      .brand-logo{
+        width:54px;
+        height:54px;
         flex:0 0 54px;
       }
 
       .brand-text h1{
-        tamaño de fuente: 21px;
+        font-size:21px;
         overflow-wrap:anywhere;
       }
 
-      .texto-de-marca p{
-        tamaño de fuente: 11px;
-        interlineado: 1,3;
+      .brand-text p{
+        font-size:11px;
+        line-height:1.3;
         overflow-wrap:anywhere;
       }
 
-      navegación,
-      navegación ul{
-        ancho:100%;
-        ancho máximo: 100%;
+      nav,
+      nav ul{
+        width:100%;
+        max-width:100%;
       }
 
-      navegación ul{
-        mostrar:cuadrícula;
-        columnas-de-plantilla-de-cuadrícula:repetir(2,minmax(0,1fr));
-        espacio: 6px;
-        relleno:0;
-        margen:0;
+      nav ul{
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:6px;
+        padding:0;
+        margin:0;
       }
 
       nav li{
-        ancho:100%;
+        width:100%;
       }
 
-      navegación a{
-        pantalla:flex;
-        alinear-elementos:centro;
-        justificar-contenido:centro;
-        ancho:100%;
-        altura mínima: 44px;
-        relleno: 7px 5px;
-        radio de borde: 11px;
-        fondo:#f3f7fb;
-        tamaño de fuente: 11px;
-        interlineado: 1,2;
-        alineación de texto:centro;
-        espacio en blanco:normal;
+      nav a{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:100%;
+        min-height:44px;
+        padding:7px 5px;
+        border-radius:11px;
+        background:#f3f7fb;
+        font-size:11px;
+        line-height:1.2;
+        text-align:center;
+        white-space:normal;
         overflow-wrap:anywhere;
       }
 
-      .menú desplegable,
-      .submenú-menú{
-        posición:estática;
-        ancho:100%;
-        ancho mínimo: 0;
-        ancho máximo: 100%;
-        margen:6px 0 0;
-        relleno: 6px;
-        sombra de caja: ninguna;
+      .dropdown-menu,
+      .submenu-menu{
+        position:static;
+        width:100%;
+        min-width:0;
+        max-width:100%;
+        margin:6px 0 0;
+        padding:6px;
+        box-shadow:none;
       }
 
       .dropdown:hover > .dropdown-menu,
       .dropdown:focus-within > .dropdown-menu,
       .submenu:hover > .submenu-menu,
       .submenu:focus-within > .submenu-menu{
-        mostrar:bloque;
+        display:block;
       }
 
-      .menú desplegable > a,
-      .menú desplegable .submenú > a,
-      .submenú-menú a{
-        ancho:100%;
-        relleno: 9px 6px;
-        tamaño de fuente: 11px;
-        interlineado: 1,25;
-        alineación de texto:centro;
-        espacio en blanco:normal;
+      .dropdown-menu > a,
+      .dropdown-menu .submenu > a,
+      .submenu-menu a{
+        width:100%;
+        padding:9px 6px;
+        font-size:11px;
+        line-height:1.25;
+        text-align:center;
+        white-space:normal;
         overflow-wrap:anywhere;
       }
 
-      .héroe{
-        ancho:100%;
-        altura mínima:automática;
+      .hero{
+        width:100%;
+        min-height:auto;
       }
 
       .hero-content{
-        ancho:100%;
-        ancho máximo: 100%;
-        relleno: 58px 16px;
+        width:100%;
+        max-width:100%;
+        padding:58px 16px;
       }
 
-      .héroe h2{
-        tamaño de fuente:clamp(34px,11vw,48px);
-        espaciado entre letras: -0,045em;
+      .hero h2{
+        font-size:clamp(34px,11vw,48px);
+        letter-spacing:-0.045em;
         overflow-wrap:anywhere;
       }
 
-      .héroe p{
-        tamaño de fuente: 17px;
-        interlineado: 1,55;
+      .hero p{
+        font-size:17px;
+        line-height:1.55;
       }
 
-      .sección{
-        ancho:100%;
-        relleno: 62px 0;
+      .section{
+        width:100%;
+        padding:62px 0;
       }
 
-      .tarjeta,
+      .card,
       .evento-card-grande{
-        ancho:100%;
-        ancho máximo: 100%;
+        width:100%;
+        max-width:100%;
       }
 
-      .encabezado-tarjeta-evento{
-        relleno: 34px 16px 18px;
+      .evento-card-header{
+        padding:34px 16px 18px;
       }
 
       .evento-card-contenido{
-        relleno: 18px 14px 28px;
+        padding:18px 14px 28px;
       }
 
       .evento-card-contenido-proximos,
       .evento-card-contenido-repositorio{
-        mostrar:cuadrícula;
-        columnas-de-plantilla-de-cuadrícula:1fr;
-        espacio: 24px;
+        display:grid;
+        grid-template-columns:1fr;
+        gap:24px;
       }
 
       .proximo-evento-info,
       .repositorio-home-texto{
-        ancho:100%;
-        alineación de texto:centro;
+        width:100%;
+        text-align:center;
       }
 
-      .eventos-insignias{
-        alinear-elementos:estirar;
-        ancho:100%;
+      .eventos-badges{
+        align-items:stretch;
+        width:100%;
       }
 
-      .insignia{
-        ancho:100%;
-        ancho máximo: 100%;
-        radio de borde: 14px;
-        alineación de texto:centro;
-        espacio en blanco:normal;
+      .badge{
+        width:100%;
+        max-width:100%;
+        border-radius:14px;
+        text-align:center;
+        white-space:normal;
         overflow-wrap:anywhere;
       }
 
       .congreso-lugar{
-        ancho máximo: 100%;
-        alineación de texto:izquierda;
+        max-width:100%;
+        text-align:left;
       }
 
       .congreso-acciones{
-        columnas-de-plantilla-de-cuadrícula:1fr;
-        ancho máximo: 100%;
+        grid-template-columns:1fr;
+        max-width:100%;
       }
 
       .congreso-btn-gps{
-        columna de cuadrícula:automático;
+        grid-column:auto;
       }
 
-      .próximo-evento-decoracion{
-        ancho:100%;
-        altura mínima:automática;
-        relleno: 9px;
+      .proximo-evento-decoracion{
+        width:100%;
+        min-height:auto;
+        padding:9px;
       }
 
       .congreso-afiche{
-        altura máxima: ninguna;
-        radio de borde: 13px;
+        max-height:none;
+        border-radius:13px;
       }
 
-      .cuadrícula-tarjetas,
+      .cards-grid,
       .org-grid,
-      .revista-contenido,
+      .magazine-contenido,
       .repositorio-mini-grid{
-        columnas-de-plantilla-de-cuadrícula:1fr;
+        grid-template-columns:1fr;
       }
     }
 
     /* ==========================================================
-       EXPERIENCIA MÃ“VIL MODERNA
-       =========================================================== */
+       EXPERIENCIA MÓVIL MODERNA
+       ========================================================== */
 
     .menu-toggle{
-      mostrar:ninguno;
-      ancho: 46px;
-      altura: 46px;
-      relleno: 11px;
-      borde:0;
-      radio de borde: 14px;
-      fondo:linear-gradient(135deg,var(--azul-acmi),var(--azul-acmi-2));
+      display:none;
+      width:46px;
+      height:46px;
+      padding:11px;
+      border:0;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--azul-acmi),var(--azul-acmi-2));
       box-shadow:0 12px 24px rgba(8,40,79,.18);
-      cursor:puntero;
+      cursor:pointer;
     }
 
     .menu-toggle span{
-      mostrar:bloque;
-      ancho:100%;
-      altura: 2px;
-      margen:5px 0;
-      radio de borde: 999px;
-      fondo:blanco;
-      transición:transformación .28s de facilidad,opacidad .2s de facilidad;
+      display:block;
+      width:100%;
+      height:2px;
+      margin:5px 0;
+      border-radius:999px;
+      background:white;
+      transition:transform .28s ease,opacity .2s ease;
     }
 
     .menu-toggle.is-active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -2959,158 +2895,158 @@
 
     @media(max-width:768px){
       .topbar-content{
-        mostrar:bloque;
-        desbordamiento-x:automático;
-        ancho de la barra de desplazamiento: ninguno;
+        display:block;
+        overflow-x:auto;
+        scrollbar-width:none;
       }
 
       .topbar-content::-webkit-scrollbar{display:none}
 
-      .barra-superior-izquierda,
-      .barra-superior-derecha{
-        pantalla:flex;
+      .topbar-left,
+      .topbar-right{
+        display:flex;
         flex-wrap:nowrap;
-        ancho:max-content;
-        espacio: 7px;
+        width:max-content;
+        gap:7px;
       }
 
       .topbar-left{display:inline-flex;margin-right:7px}
       .topbar-right{display:inline-flex}
 
-      .barra superior a{
-        ancho:automático;
-        altura mínima: 34px;
-        relleno: 7px 12px;
-        borde:1px sólido rgba(255,255,255,.12);
-        radio de borde: 999px;
-        fondo:rgba(255,255,255,.07);
-        espacio en blanco:nowrap;
-        tamaño de fuente: 11px;
+      .topbar a{
+        width:auto;
+        min-height:34px;
+        padding:7px 12px;
+        border:1px solid rgba(255,255,255,.12);
+        border-radius:999px;
+        background:rgba(255,255,255,.07);
+        white-space:nowrap;
+        font-size:11px;
       }
 
-      encabezamiento{
-        posición:pegajosa;
-        arriba:0;
-        fondo:rgba(255,255,255,.94);
+      header{
+        position:sticky;
+        top:0;
+        background:rgba(255,255,255,.94);
       }
 
-      .encabezado-principal{
-        mostrar:cuadrícula;
+      .main-header{
+        display:grid;
         grid-template-columns:minmax(0,1fr) 46px;
-        alinear-elementos:centro;
-        espacio: 10px;
-        relleno: 10px 0;
+        align-items:center;
+        gap:10px;
+        padding:10px 0;
       }
 
-      .marca{
-        justificar-contenido:flex-start;
+      .brand{
+        justify-content:flex-start;
       }
 
       .menu-toggle{
-        mostrar:bloque;
+        display:block;
       }
 
-      #navegación-principal{
-        mostrar:ninguno;
-        columna de cuadrícula:1 / -1;
-        ancho:100%;
-        relleno: 8px 0 2px;
-        animación:mobileMenuEn .32s facilita ambos;
+      #navegacion-principal{
+        display:none;
+        grid-column:1 / -1;
+        width:100%;
+        padding:8px 0 2px;
+        animation:mobileMenuIn .32s ease both;
       }
 
-      #navegacion-principal.está-abierta{display:block}
+      #navegacion-principal.is-open{display:block}
 
-      #navegación-principal ul{
-        mostrar:cuadrícula;
-        columnas-de-plantilla-de-cuadrícula:1fr;
-        espacio: 7px;
+      #navegacion-principal ul{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:7px;
       }
 
       #navegacion-principal > ul > li > a{
-        altura mínima: 46px;
-        justificar-contenido:flex-start;
-        relleno: 11px 14px;
-        borde:1px sólido rgba(20,63,125,.08);
-        radio de borde: 14px;
-        fondo:gradiente-lineal(180 grados,#fff,#f6f9fc);
+        min-height:46px;
+        justify-content:flex-start;
+        padding:11px 14px;
+        border:1px solid rgba(20,63,125,.08);
+        border-radius:14px;
+        background:linear-gradient(180deg,#fff,#f6f9fc);
         box-shadow:0 8px 18px rgba(8,40,79,.06);
-        tamaño de fuente: 13px;
-        alineación de texto:izquierda;
+        font-size:13px;
+        text-align:left;
       }
 
-      .menú desplegable,
-      .submenú-menú{
-        mostrar:ninguno !importante;
-        margen:7px 0 0 12px;
-        ancho:calc(100% - 12px);
-        borde:0;
-        borde izquierdo: 3px solid var(--verde-acmi);
-        radio de borde: 0 14px 14px 0;
-        fondo:#f3f8f5;
-        sombra de caja: ninguna;
+      .dropdown-menu,
+      .submenu-menu{
+        display:none !important;
+        margin:7px 0 0 12px;
+        width:calc(100% - 12px);
+        border:0;
+        border-left:3px solid var(--verde-acmi);
+        border-radius:0 14px 14px 0;
+        background:#f3f8f5;
+        box-shadow:none;
       }
 
       .dropdown.open > .dropdown-menu,
       .submenu.open > .submenu-menu{
-        mostrar:bloquear !importante;
-        animación:submenúEn .28s suavizar ambos;
+        display:block !important;
+        animation:submenuIn .28s ease both;
       }
 
-      .menú desplegable > a,
-      .menú desplegable .submenú > a,
-      .submenú-menú a{
-        justificar-contenido:flex-start;
-        altura mínima: 42px;
-        alineación de texto:izquierda;
-        fondo:transparente;
-        borde:0;
+      .dropdown-menu > a,
+      .dropdown-menu .submenu > a,
+      .submenu-menu a{
+        justify-content:flex-start;
+        min-height:42px;
+        text-align:left;
+        background:transparent;
+        border:0;
       }
 
       .hero-content{
-        relleno: 64px 20px 72px;
+        padding:64px 20px 72px;
       }
 
-      .héroe-insignia{
-        animación:softFloat 3.6s ease-in-out infinito;
+      .hero-badge{
+        animation:softFloat 3.6s ease-in-out infinite;
       }
 
-      .héroe h2{
+      .hero h2{
         font-size:clamp(40px,12vw,58px);
-        interlineado: 0,98;
+        line-height:.98;
       }
 
-      .acciones-de-héroe{
-        mostrar:cuadrícula;
-        columnas-de-plantilla-de-cuadrícula:1fr;
+      .hero-actions{
+        display:grid;
+        grid-template-columns:1fr;
       }
 
-      .acciones-de-héroe .btn{
-        ancho:100%;
+      .hero-actions .btn{
+        width:100%;
       }
 
       .evento-card-grande,
-      .tarjeta,
-      .mini-tarjeta,
+      .card,
+      .mini-card,
       .org-card{
-        radio de borde: 22px;
+        border-radius:22px;
         box-shadow:0 18px 45px rgba(8,40,79,.11);
       }
 
       .congreso-acciones .btn{
-        altura mínima: 54px;
-        radio de borde: 16px;
+        min-height:54px;
+        border-radius:16px;
         box-shadow:0 10px 24px rgba(8,40,79,.10);
       }
     }
 
     @keyframes mobileMenuIn{
-      desde{opacidad:0;transformación:translateY(-10px)}
-      a{opacidad:1;transformación:translateY(0)}
+      from{opacity:0;transform:translateY(-10px)}
+      to{opacity:1;transform:translateY(0)}
     }
 
     @keyframes submenuIn{
-      desde{opacidad:0;transformación:translateX(-8px)}
-      a{opacidad:1;transformación:translateX(0)}
+      from{opacity:0;transform:translateX(-8px)}
+      to{opacity:1;transform:translateX(0)}
     }
 
     @keyframes softFloat{
@@ -3119,265 +3055,265 @@
     }
 
     /* ==========================================================
-       DISEÃ'O HÃ BRIDO ACMI 2026
+       DISEÑO HÍBRIDO ACMI 2026
        Amplitud institucional + portal científico editorial
-       =========================================================== */
+       ========================================================== */
 
-    :raíz{
+    :root{
       --ancho:1720px;
       --ancho-lectura:1280px;
       --borde-ui:1px solid rgba(20,63,125,.10);
       --fondo-claro:#f5f8fc;
     }
 
-    cuerpo{
-      fondo:#fff;
-      tamaño de fuente: 16px;
+    body{
+      background:#fff;
+      font-size:16px;
     }
 
     h1,h2,h3,h4,
-    .texto-de-marca h1,
-    .título-de-sección,
-    .encabezado-tarjeta-evento h3{
+    .brand-text h1,
+    .section-title,
+    .evento-card-header h3{
       font-family:'Poppins',sans-serif;
     }
 
-    .recipiente{
-      ancho:100%;
-      ancho-máximo:var(--ancho);
-      relleno en línea:clamp(22px,4vw,74px);
+    .container{
+      width:100%;
+      max-width:var(--ancho);
+      padding-inline:clamp(22px,4vw,74px);
     }
 
-    .barra superior{
-      relleno: 8px 0;
-      fondo:linear-gradient(90deg,#061d39,#0f3569 58%,#174a88);
+    .topbar{
+      padding:8px 0;
+      background:linear-gradient(90deg,#061d39,#0f3569 58%,#174a88);
     }
 
-    encabezamiento{
-      fondo:rgba(255,255,255,.96);
-      borde superior: 4px sólido var(--azul-acmi);
-      borde-inferior:var(--borde-ui);
+    header{
+      background:rgba(255,255,255,.96);
+      border-top:4px solid var(--azul-acmi);
+      border-bottom:var(--borde-ui);
       box-shadow:0 10px 30px rgba(8,40,79,.07);
     }
 
-    .encabezado-principal{
-      altura mínima: 94px;
-      espacio:clamp(18px,3vw,50px);
+    .main-header{
+      min-height:94px;
+      gap:clamp(18px,3vw,50px);
     }
 
-    .marca{
-      ancho mínimo: 310px;
+    .brand{
+      min-width:310px;
     }
 
-    .logotipo-de-marca{
-      ancho: 68px;
-      altura: 68px;
+    .brand-logo{
+      width:68px;
+      height:68px;
       box-shadow:0 10px 24px rgba(8,40,79,.11);
     }
 
     .brand-text h1{
       font-size:clamp(24px,2vw,31px);
-      espaciado entre letras: -0,045em;
+      letter-spacing:-.045em;
     }
 
-    navegación ul{gap:4px}
-    navegación a{padding:10px 11px;font-size:14px}
+    nav ul{gap:4px}
+    nav a{padding:10px 11px;font-size:14px}
 
-    navegación a:focus-visible,
+    nav a:focus-visible,
     .btn:focus-visible,
-    .tarjeta-portal:enfoque-visible,
+    .portal-card:focus-visible,
     .topbar a:focus-visible{
-      contorno:3px sólido rgba(42,156,82,.42);
-      contorno-desplazamiento:3px;
+      outline:3px solid rgba(42,156,82,.42);
+      outline-offset:3px;
     }
 
-    .héroe{
-      altura mínima:clamp(570px,68vh,760px);
-      mostrar:cuadrícula;
-      colocar-elementos:centro;
-      fondo:
-        gradiente radial(círculo al 83% 18%,rgba(126,212,154,.34),transparente 28%),
-        gradiente radial(círculo al 12% 86%,rgba(255,255,255,.14),transparente 27%),
-        gradiente-lineal(118 grados,#08284f 0%,#174a88 52%,#4ba67c 100%);
+    .hero{
+      min-height:clamp(570px,68vh,760px);
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(circle at 83% 18%,rgba(126,212,154,.34),transparent 28%),
+        radial-gradient(circle at 12% 86%,rgba(255,255,255,.14),transparent 27%),
+        linear-gradient(118deg,#08284f 0%,#174a88 52%,#4ba67c 100%);
     }
 
     .hero-content{
-      ancho:min(1380px,calc(100% - 44px));
-      relleno:clamp(88px,10vh,130px) 0;
+      width:min(1380px,calc(100% - 44px));
+      padding:clamp(88px,10vh,130px) 0;
     }
 
-    .héroe h2{
-      ancho máximo: 1120px;
-      margen en línea:automático;
+    .hero h2{
+      max-width:1120px;
+      margin-inline:auto;
       font-family:'Poppins',sans-serif;
       font-size:clamp(50px,6vw,88px);
-      interlineado: 0,98;
-      espaciado entre letras: -0,065em;
+      line-height:.98;
+      letter-spacing:-.065em;
     }
 
-    .héroe p{
-      ancho máximo: 1120px;
+    .hero p{
+      max-width:1120px;
       font-size:clamp(19px,1.65vw,25px);
-      interlineado: 1,62;
+      line-height:1.62;
     }
 
-    .acciones-de-héroe .btn{
-      altura mínima: 54px;
-      relleno: 14px 23px;
-      radio de borde: 14px;
+    .hero-actions .btn{
+      min-height:54px;
+      padding:14px 23px;
+      border-radius:14px;
     }
 
-    /* Portal visual: contenido principal + accesorios editoriales */
+    /* Portal visual: contenido principal + accesos editoriales */
 
     .portal-destacado{
-      posición:relativa;
-      índice z:4;
-      margen superior:-54px;
-      relleno inferior: 30px;
+      position:relative;
+      z-index:4;
+      margin-top:-54px;
+      padding-bottom:30px;
     }
 
     .portal-grid{
-      mostrar:cuadrícula;
+      display:grid;
       grid-template-columns:minmax(0,1.55fr) minmax(360px,.85fr);
-      espacio: 20px;
+      gap:20px;
     }
 
-    .tarjeta-portal{
-      posición:relativa;
-      desbordamiento:oculto;
-      pantalla:flex;
-      color:heredar;
-      fondo:#fff;
-      borde:var(--borde-ui);
-      radio de borde: 26px;
+    .portal-card{
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      color:inherit;
+      background:#fff;
+      border:var(--borde-ui);
+      border-radius:26px;
       box-shadow:0 22px 58px rgba(8,40,79,.16);
-      transición:transformación .28s de facilidad,box-shadow .28s de facilidad;
+      transition:transform .28s ease,box-shadow .28s ease;
     }
 
-    .tarjeta-portal:hover{
-      transformar:translateY(-6px);
+    .portal-card:hover{
+      transform:translateY(-6px);
       box-shadow:0 30px 66px rgba(8,40,79,.21);
     }
 
     .portal-card-principal{
-      altura mínima: 440px;
-      alinear-elementos:flex-end;
-      fondo:
-        gradiente-lineal(90 grados,rgba(5,28,56,.94) 0%,rgba(8,40,79,.76) 50%,rgba(8,40,79,.10) 100%),
-        url('{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg') centro 43% / portada sin repetición;
+      min-height:440px;
+      align-items:flex-end;
+      background:
+        linear-gradient(90deg,rgba(5,28,56,.94) 0%,rgba(8,40,79,.76) 50%,rgba(8,40,79,.10) 100%),
+        url('{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg') center 43% / cover no-repeat;
       color:#fff;
     }
 
     .portal-card-principal .portal-copy{
-      ancho máximo: 760px;
-      relleno:clamp(30px,4vw,58px);
+      max-width:760px;
+      padding:clamp(30px,4vw,58px);
     }
 
     .portal-eyebrow{
       display:inline-flex;
-      relleno: 8px 13px;
-      margen inferior: 17px;
-      radio de borde: 999px;
-      fondo:var(--verde-acmi);
+      padding:8px 13px;
+      margin-bottom:17px;
+      border-radius:999px;
+      background:var(--verde-acmi);
       color:#fff;
-      tamaño de fuente: 12px;
-      peso de fuente: 900;
-      espaciado entre letras: 0,08em;
-      transformación de texto: mayúsculas;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
     }
 
     .portal-copy h2{
-      margen:0 0 12px;
+      margin:0 0 12px;
       font-size:clamp(30px,3.2vw,52px);
-      interlineado: 1,03;
-      espaciado entre letras: -0,05em;
+      line-height:1.03;
+      letter-spacing:-.05em;
     }
 
     .portal-copy p{
-      ancho máximo: 690px;
-      margen:0 0 22px;
+      max-width:690px;
+      margin:0 0 22px;
       color:rgba(255,255,255,.9);
-      tamaño de fuente: 17px;
-      interlineado: 1,6;
+      font-size:17px;
+      line-height:1.6;
     }
 
     .portal-cta{
       display:inline-flex;
-      alinear-elementos:centro;
-      espacio: 10px;
-      relleno: 12px 18px;
-      radio de borde: 12px;
-      fondo:#fff;
+      align-items:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:12px;
+      background:#fff;
       color:var(--azul-acmi);
-      peso de fuente: 900;
+      font-weight:900;
     }
 
     .portal-secundarios{
-      mostrar:cuadrícula;
-      filas-de-plantilla-de-cuadrícula:repetir(3,1fr);
-      espacio: 14px;
+      display:grid;
+      grid-template-rows:repeat(3,1fr);
+      gap:14px;
     }
 
     .portal-card-secundaria{
-      altura mínima: 132px;
-      alinear-elementos:centro;
-      justificar-contenido:espacio-entre;
-      relleno: 22px 24px;
+      min-height:132px;
+      align-items:center;
+      justify-content:space-between;
+      padding:22px 24px;
     }
 
-    .portal-tarjeta-secundaria::después{
-      contenido:'â†'';
+    .portal-card-secundaria::after{
+      content:'→';
       flex:0 0 42px;
-      ancho: 42px;
-      altura: 42px;
-      mostrar:cuadrícula;
-      colocar-elementos:centro;
-      margen izquierdo: 18px;
-      radio de borde: 50%;
-      fondo:gradiente lineal(135deg,var(--verde-acmi),#35b862);
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      margin-left:18px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--verde-acmi),#35b862);
       color:#fff;
-      tamaño de fuente: 21px;
-      peso de fuente: 900;
+      font-size:21px;
+      font-weight:900;
     }
 
     .portal-card-secundaria h3{
-      margen inferior: 5px;
+      margin-bottom:5px;
       color:var(--azul-acmi);
       font-size:clamp(18px,1.4vw,23px);
-      interlineado: 1,2;
+      line-height:1.2;
     }
 
     .portal-card-secundaria p{
       color:var(--texto-suave);
-      tamaño de fuente: 14px;
-      interlineado: 1,45;
+      font-size:14px;
+      line-height:1.45;
     }
 
-    .sección{
-      relleno:clamp(80px,8vw,120px) 0;
+    .section{
+      padding:clamp(80px,8vw,120px) 0;
     }
 
-    #quienes,#eventos,#patrocinios,#contacto{fondo:var(--fondo-claro)}
+    #quienes,#eventos,#patrocinios,#contacto{background:var(--fondo-claro)}
     #organigrama,#foro{background:#fff}
 
     .section-title{
       font-size:clamp(38px,4.3vw,66px);
-      interlineado: 1,02;
-      espaciado entre letras: -0,055em;
+      line-height:1.02;
+      letter-spacing:-.055em;
     }
 
-    .subtítulo-de-sección{
-      ancho máximo: 1080px;
+    .section-subtitle{
+      max-width:1080px;
       font-size:clamp(17px,1.5vw,21px);
     }
 
-    .tarjeta,.mini-tarjeta,.org-tarjeta,.evento-tarjeta-grande,.patrocinador-tarjeta{
-      borde:var(--borde-ui);
+    .card,.mini-card,.org-card,.evento-card-grande,.patrocinador-card{
+      border:var(--borde-ui);
       box-shadow:0 16px 42px rgba(8,40,79,.09);
     }
 
     .card:hover,.mini-card:hover,.org-card:hover{
-      transformar:translateY(-5px);
+      transform:translateY(-5px);
       box-shadow:0 24px 54px rgba(8,40,79,.14);
     }
 
@@ -3386,16 +3322,16 @@
     .evento-card-grande{border-radius:30px}
 
     .patrocinador-card{
-      ancho:min(100%,1180px);
-      relleno:clamp(16px,2.4vw,34px);
+      width:min(100%,1180px);
+      padding:clamp(16px,2.4vw,34px);
     }
 
     .patrocinador-card img{
-      ancho:100%;
-      altura:automática;
-      altura máxima: ninguna;
-      objeto-ajustar:contener;
-      radio de borde: 16px;
+      width:100%;
+      height:auto;
+      max-height:none;
+      object-fit:contain;
+      border-radius:16px;
     }
 
     @media(max-width:1180px){
@@ -3408,7 +3344,7 @@
     @media(max-width:768px){
       :root{--ancho:100%;--ancho-lectura:100%}
       .container{padding-inline:16px}
-      encabezado{borde-superior-ancho:3px}
+      header{border-top-width:3px}
       .hero{min-height:auto}
       .hero-content{width:100%;padding:72px 18px 106px}
       .hero h2{font-size:clamp(42px,12.5vw,60px)}
@@ -3424,7 +3360,7 @@
   </style>
 </head>
 
-<cuerpo>
+<body>
 
   <div class="topbar">
     <div class="container topbar-content">
@@ -3444,7 +3380,7 @@
     </div>
   </div>
 
-  <encabezado>
+  <header>
     <div class="container main-header">
 
       <div class="brand">
@@ -3452,11 +3388,11 @@
 
         <div class="brand-text">
           <h1>ACMI Santander</h1>
-          <p>Asociación Colombiana de Medicina Interna â€¢ Capítulo Santander</p>
+          <p>Asociación Colombiana de Medicina Interna • Capítulo Santander</p>
         </div>
       </div>
 
-      <botón class="menu-toggle" type="botón" aria-label="Abrir menú" aria-expanded="false" aria-controls="navegacion-principal">
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navegacion-principal">
         <span></span><span></span><span></span>
       </button>
 
@@ -3467,12 +3403,12 @@
           <li><a href="{{ site.baseurl }}/#organigrama">Organigrama</a></li>
 
           <li class="dropdown">
-            <a href="{{ site.baseurl }}/#eventos">Eventos â–¾</a>
+            <a href="{{ site.baseurl }}/#eventos">Eventos ▾</a>
 
       <div class="dropdown-menu">
   <div class="submenu">
     <a href="{{ site.baseurl }}/#eventos">
-      Próximos eventos â–¸
+      Próximos eventos ▸
     </a>
 
     <div class="submenu-menu">
@@ -3483,7 +3419,7 @@
   </div>
               <div class="submenu">
                 <a href="{{ site.baseurl }}/repositorio-eventos/">
-                  Repositorio de eventos â–¸
+                  Repositorio de eventos ▸
                 </a>
 
                 <div class="submenu-menu">
@@ -3503,13 +3439,13 @@
 
           <li>
             <a href="{{ site.baseurl }}/proyeccion-social/">
-              Proyecto social
+              Proyección social
             </a>
           </li>
 
           <li>
             <a href="{{ site.baseurl }}/magazine/">
-              Revista
+              Magazine
             </a>
           </li>
 
@@ -3524,7 +3460,7 @@
     </div>
   </header>
 
-  <principal>
+  <main>
 
   <section class="hero" id="inicio">
     <div class="hero-content">
@@ -3534,7 +3470,7 @@
 
       <p>
         Capítulo regional de la Asociación Colombiana de Medicina Interna,
-        comprometidos con la educación médica continuada, la integración académica
+        comprometido con la educación médica continuada, la integración académica
         y el fortalecimiento científico de la medicina interna en Santander.
       </p>
 
@@ -3548,17 +3484,17 @@
 
   <section class="portal-destacado" aria-label="Contenidos destacados">
     <div class="container portal-grid">
-      <a class="tarjeta-portal tarjeta-portal-principal" href="{{ site.baseurl }}/congreso-acmi/#inicio">
+      <a class="portal-card portal-card-principal" href="{{ site.baseurl }}/congreso-acmi/#inicio">
         <div class="portal-copy">
           <span class="portal-eyebrow">Evento destacado</span>
           <h2>Congreso ACMI Bucaramanga 2026</h2>
           <p>30 y 31 de octubre en el Club Campestre de Bucaramanga. Ciencia, innovación y humanismo bajo el lema «Internistas que dejan huella».</p>
-          <span class="portal-cta">Conocer el congreso <span aria-hidden="true">â†'</span></span>
+          <span class="portal-cta">Conocer el congreso <span aria-hidden="true">→</span></span>
         </div>
       </a>
 
       <div class="portal-secundarios">
-        <a class="tarjeta-portal tarjeta-portal-secundaria" href="{{ site.baseurl }}/educacion-medica-continuada/">
+        <a class="portal-card portal-card-secundaria" href="{{ site.baseurl }}/educacion-medica-continuada/">
           <div>
             <h3>Educación médica</h3>
             <p>Actualización científica para la práctica clínica.</p>
@@ -3567,12 +3503,12 @@
 
         <a class="portal-card portal-card-secundaria" href="{{ site.baseurl }}/magazine/">
           <div>
-            <h3>Revista ACMI</h3>
+            <h3>Magazine ACMI</h3>
             <p>Artículos, análisis y producción académica.</p>
           </div>
         </a>
 
-        <a class="tarjeta-portal tarjeta-portal-secundaria" href="{{ site.baseurl }}/repositorio-eventos/">
+        <a class="portal-card portal-card-secundaria" href="{{ site.baseurl }}/repositorio-eventos/">
           <div>
             <h3>Repositorio de eventos</h3>
             <p>Memorias, certificados, fotografías y presentaciones.</p>
@@ -3584,24 +3520,24 @@
 
   <section class="section reveal" id="quienes">
     <div class="container">
-      <h2 class="section-title">QuiÃ©nes somos</h2>
+      <h2 class="section-title">Quiénes somos</h2>
 
       <p class="section-subtitle">
         ACMI Santander es el capítulo regional de la Asociación Colombiana de Medicina Interna,
-        comprometidos con la formación científica, la integración académica y el fortalecimiento
+        comprometido con la formación científica, la integración académica y el fortalecimiento
         del ejercicio profesional en medicina interna.
       </p>
 
       <div class="card about-block">
         <h3>Misión</h3>
         <p>
-          Promover el desarrollo científico, académico y profesional de la medicina interna.
+          Promover el desarrollo científico, académico y profesional de la medicina interna
           en Santander mediante programas de educación médica continuada, investigación clínica
-          y espacios de intercambio académico que fortalecen la práctica médica y la atención
+          y espacios de intercambio académico que fortalezcan la práctica médica y la atención
           de los pacientes.
         </p>
 
-        <h3>VisíÃ³n</h3>
+        <h3>Visión</h3>
         <p>
           Ser un referente regional y nacional en educación médica continuada, investigación clínica
           y liderazgo académico en medicina interna, contribuyendo al fortalecimiento de la comunidad
@@ -3618,7 +3554,7 @@
 
           <div class="mini-card reveal">
             <h4>Investigación</h4>
-            <p>Promotor de la investigación clínica y la producción científica en medicina interna.</p>
+            <p>Promover la investigación clínica y la producción científica en medicina interna.</p>
           </div>
 
           <div class="mini-card reveal">
@@ -3654,10 +3590,10 @@
           <p>Dr. Jaime Gómez</p>
           <p>Dr. Reynaldo Badillo</p>
           <p>Dra. Julieta Rueda</p>
-          <p>Dra. Sergio Andrés Lobo</p>
+          <p>Dr. Sergio Andrés Lobo</p>
           <p>Dr. Julio Oliveros</p>
           <p>Dr. Javier Fajardo</p>
-          <p>Dra. Edgar Gómez Lahitton</p>
+          <p>Dr. Edgar Gómez Lahitton</p>
           <p>Dra. Sandra Acevedo</p>
         </div>
 
@@ -3679,8 +3615,8 @@
         Actividades académicas, congresos, simposios y repositorio institucional de eventos de ACMI Santander.
       </p>
 
-      <div class="evento-card-grande evento-card-proximos revelación">
-        <div class="encabezado-tarjeta-evento">
+      <div class="evento-card-grande evento-card-proximos reveal">
+        <div class="evento-card-header">
           <span class="bloque-etiqueta">
             Agenda académica 2026
           </span>
@@ -3706,16 +3642,16 @@
     </p>
 
     <div class="eventos-badges">
-      <div class="badge">ðŸ“… 30 y 31 de octubre de 2026</div>
-      <div class="badge">ðŸ“ Club Campestre de Bucaramanga</div>
-      <div class="badge">ðŸ©º Medicina interna</div>
+      <div class="badge">📅 30 y 31 de octubre de 2026</div>
+      <div class="badge">📍 Club Campestre de Bucaramanga</div>
+      <div class="badge">🩺 Medicina interna</div>
     </div>
 
     <div class="congreso-lugar">
-      <span class="congreso-lugar-icono">ðŸ“ </span>
+      <span class="congreso-lugar-icono">📍</span>
       <div>
         <strong>Club Campestre de Bucaramanga</strong>
-        <span>Ocra. 21 #30-02, Floridablanca, Bucaramanga, Santander</span>
+        <span>Cra. 21 #30-02, Floridablanca, Bucaramanga, Santander</span>
       </div>
     </div>
 
@@ -3724,60 +3660,60 @@
   class="btn congreso-btn-inscripcion"
   href="https://acmisantander.com.co/congreso-acmi/#inicio"
 >
-  ðŸ“ Inscripción al evento
+  📝 Inscripción al evento
 </a>
 
 <a
   class="btn congreso-btn-inscripcion"
   href="https://stage.peewah.co/congreso-acmi-bucaramanga"
-  objetivo="_blank"
+  target="_blank"
   rel="noopener noreferrer"
 >
-  ðŸ”— Enlace de inscripción
+  🔗 Link de inscripción
 </a>
 
 <a
   class="btn congreso-btn-programa"
     href="{{ site.baseurl }}/PROGRAMA%20ACAD%C3%89MICO.pdf"
-    objetivo="_blank"
+    target="_blank"
     rel="noopener noreferrer"
   >
-    ðŸ“„ Programa académico
+    📄 Programa académico
   </a>
 
   <a
-    clase="btn congreso-btn-poster"
+    class="btn congreso-btn-poster"
     href="https://acmisantander.com.co/congreso-acmi/recepcion-ponencias-posters/"
-    objetivo="_blank"
+    target="_blank"
     rel="noopener noreferrer"
   >
-    ðŸ“Š Enviar pÃ³ster
+    📊 Enviar póster
   </a>
 
   <a
     class="btn congreso-btn-afiche"
     href="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg"
-    objetivo="_blank"
+    target="_blank"
     rel="noopener noreferrer"
   >
-    ðŸ' ï¸ Ver ficha
+    👁️ Ver afiche
   </a>
 
   <a
     class="btn congreso-btn-descarga"
     href="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg"
-    descargar="Afiche-Congreso-ACMI-Bucaramanga-2026.jpg"
+    download="Afiche-Congreso-ACMI-Bucaramanga-2026.jpg"
   >
-    ðŸ“¥ Descargar ficha
+    📥 Descargar afiche
   </a>
 
   <a
-    clase="btn congreso-btn-gps"
+    class="btn congreso-btn-gps"
     href="https://www.google.com/maps/dir/?api=1&destination=Club+Campestre+de+Bucaramanga%2C+Cra.+21+%2330-02%2C+Floridablanca%2C+Santander"
-    objetivo="_blank"
+    target="_blank"
     rel="noopener noreferrer"
   >
-    ðŸ“ Cómo llegar al Club Campestre
+    📍 Cómo llegar al Club Campestre
   </a>
 </div>
 
@@ -3785,15 +3721,15 @@
 
 <div class="proximo-evento-decoracion">
   <img
-    clase="congreso-afiche"
+    class="congreso-afiche"
     src="{{ site.baseurl }}/ACMI%20CONGRESO%20BUCARAMANGA.jpg"
-    alt="Ficha oficial del Congreso ACMI Bucaramanga 2026"
-    cargando="perezoso"
+    alt="Afiche oficial del Congreso ACMI Bucaramanga 2026"
+    loading="lazy"
   >
 </div>
 
 </div>
-</div> <div class="evento-card-grande evento-card-repositorio revelación">
+</div>   <div class="evento-card-grande evento-card-repositorio reveal">
   <div class="evento-card-header evento-card-header-repositorio">
     <span class="bloque-etiqueta bloque-etiqueta-azul">
       Archivo académico institucional
@@ -3846,7 +3782,7 @@
 
         <a class="btn btn-light"
            href="{{ site.baseurl }}/repositorio-eventos/#afiches">
-          Ver fichas
+          Ver afiches
         </a>
       </div>
     </div>
@@ -3854,25 +3790,25 @@
  <div class="repositorio-mini-grid">
 
   <a class="repositorio-mini-card" href="{{ site.baseurl }}/repositorio-eventos/fotos-y-videos.html">
-    <span>ðŸ“¸</span>
-    <strong>Fotos y vídeos</strong>
+    <span>📸</span>
+    <strong>Fotos y videos</strong>
     <small>Galería fotográfica institucional y registro audiovisual del evento.</small>
   </a>
 
   <a class="repositorio-mini-card" href="{{ site.baseurl }}/repositorio-eventos/diapositivas/">
-    <span>ðŸ“Š</span>
+    <span>📊</span>
     <strong>Diapositivas</strong>
     <small>Presentaciones autorizadas por conferencistas.</small>
   </a>
 
   <a class="repositorio-mini-card" href="{{ site.baseurl }}/repositorio-eventos/#afiches">
-    <span>ðŸ–¼ï¸ </span>
-    <strong>Fichas</strong>
+    <span>🖼️</span>
+    <strong>Afiches</strong>
     <small>Material gráfico oficial del VI Simposio Regional ACMI.</small>
   </a>
 
   <a class="repositorio-mini-card" href="{{ site.baseurl }}/repositorio-eventos/certificados/">
-    <span>ðŸŽ“</span>
+    <span>🎓</span>
     <strong>Certificados</strong>
     <small>Descarga individual de certificados de asistencia.</small>
   </a>
@@ -3883,21 +3819,21 @@
     </div>
 </section>
 
-<section class="contenido-independiente educacion-independiente revelación" id="educacion-destacada">
+<section class="contenido-independiente educacion-independiente reveal" id="educacion-destacada">
   <div class="container">
 
-    <h2 class="section-title">Educación médica continua</h2>
+    <h2 class="section-title">Educación médica continuada</h2>
     <p class="section-subtitle">
       Actualización científica, conferencias y recursos audiovisuales para fortalecer la práctica clínica.
     </p>
 
-    <article class="publicacion-destacada-tarjeta publicacion-educacion">
-      <div class="publicacion-destacada-copia publicacion-educacion-copia">
+    <article class="publicacion-destacada-card publicacion-educacion">
+      <div class="publicacion-destacada-copy publicacion-educacion-copy">
         <span class="publicacion-badge">Contenido destacado</span>
         <h3>Aprendizaje que transforma la práctica clínica</h3>
         <p>Consulte actividades académicas, conferencias y contenidos de educación médica desarrollados por ACMI Santander.</p>
         <a class="btn btn-light" href="{{ site.baseurl }}/educacion-medica-continuada/">
-          Explorar educación <span aria-hidden="true">â†'</span>
+          Explorar educación <span aria-hidden="true">→</span>
         </a>
       </div>
 
@@ -3906,12 +3842,12 @@
           <iframe
             src="https://www.youtube.com/embed/EA9oWKuoZ6I"
             title="VI Simposio Regional ACMI"
-            permitir="acelerómetro; reproducción automática; escritura en el portapapeles; medios cifrados; giroscopio; imagen en imagen; compartir web"
-            permitir pantalla completa>
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
           </iframe>
         </div>
       </div>
-    </artículo>
+    </article>
 
   </div>
 </section>
@@ -3920,23 +3856,23 @@
 {% assign noticia = site.categories.magazine | where: "subcategory","noticias" | first %}
 {% assign opinion = site.categories.magazine | where: "subcategory","opinion" | first %}
 
-<section class="contenido-revista independiente-revelación independiente" id="revista-destacado">
+<section class="contenido-independiente magazine-independiente reveal" id="magazine-destacado">
   <div class="container">
 
-    <h2 class="section-title">Revista ACMI</h2>
+    <h2 class="section-title">Magazine ACMI</h2>
     <p class="section-subtitle">
       Artículos académicos, noticias institucionales y opinión médica en un espacio editorial propio.
     </p>
 
-    <div class="revista-destacado-grid">
+    <div class="magazine-destacado-grid">
 
-      <artículo
-        class="publicacion-destacada-tarjeta publicacion-articulo"
+      <article
+        class="publicacion-destacada-card publicacion-articulo"
         {% if articulo_academico and articulo_academico.cover %}
         style="background-image:url('{{ site.baseurl }}{{ articulo_academico.cover }}');"
         {% endif %}>
 
-        <div class="publicacion-destacada-copia">
+        <div class="publicacion-destacada-copy">
           <span class="publicacion-badge">
             {% if articulo_academico %}Artículo académico destacado{% else %}Nueva sección{% endif %}
           </span>
@@ -3956,10 +3892,10 @@
           <a class="btn btn-light"
              href="{% if articulo_academico %}{{ site.baseurl }}{{ articulo_academico.url }}{% else %}{{ site.baseurl }}/magazine/#articulo-academico{% endif %}">
             {% if articulo_academico %}Leer artículo{% else %}Explorar sección{% endif %}
-            <span aria-hidden="true">â†'</span>
+            <span aria-hidden="true">→</span>
           </a>
         </div>
-      </artículo>
+      </article>
 
       <div class="magazine-accesos">
 
@@ -3967,29 +3903,25 @@
           <span class="publicacion-badge publicacion-badge-azul">Noticias</span>
           {% if noticia and noticia.cover %}
             <img src="{{ site.baseurl }}{{ noticia.cover }}" alt="{{ noticia.title }}" class="publicacion-mini-cover">
-          {% else %}
-            <div class="publicacion-cover-placeholder" aria-hidden="true">N</div>
           {% endif %}
           <h3>{% if noticia %}{{ noticia.title }}{% else %}Noticias ACMI{% endif %}</h3>
           <p>{% if noticia %}{{ noticia.excerpt | strip_html | truncate: 105 }}{% else %}Actualidad científica e institucional de ACMI Santander.{% endif %}</p>
           <a class="btn btn-light" href="{% if noticia %}{{ site.baseurl }}{{ noticia.url }}{% else %}{{ site.baseurl }}/magazine/#noticias{% endif %}">
-            Ver noticias <span aria-hidden="true">â†'</span>
+            Ver noticias <span aria-hidden="true">→</span>
           </a>
-        </artículo>
+        </article>
 
         <article class="publicacion-destacada-card publicacion-editorial-card publicacion-opinion">
           <span class="publicacion-badge publicacion-badge-azul">Opinión</span>
           {% if opinion and opinion.cover %}
             <img src="{{ site.baseurl }}{{ opinion.cover }}" alt="{{ opinion.title }}" class="publicacion-mini-cover">
-          {% else %}
-            <div class="publicacion-cover-placeholder" aria-hidden="true">O</div>
           {% endif %}
           <h3>{% if opinion %}{{ opinion.title }}{% else %}Opinión médica{% endif %}</h3>
           <p>{% if opinion %}{{ opinion.excerpt | strip_html | truncate: 105 }}{% else %}Análisis, reflexión y pensamiento clínico de nuestra comunidad académica.{% endif %}</p>
           <a class="btn btn-light" href="{% if opinion %}{{ site.baseurl }}{{ opinion.url }}{% else %}{{ site.baseurl }}/magazine/#opinion{% endif %}">
-            Leer opinión <span aria-hidden="true">â†'</span>
+            Leer opinión <span aria-hidden="true">→</span>
           </a>
-        </artículo>
+        </article>
 
       </div>
     </div>
@@ -3997,7 +3929,7 @@
   </div>
 </section>
 
-<section class="contenido-independiente proyección-independiente revelación" id="proyeccion-destacada">
+<section class="contenido-independiente proyeccion-independiente reveal" id="proyeccion-destacada">
   <div class="container">
 
     <h2 class="section-title">Proyección social</h2>
@@ -4005,16 +3937,16 @@
       Medicina interna al servicio de la comunidad mediante educación, prevención y participación territorial.
     </p>
 
-    <artículo class="proyeccion-hero-card">
+    <article class="proyeccion-hero-card">
       <div class="proyeccion-hero-copy">
         <span class="publicacion-badge">Comunidad ACMI</span>
         <h3>Conocimiento médico con impacto social</h3>
         <p>Conozca las actividades comunitarias, jornadas de educación en salud y proyectos de bienestar desarrollados por ACMI Santander.</p>
         <a class="btn btn-light" href="{{ site.baseurl }}/proyeccion-social/">
-          Ver actividades <span aria-hidden="true">â†'</span>
+          Ver actividades <span aria-hidden="true">→</span>
         </a>
       </div>
-    </artículo>
+    </article>
 
   </div>
 </section>
@@ -4032,7 +3964,7 @@
           <img
             src="{{ site.baseurl }}/Patrocinios.png"
             alt="Empresas patrocinadoras del Congreso ACMI Bucaramanga 2026"
-            cargando="perezoso"
+            loading="lazy"
           >
         </div>
       </div>
@@ -4055,7 +3987,7 @@
         <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 
         <script>
-          si (typeof commentBox === 'function') {
+          if (typeof commentBox === 'function') {
             commentBox('5704224843235328-proj');
           }
         </script>
@@ -4071,13 +4003,13 @@
         <div class="contact-buttons">
           <a class="btn btn-primary"
              href="https://www.instagram.com/acmi_santander/"
-             objetivo="_blank">
+             target="_blank">
             Instagram
           </a>
 
           <a class="btn btn-primary"
              href="https://web.facebook.com/acmi.capitulo.santander?locale=es_LA"
-             objetivo="_blank">
+             target="_blank">
             Facebook
           </a>
         </div>
@@ -4089,7 +4021,7 @@
 
   </main>
 
-  <pie de página>
+  <footer>
     <p>© 2026 ACMI Santander</p>
     <p>Educación continua que transforma la práctica clínica</p>
   </footer>
@@ -4098,24 +4030,24 @@
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealObserver = new IntersectionObserver((entries) => {
-      entradas.forEach((entrada) => {
-        si(entrada.esIntersecante){
-          entrada.target.classList.add('is-visible');
-          revealObserver.unobserve(entrada.obget);
+      entries.forEach((entry) => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
         }
       });
     }, {
-      umbral: 0,12
+      threshold: 0.12
     });
 
-    revelarElementos.paraCada((elemento) => {
-      revealObserver.observe(elemento);
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
     });
 
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('#navegacion-principal');
 
-    si(menuToggle && mainNav){
+    if(menuToggle && mainNav){
       menuToggle.addEventListener('click', () => {
         const open = mainNav.classList.toggle('is-open');
         menuToggle.classList.toggle('is-active', open);
@@ -4124,16 +4056,16 @@
     }
 
     document.querySelectorAll('.dropdown > a, .submenu > a').forEach((trigger) => {
-      trigger.addEventListener('click', (evento) => {
+      trigger.addEventListener('click', (event) => {
         if(window.innerWidth <= 768 && trigger.nextElementSibling){
-          evento.preventDefault();
+          event.preventDefault();
           trigger.parentElement.classList.toggle('open');
         }
       });
     });
 
-    document.querySelectorAll('#navegacion-principal a').forEach((enlace) => {
-      enlace.addEventListener('click', () => {
+    document.querySelectorAll('#navegacion-principal a').forEach((link) => {
+      link.addEventListener('click', () => {
         if(window.innerWidth <= 768 && !link.nextElementSibling){
           mainNav?.classList.remove('is-open');
           menuToggle?.classList.remove('is-active');
