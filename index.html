@@ -3533,6 +3533,72 @@
       .portal-grid .home-speaker-track:not(.is-3d){grid-auto-columns:65%}
     }
 
+
+    /* Secciones institucionales: estilos independientes del carrusel. */
+    #quienes.acmi-about{background:radial-gradient(ellipse at 4% 35%,#e8f5ef 0,transparent 48%),#f5f8fc;padding:76px 0}
+    #organigrama.acmi-team{background:#fff;padding:76px 0}
+    .acmi-about *, .acmi-team *{box-sizing:border-box}
+    .acmi-eyebrow{display:block;font-size:11px;line-height:1.5;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#168163}
+    .acmi-section-intro{max-width:820px;margin-bottom:36px}
+    .acmi-section-intro h2,.acmi-team-heading h2{font-family:'Poppins',sans-serif;color:#123f7d;font-size:clamp(30px,4vw,48px);line-height:1.15;letter-spacing:-.045em;margin:13px 0 18px;font-weight:800}
+    .acmi-section-intro h2 span{color:#248d71}
+    .acmi-section-intro>p,.acmi-team-heading p{font-size:16px;line-height:1.8;color:#54687d;margin:0;max-width:760px}
+    .acmi-about-layout{display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:start}
+    .acmi-identity{position:relative;padding:32px;background:linear-gradient(145deg,#fff,#f5fbf9);border:1px solid #dbe9e6;border-radius:26px;box-shadow:0 16px 45px #143f7d0a;overflow:hidden}
+    .acmi-tabs{display:flex;gap:6px;background:#eaf1f5;border-radius:14px;padding:5px;margin:22px 0 26px;max-width:300px}
+    .acmi-tabs button{flex:1;border:0;background:transparent;padding:11px 18px;border-radius:10px;color:#52667d;font:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s}
+    .acmi-tabs button[aria-selected="true"]{background:#fff;color:#123f7d;box-shadow:0 3px 12px #143f7d12}
+    .acmi-identity-panel{min-height:245px;position:relative;padding-top:8px}
+    .acmi-panel-number{display:block;color:#dceee7;font-size:58px;line-height:1;font-weight:800;letter-spacing:-.06em;margin-bottom:14px}
+    .acmi-identity-panel h3{font-size:23px;line-height:1.3;color:#123f7d;margin:0 0 14px;letter-spacing:-.025em}
+    .acmi-identity-panel p{font-size:16px;line-height:1.8;color:#506477;margin:0 0 24px}
+    .acmi-inline-link{display:inline-flex;gap:24px;align-items:center;font-size:14px;font-weight:800;color:#16775e;text-decoration:none;border-top:1px solid #dbe9e6;padding-top:20px;margin-top:12px}
+    .acmi-inline-link:hover{color:#123f7d}
+    .acmi-small-heading{padding:6px 0 16px}
+    .acmi-small-heading h3{color:#123f7d;font-size:24px;letter-spacing:-.025em;margin:6px 0 0}
+    .acmi-purpose{border:1px solid #dce6ee;border-radius:18px;background:#fff;margin-bottom:12px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+    .acmi-purpose[open]{border-color:#9dcdbb;box-shadow:0 8px 25px #143f7d08}
+    .acmi-purpose summary,.acmi-team-group summary{display:flex;align-items:center;gap:15px;list-style:none;cursor:pointer;padding:17px 20px;color:#143f7d;font-size:16px;line-height:1.45;font-weight:800}
+    .acmi-purpose summary::-webkit-details-marker,.acmi-team-group summary::-webkit-details-marker{display:none}
+    .acmi-symbol,.acmi-group-icon,.acmi-leader-icon{display:grid;place-items:center;flex-shrink:0;width:44px;height:44px;border-radius:13px;background:#eaf6f0;color:#19805d}
+    .acmi-symbol svg,.acmi-group-icon svg,.acmi-leader-icon svg{width:24px;height:24px}
+    .acmi-plus{margin-left:auto;font-size:24px;line-height:1;color:#26896f;transition:transform .2s;font-weight:400}
+    details[open] > summary .acmi-plus{transform:rotate(45deg)}
+    .acmi-purpose p{margin:0;padding:0 22px 22px 79px;color:#52667d;font-size:15px;line-height:1.75}
+    .acmi-team-heading{display:flex;align-items:end;justify-content:space-between;gap:32px;margin-bottom:36px}
+    .acmi-team-heading>div:first-child{max-width:760px}
+    .acmi-team-heading h2{margin-bottom:12px}
+    .acmi-search{width:270px;flex-shrink:0}
+    .acmi-search label{display:block;font-size:12px;font-weight:700;color:#536b7c;margin-bottom:8px}
+    .acmi-search>div{display:flex;align-items:center;gap:10px;background:#f5f8fb;border:1px solid #dce6ee;border-radius:13px;padding:0 12px}
+    .acmi-search svg{width:19px;height:19px;color:#51728b;flex-shrink:0}
+    .acmi-search input{width:100%;min-width:0;padding:13px 0;border:0;background:transparent;color:#143f7d;font:inherit;font-size:14px;outline:none}
+    .acmi-search>div:focus-within{outline:3px solid #a9d5c6;outline-offset:2px}
+    .acmi-president{position:relative;display:flex;align-items:center;gap:18px;width:min(100%,610px);margin:0 auto;padding:24px 28px;border:1px solid #cee5db;border-radius:22px;background:linear-gradient(120deg,#eaf6ef,#f4f9fd);box-shadow:0 12px 32px #143f7d09}
+    .acmi-leader-icon{width:56px;height:56px;background:#fff;border:1px solid #d3e8df}
+    .acmi-president h3{font-size:23px;color:#123f7d;letter-spacing:-.02em;margin:6px 0 0;line-height:1.3}
+    .acmi-president .acmi-eyebrow{font-size:10px;letter-spacing:.11em}
+    .acmi-leader-mark{margin-left:auto;font-size:11px;line-height:1.6;text-align:right;font-weight:800;color:#6b927e}
+    .acmi-branches{position:relative;display:grid;grid-template-columns:1.4fr 1fr;gap:26px;padding-top:44px;align-items:start}
+    .acmi-branches::before{content:'';position:absolute;top:0;left:50%;height:22px;border-left:2px solid #cee0dd}
+    .acmi-branches::after{content:'';position:absolute;top:22px;left:29%;right:21%;height:22px;border:2px solid #cee0dd;border-bottom:0;border-radius:8px 8px 0 0;pointer-events:none}
+    .acmi-team-group{position:relative;z-index:1;border:1px solid #dfe8ef;border-radius:22px;background:#fff;overflow:hidden;box-shadow:0 12px 36px #143f7d08}
+    .acmi-team-group summary{padding:22px 24px;font-size:18px}
+    .acmi-team-group summary small{display:block;font-size:12px;font-weight:500;color:#678092;margin-top:4px}
+    .acmi-team-group ul{display:grid;grid-template-columns:1fr 1fr;gap:10px;list-style:none;margin:0;padding:0 20px 20px}
+    .acmi-team-group li{display:flex;align-items:center;gap:11px;min-width:0;padding:12px;border:1px solid #e8eef3;border-radius:13px;background:#f9fbfd;font-size:14px;line-height:1.45;color:#304f70;transition:background .2s,transform .2s}
+    .acmi-team-group li:hover{background:#edf6f2;transform:translateY(-2px)}
+    .acmi-avatar{display:grid;place-items:center;width:35px;height:35px;flex-shrink:0;border-radius:50%;background:#e5eef7;color:#24548c;font-size:10px;font-weight:800;letter-spacing:.03em}
+    .acmi-residents ul{grid-template-columns:1fr}
+    .acmi-residents .acmi-avatar{background:#e5f3ec;color:#1d7b5a}
+    .acmi-search-status{margin:20px 0 0;text-align:center;font-size:14px;color:#597187;min-height:22px}
+    .acmi-team.is-searching .acmi-branches::before,.acmi-team.is-searching .acmi-branches::after{display:none}
+    .acmi-about [hidden],.acmi-team [hidden]{display:none!important}
+    .acmi-about button:focus-visible,.acmi-about summary:focus-visible,.acmi-about a:focus-visible,.acmi-team summary:focus-visible{outline:3px solid #288e70;outline-offset:4px}
+    @media(max-width:1020px){.acmi-team-heading{align-items:start;flex-direction:column}.acmi-search{width:min(100%,420px)}.acmi-team-group ul{grid-template-columns:1fr}.acmi-identity{padding:26px}.acmi-about-layout{gap:22px}}
+    @media(max-width:760px){#quienes.acmi-about,#organigrama.acmi-team{padding:48px 0}.acmi-about-layout,.acmi-branches{grid-template-columns:1fr}.acmi-identity-panel{min-height:0}.acmi-identity-panel p{font-size:15px}.acmi-branches{padding-top:24px;gap:16px}.acmi-branches::before,.acmi-branches::after{display:none}.acmi-president{padding:20px;gap:12px}.acmi-president h3{font-size:20px}.acmi-leader-mark{display:none}.acmi-team-group summary{font-size:16px;padding:18px}.acmi-team-group ul{padding:0 14px 14px}.acmi-purpose p{padding-left:22px}.acmi-section-intro{margin-bottom:26px}.acmi-section-intro>p,.acmi-team-heading p{font-size:15px}.acmi-purpose summary{font-size:15px;padding:15px}.acmi-team-heading{gap:22px}.acmi-section-intro h2{font-size:32px}}
+    @media(prefers-reduced-motion:reduce){.acmi-about *,.acmi-team *{transition:none!important;scroll-behavior:auto!important}.acmi-team-group li:hover{transform:none}}
+
 </style>
 </head>
 
@@ -3753,92 +3819,41 @@
     </dialog>
 
 
-  <section class="section reveal" id="quienes">
+
+  <section class="section acmi-about" id="quienes" aria-labelledby="acmi-about-title">
     <div class="container">
-      <h2 class="section-title">Quiénes somos</h2>
-
-      <p class="section-subtitle">
-        ACMI Santander es el capítulo regional de la Asociación Colombiana de Medicina Interna,
-        comprometido con la formación científica, la integración académica y el fortalecimiento
-        del ejercicio profesional en medicina interna.
-      </p>
-
-      <div class="card about-block">
-        <h3>Misión</h3>
-        <p>
-          Promover el desarrollo científico, académico y profesional de la medicina interna
-          en Santander mediante programas de educación médica continuada, investigación clínica
-          y espacios de intercambio académico que fortalezcan la práctica médica y la atención
-          de los pacientes.
-        </p>
-
-        <h3>Visión</h3>
-        <p>
-          Ser un referente regional y nacional en educación médica continuada, investigación clínica
-          y liderazgo académico en medicina interna, contribuyendo al fortalecimiento de la comunidad
-          médica y al desarrollo del conocimiento científico.
-        </p>
-
-        <h3>Objetivos</h3>
-
-        <div class="cards-grid">
-          <div class="mini-card reveal">
-            <h4>Educación médica</h4>
-            <p>Fortalecer la educación médica continuada de especialistas, residentes y médicos generales.</p>
+      <div class="acmi-section-intro"><span class="acmi-eyebrow">ACMI · Capítulo Santander</span>
+        <h2 id="acmi-about-title">Medicina interna.<br><span>Una comunidad que avanza.</span></h2>
+        <p>ACMI Santander es el capítulo regional de la Asociación Colombiana de Medicina Interna, comprometido con la formación científica, la integración académica y el fortalecimiento del ejercicio profesional en medicina interna.</p>
+      </div>
+      <div class="acmi-about-layout">
+        <article class="acmi-identity" aria-label="Quiénes somos">
+          <span class="acmi-eyebrow">Quiénes somos</span>
+          <div class="acmi-tabs" data-acmi-tabs aria-label="Nuestro propósito">
+            <button type="button" id="acmi-tab-mision" data-acmi-tab="acmi-panel-mision">Misión</button>
+            <button type="button" id="acmi-tab-vision" data-acmi-tab="acmi-panel-vision">Visión</button>
           </div>
-
-          <div class="mini-card reveal">
-            <h4>Investigación</h4>
-            <p>Promover la investigación clínica y la producción científica en medicina interna.</p>
-          </div>
-
-          <div class="mini-card reveal">
-            <h4>Integración académica</h4>
-            <p>Fomentar la interacción académica entre especialistas, residentes y estudiantes.</p>
-          </div>
-
-          <div class="mini-card reveal">
-            <h4>Liderazgo regional</h4>
-            <p>Consolidar el liderazgo científico de la medicina interna en Santander.</p>
-          </div>
-        </div>
+          <div class="acmi-identity-panel" id="acmi-panel-mision"><span class="acmi-panel-number" aria-hidden="true">01</span><h3>El propósito que nos une</h3><p>Promover el desarrollo científico, académico y profesional de la medicina interna en Santander mediante programas de educación médica continuada, investigación clínica y espacios de intercambio académico que fortalezcan la práctica médica y la atención de los pacientes.</p></div>
+          <div class="acmi-identity-panel" id="acmi-panel-vision"><span class="acmi-panel-number" aria-hidden="true">02</span><h3>Hacia dónde vamos</h3><p>Ser un referente regional y nacional en educación médica continuada, investigación clínica y liderazgo académico en medicina interna, contribuyendo al fortalecimiento de la comunidad médica y al desarrollo del conocimiento científico.</p></div>
+          <a class="acmi-inline-link" href="#organigrama">Conoce nuestro equipo <span aria-hidden="true">↗</span></a>
+        </article>
+        <div class="acmi-objectives"><div class="acmi-small-heading"><span class="acmi-eyebrow">Lo que nos mueve</span><h3>Nuestros objetivos</h3></div><details class="acmi-purpose" open><summary><span class="acmi-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-5 9 5-9 5-9-5Z"/><path d="M6 11v6c4 3 8 3 12 0v-6M21 9v8"/></svg></span><span>Educación médica</span><span class="acmi-plus" aria-hidden="true">+</span></summary><p>Fortalecer la educación médica continuada de especialistas, residentes y médicos generales.</p></details><details class="acmi-purpose" ><summary><span class="acmi-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M7 10h6M10 7v6"/></svg></span><span>Investigación</span><span class="acmi-plus" aria-hidden="true">+</span></summary><p>Promover la investigación clínica y la producción científica en medicina interna.</p></details><details class="acmi-purpose" ><summary><span class="acmi-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 5a3 3 0 0 1 0 6M18 15a5 5 0 0 1 3 4v2"/></svg></span><span>Integración académica</span><span class="acmi-plus" aria-hidden="true">+</span></summary><p>Fomentar la interacción académica entre especialistas, residentes y estudiantes.</p></details><details class="acmi-purpose" ><summary><span class="acmi-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 20 5-8 4 4 7-12M14 4h6v6"/></svg></span><span>Liderazgo regional</span><span class="acmi-plus" aria-hidden="true">+</span></summary><p>Consolidar el liderazgo científico de la medicina interna en Santander.</p></details></div>
       </div>
     </div>
   </section>
-
-  <section class="section reveal" id="organigrama">
+  <section class="section acmi-team" id="organigrama" aria-labelledby="acmi-team-title">
     <div class="container">
-      <h2 class="section-title">Organigrama</h2>
-
-      <p class="section-subtitle">
-        Comité organizador y estructura institucional del VI Simposio Regional ACMI San Gil – Santander.
-      </p>
-
-      <div class="org-grid">
-        <div class="org-card reveal">
-          <h3>Presidente ACMI Santander</h3>
-          <p>Dr. Alexander Jerez</p>
-        </div>
-
-        <div class="org-card reveal">
-          <h3>Junta Directiva</h3>
-          <p>Dr. Jaime Gómez</p>
-          <p>Dr. Reynaldo Badillo</p>
-          <p>Dra. Julieta Rueda</p>
-          <p>Dr. Sergio Andrés Lobo</p>
-          <p>Dr. Julio Oliveros</p>
-          <p>Dr. Javier Fajardo</p>
-          <p>Dr. Edgar Gómez Lahitton</p>
-          <p>Dra. Sandra Acevedo</p>
-        </div>
-
-        <div class="org-card reveal">
-          <h3>Residentes de Medicina Interna</h3>
-          <p>Dra. Gisela Serrano</p>
-          <p>Dr. Johan Mateus</p>
-          <p>Dr. Ricardo Angulo</p>
+      <div class="acmi-team-heading"><div><span class="acmi-eyebrow">Personas que nos conectan</span><h2 id="acmi-team-title">Nuestro equipo</h2><p>Organigrama · Comité organizador y estructura institucional del VI Simposio Regional ACMI San Gil – Santander.</p></div>
+        <div class="acmi-search" data-acmi-search-box hidden><label for="acmi-team-search">Buscar integrante</label><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input type="search" id="acmi-team-search" placeholder="Escribe un nombre…" autocomplete="off" aria-controls="acmi-org-tree"></div></div>
+      </div>
+      <div class="acmi-org-tree" id="acmi-org-tree">
+        <article class="acmi-president" data-acmi-president><span class="acmi-leader-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 8 4 3 4-7 4 7 4-3-2 11H6L4 8Z"/></svg></span><div><span class="acmi-eyebrow">Presidente ACMI Santander</span><h3>Dr. Alexander Jerez</h3></div><span class="acmi-leader-mark" aria-hidden="true">ACMI<br>Santander</span></article>
+        <div class="acmi-branches">
+          <details class="acmi-team-group" open><summary><span class="acmi-group-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 5a3 3 0 0 1 0 6M18 15a5 5 0 0 1 3 4v2"/></svg></span><span>Junta Directiva<small>8 integrantes</small></span><span class="acmi-plus" aria-hidden="true">+</span></summary><ul><li data-acmi-member><span class="acmi-avatar" aria-hidden="true">JG</span><span>Dr. Jaime Gómez</span></li><li data-acmi-member><span class="acmi-avatar" aria-hidden="true">RB</span><span>Dr. Reynaldo Badillo</span></li><li data-acmi-member><span class="acmi-avatar" aria-hidden="true">JR</span><span>Dra. Julieta Rueda</span></li><li data-acmi-member><span class="acmi-avatar" aria-hidden="true">SL</span><span>Dr. Sergio Andrés Lobo</span></li><li data-acmi-member><span class="acmi-avatar" aria-hidden="true">JO</span><span>Dr. Julio Oliveros</span></li><li data-acmi-member><span class="acmi-avatar" aria-hidden="true">JF</span><span>Dr. Javier Fajardo</span></li><li data-acmi-member><span class="acmi-avatar" aria-hidden="true">EL</span><span>Dr. Edgar Gómez Lahitton</span></li><li data-acmi-member><span class="acmi-avatar" aria-hidden="true">SA</span><span>Dra. Sandra Acevedo</span></li></ul></details>
+          <details class="acmi-team-group acmi-residents" open><summary><span class="acmi-group-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-5 9 5-9 5-9-5Z"/><path d="M6 11v6c4 3 8 3 12 0v-6M21 9v8"/></svg></span><span>Residentes de Medicina Interna<small>3 integrantes</small></span><span class="acmi-plus" aria-hidden="true">+</span></summary><ul><li data-acmi-member><span class="acmi-avatar" aria-hidden="true">GS</span><span>Dra. Gisela Serrano</span></li><li data-acmi-member><span class="acmi-avatar" aria-hidden="true">JM</span><span>Dr. Johan Mateus</span></li><li data-acmi-member><span class="acmi-avatar" aria-hidden="true">RA</span><span>Dr. Ricardo Angulo</span></li></ul></details>
         </div>
       </div>
+      <p class="acmi-search-status" data-acmi-search-status role="status" aria-live="polite"></p>
     </div>
   </section>
 
@@ -4501,5 +4516,65 @@
       refresh();
     })();
   </script>
+<script>
+(() => {
+  const tabs = [...document.querySelectorAll('[data-acmi-tab]')];
+  const tablist = document.querySelector('[data-acmi-tabs]');
+  if (tablist && tabs.length) {
+    tablist.setAttribute('role', 'tablist');
+    const activate = (selected, focus = false) => tabs.forEach(tab => {
+      const active = tab === selected;
+      tab.setAttribute('aria-selected', String(active)); tab.tabIndex = active ? 0 : -1;
+      document.getElementById(tab.dataset.acmiTab).hidden = !active;
+      if (active && focus) tab.focus();
+    });
+    tabs.forEach((tab, index) => {
+      const panel = document.getElementById(tab.dataset.acmiTab);
+      tab.setAttribute('role', 'tab'); tab.setAttribute('aria-controls', panel.id);
+      panel.setAttribute('role', 'tabpanel'); panel.setAttribute('aria-labelledby', tab.id); panel.tabIndex = 0;
+      tab.addEventListener('click', () => activate(tab));
+      tab.addEventListener('keydown', event => {
+        let target;
+        if (event.key === 'ArrowRight') target = tabs[(index + 1) % tabs.length];
+        if (event.key === 'ArrowLeft') target = tabs[(index - 1 + tabs.length) % tabs.length];
+        if (event.key === 'Home') target = tabs[0];
+        if (event.key === 'End') target = tabs[tabs.length - 1];
+        if (target) { event.preventDefault(); event.stopPropagation(); activate(target, true); }
+      });
+    });
+    activate(tabs[0]);
+  }
+  const section = document.getElementById('organigrama');
+  const search = document.getElementById('acmi-team-search');
+  if (!section || !search) return;
+  section.querySelector('[data-acmi-search-box]').hidden = false;
+  const groups = [...section.querySelectorAll('.acmi-team-group')];
+  const president = section.querySelector('[data-acmi-president]');
+  const status = section.querySelector('[data-acmi-search-status]');
+  const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').trim();
+  let previousOpen = null;
+  search.addEventListener('input', () => {
+    const query = normalize(search.value);
+    if (query && !previousOpen) previousOpen = groups.map(group => group.open);
+    let count = 0;
+    president.hidden = !!query && !normalize(president.querySelector('h3').textContent).includes(query);
+    if (!president.hidden) count++;
+    groups.forEach((group, index) => {
+      let matches = 0;
+      group.querySelectorAll('[data-acmi-member]').forEach(member => {
+        member.hidden = !!query && !normalize(member.lastElementChild.textContent).includes(query);
+        if (!member.hidden) matches++;
+      });
+      count += matches;
+      group.hidden = !!query && !matches;
+      if (query) group.open = true;
+      else if (previousOpen) group.open = previousOpen[index];
+    });
+    section.classList.toggle('is-searching', !!query);
+    status.textContent = query ? (count ? `${count} ${count === 1 ? 'integrante encontrado' : 'integrantes encontrados'}` : 'No encontramos integrantes con ese nombre.') : '';
+    if (!query) previousOpen = null;
+  });
+})();
+</script>
 </body>
 </html>
