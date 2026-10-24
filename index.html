@@ -4303,17 +4303,17 @@
       const original = dialog.querySelector('[data-home-speaker-original]');
       const position = dialog.querySelector('[data-home-speaker-dialog-position]');
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      let cards = [], active = 0, timer = null, paused = reduceMotion.matches;
-      let visible = false, hovering = false, openedCard = null, gesture = null, suppressClickUntil = 0;
+      let cards = [], active = 0, timer = null, paused = false;
+      let visible = false, openedCard = null, gesture = null, suppressClickUntil = 0;
 
       function stopTimer() { if (timer !== null) window.clearTimeout(timer); timer = null; }
       function mayPlay() {
-        return cards.length > 1 && !paused && visible && !document.hidden && !hovering &&
-          !gesture && !dialog.open && (!carousel.contains(document.activeElement) || document.activeElement === play);
+        return cards.length > 1 && !paused && visible && !document.hidden &&
+          !gesture && !dialog.open;
       }
       function schedule() {
         stopTimer();
-        if (mayPlay()) timer = window.setTimeout(() => { select(active + 1, false); }, 3000);
+        if (mayPlay()) timer = window.setTimeout(() => { select(active + 1, false); }, 5000);
       }
       function updatePlay() {
         play.textContent = paused ? 'Reproducir' : 'Pausar';
@@ -4442,10 +4442,6 @@
       window.addEventListener('pointerup', event => endGesture(event));
       window.addEventListener('pointercancel', event => endGesture(event, true));
       track.addEventListener('dragstart', event => event.preventDefault());
-      carousel.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovering = true; stopTimer(); } });
-      carousel.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') { hovering = false; schedule(); } });
-      carousel.addEventListener('focusin', stopTimer);
-      carousel.addEventListener('focusout', () => window.setTimeout(schedule, 0));
       dialog.querySelector('[data-home-speaker-close]').addEventListener('click', () => dialog.close());
       dialog.addEventListener('click', event => {
         if (event.target !== dialog) return;
@@ -4466,7 +4462,7 @@
       document.addEventListener('visibilitychange', schedule);
       window.addEventListener('resize', () => { render(); schedule(); }, { passive: true });
       if (typeof reduceMotion.addEventListener === 'function') reduceMotion.addEventListener('change', () => {
-        if (reduceMotion.matches) paused = true; updatePlay(); render(); schedule();
+        updatePlay(); render(); schedule();
       });
       track.querySelectorAll('img').forEach(image => {
         const broken = () => { image.closest('.home-speaker-card')?.remove(); refresh(); };
@@ -4490,8 +4486,7 @@
     const status = root.querySelector('[data-wheel-status]');
     let active = 0, gesture = null, suppress = 0;
     const play = root.querySelector('[data-wheel-play]');
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let timer = null, paused = reduced.matches, hovering = false;
+    let timer = null, paused = false;
     const visible = () => {
       const rect = stage.getBoundingClientRect();
       return Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0) >= Math.min(140, rect.height * .3);
@@ -4499,9 +4494,8 @@
     function schedule() {
       if (timer !== null) window.clearTimeout(timer);
       timer = null;
-      if (!paused && !hovering && !gesture && !document.hidden && visible() &&
-          (!root.contains(document.activeElement) || document.activeElement === play)) {
-        timer = window.setTimeout(() => select(active + 1, false), 3000);
+      if (!paused && !gesture && !document.hidden && visible()) {
+        timer = window.setTimeout(() => select(active + 1, false), 10000);
       }
     }
     function updatePlay() {
@@ -4510,16 +4504,8 @@
       play.setAttribute('aria-label', paused ? 'Activar reproducción automática' : 'Pausar reproducción automática');
     }
     play.addEventListener('click', () => {paused = !paused; updatePlay(); schedule();});
-    root.addEventListener('pointerenter', event => {if (event.pointerType === 'mouse') {hovering = true; schedule();}});
-    root.addEventListener('pointerleave', () => {hovering = false; schedule();});
-    root.addEventListener('focusin', schedule);
-    root.addEventListener('focusout', () => window.setTimeout(schedule, 0));
     document.addEventListener('visibilitychange', schedule);
     window.addEventListener('scroll', schedule, {passive:true});
-    if (typeof reduced.addEventListener === 'function') reduced.addEventListener('change', () => {
-      if (reduced.matches) paused = true;
-      updatePlay(); schedule();
-    });
     const distance = index => {
       let d = index - active;
       if (d > cards.length / 2) d -= cards.length;
@@ -4594,7 +4580,7 @@
       const observer = new ResizeObserver(render);
       cards.forEach(card => observer.observe(card)); observer.observe(root);
     }
-    window.addEventListener('resize', render, {passive:true});
+    window.addEventListener('resize', () => {render(); schedule();}, {passive:true});
     controllers.set(root, key => {
       const steps = {ArrowLeft: active - 1, ArrowRight: active + 1, Home: 0, End: cards.length - 1};
       select(steps[key]);
