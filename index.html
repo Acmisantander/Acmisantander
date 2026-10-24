@@ -3417,6 +3417,87 @@
   }
 }
 
+    .home-speakers-section{position:relative;isolation:isolate;overflow:hidden;background:#f7fbfc;color:#203247;padding-top:78px;padding-bottom:76px}
+    .home-speakers-section::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 43%,rgba(19,168,143,.10),transparent 52%),radial-gradient(ellipse at 5% 15%,rgba(41,102,173,.06),transparent 45%),linear-gradient(165deg,#ffffff,#f1f8f7 55%,#f6f9fc)}
+    .home-speakers-section .section-heading{margin-bottom:24px}
+    .home-speakers-section .section-kicker{color:#087c69;letter-spacing:.18em}
+    .home-speakers-section .section-title{color:#123f7d;font-size:clamp(30px,4.4vw,52px)}
+    .home-speakers-section .section-title::after{background:linear-gradient(90deg,transparent,#13a88f,transparent);width:120px}
+    .home-speakers-section .section-copy{color:#5d7086;font-size:16px;max-width:680px}
+    .home-speaker-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .home-speaker-carousel{--card-width:min(350px,29vw,44svh);position:relative}
+    .home-speaker-stage{position:relative}
+    .home-speaker-stage::after{content:"";position:absolute;left:15%;right:15%;bottom:12px;height:38px;border-radius:50%;background:radial-gradient(ellipse,rgba(19,168,143,.17),transparent 70%);filter:blur(16px);pointer-events:none}
+    .home-speaker-track{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 4px;scrollbar-width:thin;scrollbar-color:#13a88f #dfeae9}
+    .home-speaker-card{min-width:0;scroll-snap-align:center}
+    .home-speaker-card a{display:block;position:relative;overflow:hidden;border:1px solid rgba(18,63,125,.14);border-radius:22px;background:#ffffff;color:#203247;box-shadow:0 24px 45px rgba(18,53,78,.14);text-decoration:none}
+    .home-speaker-frame{display:flex;align-items:center;justify-content:center;aspect-ratio:4/5;background:#ffffff;overflow:hidden}
+    .home-speaker-frame img{width:100%;height:100%;object-fit:contain;max-width:100%;-webkit-user-drag:none;user-select:none}
+    .home-speaker-card-label{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px;background:linear-gradient(115deg,#ffffff,#edf7f5);color:#175d69;font-size:12px;font-weight:800;letter-spacing:.02em}
+    .home-speaker-card-label svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8}
+    .home-speaker-track.is-3d{display:block;height:calc(var(--card-width)*1.25 + 110px);min-height:340px;padding:0;overflow:hidden;perspective:1300px;perspective-origin:50% 42%;touch-action:pan-y pinch-zoom;cursor:grab;scroll-snap-type:none;scrollbar-width:none;outline-offset:-3px}
+    .home-speaker-track.is-3d .home-speaker-card{position:absolute;left:50%;top:47%;width:var(--card-width);margin:0;will-change:transform,opacity;transform-origin:50% 50%;backface-visibility:hidden;transition:transform .62s cubic-bezier(.22,.8,.24,1),opacity .42s,filter .42s}
+    .home-speaker-track.is-3d .home-speaker-card a{box-shadow:0 22px 48px rgba(18,53,78,.18);border-color:rgba(18,63,125,.14)}
+    .home-speaker-track.is-3d .home-speaker-card.is-active a{border-color:rgba(19,168,143,.65);box-shadow:0 0 0 1px rgba(19,168,143,.10),0 30px 64px rgba(18,53,78,.22),0 0 36px rgba(19,168,143,.10)}
+    .home-speaker-track.is-3d .home-speaker-card.is-active .home-speaker-card-label{background:linear-gradient(110deg,#e3f6ee,#eef6fc);color:#0b5b56}
+    .home-speaker-track.is-dragging{cursor:grabbing}
+    .home-speaker-track.is-dragging .home-speaker-card{transition:none}
+    .home-speaker-carousel [hidden]{display:none!important}
+    .home-speaker-controls{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:space-between;pointer-events:none;padding:0 7px}
+    .home-speaker-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;min-width:44px;border:1px solid rgba(18,63,125,.14);border-radius:999px;background:rgba(255,255,255,.95);color:#123f7d;cursor:pointer;font:inherit;font-size:13px;font-weight:800;backdrop-filter:blur(16px);transition:background .2s,box-shadow .2s,transform .2s}
+    .home-speaker-controls .home-speaker-btn{pointer-events:auto;width:54px;height:54px;box-shadow:0 10px 28px rgba(18,53,78,.14)}
+    .home-speaker-btn:hover{background:#08776e;border-color:#08776e;box-shadow:0 8px 25px rgba(19,168,143,.22);transform:scale(1.05);color:#ffffff}
+    .home-speaker-btn:disabled{opacity:.35;cursor:default;box-shadow:none}
+    .home-speaker-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2}
+    .home-speaker-toolbar{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:4px;flex-wrap:wrap;position:relative;z-index:21}
+    .home-speaker-count{font-size:13px;font-weight:800;color:#456173;margin:0;font-variant-numeric:tabular-nums}
+    .home-speaker-play{padding:10px 17px;min-width:112px}
+    .home-speaker-progress{height:3px;width:110px;overflow:hidden;border-radius:99px;background:#d8e8e5;flex-shrink:0}
+    .home-speaker-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#13a88f,#52c4ab);border-radius:inherit;transition:width .5s}
+    .home-speaker-hint{margin:20px 0 0;text-align:center;color:#587385;font-size:13px}
+    .home-speaker-hint kbd{display:inline-grid;place-items:center;min-width:27px;min-height:25px;margin:0 2px;border:1px solid #cadfdc;border-radius:6px;background:#ffffff;color:#1b5e59;font:inherit;font-size:15px}
+    .home-speaker-carousel a:focus-visible,.home-speaker-carousel button:focus-visible,.home-speaker-track:focus-visible,.home-speaker-dialog button:focus-visible,.home-speaker-dialog a:focus-visible{outline:3px solid #08776e;outline-offset:4px}
+    .home-speaker-empty{text-align:center;color:#5d7086;padding:30px 12px}
+    .home-speakers-section .btn-light{background:#ffffff;color:#123f7d;border-color:#cddde7}
+    .home-speaker-dialog{position:fixed;inset:0;z-index:3000;width:min(1100px,calc(100% - 24px));max-width:calc(100% - 24px);max-height:calc(100svh - 24px);margin:auto;padding:0;border:1px solid #d8e6eb;border-radius:20px;background:#ffffff;color:#203247;box-shadow:0 25px 100px rgba(18,53,78,.25);overflow:auto}
+    .home-speaker-dialog::backdrop{background:rgba(225,236,242,.84);backdrop-filter:blur(9px)}
+    .home-speaker-dialog:not([open]){display:none}
+    .home-speaker-dialog-bar{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:rgba(255,255,255,.97)}
+    .home-speaker-dialog-bar h3{margin:0;font-size:16px;font-weight:700}
+    .home-speaker-dialog-close{min-width:44px;min-height:44px;border:1px solid #d3e3e7;border-radius:12px;background:#eef6f5;color:#123f7d;font-size:26px;line-height:1;cursor:pointer}
+    .home-speaker-dialog-image{display:block;width:auto;max-width:100%;height:auto;max-height:calc(100svh - 155px);margin:0 auto;object-fit:contain}
+    .home-speaker-dialog-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;flex-wrap:wrap}
+    .home-speaker-dialog-footer a{color:#08776e;text-decoration:underline;font-size:14px}
+    .home-speaker-dialog-position{font-size:14px;color:#587385}
+    body.home-speaker-modal-open{overflow:hidden}
+    @media(max-width:1020px){.home-speaker-carousel{--card-width:min(350px,37vw,44svh)}.home-speaker-track:not(.is-3d){grid-auto-columns:calc((100% - 20px)/2)}}
+    @media(max-width:760px){.home-speaker-carousel{--card-width:min(76vw,350px,43svh)}.home-speaker-track:not(.is-3d){grid-auto-columns:85%;gap:15px}.home-speaker-card a{border-radius:17px}.home-speaker-controls{padding:0}.home-speaker-controls .home-speaker-btn{width:42px;height:42px;min-width:42px;min-height:42px;background:rgba(255,255,255,.96)}.home-speaker-toolbar{gap:14px}.home-speaker-progress{width:70px}.home-speaker-hint{font-size:12px;padding:0 20px}.home-speaker-dialog{width:calc(100% - 16px);max-width:calc(100% - 16px)}.home-speaker-dialog-bar h3{font-size:14px}.home-speakers-section{padding-top:60px;padding-bottom:60px}}
+    @media(prefers-reduced-motion:reduce){.home-speaker-track.is-3d .home-speaker-card,.home-speaker-progress span{transition:none!important}.home-speaker-btn:hover{transform:none}}
+
+    /* Versión compacta para la página de inicio. */
+    .home-speakers-section{padding:34px 0 28px}
+    .home-speakers-section .container{max-width:960px;margin-inline:auto}
+    .home-speakers-section .section-heading{margin-bottom:6px;text-align:center}
+    .home-speakers-section .section-title{font-size:clamp(22px,3vw,29px);margin:0;text-align:center}
+    .home-speakers-section .section-title::after{width:64px;margin:10px auto 0}
+    .home-speaker-carousel{--card-width:220px;max-width:790px;margin:0 auto}
+    .home-speaker-track:not(.is-3d){grid-auto-columns:220px;justify-content:start}
+    .home-speaker-track.is-3d{height:345px;min-height:0}
+    .home-speaker-card a{border-radius:15px}
+    .home-speaker-controls .home-speaker-btn{width:44px;height:44px}
+    .home-speaker-toolbar{gap:14px;margin-top:0}
+    .home-speaker-play{min-width:100px;padding:8px 12px}
+    .home-speaker-more{text-align:center;margin-top:15px}
+    .home-speaker-more a{color:#123f7d;font-size:14px;font-weight:700;text-decoration:none}
+    .home-speaker-more a:hover{text-decoration:underline}
+    .home-speaker-more a:focus-visible{outline:3px solid #08776e;outline-offset:4px}
+    @media(max-width:760px){
+      .home-speakers-section{padding:28px 0 24px}
+      .home-speaker-carousel{--card-width:min(52vw,200px)}
+      .home-speaker-track.is-3d{height:calc(var(--card-width)*1.25 + 65px)}
+      .home-speaker-track:not(.is-3d){grid-auto-columns:60%;gap:12px}
+    }
+
 </style>
 </head>
 
@@ -3577,6 +3658,65 @@
       </div>
     </div>
   </section>
+
+    <!-- Galería automática de los afiches guardados en la carpeta /ponentes-acmi/. -->
+    <section class="home-speakers-section" id="ponentes-inicio" aria-labelledby="home-speaker-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-title" id="home-speaker-title">Ponentes del congreso</h2>
+        </div>
+        {% assign afiches_ponentes = site.static_files | sort_natural: 'name' %}
+        {% assign numero_afiche = 0 %}
+        {% capture tarjetas_ponentes %}
+          {% for archivo in afiches_ponentes %}
+            {% if archivo.path contains '/ponentes-acmi/' %}
+              {% assign extension_afiche = archivo.extname | downcase %}
+              {% if extension_afiche == '.webp' or extension_afiche == '.jpg' or extension_afiche == '.jpeg' or extension_afiche == '.png' or extension_afiche == '.avif' or extension_afiche == '.gif' %}
+                {% assign numero_afiche = numero_afiche | plus: 1 %}
+                <article class="home-speaker-card" role="listitem">
+                  <a href="{{ archivo.path | relative_url | uri_escape | escape }}" target="_blank" rel="noopener" data-home-speaker-open aria-label="Ampliar afiche {{ numero_afiche }} del Congreso ACMI">
+                    <span class="home-speaker-frame">
+                      <img src="{{ archivo.path | relative_url | uri_escape | escape }}" alt="Afiche {{ numero_afiche }} de ponente del Congreso ACMI Bucaramanga 2026" loading="lazy" decoding="async" width="800" height="1000">
+                    </span>
+                  </a>
+                </article>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endcapture %}
+        <div class="home-speaker-carousel" data-home-speaker-carousel role="region" aria-roledescription="carrusel" aria-label="Afiches de los ponentes">
+          <div class="home-speaker-stage">
+            <div class="home-speaker-track" id="home-speaker-track" data-home-speaker-track role="list" tabindex="0" aria-label="Galería 3D de ponentes" aria-describedby="home-speaker-hint">
+              {{ tarjetas_ponentes }}
+            </div>
+            <div class="home-speaker-controls" data-home-speaker-controls hidden>
+              <button class="home-speaker-btn" type="button" data-home-speaker-prev aria-label="Ponente anterior" aria-controls="home-speaker-track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+              <button class="home-speaker-btn" type="button" data-home-speaker-next aria-label="Siguiente ponente" aria-controls="home-speaker-track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+            </div>
+          </div>
+          <div class="home-speaker-toolbar">
+            <p class="home-speaker-count" data-home-speaker-count>{{ numero_afiche }} afiches</p>
+            <div class="home-speaker-progress" aria-hidden="true"><span data-home-speaker-progress></span></div>
+            <button class="home-speaker-btn home-speaker-play" type="button" data-home-speaker-play aria-controls="home-speaker-track" aria-pressed="false" hidden>Pausar</button>
+          </div>
+          <p class="home-speaker-sr-only" id="home-speaker-hint">Usa las flechas izquierda y derecha para cambiar de ponente. Selecciona la tarjeta central para ampliarla.</p>
+          <p class="home-speaker-empty" data-home-speaker-empty {% if numero_afiche > 0 %}hidden{% endif %}>Pronto compartiremos aquí los afiches de nuestros ponentes.</p>
+        </div>
+        <div class="home-speaker-more"><a href="{{ '/congreso-acmi/' | relative_url }}#ponentes">Ver congreso <span aria-hidden="true">→</span></a></div>
+      </div>
+    </section>
+    <dialog class="home-speaker-dialog" id="home-speaker-dialog" aria-labelledby="home-speaker-dialog-title">
+      <div class="home-speaker-dialog-bar">
+        <h3 id="home-speaker-dialog-title">Ponentes del Congreso ACMI</h3>
+        <button class="home-speaker-dialog-close" type="button" data-home-speaker-close aria-label="Cerrar afiche">&times;</button>
+      </div>
+      <img class="home-speaker-dialog-image" data-home-speaker-dialog-image alt="">
+      <div class="home-speaker-dialog-footer">
+        <span class="home-speaker-dialog-position" data-home-speaker-dialog-position></span>
+        <a data-home-speaker-original target="_blank" rel="noopener">Abrir imagen en tamaño completo</a>
+      </div>
+    </dialog>
+
 
   <section class="section reveal" id="quienes">
     <div class="container">
@@ -4133,5 +4273,198 @@
     });
   </script>
 
+<script>
+    (() => {
+      const carousel = document.querySelector('[data-home-speaker-carousel]');
+      if (!carousel) return;
+      const track = carousel.querySelector('[data-home-speaker-track]');
+      const controls = carousel.querySelector('[data-home-speaker-controls]');
+      const prev = carousel.querySelector('[data-home-speaker-prev]');
+      const next = carousel.querySelector('[data-home-speaker-next]');
+      const play = carousel.querySelector('[data-home-speaker-play]');
+      const count = carousel.querySelector('[data-home-speaker-count]');
+      const empty = carousel.querySelector('[data-home-speaker-empty]');
+      const progress = carousel.querySelector('[data-home-speaker-progress]');
+      const dialog = document.getElementById('home-speaker-dialog');
+      const dialogImage = dialog.querySelector('[data-home-speaker-dialog-image]');
+      const original = dialog.querySelector('[data-home-speaker-original]');
+      const position = dialog.querySelector('[data-home-speaker-dialog-position]');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let cards = [], active = 0, timer = null, paused = reduceMotion.matches;
+      let visible = false, hovering = false, openedCard = null, gesture = null, suppressClickUntil = 0;
+
+      function stopTimer() { if (timer !== null) window.clearTimeout(timer); timer = null; }
+      function mayPlay() {
+        return cards.length > 1 && !paused && visible && !document.hidden && !hovering &&
+          !gesture && !dialog.open && (!carousel.contains(document.activeElement) || document.activeElement === play);
+      }
+      function schedule() {
+        stopTimer();
+        if (mayPlay()) timer = window.setTimeout(() => { select(active + 1, false); }, 5200);
+      }
+      function updatePlay() {
+        play.textContent = paused ? 'Reproducir' : 'Pausar';
+        play.setAttribute('aria-pressed', String(paused));
+        play.setAttribute('aria-label', paused ? 'Activar avance automático' : 'Pausar avance automático');
+      }
+      function pause() { paused = true; updatePlay(); stopTimer(); }
+      function signedDistance(index, selected, total) {
+        let distance = index - selected;
+        if (distance > total / 2) distance -= total;
+        if (distance < -total / 2) distance += total;
+        return distance;
+      }
+      function render(drag = 0) {
+        if (!cards.length) return;
+        const width = cards[0].offsetWidth || 300;
+        const spacing = Math.min(track.clientWidth * .29, width * .88);
+        cards.forEach((card, index) => {
+          const distance = signedDistance(index, active, cards.length);
+          const depth = Math.abs(distance);
+          const selected = distance === 0;
+          const shown = depth <= 2;
+          const x = distance * spacing + drag * .4;
+          const z = selected ? 70 : -135 * Math.min(depth, 3);
+          const angle = selected ? 0 : -Math.sign(distance) * (depth === 1 ? 35 : 43);
+          const scale = selected ? 1 : depth === 1 ? .91 : .78;
+          card.style.transform = `translate(-50%, -50%) translate3d(${x}px, ${selected ? 0 : depth * 9}px, ${z}px) rotateY(${angle}deg) scale(${scale})`;
+          card.style.opacity = shown ? String(selected ? 1 : depth === 1 ? .78 : .32) : '0';
+          card.style.filter = depth > 1 ? 'blur(.6px)' : 'none';
+          card.style.zIndex = String(10 - Math.min(depth, 9));
+          card.style.pointerEvents = shown ? 'auto' : 'none';
+          card.classList.toggle('is-active', selected);
+          card.setAttribute('aria-hidden', String(!selected));
+          const link = card.querySelector('a');
+          link.tabIndex = selected ? 0 : -1;
+          link.setAttribute('aria-current', String(selected));
+          link.setAttribute('aria-label', `${selected ? 'Ampliar' : 'Mostrar'} afiche ${index + 1} de ${cards.length}`);
+        });
+        count.textContent = `${String(active + 1).padStart(2, '0')} / ${cards.length}`;
+        count.setAttribute('aria-label', `Afiche ${active + 1} de ${cards.length}`);
+        progress.style.width = `${(active + 1) / cards.length * 100}%`;
+      }
+      function select(index, manual = true) {
+        if (!cards.length) return;
+        const focusedCard = document.activeElement?.closest?.('.home-speaker-card');
+        active = ((index % cards.length) + cards.length) % cards.length;
+        if (manual) pause();
+        render();
+        if (focusedCard) cards[active].querySelector('a').focus({ preventScroll: true });
+        schedule();
+      }
+      function refresh() {
+        const current = cards[active];
+        cards = Array.from(track.querySelectorAll('.home-speaker-card'));
+        active = current && cards.includes(current) ? cards.indexOf(current) : Math.min(active, Math.max(0, cards.length - 1));
+        empty.hidden = cards.length > 0;
+        track.hidden = cards.length === 0;
+        controls.hidden = play.hidden = cards.length < 2;
+        prev.disabled = next.disabled = cards.length < 2;
+        track.classList.toggle('is-3d', cards.length > 0);
+        if (!cards.length) { count.textContent = '0 afiches'; progress.style.width = '0%'; }
+        updatePlay(); render(); schedule();
+      }
+      function openCard(card) {
+        if (typeof dialog.showModal !== 'function') return false;
+        const image = card.querySelector('img');
+        openedCard = card; stopTimer();
+        dialogImage.src = image.currentSrc || image.src;
+        dialogImage.alt = image.alt;
+        original.href = card.querySelector('a').href;
+        position.textContent = `Afiche ${cards.indexOf(card) + 1} de ${cards.length}`;
+        if (!dialog.open) dialog.showModal();
+        document.body.classList.add('home-speaker-modal-open');
+        return true;
+      }
+      track.addEventListener('click', event => {
+        const link = event.target.closest('[data-home-speaker-open]');
+        if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+        if (Date.now() < suppressClickUntil) { event.preventDefault(); return; }
+        const card = link.closest('.home-speaker-card');
+        const index = cards.indexOf(card);
+        if (index !== active) { event.preventDefault(); select(index); }
+        else if (openCard(card)) event.preventDefault();
+      });
+      prev.addEventListener('click', () => select(active - 1));
+      next.addEventListener('click', () => select(active + 1));
+      play.addEventListener('click', () => { paused = !paused; updatePlay(); schedule(); });
+      // Las flechas funcionan al ver la galería, sin exigir un clic previo en una tarjeta.
+      document.addEventListener('keydown', event => {
+        if (dialog.open || event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey ||
+          !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+        const target = event.target;
+        if (target.closest?.('input,textarea,select,[contenteditable]:not([contenteditable="false"]),[role="textbox"],[role="slider"]')) return;
+        const focus = document.activeElement;
+        const inside = carousel.contains(focus);
+        const pageFocus = focus === document.body || focus === document.documentElement || !focus || focus.matches?.('a[href="#ponentes-inicio"]');
+        if (!inside && !(visible && pageFocus)) return;
+        if (!cards.length) return;
+        event.preventDefault();
+        select(event.key === 'Home' ? 0 : event.key === 'End' ? cards.length - 1 : active + (event.key === 'ArrowRight' ? 1 : -1));
+      });
+      // Arrastre horizontal con mouse o dedo. El desplazamiento vertical de la página sigue disponible.
+      track.addEventListener('pointerdown', event => {
+        if (event.button !== 0 || event.isPrimary === false || cards.length < 2) return;
+        gesture = { id: event.pointerId, x: event.clientX, y: event.clientY, dx: 0, dragging: false };
+        pause();
+      });
+      track.addEventListener('pointermove', event => {
+        if (!gesture || gesture.id !== event.pointerId) return;
+        const dx = event.clientX - gesture.x, dy = event.clientY - gesture.y;
+        if (!gesture.dragging && Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+          gesture.dragging = true; track.classList.add('is-dragging');
+          track.setPointerCapture?.(event.pointerId);
+        }
+        if (gesture.dragging) { gesture.dx = dx; if (event.cancelable) event.preventDefault(); render(Math.max(-200, Math.min(200, dx))); }
+      });
+      function endGesture(event, cancelled = false) {
+        if (!gesture || gesture.id !== event.pointerId) return;
+        const state = gesture; gesture = null;
+        track.classList.remove('is-dragging');
+        if (track.hasPointerCapture?.(event.pointerId)) track.releasePointerCapture(event.pointerId);
+        if (state.dragging) suppressClickUntil = Date.now() + 450;
+        if (!cancelled && state.dragging && Math.abs(state.dx) > 38) select(active + (state.dx < 0 ? 1 : -1));
+        else { render(); schedule(); }
+      }
+      window.addEventListener('pointerup', event => endGesture(event));
+      window.addEventListener('pointercancel', event => endGesture(event, true));
+      track.addEventListener('dragstart', event => event.preventDefault());
+      carousel.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovering = true; stopTimer(); } });
+      carousel.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') { hovering = false; schedule(); } });
+      carousel.addEventListener('focusin', stopTimer);
+      carousel.addEventListener('focusout', () => window.setTimeout(schedule, 0));
+      dialog.querySelector('[data-home-speaker-close]').addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', event => {
+        if (event.target !== dialog) return;
+        const r = dialog.getBoundingClientRect();
+        if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close();
+      });
+      dialog.addEventListener('close', () => {
+        document.body.classList.remove('home-speaker-modal-open'); dialogImage.removeAttribute('src');
+        if (openedCard && cards.includes(openedCard)) { active = cards.indexOf(openedCard); render(); openedCard.querySelector('a').focus({ preventScroll: true }); }
+        openedCard = null; schedule();
+      });
+      dialog.addEventListener('keydown', event => {
+        if (!['ArrowLeft', 'ArrowRight'].includes(event.key) || !cards.length) return;
+        event.preventDefault(); pause();
+        active = (cards.indexOf(openedCard) + (event.key === 'ArrowRight' ? 1 : -1) + cards.length) % cards.length;
+        render(); openCard(cards[active]);
+      });
+      document.addEventListener('visibilitychange', schedule);
+      window.addEventListener('resize', () => { render(); schedule(); }, { passive: true });
+      if (typeof reduceMotion.addEventListener === 'function') reduceMotion.addEventListener('change', () => {
+        if (reduceMotion.matches) paused = true; updatePlay(); render(); schedule();
+      });
+      track.querySelectorAll('img').forEach(image => {
+        const broken = () => { image.closest('.home-speaker-card')?.remove(); refresh(); };
+        image.addEventListener('error', broken, { once: true });
+        if (image.complete && image.naturalWidth === 0) broken();
+      });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(entries => { visible = entries[0].isIntersecting && entries[0].intersectionRatio >= .35; schedule(); }, { threshold: [0, .35, .6] }).observe(track);
+      } else visible = true;
+      refresh();
+    })();
+  </script>
 </body>
 </html>
