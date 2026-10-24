@@ -250,29 +250,50 @@ permalink: /congreso-acmi/
     }
 
     @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none!important}}
-      /* Afiches: /ponentes-acmi/ se recopila al construir el sitio con Jekyll. */
-    .speakers-section{background:linear-gradient(180deg,#edf7f5 0%,#f3f7fa 100%);overflow:hidden}
-    .speakers-section .section-heading{margin-bottom:28px}
-    .speaker-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
-    .speaker-count{margin:0;color:var(--suave);font-size:14px;font-weight:700}
-    .speaker-controls{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
-    .speaker-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;min-width:44px;padding:9px 13px;border:1px solid var(--borde);border-radius:13px;color:var(--azul);background:#fff;font-size:14px;font-weight:800;cursor:pointer;transition:background .2s,box-shadow .2s}
-    .speaker-btn:hover{background:#e5f5ef;box-shadow:0 6px 18px rgba(7,29,49,.09)}
-    .speaker-btn:disabled{opacity:.4;cursor:default;box-shadow:none}
-    .speaker-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;flex-shrink:0}
+      /* Escenario 3D de ponentes. Conserva el desplazamiento normal si JavaScript no está disponible. */
+    .speakers-section{position:relative;isolation:isolate;overflow:hidden;background:#061321;color:#e9f7ff;padding-top:78px;padding-bottom:76px}
+    .speakers-section::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 43%,rgba(16,170,159,.25),transparent 52%),radial-gradient(ellipse at 5% 15%,rgba(26,70,146,.25),transparent 45%),linear-gradient(165deg,#061321,#091b30 55%,#051019)}
+    .speakers-section .section-heading{margin-bottom:24px}
+    .speakers-section .section-kicker{color:#5ae4ce;letter-spacing:.18em}
+    .speakers-section .section-title{color:#fff;font-size:clamp(30px,4.4vw,52px)}
+    .speakers-section .section-title::after{background:linear-gradient(90deg,transparent,#5ae4ce,transparent);width:120px}
+    .speakers-section .section-copy{color:#abc3d6;font-size:16px;max-width:680px}
+    .speaker-carousel{--card-width:min(350px,29vw,44svh);position:relative}
+    .speaker-stage{position:relative}
+    .speaker-stage::after{content:"";position:absolute;left:15%;right:15%;bottom:12px;height:38px;border-radius:50%;background:radial-gradient(ellipse,rgba(47,221,192,.32),transparent 70%);filter:blur(16px);pointer-events:none}
+    .speaker-track{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 4px;scrollbar-width:thin;scrollbar-color:#25c4ad #173147}
+    .speaker-card{min-width:0;scroll-snap-align:center}
+    .speaker-card a{display:block;position:relative;overflow:hidden;border:1px solid rgba(126,220,230,.24);border-radius:22px;background:#071827;color:#e4f5ff;box-shadow:0 24px 45px rgba(0,0,0,.35);text-decoration:none}
+    .speaker-frame{display:flex;align-items:center;justify-content:center;aspect-ratio:4/5;background:#061321;overflow:hidden}
+    .speaker-frame img{width:100%;height:100%;object-fit:contain;max-width:100%;-webkit-user-drag:none;user-select:none}
+    .speaker-card-label{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px;background:linear-gradient(115deg,#12364b,#082332);color:#c4f6ec;font-size:12px;font-weight:800;letter-spacing:.02em}
+    .speaker-card-label svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8}
+    .speaker-track.is-3d{display:block;height:calc(var(--card-width)*1.25 + 110px);min-height:340px;padding:0;overflow:hidden;perspective:1300px;perspective-origin:50% 42%;touch-action:pan-y pinch-zoom;cursor:grab;scroll-snap-type:none;scrollbar-width:none;outline-offset:-3px}
+    .speaker-track.is-3d .speaker-card{position:absolute;left:50%;top:47%;width:var(--card-width);margin:0;will-change:transform,opacity;transform-origin:50% 50%;backface-visibility:hidden;transition:transform .62s cubic-bezier(.22,.8,.24,1),opacity .42s,filter .42s}
+    .speaker-track.is-3d .speaker-card a{box-shadow:0 28px 60px rgba(0,0,0,.55);border-color:rgba(111,177,205,.22)}
+    .speaker-track.is-3d .speaker-card.is-active a{border-color:rgba(111,245,219,.78);box-shadow:0 0 0 1px rgba(111,245,219,.14),0 30px 70px rgba(0,0,0,.65),0 0 45px rgba(36,214,181,.18)}
+    .speaker-track.is-3d .speaker-card.is-active .speaker-card-label{background:linear-gradient(110deg,#0b6b65,#0c3f53);color:#fff}
+    .speaker-track.is-dragging{cursor:grabbing}
+    .speaker-track.is-dragging .speaker-card{transition:none}
     .speaker-carousel [hidden]{display:none!important}
-    .speaker-track{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;scroll-padding-inline:4px;padding:5px 4px 20px;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#13a88f #dfe9ee;-webkit-overflow-scrolling:touch}
-    .speaker-card{min-width:0;scroll-snap-align:start;scroll-snap-stop:normal}
-    .speaker-card a{display:block;overflow:hidden;border:1px solid rgba(18,63,125,.16);border-radius:22px;background:#071d31;box-shadow:0 12px 28px rgba(7,29,49,.12);transition:box-shadow .2s}
-    .speaker-card a:hover{box-shadow:0 17px 38px rgba(7,29,49,.22)}
-    .speaker-frame{display:flex;align-items:center;justify-content:center;aspect-ratio:4/5;background:#071d31}
-    .speaker-frame img{width:100%;height:100%;object-fit:contain;max-width:100%}
-    .speaker-card-label{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 10px;background:#fff;color:var(--azul);font-size:13px;font-weight:800}
-    .speaker-card-label svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8}
-    .speaker-carousel a:focus-visible,.speaker-carousel button:focus-visible,.speaker-track:focus-visible,.speaker-dialog button:focus-visible,.speaker-dialog a:focus-visible{outline:3px solid #13a88f;outline-offset:4px}
-    .speaker-empty{text-align:center;color:var(--suave);padding:25px 12px}
-    .speaker-dialog{position:fixed;inset:0;z-index:3000;width:min(1100px,calc(100% - 24px));max-width:calc(100% - 24px);max-height:calc(100svh - 24px);margin:auto;padding:0;border:1px solid rgba(255,255,255,.18);border-radius:20px;background:#071d31;color:#fff;box-shadow:0 25px 100px rgba(0,0,0,.45);overflow:auto}
-    .speaker-dialog::backdrop{background:rgba(3,13,23,.85);backdrop-filter:blur(5px)}
+    .speaker-controls{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:space-between;pointer-events:none;padding:0 7px}
+    .speaker-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;min-width:44px;border:1px solid rgba(150,220,230,.25);border-radius:999px;background:rgba(15,45,63,.82);color:#efffff;cursor:pointer;font:inherit;font-size:13px;font-weight:800;backdrop-filter:blur(16px);transition:background .2s,box-shadow .2s,transform .2s}
+    .speaker-controls .speaker-btn{pointer-events:auto;width:54px;height:54px;box-shadow:0 10px 28px rgba(0,0,0,.3)}
+    .speaker-btn:hover{background:#107c75;border-color:#5ae4ce;box-shadow:0 0 25px rgba(36,214,181,.25);transform:scale(1.05)}
+    .speaker-btn:disabled{opacity:.35;cursor:default;box-shadow:none}
+    .speaker-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2}
+    .speaker-toolbar{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:4px;flex-wrap:wrap;position:relative;z-index:21}
+    .speaker-count{font-size:13px;font-weight:800;color:#c5dce8;margin:0;font-variant-numeric:tabular-nums}
+    .speaker-play{padding:10px 17px;min-width:112px}
+    .speaker-progress{height:3px;width:110px;overflow:hidden;border-radius:99px;background:#234355;flex-shrink:0}
+    .speaker-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#13a88f,#86f2de);border-radius:inherit;transition:width .5s}
+    .speaker-hint{margin:20px 0 0;text-align:center;color:#8ba9bd;font-size:13px}
+    .speaker-hint kbd{display:inline-grid;place-items:center;min-width:27px;min-height:25px;margin:0 2px;border:1px solid #365268;border-radius:6px;background:#102a3d;color:#c8f6ec;font:inherit;font-size:15px}
+    .speaker-carousel a:focus-visible,.speaker-carousel button:focus-visible,.speaker-track:focus-visible,.speaker-dialog button:focus-visible,.speaker-dialog a:focus-visible{outline:3px solid #68ecd3;outline-offset:4px}
+    .speaker-empty{text-align:center;color:#b9d1df;padding:30px 12px}
+    .speakers-section .btn-light{background:#122e43;color:#d7eeff;border-color:#355269}
+    .speaker-dialog{position:fixed;inset:0;z-index:3000;width:min(1100px,calc(100% - 24px));max-width:calc(100% - 24px);max-height:calc(100svh - 24px);margin:auto;padding:0;border:1px solid rgba(127,230,218,.25);border-radius:20px;background:#071d31;color:#fff;box-shadow:0 25px 100px rgba(0,0,0,.6);overflow:auto}
+    .speaker-dialog::backdrop{background:rgba(3,13,23,.9);backdrop-filter:blur(9px)}
     .speaker-dialog:not([open]){display:none}
     .speaker-dialog-bar{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:#071d31}
     .speaker-dialog-bar h3{margin:0;font-size:16px;font-weight:700}
@@ -282,8 +303,9 @@ permalink: /congreso-acmi/
     .speaker-dialog-footer a{color:#76ead5;text-decoration:underline;font-size:14px}
     .speaker-dialog-position{font-size:14px;color:#d5e6ee}
     body.speaker-modal-open{overflow:hidden}
-    @media(max-width:1020px){.speaker-track{grid-auto-columns:calc((100% - 20px)/2)}}
-    @media(max-width:760px){.speaker-track{grid-auto-columns:85%;gap:15px}.speaker-card a{border-radius:18px}.speaker-toolbar{gap:12px}.speaker-btn{padding:9px 11px}.speaker-dialog{width:calc(100% - 16px);max-width:calc(100% - 16px)}.speaker-dialog-bar h3{font-size:14px}}
+    @media(max-width:1020px){.speaker-carousel{--card-width:min(350px,37vw,44svh)}.speaker-track:not(.is-3d){grid-auto-columns:calc((100% - 20px)/2)}}
+    @media(max-width:760px){.speaker-carousel{--card-width:min(76vw,350px,43svh)}.speaker-track:not(.is-3d){grid-auto-columns:85%;gap:15px}.speaker-card a{border-radius:17px}.speaker-controls{padding:0}.speaker-controls .speaker-btn{width:42px;height:42px;min-width:42px;min-height:42px;background:rgba(10,42,59,.9)}.speaker-toolbar{gap:14px}.speaker-progress{width:70px}.speaker-hint{font-size:12px;padding:0 20px}.speaker-dialog{width:calc(100% - 16px);max-width:calc(100% - 16px)}.speaker-dialog-bar h3{font-size:14px}.speakers-section{padding-top:60px;padding-bottom:60px}}
+    @media(prefers-reduced-motion:reduce){.speaker-track.is-3d .speaker-card,.speaker-progress span{transition:none!important}.speaker-btn:hover{transform:none}}
   </style>
 </head>
 
@@ -370,7 +392,7 @@ permalink: /congreso-acmi/
         <div class="section-heading">
           <span class="section-kicker">Conoce a nuestros invitados</span>
           <h2 class="section-title" id="speaker-title">Ponentes del Congreso ACMI</h2>
-          <p class="section-copy">Explora las conferencias y sus protagonistas. Desliza las tarjetas y selecciona un afiche para verlo completo.</p>
+          <p class="section-copy">La medicina interna tiene grandes protagonistas. Descubre sus conferencias y acompáñanos en Bucaramanga.</p>
         </div>
         {% assign afiches_ponentes = site.static_files | sort_natural: 'name' %}
         {% assign numero_afiche = 0 %}
@@ -393,17 +415,21 @@ permalink: /congreso-acmi/
           {% endfor %}
         {% endcapture %}
         <div class="speaker-carousel" data-speaker-carousel role="region" aria-roledescription="carrusel" aria-label="Afiches de los ponentes">
-          <div class="speaker-toolbar">
-            <p class="speaker-count" data-speaker-count>{{ numero_afiche }} afiches</p>
+          <div class="speaker-stage">
+            <div class="speaker-track" id="speaker-track" data-speaker-track role="list" tabindex="0" aria-label="Galería 3D de ponentes" aria-describedby="speaker-hint">
+              {{ tarjetas_ponentes }}
+            </div>
             <div class="speaker-controls" data-speaker-controls hidden>
-              <button class="speaker-btn" type="button" data-speaker-prev aria-label="Ver afiches anteriores" aria-controls="speaker-track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
-              <button class="speaker-btn" type="button" data-speaker-play aria-controls="speaker-track" aria-pressed="false">Pausar</button>
-              <button class="speaker-btn" type="button" data-speaker-next aria-label="Ver siguientes afiches" aria-controls="speaker-track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+              <button class="speaker-btn" type="button" data-speaker-prev aria-label="Ponente anterior" aria-controls="speaker-track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+              <button class="speaker-btn" type="button" data-speaker-next aria-label="Siguiente ponente" aria-controls="speaker-track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
             </div>
           </div>
-          <div class="speaker-track" id="speaker-track" data-speaker-track role="list" tabindex="0" aria-label="Tarjetas de ponentes. Usa las flechas del teclado para desplazarte.">
-            {{ tarjetas_ponentes }}
+          <div class="speaker-toolbar">
+            <p class="speaker-count" data-speaker-count>{{ numero_afiche }} afiches</p>
+            <div class="speaker-progress" aria-hidden="true"><span data-speaker-progress></span></div>
+            <button class="speaker-btn speaker-play" type="button" data-speaker-play aria-controls="speaker-track" aria-pressed="false" hidden>Pausar</button>
           </div>
+          <p class="speaker-hint" id="speaker-hint">Usa <kbd>←</kbd> <kbd>→</kbd> del teclado, desliza o toca las tarjetas laterales. Selecciona la tarjeta central para ampliarla.</p>
           <p class="speaker-empty" data-speaker-empty {% if numero_afiche > 0 %}hidden{% endif %}>Pronto compartiremos aquí los afiches de nuestros ponentes.</p>
         </div>
         <div class="actions" style="justify-content:center;margin-top:30px">
@@ -681,59 +707,92 @@ permalink: /congreso-acmi/
       const play = carousel.querySelector('[data-speaker-play]');
       const count = carousel.querySelector('[data-speaker-count]');
       const empty = carousel.querySelector('[data-speaker-empty]');
+      const progress = carousel.querySelector('[data-speaker-progress]');
       const dialog = document.getElementById('speaker-dialog');
       const dialogImage = dialog.querySelector('[data-speaker-dialog-image]');
       const original = dialog.querySelector('[data-speaker-original]');
       const position = dialog.querySelector('[data-speaker-dialog-position]');
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      let cards = [], timer = null, paused = reduceMotion.matches;
-      let visible = false, hovering = false, touching = false, openedCard = null;
+      let cards = [], active = 0, timer = null, paused = reduceMotion.matches;
+      let visible = false, hovering = false, openedCard = null, gesture = null, suppressClickUntil = 0;
 
-      const hasOverflow = () => track.scrollWidth > track.clientWidth + 5;
-      const mayPlay = () => cards.length > 1 && hasOverflow() && !paused && visible &&
-        !document.hidden && !hovering && !touching && !dialog.open &&
-        (!carousel.contains(document.activeElement) || document.activeElement === play);
       function stopTimer() { if (timer !== null) window.clearTimeout(timer); timer = null; }
+      function mayPlay() {
+        return cards.length > 1 && !paused && visible && !document.hidden && !hovering &&
+          !gesture && !dialog.open && (!carousel.contains(document.activeElement) || document.activeElement === play);
+      }
       function schedule() {
         stopTimer();
-        if (!mayPlay()) return;
-        timer = window.setTimeout(() => { move(1); schedule(); }, 4800);
-      }
-      function step() {
-        return cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : track.clientWidth;
-      }
-      function move(direction) {
-        const maximum = Math.max(0, track.scrollWidth - track.clientWidth);
-        const atEnd = track.scrollLeft >= maximum - 6;
-        const atStart = track.scrollLeft <= 6;
-        const left = direction > 0 && atEnd ? 0 : direction < 0 && atStart ? maximum :
-          Math.max(0, Math.min(maximum, track.scrollLeft + direction * step()));
-        track.scrollTo({ left, behavior: reduceMotion.matches ? 'instant' : 'smooth' });
+        if (mayPlay()) timer = window.setTimeout(() => { select(active + 1, false); }, 5200);
       }
       function updatePlay() {
         play.textContent = paused ? 'Reproducir' : 'Pausar';
         play.setAttribute('aria-pressed', String(paused));
-        play.setAttribute('aria-label', paused ? 'Activar avance automático de afiches' : 'Pausar avance automático de afiches');
+        play.setAttribute('aria-label', paused ? 'Activar avance automático' : 'Pausar avance automático');
+      }
+      function pause() { paused = true; updatePlay(); stopTimer(); }
+      function signedDistance(index, selected, total) {
+        let distance = index - selected;
+        if (distance > total / 2) distance -= total;
+        if (distance < -total / 2) distance += total;
+        return distance;
+      }
+      function render(drag = 0) {
+        if (!cards.length) return;
+        const width = cards[0].offsetWidth || 300;
+        const spacing = Math.min(track.clientWidth * .29, width * .88);
+        cards.forEach((card, index) => {
+          const distance = signedDistance(index, active, cards.length);
+          const depth = Math.abs(distance);
+          const selected = distance === 0;
+          const shown = depth <= 2;
+          const x = distance * spacing + drag * .4;
+          const z = selected ? 70 : -135 * Math.min(depth, 3);
+          const angle = selected ? 0 : -Math.sign(distance) * (depth === 1 ? 35 : 43);
+          const scale = selected ? 1 : depth === 1 ? .91 : .78;
+          card.style.transform = `translate(-50%, -50%) translate3d(${x}px, ${selected ? 0 : depth * 9}px, ${z}px) rotateY(${angle}deg) scale(${scale})`;
+          card.style.opacity = shown ? String(selected ? 1 : depth === 1 ? .78 : .32) : '0';
+          card.style.filter = depth > 1 ? 'blur(.6px)' : 'none';
+          card.style.zIndex = String(10 - Math.min(depth, 9));
+          card.style.pointerEvents = shown ? 'auto' : 'none';
+          card.classList.toggle('is-active', selected);
+          card.setAttribute('aria-hidden', String(!selected));
+          const link = card.querySelector('a');
+          link.tabIndex = selected ? 0 : -1;
+          link.setAttribute('aria-current', String(selected));
+          link.setAttribute('aria-label', `${selected ? 'Ampliar' : 'Mostrar'} afiche ${index + 1} de ${cards.length}`);
+        });
+        count.textContent = `Afiche ${String(active + 1).padStart(2, '0')} de ${cards.length}`;
+        progress.style.width = `${(active + 1) / cards.length * 100}%`;
+      }
+      function select(index, manual = true) {
+        if (!cards.length) return;
+        const focusedCard = document.activeElement?.closest?.('.speaker-card');
+        active = ((index % cards.length) + cards.length) % cards.length;
+        if (manual) pause();
+        render();
+        if (focusedCard) cards[active].querySelector('a').focus({ preventScroll: true });
+        schedule();
       }
       function refresh() {
+        const current = cards[active];
         cards = Array.from(track.querySelectorAll('.speaker-card'));
-        count.textContent = `${cards.length} ${cards.length === 1 ? 'afiche' : 'afiches'}`;
+        active = current && cards.includes(current) ? cards.indexOf(current) : Math.min(active, Math.max(0, cards.length - 1));
         empty.hidden = cards.length > 0;
         track.hidden = cards.length === 0;
-        controls.hidden = cards.length < 2 || !hasOverflow();
-        prev.disabled = next.disabled = cards.length < 2 || !hasOverflow();
-        updatePlay(); schedule();
+        controls.hidden = play.hidden = cards.length < 2;
+        prev.disabled = next.disabled = cards.length < 2;
+        track.classList.toggle('is-3d', cards.length > 0);
+        if (!cards.length) { count.textContent = '0 afiches'; progress.style.width = '0%'; }
+        updatePlay(); render(); schedule();
       }
-      function pauseForInteraction() { paused = true; updatePlay(); stopTimer(); }
       function openCard(card) {
-        const link = card.querySelector('[data-speaker-open]');
-        const image = card.querySelector('img');
         if (typeof dialog.showModal !== 'function') return false;
-        openedCard = card;
-        stopTimer();
+        const image = card.querySelector('img');
+        openedCard = card; stopTimer();
         dialogImage.src = image.currentSrc || image.src;
         dialogImage.alt = image.alt;
-        original.href = link.href;
+        original.href = card.querySelector('a').href;
         position.textContent = `Afiche ${cards.indexOf(card) + 1} de ${cards.length}`;
         if (!dialog.open) dialog.showModal();
         document.body.classList.add('speaker-modal-open');
@@ -742,8 +801,60 @@ permalink: /congreso-acmi/
       track.addEventListener('click', event => {
         const link = event.target.closest('[data-speaker-open]');
         if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
-        if (openCard(link.closest('.speaker-card'))) event.preventDefault();
+        if (Date.now() < suppressClickUntil) { event.preventDefault(); return; }
+        const card = link.closest('.speaker-card');
+        const index = cards.indexOf(card);
+        if (index !== active) { event.preventDefault(); select(index); }
+        else if (openCard(card)) event.preventDefault();
       });
+      prev.addEventListener('click', () => select(active - 1));
+      next.addEventListener('click', () => select(active + 1));
+      play.addEventListener('click', () => { paused = !paused; updatePlay(); schedule(); });
+      // Las flechas funcionan al ver la galería, sin exigir un clic previo en una tarjeta.
+      document.addEventListener('keydown', event => {
+        if (dialog.open || event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey ||
+          !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+        const target = event.target;
+        if (target.closest?.('input,textarea,select,[contenteditable]:not([contenteditable="false"]),[role="textbox"],[role="slider"]')) return;
+        const focus = document.activeElement;
+        const inside = carousel.contains(focus);
+        const pageFocus = focus === document.body || focus === document.documentElement || !focus || focus.matches?.('a[href="#ponentes"]');
+        if (!inside && !(visible && pageFocus)) return;
+        if (!cards.length) return;
+        event.preventDefault();
+        select(event.key === 'Home' ? 0 : event.key === 'End' ? cards.length - 1 : active + (event.key === 'ArrowRight' ? 1 : -1));
+      });
+      // Arrastre horizontal con mouse o dedo. El desplazamiento vertical de la página sigue disponible.
+      track.addEventListener('pointerdown', event => {
+        if (event.button !== 0 || event.isPrimary === false || cards.length < 2) return;
+        gesture = { id: event.pointerId, x: event.clientX, y: event.clientY, dx: 0, dragging: false };
+        pause();
+      });
+      track.addEventListener('pointermove', event => {
+        if (!gesture || gesture.id !== event.pointerId) return;
+        const dx = event.clientX - gesture.x, dy = event.clientY - gesture.y;
+        if (!gesture.dragging && Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+          gesture.dragging = true; track.classList.add('is-dragging');
+          track.setPointerCapture?.(event.pointerId);
+        }
+        if (gesture.dragging) { gesture.dx = dx; if (event.cancelable) event.preventDefault(); render(Math.max(-200, Math.min(200, dx))); }
+      });
+      function endGesture(event, cancelled = false) {
+        if (!gesture || gesture.id !== event.pointerId) return;
+        const state = gesture; gesture = null;
+        track.classList.remove('is-dragging');
+        if (track.hasPointerCapture?.(event.pointerId)) track.releasePointerCapture(event.pointerId);
+        if (state.dragging) suppressClickUntil = Date.now() + 450;
+        if (!cancelled && state.dragging && Math.abs(state.dx) > 38) select(active + (state.dx < 0 ? 1 : -1));
+        else { render(); schedule(); }
+      }
+      window.addEventListener('pointerup', event => endGesture(event));
+      window.addEventListener('pointercancel', event => endGesture(event, true));
+      track.addEventListener('dragstart', event => event.preventDefault());
+      carousel.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovering = true; stopTimer(); } });
+      carousel.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') { hovering = false; schedule(); } });
+      carousel.addEventListener('focusin', stopTimer);
+      carousel.addEventListener('focusout', () => window.setTimeout(schedule, 0));
       dialog.querySelector('[data-speaker-close]').addEventListener('click', () => dialog.close());
       dialog.addEventListener('click', event => {
         if (event.target !== dialog) return;
@@ -751,54 +862,28 @@ permalink: /congreso-acmi/
         if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close();
       });
       dialog.addEventListener('close', () => {
-        document.body.classList.remove('speaker-modal-open');
-        dialogImage.removeAttribute('src');
-        openedCard?.querySelector('a')?.focus({ preventScroll: true });
+        document.body.classList.remove('speaker-modal-open'); dialogImage.removeAttribute('src');
+        if (openedCard && cards.includes(openedCard)) { active = cards.indexOf(openedCard); render(); openedCard.querySelector('a').focus({ preventScroll: true }); }
         openedCard = null; schedule();
       });
       dialog.addEventListener('keydown', event => {
-        if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
-        event.preventDefault();
-        const index = cards.indexOf(openedCard);
-        const direction = event.key === 'ArrowRight' ? 1 : -1;
-        if (cards.length) openCard(cards[(index + direction + cards.length) % cards.length]);
+        if (!['ArrowLeft', 'ArrowRight'].includes(event.key) || !cards.length) return;
+        event.preventDefault(); pause();
+        active = (cards.indexOf(openedCard) + (event.key === 'ArrowRight' ? 1 : -1) + cards.length) % cards.length;
+        render(); openCard(cards[active]);
       });
-      prev.addEventListener('click', () => { pauseForInteraction(); move(-1); });
-      next.addEventListener('click', () => { pauseForInteraction(); move(1); });
-      play.addEventListener('click', () => { paused = !paused; updatePlay(); schedule(); });
-      track.addEventListener('keydown', event => {
-        if (event.target !== track || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-        event.preventDefault(); pauseForInteraction();
-        if (event.key === 'Home' || event.key === 'End') {
-          track.scrollTo({ left: event.key === 'Home' ? 0 : track.scrollWidth, behavior: 'instant' });
-        } else move(event.key === 'ArrowRight' ? 1 : -1);
-      });
-      // El desplazamiento táctil conserva el comportamiento nativo del navegador.
-      track.addEventListener('pointerdown', () => { touching = true; pauseForInteraction(); }, { passive: true });
-      track.addEventListener('wheel', event => { if (event.deltaX || event.shiftKey) pauseForInteraction(); }, { passive: true });
-      const endTouch = () => { touching = false; schedule(); };
-      window.addEventListener('pointerup', endTouch, { passive: true });
-      window.addEventListener('pointercancel', endTouch, { passive: true });
-      carousel.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovering = true; stopTimer(); } });
-      carousel.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') { hovering = false; schedule(); } });
-      carousel.addEventListener('focusin', stopTimer);
-      carousel.addEventListener('focusout', () => window.setTimeout(schedule, 0));
       document.addEventListener('visibilitychange', schedule);
+      window.addEventListener('resize', () => { render(); schedule(); }, { passive: true });
       if (typeof reduceMotion.addEventListener === 'function') reduceMotion.addEventListener('change', () => {
-        if (reduceMotion.matches) paused = true;
-        updatePlay(); schedule();
+        if (reduceMotion.matches) paused = true; updatePlay(); render(); schedule();
       });
-      window.addEventListener('resize', refresh, { passive: true });
       track.querySelectorAll('img').forEach(image => {
         const broken = () => { image.closest('.speaker-card')?.remove(); refresh(); };
         image.addEventListener('error', broken, { once: true });
         if (image.complete && image.naturalWidth === 0) broken();
       });
       if ('IntersectionObserver' in window) {
-        const viewObserver = new IntersectionObserver(entries => {
-          visible = entries[0].isIntersecting; schedule();
-        }, { threshold: .2 });
-        viewObserver.observe(carousel);
+        new IntersectionObserver(entries => { visible = entries[0].isIntersecting && entries[0].intersectionRatio >= .35; schedule(); }, { threshold: [0, .35, .6] }).observe(track);
       } else visible = true;
       refresh();
     })();
