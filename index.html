@@ -3501,12 +3501,12 @@
 
     /* Congreso y ponentes arriba; accesos editoriales debajo. */
     .portal-grid{align-items:stretch}
-    .portal-banner > .home-speakers-section{
+    .portal-grid > .home-speakers-section{
       min-width:0;min-height:440px;padding:20px 12px 18px;
       border:var(--borde-ui);border-radius:26px;
       box-shadow:0 22px 58px rgba(8,40,79,.13);
     }
-    .portal-banner > .home-speakers-section > .container{width:100%;max-width:none;padding:0;margin:0}
+    .portal-grid > .home-speakers-section > .container{width:100%;max-width:none;padding:0;margin:0}
     .portal-grid .home-speakers-section .section-title{font-size:22px;line-height:1.2}
     .portal-grid .home-speaker-carousel{--card-width:200px;width:100%}
     .portal-grid .home-speaker-track.is-3d{height:300px;min-height:0}
@@ -3521,7 +3521,7 @@
     }
     .portal-grid > .portal-secundarios .portal-card-secundaria{min-width:0;min-height:126px;padding:20px;gap:12px}
     @media(max-width:1020px){
-      .portal-banner > .home-speakers-section{min-height:0}
+      .portal-grid > .home-speakers-section{min-height:0}
       .portal-grid .home-speaker-carousel{max-width:650px}
       .portal-grid .home-speaker-track:not(.is-3d){grid-auto-columns:200px}
     }
@@ -3531,46 +3531,6 @@
       .portal-grid .home-speaker-carousel{--card-width:min(52vw,200px)}
       .portal-grid .home-speaker-track.is-3d{height:calc(var(--card-width)*1.25 + 50px)}
       .portal-grid .home-speaker-track:not(.is-3d){grid-auto-columns:65%}
-    }
-
-
-    /* Afiche completo, sin recorte ni texto superpuesto sobre el mapa. */
-    .portal-grid{grid-template-columns:minmax(0,1fr)}
-    .portal-banner{
-      display:grid;grid-template-columns:minmax(0,1.4fr) minmax(360px,1fr);
-      gap:0;align-items:stretch;overflow:hidden;border:var(--borde-ui);
-      border-radius:26px;background:#f7fbfc;box-shadow:0 22px 58px rgba(8,40,79,.16);
-    }
-    .portal-banner > .portal-card-principal{
-      display:flex;flex-direction:column;align-items:stretch;justify-content:center;
-      min-width:0;min-height:0;border:0;border-radius:0;box-shadow:none;
-      background:transparent;color:var(--azul-acmi);transition:none;
-    }
-    .portal-banner > .portal-card-principal:hover{transform:none;box-shadow:none}
-    .portal-afiche-completo{padding:18px 20px 0;text-align:center}
-    .portal-afiche-completo img{
-      display:block;width:100%;height:auto;max-height:340px;
-      object-fit:contain;object-position:center;margin:0 auto;border-radius:0;
-    }
-    .portal-banner .portal-card-principal .portal-copy{max-width:none;padding:20px 26px 26px}
-    .portal-banner .portal-copy h2{font-size:clamp(24px,2.5vw,34px);line-height:1.12;letter-spacing:-.035em}
-    .portal-banner .portal-copy p{color:#4a6077;font-size:15px;line-height:1.5;margin-bottom:16px}
-    .portal-banner .portal-eyebrow{font-size:10px;padding:6px 10px;margin-bottom:10px}
-    .portal-banner .portal-cta{background:var(--azul-acmi);color:#fff;font-size:14px;padding:10px 15px}
-    .portal-banner > .home-speakers-section{
-      display:flex;align-items:center;min-width:0;min-height:0;
-      border:0;border-radius:0;box-shadow:none;background:transparent;
-    }
-    .portal-banner > .home-speakers-section::before{display:none}
-    @media(max-width:1020px){
-      .portal-banner{grid-template-columns:minmax(0,1fr)}
-      .portal-afiche-completo img{max-height:420px}
-      .portal-banner > .home-speakers-section{padding-top:12px;padding-bottom:24px}
-    }
-    @media(max-width:760px){
-      .portal-afiche-completo{padding:14px 14px 0}
-      .portal-afiche-completo img{max-height:none}
-      .portal-banner .portal-card-principal .portal-copy{padding:20px}
     }
 
 </style>
@@ -3700,9 +3660,7 @@
 
   <section class="portal-destacado" aria-label="Contenidos destacados">
     <div class="container portal-grid">
-      <div class="portal-banner">
       <a class="portal-card portal-card-principal" href="{{ site.baseurl }}/congreso-acmi/#inicio">
-        <div class="portal-afiche-completo"><img src="{{ '/ACMI CONGRESO BUCARAMANGA.jpg' | relative_url | uri_escape | escape }}" alt="Afiche del Congreso ACMI Bucaramanga 2026 con el mapa completo de Santander" decoding="async"></div>
         <div class="portal-copy">
           <span class="portal-eyebrow">Evento destacado</span>
           <h2>Congreso ACMI Bucaramanga 2026</h2>
@@ -3756,7 +3714,6 @@
         <div class="home-speaker-more"><a href="{{ '/congreso-acmi/' | relative_url }}#ponentes">Ver congreso <span aria-hidden="true">→</span></a></div>
       </div>
     </section>
-      </div>
       <div class="portal-secundarios">
         <a class="portal-card portal-card-secundaria" href="{{ site.baseurl }}/educacion-medica-continuada/">
           <div>
