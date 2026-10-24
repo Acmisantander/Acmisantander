@@ -3597,6 +3597,69 @@
     .home-speaker-progress span{background:linear-gradient(90deg,#2a9c52,#7ed49a)}
     .home-speaker-btn{color:#143f7d}.home-speaker-btn:hover{background:#2a9c52;border-color:#2a9c52;color:#fff}
 
+
+    /* Portada y sistema visual del inicio: azul y verde ACMI. */
+    #inicio.acmi-cover{min-height:620px;background:radial-gradient(ellipse at 80% 28%,rgba(42,156,82,.22),transparent 42%),radial-gradient(ellipse at 5% 80%,rgba(20,63,125,.13),transparent 50%),linear-gradient(125deg,#edf3fa,#e2edf5 60%,#e3f3e8);color:#143f7d;text-align:left;isolation:isolate}
+    #inicio.acmi-cover::before{width:800px;height:800px;top:-400px;right:-350px;background:none;border:1px solid rgba(20,63,125,.1);animation:none}
+    #inicio.acmi-cover::after{width:600px;height:600px;bottom:-430px;left:-100px;background:none;border:70px solid rgba(42,156,82,.06);animation:none}
+    #inicio .acmi-cover-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:center;width:min(1380px,calc(100% - 60px));padding:72px 0 110px;animation:none}
+    #inicio .hero-badge{background:#ffffffa6;color:#237f43;border:1px solid #bed9c8;box-shadow:none;font-size:15px;font-weight:800;padding:10px 18px;margin-bottom:22px}
+    #inicio .acmi-cover-copy h2{max-width:none;font-size:clamp(58px,6.7vw,96px);line-height:1;letter-spacing:-.06em;color:#143f7d;margin:0 0 28px;text-wrap:initial}
+    #inicio .acmi-cover-copy h2 span{display:block;color:#2a9c52}
+    #inicio .acmi-cover-copy>p{color:#385875;font-size:21px;line-height:1.75;max-width:650px;margin:0 0 30px}
+    #inicio .hero-actions{justify-content:flex-start;gap:12px}
+    #inicio .hero-actions .btn{font-size:16px;min-height:52px;border-radius:14px;padding:13px 20px}
+    #inicio .hero-actions .btn-primary{background:#2a9c52;color:#fff;box-shadow:0 10px 24px #2a9c5226}
+    #inicio .hero-actions .btn-light{background:#ffffffc9;color:#143f7d;border:1px solid #c6d6e6}
+    .acmi-cover-art{position:relative;min-width:0;height:460px;perspective:1100px;isolation:isolate}
+    .acmi-cover-emblem{position:absolute;inset:75px 18%;border-radius:44px;background:linear-gradient(140deg,#ffffffeb,#eef7f1de);border:1px solid #fff;display:flex;align-items:center;justify-content:center;padding:25px;box-shadow:22px 28px 65px #143f7d29,inset 0 0 0 8px #ffffff66;transform:rotateY(-14deg) rotateX(7deg) rotateZ(-5deg);transition:transform .35s ease-out;will-change:transform}
+    .acmi-cover-emblem img{display:block;width:100%;height:100%;object-fit:contain;border-radius:12px;filter:drop-shadow(0 8px 10px #143f7d10)}
+    .acmi-cover-orbit{position:absolute;inset:36px 3%;border:1px solid #143f7d35;border-radius:50%;transform:rotate(-25deg);pointer-events:none}
+    .acmi-cover-orbit-two{inset:70px -2%;border-color:#2a9c5266;transform:rotate(30deg)}
+    .acmi-cover-orbit-one::after,.acmi-cover-orbit-two::after{content:'';position:absolute;width:16px;height:16px;border:4px solid #ecf6ef;border-radius:50%;background:#2a9c52;left:18%;top:8%;box-shadow:0 0 0 8px #2a9c5212;animation:acmi-orbit-dot 6s ease-in-out infinite alternate}
+    .acmi-cover-orbit-two::after{background:#143f7d;left:auto;top:auto;right:12%;bottom:12%;animation-delay:-3s}
+    .acmi-cover-shortcut{position:absolute;z-index:2;display:flex;align-items:center;gap:12px;background:#ffffffed;border:1px solid #c1d7d8;border-radius:18px;padding:16px 20px;box-shadow:0 15px 32px #143f7d1a;color:#143f7d;text-decoration:none;font-size:17px;font-weight:800;line-height:1.35;transition:transform .25s,box-shadow .25s,border-color .25s;backdrop-filter:blur(12px)}
+    .acmi-cover-shortcut small{display:block;font-size:13px;color:#52728a;font-weight:500;margin-top:3px}
+    .acmi-shortcut-symbol{display:grid;place-items:center;width:38px;height:38px;background:#e4f2e8;border-radius:12px;color:#2a9c52;font-size:25px;flex-shrink:0}
+    .acmi-shortcut-one{top:25px;right:3%}.acmi-shortcut-two{top:208px;left:0}.acmi-shortcut-three{bottom:18px;right:3%}
+    .acmi-cover-shortcut:hover,.acmi-cover-shortcut:focus-visible{transform:translateY(-6px);border-color:#2a9c52;box-shadow:0 20px 42px #143f7d26}
+    .acmi-cover-shortcut:focus-visible{outline:3px solid #2a9c52;outline-offset:4px}
+    @keyframes acmi-orbit-dot{to{transform:translate(18px,-10px);box-shadow:0 0 0 13px #2a9c5209}}
+    main #eventos,main #educacion-destacada,main #magazine-destacado,main #proyeccion-destacada,main #patrocinios,main #foro,main #contacto{position:relative;padding-top:72px;padding-bottom:72px;border-top:1px solid rgba(20,63,125,.06)}
+    main #eventos{background:radial-gradient(ellipse at 0 15%,#dce9f5,transparent 55%),#eef3f8}
+    main #educacion-destacada{background:radial-gradient(ellipse at 95% 30%,#d5eadc,transparent 50%),#edf6f0}
+    main #magazine-destacado{background:radial-gradient(ellipse at 8% 70%,#d8e5f3,transparent 50%),#eef3f9}
+    main #proyeccion-destacada{background:radial-gradient(ellipse at 92% 20%,#d0e7d8,transparent 55%),#eaf3ef}
+    main #patrocinios{background:linear-gradient(125deg,#e9f0f8,#f2f7f4)}
+    main #foro{background:radial-gradient(ellipse at 5% 30%,#d9e7f4,transparent 55%),#eaf1f8}
+    main #contacto{background:radial-gradient(ellipse at 95% 20%,#d4eadc,transparent 55%),#e7f1ef}
+    main :is(#eventos,#educacion-destacada,#magazine-destacado,#proyeccion-destacada,#patrocinios,#foro,#contacto) .section-title{font-family:'Poppins',sans-serif;color:#143f7d;font-size:clamp(34px,4.5vw,58px);line-height:1.15;letter-spacing:-.045em;font-weight:800}
+    main :is(#eventos,#educacion-destacada,#magazine-destacado,#proyeccion-destacada,#patrocinios,#foro,#contacto) .section-subtitle{font-size:20px;line-height:1.75;color:#42617b}
+    main :is(.evento-card-grande,.publicacion-destacada-card,.proyeccion-hero-card,.patrocinador-card,.contact-box,.edu-box){border-radius:26px;border:1px solid #c8dce6;box-shadow:0 18px 45px #143f7d12;transition:box-shadow .3s,border-color .3s}
+    main :is(.evento-card-grande,.publicacion-destacada-card,.proyeccion-hero-card){background:linear-gradient(140deg,#fffffff2,#eef4fa)}
+    main .publicacion-educacion,main .publicacion-opinion{background:linear-gradient(135deg,#ffffffed,#e7f3eb)}
+    main :is(.evento-card-grande,.publicacion-destacada-card,.proyeccion-hero-card,.patrocinador-card):hover{box-shadow:0 25px 54px #143f7d20;border-color:#8ebaa1}
+    main .evento-card-header{background:linear-gradient(115deg,#dce8f6,#edf4fa);border-bottom:1px solid #c9dce9;color:#143f7d}
+    main .evento-card-header h3,main .evento-card-header p{color:#143f7d}
+    main .evento-card-header-repositorio{background:linear-gradient(115deg,#d9eddf,#eef7f0)}
+    main .repositorio-mini-card{background:linear-gradient(130deg,#f8fcff,#e1edf7);border:1px solid #c5d9e8;border-radius:18px;transition:transform .25s,box-shadow .25s}
+    main .repositorio-mini-card:hover{transform:translateY(-5px);box-shadow:0 14px 26px #143f7d15}
+    main .patrocinador-card{background:linear-gradient(140deg,#fff,#eaf3ed)}
+    main .contact-box,main .edu-box{background:linear-gradient(130deg,#fffffff0,#e9f2f8);padding:clamp(24px,4vw,44px)}
+    main .contact-box p{font-size:20px;line-height:1.8;color:#345773}
+    main .btn:focus-visible,main .repositorio-mini-card:focus-visible{outline:3px solid #2a9c52;outline-offset:4px}
+    main .btn{transition:transform .2s,box-shadow .2s,background .2s}
+    main .btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px #143f7d20}
+    @media(max-width:1020px){#inicio .acmi-cover-layout{grid-template-columns:1fr 1fr;gap:14px;width:calc(100% - 44px)}#inicio .acmi-cover-copy h2{font-size:64px}.acmi-cover-art{height:420px}.acmi-cover-emblem{inset:75px 12%}.acmi-cover-shortcut{font-size:15px;padding:12px}.acmi-shortcut-one{right:0}.acmi-shortcut-two{left:0;top:210px}}
+    @media(max-width:760px){#inicio .acmi-cover-layout{grid-template-columns:1fr;padding:44px 0 90px;width:calc(100% - 36px);gap:10px}#inicio .acmi-cover-copy h2{font-size:clamp(54px,14vw,76px);margin-bottom:22px}#inicio .acmi-cover-copy>p{font-size:19px}#inicio .hero-actions{display:flex;flex-direction:row;flex-wrap:wrap;gap:10px}#inicio .hero-actions .btn{width:auto;padding:12px 15px;font-size:14px;min-height:46px}.acmi-cover-art{height:360px;width:min(100%,470px);margin:0 auto}.acmi-cover-emblem{inset:58px 20%;padding:20px;border-radius:30px}.acmi-shortcut-one{top:12px;right:0}.acmi-shortcut-two{top:172px;left:0}.acmi-shortcut-three{bottom:8px;right:0}.acmi-cover-shortcut{font-size:14px;padding:12px 14px;border-radius:15px}.acmi-cover-shortcut small{font-size:12px}.acmi-shortcut-symbol{width:30px;height:30px;font-size:21px}main #eventos,main #educacion-destacada,main #magazine-destacado,main #proyeccion-destacada,main #patrocinios,main #foro,main #contacto{padding-top:48px;padding-bottom:48px}main :is(#eventos,#educacion-destacada,#magazine-destacado,#proyeccion-destacada,#patrocinios,#foro,#contacto) .section-subtitle{font-size:18px}main .contact-box p{font-size:18px}}
+    @media(prefers-reduced-motion:reduce){#inicio *,main .btn,main .repositorio-mini-card{animation:none!important;transition:none!important}.acmi-cover-emblem{will-change:auto}.acmi-cover-shortcut:hover,main .btn:hover,main .repositorio-mini-card:hover{transform:none}}
+
+
+    /* Navegación sin flechas visibles: teclado, gestos y puntos permanecen disponibles. */
+    main [data-wheel-prev],main [data-wheel-next],
+    main [data-home-speaker-prev],main [data-home-speaker-next],
+    main [data-speaker-prev],main [data-speaker-next]{display:none!important}
+
 </style>
 </head>
 
@@ -3702,22 +3765,23 @@
 
   <main>
 
-  <section class="hero" id="inicio">
-    <div class="hero-content">
-      <div class="hero-badge">ACMI Santander</div>
-
-      <h2>Bienvenidos a ACMI Santander</h2>
-
-      <p>
+  <section class="hero acmi-cover" id="inicio" aria-labelledby="acmi-cover-title">
+    <div class="hero-content acmi-cover-layout">
+      <div class="acmi-cover-copy"><div class="hero-badge">Bienvenidos</div><h2 id="acmi-cover-title">ACMI<span>Santander</span></h2><p>
         Capítulo regional de la Asociación Colombiana de Medicina Interna,
         comprometido con la educación médica continuada, la integración académica
         y el fortalecimiento científico de la medicina interna en Santander.
-      </p>
-
-      <div class="hero-actions">
+      </p><div class="hero-actions">
         <a class="btn btn-primary" href="#quienes">Conocer más</a>
         <a class="btn btn-light" href="#eventos">Ver eventos</a>
         <a class="btn btn-light" href="#foro">Foro ACMI</a>
+      </div></div>
+      <div class="acmi-cover-art" data-cover-art>
+        <div class="acmi-cover-orbit acmi-cover-orbit-one" aria-hidden="true"></div><div class="acmi-cover-orbit acmi-cover-orbit-two" aria-hidden="true"></div>
+        <div class="acmi-cover-emblem" data-cover-emblem><img src="{{ '/LOGO ACMI.png' | relative_url | uri_escape | escape }}" alt="ACMI Santander" width="300" height="300" decoding="async"></div>
+        <a class="acmi-cover-shortcut acmi-shortcut-one" href="{{ '/congreso-acmi/' | relative_url }}"><span class="acmi-shortcut-symbol" aria-hidden="true">↗</span><span>Congreso ACMI<small>Bucaramanga 2026</small></span></a>
+        <a class="acmi-cover-shortcut acmi-shortcut-two" href="{{ '/educacion-medica-continuada/' | relative_url }}"><span class="acmi-shortcut-symbol" aria-hidden="true">+</span><span>Educación médica</span></a>
+        <a class="acmi-cover-shortcut acmi-shortcut-three" href="{{ '/magazine/' | relative_url }}"><span class="acmi-shortcut-symbol" aria-hidden="true">↗</span><span>Magazine ACMI</span></a>
       </div>
     </div>
   </section>
@@ -4618,6 +4682,25 @@
   }, true);
 })();
 
+</script>
+<script>
+(() => {
+  const art = document.querySelector('[data-cover-art]');
+  const emblem = document.querySelector('[data-cover-emblem]');
+  if (!art || !emblem) return;
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let frame = null;
+  const reset = () => {if (frame !== null) cancelAnimationFrame(frame); frame = null; emblem.style.transform = '';};
+  art.addEventListener('pointermove', event => {
+    if (motion.matches || event.pointerType !== 'mouse') return;
+    const box = art.getBoundingClientRect();
+    const x = (event.clientX-box.left)/box.width-.5, y = (event.clientY-box.top)/box.height-.5;
+    if (frame !== null) cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {emblem.style.transform = `rotateY(${x*20-8}deg) rotateX(${-y*14+5}deg) rotateZ(-3deg)`; frame = null;});
+  });
+  art.addEventListener('pointerleave', reset);
+  if (typeof motion.addEventListener === 'function') motion.addEventListener('change', reset);
+})();
 </script>
 </body>
 </html>
