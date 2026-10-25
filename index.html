@@ -3597,6 +3597,14 @@
     .home-speaker-progress span{background:linear-gradient(90deg,#2a9c52,#7ed49a)}
     .home-speaker-btn{color:#143f7d}.home-speaker-btn:hover{background:#2a9c52;border-color:#2a9c52;color:#fff}
 
+
+/* Fotografía completa en la noticia de la junta directiva. */
+#magazine-destacado .home-board-photo-link{display:block;width:100%;margin:0 0 18px;}
+#magazine-destacado .publicacion-mini-cover.home-board-photo{
+  display:block;width:100%;height:auto;max-height:none;aspect-ratio:auto;
+  object-fit:contain;object-position:center;margin:0;border-radius:16px;
+  transform:none;background:#eef4fb;
+}
 </style>
 </head>
 
@@ -4113,8 +4121,14 @@
 
         <article class="publicacion-destacada-card publicacion-editorial-card">
           <span class="publicacion-badge publicacion-badge-azul">Noticias</span>
-          {% if noticia and noticia.cover %}
-            <img src="{{ site.baseurl }}{{ noticia.cover }}" alt="{{ noticia.title }}" class="publicacion-mini-cover">
+          {% if noticia %}
+            {% if noticia.path contains 'eleccion-junta-acmi-santander' or noticia.title == 'ACMI Santander elegirá nuevo presidente y nueva junta directiva' %}
+              <a class="home-board-photo-link" href="{{ noticia.url | relative_url }}" aria-label="Leer noticia sobre la elección de directivas">
+                <img src="https://raw.githubusercontent.com/Acmisantander/Acmisantander/main/_posts/Junta%20directiva%20saliente.webp" alt="Junta directiva saliente de ACMI Santander" class="publicacion-mini-cover home-board-photo" loading="lazy" decoding="async">
+              </a>
+            {% elsif noticia.cover %}
+              <img src="{{ site.baseurl }}{{ noticia.cover }}" alt="{{ noticia.title | escape }}" class="publicacion-mini-cover">
+            {% endif %}
           {% endif %}
           <h3>{% if noticia %}{{ noticia.title }}{% else %}Noticias ACMI{% endif %}</h3>
           <p>{% if noticia %}{{ noticia.excerpt | strip_html | truncate: 105 }}{% else %}Actualidad científica e institucional de ACMI Santander.{% endif %}</p>
