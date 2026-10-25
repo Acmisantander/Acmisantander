@@ -780,6 +780,10 @@ permalink: /magazine/
   .academic-grid{ grid-template-columns:1fr; }
 }
 
+/* La noticia de la elección aparece primero sin duplicar su tarjeta. */
+#noticias .magazine-election-news{order:-1;}
+#noticias .election-news-label{display:inline-block;margin:0 0 14px;color:var(--verde-hover);font-family:Montserrat,sans-serif;font-size:12px;font-weight:800;line-height:1.5;}
+#noticias .card-meta{font-size:11px;font-weight:500;flex-wrap:wrap;white-space:normal;}
 </style>
 
 {% assign lista_vacia = "" | split: "," %}
@@ -937,23 +941,28 @@ permalink: /magazine/
 
       {% if noticias.size > 0 %}
 
-      <div class="magazine-grid">
+      <div class="magazine-grid academic-grid">
 
         {% for post in noticias %}
 
-        <article class="magazine-card">
+        {% assign es_eleccion = false %}
+        {% if post.path contains 'eleccion-junta-acmi-santander' or post.title == 'ACMI Santander elegirá nuevo presidente y nueva junta directiva' %}
+          {% assign es_eleccion = true %}
+        {% endif %}
+        <article class="magazine-card{% if es_eleccion %} magazine-election-news{% endif %}">
 
           {% if post.cover %}
           <div class="card-image-wrap">
             <img
               src="{{ site.baseurl }}{{ post.cover }}"
-              alt="{{ post.title }}"
+              alt="{{ post.title | escape }}"
               class="card-image{% if post.cover == '/img/35.jpeg' %} card-image-san-gil{% endif %}"
             >
           </div>
           {% endif %}
 
           <div class="card-content">
+            {% if es_eleccion %}<span class="election-news-label">Elección de directivas · 30 de octubre</span>{% endif %}
 
             <p class="card-meta">
               {{ post.date | date: "%d/%m/%Y" }}
@@ -964,14 +973,14 @@ permalink: /magazine/
             </p>
 
             <h3>
-              {{ post.title }}
+              {{ post.title | escape }}
             </h3>
 
             <p>
               {{ post.excerpt | strip_html | truncate: 190 }}
             </p>
 
-            <a class="btn btn-card" href="{{ site.baseurl }}{{ post.url }}">
+            <a class="btn btn-card" href="{{ post.url | relative_url }}">
               Leer noticia
             </a>
 
