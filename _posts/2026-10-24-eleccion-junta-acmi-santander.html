@@ -469,7 +469,19 @@ excerpt: "El capítulo Santander elegirá sus nuevas directivas el viernes 30 de
 @media(prefers-reduced-motion:reduce){.sg-news-card{animation:none;}.sg-news-btn{transition:none;}}
 </style>
 
-<div class="sg-news-page">
+
+<style>
+/* Justificación del texto del reportaje en todas las pantallas. */
+.sg-news-page .sg-news-lead,
+.sg-news-page .sg-news-text p{
+  text-align:justify;
+  text-justify:inter-word;
+  hyphens:auto;
+  overflow-wrap:break-word;
+}
+</style>
+
+<div class="sg-news-page" lang="es">
   <main class="sg-news-card">
     <header class="sg-news-header">
       <span class="sg-news-badge">Noticia institucional</span>
