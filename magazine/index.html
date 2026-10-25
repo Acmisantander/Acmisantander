@@ -784,6 +784,9 @@ permalink: /magazine/
 #noticias .magazine-election-news{order:-1;}
 #noticias .election-news-label{display:inline-block;margin:0 0 14px;color:var(--verde-hover);font-family:Montserrat,sans-serif;font-size:12px;font-weight:800;line-height:1.5;}
 #noticias .card-meta{font-size:11px;font-weight:500;flex-wrap:wrap;white-space:normal;}
+#noticias .election-photo-link{display:block;}
+#noticias .card-image-junta{display:block;object-fit:contain;object-position:center;background:#eef4fb;padding:10px;box-sizing:border-box;}
+#noticias .magazine-election-news:hover .card-image-junta{transform:none;}
 </style>
 
 {% assign lista_vacia = "" | split: "," %}
@@ -951,7 +954,17 @@ permalink: /magazine/
         {% endif %}
         <article class="magazine-card{% if es_eleccion %} magazine-election-news{% endif %}">
 
-          {% if post.cover %}
+          {% if es_eleccion %}
+          <a class="card-image-wrap election-photo-link" href="{{ post.url | relative_url }}" aria-label="Leer noticia sobre la elección de directivas">
+            <img
+              src="https://raw.githubusercontent.com/Acmisantander/Acmisantander/main/_posts/Junta%20directiva%20saliente.webp"
+              alt="Junta directiva saliente de ACMI Santander"
+              class="card-image card-image-junta"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+          {% elsif post.cover %}
           <div class="card-image-wrap">
             <img
               src="{{ site.baseurl }}{{ post.cover }}"
