@@ -782,10 +782,9 @@ permalink: /magazine/
 
 /* La noticia de la elección aparece primero sin duplicar su tarjeta. */
 #noticias .magazine-election-news{order:-1;}
-#noticias .election-news-label{display:inline-block;margin:0 0 14px;color:var(--verde-hover);font-family:Montserrat,sans-serif;font-size:12px;font-weight:800;line-height:1.5;}
 #noticias .card-meta{font-size:11px;font-weight:500;flex-wrap:wrap;white-space:normal;}
 #noticias .election-photo-link{display:block;}
-#noticias .card-image-junta{display:block;object-fit:contain;object-position:center;background:#eef4fb;padding:10px;box-sizing:border-box;}
+#noticias .card-image-junta{display:block;width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;object-position:center;padding:0;box-sizing:border-box;}
 #noticias .magazine-election-news:hover .card-image-junta{transform:none;}
 </style>
 
@@ -975,7 +974,6 @@ permalink: /magazine/
           {% endif %}
 
           <div class="card-content">
-            {% if es_eleccion %}<span class="election-news-label">Elección de directivas · 30 de octubre</span>{% endif %}
 
             <p class="card-meta">
               {{ post.date | date: "%d/%m/%Y" }}
