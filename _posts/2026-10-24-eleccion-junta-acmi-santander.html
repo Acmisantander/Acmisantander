@@ -1,0 +1,515 @@
+---
+layout: default
+title: "ACMI Santander elegirá nuevo presidente y nueva junta directiva"
+date: 2026-10-24
+author: "Sergio Gómez. Residente de medicina interna"
+categories: magazine
+subcategory: noticias
+excerpt: "El capítulo Santander elegirá sus nuevas directivas el viernes 30 de octubre de 2026, tras un periodo de encuentros académicos y preparación de los próximos congresos."
+---
+
+<style>
+
+:root{
+  --sg-azul:#143f7d;
+  --sg-verde:#2a9c52;
+  --sg-dorado:#c89b3c;
+  --sg-fondo:#f5f7fb;
+  --sg-texto:#243244;
+  --sg-suave:#5b6d82;
+  --sg-borde:rgba(20,63,125,.12);
+  --sg-sombra:0 24px 64px rgba(8,40,79,.14);
+}
+
+.sg-news-page{
+  min-height:100vh;
+  padding:72px 22px;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 32%),
+    radial-gradient(circle at top right, rgba(20,63,125,.12), transparent 34%),
+    linear-gradient(180deg, #f5f7fb, #ffffff);
+}
+
+.sg-news-page *{
+  box-sizing:border-box;
+}
+
+.sg-news-card{
+  width:100%;
+  max-width:960px;
+  margin:0 auto;
+  background:#ffffff;
+  border:1px solid var(--sg-borde);
+  border-radius:32px;
+  box-shadow:var(--sg-sombra);
+  overflow:hidden;
+  position:relative;
+  animation:sgNewsIn .8s ease both;
+}
+
+@keyframes sgNewsIn{
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.sg-news-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:8px;
+  background:linear-gradient(90deg, var(--sg-verde), var(--sg-azul), var(--sg-dorado));
+}
+
+.sg-news-header{
+  padding:46px 46px 30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 36%),
+    radial-gradient(circle at bottom right, rgba(20,63,125,.08), transparent 36%),
+    #ffffff;
+  border-bottom:1px solid rgba(20,63,125,.08);
+}
+
+.sg-news-badge{
+  display:inline-flex;
+  padding:9px 16px;
+  border-radius:999px;
+  background:#eef4fb;
+  color:var(--sg-azul);
+  border:1px solid #dbe7f5;
+  font-family:'Montserrat', sans-serif;
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  margin-bottom:18px;
+}
+
+.sg-news-header h1{
+  font-family:'Montserrat', sans-serif;
+  color:var(--sg-azul);
+  font-size:clamp(32px,4vw,52px);
+  line-height:1.06;
+  font-weight:900;
+  letter-spacing:-.055em;
+  margin:0 0 16px;
+}
+
+.sg-news-subtitle{
+  max-width:760px;
+  margin:0 auto 18px;
+  color:var(--sg-suave);
+  font-size:18px;
+  line-height:1.75;
+}
+
+.sg-news-meta{
+  color:#64748b;
+  font-family:'Montserrat', sans-serif;
+  font-size:11px;
+  font-weight:400;
+  line-height:1.6;
+}
+
+.sg-news-body{
+  padding:40px 46px 46px;
+}
+
+.sg-news-lead{
+  margin:0 0 30px;
+  padding:22px 24px;
+  border-radius:24px;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 34%),
+    #f8fafc;
+  border:1px solid rgba(20,63,125,.08);
+  color:#334155;
+  font-family:Georgia, 'Times New Roman', serif;
+  font-size:20px;
+  line-height:1.85;
+}
+
+.sg-news-text{
+  color:var(--sg-texto);
+  font-family:Georgia, 'Times New Roman', serif;
+  font-size:20px;
+  line-height:1.95;
+  text-align:left;
+}
+
+.sg-news-text p{
+  margin:0 0 24px;
+}
+
+.sg-news-text p:first-of-type::first-letter{
+  float:left;
+  font-family:'Montserrat', sans-serif;
+  font-size:5rem;
+  line-height:.82;
+  font-weight:900;
+  color:var(--sg-azul);
+  padding:10px 12px 0 0;
+}
+
+.sg-news-text strong{
+  color:var(--sg-azul);
+  font-weight:900;
+}
+
+.sg-news-highlight{
+  margin:32px 0;
+  padding:28px 30px;
+  border-radius:26px;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.14), transparent 34%),
+    linear-gradient(135deg, rgba(8,40,79,.98), rgba(20,63,125,.92));
+  color:white;
+  box-shadow:0 18px 44px rgba(8,40,79,.18);
+}
+
+.sg-news-highlight strong{
+  display:block;
+  color:white;
+  font-family:'Montserrat', sans-serif;
+  font-size:23px;
+  line-height:1.3;
+  margin-bottom:8px;
+}
+
+.sg-news-highlight span{
+  display:block;
+  color:#eaf3ff;
+  font-family:'Lato', sans-serif;
+  font-size:16px;
+  line-height:1.75;
+}
+
+.sg-news-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  margin-top:34px;
+  padding-top:28px;
+  border-top:1px solid rgba(20,63,125,.10);
+}
+
+.sg-news-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 22px;
+  border-radius:14px;
+  border:0;
+  text-decoration:none;
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  cursor:pointer;
+  transition:.25s ease;
+  box-shadow:0 10px 22px rgba(8,40,79,.10);
+}
+
+.sg-news-btn-primary{
+  background:linear-gradient(135deg, var(--sg-verde), #35b862);
+  color:white;
+}
+
+.sg-news-btn-primary:hover{
+  color:white;
+  transform:translateY(-3px);
+  box-shadow:0 18px 34px rgba(42,156,82,.22);
+}
+
+.sg-news-btn-light{
+  background:#eef4fb;
+  color:var(--sg-azul);
+}
+
+.sg-news-btn-light:hover{
+  background:#dbe7f5;
+  color:var(--sg-azul);
+  transform:translateY(-3px);
+}
+
+.sg-news-footer{
+  margin-top:30px;
+  padding-top:22px;
+  border-top:1px solid rgba(20,63,125,.10);
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  color:var(--sg-suave);
+  font-family:'Montserrat', sans-serif;
+  font-size:13px;
+  font-weight:800;
+}
+
+.sg-news-footer span:first-child{
+  color:var(--sg-azul);
+}
+
+.sg-news-footer span:last-child{
+  color:var(--sg-verde);
+}
+
+
+.sg-forum-section{
+  margin-top:34px;
+  padding-top:28px;
+  border-top:1px solid rgba(20,63,125,.10);
+}
+
+.sg-forum-card{
+  position:relative;
+  padding:34px;
+  border-radius:28px;
+  background:
+    radial-gradient(circle at top left, rgba(42,156,82,.10), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(20,63,125,.10), transparent 34%),
+    #f8fafc;
+  border:1px solid rgba(20,63,125,.10);
+  box-shadow:0 16px 38px rgba(8,40,79,.10);
+  overflow:hidden;
+}
+
+.sg-forum-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:7px;
+  background:linear-gradient(90deg, var(--sg-verde), var(--sg-azul), var(--sg-dorado));
+}
+
+.sg-forum-kicker{
+  display:inline-flex;
+  padding:9px 15px;
+  border-radius:999px;
+  background:#eef4fb;
+  color:var(--sg-azul);
+  border:1px solid #dbe7f5;
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  margin-bottom:14px;
+}
+
+.sg-forum-card h3{
+  font-family:'Montserrat', sans-serif;
+  color:var(--sg-azul);
+  font-size:clamp(26px,3vw,36px);
+  line-height:1.12;
+  font-weight:900;
+  letter-spacing:-.04em;
+  margin:0 0 14px;
+}
+
+.sg-forum-card p{
+  color:var(--sg-suave);
+  font-size:17px;
+  line-height:1.8;
+  margin:0 0 24px;
+}
+
+.sg-forum-card .commentbox{
+  width:100%;
+}
+
+
+.sg-gallery-section{
+  margin:34px 0 10px;
+  padding-top:28px;
+  border-top:1px solid rgba(20,63,125,.10);
+}
+
+.sg-gallery-title{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:0 0 22px;
+}
+
+.sg-gallery-title::before{
+  content:"";
+  width:54px;
+  height:5px;
+  border-radius:999px;
+  background:linear-gradient(90deg, var(--sg-verde), var(--sg-dorado));
+  flex-shrink:0;
+}
+
+.sg-gallery-title h2{
+  font-family:'Montserrat', sans-serif;
+  color:var(--sg-azul);
+  font-size:28px;
+  line-height:1.15;
+  font-weight:900;
+  letter-spacing:-.04em;
+  margin:0;
+}
+
+.sg-gallery{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:18px;
+}
+
+
+.sg-main-photo{
+  margin:0 0 30px;
+  padding:10px;
+  border-radius:26px;
+  background:white;
+  border:1px solid rgba(20,63,125,.12);
+  box-shadow:0 16px 38px rgba(8,40,79,.12);
+  overflow:hidden;
+}
+
+.sg-main-photo img{
+  width:100%;
+  max-height:520px;
+  object-fit:contain;
+  object-position:center center;
+  background:#f8fafc;
+  border-radius:18px;
+  display:block;
+  padding:4px;
+}
+
+.sg-gallery figure{
+  margin:0;
+  padding:8px;
+  border-radius:22px;
+  background:white;
+  border:1px solid rgba(20,63,125,.12);
+  box-shadow:0 14px 34px rgba(8,40,79,.10);
+  overflow:hidden;
+  transition:.25s ease;
+}
+
+.sg-gallery img{
+  width:100%;
+  height:280px;
+  object-fit:contain;
+  object-position:center center;
+  background:#f8fafc;
+  border-radius:16px;
+  display:block;
+  padding:4px;
+}
+
+.sg-gallery figure:hover{
+  transform:translateY(-5px);
+  box-shadow:0 22px 48px rgba(8,40,79,.16);
+}
+
+@media(max-width:760px){
+
+  .sg-news-page{
+    padding:42px 16px;
+  }
+
+  .sg-news-card{
+    border-radius:24px;
+  }
+
+  .sg-news-header,
+  .sg-news-body{
+    padding-left:24px;
+    padding-right:24px;
+  }
+
+  .sg-news-text{
+    font-size:18px;
+    line-height:1.9;
+    text-align:left;
+  }
+
+  .sg-news-text p:first-of-type::first-letter{
+    font-size:4.1rem;
+  }
+
+
+  .sg-gallery{
+    grid-template-columns:1fr;
+  }
+
+  .sg-main-photo img{
+    height:auto;
+    max-height:520px;
+  }
+
+  .sg-news-actions{
+    flex-direction:column;
+  }
+
+  .sg-news-btn{
+    width:100%;
+  }
+
+}
+
+</style>
+<style>
+.sg-challenges-title{font-family:Montserrat,sans-serif;color:var(--sg-azul);font-size:clamp(24px,3vw,30px);line-height:1.25;margin:32px 0 18px;font-weight:800;}
+.sg-news-text p:first-of-type::first-letter{float:none;font:inherit;color:inherit;padding:0;}
+@media(prefers-reduced-motion:reduce){.sg-news-card{animation:none;}.sg-news-btn{transition:none;}}
+</style>
+
+<div class="sg-news-page">
+  <main class="sg-news-card">
+    <header class="sg-news-header">
+      <span class="sg-news-badge">Noticia institucional</span>
+      <h1>ACMI Santander elegirá nuevo presidente y nueva junta directiva</h1>
+      <div class="sg-news-meta">Reportaje: Sergio Gómez · 24 de octubre de 2026 · Magazine ACMI Santander</div>
+    </header>
+    <section class="sg-news-body" aria-label="Contenido de la noticia">
+      <p class="sg-news-lead">El próximo <strong>viernes 30 de octubre de 2026</strong>, la Asociación Colombiana de Medicina Interna —ACMI—, Capítulo Santander, elegirá a su nuevo presidente y a los integrantes de su junta directiva.</p>
+      <div class="sg-news-text">
+        <p>Con motivo de esta elección, el capítulo reconoce la gestión del <strong>doctor Alexander Jerez</strong> y de la junta directiva, cuyo trabajo durante el último periodo se ha concentrado en la educación médica continua, la integración de los programas de posgrado y el apoyo a la investigación.</p>
+        <p>Entre sus prioridades han estado rescatar los principios del ejercicio de la medicina clínica y promover la participación de los internistas, residentes y profesionales afines en las actividades del capítulo. La gestión también incluyó el acercamiento a la industria farmacéutica para la consecución de recursos y la realización de actividades patrocinadas.</p>
+        <p>Entre las actividades de este periodo figura el <strong>VI Simposio Regional ACMI Santander, realizado en San Gil en homenaje al doctor Franklin Quiroz</strong>. A este encuentro se suma la preparación del <strong>Congreso ACMI Bucaramanga 2026</strong>, que incluye conferencias y presentación de trabajos de investigación y casos clínicos.</p>
+        <div class="sg-news-highlight">
+          <strong>Bucaramanga será sede del Congreso Nacional ACMI en 2027</strong>
+          <span>La designación fue resultado de las gestiones adelantadas por la presidencia y la junta directiva del capítulo Santander.</span>
+        </div>
+        <p>La actividad del capítulo también ha buscado acercar a las universidades, los residentes y los especialistas. En esa agenda han tenido lugar la discusión de problemas clínicos, la difusión de trabajos científicos y las oportunidades de actualización para quienes ejercen la medicina interna.</p>
+        <p>La junta directiva está integrada por los doctores <strong>Jaime Gómez, Julieta Rueda, Julio Oliveros, Edgar Gómez Lahitton, Reynaldo Badillo, Sergio Andrés Lobo, Javier Fajardo y Sandra Acevedo</strong>.</p>
+        <h2 class="sg-challenges-title">Los retos de la nueva junta directiva</h2>
+        <p>El próximo periodo tendrá como uno de sus principales retos la preparación del <strong>Congreso Nacional ACMI 2027 en Bucaramanga</strong>. Su organización requerirá coordinación con la asociación nacional, las instituciones académicas y los equipos que participen en el encuentro.</p>
+        <p>Además de este compromiso, la nueva junta tendrá el desafío de ampliar la participación de los internistas de los distintos municipios de Santander y mantener una programación de actualización médica que responda a las necesidades de la práctica clínica.</p>
+        <p>Otros asuntos por impulsar serán la vinculación de residentes y nuevos especialistas a las actividades del capítulo, el acompañamiento a los trabajos de investigación y la planeación de recursos para sostener la agenda académica. La participación de los asociados será fundamental para definir las prioridades del próximo periodo.</p>
+      </div>
+      <div class="sg-news-actions">
+        <a class="sg-news-btn sg-news-btn-primary" href="{{ '/congreso-acmi/' | relative_url }}">Congreso ACMI Bucaramanga 2026</a>
+        <a class="sg-news-btn sg-news-btn-light" href="{{ '/magazine/' | relative_url }}">Volver al Magazine</a>
+      </div>
+      <section class="sg-forum-section" aria-labelledby="comentarios-noticia">
+        <div class="sg-forum-card">
+          <span class="sg-forum-kicker">Comentarios</span>
+          <h3 id="comentarios-noticia">Comparta su opinión</h3>
+          <p>Deje su comentario sobre esta noticia.</p>
+          <div class="commentbox"></div>
+        </div>
+      </section>
+      <div class="sg-news-footer">
+        <span>Magazine ACMI Santander</span>
+        <span>Noticia institucional · Elección de directivas</span>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+<script>
+  if (typeof commentBox === 'function') commentBox('5704224843235328-proj');
+</script>
