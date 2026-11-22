@@ -3606,6 +3606,10 @@
   transform:none;background:#eef4fb;
 }
 </style>
+<style>
+.acmi-navidad-logo{position:relative;display:inline-block;flex-shrink:0}.acmi-santa-hat{position:absolute;z-index:2;width:52px;height:39px;left:-7px;top:-16px;background:linear-gradient(125deg,#e34045,#ad1629);border-radius:75% 18% 8% 10%;transform:rotate(-20deg);pointer-events:none;box-shadow:inset -5px 1px 8px #88071b33}.acmi-santa-brim{position:absolute;bottom:-5px;left:-3px;width:58px;height:12px;background:#fff;border-radius:12px;box-shadow:0 2px 4px #163b5c33}.acmi-santa-pom{position:absolute;right:-7px;top:-4px;width:15px;height:15px;background:#fff;border-radius:50%;box-shadow:0 1px 3px #163b5c33}.acmi-navidad-message{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;margin-bottom:20px;border:1px solid #ffffff65;border-radius:30px;color:#fff;background:#0b493b90;font-size:15px;line-height:1.5;max-width:100%}.acmi-navidad-message span{color:#f6dba1}.hero{position:relative}.acmi-navidad-snow{position:absolute;inset:18px 18px auto;display:flex;justify-content:space-between;color:#fff9;font-size:26px;pointer-events:none}.acmi-navidad-snow span:nth-child(2n){color:#eed5a6bb;font-size:18px;transform:translateY(30px)}
+@media(max-width:640px){.acmi-santa-hat{transform:rotate(-20deg) scale(.85);transform-origin:bottom left;top:-13px}.acmi-navidad-message{font-size:13px;padding:8px 13px}.acmi-navidad-snow{font-size:19px}}
+</style>
 </head>
 
 <body>
@@ -3632,7 +3636,7 @@
     <div class="container main-header">
 
       <div class="brand">
-        <img class="brand-logo" src="{{ site.baseurl }}/LOGO ACMI.png" alt="Logo ACMI Santander">
+        <span class="acmi-navidad-logo"><img class="brand-logo" src="{{ site.baseurl }}/LOGO ACMI.png" alt="Logo ACMI Santander"><span class="acmi-santa-hat" aria-hidden="true"><span class="acmi-santa-brim"></span><span class="acmi-santa-pom"></span></span></span>
 
         <div class="brand-text">
           <h1>ACMI Santander</h1>
@@ -3656,12 +3660,12 @@
       <div class="dropdown-menu">
   <div class="submenu">
     <a href="{{ site.baseurl }}/#eventos">
-      Próximos eventos ▸
+      Congreso Bucaramanga 2026 ▸
     </a>
 
     <div class="submenu-menu">
       <a href="{{ site.baseurl }}/congreso-acmi/#inicio">
-        Congreso ACMI Santander
+        Repositorio y certificados
       </a>
     </div>
   </div>
@@ -3671,6 +3675,7 @@
                 </a>
 
                 <div class="submenu-menu">
+                  <a href="{{ site.baseurl }}/congreso-acmi/#repositorio">Congreso Bucaramanga 2026</a>
                   <a href="{{ site.baseurl }}/repositorio-eventos/#vi-simposio">
                     VI Simposio Regional ACMI
                   </a>
@@ -3710,9 +3715,9 @@
 
   <main>
 
-  <section class="hero" id="inicio">
+  <section class="hero" id="inicio"><div class="acmi-navidad-snow" aria-hidden="true"><span>❄</span><span>✧</span><span>❄</span><span>✧</span><span>❄</span><span>✧</span></div>
     <div class="hero-content">
-      <div class="hero-badge">ACMI Santander</div>
+      <div class="acmi-navidad-message"><span aria-hidden="true">✦</span> ACMI Santander les desea una feliz Navidad <span aria-hidden="true">✦</span></div><div class="hero-badge">ACMI Santander</div>
 
       <h2>Bienvenidos a ACMI Santander</h2>
 
@@ -3734,10 +3739,10 @@
     <div class="container portal-grid">
       <a class="portal-card portal-card-principal" href="{{ site.baseurl }}/congreso-acmi/#inicio">
         <div class="portal-copy">
-          <span class="portal-eyebrow">Evento destacado</span>
+          <span class="portal-eyebrow">Repositorio académico · Evento finalizado</span>
           <h2>Congreso ACMI Bucaramanga 2026</h2>
-          <p>30 y 31 de octubre en el Club Campestre de Bucaramanga. Ciencia, innovación y humanismo bajo el lema «Internistas que dejan huella».</p>
-          <span class="portal-cta">Conocer el congreso <span aria-hidden="true">→</span></span>
+          <p>Consulta los trabajos, el programa académico y los certificados de participación del Congreso celebrado el 30 y 31 de octubre de 2026.</p>
+          <span class="portal-cta">Ver repositorio y certificados <span aria-hidden="true">→</span></span>
         </div>
       </a>
 
@@ -3783,7 +3788,7 @@
           <p class="home-speaker-sr-only" id="home-speaker-hint">Usa las flechas izquierda y derecha para cambiar de ponente. Selecciona la tarjeta central para ampliarla.</p>
           <p class="home-speaker-empty" data-home-speaker-empty {% if numero_afiche > 0 %}hidden{% endif %}>Pronto compartiremos aquí los afiches de nuestros ponentes.</p>
         </div>
-        <div class="home-speaker-more"><a href="{{ '/congreso-acmi/' | relative_url }}#ponentes">Ver congreso <span aria-hidden="true">→</span></a></div>
+        <div class="home-speaker-more"><a href="{{ '/congreso-acmi/' | relative_url }}#ponentes">Ver repositorio del congreso <span aria-hidden="true">→</span></a></div>
       </div>
     </section>
       <div class="portal-secundarios">
@@ -3842,23 +3847,23 @@
             Agenda académica 2026
           </span>
 
-<h3>Próximos eventos</h3>
+<h3>Congreso ACMI Bucaramanga 2026</h3>
 
 <p>
-  Conozca las próximas actividades académicas organizadas por ACMI Santander.
+  Consulte las memorias y los certificados de participación del Congreso ACMI Bucaramanga 2026.
 </p>
 </div>
 
 <div class="evento-card-contenido evento-card-contenido-proximos">
 
   <div class="proximo-evento-info">
-    <span class="evento-label evento-label-proximo">Próximamente</span>
+    <span class="evento-label evento-label-proximo">Evento finalizado · Repositorio disponible</span>
 
     <h3>Congreso ACMI Santander</h3>
 
     <p>
       Congreso académico de medicina interna organizado por ACMI Santander,
-      que se realizará el 30 y 31 de octubre de 2026 en el Club Campestre
+      realizado el 30 y 31 de octubre de 2026 en el Club Campestre
       de Bucaramanga.
     </p>
 
@@ -3881,16 +3886,16 @@
   class="btn congreso-btn-inscripcion"
   href="https://acmisantander.com.co/congreso-acmi/#inicio"
 >
-  📝 Inscripción al evento
+  📚 Ver repositorio del Congreso
 </a>
 
 <a
   class="btn congreso-btn-inscripcion"
-  href="https://stage.peewah.co/congreso-acmi-bucaramanga"
+  href="https://acmisantander.com.co/congreso-acmi/#certificados"
   target="_blank"
   rel="noopener noreferrer"
 >
-  🔗 Link de inscripción
+  🎓 Descargar certificado
 </a>
 
 <a
@@ -3904,11 +3909,11 @@
 
   <a
     class="btn congreso-btn-poster"
-    href="https://acmisantander.com.co/congreso-acmi/recepcion-ponencias-posters/"
+    href="https://acmisantander.com.co/congreso-acmi/#comunicados-acmi"
     target="_blank"
     rel="noopener noreferrer"
   >
-    📊 Enviar póster
+    🔬 Trabajos del congreso
   </a>
 
   <a
