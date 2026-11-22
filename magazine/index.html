@@ -809,7 +809,7 @@ permalink: /magazine/
 
 
 
-  <section id="editorial" class="editorial-library"><div class="container"><h2>Publicaciones</h2><div class="editorial-book"><div class="editorial-contents"><span>ACMI SANTANDER</span><h3>Índice</h3><p>Elige una sección para hojear la revista.</p><div class="editorial-tabs"><button type="button" data-editorial-tab="0" aria-pressed="true">Artículos académicos</button><button type="button" data-editorial-tab="1" aria-pressed="false">Noticias</button><button type="button" data-editorial-tab="2" aria-pressed="false">Opinión</button></div></div><div class="editorial-pages"><article class="editorial-leaf" data-editorial-leaf><span>MAGAZINE ACMI</span><h3>Artículos académicos</h3><p>Investigaciones, revisiones y casos clínicos que aportan a la práctica de la medicina interna. Consulta los trabajos publicados y las preguntas que los motivaron.</p><a href="#articulo-academico">Ver publicaciones</a></article><article class="editorial-leaf" data-editorial-leaf><span>MAGAZINE ACMI</span><h3>Noticias</h3><p>Congresos, encuentros académicos y noticias de ACMI Santander. Sigue las actividades del capítulo y la participación de sus integrantes.</p><a href="#noticias">Ver publicaciones</a></article><article class="editorial-leaf" data-editorial-leaf><span>MAGAZINE ACMI</span><h3>Opinión</h3><p>Columnas y reflexiones sobre el ejercicio de la medicina interna, la formación médica y la salud pública.</p><a href="#opinion">Ver publicaciones</a></article></div></div><div class="revista-page-controls" hidden><button type="button" data-page-shift="-1">‹ Anterior</button><span role="status" data-folio></span><button type="button" data-page-shift="1">Siguiente ›</button></div><aside class="revista-call"><h3>Publica en Magazine ACMI</h3><p>Invitamos a internistas, residentes y profesionales de la salud a enviar sus investigaciones, revisiones y casos clínicos. Consulta el manual antes de preparar tu manuscrito.</p><nav class="editorial-submit" aria-label="Envíos editoriales"><a href="/magazine/manual-publicacion/">Manual de publicación</a><a href="/magazine/enviar-manuscrito/">Enviar manuscrito</a><a href="/magazine/enviar-ponencias/">Enviar ponencia</a></nav></aside></div></section>
+  <section id="editorial" class="editorial-library"><div class="container"><h2>Publicaciones</h2><div class="editorial-book" tabindex="0" role="region" aria-label="Libro de publicaciones" aria-describedby="revista-keys"><div class="editorial-contents"><span>ACMI SANTANDER</span><h3>Índice</h3><p>Elige una sección para hojear la revista.</p><div class="editorial-tabs"><button type="button" data-editorial-tab="0" aria-pressed="true">Artículos académicos</button><button type="button" data-editorial-tab="1" aria-pressed="false">Noticias</button><button type="button" data-editorial-tab="2" aria-pressed="false">Opinión</button></div></div><div class="editorial-pages"><article class="editorial-leaf" data-editorial-leaf><span>MAGAZINE ACMI</span><h3>Artículos académicos</h3><p>Investigaciones, revisiones y casos clínicos que aportan a la práctica de la medicina interna. Consulta los trabajos publicados y las preguntas que los motivaron.</p><a href="#articulo-academico">Ver publicaciones</a></article><article class="editorial-leaf" data-editorial-leaf><span>MAGAZINE ACMI</span><h3>Noticias</h3><p>Congresos, encuentros académicos y noticias de ACMI Santander. Sigue las actividades del capítulo y la participación de sus integrantes.</p><a href="#noticias">Ver publicaciones</a></article><article class="editorial-leaf" data-editorial-leaf><span>MAGAZINE ACMI</span><h3>Opinión</h3><p>Columnas y reflexiones sobre el ejercicio de la medicina interna, la formación médica y la salud pública.</p><a href="#opinion">Ver publicaciones</a></article></div></div><div class="revista-page-controls" hidden><span role="status" data-folio></span><span aria-hidden="true">·</span><span id="revista-keys">Haz clic en la hoja o usa ← y →.</span></div><aside class="revista-call"><h3>Publica en Magazine ACMI</h3><p>Invitamos a internistas, residentes y profesionales de la salud a enviar sus investigaciones, revisiones y casos clínicos. Consulta el manual antes de preparar tu manuscrito.</p><nav class="editorial-submit" aria-label="Envíos editoriales"><a href="/magazine/manual-publicacion/">Manual de publicación</a><a href="/magazine/enviar-manuscrito/">Enviar manuscrito</a><a href="/magazine/enviar-ponencias/">Enviar ponencia</a></nav></aside></div></section>
 
 
 
@@ -1062,4 +1062,95 @@ permalink: /magazine/
 
 
 
-<script>(()=>{const book=document.querySelector('.editorial-book'),tabs=[...book.querySelectorAll('[data-editorial-tab]')],leaves=[...book.querySelectorAll('[data-editorial-leaf]')];let index=0;function show(i){index=(i+tabs.length)%tabs.length;tabs.forEach((x,j)=>x.setAttribute('aria-pressed',String(j===index)));leaves.forEach((x,j)=>x.hidden=j!==index);book.classList.remove('is-turning');void book.offsetWidth;book.classList.add('is-turning');}tabs.forEach((x,i)=>x.onclick=()=>show(i));book.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();show(index+(e.key==='ArrowRight'?1:-1));tabs[index].focus();}});show(0);for(const shelf of document.querySelectorAll('.magazine-page .magazine-grid')){if(shelf.matches('.revista-news')||shelf.children.length<2)continue;shelf.classList.add('magazine-shelf');const rail=document.createElement('div');rail.className='shelf-controls';for(const [label,dir] of [['Anterior',-1],['Siguiente',1]]){const b=document.createElement('button');b.type='button';b.textContent=label;b.onclick=()=>shelf.scrollBy({left:dir*(shelf.firstElementChild.offsetWidth+23),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});rail.append(b);}shelf.before(rail);}const open=document.getElementById('mag-load-forum'),msg=document.getElementById('mag-forum-status');open.onclick=()=>{open.disabled=true;msg.textContent='Cargando comentarios…';const script=document.createElement('script');script.src='https://unpkg.com/commentbox.io/dist/commentBox.min.js';script.onload=()=>{if(typeof commentBox==='function'){commentBox('5704224843235328-proj');msg.textContent='';open.hidden=true;}else fail();};function fail(){script.remove();open.disabled=false;msg.textContent='No fue posible cargar los comentarios. Inténtalo de nuevo.';}script.onerror=fail;document.head.append(script);};})();</script><script>(()=>{const tabs=[...document.querySelectorAll('[data-editorial-tab]')], controls=document.querySelector('.revista-page-controls'),folio=controls.querySelector('[data-folio]');const current=()=>tabs.findIndex(b=>b.getAttribute('aria-pressed')==='true');const sync=()=>{folio.textContent='Sección '+(current()+1)+' de '+tabs.length;};controls.hidden=false;controls.querySelectorAll('button').forEach(b=>b.onclick=()=>tabs[(current()+Number(b.dataset.pageShift)+tabs.length)%tabs.length].click());new MutationObserver(sync).observe(document.querySelector('.editorial-tabs'),{subtree:true,attributes:true,attributeFilter:['aria-pressed']});sync();const grid=document.querySelector('.revista-news');if(!grid)return;const items=[...grid.querySelectorAll('.magazine-card')];if(items.length<2)return;const feature=document.createElement('div'),index=document.createElement('div'),title=document.createElement('h3');feature.className='revista-news-feature';index.className='revista-news-index';title.textContent='En esta sección';index.append(title);grid.append(feature,index);const buttons=items.map((card,i)=>{feature.append(card);const b=document.createElement('button'),date=document.createElement('small');date.textContent=card.querySelector('.card-meta').textContent.trim().split('·')[0].trim();b.append(date,document.createTextNode(card.querySelector('h3').textContent.trim()));b.type='button';b.onclick=()=>show(i);index.append(b);return b;});function show(i){items.forEach((c,j)=>c.hidden=j!==i);buttons.forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)));}index.addEventListener('keydown',e=>{const i=buttons.indexOf(e.target);if(i<0||!['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key))return;e.preventDefault();const j=(i+(['ArrowUp','ArrowLeft'].includes(e.key)?-1:1)+items.length)%items.length;show(j);buttons[j].focus();});grid.classList.add('is-curated');show(0);})();</script>
+<script>(()=>{const book=document.querySelector('.editorial-book'),tabs=[...book.querySelectorAll('[data-editorial-tab]')],leaves=[...book.querySelectorAll('[data-editorial-leaf]')];let index=0;function show(i){index=(i+tabs.length)%tabs.length;tabs.forEach((x,j)=>x.setAttribute('aria-pressed',String(j===index)));leaves.forEach((x,j)=>x.hidden=j!==index);book.classList.remove('is-turning');void book.offsetWidth;book.classList.add('is-turning');}tabs.forEach((x,i)=>x.onclick=()=>show(i));book.addEventListener('click',e=>{
+ if(e.target.closest('a,button')||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey||window.getSelection()?.toString())return;
+ const leaf=e.target.closest('.editorial-leaf'), contents=e.target.closest('.editorial-contents');
+ if(!leaf&&!contents)return;
+ show(index+(leaf?1:-1));book.focus({preventScroll:true});
+});book.addEventListener('keydown',e=>{if(!e.altKey&&!e.ctrlKey&&!e.metaKey&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){e.preventDefault();show(index+(e.key==='ArrowRight'?1:-1));if(e.target.closest('button'))tabs[index].focus();}});show(0);const open=document.getElementById('mag-load-forum'),msg=document.getElementById('mag-forum-status');open.onclick=()=>{open.disabled=true;msg.textContent='Cargando comentarios…';const script=document.createElement('script');script.src='https://unpkg.com/commentbox.io/dist/commentBox.min.js';script.onload=()=>{if(typeof commentBox==='function'){commentBox('5704224843235328-proj');msg.textContent='';open.hidden=true;}else fail();};function fail(){script.remove();open.disabled=false;msg.textContent='No fue posible cargar los comentarios. Inténtalo de nuevo.';}script.onerror=fail;document.head.append(script);};})();</script><script>(()=>{const tabs=[...document.querySelectorAll('[data-editorial-tab]')], controls=document.querySelector('.revista-page-controls'),folio=controls.querySelector('[data-folio]');const current=()=>tabs.findIndex(b=>b.getAttribute('aria-pressed')==='true');const sync=()=>{folio.textContent='Sección '+(current()+1)+' de '+tabs.length;};controls.hidden=false;new MutationObserver(sync).observe(document.querySelector('.editorial-tabs'),{subtree:true,attributes:true,attributeFilter:['aria-pressed']});sync();})();</script>
+<style>
+.editorial-library .editorial-book{background:linear-gradient(135deg,#122f58,#215581 58%,#187763);padding:7px 8px 13px;border-radius:16px;box-shadow:0 4px 0 #0b2746,0 22px 45px #10264129}
+.editorial-book:after{inset:auto 13px 4px;height:7px;background:repeating-linear-gradient(#9bb5ce 0 1px,#edf5fc 1px 3px)}
+.editorial-book .editorial-contents{background:linear-gradient(90deg,#f7fbff 87%,#dbe9f5);border-radius:9px 5px 8px 9px;cursor:pointer}
+.editorial-book .editorial-leaf{background:linear-gradient(90deg,#d7e5f1,#f7fbff 8%,#fff 24%,#fff 86%,#edf9f5);border-radius:5px 10px 10px 5px;cursor:pointer}
+.editorial-book .editorial-leaf:before{content:"";display:block;width:3.6rem;height:4px;border-radius:4px;background:linear-gradient(90deg,#1a956f,#327bd2);margin-bottom:22px}
+.editorial-book h3{font:800 clamp(30px,4vw,48px)/1.05 Inter,system-ui,sans-serif;letter-spacing:-.045em}
+.editorial-book .editorial-tabs{counter-reset:chapter}
+.editorial-book .editorial-tabs button{display:flex;align-items:center;gap:12px;border:1px solid #d4e3ef;border-radius:7px;padding:9px 12px}
+.editorial-tabs button:before{counter-increment:chapter;content:counter(chapter,decimal-leading-zero);font-size:.7em;opacity:.8}
+.editorial-contents:after,.editorial-leaf:after{font:700 11px system-ui,sans-serif;letter-spacing:.12em;color:#44688b}
+.editorial-book:focus-visible{outline:3px solid #258568;outline-offset:5px}
+.revista-page-controls:not([hidden]){font-size:13px;gap:8px;margin-top:16px;flex-wrap:wrap;color:#365779}
+@media(max-width:680px){.editorial-book .editorial-contents{background:#f3f8fe}.editorial-book .editorial-leaf{background:linear-gradient(#edf6fb,white 25%);border-radius:8px}.editorial-book .editorial-leaf:before{margin-bottom:12px}}
+@media(prefers-reduced-motion:reduce){.editorial-book *{animation:none!important}}
+</style>
+
+<style>
+.magazine-page .editorial-track{display:flex;gap:20px;overflow:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#acbfd5 transparent;padding:6px 5px 18px;align-items:stretch;cursor:grab}
+.magazine-page .editorial-track:focus-visible{outline:3px solid #1b755f;outline-offset:4px;border-radius:12px}
+.magazine-page .editorial-track.is-dragging{scroll-snap-type:none;cursor:grabbing;user-select:none}
+.magazine-page .editorial-track:after{content:"";flex:0 0 max(0px,calc(100% - var(--slide-width) - 20px))}
+.magazine-page .editorial-track>.magazine-card{flex:0 0 var(--slide-width);min-width:0;scroll-snap-align:start;scroll-margin-left:5px;transform:none;border-radius:16px;box-shadow:0 6px 12px #123b6520;transition:box-shadow .25s}
+.magazine-page .editorial-track>.magazine-card[data-current]{box-shadow:0 5px 0 #1b755f,0 10px 22px #123b6530}
+.magazine-page .editorial-track img{-webkit-user-drag:none}
+.magazine-page #noticias .editorial-track{--slide-width:81%}
+.magazine-page #noticias .editorial-track>.magazine-card{display:grid;grid-template-columns:1.08fr 1fr;overflow:hidden;background:#0c274b}
+.magazine-page #noticias .editorial-track .card-image-wrap{height:100%;min-height:250px}
+.magazine-page #noticias .editorial-track .card-image{height:100%;width:100%;max-height:none;object-fit:cover}
+.magazine-page #noticias .editorial-track .card-content{display:flex;justify-content:center;align-items:flex-start;padding:clamp(18px,3vw,36px);color:#e0ecf8}
+.magazine-page #noticias .editorial-track .card-content h3{color:white}
+.magazine-page #noticias .editorial-track .card-content .btn{background:white;color:#123f7d}
+.magazine-page #noticias .editorial-track .magazine-card:not(:has(.card-image-wrap)) .card-content{grid-column:1/-1}
+.magazine-page #opinion .editorial-track{--slide-width:48%}
+.magazine-page #opinion .editorial-track .magazine-card{min-height:0}
+.magazine-page #opinion .editorial-track .card-content{padding:clamp(18px,3vw,34px)}
+.magazine-page #articulo-academico .magazine-grid:has(>.magazine-card:only-child){grid-template-columns:minmax(0,1fr)}
+.magazine-page #articulo-academico .magazine-card:only-child{width:100%;min-height:0;background:radial-gradient(ellipse at 95% 10%,#25787670,transparent 55%),linear-gradient(120deg,#0b2345,#163e6d);border:0}
+.magazine-page #articulo-academico .magazine-card:only-child .card-content{padding:clamp(24px,5vw,65px);max-width:790px;color:#eaf4ff}
+.magazine-page #articulo-academico .magazine-card:only-child h3{font-size:clamp(27px,4.1vw,50px);color:white}
+.magazine-page #articulo-academico .magazine-card:only-child .btn{background:white;color:#123f7d}
+.editorial-track-nav{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin:0 4px 6px;color:#26496b;font-size:13px}
+.editorial-track-nav button{height:40px;width:40px;border:1px solid #b7cfe3;border-radius:50%;color:#123f7d;background:#fff;font-size:22px;cursor:pointer}
+.editorial-track-nav button:disabled{opacity:.45;cursor:default}
+@media(max-width:720px){.magazine-page #noticias .editorial-track,.magazine-page #opinion .editorial-track{--slide-width:88%}.magazine-page #noticias .editorial-track>.magazine-card{grid-template-columns:1fr}.magazine-page #noticias .editorial-track .card-image-wrap{height:180px;min-height:0}}
+</style>
+
+<script>
+for(const [id,label] of [['noticias','Noticias'],['opinion','Opinión']]){
+ const track=document.querySelector('#'+id+' .magazine-grid');
+ if(!track||track.children.length<2)continue;
+ const cards=[...track.children],reduce=matchMedia('(prefers-reduced-motion: reduce)');
+ track.classList.add('editorial-track');track.tabIndex=0;track.setAttribute('role','region');track.setAttribute('aria-label',label+' · desliza o usa las flechas');
+ const nav=document.createElement('div'),status=document.createElement('span');
+ nav.className='editorial-track-nav';
+ const prev=document.createElement('button'),next=document.createElement('button');
+ for(const [el,word,mark] of [[prev,'Anterior','‹'],[next,'Siguiente','›']]){
+  el.type='button';el.setAttribute('aria-label',word+' en '+label);el.textContent=mark;
+ }
+ nav.append(prev,status,next);track.before(nav);
+ const position=i=>cards[i].offsetLeft-cards[0].offsetLeft;
+ const current=()=>cards.reduce((best,_,i)=>Math.abs(position(i)-track.scrollLeft)<Math.abs(position(best)-track.scrollLeft)?i:best,0);
+ function update(){const i=current();status.textContent=(i+1)+' / '+cards.length;prev.disabled=i===0;next.disabled=i===cards.length-1;cards.forEach((c,j)=>c.toggleAttribute('data-current',j===i));}
+ function move(i){track.scrollTo({left:position(Math.max(0,Math.min(cards.length-1,i))),behavior:reduce.matches?'instant':'smooth'});}
+ prev.onclick=()=>move(current()-1);next.onclick=()=>move(current()+1);
+ track.addEventListener('scroll',update,{passive:true});
+ track.addEventListener('keydown',e=>{
+  if(e.target!==track||e.altKey||e.metaKey||e.ctrlKey||!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
+  e.preventDefault();move(e.key==='Home'?0:e.key==='End'?cards.length-1:current()+(e.key==='ArrowRight'?1:-1));
+ });
+ let down=null,dragged=false;
+ track.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button===0){down={x:e.clientX,offset:track.scrollLeft};dragged=false;}});
+ track.addEventListener('pointermove',e=>{
+  if(!down)return;
+  const delta=e.clientX-down.x;
+  if(Math.abs(delta)>6&&!dragged){dragged=true;track.setPointerCapture(e.pointerId);track.classList.add('is-dragging');}
+  if(dragged)track.scrollLeft=down.offset-delta;
+ });
+ function stop(){if(!down)return;down=null;if(dragged){const i=current();track.classList.remove('is-dragging');move(i);}}
+ track.addEventListener('pointerup',stop);track.addEventListener('pointercancel',stop);
+ track.addEventListener('pointerleave',()=>{if(!dragged)stop();});
+ track.addEventListener('dragstart',e=>e.preventDefault());
+ track.addEventListener('click',e=>{if(dragged){dragged=false;e.preventDefault();e.stopPropagation();}},true);
+ update();
+}
+</script>
