@@ -810,9 +810,9 @@ permalink: /magazine/
 <header id="inicio-magazine" class="acmi-editorial-front">
   <div class="container">
     <div class="acmi-editorial-mast">
-      <div><span class="acmi-editorial-label">ACMI · CAPÍTULO SANTANDER</span><h1>Bienvenidos a <em>Magazine ACMI</em></h1>
-      <p>Este es el espacio editorial de ACMI Santander. Aquí compartimos investigación, experiencias de la práctica clínica y noticias de nuestra comunidad. Te invitamos a explorar las publicaciones y a aportar tu trabajo o tu perspectiva.</p></div>
-      <div class="magazine-hero-actions"><a class="editorial-primary" href="/magazine/enviar-manuscrito/">Enviar manuscrito <span aria-hidden="true">↗</span></a><a href="#publicar-magazine">Participar en Magazine</a></div>
+      <div><span class="acmi-editorial-label">ACMI · CAPÍTULO SANTANDER</span><h1>Bienvenidos a Magazine ACMI</h1>
+      <p>Magazine ACMI es un espacio de investigación, noticias y opinión sobre el internista: su papel en el cuidado de los pacientes, su trabajo cotidiano y su vida dentro y fuera de la consulta. Invitamos a toda la comunidad a participar con sus publicaciones.</p></div>
+      <div class="magazine-hero-actions"><a class="editorial-primary" href="/magazine/enviar-manuscrito/">Enviar manuscrito <span aria-hidden="true">↗</span></a><a class="magazine-hero-manual" href="/magazine/manual-publicacion/">Manual de publicación <span aria-hidden="true">→</span></a></div>
     </div>
 <nav class="acmi-magazine-nav" aria-label="Secciones del Magazine"><div class="container">
 <details class="magazine-menu"><summary>Explorar Magazine</summary><div><a href="#articulo-academico">Artículos académicos</a><a href="#noticias">Noticias</a><a href="#opinion">Opinión</a><a href="#foro-acmi">Foro</a></div></details>
@@ -1428,3 +1428,15 @@ html:has(.magazine-page){scroll-behavior:smooth}
  }
 })();
 </script>
+
+<style>
+.magazine-page .acmi-editorial-mast h1{font-family:Montserrat,system-ui,sans-serif;font-weight:900;font-size:clamp(32px,5.2vw,66px);line-height:1.1;letter-spacing:-.04em;color:#143f7d;text-wrap:balance}
+.magazine-page .acmi-editorial-mast p{max-width:67ch;text-wrap:pretty}
+.magazine-page .magazine-hero-actions>a:not(.editorial-primary){background:#143f7d;border-color:#143f7d;color:white}
+.magazine-page .magazine-hero-actions>a{box-shadow:0 5px 0 #0c2c52,0 9px 17px #10396324;gap:.55rem;margin-bottom:5px}
+.magazine-page .magazine-hero-actions>.editorial-primary{box-shadow:0 5px 0 #0a4837,0 9px 17px #10396324}
+.magazine-page .acmi-magazine-nav>.container{padding-top:6px}
+.magazine-page .acmi-magazine-nav .magazine-section-link,.magazine-page .magazine-menu summary{background:#e3eff9;color:#103868;border-color:#9cbada}
+.magazine-page .acmi-magazine-nav .magazine-section-link:hover,.magazine-page .magazine-menu summary:hover{background:#143f7d;color:white}
+.magazine-page .magazine-hero-actions a:focus-visible,.magazine-page .acmi-magazine-nav :is(a,summary):focus-visible{outline:3px solid #1b7152;outline-offset:3px}
+</style>

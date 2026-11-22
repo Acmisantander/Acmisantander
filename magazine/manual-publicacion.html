@@ -310,7 +310,7 @@ permalink: /magazine/manual-publicacion/
       </h1>
 
       <p>
-        Normas editoriales para preparar noticias, columnas de opinión y textos académicos, incluyendo citación de textos, imágenes, tablas y figuras.
+        Normas editoriales para preparar artículos académicos, noticias y columnas de opinión, incluyendo citación de textos, imágenes, tablas y figuras.
       </p>
 
     </header>
@@ -334,6 +334,12 @@ permalink: /magazine/manual-publicacion/
       </h2>
 
       <div class="manual-type-grid">
+        <div class="manual-type">
+          <strong>Artículos académicos</strong>
+          <p>Investigaciones originales, revisiones y casos clínicos que aporten a la práctica o a la formación en medicina interna.</p>
+          <p><a href="#articulos-academicos">Cómo preparar un artículo académico</a></p>
+        </div>
+
 
         <div class="manual-type">
           <strong>📰 Noticias</strong>
@@ -351,13 +357,25 @@ permalink: /magazine/manual-publicacion/
 
       </div>
 
+      <section id="articulos-academicos" aria-labelledby="titulo-articulos">
+        <h2 id="titulo-articulos">Artículos académicos</h2>
+        <p>Incluya título, autores y afiliaciones, un resumen, palabras clave y referencias. Organice el texto según el tipo de manuscrito:</p>
+        <ul>
+          <li><strong>Investigación original:</strong> describa la pregunta, los métodos, los resultados y sus limitaciones.</li>
+          <li><strong>Revisión:</strong> delimite la pregunta, explique cómo seleccionó la bibliografía y resuma sus hallazgos.</li>
+          <li><strong>Caso clínico:</strong> describa el caso, la evolución, la discusión y su enseñanza para la práctica. Retire datos que puedan identificar al paciente y documente el consentimiento cuando corresponda.</li>
+        </ul>
+        <p>Declare las fuentes de financiación, los conflictos de interés y la aprobación ética cuando apliquen. Cite las fuentes y verifique los permisos de tablas, figuras e imágenes.</p>
+        <p><a class="manual-btn manual-btn-primary" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">Enviar manuscrito</a></p>
+      </section>
+
       <h2>
         Normas editoriales</h2>
 
       <div class="manual-rule">
         <h3>Extensión recomendada</h3>
         <p>
-          Se recomienda que los artículos tengan una extensión aproximada entre <strong>600 y 1200 palabras</strong>.
+          Para noticias y columnas de opinión se sugiere una extensión aproximada de <strong>600 a 1200 palabras</strong>. En artículos académicos, adapte la extensión al tipo de manuscrito y al detalle necesario para explicar el trabajo.
         </p>
       </div>
 
@@ -413,3 +431,5 @@ permalink: /magazine/manual-publicacion/
   </main>
 
 </div>
+
+<style>.manual-type-grid{grid-template-columns:repeat(3,minmax(0,1fr))}#articulos-academicos{scroll-margin-top:100px}#articulos-academicos li{margin:.45rem 0}@media(max-width:780px){.manual-type-grid{grid-template-columns:1fr}}</style>
