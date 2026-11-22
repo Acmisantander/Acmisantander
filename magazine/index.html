@@ -812,34 +812,32 @@ permalink: /magazine/
     <div class="acmi-editorial-mast">
       <div><span class="acmi-editorial-label">ACMI · CAPÍTULO SANTANDER</span><h1>Magazine ACMI</h1>
       <p>Investigación clínica, opinión médica y noticias del capítulo Santander. Un espacio para leer, debatir y publicar sobre medicina interna.</p></div>
-      <a class="editorial-primary" href="/magazine/enviar-manuscrito/">Enviar manuscrito <span aria-hidden="true">↗</span></a>
+      <div class="magazine-hero-actions"><a class="editorial-primary" href="/magazine/enviar-manuscrito/">Enviar manuscrito <span aria-hidden="true">↗</span></a><a href="#publicar-magazine">Participar en Magazine</a></div>
     </div>
     <div class="acmi-editorial-showcase" id="destacados-magazine">
-      <div class="acmi-edition-switch" aria-label="Elegir contenido destacado">
-        <button type="button" data-edition="academic" aria-pressed="true"><small>01</small> Artículo académico</button>
-        {% if portada_noticia %}<button type="button" data-edition="news" aria-pressed="false"><small>02</small> Noticias</button>{% endif %}
-        {% if portada_opinion %}<button type="button" data-edition="opinion" aria-pressed="false"><small>03</small> Opinión</button>{% endif %}
-      </div>
       <div class="acmi-edition-stage">
         <article data-edition-panel="academic" class="edition-academic">
           <div class="acmi-edition-copy"><span class="acmi-editorial-label">LECTURA DESTACADA</span><h2>¿Qué inteligencia artificial puede usar hoy un internista, y para qué?</h2><p>Una guía sobre la evidencia, el costo y los límites de las herramientas disponibles en Colombia.</p><a href="/magazine/inteligencia-artificial-internista/">Leer artículo <span aria-hidden="true">↗</span></a></div>
-          <div class="acmi-edition-art acmi-edition-type" aria-hidden="true"><div><small>MEDICINA INTERNA</small><strong>IA<span>+</span></strong><span>PRÁCTICA CLÍNICA</span></div></div>
         </article>
-        {% if portada_noticia %}<article data-edition-panel="news" class="edition-news" hidden>
+        {% if portada_noticia %}<article data-edition-panel="news" class="edition-news">
           <div class="acmi-edition-copy"><span class="acmi-editorial-label">ACTUALIDAD DEL CAPÍTULO</span><h2>{{ portada_noticia.title | escape }}</h2>{% if portada_noticia.excerpt %}<p>{{ portada_noticia.excerpt | strip_html | truncate: 145 }}</p>{% endif %}<a href="{{ portada_noticia.url | relative_url }}">Leer noticia <span aria-hidden="true">↗</span></a></div>
           <div class="acmi-edition-art">{% if portada_noticia.path contains 'eleccion-junta-acmi-santander' %}<img src="https://raw.githubusercontent.com/Acmisantander/Acmisantander/main/_posts/Junta%20directiva%20saliente.webp" alt="" loading="lazy" decoding="async">{% elsif portada_noticia.cover %}<img src="{{ portada_noticia.cover | relative_url }}" alt="" loading="lazy" decoding="async">{% else %}<strong aria-hidden="true">ACMI</strong>{% endif %}</div>
         </article>{% endif %}
-        {% if portada_opinion %}<article data-edition-panel="opinion" class="edition-opinion" hidden>
+        {% if portada_opinion %}<article data-edition-panel="opinion" class="edition-opinion">
           <div class="acmi-edition-copy"><span class="acmi-editorial-label">COLUMNA DE OPINIÓN</span><h2>{{ portada_opinion.title | escape }}</h2>{% if portada_opinion.excerpt %}<p>{{ portada_opinion.excerpt | strip_html | truncate: 145 }}</p>{% endif %}<a href="{{ portada_opinion.url | relative_url }}">Leer columna <span aria-hidden="true">↗</span></a></div>
-          <div class="acmi-edition-art acmi-edition-type" aria-hidden="true"><div><small>MAGAZINE ACMI</small><strong>“ ”</strong><span>OPINIÓN MÉDICA</span></div></div>
         </article>{% endif %}
       </div>
-      <p class="acmi-edition-help">Usa las flechas o desliza para explorar los destacados.</p>
+      <div class="acmi-edition-switch" aria-label="Elegir contenido destacado"><button type="button" data-step="-1" aria-label="Destacado anterior">‹</button>
+        <button type="button" data-edition="academic" aria-pressed="true"><small>01</small> Artículo académico</button>
+        {% if portada_noticia %}<button type="button" data-edition="news" aria-pressed="false"><small>02</small> Noticias</button>{% endif %}
+        {% if portada_opinion %}<button type="button" data-edition="opinion" aria-pressed="false"><small>03</small> Opinión</button>{% endif %}
+      <button type="button" data-step="1" aria-label="Siguiente destacado">›</button></div>
     </div>
   </div>
 </header>
 <nav class="acmi-magazine-nav" aria-label="Secciones del Magazine"><div class="container">
-<a href="#articulo-academico">Artículos académicos</a><a href="#noticias">Noticias</a><a href="#opinion">Opinión</a><a href="#editorial">Índice</a><a href="#foro-acmi">Foro</a><a href="#publicar-magazine" class="acmi-nav-publish">Publicar ↗</a>
+<details class="magazine-menu"><summary>Explorar Magazine</summary><div><a href="#articulo-academico">Artículos académicos</a><a href="#noticias">Noticias</a><a href="#opinion">Opinión</a><a href="#foro-acmi">Foro</a></div></details>
+<a href="#noticias">Todas las noticias</a><a href="#publicar-magazine">Cómo participar</a>
 </div></nav>
 
 
@@ -937,7 +935,7 @@ permalink: /magazine/
 
       {% if noticias.size > 0 %}
 
-      <div class="magazine-grid academic-grid revista-news" aria-label="Vitrina de noticias">
+      <div class="magazine-grid academic-grid magazine-news-grid" aria-label="Vitrina de noticias">
 
         {% for post in noticias %}
 
@@ -1074,7 +1072,7 @@ permalink: /magazine/
 
 
 
-  <section id="editorial" class="editorial-library"><div class="container"><h2>Publicaciones</h2><div class="editorial-book" tabindex="0" role="region" aria-label="Libro de publicaciones" aria-describedby="revista-keys"><div class="editorial-contents"><span>ACMI SANTANDER</span><h3>Índice</h3><p>Elige una sección para hojear la revista.</p><div class="editorial-tabs"><button type="button" data-editorial-tab="0" aria-pressed="true">Artículos académicos</button><button type="button" data-editorial-tab="1" aria-pressed="false">Noticias</button><button type="button" data-editorial-tab="2" aria-pressed="false">Opinión</button></div></div><div class="editorial-pages"><article class="editorial-leaf" data-editorial-leaf><span>MAGAZINE ACMI</span><h3>Artículos académicos</h3><p>Investigaciones, revisiones y casos clínicos que aportan a la práctica de la medicina interna. Consulta los trabajos publicados y las preguntas que los motivaron.</p><a href="#articulo-academico">Ver publicaciones</a></article><article class="editorial-leaf" data-editorial-leaf><span>MAGAZINE ACMI</span><h3>Noticias</h3><p>Congresos, encuentros académicos y noticias de ACMI Santander. Sigue las actividades del capítulo y la participación de sus integrantes.</p><a href="#noticias">Ver publicaciones</a></article><article class="editorial-leaf" data-editorial-leaf><span>MAGAZINE ACMI</span><h3>Opinión</h3><p>Columnas y reflexiones sobre el ejercicio de la medicina interna, la formación médica y la salud pública.</p><a href="#opinion">Ver publicaciones</a></article></div></div><div class="revista-page-controls" hidden><span role="status" data-folio></span><span aria-hidden="true">·</span><span id="revista-keys">Haz clic en la hoja o usa ← y →.</span></div><aside class="revista-call" id="publicar-magazine"><h3>Publica en Magazine ACMI</h3><p>Invitamos a internistas, residentes y profesionales de la salud a enviar sus investigaciones, revisiones y casos clínicos. Consulta el manual antes de preparar tu manuscrito.</p><nav class="editorial-submit" aria-label="Envíos editoriales"><a href="/magazine/manual-publicacion/">Manual de publicación</a><a href="/magazine/enviar-manuscrito/">Enviar manuscrito</a><a href="/magazine/enviar-ponencias/">Enviar ponencia</a></nav></aside></div></section>
+  <section class="editorial-library"><div class="container"><aside class="revista-call" id="publicar-magazine"><h3>Publica en Magazine ACMI</h3><p>Invitamos a internistas, residentes y profesionales de la salud a enviar sus investigaciones, revisiones y casos clínicos. Consulta el manual antes de preparar tu manuscrito.</p><nav class="editorial-submit" aria-label="Envíos editoriales"><a href="/magazine/manual-publicacion/">Manual de publicación</a><a href="/magazine/enviar-manuscrito/">Enviar manuscrito</a><a href="/magazine/enviar-ponencias/">Enviar ponencia</a></nav></aside></div></section>
 
   <section class="magazine-section forum-section" id="foro-acmi">
 
@@ -1099,12 +1097,7 @@ permalink: /magazine/
 
 
 
-<script>(()=>{const book=document.querySelector('.editorial-book'),tabs=[...book.querySelectorAll('[data-editorial-tab]')],leaves=[...book.querySelectorAll('[data-editorial-leaf]')];let index=0;function show(i){index=(i+tabs.length)%tabs.length;tabs.forEach((x,j)=>x.setAttribute('aria-pressed',String(j===index)));leaves.forEach((x,j)=>x.hidden=j!==index);book.classList.remove('is-turning');void book.offsetWidth;book.classList.add('is-turning');}tabs.forEach((x,i)=>x.onclick=()=>show(i));book.addEventListener('click',e=>{
- if(e.target.closest('a,button')||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey||window.getSelection()?.toString())return;
- const leaf=e.target.closest('.editorial-leaf'), contents=e.target.closest('.editorial-contents');
- if(!leaf&&!contents)return;
- show(index+(leaf?1:-1));book.focus({preventScroll:true});
-});book.addEventListener('keydown',e=>{if(!e.altKey&&!e.ctrlKey&&!e.metaKey&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){e.preventDefault();show(index+(e.key==='ArrowRight'?1:-1));if(e.target.closest('button'))tabs[index].focus();}});show(0);const open=document.getElementById('mag-load-forum'),msg=document.getElementById('mag-forum-status');open.onclick=()=>{open.disabled=true;msg.textContent='Cargando comentarios…';const script=document.createElement('script');script.src='https://unpkg.com/commentbox.io/dist/commentBox.min.js';script.onload=()=>{if(typeof commentBox==='function'){commentBox('5704224843235328-proj');msg.textContent='';open.hidden=true;}else fail();};function fail(){script.remove();open.disabled=false;msg.textContent='No fue posible cargar los comentarios. Inténtalo de nuevo.';}script.onerror=fail;document.head.append(script);};})();</script><script>(()=>{const tabs=[...document.querySelectorAll('[data-editorial-tab]')], controls=document.querySelector('.revista-page-controls'),folio=controls.querySelector('[data-folio]');const current=()=>tabs.findIndex(b=>b.getAttribute('aria-pressed')==='true');const sync=()=>{folio.textContent='Sección '+(current()+1)+' de '+tabs.length;};controls.hidden=false;new MutationObserver(sync).observe(document.querySelector('.editorial-tabs'),{subtree:true,attributes:true,attributeFilter:['aria-pressed']});sync();})();</script>
+<script>(()=>{const open=document.getElementById('mag-load-forum'),msg=document.getElementById('mag-forum-status');open.onclick=()=>{open.disabled=true;msg.textContent='Cargando comentarios…';const script=document.createElement('script');script.src='https://unpkg.com/commentbox.io/dist/commentBox.min.js';script.onload=()=>{if(typeof commentBox==='function'){commentBox('5704224843235328-proj');msg.textContent='';open.hidden=true;}else fail();};function fail(){script.remove();open.disabled=false;msg.textContent='No fue posible cargar los comentarios. Inténtalo de nuevo.';}script.onerror=fail;document.head.append(script);};})();</script>
 <style>
 .editorial-library .editorial-book{background:linear-gradient(135deg,#122f58,#215581 58%,#187763);padding:7px 8px 13px;border-radius:16px;box-shadow:0 4px 0 #0b2746,0 22px 45px #10264129}
 .editorial-book:after{inset:auto 13px 4px;height:7px;background:repeating-linear-gradient(#9bb5ce 0 1px,#edf5fc 1px 3px)}
@@ -1155,7 +1148,7 @@ permalink: /magazine/
 </style>
 
 <script>
-for(const [id,label] of [['noticias','Noticias'],['opinion','Opinión']]){
+for(const [id,label] of [['opinion','Opinión']]){
  const track=document.querySelector('#'+id+' .magazine-grid');
  if(!track||track.children.length<2)continue;
  const cards=[...track.children],reduce=matchMedia('(prefers-reduced-motion: reduce)');
@@ -1241,17 +1234,19 @@ for(const [id,label] of [['noticias','Noticias'],['opinion','Opinión']]){
 (()=>{
 const root=document.querySelector('.acmi-editorial-showcase'),stage=root.querySelector('.acmi-edition-stage');
 const buttons=[...root.querySelectorAll('[data-edition]')],panels=[...stage.children];let i=0;
-function show(next,dir){
+function show(next){
  i=(next+buttons.length)%buttons.length;
- stage.style.setProperty('--edition-nudge',dir<0?'-15px':'15px');
- for(const [j,panel] of panels.entries()){
-  panel.hidden=j!==i;panel.classList.remove('edition-enter');
- }
- void stage.offsetWidth;
- panels[i].classList.add('edition-enter');
+ root.classList.add('fan-ready');
+ panels.forEach((panel,j)=>{
+  const diff=(j-i+buttons.length)%buttons.length;
+  panel.dataset.side=diff===0?'center':diff===1?'right':'left';
+ });
  buttons.forEach((b,k)=>b.setAttribute('aria-pressed',String(i===k)));
 }
-buttons.forEach((button,j)=>button.addEventListener('click',()=>show(j,j-i)));
+buttons.forEach((button,j)=>button.addEventListener('click',()=>show(j)));
+root.querySelectorAll('[data-step]').forEach(b=>b.addEventListener('click',()=>show(i+Number(b.dataset.step))));
+panels.forEach((panel,j)=>panel.addEventListener('click',e=>{if(!e.target.closest('a')&&!window.getSelection()?.toString())show(j);}));
+show(0);
 root.addEventListener('keydown',e=>{
  if(e.altKey||e.metaKey||e.ctrlKey||!['ArrowLeft','ArrowRight'].includes(e.key))return;
  const d=e.key==='ArrowRight'?1:-1;
@@ -1268,6 +1263,56 @@ stage.addEventListener('pointerup',e=>{
 stage.querySelectorAll('img').forEach(img=>img.draggable=false);
 const nav=document.querySelector('.acmi-magazine-nav'),links=[...nav.querySelectorAll('a')];
 function highlight(){links.forEach(link=>link.getAttribute('href')===location.hash?link.setAttribute('aria-current','location'):link.removeAttribute('aria-current'));}
+nav.querySelector('details').addEventListener('click',e=>{if(e.target.closest('a'))nav.querySelector('details').open=false;});
 addEventListener('hashchange',highlight);highlight();
 })();
 </script>
+<style>
+.acmi-editorial-front{background:radial-gradient(ellipse at 50% 65%,#e8f2fd 0,transparent 65%),#fff;padding-top:clamp(28px,4vw,54px)}
+.acmi-editorial-front>.container{width:min(92%,1180px);margin-inline:auto}
+.acmi-editorial-mast{display:block;text-align:center;margin:0 auto clamp(25px,4vw,48px)}
+.acmi-editorial-mast h1{font-family:Montserrat,system-ui,sans-serif;font-size:clamp(36px,5.2vw,66px);font-weight:900}
+.acmi-editorial-mast p{margin-inline:auto;max-width:68ch}
+.magazine-hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:19px}
+.magazine-hero-actions>a{display:inline-flex;align-items:center;min-height:46px;border-radius:10px;padding:9px 19px;border:2px solid #176b59;text-decoration:none;font-weight:850}
+.magazine-hero-actions>a:not(.editorial-primary){color:#124467;background:#fff;border-color:#b4ccdf}
+.magazine-hero-actions>a:hover{filter:brightness(.92)}
+.acmi-edition-stage{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:16px}
+.acmi-edition-stage article{display:flex;flex-direction:column;justify-content:space-between;grid-template-columns:none;min-height:0;border:1px solid #cbdbea;border-radius:16px;background:#fff;color:#183d61;box-shadow:0 12px 30px #263e6628}
+.acmi-edition-stage article.edition-academic{background:linear-gradient(150deg,#081f44,#174378);color:#fff;border-color:#153c70}
+.acmi-edition-copy{align-self:stretch;padding:clamp(18px,2.3vw,32px);display:flex;flex-direction:column;align-items:flex-start;flex:1}
+.acmi-edition-copy .acmi-editorial-label{color:#176b61;background:#e6f4ed;border-radius:20px;padding:5px 9px;font-size:10px}
+.acmi-edition-copy h2{font-family:Montserrat,system-ui,sans-serif;color:#133d71;font-size:clamp(18px,2.15vw,28px);line-height:1.17;font-weight:850;margin-block:12px}
+.acmi-edition-copy p{color:#375473;font-size:14px;line-height:1.45}
+.acmi-edition-copy>a{margin-top:auto;min-height:44px;background:#123c70;color:#fff;font-size:13px}
+.edition-academic .acmi-edition-copy :is(h2,p){color:white}
+.edition-academic .acmi-edition-copy>a{background:#fff;color:#123c70}
+.acmi-edition-stage .acmi-edition-art{order:-1;min-height:0;height:clamp(86px,10vw,133px);border-left:0}
+.acmi-edition-stage .acmi-edition-art img{object-position:center 38%}
+.acmi-edition-switch{justify-content:center;flex-wrap:wrap;overflow:visible;margin:25px 0 0}
+.acmi-edition-switch [data-step]{border-radius:100%;width:44px;padding:0;font-size:25px}
+@media(min-width:820px){
+.acmi-edition-stage{height:clamp(350px,36vw,425px);display:block}
+.acmi-edition-stage::before{content:"";position:absolute;inset:auto 10% -16px;height:24px;border-radius:50%;background:#294d7330;filter:blur(9px)}
+.fan-ready .acmi-edition-stage article{position:absolute;left:50%;top:0;width:34%;height:100%;transition:transform .43s ease,box-shadow .43s ease;transform:translateX(-50%) rotate(-3deg);z-index:2;cursor:pointer}
+.fan-ready .acmi-edition-stage article[data-side=left]{transform:translateX(-140%) translateY(15px) rotate(-8deg) scale(.90);z-index:1}
+.fan-ready .acmi-edition-stage article[data-side=right]{transform:translateX(40%) translateY(15px) rotate(8deg) scale(.90);z-index:1}
+.fan-ready .acmi-edition-stage article:focus-within{z-index:4}
+.fan-ready .acmi-edition-stage article[data-side=center]{box-shadow:0 14px 25px #263e6650}
+}
+@media(prefers-reduced-motion:reduce){.fan-ready .acmi-edition-stage article{transition:none}}
+.acmi-magazine-nav>.container{justify-content:center}
+.magazine-menu{position:relative;z-index:8}
+.magazine-menu summary{font-weight:800;color:#153e6b;cursor:pointer;padding:8px 13px;background:#eef5fb;border:1px solid #bdcfe2;border-radius:8px}
+.magazine-menu>div{position:absolute;top:calc(100% + 5px);left:0;min-width:210px;background:#fff;box-shadow:0 12px 20px #123c7030;border-radius:8px;border:1px solid #cbdbea;padding:7px 12px}
+.magazine-menu a{display:block}
+.magazine-page #noticias .magazine-news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,24px);width:100%;max-width:none;overflow:visible}
+.magazine-page #noticias .magazine-news-grid>.magazine-card{margin:0;width:auto;min-width:0;min-height:0;transform:none;display:flex;flex-direction:column}
+.magazine-page #noticias .magazine-news-grid .card-image-wrap{display:block;width:100%;height:clamp(150px,19vw,230px);min-height:0;background:#e8f0f7}
+.magazine-page #noticias .magazine-news-grid .card-image{height:100%;width:100%;object-fit:contain;transform:none}
+.magazine-page #noticias .magazine-news-grid .card-content{height:auto;display:flex;align-items:flex-start;flex:1;flex-direction:column;padding:clamp(13px,1.8vw,24px)}
+.magazine-page #noticias .magazine-news-grid h3{font-size:clamp(16px,1.8vw,23px);overflow-wrap:anywhere}
+.magazine-page #noticias .magazine-news-grid .btn{margin-top:auto}
+@media(max-width:960px){.magazine-page #noticias .magazine-news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.magazine-page #noticias .magazine-news-grid{grid-template-columns:1fr}.acmi-edition-switch button{padding:7px 9px}.acmi-edition-switch small{display:none}}
+</style>
