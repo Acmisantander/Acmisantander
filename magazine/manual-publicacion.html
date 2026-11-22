@@ -170,7 +170,7 @@ permalink: /magazine/manual-publicacion/
   border:1px solid rgba(20,63,125,.08);
 }
 
-.manual-type strong{
+.manual-type > strong{
   display:block;
   color:var(--manual-azul);
   font-family:'Montserrat', sans-serif;
@@ -334,12 +334,30 @@ permalink: /magazine/manual-publicacion/
       </h2>
 
       <div class="manual-type-grid">
-        <div class="manual-type">
-          <strong>Artículos académicos</strong>
-          <p>Investigaciones originales, revisiones y casos clínicos que aporten a la práctica o a la formación en medicina interna.</p>
-          <p><a href="#articulos-academicos">Cómo preparar un artículo académico</a></p>
-        </div>
+      <section class="manual-type manual-type-wide" id="articulos-academicos" aria-labelledby="titulo-articulos">
+        <h3 id="titulo-articulos">Artículos académicos</h3>
+        <p>Recibimos investigaciones originales, revisiones y casos clínicos que aporten a la práctica o a la formación en medicina interna.</p>
+        <p>Incluya título, autores y afiliaciones, un resumen, palabras clave y referencias. Organice el texto según el tipo de manuscrito:</p>
+        <ul>
+          <li><strong>Investigación original:</strong> describa la pregunta, los métodos, los resultados y sus limitaciones.</li>
+          <li><strong>Revisión:</strong> delimite la pregunta, explique cómo seleccionó la bibliografía y resuma sus hallazgos.</li>
+          <li><strong>Caso clínico:</strong> describa el caso, la evolución, la discusión y su enseñanza para la práctica. Retire datos que puedan identificar al paciente y documente el consentimiento cuando corresponda.</li>
+        </ul>
+        <p>Declare las fuentes de financiación, los conflictos de interés y la aprobación ética cuando apliquen. Cite las fuentes y verifique los permisos de tablas, figuras e imágenes.</p>
+        <p><a class="manual-btn manual-btn-primary" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">Enviar manuscrito</a></p>
+      </section>
 
+      <section class="manual-type manual-type-wide" id="publicar-poster" aria-labelledby="titulo-poster">
+        <h3 id="titulo-poster">Publicar póster en Magazine ACMI</h3>
+        <p>Proponga un póster académico para exhibición en el portal de Magazine ACMI. Prepare estos documentos:</p>
+        <ul>
+          <li><strong>Póster:</strong> versión final para exhibición, sin datos que permitan identificar al paciente.</li>
+          <li><strong>Manuscrito:</strong> texto que acompaña al póster, con bibliografía completa.</li>
+          <li><strong>Firmas:</strong> documento firmado por todos los autores y coautores que autorice el envío y la publicación.</li>
+          <li><strong>Consentimiento informado:</strong> si el trabajo presenta un caso clínico o material de un paciente, adjunte el consentimiento escrito para publicación por el canal privado. Este documento es de revisión editorial y no se publica.</li>
+        </ul>
+        <p>La recepción de archivos estará disponible cuando se habilite el canal privado en Cloudflare. Por ahora, no envíe consentimientos ni datos de pacientes por otros formularios o enlaces públicos.</p>
+      </section>
 
         <div class="manual-type">
           <strong>📰 Noticias</strong>
@@ -357,17 +375,7 @@ permalink: /magazine/manual-publicacion/
 
       </div>
 
-      <section id="articulos-academicos" aria-labelledby="titulo-articulos">
-        <h2 id="titulo-articulos">Artículos académicos</h2>
-        <p>Incluya título, autores y afiliaciones, un resumen, palabras clave y referencias. Organice el texto según el tipo de manuscrito:</p>
-        <ul>
-          <li><strong>Investigación original:</strong> describa la pregunta, los métodos, los resultados y sus limitaciones.</li>
-          <li><strong>Revisión:</strong> delimite la pregunta, explique cómo seleccionó la bibliografía y resuma sus hallazgos.</li>
-          <li><strong>Caso clínico:</strong> describa el caso, la evolución, la discusión y su enseñanza para la práctica. Retire datos que puedan identificar al paciente y documente el consentimiento cuando corresponda.</li>
-        </ul>
-        <p>Declare las fuentes de financiación, los conflictos de interés y la aprobación ética cuando apliquen. Cite las fuentes y verifique los permisos de tablas, figuras e imágenes.</p>
-        <p><a class="manual-btn manual-btn-primary" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">Enviar manuscrito</a></p>
-      </section>
+
 
       <h2>
         Normas editoriales</h2>
@@ -432,4 +440,4 @@ permalink: /magazine/manual-publicacion/
 
 </div>
 
-<style>.manual-type-grid{grid-template-columns:repeat(3,minmax(0,1fr))}#articulos-academicos{scroll-margin-top:100px}#articulos-academicos li{margin:.45rem 0}@media(max-width:780px){.manual-type-grid{grid-template-columns:1fr}}</style>
+<style>.manual-type-wide{grid-column:1/-1;scroll-margin-top:100px}.manual-type-wide h3{font-family:Montserrat,sans-serif;color:var(--manual-azul);font-size:clamp(22px,2.8vw,30px);line-height:1.2;margin:0 0 14px}.manual-type-wide li{margin:.45rem 0}.manual-type-wide p:last-child{margin-bottom:0}@media(max-width:780px){.manual-type-grid{grid-template-columns:1fr}}</style>
