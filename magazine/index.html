@@ -1100,7 +1100,7 @@ permalink: /magazine/
 
       <div class="forum-card">
 
-        <button class="btn btn-primary" type="button" id="mag-load-forum">Abrir comentarios</button><p id="mag-forum-status" role="status"></p>
+        <p id="mag-forum-status" role="status"></p><button class="btn btn-primary" type="button" id="mag-retry-forum" hidden>Reintentar</button>
 
         <div class="commentbox"></div>
 
@@ -1115,7 +1115,38 @@ permalink: /magazine/
 
 
 
-<script>(()=>{const open=document.getElementById('mag-load-forum'),msg=document.getElementById('mag-forum-status');open.onclick=()=>{open.disabled=true;msg.textContent='Cargando comentarios…';const script=document.createElement('script');script.src='https://unpkg.com/commentbox.io/dist/commentBox.min.js';script.onload=()=>{if(typeof commentBox==='function'){commentBox('5704224843235328-proj');msg.textContent='';open.hidden=true;}else fail();};function fail(){script.remove();open.disabled=false;msg.textContent='No fue posible cargar los comentarios. Inténtalo de nuevo.';}script.onerror=fail;document.head.append(script);};})();</script>
+<script>
+(() => {
+  const forum=document.getElementById('foro-acmi');
+  const msg=document.getElementById('mag-forum-status');
+  const retry=document.getElementById('mag-retry-forum');
+  let started=false;
+  function load() {
+    if (started) return;
+    started=true; retry.hidden=true; msg.textContent='Cargando comentarios…';
+    const script=document.createElement('script');
+    script.src='https://unpkg.com/commentbox.io/dist/commentBox.min.js';
+    function fail() {
+      script.remove(); started=false;
+      msg.textContent='No fue posible cargar los comentarios.';
+      retry.hidden=false;
+    }
+    script.onload=() => {
+      if (typeof window.commentBox!=='function') return fail();
+      try { window.commentBox('5704224843235328-proj'); msg.textContent=''; }
+      catch { fail(); }
+    };
+    script.onerror=fail;
+    document.head.append(script);
+  }
+  retry.addEventListener('click',load);
+  if (!('IntersectionObserver' in window)||location.hash==='#foro-acmi') return load();
+  const observer=new IntersectionObserver(entries => {
+    if (entries.some(entry=>entry.isIntersecting)) { observer.disconnect(); load(); }
+  }, {rootMargin:'400px 0px'});
+  observer.observe(forum);
+})();
+</script>
 <style>
 .editorial-library .editorial-book{background:linear-gradient(135deg,#122f58,#215581 58%,#187763);padding:7px 8px 13px;border-radius:16px;box-shadow:0 4px 0 #0b2746,0 22px 45px #10264129}
 .editorial-book:after{inset:auto 13px 4px;height:7px;background:repeating-linear-gradient(#9bb5ce 0 1px,#edf5fc 1px 3px)}
