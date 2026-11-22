@@ -3699,6 +3699,30 @@ section:not(.hero):has(>.christmas-left)::before{left:calc(100% - 5.5vw)}
 section:not(.hero):has(>.christmas-right)::before{left:5.5vw;rotate:-90deg}
 }
 </style>
+
+<style id="acmi-hero-scale">
+.hero#inicio{min-height:clamp(470px,34vw,650px);display:flex;align-items:center}
+.hero#inicio>.hero-content{width:min(76vw,1360px);max-width:1360px;padding:clamp(75px,7vw,125px) 0!important;grid-template-columns:minmax(0,1.6fr) minmax(215px,.7fr);column-gap:clamp(35px,7vw,145px)}
+.hero#inicio h2{font-size:clamp(53px,5vw,92px);line-height:1.02;letter-spacing:-.042em;margin-bottom:20px}
+.hero#inicio .hero-content>p{font-size:clamp(17px,1.18vw,21px);line-height:1.66;max-width:710px}
+.hero#inicio .hero-actions{margin-top:26px}
+.hero#inicio .hero-actions .btn{font-size:clamp(14px,1.05vw,17px);padding:14px 22px}
+.hero#inicio .acmi-navidad-message{font-size:clamp(18px,1.52vw,25px);max-width:330px;padding:24px}
+@media(max-width:1319px){
+.hero#inicio>.christmas-figure{position:absolute;right:12px;top:68px;width:86px;margin:0}
+.hero#inicio>.hero-content{width:86vw}
+}
+@media(max-width:768px){
+.hero#inicio{min-height:0}
+.hero#inicio>.hero-content{padding:82px 0 53px!important;width:90vw}
+.hero#inicio h2{font-size:clamp(38px,9vw,64px);margin-bottom:4px}
+.hero#inicio .hero-content>p{font-size:16px}
+.hero#inicio>.christmas-figure{top:37px;width:55px}
+.hero#inicio .acmi-navidad-message{font-size:13px;padding:8px 13px}
+.hero#inicio .hero-actions{margin-top:13px}
+.hero#inicio .hero-actions .btn{font-size:14px;padding:10px 14px}
+}
+</style>
 </head>
 
 <body>
