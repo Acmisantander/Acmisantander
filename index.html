@@ -3758,6 +3758,18 @@ header .main-header nav{grid-column:1/-1}
 .hero#inicio .acmi-navidad-message{grid-area:4/1;width:fit-content;max-width:100%;margin:7px 0 0;padding:8px clamp(7px,1.6vw,17px);font-size:clamp(10px,3.25vw,13px);border-radius:999px;white-space:nowrap;gap:clamp(4px,1vw,10px);line-height:1.3}
 @media(min-width:769px){.hero#inicio .acmi-navidad-message{font-size:clamp(14px,1.2vw,17px)}}
 @media(max-width:768px){.hero#inicio>.hero-content{gap:12px;width:90%}.hero#inicio>.hero-content>h2{font-size:clamp(32px,8.4vw,54px)}}
+</style><style>
+.acmi-survey-card{box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) minmax(165px,230px);align-items:center;gap:clamp(20px,4vw,60px);margin:26px 0 0;padding:clamp(19px,4vw,42px);border:1px solid #c7dae9;border-top:4px solid #1c795b;border-radius:18px;background:linear-gradient(145deg,#fff,#eef7fb);box-shadow:0 8px 22px #0e315012;text-align:left;color:#283f55;line-height:1.58}
+.acmi-survey-copy .acmi-survey-kicker{color:#136947;font-size:.76rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin:0 0 8px}
+.acmi-survey-card #acmi-survey-title{margin:0 0 10px;color:#143f7d;font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.17}
+.acmi-survey-copy p{font-size:1rem;margin:0 0 1rem;max-width:70ch}
+.acmi-survey-link{display:inline-flex;align-items:center;gap:.55rem;padding:.65rem 1rem;min-height:44px;box-sizing:border-box;background:#14664c;color:#fff;font-weight:750;text-decoration:none;border-radius:9px}
+.acmi-survey-link:hover{background:#0c523c;color:#fff}
+.acmi-survey-link:focus-visible{outline:3px solid #143f7d;outline-offset:3px}
+.acmi-survey-qr{margin:0;padding:10px 10px 12px;background:#fff;border:1px solid #d2e0eb;border-radius:12px;text-align:center}
+.acmi-survey-qr img{display:block;width:min(100%,180px);height:auto;aspect-ratio:1;margin:auto}
+.acmi-survey-qr figcaption{font-size:.86rem;color:#34536e}
+@media(max-width:640px){.acmi-survey-card{grid-template-columns:1fr}.acmi-survey-qr{width:min(100%,225px);box-sizing:border-box;justify-self:center}.acmi-survey-qr img{width:140px}}
 </style></head>
 
 <body>
@@ -3992,6 +4004,18 @@ header .main-header nav{grid-column:1/-1}
         </a>
       </div>
     <img class="frame-garland tr" src="/guirnalda-07.webp" alt="" aria-hidden="true" width="320" height="320" loading="lazy" decoding="async"></article>
+<article id="encuesta-retinopatia" class="acmi-survey-card" aria-labelledby="acmi-survey-title">
+  <div class="acmi-survey-copy">
+    <p class="acmi-survey-kicker">Campaña · Proyección social</p>
+    <h3 id="acmi-survey-title">Encuesta sobre retinopatía diabética</h3>
+    <p>Invitamos a profesionales de medicina general, medicina interna, medicina familiar, endocrinología, pediatría y optometría a compartir su experiencia con la retinopatía diabética. Sus respuestas ayudarán a identificar oportunidades de formación y a trabajar juntos por una mejor atención para nuestros pacientes.</p>
+    <a class="acmi-survey-link" href="https://redcap.link/CAP-RD">Responder la encuesta <span aria-hidden="true">→</span></a>
+  </div>
+  <figure class="acmi-survey-qr">
+    <img src="/qr-encuesta-retinopatia.png" width="396" height="396" alt="Código QR de la encuesta sobre retinopatía diabética" loading="lazy" decoding="async">
+    <figcaption>Escanea el código para participar</figcaption>
+  </figure>
+</article>
 
   </div>
 </section>
