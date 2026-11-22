@@ -3759,23 +3759,29 @@ header .main-header nav{grid-column:1/-1}
 @media(min-width:769px){.hero#inicio .acmi-navidad-message{font-size:clamp(14px,1.2vw,17px)}}
 @media(max-width:768px){.hero#inicio>.hero-content{gap:12px;width:90%}.hero#inicio>.hero-content>h2{font-size:clamp(32px,8.4vw,54px)}}
 </style><style>
-.acmi-survey-card{box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) minmax(165px,230px);align-items:center;gap:clamp(20px,4vw,60px);margin:26px 0 0;padding:clamp(19px,4vw,42px);border:1px solid #c7dae9;border-top:4px solid #1c795b;border-radius:18px;background:linear-gradient(145deg,#fff,#eef7fb);box-shadow:0 8px 22px #0e315012;text-align:left;color:#283f55;line-height:1.58}
-.acmi-survey-copy .acmi-survey-kicker{color:#136947;font-size:.76rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin:0 0 8px}
-.acmi-survey-card #acmi-survey-title{margin:0 0 10px;color:#143f7d;font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.17}
-.acmi-survey-copy p{font-size:1rem;margin:0 0 1rem;max-width:70ch}
-.acmi-survey-link{display:inline-flex;align-items:center;gap:.55rem;padding:.65rem 1rem;min-height:44px;box-sizing:border-box;background:#14664c;color:#fff;font-weight:750;text-decoration:none;border-radius:9px}
+.acmi-community-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(155px,230px);align-items:center;gap:clamp(20px,5vw,64px);padding:clamp(20px,4vw,48px);border:1px solid #244c76;border-radius:20px;background:linear-gradient(125deg,#10294b,#18457b 68%,#1a5370);color:#fff;box-shadow:0 14px 32px #0e315023;text-align:left}
+.acmi-community-card .acmi-community-title{font-size:clamp(1.6rem,4vw,2.45rem);line-height:1.15;margin:0 0 .75rem;color:#fff}
+.acmi-community-card p{font-size:1rem;margin:0 0 1rem;max-width:70ch;color:#e7f2fc}
+.acmi-survey-copy{margin-top:1.4rem;padding-top:1.1rem;border-top:1px solid #ffffff45;scroll-margin-top:110px}
+.acmi-survey-copy .acmi-survey-kicker{color:#a6ebcd;font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.acmi-survey-copy #acmi-survey-title{margin:0 0 10px;color:#fff;font-size:clamp(1.24rem,3vw,1.75rem);line-height:1.2}
+.acmi-survey-link,.acmi-community-more{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:.6rem .9rem;box-sizing:border-box;border-radius:9px;text-decoration:none;font-weight:750}
+.acmi-survey-link{background:#14664c;color:#fff;border:1px solid #5ba38b}
 .acmi-survey-link:hover{background:#0c523c;color:#fff}
-.acmi-survey-link:focus-visible{outline:3px solid #143f7d;outline-offset:3px}
-.acmi-survey-qr{margin:0;padding:10px 10px 12px;background:#fff;border:1px solid #d2e0eb;border-radius:12px;text-align:center}
+.acmi-community-more{color:#fff;margin-left:.45rem;text-decoration:underline;text-underline-offset:3px}
+.acmi-community-more:hover{color:#a6ebcd}
+.acmi-survey-link:focus-visible,.acmi-community-more:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.acmi-survey-qr{margin:0;padding:12px;background:white;border:1px solid #d2e0eb;border-radius:12px;text-align:center}
 .acmi-survey-qr img{display:block;width:min(100%,180px);height:auto;aspect-ratio:1;margin:auto}
 .acmi-survey-qr figcaption{font-size:.86rem;color:#34536e}
-@media(max-width:640px){.acmi-survey-card{grid-template-columns:1fr}.acmi-survey-qr{width:min(100%,225px);box-sizing:border-box;justify-self:center}.acmi-survey-qr img{width:140px}}
+@media(max-width:640px){.acmi-community-card{grid-template-columns:minmax(0,1fr)}.acmi-survey-qr{width:min(100%,208px);box-sizing:border-box;justify-self:center}.acmi-survey-qr img{width:155px}}
 </style><style>
 .acmi-participa{padding:clamp(46px,6vw,84px) 0;background:linear-gradient(145deg,#f4f9ff,#eef7f4);border-block:1px solid #dee9f3}
 .acmi-participa .section-subtitle{margin-inline:auto;max-width:65ch}
-.acmi-participa-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,24px);margin-top:24px}
+.acmi-participa-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,24px);margin-top:24px}
 .acmi-participa-card{box-sizing:border-box;display:flex;flex-direction:column;gap:.65rem;min-width:0;padding:clamp(18px,2.6vw,34px);text-decoration:none;color:#fff;border:1px solid #204c7c;border-radius:14px;background:#143f7d;box-shadow:0 5px 12px #102d541c}
 .acmi-participa-card:nth-child(2){background:#13644d;border-color:#13644d}
+.acmi-participa-card.acmi-participa-poster{background:#255477;border-color:#255477}
 .acmi-participa-card.acmi-participa-guide{background:#fff;color:#143f7d;border-color:#bfd3e5}
 .acmi-participa-card:hover{box-shadow:0 8px 18px #102d5440;color:#fff}
 .acmi-participa-card.acmi-participa-guide:hover{color:#143f7d}
@@ -3784,7 +3790,8 @@ header .main-header nav{grid-column:1/-1}
 .acmi-participa-card .acmi-participa-label{font-size:.75rem;font-weight:700;letter-spacing:.035em}
 .acmi-participa-arrow{font-size:1.45rem;line-height:1;margin-top:auto;padding-top:6px}
 .main-header nav>ul>li>a.participa-nav-link{color:#10664d;background:#e7f4ed;border-radius:10px}
-@media(max-width:720px){.acmi-participa-grid{grid-template-columns:1fr}.acmi-participa-card{padding:19px}}
+@media(max-width:1050px){.acmi-participa-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.acmi-participa-grid{grid-template-columns:1fr}.acmi-participa-card{padding:19px}}
 </style></head>
 
 <body>
@@ -3829,7 +3836,15 @@ header .main-header nav{grid-column:1/-1}
 <li><a href="/#eventos">Próximos eventos</a></li>
 <li class="dropdown"><a href="/repositorio-eventos/" aria-haspopup="true" aria-expanded="false">Repositorio de eventos ▾</a><div class="dropdown-menu acmi-events-menu"><a href="/congreso-acmi/"><strong>Bucaramanga 2026</strong><small>Congreso ACMI · Trabajos y certificados</small></a><a href="/repositorio-eventos/san-gil-2026.html"><strong>San Gil 2026</strong><small>VI Simposio Regional ACMI</small></a><a href="/repositorio-eventos/">Todos los repositorios</a></div></li>
 <li><a href="/educacion-medica-continuada/">Educación médica continuada</a></li>
-<li><a href="/magazine/">Magazine</a></li>
+<li class="dropdown"><a href="/magazine/" aria-haspopup="true" aria-expanded="false" aria-controls="acmi-magazine-menu">Magazine ▾</a>
+<div class="dropdown-menu" id="acmi-magazine-menu">
+<a href="/magazine/">Ir a Magazine</a>
+<a href="/magazine/#noticias">Noticias</a>
+<a href="/magazine/#opinion">Opinión</a>
+<a href="/magazine/#articulo-academico">Artículos académicos</a>
+<a href="/magazine/manual-publicacion/#publicar-poster">Publicar póster en Magazine ACMI</a>
+<a href="/magazine/manual-publicacion/">Manual de publicación</a>
+</div></li>
 <li><a class="participa-nav-link" href="#participa-acmi">Participa en ACMI</a></li>
 <li><a href="/proyeccion-social/">Proyección social</a></li>
 <li><a href="/#foro">Foro</a></li>
@@ -4005,7 +4020,7 @@ header .main-header nav{grid-column:1/-1}
 <section id="participa-acmi" class="acmi-participa" aria-labelledby="participa-acmi-title">
   <div class="container">
     <h2 id="participa-acmi-title" class="section-title">Participa en ACMI</h2>
-    <p class="section-subtitle">En un solo lugar puedes proponer una ponencia, enviar un manuscrito para Magazine ACMI y consultar las pautas de publicación.</p>
+    <p class="section-subtitle">Puedes proponer una ponencia, enviar un manuscrito para Magazine ACMI y consultar las pautas de publicación.</p>
     <div class="acmi-participa-grid">
       <a class="acmi-participa-card" href="/magazine/enviar-ponencias/">
         <span class="acmi-participa-label">Educación médica continuada</span>
@@ -4017,6 +4032,12 @@ header .main-header nav{grid-column:1/-1}
         <span class="acmi-participa-label">Magazine ACMI</span>
         <strong>Enviar manuscrito</strong>
         <span>Comparte un artículo académico, una noticia o una columna de opinión.</span>
+        <span class="acmi-participa-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="acmi-participa-card acmi-participa-poster" href="/magazine/manual-publicacion/#publicar-poster">
+        <span class="acmi-participa-label">Exhibición académica</span>
+        <strong>Publicar póster en Magazine ACMI</strong>
+        <span>Consulta los documentos necesarios para proponer tu póster.</span>
         <span class="acmi-participa-arrow" aria-hidden="true">→</span>
       </a>
       <a class="acmi-participa-card acmi-participa-guide" href="/magazine/manual-publicacion/">
@@ -4037,22 +4058,17 @@ header .main-header nav{grid-column:1/-1}
       Medicina interna al servicio de la comunidad mediante educación, prevención y participación territorial.
     </p>
 
-    <article class="proyeccion-hero-card">
-      <div class="proyeccion-hero-copy">
-        <span class="publicacion-badge">Comunidad ACMI</span>
-        <h3>Salud y educación<br>en la comunidad</h3>
-        <p>Conozca las actividades comunitarias, jornadas de educación en salud y proyectos de bienestar desarrollados por ACMI Santander.</p>
-        <a class="btn btn-light" href="{{ site.baseurl }}/proyeccion-social/">
-          Ver actividades <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    <img class="frame-garland tr" src="/guirnalda-07.webp" alt="" aria-hidden="true" width="320" height="320" loading="lazy" decoding="async"></article>
-<article id="encuesta-retinopatia" class="acmi-survey-card" aria-labelledby="acmi-survey-title">
-  <div class="acmi-survey-copy">
+    <article class="acmi-community-card" aria-labelledby="comunidad-acmi-title">
+  <div>
+    <h3 class="acmi-community-title" id="comunidad-acmi-title">Salud y educación en la comunidad</h3>
+    <p>Conozca las actividades comunitarias, jornadas de educación en salud y proyectos de bienestar desarrollados por ACMI Santander.</p>
+  <section class="acmi-survey-copy" id="encuesta-retinopatia" aria-labelledby="acmi-survey-title">
     <p class="acmi-survey-kicker">Campaña · Proyección social</p>
-    <h3 id="acmi-survey-title">Encuesta sobre retinopatía diabética</h3>
+    <h4 id="acmi-survey-title">Encuesta sobre retinopatía diabética</h4>
     <p>Invitamos a profesionales de medicina general, medicina interna, medicina familiar, endocrinología, pediatría y optometría a compartir su experiencia con la retinopatía diabética. Sus respuestas ayudarán a identificar oportunidades de formación y a trabajar juntos por una mejor atención para nuestros pacientes.</p>
     <a class="acmi-survey-link" href="https://redcap.link/CAP-RD">Responder la encuesta <span aria-hidden="true">→</span></a>
+    <a class="acmi-community-more" href="/proyeccion-social/">Ver actividades</a>
+  </section>
   </div>
   <figure class="acmi-survey-qr">
     <img src="/qr-encuesta-retinopatia.png" width="396" height="396" alt="Código QR de la encuesta sobre retinopatía diabética" loading="lazy" decoding="async">
