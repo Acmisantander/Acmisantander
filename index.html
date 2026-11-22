@@ -3725,6 +3725,21 @@ section:has(> .christmas-figure){position:relative;isolation:isolate}
 #repositorios-inicio .garland-side,#foro .garland-side{top:37%}
 }
 </style>
+
+<style id="acmi-mobile-menu">
+@media(max-width:768px){
+header .main-header{display:grid!important;grid-template-columns:minmax(0,1fr) 44px;gap:10px;align-items:center;padding:12px 14px}
+header .main-header .brand{min-width:0}
+header .main-header .brand-text{min-width:0}
+header .main-header .brand-text h1{font-size:clamp(16px,5vw,20px)}
+header .main-header .brand-text p{line-height:1.25}
+header .main-header .menu-toggle{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:44px;height:44px;padding:0;border-radius:13px;box-shadow:0 5px 13px #08284f28;justify-self:end}
+header .main-header .menu-toggle span{display:block;width:20px;height:2px;flex:0 0 2px;margin:0}
+header .main-header .menu-toggle:focus-visible{outline:3px solid #1b8969;outline-offset:3px}
+header .main-header nav{grid-column:1/-1}
+@media(prefers-reduced-motion:reduce){header .main-header .menu-toggle span{transition:none}}
+}
+</style>
 </head>
 
 <body>
@@ -3760,7 +3775,7 @@ section:has(> .christmas-figure){position:relative;isolation:isolate}
       </div>
 
       <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navegacion-principal">
-        <span></span><span></span><span></span>
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
       </button>
 
       <nav id="navegacion-principal"><ul>
@@ -4062,8 +4077,15 @@ section:has(> .christmas-figure){position:relative;isolation:isolate}
         const open = mainNav.classList.toggle('is-open');
         menuToggle.classList.toggle('is-active', open);
         menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
       });
     }
+
+    mainNav?.parentElement.addEventListener('keydown', event => {
+      if (event.key !== 'Escape' || !mainNav.classList.contains('is-open')) return;
+      menuToggle.click();
+      menuToggle.focus();
+    });
 
     document.querySelectorAll('.dropdown > a, .submenu > a').forEach((trigger) => {
       trigger.addEventListener('click', (event) => {
@@ -4083,6 +4105,7 @@ section:has(> .christmas-figure){position:relative;isolation:isolate}
           mainNav?.classList.remove('is-open');
           menuToggle?.classList.remove('is-active');
           menuToggle?.setAttribute('aria-expanded','false');
+          menuToggle?.setAttribute('aria-label','Abrir menú');
         }
       });
     });
