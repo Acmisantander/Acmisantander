@@ -3750,7 +3750,14 @@ header .main-header nav{grid-column:1/-1}
 .magazine-home-entry a{display:inline-flex;align-items:center;gap:.7rem;background:#133d71;color:#fff;border-radius:10px;padding:.8rem 1.25rem;font-weight:850;text-decoration:none;box-shadow:0 5px 12px #163e702c}
 .magazine-home-entry a:hover{background:#0d2e57;color:#fff}
 .magazine-home-entry a:focus-visible{outline:3px solid #08706b;outline-offset:4px}
-</style><style>.hero#inicio .hero-welcome{display:block;font-size:.51em;letter-spacing:-.025em;line-height:1.16;margin-bottom:.15em}</style></head>
+</style><style>
+.hero#inicio>.hero-content{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto;gap:16px;justify-items:center;text-align:center;width:min(85%,1040px);margin-inline:auto}
+.hero#inicio>.hero-content>h2{grid-area:1/1;margin:0;color:#fff;font-size:clamp(38px,5vw,80px);line-height:1.08;text-wrap:balance}
+.hero#inicio>.hero-content>p{grid-area:2/1;margin:0;max-width:62ch}
+.hero#inicio .hero-actions{grid-area:3/1;justify-content:center;margin:6px 0 0}
+.hero#inicio .acmi-navidad-message{grid-area:4/1;width:fit-content;max-width:100%;margin:7px 0 0;padding:8px 17px;font-size:clamp(13px,1.2vw,17px);border-radius:999px}
+@media(max-width:768px){.hero#inicio>.hero-content{gap:12px;width:90%}.hero#inicio>.hero-content>h2{font-size:clamp(32px,8.4vw,54px)}}
+</style></head>
 
 <body>
 
@@ -3808,7 +3815,7 @@ header .main-header nav{grid-column:1/-1}
     <div class="hero-content">
       <div class="acmi-navidad-message"><span aria-hidden="true">✦</span> ACMI Santander les desea una feliz Navidad <span aria-hidden="true">✦</span></div><div class="hero-badge">ACMI Santander</div>
 
-      <h2><span class="hero-welcome">Bienvenidos a</span> ACMI Santander</h2>
+      <h2>Bienvenidos a ACMI Santander</h2>
 
       <p>
         Capítulo regional de la Asociación Colombiana de Medicina Interna,
