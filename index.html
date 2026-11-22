@@ -3755,7 +3755,8 @@ header .main-header nav{grid-column:1/-1}
 .hero#inicio>.hero-content>h2{grid-area:1/1;margin:0;color:#fff;font-size:clamp(38px,5vw,80px);line-height:1.08;text-wrap:balance}
 .hero#inicio>.hero-content>p{grid-area:2/1;margin:0;max-width:62ch}
 .hero#inicio .hero-actions{grid-area:3/1;justify-content:center;margin:6px 0 0}
-.hero#inicio .acmi-navidad-message{grid-area:4/1;width:fit-content;max-width:100%;margin:7px 0 0;padding:8px 17px;font-size:clamp(13px,1.2vw,17px);border-radius:999px}
+.hero#inicio .acmi-navidad-message{grid-area:4/1;width:fit-content;max-width:100%;margin:7px 0 0;padding:8px clamp(7px,1.6vw,17px);font-size:clamp(10px,3.25vw,13px);border-radius:999px;white-space:nowrap;gap:clamp(4px,1vw,10px);line-height:1.3}
+@media(min-width:769px){.hero#inicio .acmi-navidad-message{font-size:clamp(14px,1.2vw,17px)}}
 @media(max-width:768px){.hero#inicio>.hero-content{gap:12px;width:90%}.hero#inicio>.hero-content>h2{font-size:clamp(32px,8.4vw,54px)}}
 </style></head>
 
@@ -3813,7 +3814,7 @@ header .main-header nav{grid-column:1/-1}
 
   <section class="hero" id="inicio"><img class="hero-garland" src="/navidad-guirnalda.webp" alt="" aria-hidden="true" decoding="async"><span aria-hidden="true" class="christmas-snow"><i></i><i></i><i></i></span><img src="/navidad-esferas.webp" class="christmas-figure christmas-right" alt="" width="340" height="340" decoding="async"><div class="acmi-navidad-snow" aria-hidden="true"><span>❄</span><span>✧</span><span>❄</span><span>✧</span><span>❄</span><span>✧</span></div>
     <div class="hero-content">
-      <div class="acmi-navidad-message"><span aria-hidden="true">✦</span> ACMI Santander les desea una feliz Navidad <span aria-hidden="true">✦</span></div><div class="hero-badge">ACMI Santander</div>
+<div class="hero-badge">ACMI Santander</div>
 
       <h2>Bienvenidos a ACMI Santander</h2>
 
@@ -3828,6 +3829,7 @@ header .main-header nav{grid-column:1/-1}
         <a class="btn btn-light" href="#repositorios-inicio">Repositorio de eventos</a>
         <a class="btn btn-light" href="#foro">Foro ACMI</a>
       </div>
+      <div class="acmi-navidad-message"><span aria-hidden="true">✦</span> ACMI Santander les desea una feliz Navidad <span aria-hidden="true">✦</span></div>
     </div>
   </section>
 
