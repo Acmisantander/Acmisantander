@@ -788,6 +788,9 @@ permalink: /magazine/
 #noticias .magazine-election-news:hover .card-image-junta{transform:none;}
 </style>
 
+<style>
+.magazine-page .magazine-masthead{min-height:0;padding:54px 18px 56px;background:#092448}.magazine-masthead .magazine-hero-content{padding:0;margin:auto;animation:none}.magazine-masthead h1{font-size:clamp(34px,6vw,65px);margin:0 0 15px;line-height:1.08}.magazine-masthead p{margin:0 auto;font-size:17px}.editorial-library{background:#f5f8fc;padding:48px 0 58px}.editorial-library h2{color:#123f7d;font-size:clamp(28px,4vw,42px);margin:0 0 24px}.editorial-book{max-width:1040px;margin:auto;display:grid;grid-template-columns: .8fr 1.2fr;gap:1px;background:#102f55;border:9px solid #102f55;border-radius:18px;perspective:1200px;box-shadow:0 6px 0 #061b39,0 22px 45px #09244826}.editorial-contents,.editorial-leaf{padding:clamp(24px,4vw,52px);background:white;color:#123f7d;min-height:290px}.editorial-contents{border-radius:8px 0 0 8px;background:linear-gradient(270deg,#e6edf7,white 13%)}.editorial-contents>span,.editorial-leaf>span{font-weight:800;font-size:12px;letter-spacing:.12em;color:#087951}.editorial-contents h3,.editorial-leaf h3{font-size:clamp(26px,4vw,43px);line-height:1.15;margin:16px 0}.editorial-leaf{border-radius:0 8px 8px 0;background:linear-gradient(90deg,#e7eef8,white 10%);transform-origin:left}.editorial-leaf p{font-size:17px;margin:0 0 25px;color:#496682}.editorial-leaf a,.editorial-submit a{display:inline-block;padding:11px 16px;border-radius:8px;background:#123f7d;color:white;font-weight:700}.editorial-tabs{display:grid;gap:7px}.editorial-tabs button{font:inherit;font-weight:700;text-align:left;cursor:pointer;padding:10px 12px;background:white;color:#123f7d;border:1px solid #c8d7e7;border-radius:8px}.editorial-tabs [aria-pressed=true]{background:#123f7d;color:#fff}.editorial-leaf[hidden]{display:none}.editorial-book.is-turning .editorial-leaf:not([hidden]){animation:editorial-turn .32s ease-out}@keyframes editorial-turn{from{transform:rotateY(-24deg);opacity:.5}to{transform:none;opacity:1}}.editorial-submit{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px}.editorial-submit a{background:#fff;color:#123f7d;border:1px solid #c8d7e7}.magazine-page .magazine-section{padding:56px 0;scroll-margin-top:110px}.magazine-page .opinion-section{background:#f5f8fc}.magazine-page .opinion-section .section-heading h2{color:#123f7d}.magazine-page .opinion-section .section-heading p{color:#496682}.magazine-page .magazine-grid.magazine-shelf{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:min(400px,88%);align-items:stretch;overflow-x:auto;scroll-snap-type:x mandatory;gap:23px;padding:12px 4px 25px}.magazine-shelf>.magazine-card{scroll-snap-align:start;min-width:0}.magazine-page .magazine-card{border:1px solid #cedbeb;border-left:6px solid #123f7d;box-shadow:5px 5px 0 #d5e1ee,0 12px 22px #09244814;transition:transform .18s}.magazine-page .magazine-card:focus-within,.magazine-page .magazine-card:hover{transform:translateY(-4px)}.magazine-page .card-content h3{font-size:clamp(20px,2.3vw,27px)}.magazine-page .shelf-controls{display:flex;gap:9px;justify-content:flex-end;margin-bottom:10px}.shelf-controls button{font:inherit;color:#123f7d;background:#fff;border:1px solid #c4d5e7;border-radius:8px;padding:9px 13px;cursor:pointer}.magazine-page :where(button,a):focus-visible{outline:3px solid #15965d;outline-offset:3px}@media(max-width:650px){.editorial-book{grid-template-columns:1fr}.editorial-contents,.editorial-leaf{min-height:0;padding:23px;border-radius:6px}.editorial-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}.editorial-tabs button{font-size:12px;padding:8px}.editorial-contents h3{font-size:24px}.editorial-submit a{font-size:13px}}@media(prefers-reduced-motion:reduce){.editorial-book.is-turning .editorial-leaf{animation:none}.magazine-page .magazine-card{transition:none}}
++</style>
 {% assign lista_vacia = "" | split: "," %}
 {% assign publicaciones_coleccion = site.publicaciones | default: lista_vacia %}
 {% assign publicaciones_posts = site.posts | default: lista_vacia %}
@@ -795,128 +798,11 @@ permalink: /magazine/
 
 <div class="magazine-page">
 
-  <section class="magazine-hero" id="inicio-magazine">
-
-    <div class="hero-orb hero-orb-one"></div>
-    <div class="hero-orb hero-orb-two"></div>
-    <div class="hero-orb hero-orb-three"></div>
-
-    <div class="hero-overlay"></div>
-
-    <div class="magazine-hero-content">
-
-      <span class="magazine-badge">
-        Magazine académico
-      </span>
-
-      <h1>
-        Magazine ACMI Santander
-      </h1>
-
-      <p>
-        Un espacio editorial para compartir conocimiento, noticias, opinión médica,
-        educación continuada y pensamiento científico en medicina interna.
-      </p>
-
-      <div class="hero-actions">
-
-        <a class="btn btn-primary" href="#noticias">
-          Explorar publicaciones
-        </a>
-
-        <a class="btn btn-light" href="#editorial">
-          Publicar en ACMI
-        </a>
-
-        <a class="btn btn-light" href="#foro-acmi">
-          Foro ACMI
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
+  <section class="magazine-hero magazine-masthead" id="inicio-magazine"><div class="magazine-hero-content"><h1>Magazine ACMI Santander</h1><p>Artículos académicos, noticias y opinión médica.</p></div></section>
 
 
 
-  <section class="editorial-showcase" id="editorial">
-
-    <div class="container">
-
-      <div class="showcase-card">
-
-        <div class="showcase-text">
-
-          <span class="section-kicker">
-            Comunidad editorial ACMI
-          </span>
-
-          <h2>
-            Ciencia, criterio clínico y conversación académica
-          </h2>
-
-          <p>
-            El Magazine ACMI Santander reúne noticias institucionales, opinión médica,
-            propuestas académicas y reflexiones científicas para construir memoria editorial
-            desde el capítulo Santander.
-          </p>
-
-          <div class="showcase-actions">
-
-            <a class="btn btn-primary" href="{{ site.baseurl }}/magazine/manual-publicacion/">
-              Manual de publicación
-            </a>
-
-            <a class="btn btn-light" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">
-              Enviar manuscrito
-            </a>
-
-            <a class="btn btn-light" href="{{ site.baseurl }}/magazine/enviar-ponencias/">
-              Enviar ponencia
-            </a>
-
-          </div>
-
-        </div>
-
-        <div class="showcase-visual" aria-label="Accesos editoriales principales del Magazine ACMI Santander">
-
-          <div class="quick-box">
-
-            <a class="quick-tile quick-blue" href="#noticias">
-              <span>📰</span>
-              <strong>Noticias</strong>
-              <small>Actualidad científica e institucional</small>
-            </a>
-
-            <a class="quick-tile quick-green" href="#opinion">
-              <span>✍️</span>
-              <strong>Opinión</strong>
-              <small>Análisis médico y pensamiento clínico</small>
-            </a>
-
-            <a class="quick-tile quick-blue-soft" href="#articulo-academico">
-              <span>📚</span>
-              <strong>Artículo académico</strong>
-              <small>Investigación, revisiones y educación médica</small>
-            </a>
-
-            <a class="quick-tile quick-green-soft" href="{{ site.baseurl }}/magazine/enviar-ponencias/">
-              <span>🎙️</span>
-              <strong>Enviar ponencia</strong>
-              <small>Conferencias y temas académicos</small>
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+  <section id="editorial" class="editorial-library"><div class="container"><h2>Publicaciones</h2><div class="editorial-book"><div class="editorial-contents"><span>ACMI SANTANDER</span><h3>Índice</h3><div class="editorial-tabs"><button type="button" data-editorial-tab="0" aria-pressed="true">Artículos académicos</button><button type="button" data-editorial-tab="1" aria-pressed="false">Noticias</button><button type="button" data-editorial-tab="2" aria-pressed="false">Opinión</button></div></div><div class="editorial-pages"><article class="editorial-leaf" data-editorial-leaf><span>MAGAZINE ACMI</span><h3>Artículos académicos</h3><p>Investigación, revisiones y casos clínicos.</p><a href="#articulo-academico">Ver publicaciones</a></article><article class="editorial-leaf" data-editorial-leaf><span>MAGAZINE ACMI</span><h3>Noticias</h3><p>Actualidad institucional y científica.</p><a href="#noticias">Ver publicaciones</a></article><article class="editorial-leaf" data-editorial-leaf><span>MAGAZINE ACMI</span><h3>Opinión</h3><p>Columnas sobre medicina interna y salud pública.</p><a href="#opinion">Ver publicaciones</a></article></div></div><nav class="editorial-submit" aria-label="Envíos editoriales"><a href="/magazine/manual-publicacion/">Manual de publicación</a><a href="/magazine/enviar-manuscrito/">Enviar manuscrito</a><a href="/magazine/enviar-ponencias/">Enviar ponencia</a></nav></div></section>
 
 
 
@@ -924,20 +810,7 @@ permalink: /magazine/
 
     <div class="container">
 
-      <div class="section-heading">
-        <span class="section-kicker">
-          Actualidad médica
-        </span>
-
-        <h2>
-          Noticias
-        </h2>
-
-        <p>
-          Información académica, institucional y científica relevante para la comunidad médica
-          de ACMI Santander.
-        </p>
-      </div>
+      <div class="section-heading"><h2>Noticias</h2><p>Actualidad institucional y científica.</p></div>
 
       {% assign noticias = publicaciones_magazine | where: "subcategory","noticias" | sort: "date" | reverse %}
 
@@ -965,7 +838,7 @@ permalink: /magazine/
           </a>
           {% elsif post.cover %}
           <div class="card-image-wrap">
-            <img
+            <img loading="lazy" decoding="async"
               src="{{ site.baseurl }}{{ post.cover }}"
               alt="{{ post.title | escape }}"
               class="card-image{% if post.cover == '/img/35.jpeg' %} card-image-san-gil{% endif %}"
@@ -1015,20 +888,7 @@ permalink: /magazine/
 
     <div class="container">
 
-      <div class="section-heading">
-        <span class="section-kicker">
-          Conocimiento científico
-        </span>
-
-        <h2>
-          Artículo académico
-        </h2>
-
-        <p>
-          Artículos originales, revisiones, casos clínicos y contenidos de educación médica
-          para fortalecer la práctica de la medicina interna basada en la evidencia.
-        </p>
-      </div>
+      <div class="section-heading"><h2>Artículos académicos</h2><p>Investigación, revisiones y casos clínicos.</p></div>
 
       {% assign articulos_academicos = publicaciones_magazine | where: "subcategory", "articulo-academico" | sort: "date" | reverse %}
 
@@ -1046,7 +906,7 @@ permalink: /magazine/
 
           {% if post.cover %}
           <div class="card-image-wrap">
-            <img
+            <img loading="lazy" decoding="async"
               src="{{ site.baseurl }}{{ post.cover }}"
               alt="{{ post.title }}"
               class="card-image{% if post.cover == '/img/35.jpeg' %} card-image-san-gil{% endif %}"
@@ -1107,20 +967,7 @@ permalink: /magazine/
 
     <div class="container">
 
-      <div class="section-heading section-heading-light">
-        <span class="section-kicker section-kicker-light">
-          Perspectiva académica
-        </span>
-
-        <h2>
-          Opinión
-        </h2>
-
-        <p>
-          Columnas, análisis y reflexiones sobre medicina interna, educación médica,
-          investigación, práctica clínica y salud pública.
-        </p>
-      </div>
+      <div class="section-heading"><h2>Opinión</h2><p>Columnas sobre medicina interna y salud pública.</p></div>
 
       {% assign opiniones = publicaciones_magazine | where: "subcategory","opinion" | sort: "date" | reverse %}
 
@@ -1137,7 +984,7 @@ permalink: /magazine/
 
           {% if post.cover %}
           <div class="card-image-wrap">
-            <img
+            <img loading="lazy" decoding="async"
               src="{{ site.baseurl }}{{ post.cover }}"
               alt="{{ post.title }}"
               class="card-image{% if post.cover == '/img/35.jpeg' %} card-image-san-gil{% endif %}"
@@ -1189,27 +1036,11 @@ permalink: /magazine/
 
     <div class="container">
 
-      <div class="section-heading">
-        <span class="section-kicker">
-          Comunidad académica
-        </span>
-
-        <h2>
-          Foro ACMI Magazine
-        </h2>
-
-        <p>
-          Espacio de discusión académica para comentar noticias, columnas de opinión,
-          educación médica continuada y temas relacionados con medicina interna.
-        </p>
-      </div>
+      <div class="section-heading"><h2>Foro ACMI Magazine</h2><p>Comentarios sobre las publicaciones de Magazine ACMI.</p></div>
 
       <div class="forum-card">
 
-        <p class="forum-text">
-          Participe con preguntas, comentarios, propuestas editoriales, reflexiones académicas
-          y aportes para fortalecer la conversación científica del capítulo ACMI Santander.
-        </p>
+        <button class="btn btn-primary" type="button" id="mag-load-forum">Abrir comentarios</button><p id="mag-forum-status" role="status"></p>
 
         <div class="commentbox"></div>
 
@@ -1223,8 +1054,5 @@ permalink: /magazine/
 
 
 
-<script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 
-<script>
-  commentBox('5704224843235328-proj');
-</script>
+<script>(()=>{const book=document.querySelector('.editorial-book'),tabs=[...book.querySelectorAll('[data-editorial-tab]')],leaves=[...book.querySelectorAll('[data-editorial-leaf]')];let index=0;function show(i){index=(i+tabs.length)%tabs.length;tabs.forEach((x,j)=>x.setAttribute('aria-pressed',String(j===index)));leaves.forEach((x,j)=>x.hidden=j!==index);book.classList.remove('is-turning');void book.offsetWidth;book.classList.add('is-turning');}tabs.forEach((x,i)=>x.onclick=()=>show(i));book.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();show(index+(e.key==='ArrowRight'?1:-1));tabs[index].focus();}});show(0);for(const shelf of document.querySelectorAll('.magazine-page .magazine-grid')){if(shelf.children.length<2)continue;shelf.classList.add('magazine-shelf');const rail=document.createElement('div');rail.className='shelf-controls';for(const [label,dir] of [['Anterior',-1],['Siguiente',1]]){const b=document.createElement('button');b.type='button';b.textContent=label;b.onclick=()=>shelf.scrollBy({left:dir*(shelf.firstElementChild.offsetWidth+23),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});rail.append(b);}shelf.before(rail);}const open=document.getElementById('mag-load-forum'),msg=document.getElementById('mag-forum-status');open.onclick=()=>{open.disabled=true;msg.textContent='Cargando comentarios…';const script=document.createElement('script');script.src='https://unpkg.com/commentbox.io/dist/commentBox.min.js';script.onload=()=>{if(typeof commentBox==='function'){commentBox('5704224843235328-proj');msg.textContent='';open.hidden=true;}else fail();};function fail(){script.remove();open.disabled=false;msg.textContent='No fue posible cargar los comentarios. Inténtalo de nuevo.';}script.onerror=fail;document.head.append(script);};})();</script>
