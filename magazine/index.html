@@ -1100,7 +1100,7 @@ permalink: /magazine/
 
       <div class="forum-card">
 
-        <p id="mag-forum-status" role="status"></p><button class="btn btn-primary" type="button" id="mag-retry-forum" hidden>Reintentar</button>
+        <p id="mag-forum-status" role="status"></p>
 
         <div class="commentbox"></div>
 
@@ -1119,17 +1119,15 @@ permalink: /magazine/
 (() => {
   const forum=document.getElementById('foro-acmi');
   const msg=document.getElementById('mag-forum-status');
-  const retry=document.getElementById('mag-retry-forum');
   let started=false;
   function load() {
     if (started) return;
-    started=true; retry.hidden=true; msg.textContent='Cargando comentarios…';
+    started=true; msg.textContent='Cargando comentarios…';
     const script=document.createElement('script');
     script.src='https://unpkg.com/commentbox.io/dist/commentBox.min.js';
     function fail() {
       script.remove(); started=false;
       msg.textContent='No fue posible cargar los comentarios.';
-      retry.hidden=false;
     }
     script.onload=() => {
       if (typeof window.commentBox!=='function') return fail();
@@ -1139,7 +1137,6 @@ permalink: /magazine/
     script.onerror=fail;
     document.head.append(script);
   }
-  retry.addEventListener('click',load);
   if (!('IntersectionObserver' in window)||location.hash==='#foro-acmi') return load();
   const observer=new IntersectionObserver(entries => {
     if (entries.some(entry=>entry.isIntersecting)) { observer.disconnect(); load(); }
