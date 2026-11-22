@@ -25,17 +25,22 @@ p{font-size:18px}
 footer{background:#0f3569;color:white;text-align:center;padding:22px;margin-top:40px}
 </style>
 <style>
-.acmi-survey-card{box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) minmax(165px,230px);align-items:center;gap:clamp(20px,4vw,60px);margin:26px 0 0;padding:clamp(19px,4vw,42px);border:1px solid #c7dae9;border-top:4px solid #1c795b;border-radius:18px;background:linear-gradient(145deg,#fff,#eef7fb);box-shadow:0 8px 22px #0e315012;text-align:left;color:#283f55;line-height:1.58}
-.acmi-survey-copy .acmi-survey-kicker{color:#136947;font-size:.76rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin:0 0 8px}
-.acmi-survey-card #acmi-survey-title{margin:0 0 10px;color:#143f7d;font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.17}
-.acmi-survey-copy p{font-size:1rem;margin:0 0 1rem;max-width:70ch}
-.acmi-survey-link{display:inline-flex;align-items:center;gap:.55rem;padding:.65rem 1rem;min-height:44px;box-sizing:border-box;background:#14664c;color:#fff;font-weight:750;text-decoration:none;border-radius:9px}
+.acmi-community-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(155px,230px);align-items:center;gap:clamp(20px,5vw,64px);padding:clamp(20px,4vw,48px);border:1px solid #244c76;border-radius:20px;background:linear-gradient(125deg,#10294b,#18457b 68%,#1a5370);color:#fff;box-shadow:0 14px 32px #0e315023;text-align:left}
+.acmi-community-card .acmi-community-title{font-size:clamp(1.6rem,4vw,2.45rem);line-height:1.15;margin:0 0 .75rem;color:#fff}
+.acmi-community-card p{font-size:1rem;margin:0 0 1rem;max-width:70ch;color:#e7f2fc}
+.acmi-survey-copy{margin-top:1.4rem;padding-top:1.1rem;border-top:1px solid #ffffff45;scroll-margin-top:110px}
+.acmi-survey-copy .acmi-survey-kicker{color:#a6ebcd;font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.acmi-survey-copy #acmi-survey-title{margin:0 0 10px;color:#fff;font-size:clamp(1.24rem,3vw,1.75rem);line-height:1.2}
+.acmi-survey-link,.acmi-community-more{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:.6rem .9rem;box-sizing:border-box;border-radius:9px;text-decoration:none;font-weight:750}
+.acmi-survey-link{background:#14664c;color:#fff;border:1px solid #5ba38b}
 .acmi-survey-link:hover{background:#0c523c;color:#fff}
-.acmi-survey-link:focus-visible{outline:3px solid #143f7d;outline-offset:3px}
-.acmi-survey-qr{margin:0;padding:10px 10px 12px;background:#fff;border:1px solid #d2e0eb;border-radius:12px;text-align:center}
+.acmi-community-more{color:#fff;margin-left:.45rem;text-decoration:underline;text-underline-offset:3px}
+.acmi-community-more:hover{color:#a6ebcd}
+.acmi-survey-link:focus-visible,.acmi-community-more:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.acmi-survey-qr{margin:0;padding:12px;background:white;border:1px solid #d2e0eb;border-radius:12px;text-align:center}
 .acmi-survey-qr img{display:block;width:min(100%,180px);height:auto;aspect-ratio:1;margin:auto}
 .acmi-survey-qr figcaption{font-size:.86rem;color:#34536e}
-@media(max-width:640px){.acmi-survey-card{grid-template-columns:1fr}.acmi-survey-qr{width:min(100%,225px);box-sizing:border-box;justify-self:center}.acmi-survey-qr img{width:140px}}
+@media(max-width:640px){.acmi-community-card{grid-template-columns:minmax(0,1fr)}.acmi-survey-qr{width:min(100%,208px);box-sizing:border-box;justify-self:center}.acmi-survey-qr img{width:155px}}
 </style></head>
 
 <body>
@@ -55,29 +60,17 @@ footer{background:#0f3569;color:white;text-align:center;padding:22px;margin-top:
 
 <section class="section">
 <div class="container">
-<div class="card">
-<h2>Proyección social</h2>
-
-<p>
-Espacio de ACMI Santander dedicado a las actividades comunitarias, educación
-en salud, prevención de enfermedad, promoción de estilos de vida saludables
-y programas de impacto regional.
-</p>
-
-<p>
-Aquí se podrán publicar campañas educativas, jornadas comunitarias,
-actividades con colegios, iniciativas de prevención, material para pacientes
-y proyectos de responsabilidad social en salud.
-</p>
-
-<a class="btn" href="../">Volver al inicio</a>
-</div>
-<article id="encuesta-retinopatia" class="acmi-survey-card" aria-labelledby="acmi-survey-title">
-  <div class="acmi-survey-copy">
+<article class="acmi-community-card" aria-labelledby="comunidad-acmi-title">
+  <div>
+    <h2 class="acmi-community-title" id="comunidad-acmi-title">Proyección social</h2>
+    <p>ACMI Santander impulsa campañas educativas, jornadas comunitarias e iniciativas de prevención y promoción de la salud en la región.</p>
+  <section class="acmi-survey-copy" id="encuesta-retinopatia" aria-labelledby="acmi-survey-title">
     <p class="acmi-survey-kicker">Campaña · Proyección social</p>
     <h3 id="acmi-survey-title">Encuesta sobre retinopatía diabética</h3>
     <p>Invitamos a profesionales de medicina general, medicina interna, medicina familiar, endocrinología, pediatría y optometría a compartir su experiencia con la retinopatía diabética. Sus respuestas ayudarán a identificar oportunidades de formación y a trabajar juntos por una mejor atención para nuestros pacientes.</p>
     <a class="acmi-survey-link" href="https://redcap.link/CAP-RD">Responder la encuesta <span aria-hidden="true">→</span></a>
+    <a class="acmi-community-more" href="/">Volver al inicio</a>
+  </section>
   </div>
   <figure class="acmi-survey-qr">
     <img src="/qr-encuesta-retinopatia.png" width="396" height="396" alt="Código QR de la encuesta sobre retinopatía diabética" loading="lazy" decoding="async">
