@@ -31,10 +31,10 @@ export async function posterRoute(request, env) {
       || !env.POSTER_TURNSTILE_SITEKEY || new URL(request.url).origin !== env.POSTER_FORM_ORIGIN) {
     return page('<p>La recepción de pósteres aún no está habilitada.</p>',503);
   }
-  if (request.method === 'GET') return page(`<p>Adjunta tus documentos en PDF. El envío queda sujeto a revisión editorial. No incluyas datos que permitan identificar a pacientes.</p>
+  if (request.method === 'GET') return page(`<p>Adjunta tus documentos en PDF. El envío queda sujeto a revisión editorial.</p>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 <form method="post" action="${action}" enctype="multipart/form-data">
-<label for="poster">Póster sin datos identificables de pacientes</label><input type="file" name="poster" id="poster" accept="application/pdf,.pdf" required>
+<label for="poster">Póster</label><input type="file" name="poster" id="poster" accept="application/pdf,.pdf" required>
 <label for="manuscrito">Manuscrito con bibliografía</label><input type="file" name="manuscrito" id="manuscrito" accept="application/pdf,.pdf" required>
 <label for="firmas">Documento firmado por todos los autores y coautores</label><input type="file" name="firmas" id="firmas" accept="application/pdf,.pdf" required>
 <label for="consentimiento">Consentimiento informado para publicación · PDF obligatorio</label><input type="file" name="consentimiento" id="consentimiento" accept="application/pdf,.pdf" required>
