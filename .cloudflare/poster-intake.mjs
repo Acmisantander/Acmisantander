@@ -5,8 +5,6 @@ const FIELDS = [
   ['firmas', 'firmas.pdf'],
   ['consentimiento', 'consentimiento.pdf'],
 ];
-const MAX_FILE = 5 * 1024 * 1024;
-const MAX_REQUEST = 4 * MAX_FILE + 64 * 1024;
 const ACTION = 'acmi_poster';
 
 function response(data, status) {
@@ -30,10 +28,6 @@ export async function receivePoster(request, env, verify = fetch) {
   if (!request.headers.get('Content-Type')?.startsWith('multipart/form-data;')) {
     return response({error:'Envíe el formulario con los documentos adjuntos.'},415);
   }
-  const length = Number(request.headers.get('Content-Length'));
-  if (!Number.isSafeInteger(length) || length <= 0 || length > MAX_REQUEST) {
-    return response({error:'El envío supera el tamaño permitido o no se pudo verificar su tamaño.'},413);
-  }
   let form;
   try { form = await request.formData(); }
   catch { return response({error:'No se pudo leer el formulario.'},400); }
@@ -44,9 +38,9 @@ export async function receivePoster(request, env, verify = fetch) {
   const files = [];
   for (const [field,name] of FIELDS) {
     const file = form.get(field);
-    if (!file || typeof file === 'string' || file.size < 5 || file.size > MAX_FILE
+    if (!file || typeof file === 'string' || file.size < 5
         || file.type !== 'application/pdf' || await file.slice(0,5).text() !== '%PDF-') {
-      return response({error:'Adjunta los cuatro PDF obligatorios, de hasta 5 MiB cada uno.'},400);
+      return response({error:'Adjunta los cuatro PDF obligatorios.'},400);
     }
     files.push({name,file});
   }
