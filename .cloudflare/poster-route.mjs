@@ -25,17 +25,13 @@ export async function posterRoute(request, env) {
     return html('<p>La recepción de pósteres aún no está habilitada.</p>',503);
   }
   if (request.method === 'GET') return html(`<p>Adjunta tus documentos en PDF. Cada archivo puede pesar hasta 5 MiB. El envío queda sujeto a revisión editorial. No incluyas datos que permitan identificar a pacientes.</p>
-${env.POSTER_CONSENT_ENABLED !== '1' ? '<p>Por ahora solo se reciben trabajos que no requieran adjuntar consentimiento informado.</p>' : ''}
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 <form method="post" action="${STR.path}" enctype="multipart/form-data">
 <label for="poster">Póster sin datos identificables de pacientes</label><input type="file" name="poster" id="poster" accept="application/pdf,.pdf" required>
 <label for="manuscrito">Manuscrito con bibliografía</label><input type="file" name="manuscrito" id="manuscrito" accept="application/pdf,.pdf" required>
 <label for="firmas">Documento firmado por todos los autores y coautores</label><input type="file" name="firmas" id="firmas" accept="application/pdf,.pdf" required>
-<fieldset><legend>¿Corresponde adjuntar consentimiento para publicación?</legend>
-<label><input type="radio" name="requiere_consentimiento" value="si" ${env.POSTER_CONSENT_ENABLED === '1' ? 'required' : 'disabled'}> Sí</label>
-<label><input type="radio" name="requiere_consentimiento" value="no" required> No</label></fieldset>
-<label for="consentimiento">Consentimiento informado para publicación, cuando corresponda</label><input type="file" name="consentimiento" id="consentimiento" accept="application/pdf,.pdf" ${env.POSTER_CONSENT_ENABLED === '1' ? '' : 'disabled'}>
-<p>El consentimiento y las firmas se reservan para revisión editorial y no se publican.</p>
+<label for="consentimiento">Consentimiento informado para publicación · PDF obligatorio</label><input type="file" name="consentimiento" id="consentimiento" accept="application/pdf,.pdf" required>
+<p>ACMI Santander usa estos documentos para evaluar el envío. El consentimiento y las firmas se reservan para revisión editorial privada y no se publican. Adjunta el consentimiento firmado con la autorización de compartirlo con el comité. No adjuntes historias clínicas ni información de pacientes ajena al consentimiento.</p>
 <div class="cf-turnstile" data-sitekey="${e(env.POSTER_TURNSTILE_SITEKEY)}" data-action="acmi_poster"></div>
 <button type="submit">Enviar a revisión editorial</button></form>`);
   const result=await receivePoster(request,env);

@@ -38,21 +38,15 @@ export async function receivePoster(request, env, verify = fetch) {
   try { form = await request.formData(); }
   catch { return response({error:'No se pudo leer el formulario.'},400); }
 
-  const applies = form.get('requiere_consentimiento');
-  if (!['si','no'].includes(applies)) return response({error:'Indique si corresponde adjuntar consentimiento.'},400);
-  if (env.POSTER_CONSENT_ENABLED !== '1' && (applies === 'si' || form.getAll('consentimiento').some(file => typeof file === 'string' ? file !== '' : file.size > 0))) {
-    return response({error:'Por ahora no se reciben trabajos que requieran consentimiento informado. No adjunte datos identificables de pacientes.'},422);
-  }
-  for (const key of ['requiere_consentimiento','cf-turnstile-response',...FIELDS.map(([field])=>field)]) {
+  for (const key of ['cf-turnstile-response',...FIELDS.map(([field])=>field)]) {
     if (form.getAll(key).length > 1) return response({error:'El formulario contiene campos repetidos.'},400);
   }
   const files = [];
   for (const [field,name] of FIELDS) {
     const file = form.get(field);
-    if (field === 'consentimiento' && applies === 'no' && (!file || !file.size)) continue;
     if (!file || typeof file === 'string' || file.size < 5 || file.size > MAX_FILE
         || file.type !== 'application/pdf' || await file.slice(0,5).text() !== '%PDF-') {
-      return response({error:'Adjunte los PDF requeridos, de hasta 5 MiB cada uno.'},400);
+      return response({error:'Adjunta los cuatro PDF obligatorios, de hasta 5 MiB cada uno.'},400);
     }
     files.push({name,file});
   }
