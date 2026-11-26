@@ -12,7 +12,15 @@ function html(content,status=200,embedded=false) {
   const nonce=crypto.randomUUID();
   const resize=embedded ? `<script nonce="${nonce}">const main=document.querySelector('main'); const sync=()=>parent.postMessage({type:'acmi-poster-height',height:Math.ceil(main.getBoundingClientRect().height)+4},'${site}'); new ResizeObserver(sync).observe(main);sync();</script>` : '';
   return new Response(`<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Publicar póster en Magazine ACMI</title>
-<style>body{margin:0;padding:1.25rem;background:#f3f7fb;color:#153454;font:1rem/1.55 system-ui,sans-serif}main{background:white;border:1px solid #d2e0ee;border-radius:1rem;padding:clamp(1.25rem,4vw,2.5rem);max-width:45rem;margin:2rem auto}h1{line-height:1.15}label,legend{font-weight:650}input[type=file]{display:block;width:100%;margin:.4rem 0 1rem;font:inherit}fieldset{border:1px solid #d2e0ee;margin:1rem 0}button{border:0;border-radius:.6rem;background:#14664c;color:white;font:inherit;font-weight:700;padding:.65rem 1rem;cursor:pointer}a{color:#143f7d}${embedded ? 'body{padding:0;background:#fff}main{margin:0;padding:3px;max-width:none;border:0;border-radius:0;display:flow-root}main>p:first-child{margin-top:0}label{display:block}button{margin-top:1rem}' : ''}</style></head>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:1rem;background:#f5f7fb;color:#243244;font:1rem/1.55 system-ui,sans-serif}main{background:#fff;border:1px solid #dbe7f5;border-radius:24px;padding:clamp(16px,4vw,38px);max-width:55rem;margin:2rem auto}h1{color:#143f7d;line-height:1.15}a{color:#143f7d;overflow-wrap:anywhere}
+.poster-intro{margin:0 0 18px;color:#52667e}.poster-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.poster-field{display:grid;align-content:space-between;gap:8px;min-width:0}label{color:#143f7d;font-weight:800;font-size:.95rem}
+input[type=file]{display:block;width:100%;min-width:0;padding:8px;border:1px dashed #9fb5cc;border-radius:14px;background:#fbfdff;color:#243244;font:inherit;font-size:.875rem}input::file-selector-button{border:0;border-radius:9px;background:#eaf1fa;color:#143f7d;font:inherit;font-weight:750;min-height:36px;padding:6px 10px;margin-inline-end:8px;cursor:pointer}input::file-selector-button:hover{background:#dbe7f5}
+.poster-note{margin:20px 0 16px;padding:14px 16px;background:#f8fafc;border:1px solid #dbe7f5;border-radius:16px;color:#334155;font-size:.92rem}.poster-help{margin:16px 0 0;color:#52667e;font-size:.92rem}
+button{border:0;border-radius:14px;background:linear-gradient(135deg,#146847,#1b784d);box-shadow:0 8px 18px #08284f1a;color:#fff;font:inherit;font-weight:800;min-height:46px;padding:10px 20px;cursor:pointer}button:hover{background:#11573b}:focus-visible{outline:2px solid #143f7d;outline-offset:2px}.cf-turnstile{max-width:100%}
+@media(max-width:620px){.poster-fields{grid-template-columns:1fr;gap:14px}button{width:100%}}
+${embedded ? 'body{padding:0;background:#fff}main{margin:0;padding:4px;max-width:none;border:0;border-radius:0;display:flow-root}' : ''}
+</style></head>
 <body><main>${embedded ? '' : `<a href="${STR.manual}">Volver al manual de publicación</a><h1>Publicar póster en Magazine ACMI</h1>`}${content}</main>${resize}</body></html>`,{
     status, headers:{
       'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store',
@@ -31,16 +39,19 @@ export async function posterRoute(request, env) {
       || !env.POSTER_TURNSTILE_SITEKEY || new URL(request.url).origin !== env.POSTER_FORM_ORIGIN) {
     return page('<p>La recepción de pósteres aún no está habilitada.</p>',503);
   }
-  if (request.method === 'GET') return page(`<p>Adjunta tus documentos en PDF. El envío queda sujeto a revisión editorial.</p>
+  if (request.method === 'GET') return page(`<p class="poster-intro">Adjunta tus documentos en PDF. El envío queda sujeto a revisión editorial.</p>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 <form method="post" action="${action}" enctype="multipart/form-data">
-<label for="poster">Póster</label><input type="file" name="poster" id="poster" accept="application/pdf,.pdf" required>
-<label for="manuscrito">Manuscrito con bibliografía</label><input type="file" name="manuscrito" id="manuscrito" accept="application/pdf,.pdf" required>
-<label for="firmas">Documento firmado por todos los autores y coautores</label><input type="file" name="firmas" id="firmas" accept="application/pdf,.pdf" required>
-<label for="consentimiento">Consentimiento informado para publicación · PDF obligatorio</label><input type="file" name="consentimiento" id="consentimiento" accept="application/pdf,.pdf" required>
-<p>ACMI Santander usa estos documentos para evaluar el envío. El consentimiento y las firmas se reservan para revisión editorial privada y no se publican. Adjunta el consentimiento firmado con la autorización de compartirlo con el comité. No adjuntes historias clínicas ni información de pacientes ajena al consentimiento.</p>
-<div class="cf-turnstile" data-sitekey="${e(env.POSTER_TURNSTILE_SITEKEY)}" data-action="acmi_poster" data-appearance="interaction-only"></div>
-<button type="submit">Enviar a revisión editorial</button></form>`);
+<div class="poster-fields">
+<div class="poster-field"><label for="poster">Póster</label><input type="file" name="poster" id="poster" accept="application/pdf,.pdf" required></div>
+<div class="poster-field"><label for="manuscrito">Manuscrito con bibliografía</label><input type="file" name="manuscrito" id="manuscrito" accept="application/pdf,.pdf" required></div>
+<div class="poster-field"><label for="firmas">Documento firmado por todos los autores y coautores</label><input type="file" name="firmas" id="firmas" accept="application/pdf,.pdf" required></div>
+<div class="poster-field"><label for="consentimiento">Consentimiento informado para publicación</label><input type="file" name="consentimiento" id="consentimiento" accept="application/pdf,.pdf" required></div>
+</div>
+<p class="poster-note">ACMI Santander usa estos documentos para evaluar el envío. El consentimiento y las firmas se reservan para revisión editorial privada y no se publican. Adjunta el consentimiento firmado con la autorización de compartirlo con el comité. No adjuntes historias clínicas ni información de pacientes ajena al consentimiento.</p>
+<div class="cf-turnstile" data-sitekey="${e(env.POSTER_TURNSTILE_SITEKEY)}" data-action="acmi_poster" data-appearance="interaction-only" data-size="flexible"></div>
+<button type="submit">Enviar a revisión editorial</button></form>
+<p class="poster-help">Si un archivo no carga, escribe a <a href="mailto:santanderacmi@gmail.com">santanderacmi@gmail.com</a> para coordinar el envío.</p>`);
   const result=await receivePoster(request,env);
   const status=result.status;
   const data=await result.json();
