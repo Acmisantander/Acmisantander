@@ -39,11 +39,11 @@ export async function posterRoute(request, env) {
 <label for="firmas">Documento firmado por todos los autores y coautores</label><input type="file" name="firmas" id="firmas" accept="application/pdf,.pdf" required>
 <label for="consentimiento">Consentimiento informado para publicación · PDF obligatorio</label><input type="file" name="consentimiento" id="consentimiento" accept="application/pdf,.pdf" required>
 <p>ACMI Santander usa estos documentos para evaluar el envío. El consentimiento y las firmas se reservan para revisión editorial privada y no se publican. Adjunta el consentimiento firmado con la autorización de compartirlo con el comité. No adjuntes historias clínicas ni información de pacientes ajena al consentimiento.</p>
-<div class="cf-turnstile" data-sitekey="${e(env.POSTER_TURNSTILE_SITEKEY)}" data-action="acmi_poster"></div>
+<div class="cf-turnstile" data-sitekey="${e(env.POSTER_TURNSTILE_SITEKEY)}" data-action="acmi_poster" data-appearance="interaction-only"></div>
 <button type="submit">Enviar a revisión editorial</button></form>`);
   const result=await receivePoster(request,env);
   const status=result.status;
   const data=await result.json();
-  return status===201 ? page(`<p>Recibimos tus documentos. Guarda el número de recibido: <strong>${e(data.recibo)}</strong>.</p>`,201)
+  return status===201 ? page(`<p>Recibimos tus documentos para revisión editorial.</p>`,201)
     : page(`<p>${e(data.error)}</p><p>Si el archivo no carga, escribe a santanderacmi@gmail.com para coordinar el envío por un canal privado.</p><p><a href="${action}">Volver al formulario</a></p>`,status);
 }
