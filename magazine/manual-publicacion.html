@@ -4,76 +4,61 @@ title: Manual de publicación
 permalink: /magazine/manual-publicacion/
 ---
 <style>
-.acm-guide{--ink:#102b45;--muted:#48647a;--green:#0b5949;--mint:#b8f4d5;--line:#d5e4eb;max-width:1260px;margin:0 auto;padding:clamp(16px,3vw,44px);color:var(--ink);font:16px/1.6 system-ui,sans-serif}.acm-guide *{box-sizing:border-box}.acm-guide h1,.acm-guide h2,.acm-guide h3{color:inherit;line-height:1.08;margin:0}.acm-guide h2{font-size:clamp(29px,4vw,47px);letter-spacing:-.045em}.acm-guide h3{font-size:clamp(21px,2.6vw,30px);letter-spacing:-.025em}.acm-guide p{margin:.75em 0}.acm-guide a:focus-visible,.acm-guide summary:focus-visible,.acm-guide button:focus-visible,.acm-guide input:focus-visible,.acm-rail:focus-visible{outline:3px solid #bf640c;outline-offset:4px}.acm-hero{border-radius:28px;overflow:hidden;position:relative;isolation:isolate;color:#fff;background:radial-gradient(ellipse at 90% 5%,#168365,transparent 57%),linear-gradient(130deg,#0d2444,#0a3943);display:grid;grid-template-columns:1.24fr .76fr;align-items:center;gap:22px;padding:clamp(25px,5vw,65px);min-height:375px}.acm-hero:before{content:'';position:absolute;z-index:-1;inset:0;background:repeating-linear-gradient(90deg,#ffffff10 0 1px,transparent 1px 42px),repeating-linear-gradient(0deg,#ffffff10 0 1px,transparent 1px 42px);mask-image:linear-gradient(90deg,transparent,#000)}.acm-guide .acm-hero h1{font-size:clamp(41px,7vw,94px);letter-spacing:-.065em;margin:.12em 0 .2em}.acm-hero p{color:#def4ee;max-width:52ch}.acm-over{display:block;font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.acm-hero .acm-over{color:var(--mint)}.acm-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:23px}.acm-guide .acm-btn{text-decoration:none;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:100px;font-weight:750;padding:9px 15px;color:var(--ink);background:#fff}.acm-guide .acm-btn.acm-primary{background:var(--mint);border-color:var(--mint);color:#103b30}.acm-guide .acm-btn:hover{text-decoration:underline}.acm-cover{position:relative;width:min(76%,245px);aspect-ratio:4/5;margin:25px auto;perspective:720px}.acm-cover div{position:absolute;inset:0;border-radius:17px;border:1px
+.acmi-manual{--ink:#17334b;--muted:#475f70;--green:#14604e;--rule:#d7e3e2;--mint:#eef7f2;max-width:1080px;margin:0 auto;padding:clamp(18px,4vw,43px);color:var(--ink);font:16px/1.6 system-ui,sans-serif}.acmi-manual *{box-sizing:border-box}.acmi-manual h1,.acmi-manual h2,.acmi-manual h3{margin:0;color:inherit;line-height:1.12;letter-spacing:-.035em}.acmi-manual h1{font-size:clamp(37px,6.3vw,66px)}.acmi-manual h2{font-size:clamp(25px,3.7vw,36px)}.acmi-manual h3{font-size:22px}.acmi-manual p{margin:.65em 0}.acmi-manual a:focus-visible,.acmi-manual summary:focus-visible{outline:3px solid #bc6a18;outline-offset:4px}.am-intro{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(117deg,#102e48,#145c52);color:#fff;padding:clamp(25px,5.6vw,58px);border-radius:22px}.am-intro:after{content:'';position:absolute;z-index:-1;right:-54px;top:-95px;width:350px;height:350px;border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 18px,#caffed24 19px 20px);mask-image:linear-gradient(115deg,transparent,#000)}.am-eyebrow{display:block;margin-bottom:9px;color:#bff1d9;font-size:.77rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.am-intro p{max-width:39ch;color:#e6f6f0;margin:.85em 0 0}.am-section{margin-top:clamp(29px,5vw,48px);scroll-margin-top:115px}.am-section>p{color:var(--muted)}.am-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:17px}.am-card{display:flex;flex-direction:column;align-items:flex-start;background:white;border:1px solid var(--rule);border-radius:18px;padding:clamp(15px,2.3vw,24px);box-shadow:0 5px 14px #17334b0a}.am-card--poster{background:var(--mint);border-color:#b9d8ca}.am-icon{display:grid;place-items:center;width:43px;height:43px;margin-bottom:13px;border-radius:13px;background:#e7f2f2;color:#165648}.am-card--poster .am-icon{background:#d5ede0}.am-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.am-card p{color:var(--muted);margin:.6rem 0 1.1rem}.acmi-manual .am-action{display:inline-block;margin-top:auto;padding:8px 12px;min-height:40px;border-radius:9px;background:#edf4f5;color:#183d53;font-weight:750;text-decoration:none;line-height:1.4}.acmi-manual .am-card--poster .am-action{background:var(--green);color:white}.acmi-manual .am-action:hover{text-decoration:underline}.am-disclosures{margin-top:15px;border:1px solid var(--rule);border-radius:17px;background:white}.am-disclosures details+details{border-top:1px solid var(--rule)}.am-disclosures details{scroll-margin-top:115px}.am-disclosures summary{display:flex;gap:.8rem;justify-content:space-between;align-items:center;list-style:none;padding:15px clamp(13px,2.5vw,22px);min-height:52px;color:var(--ink);font-weight:750;cursor:pointer}.am-disclosures summary::-webkit-details-marker{display:none}.am-disclosures summary:hover,.am-disclosures details[open]>summary{color:var(--green)}.am-symbol{display:grid;place-items:center;flex:0 0 27px;height:27px;border-radius:50%;color:var(--green);background:var(--mint)}.am-symbol:before{content:'+'}.am-disclosures details[open] .am-symbol:before{content:'−'}.am-copy{max-width:76ch;padding:0 clamp(13px,2.5vw,22px) 16px;color:var(--muted)}.am-copy>*:first-child{margin-top:0}.am-copy>*:last-child{margin-bottom:0}.am-copy ul{padding-left:1.35rem}.am-copy li+li{margin-top:.5rem}.am-copy strong{color:var(--ink)}.am-status{font-size:.86rem;font-weight:650;color:#465d54}.am-footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--rule)}.am-footer a{font-weight:700;color:var(--green)}@media(max-width:760px){.am-grid{grid-template-columns:1fr;gap:10px}.am-card{display:grid;grid-template-columns:43px minmax(0,1fr);column-gap:13px}.am-icon{grid-row:1/4;margin:0}.am-card h3,.am-card p,.am-card .am-action{grid-column:2}.am-card p{margin:.35rem 0 .65rem}.am-action{justify-self:start}}
 </style>
-<div class="acm-guide">
-<header class="acm-hero">
-<div><span class="acm-over">Magazine ACMI Santander · Guía para autores</span><h1>Manual de publicación</h1><p>Elige el tipo de aporte, revisa los requisitos y encuentra la vía de envío. Un espacio para compartir ciencia, opinión y experiencias de la medicina interna en Santander.</p>
-<nav class="acm-actions" aria-label="Accesos de envío"><a class="acm-btn" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">Enviar manuscrito <span aria-hidden="true">↗</span></a><a class="acm-btn acm-primary" href="{{ site.baseurl }}/magazine/enviar-poster/">Enviar póster <span aria-hidden="true">↗</span></a><a class="acm-btn" href="{{ site.baseurl }}/magazine/enviar-ponencias/">Enviar ponencia <span aria-hidden="true">↗</span></a></nav></div>
-<div class="acm-cover" aria-hidden="true"><div></div><div></div><div><span class="acm-over">Guía editorial</span><span></span><strong>Magazine<br>ACMI</strong></div></div>
-</header>
-<section class="acm-section" aria-labelledby="acm-formats"><div class="acm-rail-head"><div><span class="acm-over">01 · Vitrina editorial</span><h2 id="acm-formats">¿Qué quieres publicar?</h2></div><div class="acm-nav" hidden><button type="button" data-step="-1" aria-label="Tarjeta anterior" aria-controls="acm-rail">←</button><button type="button" data-step="1" aria-label="Tarjeta siguiente" aria-controls="acm-rail">→</button></div></div><p>Desliza las tarjetas o usa las flechas para explorar los formatos.</p>
-<div class="acm-rail" id="acm-rail" tabindex="0" role="region" aria-label="Carrusel de formatos editoriales">
-<article class="acm-card"><span class="acm-over">01 · Investigación</span><h3>Artículos académicos</h3><p>Investigaciones originales, revisiones y casos clínicos aplicables a la práctica o a la formación.</p><a class="acm-btn" href="#articulos-academicos">Ver estructura</a></article>
-<article class="acm-card"><span class="acm-over">02 · Exhibición</span><h3>Pósteres</h3><p>Presenta tu trabajo académico y revisa qué documentos necesitas para publicarlo.</p><a class="acm-btn" href="#publicar-poster">Ver documentos</a></article>
-<article class="acm-card"><span class="acm-over">03 · Actualidad</span><h3>Noticias</h3><p>Reportajes breves sobre cursos, congresos, jornadas y actividades académicas o institucionales.</p><a class="acm-btn" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">Enviar noticia</a></article>
-<article class="acm-card"><span class="acm-over">04 · Perspectiva</span><h3>Opinión</h3><p>Reflexión o análisis sobre temas clínicos, científicos, profesionales, educativos o de salud pública.</p><a class="acm-btn" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">Enviar columna</a></article>
-</div></section>
-<section class="acm-section acm-poster" id="publicar-poster" aria-labelledby="titulo-poster"><span class="acm-over">02 · Exhibición académica</span><h2 id="titulo-poster">Publicar póster en Magazine ACMI</h2><p>Consulta los documentos necesarios para publicar tu póster. Marca lo que ya tienes listo: esta lista es solo para organizarte y no envía información.</p><span class="acm-status" id="acm-poster-state">Recepción de pósteres aún no habilitada</span> <a class="acm-btn" href="{{ site.baseurl }}/magazine/enviar-poster/">Ir a Enviar póster</a>
-<div class="acm-check"><div class="acm-progress" hidden><output id="acm-count" aria-live="polite">0 de 3 documentos listos</output><progress id="acm-meter" value="0" max="3" aria-label="Documentos listos"></progress></div><div class="acm-docs">
-<label class="acm-doc"><input type="checkbox" data-required><span><strong>Póster</strong><small>Versión final para exhibición, sin datos que permitan identificar al paciente.</small></span></label>
-<label class="acm-doc"><input type="checkbox" data-required><span><strong>Manuscrito</strong><small>Texto que acompaña al póster, con bibliografía completa.</small></span></label>
-<label class="acm-doc"><input type="checkbox" data-required><span><strong>Firmas de autores y coautores</strong><small>Documento firmado por todos, con autorización de envío y publicación.</small></span></label>
-<label class="acm-doc"><input type="checkbox" id="acm-consent"><span><strong>Consentimiento informado</strong><small>Cuando el trabajo presenta un caso clínico o material de un paciente. Es para revisión editorial privada y no se publica.</small></span></label>
-</div><label class="acm-optional"><input type="checkbox" id="acm-applies"> El consentimiento aplica a mi trabajo.</label></div>
-<p><strong>Privacidad:</strong> no envíes consentimientos ni datos de pacientes por otros formularios o enlaces públicos.</p></section>
-<section class="acm-section" id="articulos-academicos" aria-labelledby="titulo-articulos"><span class="acm-over">03 · Estructura del manuscrito</span><h2 id="titulo-articulos">Artículos académicos</h2><p>Incluye título, autores y afiliaciones, resumen, palabras clave y referencias.</p><details><summary>Investigación original</summary><p>Describe la pregunta, los métodos, los resultados y sus limitaciones.</p></details><details><summary>Revisión</summary><p>Delimita la pregunta, explica cómo seleccionaste la bibliografía y resume los hallazgos.</p></details><details><summary>Caso clínico</summary><p>Describe el caso, la evolución, la discusión y la enseñanza para la práctica. Retira datos que puedan identificar al paciente y documenta el consentimiento cuando corresponda.</p></details><p>Declara financiación, conflictos de interés y aprobación ética cuando apliquen. Cita las fuentes y verifica los permisos de tablas, figuras e imágenes.</p></section>
-<section class="acm-section" aria-labelledby="acm-rules"><span class="acm-over">04 · Antes de enviar</span><h2 id="acm-rules">Normas editoriales</h2><p>El Magazine ACMI Santander difunde actividades académicas, experiencias formativas, análisis y opiniones sobre medicina interna, educación médica continua y proyección académica regional.</p>
-<details><summary>Extensión recomendada</summary><p>Para noticias y columnas de opinión se sugieren de 600 a 1200 palabras. En artículos académicos, adapta la extensión al tipo de manuscrito y al detalle que requiere el trabajo.</p></details>
-<details><summary>Estilo de redacción</summary><p>Usa un lenguaje claro, académico y respetuoso. En noticias se recomienda la tercera persona.</p></details>
-<details><summary>Imágenes, figuras y tablas</summary><p>Usa material pertinente y de buena calidad que respete la privacidad. Indica fuente, autoría, permiso de uso o referencia verificable. Si es propio, identifícalo como elaboración propia o archivo del autor.</p></details>
-<details><summary>Citación y referencias</summary><p>Cita textos, datos, afirmaciones académicas y material gráfico de fuentes externas de modo que pueda identificarse la fuente original. El comité podrá solicitar ajustes si faltan referencias, permisos o atribución.</p></details>
-<details><summary>Proceso editorial</summary><p>El equipo editorial revisa la coherencia académica y la pertinencia institucional de cada contribución.</p></details>
-<details><summary>Responsabilidad de los autores</summary><p>Los autores responden por la veracidad del contenido y el cumplimiento de las normas éticas.</p></details></section>
-<footer class="acm-end"><nav class="acm-actions" aria-label="Vías de envío y regreso"><a class="acm-btn" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">Enviar manuscrito</a><a class="acm-btn acm-primary" href="{{ site.baseurl }}/magazine/enviar-poster/">Enviar póster</a><a class="acm-btn" href="{{ site.baseurl }}/magazine/enviar-ponencias/">Enviar ponencia</a><a class="acm-btn" href="{{ site.baseurl }}/magazine/">Volver al Magazine</a></nav></footer>
+<div class="acmi-manual">
+  <header class="am-intro">
+    <span class="am-eyebrow">Magazine ACMI Santander · Guía para autores</span>
+    <h1>Manual de publicación</h1>
+    <p>Elige cómo quieres participar y consulta qué preparar antes de enviar tu trabajo.</p>
+  </header>
+  <section class="am-section" aria-labelledby="am-send">
+    <h2 id="am-send">¿Qué quieres enviar?</h2>
+    <div class="am-grid">
+      <article class="am-card">
+        <span class="am-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z M14 3v5h4 M9 12h6 M9 16h6"/></svg></span>
+        <h3>Manuscrito</h3><p>Artículo académico, noticia o columna de opinión.</p><a class="am-action" href="{{ site.baseurl }}/magazine/enviar-manuscrito/">Enviar manuscrito <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="am-card am-card--poster">
+        <span class="am-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v13H4z M8 21l4-4 4 4 M8 12l2-3 3 3 3-5"/></svg></span>
+        <h3>Póster</h3><p>Consulta qué documentos necesita tu póster académico.</p><a class="am-action" href="{{ site.baseurl }}/magazine/enviar-poster/">Enviar póster <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="am-card">
+        <span class="am-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11v1a7 7 0 0 0 14 0v-1 M12 19v3 M9 22h6"/></svg></span>
+        <h3>Ponencia</h3><p>Propón un tema para una actividad académica.</p><a class="am-action" href="{{ site.baseurl }}/magazine/enviar-ponencias/">Enviar ponencia <span aria-hidden="true">↗</span></a>
+      </article>
+    </div>
+  </section>
+  <section class="am-section" aria-labelledby="am-guide">
+    <h2 id="am-guide">Antes de enviar</h2>
+    <p>Abre la sección que necesites.</p>
+    <div class="am-disclosures">
+      <details id="articulos-academicos"><summary id="titulo-articulos">Artículos académicos <span class="am-symbol" aria-hidden="true"></span></summary>
+        <div class="am-copy"><p>Incluye título, autores y afiliaciones, resumen, palabras clave y referencias.</p><ul><li><strong>Investigación original:</strong> presenta la pregunta, los métodos, los resultados y las limitaciones.</li><li><strong>Revisión:</strong> delimita la pregunta, explica cómo seleccionaste las fuentes y resume los hallazgos.</li><li><strong>Caso clínico:</strong> describe el caso, la evolución, la discusión y la enseñanza para la práctica. Retira los datos que identifiquen al paciente y documenta el consentimiento cuando corresponda.</li></ul><p>Declara financiación, conflictos de interés y aprobación ética cuando apliquen.</p></div>
+      </details>
+      <details><summary>Noticias y columnas de opinión <span class="am-symbol" aria-hidden="true"></span></summary>
+        <div class="am-copy"><p>Las noticias cubren actividades académicas o institucionales. Las columnas ofrecen una reflexión o análisis sobre temas clínicos, científicos, educativos, profesionales o de salud pública.</p><p>Para ambos formatos se sugieren <strong>600 a 1200 palabras</strong>. Usa un lenguaje claro y respetuoso; en las noticias, se recomienda escribir en tercera persona.</p></div>
+      </details>
+      <details id="publicar-poster"><summary id="titulo-poster">Documentos para publicar un póster <span class="am-symbol" aria-hidden="true"></span></summary>
+        <div class="am-copy"><ul><li><strong>Póster:</strong> versión final para exhibición, sin datos que identifiquen a pacientes.</li><li><strong>Manuscrito:</strong> texto que acompaña al póster, con bibliografía completa.</li><li><strong>Autorización firmada:</strong> documento firmado por todos los autores y coautores para el envío y la publicación.</li><li><strong>Consentimiento informado:</strong> cuando el trabajo incluya un caso clínico o material de un paciente. Se reserva para revisión privada y no se publica.</li></ul><p class="am-status">La recepción de pósteres aún no está habilitada. No envíes consentimientos ni datos de pacientes por canales públicos.</p></div>
+      </details>
+      <details><summary>Referencias, imágenes y revisión editorial <span class="am-symbol" aria-hidden="true"></span></summary>
+        <div class="am-copy"><p>Cita textos, datos, tablas y figuras de fuentes externas para que pueda localizarse la fuente original. Usa imágenes pertinentes, legibles y respetuosas de la privacidad. Indica autoría, fuente y permiso cuando corresponda; si son propias, señálalo.</p><p>El equipo editorial evalúa la coherencia académica y la pertinencia de cada aporte, y puede pedir ajustes de referencias, atribución o permisos. Los autores responden por la veracidad del contenido y por el cumplimiento de las normas éticas.</p></div>
+      </details>
+    </div>
+  </section>
+  <footer class="am-footer"><a href="{{ site.baseurl }}/magazine/">← Volver al Magazine</a></footer>
 </div>
 <script>
 (() => {
-  const guide = document.querySelector('.acm-guide');
-  const rail = guide.querySelector('.acm-rail');
-  const nav = guide.querySelector('.acm-nav');
-  const [back, next] = nav.querySelectorAll('button');
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-  const syncRail = () => {
-    const range = rail.scrollWidth - rail.clientWidth;
-    nav.hidden = range < 3;
-    back.disabled = rail.scrollLeft < 2;
-    next.disabled = rail.scrollLeft > range - 2;
+  const abrirSeccion = () => {
+    const id = location.hash.slice(1);
+    if (['publicar-poster', 'articulos-academicos', 'titulo-poster', 'titulo-articulos'].includes(id)) {
+      const panel = document.getElementById(id)?.closest('details');
+      if (panel) panel.open = true;
+    }
   };
-  [back, next].forEach(b => b.addEventListener('click', () => {
-    const cards = rail.querySelectorAll('.acm-card');
-    const step = cards[1].offsetLeft - cards[0].offsetLeft;
-    rail.scrollBy({left: Number(b.dataset.step) * step, behavior: reduce.matches ? 'auto' : 'smooth'});
-  }));
-  rail.addEventListener('scroll', syncRail, {passive:true});
-  window.addEventListener('resize', syncRail, {passive:true});
-  syncRail();
-  const check = guide.querySelector('.acm-check');
-  const required = [...check.querySelectorAll('[data-required]')];
-  const applies = check.querySelector('#acm-applies');
-  const consent = check.querySelector('#acm-consent');
-  const meter = check.querySelector('#acm-meter');
-  const count = check.querySelector('#acm-count');
-  check.querySelector('.acm-progress').hidden = false;
-  function update() {
-    const fields = applies.checked ? [...required, consent] : required;
-    const done = fields.filter(field => field.checked).length;
-    meter.max = fields.length;
-    meter.value = done;
-    count.textContent = done + ' de ' + fields.length + ' documentos listos';
-  }
-  consent.addEventListener('change', () => { if (consent.checked) applies.checked = true; });
-  check.addEventListener('change', update);
-  update();
+  abrirSeccion();
+  window.addEventListener('hashchange', abrirSeccion);
 })();
 </script>
