@@ -46,9 +46,10 @@ export async function posterRoute(request, env) {
 <div class="poster-field"><label for="poster">Póster</label><input type="file" name="poster" id="poster" accept="application/pdf,.pdf" required></div>
 <div class="poster-field"><label for="manuscrito">Manuscrito con bibliografía</label><input type="file" name="manuscrito" id="manuscrito" accept="application/pdf,.pdf" required></div>
 <div class="poster-field"><label for="firmas">Documento firmado por todos los autores y coautores</label><input type="file" name="firmas" id="firmas" accept="application/pdf,.pdf" required></div>
-<div class="poster-field"><label for="consentimiento">Consentimiento informado para publicación</label><input type="file" name="consentimiento" id="consentimiento" accept="application/pdf,.pdf" required></div>
+<div class="poster-field"><label for="consentimiento">Consentimiento de Magazine ACMI Santander</label><input type="file" name="consentimiento" id="consentimiento" accept="application/pdf,.pdf" required></div>
+<div class="poster-field"><label for="consentimiento_institucional">Consentimiento de la institución de origen</label><input type="file" name="consentimiento_institucional" id="consentimiento_institucional" accept="application/pdf,.pdf" required></div>
 </div>
-<p class="poster-note">ACMI Santander usa estos documentos para evaluar el envío. El consentimiento y las firmas se reservan para revisión editorial privada y no se publican. No adjuntes historias clínicas ni información de pacientes ajena al consentimiento.</p>
+<p class="poster-note">ACMI Santander usa estos documentos para evaluar el envío. Los consentimientos y las firmas se reservan para revisión editorial privada y no se publican. No adjuntes historias clínicas ni información de pacientes ajena al consentimiento.</p>
 <div class="cf-turnstile" data-sitekey="${e(env.POSTER_TURNSTILE_SITEKEY)}" data-action="acmi_poster" data-appearance="interaction-only" data-size="flexible"></div>
 <button type="submit">Enviar a revisión editorial</button></form>
 <p class="poster-help">Si un archivo no carga, escribe a <a href="mailto:santanderacmi@gmail.com">santanderacmi@gmail.com</a> para coordinar el envío.</p>`);

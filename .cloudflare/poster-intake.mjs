@@ -4,6 +4,7 @@ const FIELDS = [
   ['manuscrito', 'manuscrito.pdf'],
   ['firmas', 'firmas.pdf'],
   ['consentimiento', 'consentimiento.pdf'],
+  ['consentimiento_institucional', 'consentimiento-institucional.pdf'],
 ];
 const ACTION = 'acmi_poster';
 
@@ -40,7 +41,7 @@ export async function receivePoster(request, env, verify = fetch) {
     const file = form.get(field);
     if (!file || typeof file === 'string' || file.size < 5
         || file.type !== 'application/pdf' || await file.slice(0,5).text() !== '%PDF-') {
-      return response({error:'Adjunta los cuatro PDF obligatorios.'},400);
+      return response({error:'Adjunta los cinco PDF obligatorios.'},400);
     }
     files.push({name,file});
   }
