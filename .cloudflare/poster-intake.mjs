@@ -40,11 +40,11 @@ export async function receivePoster(request, env, verify = fetch) {
   const modalidad = form.get('modalidad');
   if (modalidad !== 'magazine' && modalidad !== 'concurso' && modalidad !== 'ambas') return response({error:'Selecciona la modalidad del envío.'},400);
   const tipo=form.get('tipo');
-  if(!['caso','original','otro'].includes(tipo)) return response({error:'Selecciona el tipo de póster.'},400);
+  if(!["caso","serie","cohorte","cc","trans","eco","ensayo","cuasi","cual","mixto","original","sist","alc","nar","otro"].includes(tipo)) return response({error:'Selecciona el tipo de póster.'},400);
   const files = [];
   for (const [field,name] of FIELDS) {
-    if(field==='carta' && (tipo!=='original'||modalidad==='concurso')) continue;
-    if(tipo!=='caso' && field.startsWith('consentimiento')) continue;
+    if(field==='carta' && (!["cohorte","cc","trans","eco","ensayo","cuasi","cual","mixto","original"].includes(tipo)||modalidad==='concurso')) continue;
+    if(!["caso","serie"].includes(tipo) && field.startsWith('consentimiento')) continue;
     if (field === 'consentimiento' && modalidad === 'concurso') continue;
     const file = form.get(field);
     if (!file || typeof file === 'string' || file.size < 5
