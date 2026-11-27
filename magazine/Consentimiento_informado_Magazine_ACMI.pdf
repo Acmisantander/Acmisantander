@@ -1,5 +1,5 @@
 %PDF-1.4
-%--------------------------------------------------
+% ReportLab Generated PDF document (opensource)
 1 0 obj
 <<
 /F1 2 0 R /F2 3 0 R
@@ -16,706 +16,143 @@ endobj
 >>
 endobj
 4 0 obj
-<</Type /Encoding /Differences [24 /breve /caron /circumflex /dotaccent /hungarumlaut /ogonek /ring /tilde 39 /quotesingle 96 /grave 128 /bullet /dagger /daggerdbl /ellipsis /emdash /endash /florin /fraction /guilsinglleft /guilsinglright /minus /perthousand /quotedblbase /quotedblleft /quotedblright /quoteleft /quoteright /quotesinglbase /trademark /fi /fl /Lslash /OE /Scaron /Ydieresis /Zcaron /dotlessi /lslash /oe /scaron /zcaron 160 /Euro 164 /currency 166 /brokenbar 168 /dieresis /copyright /ordfeminine 172 /logicalnot /.notdef /registered /macron /degree /plusminus /twosuperior /threesuperior /acute /mu 183 /periodcentered /cedilla /onesuperior /ordmasculine 188 /onequarter /onehalf /threequarters 192 /Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla /Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis /Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply /Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls /agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla /egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis /eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide /oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis]>>
+<<
+/Contents 8 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 7 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 5 0 obj
-<< /BaseFont /Helvetica /Subtype /Type1 /Name /Helv /Type /Font /Encoding 4 0 R >>
+<<
+/PageMode /UseNone /Pages 7 0 R /Type /Catalog
+>>
 endobj
 6 0 obj
 <<
-/BBox [ 0 0 507 22 ] /FormType 1 /Length 136 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF /Text] /Font <</Helv 5 0 R>> >> /Subtype /Form 
-  /Type /XObject
+/Author (anonymous) /CreationDate (D:20261126220756-05'00') /Creator (anonymous) /Keywords () /ModDate (D:20261126220756-05'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (unspecified) /Title (Autorizaci\363n del paciente) /Trapped /False
 >>
-stream
-.956863 .972549 .988235 rg
-0 0 507 22 re
-f
-.662745 .74902 .831373 RG
-1 w
-0.5 0.5 506 21 re
-s
-/Tx BMC 
-q
-2 2 503 18 re
-W
-n
-0 g
-0 G
-Q
-EMC
-endstream
 endobj
 7 0 obj
 <<
-/AP <<
-/N 6 0 R
->> /BS <<
-/S /S /W 1
->> /DA (/Helv 10 Tf .1 .1 .1 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MK <<
-/BC [ .662745 .74902 .831373 ] /BG [ .956863 .972549 .988235 ]
->> /MaxLen 100 /P 29 0 R /Rect [ 44 670 551 692 ] /Subtype /Widget 
-  /T (titulo) /TU (T\355tulo del p\363ster) /Type /Annot /V ()
+/Count 1 /Kids [ 4 0 R ] /Type /Pages
 >>
 endobj
 8 0 obj
-<< /BaseFont /Helvetica /Subtype /Type1 /Name /Helv /Type /Font /Encoding 4 0 R >>
-endobj
-9 0 obj
 <<
-/BBox [ 0 0 245 22 ] /FormType 1 /Length 136 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF /Text] /Font <</Helv 8 0 R>> >> /Subtype /Form 
-  /Type /XObject
->>
-stream
-.956863 .972549 .988235 rg
-0 0 245 22 re
-f
-.662745 .74902 .831373 RG
-1 w
-0.5 0.5 244 21 re
-s
-/Tx BMC 
-q
-2 2 241 18 re
-W
-n
-0 g
-0 G
-Q
-EMC
-endstream
-endobj
-10 0 obj
-<<
-/AP <<
-/N 9 0 R
->> /BS <<
-/S /S /W 1
->> /DA (/Helv 10 Tf .1 .1 .1 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MK <<
-/BC [ .662745 .74902 .831373 ] /BG [ .956863 .972549 .988235 ]
->> /MaxLen 100 /P 29 0 R /Rect [ 44 624 289 646 ] /Subtype /Widget 
-  /T (paciente) /TU (Nombre del paciente) /Type /Annot /V ()
->>
-endobj
-11 0 obj
-<< /BaseFont /Helvetica /Subtype /Type1 /Name /Helv /Type /Font /Encoding 4 0 R >>
-endobj
-12 0 obj
-<<
-/BBox [ 0 0 246 22 ] /FormType 1 /Length 136 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF /Text] /Font <</Helv 11 0 R>> >> /Subtype /Form 
-  /Type /XObject
->>
-stream
-.956863 .972549 .988235 rg
-0 0 246 22 re
-f
-.662745 .74902 .831373 RG
-1 w
-0.5 0.5 245 21 re
-s
-/Tx BMC 
-q
-2 2 242 18 re
-W
-n
-0 g
-0 G
-Q
-EMC
-endstream
-endobj
-13 0 obj
-<<
-/AP <<
-/N 12 0 R
->> /BS <<
-/S /S /W 1
->> /DA (/Helv 10 Tf .1 .1 .1 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MK <<
-/BC [ .662745 .74902 .831373 ] /BG [ .956863 .972549 .988235 ]
->> /MaxLen 100 /P 29 0 R /Rect [ 305 624 551 646 ] /Subtype /Widget 
-  /T (autor) /TU (Nombre del autor responsable) /Type /Annot /V ()
->>
-endobj
-14 0 obj
-<< /BaseFont /Helvetica /Subtype /Type1 /Name /Helv /Type /Font /Encoding 4 0 R >>
-endobj
-15 0 obj
-<<
-/BBox [ 0 0 330 22 ] /FormType 1 /Length 136 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF /Text] /Font <</Helv 14 0 R>> >> /Subtype /Form 
-  /Type /XObject
->>
-stream
-.956863 .972549 .988235 rg
-0 0 330 22 re
-f
-.662745 .74902 .831373 RG
-1 w
-0.5 0.5 329 21 re
-s
-/Tx BMC 
-q
-2 2 326 18 re
-W
-n
-0 g
-0 G
-Q
-EMC
-endstream
-endobj
-16 0 obj
-<<
-/AP <<
-/N 15 0 R
->> /BS <<
-/S /S /W 1
->> /DA (/Helv 10 Tf .1 .1 .1 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MK <<
-/BC [ .662745 .74902 .831373 ] /BG [ .956863 .972549 .988235 ]
->> /MaxLen 100 /P 29 0 R /Rect [ 44 578 374 600 ] /Subtype /Widget 
-  /T (representante) /TU (Representante legal y calidad en que act\372a \(si aplica\)) /Type /Annot /V ()
->>
-endobj
-17 0 obj
-<< /BaseFont /Helvetica /Subtype /Type1 /Name /Helv /Type /Font /Encoding 4 0 R >>
-endobj
-18 0 obj
-<<
-/BBox [ 0 0 161 22 ] /FormType 1 /Length 136 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF /Text] /Font <</Helv 17 0 R>> >> /Subtype /Form 
-  /Type /XObject
->>
-stream
-.956863 .972549 .988235 rg
-0 0 161 22 re
-f
-.662745 .74902 .831373 RG
-1 w
-0.5 0.5 160 21 re
-s
-/Tx BMC 
-q
-2 2 157 18 re
-W
-n
-0 g
-0 G
-Q
-EMC
-endstream
-endobj
-19 0 obj
-<<
-/AP <<
-/N 18 0 R
->> /BS <<
-/S /S /W 1
->> /DA (/Helv 10 Tf .1 .1 .1 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MK <<
-/BC [ .662745 .74902 .831373 ] /BG [ .956863 .972549 .988235 ]
->> /MaxLen 100 /P 29 0 R /Rect [ 390 578 551 600 ] /Subtype /Widget 
-  /T (fecha) /TU (Lugar y fecha) /Type /Annot /V ()
->>
-endobj
-20 0 obj
-<<
-/FT /Btn /Ff 49154 /Kids [ 27 0 R 28 0 R ] /T (revision_editorial)
->>
-endobj
-21 0 obj
-<<
-/BBox [ 0 0 13 13 ] /FormType 1 /Length 669 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF] >> /Subtype /Form 
-  /Type /XObject
->>
-stream
-q 1 g 1 G 1 1 1 rg
-1 0 0 1 4.225 4.225 cm
-4.225 0 m
-4.225 2.33351 2.33351 4.225 0 4.225 c
--2.33351 4.225 -4.225 2.33351 -4.225 0 c
--4.225 -2.33351 -2.33351 -4.225 0 -4.225 c
-2.33351 -4.225 4.225 -2.33351 4.225 0 c
-f
-Q
-q
-.082353 .247059 .470588 RG 1 w
-1 0 0 1 4.225 4.225 cm
-3.9 0 m
-3.9 2.154009 2.154009 3.9 0 3.9 c
--2.154009 3.9 -3.9 2.154009 -3.9 0 c
--3.9 -2.154009 -2.154009 -3.9 0 -3.9 c
-2.154009 -3.9 3.9 -2.154009 3.9 0 c
-s
-Q
-q .1 .1 .1 rg .1 .1 .1 RG
-1 0 0 1 4.225 4.225 cm
-1.7875 0 m
-1.7875 .987254 .987254 1.7875 0 1.7875 c
--.987254 1.7875 -1.7875 .987254 -1.7875 0 c
--1.7875 -.987254 -.987254 -1.7875 0 -1.7875 c
-.987254 -1.7875 1.7875 -.987254 1.7875 0 c
-f
-Qendstream
-endobj
-22 0 obj
-<<
-/BBox [ 0 0 13 13 ] /FormType 1 /Length 431 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF] >> /Subtype /Form 
-  /Type /XObject
->>
-stream
-q 1 g 1 G 1 1 1 rg
-1 0 0 1 4.225 4.225 cm
-4.225 0 m
-4.225 2.33351 2.33351 4.225 0 4.225 c
--2.33351 4.225 -4.225 2.33351 -4.225 0 c
--4.225 -2.33351 -2.33351 -4.225 0 -4.225 c
-2.33351 -4.225 4.225 -2.33351 4.225 0 c
-f
-Q
-q
-.082353 .247059 .470588 RG 1 w
-1 0 0 1 4.225 4.225 cm
-3.9 0 m
-3.9 2.154009 2.154009 3.9 0 3.9 c
--2.154009 3.9 -3.9 2.154009 -3.9 0 c
--3.9 -2.154009 -2.154009 -3.9 0 -3.9 c
-2.154009 -3.9 3.9 -2.154009 3.9 0 c
-s
-Qendstream
-endobj
-23 0 obj
-<<
-/BBox [ 0 0 13 13 ] /FormType 1 /Length 678 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF] >> /Subtype /Form 
-  /Type /XObject
->>
-stream
-q 1 g 1 G .9 .9 .9 rg
-1 0 0 1 4.225 4.225 cm
-4.225 0 m
-4.225 2.33351 2.33351 4.225 0 4.225 c
--2.33351 4.225 -4.225 2.33351 -4.225 0 c
--4.225 -2.33351 -2.33351 -4.225 0 -4.225 c
-2.33351 -4.225 4.225 -2.33351 4.225 0 c
-f
-Q
-q
-.074118 .222353 .423529 RG 1 w
-1 0 0 1 4.225 4.225 cm
-3.9 0 m
-3.9 2.154009 2.154009 3.9 0 3.9 c
--2.154009 3.9 -3.9 2.154009 -3.9 0 c
--3.9 -2.154009 -2.154009 -3.9 0 -3.9 c
-2.154009 -3.9 3.9 -2.154009 3.9 0 c
-s
-Q
-q .09 .09 .09 rg .09 .09 .09 RG
-1 0 0 1 4.225 4.225 cm
-1.7875 0 m
-1.7875 .987254 .987254 1.7875 0 1.7875 c
--.987254 1.7875 -1.7875 .987254 -1.7875 0 c
--1.7875 -.987254 -.987254 -1.7875 0 -1.7875 c
-.987254 -1.7875 1.7875 -.987254 1.7875 0 c
-f
-Qendstream
-endobj
-24 0 obj
-<<
-/BBox [ 0 0 13 13 ] /FormType 1 /Length 434 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF] >> /Subtype /Form 
-  /Type /XObject
->>
-stream
-q 1 g 1 G .9 .9 .9 rg
-1 0 0 1 4.225 4.225 cm
-4.225 0 m
-4.225 2.33351 2.33351 4.225 0 4.225 c
--2.33351 4.225 -4.225 2.33351 -4.225 0 c
--4.225 -2.33351 -2.33351 -4.225 0 -4.225 c
-2.33351 -4.225 4.225 -2.33351 4.225 0 c
-f
-Q
-q
-.074118 .222353 .423529 RG 1 w
-1 0 0 1 4.225 4.225 cm
-3.9 0 m
-3.9 2.154009 2.154009 3.9 0 3.9 c
--2.154009 3.9 -3.9 2.154009 -3.9 0 c
--3.9 -2.154009 -2.154009 -3.9 0 -3.9 c
-2.154009 -3.9 3.9 -2.154009 3.9 0 c
-s
-Qendstream
-endobj
-25 0 obj
-<<
-/BBox [ 0 0 13 13 ] /FormType 1 /Length 675 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF] >> /Subtype /Form 
-  /Type /XObject
->>
-stream
-q 1 g 1 G 1 1 1 rg
-1 0 0 1 4.225 4.225 cm
-4.225 0 m
-4.225 2.33351 2.33351 4.225 0 4.225 c
--2.33351 4.225 -4.225 2.33351 -4.225 0 c
--4.225 -2.33351 -2.33351 -4.225 0 -4.225 c
-2.33351 -4.225 4.225 -2.33351 4.225 0 c
-f
-Q
-q
-.174118 .322353 .523529 RG 1 w
-1 0 0 1 4.225 4.225 cm
-3.9 0 m
-3.9 2.154009 2.154009 3.9 0 3.9 c
--2.154009 3.9 -3.9 2.154009 -3.9 0 c
--3.9 -2.154009 -2.154009 -3.9 0 -3.9 c
-2.154009 -3.9 3.9 -2.154009 3.9 0 c
-s
-Q
-q .19 .19 .19 rg .19 .19 .19 RG
-1 0 0 1 4.225 4.225 cm
-1.7875 0 m
-1.7875 .987254 .987254 1.7875 0 1.7875 c
--.987254 1.7875 -1.7875 .987254 -1.7875 0 c
--1.7875 -.987254 -.987254 -1.7875 0 -1.7875 c
-.987254 -1.7875 1.7875 -.987254 1.7875 0 c
-f
-Qendstream
-endobj
-26 0 obj
-<<
-/BBox [ 0 0 13 13 ] /FormType 1 /Length 431 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF] >> /Subtype /Form 
-  /Type /XObject
->>
-stream
-q 1 g 1 G 1 1 1 rg
-1 0 0 1 4.225 4.225 cm
-4.225 0 m
-4.225 2.33351 2.33351 4.225 0 4.225 c
--2.33351 4.225 -4.225 2.33351 -4.225 0 c
--4.225 -2.33351 -2.33351 -4.225 0 -4.225 c
-2.33351 -4.225 4.225 -2.33351 4.225 0 c
-f
-Q
-q
-.174118 .322353 .523529 RG 1 w
-1 0 0 1 4.225 4.225 cm
-3.9 0 m
-3.9 2.154009 2.154009 3.9 0 3.9 c
--2.154009 3.9 -3.9 2.154009 -3.9 0 c
--3.9 -2.154009 -2.154009 -3.9 0 -3.9 c
-2.154009 -3.9 3.9 -2.154009 3.9 0 c
-s
-Qendstream
-endobj
-27 0 obj
-<<
-/AP <<
-/D <<
-/Off 24 0 R /si 23 0 R
->> /N <<
-/Off 22 0 R /si 21 0 R
->> /R <<
-/Off 26 0 R /si 25 0 R
->>
->> /AS /Off /BS <<
-/S /S /W 1
->> /F 4 /FT /Btn /H /N 
-  /MK <<
-/BC [ .082353 .247059 .470588 ] /BG [ 1 1 1 ] /CA (l)
->> /P 29 0 R /Parent 20 0 R /Rect [ 44 239.8 57 252.8 ] /Subtype /Widget /Type /Annot
->>
-endobj
-28 0 obj
-<<
-/AP <<
-/D <<
-/Off 24 0 R /no 23 0 R
->> /N <<
-/Off 22 0 R /no 21 0 R
->> /R <<
-/Off 26 0 R /no 25 0 R
->>
->> /AS /Off /BS <<
-/S /S /W 1
->> /F 4 /FT /Btn /H /N 
-  /MK <<
-/BC [ .082353 .247059 .470588 ] /BG [ 1 1 1 ] /CA (l)
->> /P 29 0 R /Parent 20 0 R /Rect [ 190 239.8 203 252.8 ] /Subtype /Widget /Type /Annot
->>
-endobj
-29 0 obj
-<<
-/Annots [ 7 0 R 10 0 R 13 0 R 16 0 R 19 0 R 27 0 R 28 0 R ] /Contents 33 0 R /MediaBox [ 0 0 595 842 ] /Parent 32 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
->>
-endobj
-30 0 obj
-<<
-/AcroForm 34 0 R /PageMode /UseNone /Pages 32 0 R /Type /Catalog
->>
-endobj
-31 0 obj
-<<
-/Author (anonymous) /CreationDate (D:20261126214815-05'00') /Creator (anonymous) /Keywords () /ModDate (D:20261126214815-05'00') /Producer (ReportLab PDF Library - \(opensource\)) 
-  /Subject (unspecified) /Title (Consentimiento para exhibir un caso cl\355nico) /Trapped /False
->>
-endobj
-32 0 obj
-<<
-/Count 1 /Kids [ 29 0 R ] /Type /Pages
->>
-endobj
-33 0 obj
-<<
-/Length 3896
+/Length 2714
 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
-.082353 .247059 .470588 rg
-n 0 724 595 118 re f*
+.082353 .239216 .45098 rg
+n 0 722 596 120 re f*
 1 1 1 rg
 BT /F2 11 Tf 13.2 TL ET
-BT 1 0 0 1 44 803 Tm (MAGAZINE ACMI SANTANDER) Tj T* ET
-1 1 1 rg
-BT /F2 26 Tf 31.2 TL ET
-BT 1 0 0 1 44 768 Tm (Consentimiento para casos cl\355nicos) Tj T* ET
-.882353 .92549 .980392 rg
-BT /F1 13 Tf 15.6 TL ET
-BT 1 0 0 1 44 743 Tm (Exhibici\363n de p\363steres en el portal del Magazine) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F2 10 Tf 12 TL ET
-BT 1 0 0 1 44 698 Tm (T\355tulo del p\363ster) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F2 10 Tf 12 TL ET
-BT 1 0 0 1 44 652 Tm (Nombre del paciente) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F2 10 Tf 12 TL ET
-BT 1 0 0 1 305 652 Tm (Nombre del autor responsable) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F2 10 Tf 12 TL ET
-BT 1 0 0 1 44 606 Tm (Representante legal y calidad en que act\372a \(si aplica\)) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F2 10 Tf 12 TL ET
-BT 1 0 0 1 390 606 Tm (Lugar y fecha) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F2 12 Tf 14.4 TL ET
-BT 1 0 0 1 44 551 Tm (1. Declaraci\363n del autor responsable) Tj T* ET
+BT 1 0 0 1 45 802 Tm (MAGAZINE ACMI SANTANDER) Tj T* ET
+BT /F2 25 Tf 30 TL ET
+BT 1 0 0 1 45 764 Tm (Autorizaci\363n del paciente) Tj T* ET
+BT /F1 11 Tf 13.2 TL ET
+BT 1 0 0 1 45 741 Tm (P\363ster de un caso cl\355nico) Tj T* ET
 q
-1 0 0 1 44 457 cm
+1 0 0 1 45 670 cm
 q
-.141176 .211765 .290196 rg
-BT 1 0 0 1 0 67.1 Tm /F1 10.9 Tf 15.6 TL .349929 Tw (Declaro que habl\351 con el paciente o su representante legal, le expliqu\351 que el caso se presentar\341 como) Tj T* 0 Tw 2.590121 Tw (p\363ster acad\351mico en el portal p\372blico de Magazine ACMI Santander y respond\355 sus preguntas. El) Tj T* 0 Tw 1.709267 Tw (paciente o su representante manifest\363 su conformidad. Como autor responsable, tambi\351n autorizo la) Tj T* 0 Tw .566006 Tw (exhibici\363n en l\355nea de la versi\363n aprobada del p\363ster y me comprometo a omitir los datos que permitan) Tj T* 0 Tw (identificar al paciente.) Tj T* ET
+.137255 .203922 .313725 rg
+BT 1 0 0 1 0 5 Tm /F2 11 Tf 16 TL (Documento reservado. Conservar en la instituci\363n de origen. No cargar al portal de ACMI.) Tj T* ET
 Q
 Q
-.082353 .247059 .470588 rg
-BT /F2 12 Tf 14.4 TL ET
-BT 1 0 0 1 44 431 Tm (2. Autorizaci\363n del paciente o su representante legal) Tj T* ET
 q
-1 0 0 1 44 352.6 cm
+1 0 0 1 45 638 cm
 q
-.141176 .211765 .290196 rg
-BT 1 0 0 1 0 51.5 Tm /F1 10.9 Tf 15.6 TL .500044 Tw (El autor me explic\363 c\363mo se presentar\341 el caso y d\363nde se exhibir\341. Pude hacer preguntas y, de forma) Tj T* 0 Tw 1.5687 Tw (voluntaria, autorizo que se exhiba en l\355nea como p\363ster acad\351mico en el portal p\372blico de Magazine) Tj T* 0 Tw .396587 Tw (ACMI Santander, sin datos que permitan identificar al paciente. Entiendo que el material en l\355nea puede) Tj T* 0 Tw (copiarse o compartirse. Puedo retirar mi autorizaci\363n antes de la publicaci\363n.) Tj T* ET
+.137255 .203922 .313725 rg
+BT 1 0 0 1 0 5 Tm /F2 11 Tf 16 TL (T\355tulo del p\363ster) Tj T* ET
 Q
 Q
-.082353 .247059 .470588 rg
-BT /F2 12 Tf 14.4 TL ET
-BT 1 0 0 1 44 326.6 Tm (3. Revisi\363n editorial confidencial) Tj T* ET
+.556863 .647059 .74902 RG
+n 45 622 m 550 622 l S
 q
-1 0 0 1 44 263.8 cm
+1 0 0 1 45 584 cm
 q
-.141176 .211765 .290196 rg
-BT 1 0 0 1 0 35.9 Tm /F1 10.9 Tf 15.6 TL .496118 Tw (Marca una opci\363n para indicar si autorizas a ACMI Santander a revisar este formulario con tu nombre y) Tj T* 0 Tw 3.241786 Tw (firma, \372nicamente para verificar el consentimiento. Este formulario no se publicar\341 en l\355nea y se) Tj T* 0 Tw (mantendr\341 confidencial.) Tj T* ET
+.137255 .203922 .313725 rg
+BT 1 0 0 1 0 5 Tm /F2 11 Tf 16 TL (Nombre del paciente o de su representante legal \(indique en qu\351 calidad act\372a\)) Tj T* ET
 Q
 Q
-.082353 .247059 .470588 rg
-BT /F2 10 Tf 12 TL ET
-BT 1 0 0 1 64 241.8 Tm (S\355 autorizo) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F2 10 Tf 12 TL ET
-BT 1 0 0 1 210 241.8 Tm (No autorizo) Tj T* ET
+.556863 .647059 .74902 RG
+n 45 568 m 550 568 l S
 q
-1 0 0 1 44 210.2 cm
+1 0 0 1 45 530 cm
 q
-BT 1 0 0 1 0 4.7 Tm 15.6 TL /F1 10.9 Tf .141176 .211765 .290196 rg (Para preguntas o solicitudes, puedes escribir a ) Tj /F2 10.9 Tf (santanderacmi@gmail.com) Tj /F1 10.9 Tf (.) Tj T* ET
+.137255 .203922 .313725 rg
+BT 1 0 0 1 0 5 Tm /F2 11 Tf 16 TL (Nombre del autor responsable) Tj T* ET
 Q
 Q
-.552941 .647059 .741176 RG
-n 44 99 m 290 99 l S
-.082353 .247059 .470588 rg
-BT /F2 9 Tf 10.8 TL ET
-BT 1 0 0 1 44 83 Tm (Firma del paciente o representante legal) Tj T* ET
-.552941 .647059 .741176 RG
-n 305 99 m 551 99 l S
-.082353 .247059 .470588 rg
-BT /F2 9 Tf 10.8 TL ET
-BT 1 0 0 1 305 83 Tm (Firma del autor responsable) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F1 9 Tf 10.8 TL ET
-BT 1 0 0 1 44 38 Tm (ACMI Santander | Documento confidencial una vez diligenciado) Tj T* ET
+.556863 .647059 .74902 RG
+n 45 514 m 550 514 l S
+q
+1 0 0 1 45 476 cm
+q
+.137255 .203922 .313725 rg
+BT 1 0 0 1 0 5 Tm /F2 11 Tf 16 TL (Lugar y fecha) Tj T* ET
+Q
+Q
+.556863 .647059 .74902 RG
+n 45 460 m 550 460 l S
+q
+1 0 0 1 45 390 cm
+q
+BT 1 0 0 1 0 37 Tm .524929 Tw 16 TL /F2 11 Tf .137255 .203922 .313725 rg (Declaraci\363n del autor.) Tj /F1 11 Tf ( Declaro que expliqu\351 la finalidad acad\351mica del p\363ster y su exhibici\363n p\372blica) Tj T* 0 Tw .436143 Tw (en el portal de Magazine ACMI Santander, y respond\355 las preguntas formuladas. Autorizo la exhibici\363n) Tj T* 0 Tw (del p\363ster aprobado y me comprometo a omitir los datos que permitan identificar al paciente.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 45 310 cm
+q
+BT 1 0 0 1 0 53 Tm .171091 Tw 16 TL /F2 11 Tf .137255 .203922 .313725 rg (Autorizaci\363n del paciente o representante.) Tj /F1 11 Tf ( Autorizo voluntariamente la exhibici\363n del p\363ster descrito) Tj T* 0 Tw 2.531643 Tw (en el portal p\372blico de Magazine ACMI Santander, sin datos que permitan identificar al paciente.) Tj T* 0 Tw .988385 Tw (Comprendo que terceros pueden copiar o compartir el material. Puedo retirar esta autorizaci\363n antes) Tj T* 0 Tw (de la publicaci\363n por medio del autor o de la instituci\363n de origen.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 45 278 cm
+q
+.137255 .203922 .313725 rg
+BT 1 0 0 1 0 5 Tm /F2 11 Tf 16 TL (Firma del paciente o de su representante legal) Tj T* ET
+Q
+Q
+.556863 .647059 .74902 RG
+n 45 262 m 550 262 l S
+q
+1 0 0 1 45 224 cm
+q
+.137255 .203922 .313725 rg
+BT 1 0 0 1 0 5 Tm /F2 11 Tf 16 TL (Firma del autor responsable) Tj T* ET
+Q
+Q
+.556863 .647059 .74902 RG
+n 45 208 m 550 208 l S
  
 endstream
 endobj
-34 0 obj
-<<
-/DA (/Helv 0 Tf 0 g) /DR << /Encoding
-<<
-/RLAFencoding
-4 0 R
->>
-/Font << /Helv 5 0 R >>
->> /Fields [ 7 0 R 10 0 R 13 0 R 16 0 R 19 0 R 20 0 R ]
->>
-endobj
 xref
-0 35
+0 9
 0000000000 65535 f 
 0000000061 00000 n 
 0000000102 00000 n 
 0000000209 00000 n 
 0000000321 00000 n 
-0000001643 00000 n 
-0000001741 00000 n 
-0000002078 00000 n 
-0000002399 00000 n 
-0000002497 00000 n 
-0000002834 00000 n 
-0000003154 00000 n 
-0000003253 00000 n 
-0000003592 00000 n 
-0000003920 00000 n 
-0000004019 00000 n 
-0000004358 00000 n 
-0000004724 00000 n 
-0000004823 00000 n 
-0000005162 00000 n 
-0000005475 00000 n 
-0000005564 00000 n 
-0000006406 00000 n 
-0000007010 00000 n 
-0000007861 00000 n 
-0000008468 00000 n 
-0000009316 00000 n 
-0000009920 00000 n 
-0000010248 00000 n 
-0000010578 00000 n 
-0000010834 00000 n 
-0000010921 00000 n 
-0000011221 00000 n 
-0000011282 00000 n 
-0000015230 00000 n 
+0000000524 00000 n 
+0000000592 00000 n 
+0000000873 00000 n 
+0000000932 00000 n 
 trailer
 <<
 /ID 
-[<58a26a75c8257da3834a0485827ea713><58a26a75c8257da3834a0485827ea713>]
+[<7b7901d6f52c844b2cc90c174b08bfec><7b7901d6f52c844b2cc90c174b08bfec>]
 % ReportLab generated PDF document -- digest (opensource)
 
-/Info 31 0 R
-/Root 30 0 R
-/Size 35
+/Info 6 0 R
+/Root 5 0 R
+/Size 9
 >>
 startxref
-15396
-%%EOF
-
-33 0 obj
-<</Length 3854>>
-stream
-1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
-.082353 .247059 .470588 rg
-n 0 724 595 118 re f*
-1 1 1 rg
-BT /F2 11 Tf 13.2 TL ET
-BT 1 0 0 1 44 803 Tm (MAGAZINE ACMI SANTANDER) Tj T* ET
-1 1 1 rg
-BT /F2 26 Tf 31.2 TL ET
-BT 1 0 0 1 44 768 Tm (Consentimiento para casos cl\355nicos) Tj T* ET
-.882353 .92549 .980392 rg
-BT /F1 13 Tf 15.6 TL ET
-BT 1 0 0 1 44 743 Tm (Exhibici\363n de p\363steres en el portal del Magazine) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F2 10 Tf 12 TL ET
-BT 1 0 0 1 44 698 Tm (T\355tulo del p\363ster) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F2 10 Tf 12 TL ET
-BT 1 0 0 1 44 652 Tm (Nombre del paciente) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F2 10 Tf 12 TL ET
-BT 1 0 0 1 305 652 Tm (Nombre del autor responsable) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F2 10 Tf 12 TL ET
-BT 1 0 0 1 44 606 Tm (Representante legal y calidad en que act\372a \(si aplica\)) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F2 10 Tf 12 TL ET
-BT 1 0 0 1 390 606 Tm (Lugar y fecha) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F2 12 Tf 14.4 TL ET
-BT 1 0 0 1 44 551 Tm (1. Declaraci\363n del autor responsable) Tj T* ET
-q
-1 0 0 1 44 457 cm
-q
-.141176 .211765 .290196 rg
-BT 1 0 0 1 0 67.1 Tm /F1 10.9 Tf 15.6 TL 1.0034 Tw (Como autor responsable, declaro que inform\351 al paciente o a su representante legal sobre la finalidad) Tj T* 1.5694 Tw (acad\351mica del p\363ster y su publicaci\363n en el portal de acceso p\372blico de Magazine ACMI Santander.) Tj T* 1.8972 Tw (Respond\355 a sus preguntas y obtuve su consentimiento para la publicaci\363n. Autorizo la exhibici\363n en) Tj T* 0.8872 Tw (l\355nea de la versi\363n aprobada del p\363ster y me comprometo a omitir los datos que permitan identificar al) Tj T* 0.0000 Tw (paciente.) Tj T* 0 Tw ET
-Q
-Q
-.082353 .247059 .470588 rg
-BT /F2 12 Tf 14.4 TL ET
-BT 1 0 0 1 44 431 Tm (2. Autorizaci\363n del paciente o su representante legal) Tj T* ET
-q
-1 0 0 1 44 352.6 cm
-q
-.141176 .211765 .290196 rg
-BT 1 0 0 1 0 51.5 Tm /F1 10.9 Tf 15.6 TL 0.0347 Tw (He recibido informaci\363n sobre la presentaci\363n del caso y he tenido la oportunidad de formular preguntas.) Tj T* 1.9517 Tw (Autorizo voluntariamente su publicaci\363n como p\363ster en el portal de Magazine ACMI Santander, sin) Tj T* 0.0823 Tw (datos que permitan identificar al paciente. Comprendo que terceros podr\341n copiar o compartir el material) Tj T* 0.0000 Tw (y que puedo retirar mi autorizaci\363n antes de la publicaci\363n.) Tj T* 0 Tw ET
-Q
-Q
-.082353 .247059 .470588 rg
-BT /F2 12 Tf 14.4 TL ET
-BT 1 0 0 1 44 326.6 Tm (3. Revisi\363n editorial confidencial) Tj T* ET
-q
-1 0 0 1 44 263.8 cm
-q
-.141176 .211765 .290196 rg
-BT 1 0 0 1 0 35.9 Tm /F1 10.9 Tf 15.6 TL 0.1858 Tw (Indique si autoriza al equipo editorial de ACMI Santander a revisar este formulario, incluidos el nombre y) Tj T* 1.0070 Tw (la firma, exclusivamente para verificar el consentimiento. Este formulario no se publicar\341 en l\355nea y se) Tj T* 0.0000 Tw (conservar\341 de manera confidencial.) Tj T* 0 Tw ET
-Q
-Q
-.082353 .247059 .470588 rg
-BT /F2 10 Tf 12 TL ET
-BT 1 0 0 1 64 241.8 Tm (S\355 autorizo) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F2 10 Tf 12 TL ET
-BT 1 0 0 1 210 241.8 Tm (No autorizo) Tj T* ET
-q
-1 0 0 1 44 210.2 cm
-q
-BT 1 0 0 1 0 4.7 Tm 15.6 TL /F1 10.9 Tf .141176 .211765 .290196 rg (Para preguntas o solicitudes, puede escribir a ) Tj /F2 10.9 Tf (santanderacmi@gmail.com) Tj /F1 10.9 Tf (.) Tj T* ET
-Q
-Q
-.552941 .647059 .741176 RG
-n 44 99 m 290 99 l S
-.082353 .247059 .470588 rg
-BT /F2 9 Tf 10.8 TL ET
-BT 1 0 0 1 44 83 Tm (Firma del paciente o representante legal) Tj T* ET
-.552941 .647059 .741176 RG
-n 305 99 m 551 99 l S
-.082353 .247059 .470588 rg
-BT /F2 9 Tf 10.8 TL ET
-BT 1 0 0 1 305 83 Tm (Firma del autor responsable) Tj T* ET
-.082353 .247059 .470588 rg
-BT /F1 9 Tf 10.8 TL ET
-BT 1 0 0 1 44 38 Tm (ACMI Santander | Documento confidencial una vez diligenciado) Tj T* ET
- 
-
-endstream
-endobj
-
-xref
-33 1
-0000016313 00000 n 
-
-trailer
-<</ID[<58A26A75C8257DA3834A0485827EA713><9C56E817DEE82794A80AE681D912680C>]/Info 31 0 R/Root 30 0 R/Size 35/Prev 15396>>
-startxref
-20219
+3697
 %%EOF
