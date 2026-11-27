@@ -42,11 +42,12 @@ export async function posterRoute(request, env) {
   if (request.method === 'GET') return page(`<p class="poster-intro">Adjunta tus documentos en PDF. El envío queda sujeto a revisión editorial.</p>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 <form method="post" action="${action}" enctype="multipart/form-data">
+<p><label for="modalidad">Modalidad del envío</label><br><select id="modalidad" name="modalidad" required><option value="">Selecciona una modalidad</option><option value="magazine">Exhibición en línea en Magazine ACMI Santander</option><option value="concurso">Solo concurso en un evento académico</option></select></p>
 <div class="poster-fields">
 <div class="poster-field"><label for="poster">Póster</label><input type="file" name="poster" id="poster" accept="application/pdf,.pdf" required></div>
 <div class="poster-field"><label for="manuscrito">Manuscrito con bibliografía</label><input type="file" name="manuscrito" id="manuscrito" accept="application/pdf,.pdf" required></div>
 <div class="poster-field"><label for="firmas">Documento firmado por todos los autores y coautores</label><input type="file" name="firmas" id="firmas" accept="application/pdf,.pdf" required></div>
-<div class="poster-field"><label for="consentimiento">Consentimiento de Magazine ACMI Santander</label><input type="file" name="consentimiento" id="consentimiento" accept="application/pdf,.pdf" required></div>
+<div class="poster-field"><label for="consentimiento">Consentimiento del Magazine (solo para exhibición en línea)</label><input type="file" name="consentimiento" id="consentimiento" accept="application/pdf,.pdf"></div>
 <div class="poster-field"><label for="consentimiento_institucional">Consentimiento de la institución de origen</label><input type="file" name="consentimiento_institucional" id="consentimiento_institucional" accept="application/pdf,.pdf" required></div>
 </div>
 <p class="poster-note">ACMI Santander usa estos documentos para evaluar el envío. Los consentimientos y las firmas se reservan para revisión editorial privada y no se publican.</p>
