@@ -20,18 +20,19 @@ permalink: /magazine/enviar-poster/
 .poster-link:hover{background:#dbe7f5}
 .poster-page :focus-visible{outline:3px solid var(--azul);outline-offset:3px}
 @media(max-width:760px){.poster-card{border-radius:24px}}
+.poster-guide{width:100%;border-collapse:collapse;margin:16px 0;color:#243244;font-size:.95rem;text-align:left}.poster-guide th,.poster-guide td{padding:8px;border-bottom:1px solid #dbe7f5}.poster-guide thead{background:#eef4fb;color:#143f7d}.poster-guide tbody th{font-weight:650}
 </style>
 <div class="poster-page"><div class="poster-card">
 <header class="poster-hero"><small>Magazine ACMI Santander</small><h1>Enviar póster</h1><p>Prepara tu trabajo y los archivos requeridos para la revisión editorial.</p></header>
 <div class="poster-body">
 <section class="poster-box" aria-labelledby="poster-upload-title">
 <h2 id="poster-upload-title">Documentos del envío</h2>
-<div style="background:#f5f8fc;border-radius:12px;padding:12px 16px;margin:12px 0">
-<strong>¿Qué consentimientos adjunto?</strong>
-<p style="margin:8px 0">📄 <strong>Solo concurso:</strong> institución de origen.</p>
-<p style="margin:0">📄 <strong>Exhibición en línea o ambas:</strong> institución de origen + Magazine (en PDF separados).</p>
-</div>
-<p><a class="poster-link" href="{{ '/magazine/Consentimiento_informado_Magazine_ACMI.pdf' | relative_url }}" download="Consentimiento informado Magazine ACMI.pdf">Descargar plantilla de consentimiento (PDF)</a></p>
+<table class="poster-guide"><thead><tr><th scope="col">Modalidad</th><th scope="col">Consentimientos (un PDF por formato)</th></tr></thead><tbody>
+<tr><th scope="row">Solo concurso</th><td>Institución de origen</td></tr>
+<tr><th scope="row">Solo exhibición en línea</th><td>Institución de origen + Magazine</td></tr>
+<tr><th scope="row">Ambas</th><td>Institución de origen + Magazine</td></tr>
+</tbody></table>
+<p><a class="poster-link" href="{{ '/magazine/Consentimiento_informado_Magazine_ACMI.pdf' | relative_url }}" download="Consentimiento informado Magazine ACMI.pdf">Descargar consentimiento del Magazine (PDF)</a></p>
 <iframe id="poster-form-frame" title="Formulario de envío de póster" src="https://dawn-base-5480.santanderacmi.workers.dev/publicar-poster?embed=1" referrerpolicy="no-referrer" style="width:100%;height:760px;border:0;display:block"></iframe>
 <script>
 (() => {
