@@ -33,13 +33,16 @@ export async function receivePoster(request, env, verify = fetch) {
   try { form = await request.formData(); }
   catch { return response({error:'No se pudo leer el formulario.'},400); }
 
-  for (const key of ['cf-turnstile-response','modalidad',...FIELDS.map(([field])=>field)]) {
+  for (const key of ['cf-turnstile-response','modalidad','tipo',...FIELDS.map(([field])=>field)]) {
     if (form.getAll(key).length > 1) return response({error:'El formulario contiene campos repetidos.'},400);
   }
   const modalidad = form.get('modalidad');
   if (modalidad !== 'magazine' && modalidad !== 'concurso' && modalidad !== 'ambas') return response({error:'Selecciona la modalidad del envío.'},400);
+  const tipo=form.get('tipo');
+  if(tipo!=='caso' && tipo!=='otro') return response({error:'Indica si el póster presenta un caso clínico.'},400);
   const files = [];
   for (const [field,name] of FIELDS) {
+    if(tipo==='otro' && field.startsWith('consentimiento')) continue;
     if (field === 'consentimiento' && modalidad === 'concurso') continue;
     const file = form.get(field);
     if (!file || typeof file === 'string' || file.size < 5
@@ -74,7 +77,7 @@ export async function receivePoster(request, env, verify = fetch) {
       await env.POSTER_PRIVATE_BUCKET.put(key,file.stream(),{httpMetadata:{contentType:'application/pdf'}});
     }
     await env.POSTER_PRIVATE_BUCKET.put(prefix+'recibido.json',JSON.stringify({
-      recibo:receipt, modalidad, fecha:new Date().toISOString(), documentos:files.map(({name})=>name),
+      recibo:receipt, modalidad, tipo, fecha:new Date().toISOString(), documentos:files.map(({name})=>name),
     }),{httpMetadata:{contentType:'application/json'}});
     return response({recibido:true, recibo:receipt},201);
   } catch {
