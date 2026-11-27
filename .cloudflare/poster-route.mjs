@@ -51,7 +51,7 @@ export async function posterRoute(request, env) {
 <div class="poster-field"><label for="firmas">Documento firmado por todos los autores y coautores</label><input type="file" name="firmas" id="firmas" accept="application/pdf,.pdf" required></div>
 <div class="poster-field"><label for="carta">Carta de solicitud de exhibición en línea (PDF)</label><input type="file" id="carta" name="carta" accept="application/pdf,.pdf"></div>
 <div class="poster-field"><label for="consentimiento">Consentimiento para publicar en Magazine ACMI</label><input type="file" name="consentimiento" id="consentimiento" accept="application/pdf,.pdf"></div>
-<div class="poster-field"><label for="consentimiento_institucional">Consentimiento de la institución de origen</label><input type="file" name="consentimiento_institucional" id="consentimiento_institucional" accept="application/pdf,.pdf" required></div>
+<div class="poster-field"><label for="consentimiento_institucional">Consentimiento de la universidad o IPS de origen</label><input type="file" name="consentimiento_institucional" id="consentimiento_institucional" accept="application/pdf,.pdf" required></div>
 </div>
 <p class="poster-note">ACMI Santander usa estos documentos para evaluar el envío. Los consentimientos y las firmas se reservan para revisión editorial privada y no se publican.</p>
 <div class="cf-turnstile" data-sitekey="${e(env.POSTER_TURNSTILE_SITEKEY)}" data-action="acmi_poster" data-appearance="interaction-only" data-size="flexible"></div>
