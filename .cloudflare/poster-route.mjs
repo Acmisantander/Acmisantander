@@ -42,7 +42,7 @@ export async function posterRoute(request, env) {
   if (request.method === 'GET') return page(`<p class="poster-intro">Adjunta tus documentos en PDF. El envío queda sujeto a revisión editorial.</p>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 <form method="post" action="${action}" enctype="multipart/form-data">
-<p><label for="modalidad">Modalidad del envío</label><br><select id="modalidad" name="modalidad" required><option value="">Selecciona una modalidad</option><option value="magazine">Exhibición en línea en Magazine ACMI Santander</option><option value="concurso">Solo concurso en un evento académico</option><option value="ambas">Ambas: concurso y exhibición en línea</option></select></p>
+<p><label for="modalidad">Modalidad del envío</label><br><select id="modalidad" name="modalidad" required><option value="">Selecciona una modalidad</option><option value="magazine">Exhibición en línea en Magazine ACMI Santander</option><option value="concurso">Solo concurso en un evento académico organizado por ACMI Santander</option><option value="ambas">Ambas: concurso y exhibición en línea</option></select></p>
 <div class="poster-fields">
 <div class="poster-field"><label for="poster">Póster</label><input type="file" name="poster" id="poster" accept="application/pdf,.pdf" required></div>
 <div class="poster-field"><label for="manuscrito">Manuscrito con bibliografía</label><input type="file" name="manuscrito" id="manuscrito" accept="application/pdf,.pdf" required></div>
