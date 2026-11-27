@@ -1,5 +1,6 @@
 // Dedicated POST intake; no read/list route and no public object links.
 const FIELDS = [
+  ['carta','solicitud-exhibicion.pdf'],
   ['poster', 'poster.pdf'],
   ['manuscrito', 'manuscrito.pdf'],
   ['firmas', 'firmas.pdf'],
@@ -39,10 +40,11 @@ export async function receivePoster(request, env, verify = fetch) {
   const modalidad = form.get('modalidad');
   if (modalidad !== 'magazine' && modalidad !== 'concurso' && modalidad !== 'ambas') return response({error:'Selecciona la modalidad del envío.'},400);
   const tipo=form.get('tipo');
-  if(tipo!=='caso' && tipo!=='otro') return response({error:'Indica si el póster presenta un caso clínico.'},400);
+  if(!['caso','original','otro'].includes(tipo)) return response({error:'Selecciona el tipo de póster.'},400);
   const files = [];
   for (const [field,name] of FIELDS) {
-    if(tipo==='otro' && field.startsWith('consentimiento')) continue;
+    if(field==='carta' && (tipo!=='original'||modalidad==='concurso')) continue;
+    if(tipo!=='caso' && field.startsWith('consentimiento')) continue;
     if (field === 'consentimiento' && modalidad === 'concurso') continue;
     const file = form.get(field);
     if (!file || typeof file === 'string' || file.size < 5
