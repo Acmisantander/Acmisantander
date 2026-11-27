@@ -1,0 +1,383 @@
+%PDF-1.4
+%--------------------------------------------------
+1 0 obj
+<<
+/F1 2 0 R /F2 3 0 R
+>>
+endobj
+2 0 obj
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
+endobj
+3 0 obj
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
+endobj
+4 0 obj
+<</Type /Encoding /Differences [24 /breve /caron /circumflex /dotaccent /hungarumlaut /ogonek /ring /tilde 39 /quotesingle 96 /grave 128 /bullet /dagger /daggerdbl /ellipsis /emdash /endash /florin /fraction /guilsinglleft /guilsinglright /minus /perthousand /quotedblbase /quotedblleft /quotedblright /quoteleft /quoteright /quotesinglbase /trademark /fi /fl /Lslash /OE /Scaron /Ydieresis /Zcaron /dotlessi /lslash /oe /scaron /zcaron 160 /Euro 164 /currency 166 /brokenbar 168 /dieresis /copyright /ordfeminine 172 /logicalnot /.notdef /registered /macron /degree /plusminus /twosuperior /threesuperior /acute /mu 183 /periodcentered /cedilla /onesuperior /ordmasculine 188 /onequarter /onehalf /threequarters 192 /Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla /Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis /Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply /Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls /agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla /egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis /eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide /oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis]>>
+endobj
+5 0 obj
+<< /BaseFont /Helvetica /Subtype /Type1 /Name /Helv /Type /Font /Encoding 4 0 R >>
+endobj
+6 0 obj
+<<
+/BBox [ 0 0 501 25 ] /FormType 1 /Length 131 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF /Text] /Font <</Helv 5 0 R>> >> /Subtype /Form 
+  /Type /XObject
+>>
+stream
+.968627 .980392 1 rg
+0 0 501 25 re
+f
+.686275 .756863 .831373 RG
+1 w
+0.5 0.5 500 24 re
+s
+/Tx BMC 
+q
+2 2 497 21 re
+W
+n
+0 g
+0 G
+Q
+EMC
+endstream
+endobj
+7 0 obj
+<<
+/AP <<
+/N 6 0 R
+>> /BS <<
+/S /S /W 1
+>> /DA (/Helv 11 Tf .1 .1 .1 rg) /DV () /F 4 /FT /Tx 
+  /Ff 0 /MK <<
+/BC [ .686275 .756863 .831373 ] /BG [ .968627 .980392 1 ]
+>> /MaxLen 100 /P 23 0 R /Rect [ 46 645 547 670 ] /Subtype /Widget 
+  /T (fecha) /Type /Annot /V ()
+>>
+endobj
+8 0 obj
+<< /BaseFont /Helvetica /Subtype /Type1 /Name /Helv /Type /Font /Encoding 4 0 R >>
+endobj
+9 0 obj
+<<
+/BBox [ 0 0 501 43 ] /FormType 1 /Length 131 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF /Text] /Font <</Helv 8 0 R>> >> /Subtype /Form 
+  /Type /XObject
+>>
+stream
+.968627 .980392 1 rg
+0 0 501 43 re
+f
+.686275 .756863 .831373 RG
+1 w
+0.5 0.5 500 42 re
+s
+/Tx BMC 
+q
+2 2 497 39 re
+W
+n
+0 g
+0 G
+Q
+EMC
+endstream
+endobj
+10 0 obj
+<<
+/AP <<
+/N 9 0 R
+>> /BS <<
+/S /S /W 1
+>> /DA (/Helv 11 Tf .1 .1 .1 rg) /DV () /F 4 /FT /Tx 
+  /Ff 4096 /MK <<
+/BC [ .686275 .756863 .831373 ] /BG [ .968627 .980392 1 ]
+>> /MaxLen 100 /P 23 0 R /Rect [ 46 570 547 613 ] /Subtype /Widget 
+  /T (titulo) /Type /Annot /V ()
+>>
+endobj
+11 0 obj
+<< /BaseFont /Helvetica /Subtype /Type1 /Name /Helv /Type /Font /Encoding 4 0 R >>
+endobj
+12 0 obj
+<<
+/BBox [ 0 0 501 43 ] /FormType 1 /Length 131 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF /Text] /Font <</Helv 11 0 R>> >> /Subtype /Form 
+  /Type /XObject
+>>
+stream
+.968627 .980392 1 rg
+0 0 501 43 re
+f
+.686275 .756863 .831373 RG
+1 w
+0.5 0.5 500 42 re
+s
+/Tx BMC 
+q
+2 2 497 39 re
+W
+n
+0 g
+0 G
+Q
+EMC
+endstream
+endobj
+13 0 obj
+<<
+/AP <<
+/N 12 0 R
+>> /BS <<
+/S /S /W 1
+>> /DA (/Helv 11 Tf .1 .1 .1 rg) /DV () /F 4 /FT /Tx 
+  /Ff 4096 /MK <<
+/BC [ .686275 .756863 .831373 ] /BG [ .968627 .980392 1 ]
+>> /MaxLen 100 /P 23 0 R /Rect [ 46 494 547 537 ] /Subtype /Widget 
+  /T (autores) /Type /Annot /V ()
+>>
+endobj
+14 0 obj
+<< /BaseFont /Helvetica /Subtype /Type1 /Name /Helv /Type /Font /Encoding 4 0 R >>
+endobj
+15 0 obj
+<<
+/BBox [ 0 0 501 25 ] /FormType 1 /Length 131 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF /Text] /Font <</Helv 14 0 R>> >> /Subtype /Form 
+  /Type /XObject
+>>
+stream
+.968627 .980392 1 rg
+0 0 501 25 re
+f
+.686275 .756863 .831373 RG
+1 w
+0.5 0.5 500 24 re
+s
+/Tx BMC 
+q
+2 2 497 21 re
+W
+n
+0 g
+0 G
+Q
+EMC
+endstream
+endobj
+16 0 obj
+<<
+/AP <<
+/N 15 0 R
+>> /BS <<
+/S /S /W 1
+>> /DA (/Helv 11 Tf .1 .1 .1 rg) /DV () /F 4 /FT /Tx 
+  /Ff 0 /MK <<
+/BC [ .686275 .756863 .831373 ] /BG [ .968627 .980392 1 ]
+>> /MaxLen 100 /P 23 0 R /Rect [ 46 436 547 461 ] /Subtype /Widget 
+  /T (institucion) /Type /Annot /V ()
+>>
+endobj
+17 0 obj
+<< /BaseFont /Helvetica /Subtype /Type1 /Name /Helv /Type /Font /Encoding 4 0 R >>
+endobj
+18 0 obj
+<<
+/BBox [ 0 0 501 25 ] /FormType 1 /Length 131 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF /Text] /Font <</Helv 17 0 R>> >> /Subtype /Form 
+  /Type /XObject
+>>
+stream
+.968627 .980392 1 rg
+0 0 501 25 re
+f
+.686275 .756863 .831373 RG
+1 w
+0.5 0.5 500 24 re
+s
+/Tx BMC 
+q
+2 2 497 21 re
+W
+n
+0 g
+0 G
+Q
+EMC
+endstream
+endobj
+19 0 obj
+<<
+/AP <<
+/N 18 0 R
+>> /BS <<
+/S /S /W 1
+>> /DA (/Helv 11 Tf .1 .1 .1 rg) /DV () /F 4 /FT /Tx 
+  /Ff 0 /MK <<
+/BC [ .686275 .756863 .831373 ] /BG [ .968627 .980392 1 ]
+>> /MaxLen 100 /P 23 0 R /Rect [ 46 245 547 270 ] /Subtype /Widget 
+  /T (nombre) /Type /Annot /V ()
+>>
+endobj
+20 0 obj
+<< /BaseFont /Helvetica /Subtype /Type1 /Name /Helv /Type /Font /Encoding 4 0 R >>
+endobj
+21 0 obj
+<<
+/BBox [ 0 0 501 25 ] /FormType 1 /Length 131 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF /Text] /Font <</Helv 20 0 R>> >> /Subtype /Form 
+  /Type /XObject
+>>
+stream
+.968627 .980392 1 rg
+0 0 501 25 re
+f
+.686275 .756863 .831373 RG
+1 w
+0.5 0.5 500 24 re
+s
+/Tx BMC 
+q
+2 2 497 21 re
+W
+n
+0 g
+0 G
+Q
+EMC
+endstream
+endobj
+22 0 obj
+<<
+/AP <<
+/N 21 0 R
+>> /BS <<
+/S /S /W 1
+>> /DA (/Helv 11 Tf .1 .1 .1 rg) /DV () /F 4 /FT /Tx 
+  /Ff 0 /MK <<
+/BC [ .686275 .756863 .831373 ] /BG [ .968627 .980392 1 ]
+>> /MaxLen 100 /P 23 0 R /Rect [ 46 188 547 213 ] /Subtype /Widget 
+  /T (correo) /Type /Annot /V ()
+>>
+endobj
+23 0 obj
+<<
+/Annots [ 7 0 R 10 0 R 13 0 R 16 0 R 19 0 R 22 0 R ] /Contents 27 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 26 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+24 0 obj
+<<
+/AcroForm 28 0 R /PageMode /UseNone /Pages 26 0 R /Type /Catalog
+>>
+endobj
+25 0 obj
+<<
+/Author (anonymous) /CreationDate (D:20261126204517-05'00') /Creator (anonymous) /Keywords () /ModDate (D:20261126204517-05'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (unspecified) /Title (Solicitud de exhibici\363n en l\355nea de una revisi\363n de la literatura) /Trapped /False
+>>
+endobj
+26 0 obj
+<<
+/Count 1 /Kids [ 23 0 R ] /Type /Pages
+>>
+endobj
+27 0 obj
+<<
+/Length 1515
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+.082353 .247059 .470588 rg
+n 0 710 600 135 re f*
+1 1 1 rg
+BT /F2 11 Tf 13.2 TL ET
+BT 1 0 0 1 46 796 Tm (MAGAZINE ACMI SANTANDER) Tj T* ET
+BT /F2 24 Tf 28.8 TL ET
+BT 1 0 0 1 46 753 Tm (Solicitud de exhibici\363n en l\355nea) Tj T* ET
+BT /F1 13 Tf 15.6 TL ET
+BT 1 0 0 1 46 731 Tm (P\363ster de revisi\363n de la literatura) Tj T* ET
+.098039 .203922 .294118 rg
+BT /F2 11 Tf 13.2 TL ET
+BT 1 0 0 1 46 677 Tm (Lugar y fecha) Tj T* ET
+BT /F2 11 Tf 13.2 TL ET
+BT 1 0 0 1 46 620 Tm (T\355tulo de la revisi\363n) Tj T* ET
+BT /F2 11 Tf 13.2 TL ET
+BT 1 0 0 1 46 544 Tm (Autores) Tj T* ET
+BT /F2 11 Tf 13.2 TL ET
+BT 1 0 0 1 46 468 Tm (Instituci\363n de origen) Tj T* ET
+BT /F2 12 Tf 14.4 TL ET
+BT 1 0 0 1 46 398 Tm (Al equipo editorial de Magazine ACMI Santander:) Tj T* ET
+BT /F1 11 Tf 13.2 TL ET
+BT 1 0 0 1 46 369 Tm (Solicito que el p\363ster identificado arriba sea evaluado para su exhibici\363n en l\355nea) Tj T* ET
+BT /F1 11 Tf 13.2 TL ET
+BT 1 0 0 1 46 351 Tm (en Magazine ACMI Santander. Si el equipo editorial lo acepta, autorizo que la) Tj T* ET
+BT /F1 11 Tf 13.2 TL ET
+BT 1 0 0 1 46 333 Tm (versi\363n aprobada del p\363ster se exhiba en el sitio web de acceso p\372blico del Magazine.) Tj T* ET
+BT /F2 11 Tf 13.2 TL ET
+BT 1 0 0 1 46 277 Tm (Nombre del autor de correspondencia) Tj T* ET
+BT /F2 11 Tf 13.2 TL ET
+BT 1 0 0 1 46 220 Tm (Correo de contacto) Tj T* ET
+n 46 103 m 383 103 l S
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 46 85 Tm (Firma del autor de correspondencia) Tj T* ET
+ 
+endstream
+endobj
+28 0 obj
+<<
+/DA (/Helv 0 Tf 0 g) /DR << /Encoding
+<<
+/RLAFencoding
+4 0 R
+>>
+/Font << /Helv 5 0 R >>
+>> /Fields [ 7 0 R 10 0 R 13 0 R 16 0 R 19 0 R 22 0 R ]
+>>
+endobj
+xref
+0 29
+0000000000 65535 f 
+0000000061 00000 n 
+0000000102 00000 n 
+0000000209 00000 n 
+0000000321 00000 n 
+0000001643 00000 n 
+0000001741 00000 n 
+0000002073 00000 n 
+0000002358 00000 n 
+0000002456 00000 n 
+0000002788 00000 n 
+0000003078 00000 n 
+0000003177 00000 n 
+0000003511 00000 n 
+0000003803 00000 n 
+0000003902 00000 n 
+0000004236 00000 n 
+0000004529 00000 n 
+0000004628 00000 n 
+0000004962 00000 n 
+0000005250 00000 n 
+0000005349 00000 n 
+0000005683 00000 n 
+0000005971 00000 n 
+0000006230 00000 n 
+0000006317 00000 n 
+0000006645 00000 n 
+0000006706 00000 n 
+0000008273 00000 n 
+trailer
+<<
+/ID 
+[<c738cad02501015c8be6fefdde5ca7af><c738cad02501015c8be6fefdde5ca7af>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 25 0 R
+/Root 24 0 R
+/Size 29
+>>
+startxref
+8439
+%%EOF
