@@ -37,7 +37,7 @@ export async function receivePoster(request, env, verify = fetch) {
     if (form.getAll(key).length > 1) return response({error:'El formulario contiene campos repetidos.'},400);
   }
   const modalidad = form.get('modalidad');
-  if (modalidad !== 'magazine' && modalidad !== 'concurso') return response({error:'Selecciona la modalidad del envío.'},400);
+  if (modalidad !== 'magazine' && modalidad !== 'concurso' && modalidad !== 'ambas') return response({error:'Selecciona la modalidad del envío.'},400);
   const files = [];
   for (const [field,name] of FIELDS) {
     if (field === 'consentimiento' && modalidad === 'concurso') continue;
