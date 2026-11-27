@@ -13,7 +13,7 @@ function html(content,status=200,embedded=false) {
   const resize=embedded ? `<script nonce="${nonce}">const main=document.querySelector('main'); const sync=()=>parent.postMessage({type:'acmi-poster-height',height:Math.ceil(main.getBoundingClientRect().height)+4},'${site}'); new ResizeObserver(sync).observe(main);sync();</script>` : '';
   return new Response(`<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Publicar póster en Magazine ACMI</title>
 <style>
-*{box-sizing:border-box}body{margin:0;padding:1rem;background:#f5f7fb;color:#243244;font:1rem/1.55 system-ui,sans-serif}main{background:#fff;border:1px solid #dbe7f5;border-radius:24px;padding:clamp(16px,4vw,38px);max-width:55rem;margin:2rem auto}h1{color:#143f7d;line-height:1.15}a{color:#143f7d;overflow-wrap:anywhere}
+[hidden]{display:none!important}*{box-sizing:border-box}body{margin:0;padding:1rem;background:#f5f7fb;color:#243244;font:1rem/1.55 system-ui,sans-serif}main{background:#fff;border:1px solid #dbe7f5;border-radius:24px;padding:clamp(16px,4vw,38px);max-width:55rem;margin:2rem auto}h1{color:#143f7d;line-height:1.15}a{color:#143f7d;overflow-wrap:anywhere}
 .poster-intro{margin:0 0 18px;color:#52667e}.poster-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.poster-field{display:grid;align-content:space-between;gap:8px;min-width:0}label{color:#143f7d;font-weight:800;font-size:.95rem}
 input[type=file]{display:block;width:100%;min-width:0;padding:8px;border:1px dashed #9fb5cc;border-radius:14px;background:#fbfdff;color:#243244;font:inherit;font-size:.875rem}input::file-selector-button{border:0;border-radius:9px;background:#eaf1fa;color:#143f7d;font:inherit;font-weight:750;min-height:36px;padding:6px 10px;margin-inline-end:8px;cursor:pointer}input::file-selector-button:hover{background:#dbe7f5}
 .poster-note{margin:20px 0 16px;padding:14px 16px;background:#f8fafc;border:1px solid #dbe7f5;border-radius:16px;color:#334155;font-size:.92rem}.poster-help{margin:16px 0 0;color:#52667e;font-size:.92rem}
@@ -21,7 +21,7 @@ button{border:0;border-radius:14px;background:linear-gradient(135deg,#146847,#1b
 @media(max-width:620px){.poster-fields{grid-template-columns:1fr;gap:14px}button{width:100%}}
 ${embedded ? 'body{padding:0;background:#fff}main{margin:0;padding:4px;max-width:none;border:0;border-radius:0;display:flow-root}' : ''}
 </style></head>
-<body><main>${embedded ? '' : `<a href="${STR.manual}">Volver al manual de publicación</a><h1>Publicar póster en Magazine ACMI</h1>`}${content}</main>${resize}</body></html>`,{
+<body><main>${embedded ? '' : `<a href="${STR.manual}">Volver al manual de publicación</a><h1>Publicar póster en Magazine ACMI</h1>`}${content}</main><script nonce="${nonce}">(()=>{const t=document.querySelector('#tipo'),m=document.querySelector('#modalidad');if(!t||!m)return;function sync(){for(const id of ['consentimiento','consentimiento_institucional']){const f=document.getElementById(id),on=t.value==='caso'&&(id==='consentimiento_institucional'||['magazine','ambas'].includes(m.value));f.parentElement.hidden=!on;f.disabled=!on;f.required=on;if(!on)f.value='';}}t.onchange=m.onchange=sync;sync();})();</script>${resize}</body></html>`,{
     status, headers:{
       'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store',
       'X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer',...(embedded ? {} : {'X-Frame-Options':'DENY'}),
@@ -43,6 +43,7 @@ export async function posterRoute(request, env) {
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 <form method="post" action="${action}" enctype="multipart/form-data">
 <p><label for="modalidad">Modalidad del envío</label><br><select id="modalidad" name="modalidad" required><option value="">Selecciona una modalidad</option><option value="magazine">Exhibición en línea en Magazine ACMI Santander</option><option value="concurso">Solo concurso de pósteres en un evento académico organizado por ACMI Santander</option><option value="ambas">Ambas: concurso de pósteres y exhibición en línea</option></select></p>
+<p><label for="tipo">¿El póster presenta un caso clínico?</label><br><select id="tipo" name="tipo" required><option value="">Selecciona una opción</option><option value="caso">Sí, presenta un caso clínico</option><option value="otro">No (cohorte, revisión u otro trabajo)</option></select></p>
 <div class="poster-fields">
 <div class="poster-field"><label for="poster">Póster</label><input type="file" name="poster" id="poster" accept="application/pdf,.pdf" required></div>
 <div class="poster-field"><label for="manuscrito">Manuscrito con bibliografía</label><input type="file" name="manuscrito" id="manuscrito" accept="application/pdf,.pdf" required></div>
