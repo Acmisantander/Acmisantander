@@ -45,7 +45,7 @@ export async function receivePoster(request, env, verify = fetch) {
   if(!["caso","serie","cohorte","cc","trans","eco","ensayo","cuasi","cual","mixto","original","sist","alc","nar","otro"].includes(tipo)) return response({error:'Selecciona el tipo de póster.'},400);
   const files = [];
   for (const [field,name] of FIELDS) {
-    if(field==='carta' && (!["cohorte","cc","trans","eco","ensayo","cuasi","cual","mixto","original"].includes(tipo)||modalidad==='concurso')) continue;
+    if(field==='carta' && (!["cohorte","cc","trans","eco","ensayo","cuasi","cual","mixto","original","sist","alc","nar","otro"].includes(tipo)||modalidad==='concurso')) continue;
     if(!["caso","serie"].includes(tipo) && field.startsWith('consentimiento')) continue;
     if (field === 'consentimiento' && modalidad === 'concurso') continue;
     const file = form.get(field);
