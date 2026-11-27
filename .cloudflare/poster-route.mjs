@@ -21,7 +21,7 @@ button{border:0;border-radius:14px;background:linear-gradient(135deg,#146847,#1b
 @media(max-width:620px){.poster-fields{grid-template-columns:1fr;gap:14px}button{width:100%}}
 ${embedded ? 'body{padding:0;background:#fff}main{margin:0;padding:4px;max-width:none;border:0;border-radius:0;display:flow-root}' : ''}
 </style></head>
-<body><main>${embedded ? '' : `<a href="${STR.manual}">Volver al manual de publicación</a><h1>Publicar póster en Magazine ACMI</h1>`}${content}</main><script nonce="${nonce}">(()=>{const t=document.querySelector('#tipo'),m=document.querySelector('#modalidad');if(!t||!m)return;function sync(){for(const id of ['consentimiento','consentimiento_institucional']){const f=document.getElementById(id),on=t.value==='caso'&&(id==='consentimiento_institucional'||['magazine','ambas'].includes(m.value));f.parentElement.hidden=!on;f.disabled=!on;f.required=on;if(!on)f.value='';}}t.onchange=m.onchange=sync;sync();})();</script>${resize}</body></html>`,{
+<body><main>${embedded ? '' : `<a href="${STR.manual}">Volver al manual de publicación</a><h1>Publicar póster en Magazine ACMI</h1>`}${content}</main><script nonce="${nonce}">(()=>{const t=document.querySelector('#tipo'),m=document.querySelector('#modalidad');if(!t||!m)return;function sync(){for(const id of ['consentimiento','consentimiento_institucional','carta']){const f=document.getElementById(id),on=id==='carta'?t.value==='original'&&['magazine','ambas'].includes(m.value):t.value==='caso'&&(id==='consentimiento_institucional'||['magazine','ambas'].includes(m.value));f.parentElement.hidden=!on;f.disabled=!on;f.required=on;if(!on)f.value='';}}t.onchange=m.onchange=sync;sync();})();</script>${resize}</body></html>`,{
     status, headers:{
       'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store',
       'X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer',...(embedded ? {} : {'X-Frame-Options':'DENY'}),
@@ -43,11 +43,12 @@ export async function posterRoute(request, env) {
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 <form method="post" action="${action}" enctype="multipart/form-data">
 <p><label for="modalidad">Modalidad del envío</label><br><select id="modalidad" name="modalidad" required><option value="">Selecciona una modalidad</option><option value="magazine">Exhibición en línea en Magazine ACMI Santander</option><option value="concurso">Solo concurso de pósteres en un evento académico organizado por ACMI Santander</option><option value="ambas">Ambas: concurso de pósteres y exhibición en línea</option></select></p>
-<p><label for="tipo">¿El póster presenta un caso clínico?</label><br><select id="tipo" name="tipo" required><option value="">Selecciona una opción</option><option value="caso">Sí, presenta un caso clínico</option><option value="otro">No (cohorte, revisión u otro trabajo)</option></select></p>
+<p><label for="tipo">Tipo de póster</label><br><select id="tipo" name="tipo" required><option value="">Selecciona una opción</option><option value="caso">Caso clínico</option><option value="original">Estudio original (por ejemplo, una cohorte)</option><option value="otro">Revisión u otro trabajo sin caso clínico</option></select></p>
 <div class="poster-fields">
 <div class="poster-field"><label for="poster">Póster</label><input type="file" name="poster" id="poster" accept="application/pdf,.pdf" required></div>
 <div class="poster-field"><label for="manuscrito">Manuscrito con bibliografía</label><input type="file" name="manuscrito" id="manuscrito" accept="application/pdf,.pdf" required></div>
 <div class="poster-field"><label for="firmas">Documento firmado por todos los autores y coautores</label><input type="file" name="firmas" id="firmas" accept="application/pdf,.pdf" required></div>
+<div class="poster-field"><label for="carta">Carta de solicitud de exhibición en línea (PDF)</label><input type="file" id="carta" name="carta" accept="application/pdf,.pdf"></div>
 <div class="poster-field"><label for="consentimiento">Consentimiento para publicar en Magazine ACMI</label><input type="file" name="consentimiento" id="consentimiento" accept="application/pdf,.pdf"></div>
 <div class="poster-field"><label for="consentimiento_institucional">Consentimiento de la institución de origen</label><input type="file" name="consentimiento_institucional" id="consentimiento_institucional" accept="application/pdf,.pdf" required></div>
 </div>
